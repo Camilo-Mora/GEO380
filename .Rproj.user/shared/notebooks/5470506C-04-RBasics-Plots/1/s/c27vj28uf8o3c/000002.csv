@@ -1,0 +1,23 @@
+"0","#first lets bring the data."
+"0","ExpectancyData=read.csv(""https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_LifeExpectancy.csv"")"
+"0","GDPData=read.csv(""https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_GDP.csv"")"
+"0",""
+"0","#lets merge those two databases, using the dplyr packaged that we used earlier."
+"0","library(dplyr)  #load package to merge database"
+"2","
+Attaching package: ‘dplyr’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+"
+"0","#merge the databases"
+"0","MergeData <- full_join(GDPData, ExpectancyData, by = c(""country"",""year""))"
+"0",""

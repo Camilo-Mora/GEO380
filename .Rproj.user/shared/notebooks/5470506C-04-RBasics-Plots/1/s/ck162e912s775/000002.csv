@@ -1,0 +1,4 @@
+"0","library(maps) # this library offers several choices for background map"
+"0",""
+"0","worldmap <- map(""world"", plot=F,interior = F)   #create map of the world   but they are provided as points"
+"0","plot(worldmap) #check the map"

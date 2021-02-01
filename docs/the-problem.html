@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>The problem | GEOG380.utf8</title>
+  <meta name="description" content="This is a entry level course to learn stats and R" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="The problem | GEOG380.utf8" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a entry level course to learn stats and R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The problem | GEOG380.utf8" />
+  
+  <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="the-scientific-method.html"/>
+<link rel="next" href="the-hyphotesis.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a>GEOG380 Basic Stats with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
+<li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
+<li class="chapter" data-level="" data-path="do-not-dispair-please.html"><a href="do-not-dispair-please.html"><i class="fa fa-check"></i>Do not dispair, please</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="the-scientific-method.html"><a href="the-scientific-method.html"><i class="fa fa-check"></i><b>1</b> The scientific method</a><ul>
+<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html"><i class="fa fa-check"></i>The problem</a><ul>
+<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#narrow-the-problem"><i class="fa fa-check"></i>Narrow the problem</a></li>
+<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#search-prior-knowledge"><i class="fa fa-check"></i>Search prior knowledge</a></li>
+<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#back-to-defining-the-problem"><i class="fa fa-check"></i>Back to defining the problem</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a><ul>
+<li><a href="the-hyphotesis.html#the-null-hypothesis-h0">The null hypothesis <em>H0</em></a></li>
+<li><a href="the-hyphotesis.html#the-alternate-hypothesis-h1">The alternate hypothesis <em>H1</em></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a><ul>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#population-sample-subject"><i class="fa fa-check"></i>Population, sample, subject</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#variables"><i class="fa fa-check"></i>Variables</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#the-control-and-treatment"><i class="fa fa-check"></i>The control and treatment</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#replication"><i class="fa fa-check"></i>Replication</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#pseudo-replication"><i class="fa fa-check"></i>Pseudo-Replication</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#randomness"><i class="fa fa-check"></i>Randomness</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#design-experiment"><i class="fa fa-check"></i>Design experiment</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-collection.html"><a href="data-collection.html"><i class="fa fa-check"></i>Data collection</a></li>
+<li class="chapter" data-level="" data-path="analyze-your-data.html"><a href="analyze-your-data.html"><i class="fa fa-check"></i>Analyze your data</a></li>
+<li class="chapter" data-level="" data-path="vizualize-the-data.html"><a href="vizualize-the-data.html"><i class="fa fa-check"></i>Vizualize the data</a></li>
+<li class="chapter" data-level="" data-path="write-report.html"><a href="write-report.html"><i class="fa fa-check"></i>Write report</a></li>
+<li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html"><i class="fa fa-check"></i>Excercises</a><ul>
+<li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html#exercise-1"><i class="fa fa-check"></i>Exercise 1</a></li>
+<li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html#exercise-2"><i class="fa fa-check"></i>Exercise 2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="homework.html"><a href="homework.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="installing-programs.html"><a href="installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a><ul>
+<li class="chapter" data-level="" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i>Installing R</a></li>
+<li class="chapter" data-level="" data-path="tinn-r.html"><a href="tinn-r.html"><i class="fa fa-check"></i>Tinn-R</a></li>
+<li class="chapter" data-level="" data-path="installing-packages.html"><a href="installing-packages.html"><i class="fa fa-check"></i>Installing packages</a></li>
+<li class="chapter" data-level="" data-path="asking-for-help.html"><a href="asking-for-help.html"><i class="fa fa-check"></i>Asking for help</a></li>
+<li class="chapter" data-level="" data-path="exercise.html"><a href="exercise.html"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basics-on-data-manipulation-in-r.html"><a href="basics-on-data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Basics on data manipulation in R</a><ul>
+<li class="chapter" data-level="" data-path="variables-1.html"><a href="variables-1.html"><i class="fa fa-check"></i>Variables</a></li>
+<li class="chapter" data-level="" data-path="comments.html"><a href="comments.html"><i class="fa fa-check"></i>Comments</a></li>
+<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i>Operators</a><ul>
+<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#assignment-operators"><i class="fa fa-check"></i>Assignment operators</a></li>
+<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i>Arithmetic operators</a></li>
+<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#character-operators"><i class="fa fa-check"></i>Character operators</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="custom-made-functions.html"><a href="custom-made-functions.html"><i class="fa fa-check"></i>Custom made functions</a></li>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html"><i class="fa fa-check"></i>Data structure types</a><ul>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#matrix"><i class="fa fa-check"></i>Matrix</a></li>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#dataframes"><i class="fa fa-check"></i>DataFrames</a></li>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#loading-your-own-data-into-r"><i class="fa fa-check"></i>Loading your own data into R</a></li>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#calling-elements"><i class="fa fa-check"></i>Calling elements</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="filter-data.html"><a href="filter-data.html"><i class="fa fa-check"></i>Filter data</a></li>
+<li class="chapter" data-level="" data-path="pivot-table.html"><a href="pivot-table.html"><i class="fa fa-check"></i>Pivot table</a></li>
+<li class="chapter" data-level="" data-path="merge-data.html"><a href="merge-data.html"><i class="fa fa-check"></i>Merge data</a></li>
+<li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html"><i class="fa fa-check"></i>Subsetting columns</a><ul>
+<li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html#deleting-columns"><i class="fa fa-check"></i>Deleting columns</a></li>
+<li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html#selecting-columns"><i class="fa fa-check"></i>Selecting columns</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="adding-results-to-databases.html"><a href="adding-results-to-databases.html"><i class="fa fa-check"></i>Adding results to databases</a></li>
+<li class="chapter" data-level="" data-path="exercise-3.html"><a href="exercise-3.html"><i class="fa fa-check"></i>Exercise</a></li>
+<li class="chapter" data-level="" data-path="homework-1.html"><a href="homework-1.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="basic-plots.html"><a href="basic-plots.html"><i class="fa fa-check"></i><b>4</b> Basic plots</a><ul>
+<li class="chapter" data-level="" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i>Scatterplots</a></li>
+<li class="chapter" data-level="" data-path="histograms.html"><a href="histograms.html"><i class="fa fa-check"></i>Histograms</a></li>
+<li class="chapter" data-level="" data-path="density-plots.html"><a href="density-plots.html"><i class="fa fa-check"></i>Density plots</a></li>
+<li class="chapter" data-level="" data-path="plotting-maps.html"><a href="plotting-maps.html"><i class="fa fa-check"></i>Plotting maps</a></li>
+<li class="chapter" data-level="" data-path="animated-plots.html"><a href="animated-plots.html"><i class="fa fa-check"></i>Animated plots</a></li>
+<li class="chapter" data-level="" data-path="saving-plots.html"><a href="saving-plots.html"><i class="fa fa-check"></i>Saving plots</a></li>
+<li class="chapter" data-level="" data-path="excersice.html"><a href="excersice.html"><i class="fa fa-check"></i>Excersice</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="the-problem" class="section level2 unnumbered">
+<h2>The problem</h2>
+<p>The first step in the scientific method is when you observe a problem. However, defining a problem is not as trivial as you may think.</p>
+<p>There is some complexity to the process between the first time you observed a problem to the time you specifically define the problem you want to solve with the scientific method.</p>
+<p>Let’s use a real case example.</p>
+<p>Let’s assume that you just joined one of the many organizations in Hawaii interested in land restoration.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
+<img src="images/LandRestoration.jpg" alt="Carbon Neutrality Project" width="100%" />
+<p class="caption">
+Figure 1.2: Carbon Neutrality Project
+</p>
+</div>
+<p>One of the first observations you will make is that the speed at which we cut down trees is much faster than the speed at which we plant trees. As a matter of fact, in Honolulu, we cut down over 15,000 trees a year, but only about 4,000 thousand trees are planted.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<img src="images/GuavaForrest.jpg" alt="Invasive Guava forrest in Hawaii" width="100%" />
+<p class="caption">
+Figure 1.3: Invasive Guava forrest in Hawaii
+</p>
+</div>
+<p>A second observation you would likely make is that we are loosing land to many introduced species like guava, halekoa, albizia, several grazes, etc. Those species are very aggressive and are secluding/pushing to the brick native species.</p>
+<p>With those observations in mind, your first likely question is how do you make the approach of land restoration more efficient?</p>
+<div id="narrow-the-problem" class="section level3 unnumbered">
+<h3>Narrow the problem</h3>
+<p>That simple question of how to make restoration more efficient can take you into tens of different pathways, which again, brings into attention the importance of keeping focus and methodic.</p>
+<p>Lets assume that you choose to focus on the production of seedlings, as many seedlings die after planting and they are not cheap.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
+<img src="images/Seedlings.jpg" alt="A few problems with seedling production" width="100%" />
+<p class="caption">
+Figure 1.4: A few problems with seedling production
+</p>
+</div>
+</div>
+<div id="search-prior-knowledge" class="section level3 unnumbered">
+<h3>Search prior knowledge</h3>
+<p>The second step in the scientific method is to find out what has been already done about this problem.</p>
+<p>You need to collect information to better define what the problem is. Do not start working on the first idea that occurs to you. May be some else thought of your idea already, may be there are better ideas, may be other ideas give you an even better idea.</p>
+<p>Ultimately, you should not risk getting into a rabbit hole other people already checked for you, or worse off reinventing the wheal.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
+<img src="images/LiteratureReview.png" alt="Search information" width="100%" />
+<p class="caption">
+Figure 1.5: Search information
+</p>
+</div>
+<p>Searching for prior knowledge can be done in different ways.</p>
+<p>You can start with a general <a href="https://google.com" title="Googles&#39;s Homepage">Google</a> search. In the example about restoration, you can ask a simple question like “why seedling mortality is so high”. Ask questions like you will ask to a person. The more specific you get the better.</p>
+<p>Because most information in the web likely has been collected without using the scientific method, you should be cautious when using such information. The reason to consider the web as a general source of information is that it contains the cumulative experiences of millions of people, which bring me to another source of information, which is gaining from the expertise of other people. Find people working on your problem, and ask the same questions you asked in Google.</p>
+<p>Upon gathering prior knowledge in the form of experiences via webpages or interviews, you need to scale up the quality of information you search for using <a href="https://scholar.google.com/" title="Scholar&#39;s Homepage">Google Scholar</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
+<img src="images/Scholar.png" alt="Scholar Page" width="100%" />
+<p class="caption">
+Figure 1.6: Scholar Page
+</p>
+</div>
+<p><a href="https://scholar.google.com/" title="Scholar&#39;s Homepage">Google Scholar</a> is a search engine of scientific publications. There are many other databases you can use to look for papers like <a href="https://pubmed.ncbi.nlm.nih.gov/" title="PubMed&#39;s Homepage">PubMed</a> and <a href="https://www.jstor.org/" title="Jstor&#39;s Homepage">Jstor</a>, but Scholar alone will likely be enough. Several studies have shown that almost any search in Scholar returns the same papers as searches in more specific databases.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-14"></span>
+<img src="images/ScholarPDF.png" alt="PDFs in Scholar" width="100%" />
+<p class="caption">
+Figure 1.7: PDFs in Scholar
+</p>
+</div>
+<p>While those databases may give you the title and summary of the paper (i.e., so call citation), finding the full paper is another deal.</p>
+<p>When freely available in the web, Google Scholar will provide the PDF of papers in the hyperlink highlighted with the red square in the figure above.</p>
+<p>If you have an email student account, you can also try to get the PDF via your local library, which link is provided besides each citation in Google Scholar (green square in figure above). These links are only available when you do the search within your university’s network.</p>
+<p>You can also click on the “All versions” tab (Highlighted with the red arrow in the image above); commonly there are PDFs there as well.</p>
+<p>If you are not in a rush, you can click on the citation, which will take you to the web-page of the journal, get the email address of the author and send that person a message asking for the PDF.</p>
+<p>There is also a web page commonly shared among students called <a href="https://sci-hub.se/" title="Sci-Hub">Sci-Hub</a>, which contains PDFs of almost any paper. There is another one that provides books <a href="https://z-lib.org/" title="Z-Library">Z-Library</a>. I am not familiar with the legality of these projects, but you should be aware they exists. You can read about Sci-Hub <a href="https://en.wikipedia.org/wiki/Sci-Hub" title="Sci-Hub">Here</a>, and about Z-Library <a href="https://en.wikipedia.org/wiki/Z-Library" title="Z-Library">Here</a>.</p>
+<p>Again, it is very important that you know your sources of information. And apply common sense, when you use such information.</p>
+
+<div class="rmdexercise">
+<p>Please do the following exercise:</p>
+<p>Using the words “How many species are there on Earth”, do a search in <a href="https://google.com" title="Googles&#39;s Homepage">Google</a> and in <a href="https://scholar.google.com/" title="Scholar&#39;s Homepage">Google Scholar</a>.</p>
+<p>Check out the first ten citations on each search.</p>
+<ol style="list-style-type: decimal">
+<li>What differences do you see?</li>
+<li>What are the social implications of these differences?
+</div></li>
+</ol>
+<p>Obviously, after you find the PDFs of papers, you have to read them. Some papers may provide new citations for you to look for.</p>
+<p>The step of information/literature search should be taken with much seriousness. You really want to be sure you know well what is already known out there; You need to become an expert on whatever is that you want to work on. Having a good understanding of the prior cumulative knowledge will allow you to quickly judge if something is worth working on or not. It will also give you ideas into how to do or not to do things.</p>
+<p>Pasteur famously said, “chance only favours the prepared mind”. Given what I told you about him, why do you think it is important, then, to know the literature well?</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
+<img src="images/phd110714s.gif" alt="An information search is demanding, if done well" width="100%" />
+<p class="caption">
+Figure 1.8: An information search is demanding, if done well
+</p>
+</div>
+</div>
+<div id="back-to-defining-the-problem" class="section level3 unnumbered">
+<h3>Back to defining the problem</h3>
+<p>After the non-trivial exercise of looking for prior information, you should probable go back to re-defining what the problem is, being as specific as you can.</p>
+<p>If you were to actually replicate the example before about forest restoration, you will find that one, among many problems, with seedlings is that you probably want healthy seedlings grown at the nursery to maximize survival after planting.</p>
+<p>Having seedlings growing fast can also reduce the time they spend in the nursery reducing overhead costs. Tall and healthy seedlings can better cope with the stress after planting, and escape above and below ground competition with weeds.</p>
+<p>You would probably also found that water and food (in the form of nutrients) is critical to making seedlings grow faster and healthier. If you did a good information search, certainly, you also found out about the importance of soil microbes, specifically Mycorrhizae.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
+<img src="images/Mycorrhizae.jpg" alt="Mycorrhizae in roots" width="100%" />
+<p class="caption">
+Figure 1.9: Mycorrhizae in roots
+</p>
+</div>
+<p><a href="https://en.wikipedia.org/wiki/Mycorrhiza">Mycorrhizae</a> is a group of species of fungi that finds home on the roots of trees, creating mutualistic relationships with the tree. They break down organic matter and nitrogen compounds that can be adsorbed faster by the seedling.</p>
+<p>At this point, it will likely become clear that an obvious question to ask is if this Mycorrhizae has any effect on your seedlings.</p>
+</div>
+</div>
+<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://basic-stats-with-r.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="the-scientific-method.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="the-hyphotesis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/Camilo-Mora/GEOG380/blob/main/01-ScientificMethod.Rmd",
+"text": null
+},
+"download": ["GEOG380.pdf", "GEOG380.epub"],
+"toc": {
+"collapse": "subsection"
+},
+"highlight": "pigments"
+});
+});
+</script>
+
+</body>
+
+</html>

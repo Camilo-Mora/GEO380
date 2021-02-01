@@ -1,0 +1,2 @@
+"0",""
+"0","hist(GDPData$gdpPercap) #now lets create a frequency of number of countries by GDP"

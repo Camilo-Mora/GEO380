@@ -1,0 +1,7 @@
+"0","a=""camilo1989"" #here I have a character variable, but want to remove that number, so"
+"0","b=gsub(""1989"", """", a) #here I replace the value indicated in between the first quotations, for what is in between the second quotations, in this case nothing."
+"0","b"
+"1","[1]"
+"1"," ""camilo"""
+"1","
+"

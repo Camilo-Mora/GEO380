@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Data structure types | GEOG380.utf8</title>
+  <meta name="description" content="This is a entry level course to learn stats and R" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Data structure types | GEOG380.utf8" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a entry level course to learn stats and R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Data structure types | GEOG380.utf8" />
+  
+  <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="custom-made-functions.html"/>
+<link rel="next" href="filter-data.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a>GEOG380 Basic Stats with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
+<li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
+<li class="chapter" data-level="" data-path="do-not-dispair-please.html"><a href="do-not-dispair-please.html"><i class="fa fa-check"></i>Do not dispair, please</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="the-scientific-method.html"><a href="the-scientific-method.html"><i class="fa fa-check"></i><b>1</b> The scientific method</a><ul>
+<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html"><i class="fa fa-check"></i>The problem</a><ul>
+<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#narrow-the-problem"><i class="fa fa-check"></i>Narrow the problem</a></li>
+<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#search-prior-knowledge"><i class="fa fa-check"></i>Search prior knowledge</a></li>
+<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#back-to-defining-the-problem"><i class="fa fa-check"></i>Back to defining the problem</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a><ul>
+<li><a href="the-hyphotesis.html#the-null-hypothesis-h0">The null hypothesis <em>H0</em></a></li>
+<li><a href="the-hyphotesis.html#the-alternate-hypothesis-h1">The alternate hypothesis <em>H1</em></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a><ul>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#population-sample-subject"><i class="fa fa-check"></i>Population, sample, subject</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#variables"><i class="fa fa-check"></i>Variables</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#the-control-and-treatment"><i class="fa fa-check"></i>The control and treatment</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#replication"><i class="fa fa-check"></i>Replication</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#pseudo-replication"><i class="fa fa-check"></i>Pseudo-Replication</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#randomness"><i class="fa fa-check"></i>Randomness</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#design-experiment"><i class="fa fa-check"></i>Design experiment</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-collection.html"><a href="data-collection.html"><i class="fa fa-check"></i>Data collection</a></li>
+<li class="chapter" data-level="" data-path="analyze-your-data.html"><a href="analyze-your-data.html"><i class="fa fa-check"></i>Analyze your data</a></li>
+<li class="chapter" data-level="" data-path="vizualize-the-data.html"><a href="vizualize-the-data.html"><i class="fa fa-check"></i>Vizualize the data</a></li>
+<li class="chapter" data-level="" data-path="write-report.html"><a href="write-report.html"><i class="fa fa-check"></i>Write report</a></li>
+<li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html"><i class="fa fa-check"></i>Excercises</a><ul>
+<li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html#exercise-1"><i class="fa fa-check"></i>Exercise 1</a></li>
+<li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html#exercise-2"><i class="fa fa-check"></i>Exercise 2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="homework.html"><a href="homework.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="installing-programs.html"><a href="installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a><ul>
+<li class="chapter" data-level="" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i>Installing R</a></li>
+<li class="chapter" data-level="" data-path="tinn-r.html"><a href="tinn-r.html"><i class="fa fa-check"></i>Tinn-R</a></li>
+<li class="chapter" data-level="" data-path="installing-packages.html"><a href="installing-packages.html"><i class="fa fa-check"></i>Installing packages</a></li>
+<li class="chapter" data-level="" data-path="asking-for-help.html"><a href="asking-for-help.html"><i class="fa fa-check"></i>Asking for help</a></li>
+<li class="chapter" data-level="" data-path="exercise.html"><a href="exercise.html"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basics-on-data-manipulation-in-r.html"><a href="basics-on-data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Basics on data manipulation in R</a><ul>
+<li class="chapter" data-level="" data-path="variables-1.html"><a href="variables-1.html"><i class="fa fa-check"></i>Variables</a></li>
+<li class="chapter" data-level="" data-path="comments.html"><a href="comments.html"><i class="fa fa-check"></i>Comments</a></li>
+<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i>Operators</a><ul>
+<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#assignment-operators"><i class="fa fa-check"></i>Assignment operators</a></li>
+<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i>Arithmetic operators</a></li>
+<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#character-operators"><i class="fa fa-check"></i>Character operators</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="custom-made-functions.html"><a href="custom-made-functions.html"><i class="fa fa-check"></i>Custom made functions</a></li>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html"><i class="fa fa-check"></i>Data structure types</a><ul>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#matrix"><i class="fa fa-check"></i>Matrix</a></li>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#dataframes"><i class="fa fa-check"></i>DataFrames</a></li>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#loading-your-own-data-into-r"><i class="fa fa-check"></i>Loading your own data into R</a></li>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#calling-elements"><i class="fa fa-check"></i>Calling elements</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="filter-data.html"><a href="filter-data.html"><i class="fa fa-check"></i>Filter data</a></li>
+<li class="chapter" data-level="" data-path="pivot-table.html"><a href="pivot-table.html"><i class="fa fa-check"></i>Pivot table</a></li>
+<li class="chapter" data-level="" data-path="merge-data.html"><a href="merge-data.html"><i class="fa fa-check"></i>Merge data</a></li>
+<li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html"><i class="fa fa-check"></i>Subsetting columns</a><ul>
+<li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html#deleting-columns"><i class="fa fa-check"></i>Deleting columns</a></li>
+<li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html#selecting-columns"><i class="fa fa-check"></i>Selecting columns</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="adding-results-to-databases.html"><a href="adding-results-to-databases.html"><i class="fa fa-check"></i>Adding results to databases</a></li>
+<li class="chapter" data-level="" data-path="exercise-3.html"><a href="exercise-3.html"><i class="fa fa-check"></i>Exercise</a></li>
+<li class="chapter" data-level="" data-path="homework-1.html"><a href="homework-1.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="basic-plots.html"><a href="basic-plots.html"><i class="fa fa-check"></i><b>4</b> Basic plots</a><ul>
+<li class="chapter" data-level="" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i>Scatterplots</a></li>
+<li class="chapter" data-level="" data-path="histograms.html"><a href="histograms.html"><i class="fa fa-check"></i>Histograms</a></li>
+<li class="chapter" data-level="" data-path="density-plots.html"><a href="density-plots.html"><i class="fa fa-check"></i>Density plots</a></li>
+<li class="chapter" data-level="" data-path="plotting-maps.html"><a href="plotting-maps.html"><i class="fa fa-check"></i>Plotting maps</a></li>
+<li class="chapter" data-level="" data-path="animated-plots.html"><a href="animated-plots.html"><i class="fa fa-check"></i>Animated plots</a></li>
+<li class="chapter" data-level="" data-path="saving-plots.html"><a href="saving-plots.html"><i class="fa fa-check"></i>Saving plots</a></li>
+<li class="chapter" data-level="" data-path="excersice.html"><a href="excersice.html"><i class="fa fa-check"></i>Excersice</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-structure-types" class="section level2 unnumbered">
+<h2>Data structure types</h2>
+<p>R provides numerous ways to hold data. Let’s check some of them.</p>
+<p><img src="images/RDataStructure.png" width="100%" style="display: block; margin: auto;" /></p>
+<div id="vectors" class="section level3 unnumbered">
+<h3>Vectors</h3>
+<p>A vector is a collection of values. We call the individual values “elements” of the vector.</p>
+<p>We can make vectors with c( ). c means “combine”. Say you have three numbers 1,4,5 and you just do not want to type them every time. you can then put the numbers in a vector.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="data-structure-types.html#cb40-1"></a><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>) <span class="co">#here I have a vector with three numbers</span></span></code></pre></div>
+<pre><code>## [1] 1 4 5</code></pre>
+<p>You can also run operations in a vector. Lets use the example above, in which I want to multiply each value in that vector by 2.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-structure-types.html#cb42-1"></a>a=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>) <span class="co">#here create a variable that contains my vector of three numbers</span></span>
+<span id="cb42-2"><a href="data-structure-types.html#cb42-2"></a>a<span class="op">*</span><span class="dv">2</span>        <span class="co">#here I multiply my variable (vector with three numbers)  by 2.</span></span></code></pre></div>
+<pre><code>## [1]  2  8 10</code></pre>
+</div>
+<div id="matrix" class="section level3 unnumbered">
+<h3>Matrix</h3>
+<p>You can merge multiple vectors to create a matrix. You can merge the vectors by columns using the function cbind or by rows using the function rbind. Lets do an example to clarify.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-structure-types.html#cb44-1"></a>Vector1=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>)                          <span class="co">#here I have vector 1 with three numbers</span></span>
+<span id="cb44-2"><a href="data-structure-types.html#cb44-2"></a>Vector2=<span class="kw">c</span>(<span class="dv">56</span>,<span class="dv">42</span>,<span class="dv">93</span>)                       <span class="co">#here I have vector 2 with three numbers</span></span>
+<span id="cb44-3"><a href="data-structure-types.html#cb44-3"></a>ColumnMergedVector=<span class="kw">cbind</span>(Vector1,Vector2) <span class="co">#I use cbind to merge the vector by column</span></span>
+<span id="cb44-4"><a href="data-structure-types.html#cb44-4"></a>ColumnMergedVector</span></code></pre></div>
+<pre><code>##      Vector1 Vector2
+## [1,]       1      56
+## [2,]       4      42
+## [3,]       5      93</code></pre>
+<p>See in the result above, how each vector became a column.</p>
+<p>May be you prefer to merge them by rows</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="data-structure-types.html#cb46-1"></a>RowMergedVector=<span class="kw">rbind</span>(Vector1,Vector2) <span class="co">#I use rbind to merge the vector by rows</span></span>
+<span id="cb46-2"><a href="data-structure-types.html#cb46-2"></a>RowMergedVector</span></code></pre></div>
+<pre><code>##         [,1] [,2] [,3]
+## Vector1    1    4    5
+## Vector2   56   42   93</code></pre>
+<p>You can now see how the two vectors were merged by rows.</p>
+</div>
+<div id="dataframes" class="section level3 unnumbered">
+<h3>DataFrames</h3>
+<p>Dataframes are the most common type of data structure in R. It is has similar topology to a matrix, but it is more diverse in the types of data it can use. Dataframes, are like the “Sheet” version in Excel. To create a dataframe you use the data.frame function. Lets do an example.</p>
+<p>s</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-structure-types.html#cb48-1"></a>DataFrame=<span class="kw">data.frame</span>(Vector1,Vector2) <span class="co">#I use data.frame to merge two vectros of data</span></span>
+<span id="cb48-2"><a href="data-structure-types.html#cb48-2"></a>DataFrame</span></code></pre></div>
+<pre><code>##   Vector1 Vector2
+## 1       1      56
+## 2       4      42
+## 3       5      93</code></pre>
+<p>Dataframes also allow you to rename the column and row names, and there different ways to do that. Here is one,</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-structure-types.html#cb50-1"></a><span class="kw">colnames</span>(DataFrame)=<span class="kw">c</span>(<span class="st">&quot;Height&quot;</span>,<span class="st">&quot;Width&quot;</span>) <span class="co">#Here I rename the two columsn in the dataframe, with the names used in a vector. </span></span>
+<span id="cb50-2"><a href="data-structure-types.html#cb50-2"></a>DataFrame</span></code></pre></div>
+<pre><code>##   Height Width
+## 1      1    56
+## 2      4    42
+## 3      5    93</code></pre>
+<p>You are probably asking yourself what is the difference between a matrix and a data.frame?. Here are some differences:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Matrix
+</th>
+<th style="text-align:left;">
+Dataframe
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Collection of data sets arranged in a two dimensional rectangular organisation
+</td>
+<td style="text-align:left;">
+Stores data tables that contains multiple data types in multiple column called fields.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+It’s m*n array with similar data type.
+</td>
+<td style="text-align:left;">
+It is a list of vector of equal length. It is a generalized form of matrix.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+It has fixed number of rows and columns.
+</td>
+<td style="text-align:left;">
+It has variable number of rows and columns.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+The data stored in columns can be only of same data type.
+</td>
+<td style="text-align:left;">
+The data stored must be numeric, character or factor type.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Data types are homogeneous.
+</td>
+<td style="text-align:left;">
+Data types are heterogeneous.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="loading-your-own-data-into-r" class="section level3 unnumbered">
+<h3>Loading your own data into R</h3>
+<p>R also allows you to import your own data from a diversity of formats. Here we will use the most basic one, which is to import .csv files (the so-called comma delimited data). In this type of file, data are listed by rows, with the number between commas in a row indicating the columns.</p>
+<p>To load a .csv file in R, you use the command read.csv(). Between brackets you put the path to where the file is located. You write that path between quotation. It sounds complicated, but it is simple. Let’s just try an example.</p>
+<ol style="list-style-type: decimal">
+<li><p>Create a folder in your local desktop called “Data”. It is good practice to keep your data and codes in separated folders that you can then easily identify by the name alone.</p></li>
+<li><p>Download a csv file from <a href="https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_GDP.csv">here</a>. Right click on the page and click on “Save page as” in the pop-up window. Name the file “Countries_GDP.csv”, and navigate to the “Data” folder you just created to save the file in there. Click “Save”. That file should now appear in your “Data” folder.</p></li>
+<li><p>Now that you have the csv file in your local hard-drive, you can load it into R. For this you need to do a couple things. First, get the path to where the file is at. For this, click on your windows explorer (that is the button that looks like a folder in your desktop, see image below)</p></li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-72"></span>
+<img src="images/WindowsBar.png" alt="Windows explorer" width="100%" />
+<p class="caption">
+Figure 3.2: Windows explorer
+</p>
+</div>
+<p>Navigate to the folder Data where you saved the file, and put the mouse cursor in the selectable window (See arrow in image below). That will reveal the path where the file is saved in your computer.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-73"></span>
+<img src="images/DataFolder.png" alt="Getting path to file" width="100%" />
+<p class="caption">
+Figure 3.3: Getting path to file
+</p>
+</div>
+<p>Next, right click on that same window, and click on Copy. That will copy the path to your file (See image below).</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-74"></span>
+<img src="images/CopyPath.png" alt="Getting path to file" width="100%" />
+<p class="caption">
+Figure 3.4: Getting path to file
+</p>
+</div>
+<p>Open R, right click anywhere inside the main window of R and click on “Paste”. It should look something like this:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-75"></span>
+<img src="images/PathInR.png" alt="Getting path to file" width="100%" />
+<p class="caption">
+Figure 3.5: Getting path to file
+</p>
+</div>
+<p>Now you need to replace each back-slash for a forward-slash in your path. The position of those keys in my keyboard are shown in the image below.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-76"></span>
+<img src="images/Keyboard.png" alt="Slash keys in keyboard" width="100%" />
+<p class="caption">
+Figure 3.6: Slash keys in keyboard
+</p>
+</div>
+<p>So the path to the file should be change from this:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-structure-types.html#cb52-1"></a><span class="co"># &quot;C:\Users\Camilo\Desktop\Data&quot;</span></span></code></pre></div>
+<p>to this:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-structure-types.html#cb53-1"></a><span class="co"># &quot;C:/Users/Camilo/Desktop/Data/&quot;</span></span></code></pre></div>
+<p>Now, to the path of the folder in which you have the file, you need to add the file name, like this:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-structure-types.html#cb54-1"></a><span class="co"># &quot;C:/Users/Camilo/Desktop/Data/Countries_GDP.csv&quot;</span></span></code></pre></div>
+<p>I have to tell you that when I got started in R. A colleague sent me a file and told me to open his file in R. It sounded simple at the time, but it took me two days to figure out all these tiny things about setting the file correctly. Back in those days the internet was not so full of useful tutorials about how to do this. Ok, let’s keep going.</p>
+<p>Now add to your path the R function that is used read csv files, which is “read.csv()”, like this:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="data-structure-types.html#cb55-1"></a><span class="co"># read.csv(&quot;C:/Users/Camilo/Desktop/Data/Countries_GDP.csv&quot;)</span></span></code></pre></div>
+<p>I suggest you attach this file to a variable name, so you can call it later.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="data-structure-types.html#cb56-1"></a>GDPData=<span class="kw">read.csv</span>(<span class="st">&quot;C:/Users/Camilo/Desktop/Data/Countries_GDP.csv&quot;</span>)</span></code></pre></div>
+<p>That is it, now you have loaded your data into R. Check it out by looking at the top part of the database</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data-structure-types.html#cb57-1"></a><span class="kw">head</span> (GDPData)</span></code></pre></div>
+<pre><code>##       country continent year gdpPercap
+## 1 Afghanistan      Asia 1952  779.4453
+## 2 Afghanistan      Asia 1957  820.8530
+## 3 Afghanistan      Asia 1962  853.1007
+## 4 Afghanistan      Asia 1967  836.1971
+## 5 Afghanistan      Asia 1972  739.9811
+## 6 Afghanistan      Asia 1977  786.1134</code></pre>
+<p>By the way, if you know that the csv file in the web will not be deleted or moved, you can read the data from the web directly using the URL to the file, instead of the path. Like this,</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-structure-types.html#cb59-1"></a>GDPData=<span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_GDP.csv&quot;</span>)</span></code></pre></div>
+</div>
+<div id="calling-elements" class="section level3 unnumbered">
+<h3>Calling elements</h3>
+<p>Ok, now that you know how to store data in R. We need to learn how to see the data. To see a given data container, you can simply typeb its name and click enter. For instance,</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-structure-types.html#cb60-1"></a>DataFrame</span></code></pre></div>
+<pre><code>##   Height Width
+## 1      1    56
+## 2      4    42
+## 3      5    93</code></pre>
+<p>This is an ok way to see your data if the data container is not too big. However, if you have lots of data this command will fill up your screen. Instead, you can use the function head or tail, which will let you see the top five or the bottom five rows in a dataframe. Lets see.</p>
+<p>Let me first create a medium size dataframe:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-structure-types.html#cb62-1"></a>DataFrame&lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">x1 =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">250</span>)),     <span class="co"># in Column 1 I repeat the number 1 for 25 times</span></span>
+<span id="cb62-2"><a href="data-structure-types.html#cb62-2"></a>                        <span class="dt">x2 =</span> <span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">250</span>), <span class="co">#Column 2 I create a sequence of numbers from 1 to 25</span></span>
+<span id="cb62-3"><a href="data-structure-types.html#cb62-3"></a>                        <span class="dt">x3 =</span> <span class="kw">sample</span>(<span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>),<span class="dv">250</span>)) <span class="co"># select 25 random numbers between 1 and 10000</span></span></code></pre></div>
+<p>In the code above, I just create a dummy dataframe with three columns and 250 rows using functions we already described in the chapter on arithmetic operators.</p>
+<p>If I try to see the full database, I just type the name of the dataframe and click enter. However, as you will notice calling the full dataframe will use a lot of your screen space because it will attempt to display all the data.</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-structure-types.html#cb63-1"></a>DataFrame</span></code></pre></div>
+<pre><code>##     x1  x2  x3
+## 1    1   1 509
+## 2    1   2 966
+## 3    1   3 171
+## 4    1   4 907
+## 5    1   5 410
+## 6    1   6 890
+## 7    1   7  15
+## 8    1   8 122
+## 9    1   9 403
+## 10   1  10 600
+## 11   1  11 982
+## 12   1  12 921
+## 13   1  13 313
+## 14   1  14 439
+## 15   1  15  65
+## 16   1  16 749
+## 17   1  17 245
+## 18   1  18 585
+## 19   1  19 217
+## 20   1  20 549
+## 21   1  21 582
+## 22   1  22 829
+## 23   1  23 529
+## 24   1  24 817
+## 25   1  25 908
+## 26   1  26 889
+## 27   1  27 783
+## 28   1  28  70
+## 29   1  29 158
+## 30   1  30 916
+## 31   1  31 466
+## 32   1  32 801
+## 33   1  33 617
+## 34   1  34 386
+## 35   1  35 557
+## 36   1  36 797
+## 37   1  37 853
+## 38   1  38 476
+## 39   1  39 689
+## 40   1  40 292
+## 41   1  41 716
+## 42   1  42 202
+## 43   1  43 901
+## 44   1  44  73
+## 45   1  45 913
+## 46   1  46 317
+## 47   1  47 418
+## 48   1  48 150
+## 49   1  49 286
+## 50   1  50 653
+## 51   1  51 260
+## 52   1  52 760
+## 53   1  53 252
+## 54   1  54 370
+## 55   1  55 470
+## 56   1  56 556
+## 57   1  57 404
+## 58   1  58  77
+## 59   1  59 661
+## 60   1  60 524
+## 61   1  61 670
+## 62   1  62 694
+## 63   1  63 566
+## 64   1  64 998
+## 65   1  65 828
+## 66   1  66 673
+## 67   1  67  97
+## 68   1  68  89
+## 69   1  69  33
+## 70   1  70 919
+## 71   1  71 859
+## 72   1  72 927
+## 73   1  73  67
+## 74   1  74 397
+## 75   1  75 440
+## 76   1  76 541
+## 77   1  77  43
+## 78   1  78 772
+## 79   1  79 479
+## 80   1  80 947
+## 81   1  81 628
+## 82   1  82 191
+## 83   1  83 369
+## 84   1  84 311
+## 85   1  85 388
+## 86   1  86 253
+## 87   1  87 326
+## 88   1  88 892
+## 89   1  89 841
+## 90   1  90 555
+## 91   1  91 981
+## 92   1  92 584
+## 93   1  93  71
+## 94   1  94 900
+## 95   1  95 818
+## 96   1  96 141
+## 97   1  97 932
+## 98   1  98 675
+## 99   1  99 676
+## 100  1 100 669
+## 101  1 101 179
+## 102  1 102 133
+## 103  1 103 929
+## 104  1 104 559
+## 105  1 105 718
+## 106  1 106 996
+## 107  1 107 408
+## 108  1 108 691
+## 109  1 109 293
+## 110  1 110 277
+## 111  1 111 185
+## 112  1 112 994
+## 113  1 113 563
+## 114  1 114 471
+## 115  1 115 941
+## 116  1 116  41
+## 117  1 117 344
+## 118  1 118 165
+## 119  1 119  60
+## 120  1 120 711
+## 121  1 121 267
+## 122  1 122 887
+## 123  1 123  13
+## 124  1 124 693
+## 125  1 125 508
+## 126  1 126 620
+## 127  1 127 759
+## 128  1 128 494
+## 129  1 129 427
+## 130  1 130 814
+## 131  1 131 771
+## 132  1 132 489
+## 133  1 133 180
+## 134  1 134 226
+## 135  1 135 523
+## 136  1 136 159
+## 137  1 137 140
+## 138  1 138 958
+## 139  1 139 696
+## 140  1 140 314
+## 141  1 141  66
+## 142  1 142 480
+## 143  1 143 825
+## 144  1 144 836
+## 145  1 145 520
+## 146  1 146 256
+## 147  1 147 192
+## 148  1 148 830
+## 149  1 149 746
+## 150  1 150 834
+## 151  1 151 690
+## 152  1 152 232
+## 153  1 153 136
+## 154  1 154 461
+## 155  1 155 583
+## 156  1 156 954
+## 157  1 157 393
+## 158  1 158 334
+## 159  1 159 482
+## 160  1 160  61
+## 161  1 161  62
+## 162  1 162 512
+## 163  1 163 462
+## 164  1 164 624
+## 165  1 165 172
+## 166  1 166 588
+## 167  1 167 647
+## 168  1 168 639
+## 169  1 169 840
+## 170  1 170  98
+## 171  1 171   9
+## 172  1 172 867
+## 173  1 173 608
+## 174  1 174 108
+## 175  1 175 414
+## 176  1 176 731
+## 177  1 177 368
+## 178  1 178 658
+## 179  1 179  74
+## 180  1 180 343
+## 181  1 181 423
+## 182  1 182 580
+## 183  1 183 132
+## 184  1 184 162
+## 185  1 185 186
+## 186  1 186 789
+## 187  1 187 633
+## 188  1 188 773
+## 189  1 189 612
+## 190  1 190 516
+## 191  1 191 310
+## 192  1 192 209
+## 193  1 193 570
+## 194  1 194 546
+## 195  1 195 701
+## 196  1 196 827
+## 197  1 197 483
+## 198  1 198 845
+## 199  1 199 786
+## 200  1 200 839
+## 201  1 201 990
+## 202  1 202 425
+## 203  1 203 231
+## 204  1 204 951
+## 205  1 205 743
+## 206  1 206 721
+## 207  1 207  29
+## 208  1 208 161
+## 209  1 209 146
+## 210  1 210 733
+## 211  1 211 794
+## 212  1 212 198
+## 213  1 213 527
+## 214  1 214 258
+## 215  1 215 485
+## 216  1 216 979
+## 217  1 217 973
+## 218  1 218 897
+## 219  1 219  38
+## 220  1 220 925
+## 221  1 221 874
+## 222  1 222 302
+## 223  1 223  48
+## 224  1 224 598
+## 225  1 225 336
+## 226  1 226 719
+## 227  1 227 668
+## 228  1 228 832
+## 229  1 229 307
+## 230  1 230 784
+## 231  1 231 281
+## 232  1 232 354
+## 233  1 233 899
+## 234  1 234 294
+## 235  1 235 120
+## 236  1 236 318
+## 237  1 237   7
+## 238  1 238 886
+## 239  1 239 596
+## 240  1 240 862
+## 241  1 241 329
+## 242  1 242 478
+## 243  1 243 247
+## 244  1 244 878
+## 245  1 245 152
+## 246  1 246  44
+## 247  1 247 392
+## 248  1 248 752
+## 249  1 249 707
+## 250  1 250 506</code></pre>
+<div id="head" class="section level4 unnumbered">
+<h4>Head</h4>
+<p>Alternatively, you can just check the top rows using the head function. Like this:</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-structure-types.html#cb65-1"></a><span class="kw">head</span>(DataFrame)</span></code></pre></div>
+<pre><code>##   x1 x2  x3
+## 1  1  1 509
+## 2  1  2 966
+## 3  1  3 171
+## 4  1  4 907
+## 5  1  5 410
+## 6  1  6 890</code></pre>
+</div>
+<div id="tail" class="section level4 unnumbered">
+<h4>Tail</h4>
+<p>Or the bottom rows using the tail function. Like this:</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-structure-types.html#cb67-1"></a><span class="kw">tail</span>(DataFrame)</span></code></pre></div>
+<pre><code>##     x1  x2  x3
+## 245  1 245 152
+## 246  1 246  44
+## 247  1 247 392
+## 248  1 248 752
+## 249  1 249 707
+## 250  1 250 506</code></pre>
+</div>
+<div id="index" class="section level4 unnumbered">
+<h4>Index</h4>
+<p>You can also check specific elements of the dataframe using the index function, which in R is indicated with the square brackets [row,column]. The number to the left of the comma will be the row number, and the number to the right the column number. If you do not add a number, it will display all columns or all rows. For instance, check what number is in column 3 in the 2th row?</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-structure-types.html#cb69-1"></a>DataFrame[<span class="dv">2</span>,<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 966</code></pre>
+<iframe src="https://mora.shinyapps.io/QuestionsChapter3/" width="100%" height="200px">
+</iframe>
+</div>
+<div id="calling-columns-by-name" class="section level4 unnumbered">
+<h4>Calling columns by name</h4>
+<p>To call a column by name in a dataframe, you use the dollar sign $ to merge the name of the dataframe with the name of the column, like this,</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-structure-types.html#cb71-1"></a><span class="kw">head</span>(DataFrame<span class="op">$</span>x3) <span class="co">#here I only display the top values of the column Country_Name</span></span></code></pre></div>
+<pre><code>## [1] 509 966 171 907 410 890</code></pre>
+</div>
+</div>
+</div>
+<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://basic-stats-with-r.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="custom-made-functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="filter-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/Camilo-Mora/GEOG380/blob/main/03-RBasics-DataManipulation.Rmd",
+"text": null
+},
+"download": ["GEOG380.pdf", "GEOG380.epub"],
+"toc": {
+"collapse": "subsection"
+},
+"highlight": "pigments"
+});
+});
+</script>
+
+</body>
+
+</html>

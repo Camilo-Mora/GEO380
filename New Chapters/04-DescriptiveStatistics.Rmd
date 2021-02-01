@@ -1,0 +1,29 @@
+# Descriptive statistics
+Now that you have designed a bullet proof experiment, and collected lots of good data, we need to move to data analysis. Here is where the fun begins. We will use for these process and I will assume you do not know anything about **R**. So lets get started.
+
+
+<iframe src="https://mora.shinyapps.io/Console/?showcase=0" width="100%" height="300px">
+</iframe>
+
+<iframe src="https://mora.shinyapps.io/14-shiny/" width="100%" height="600px">
+</iframe>
+
+
+
+```{r chunk01, echo = FALSE}
+library(ggplot2)
+p<- ggplot(faithful, aes(x = waiting))+ xlim(0,100) +
+geom_dotplot(binwidth = 1.5,fill="purple",color="black")  +
+theme_bw()   +
+theme(panel.border = element_blank(),
+                     panel.grid.major = element_blank(),
+                     panel.grid.minor = element_blank(), 
+                     axis.line.x = element_line(colour = "black"),
+                     axis.line.y = element_blank(),
+                     axis.title.y=element_blank(),
+                      axis.text.y=element_blank(),
+                      axis.ticks.y=element_blank())
+
+p
+```
+

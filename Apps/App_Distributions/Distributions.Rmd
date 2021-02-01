@@ -1,0 +1,43 @@
+---
+title: "Distributions"
+output: html_document
+runtime: shiny
+---
+
+```{r include = FALSE}
+library(shiny)
+library(tidyverse)
+library(ggplot2)
+```
+
+
+```{r echo = FALSE}
+Positive=data.frame(x=rnbinom(300, mu = 10, size = 1))
+Bimodal=data.frame(x=faithful$waiting)
+Negative= data.frame(x=  round((rbeta(400,5,1)*100),0))
+Normal=data.frame(x= round((rbeta(600,5,5)*100),0))
+Unimodal=  data.frame(x= round((rbeta(400,5,1)*100),0))
+
+datafiles <- list(Positive,Bimodal,Negative,Normal,Unimodal)
+
+selectInput('dataset', 'Choose distribution', choices = c("Positive" = "1", "Bimodal" = "2","Negative"=3,"Normal"=4,"Unimodal"=5))
+
+outVar <- reactive({temp <- datafiles[[as.numeric(input$dataset)]]})
+
+renderPlot({
+ ggplot(outVar(), aes(x = x))+ labs(x = "Weight (g)")+ xlim(0,100) +geom_dotplot(binwidth = 1.5,fill="purple",color="black")+
+      theme_bw()   +
+theme(aspect.ratio = .7, panel.border = element_blank(),
+                     panel.grid.major = element_blank(),
+                     panel.grid.minor = element_blank(), 
+                     axis.line.x = element_line(colour = "black"),
+                     axis.line.y = element_blank(),
+                     axis.title.y=element_blank(),
+                      axis.text.y=element_blank(),
+                      axis.ticks.y=element_blank())
+    
+
+  })
+
+
+```

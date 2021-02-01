@@ -1,0 +1,8 @@
+"0","CamilosFunction <- function(argument1, argument2) { #Argument 1 and 2, are the two numbers I have to run in my function"
+"0","Multiple_AB=argument1*argument2         #first command I have to do"
+"0","Divide= Multiple_AB/2                   #second command is to divide the output by 2"
+"0","Cosine= cos(Divide)                     #third command is to estimate the cosine in the results"
+"0","PI=Cosine*pi                            #four command is to multiply result by pi"
+"0","Cealing=ceiling(PI)                     #finally, estimate the largest integer"
+"0","return (Cealing)                        #here is the result of that operation above"
+"0","}                 "

@@ -1,0 +1,36 @@
+---
+title: "Color Scales"
+output: html_document
+runtime: shiny
+---
+
+```{r include = FALSE}
+library(shiny)
+library(viridis)
+```
+
+```{r echo = FALSE}
+selectInput("colors", "Check different color palettes in R", 
+  choices = c("viridis", "magma", "inferno", "plasma", "heat",
+  "terrain", "topographic", "cyan/magenta", "rainbow"))
+
+colorPalette <- reactive({
+  switch(input$colors, 
+         "viridis" = viridis(200),
+         "magma" = viridis(200, option = "A"),
+         "inferno" = viridis(200, option = "B"),
+         "plasma" = viridis(200, option = "C"),
+         "heat" = heat.colors(200),
+         "terrain" = terrain.colors(200),
+         "topographic" = topo.colors(200),
+         "cyan/magenta" = cm.colors(200),
+         "rainbow" = rainbow(200))
+})
+
+renderPlot({
+  image(volcano, col = colorPalette())
+})
+```
+
+
+

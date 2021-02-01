@@ -1,0 +1,3 @@
+"0","Characters are always between quotations and this is done to differentiate from variable names. 
+Say I have a variable I called data but I also have a word I want to use called data as well. In this case data by ilfset will be the database, but ""data"" will be recongnized as chracaters. Later on we will get to this."
+"2","don't know how to handle 'block2' engine output"

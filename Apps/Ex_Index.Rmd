@@ -1,0 +1,47 @@
+---
+title: "RConsole"
+output: 
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+runtime: shiny_prerendered
+
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = TRUE)
+tutorial_options(exercise.eval = FALSE)
+options(tutorial.event_recorder = learnr:::debug_event_recorder)
+```
+
+### Question #1
+```{r, q1, echo=FALSE}
+question("What code will display all values in row 5",
+  answer("DataFrame[,]"),
+  answer("5[DataFrame]"),
+  answer("DataFrame[5,]", correct=TRUE),
+  answer("DataFrame[,5]")
+  
+)
+```
+
+### Question #2
+```{r, q2, echo=FALSE}
+question("What code will display all values in colum 2",
+  answer("DataFrame[,]"),
+  answer("2[DataFrame]"),
+  answer("DataFrame[,2]", correct=TRUE),
+  answer("DataFrame[2,]")
+)
+```
+
+### Question #3
+```{r, q3, echo=FALSE}
+question("What code will display the value at column 3 and row 7",
+  answer("DataFrame[3,7]"),
+  answer("DataFrame[7,3]", correct=TRUE),
+  answer("7[DataFrame]"),
+  answer("DataFrame[3,]")
+)
+```

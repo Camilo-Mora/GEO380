@@ -1,0 +1,2 @@
+"0","colnames(DataFrame)=c(""Height"",""Width"") #Here I rename the two columsn in the dataframe, with the names used in a vector. "
+"0","DataFrame"

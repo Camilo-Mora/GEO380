@@ -1,0 +1,8 @@
+"0","a=c(1,4,5) #here create a variable that contains my vector of three numbers"
+"0","a*2        #here I multiply my variable (vector with three numbers)  by 2."
+"1","[1]"
+"1","  2"
+"1","  8"
+"1"," 10"
+"1","
+"

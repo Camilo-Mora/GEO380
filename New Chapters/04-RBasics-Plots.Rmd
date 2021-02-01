@@ -1,0 +1,130 @@
+# Basic plots 
+
+```{r, out.width = "100%", echo= FALSE, fig.align = 'center',fig.cap = 'R plots'}
+knitr::include_graphics("images/RFigures.png")
+```
+
+R has several built-in functions to do all sorts of plots. There are also tens of packages to do plots. Some packages even allow you to create plots online, where people can interact with the data. Others lets you animate the data.
+
+You can check a gallery of R plots [here](https://www.r-graph-gallery.com/all-graphs.html).
+
+
+```{r, out.width = "100%", echo= FALSE, fig.align = 'center',fig.cap = 'Animated R plot'}
+knitr::include_graphics("images/AnimatedPlot.gif")
+```
+
+a
+
+Lets start with the simple plot types in R. At the end of this book I will elaborate in other graphical packages for those who want to go a bit further.
+
+### Scatterplots {-}
+
+Scatterplots allow you to see patterns of variation between two variables. To create a plot in R, simply type plot(y~x). Lets say I want to plot the second and third column in our dataframe.
+
+
+
+```{r, echo= TRUE}
+DataFrame<- data.frame( x1 = c(rep(1,25)),     # in Column 1 I repeat the number 1 for 25 times
+                        x2 = seq(1:25), #Column 2 I create a sequence of numbers from 1 to 25
+                        x3 = sample(seq(1:1000),25)) # select 25 random numbers between 1 and 10000
+plot(DataFrame[,2]~DataFrame[,3])
+```
+
+What about the axis names? you can add those using the command xlab or ylab inside the plot command, like this:
+```{r, echo= TRUE}
+plot(DataFrame[,2]~DataFrame[,3],xlab="Years", ylab="Precipitation")
+```
+What about the different type of symbols?
+
+```{r, out.width = "100%", echo= FALSE, fig.align = 'center',fig.cap = 'R plot symbols'}
+knitr::include_graphics("images/RPlotSymbols.png")
+```
+
+
+R offers 25 different symbol types (Figure above), which you can call using the parameter pch, like this:
+
+```{r, echo= TRUE}
+plot(DataFrame[,2]~DataFrame[,3],xlab="Years", ylab="Precipitation", pch=22)
+```
+
+
+
+```{block2, type='rmdnote'}
+Other characters can be used to specify pch including “+”, “*“,”-“,”.“,”#, “%”, “o”. Or simply any character you put between the quotations (“”) in the pch parameter.
+```
+
+
+
+What about colors for those points?. That is controlled using the col parameter. Like this,
+
+
+
+```{r, echo= TRUE}
+plot(DataFrame[,2]~DataFrame[,3],xlab="Years", ylab="Precipitation", pch=22, col="red")
+```
+
+For some symbols you can also control the filling color, using the bg parameter. Like this,
+
+
+
+```{r, echo= TRUE}
+plot(DataFrame[,2]~DataFrame[,3],xlab="Years", ylab="Precipitation", pch=22, col="red", bg="blue")
+```
+
+You can also control the size of the symbols using the cex parameter. Like this,
+
+
+```{r, echo= TRUE}
+plot(DataFrame[,2]~DataFrame[,3],xlab="Years", ylab="Precipitation", pch=22, col="red", cex=2)
+```
+
+
+### Histograms {-}
+Histograms are a very important type of plot as it lets you see the frequency in which certain things appear in your data. This type of plot is also call a frequency distribution. To create a histogram in R, you use the command hist(x), where x, is the vector of data you want to plot. Lets create a frequency distribution of the GDP (Gross Domestic Produect) of countries in the world, using the csv file we loaded earlier,
+
+
+
+```{r, echo= TRUE, error=TRUE}
+#lets reload the data, just in case you have not loaded it
+GDPData=read.csv("https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/GDPCountries.csv")
+
+head(GDPData)   #now lets check the data
+
+hist(GDPData$GDP_USDollars) #now lets create a frequency of number of countries by GDP
+```
+hmm, what do you think about that error. How would you fix that error?. I hope by now you know your best friend in times of need is Google. 
+
+Simply copy the line of code naming the error in your R console and paste it in Google.
+
+If I do so, I find this [page](https://stackoverflow.com/questions/2349205/cant-draw-histogram-x-must-be-numeric), right on top, which tells me that the error is due to the fact that I imported the numbers in the csv as characters. One of the severak solutions, said all I have to do is to replace the commans in the data for nothing using the gsub command (which we already studied earlier), and then convert the text to number using the as.numeric command. Basically,
+
+
+```{r, echo= TRUE, error=TRUE}
+GDPData$GDP_USDollars <- gsub(",", "", GDPData$GDP_USDollars)   # remove comma
+GDPData$GDP_USDollars <- as.numeric(GDPData$GDP_USDollars)      # turn into numbers
+```
+
+Ok, Lets try now to create the histogram
+```{r, echo= TRUE, error=TRUE}
+hist(GDPData$GDP_USDollars) #now lets create a frequency of number of countries by GDP
+```
+Just as with the scatterplot, you can improve the appareancce of the figure. Lets start with the axis name.
+
+
+```{r, echo= TRUE, error=TRUE}
+hist(GDPData$GDP_USDollars, xlab="GDP countries in USDollars") #now lets create a frequency of number of countries by GDP
+```
+What about that title?. Not pretty, ah?. That is a default in R. To remove it, we set the "main" parameter to NULL, like this:
+
+
+
+```{r, echo= TRUE, error=TRUE}
+hist(GDPData$GDP_USDollars, xlab="GDP countries in USDollars",main=NULL) 
+```
+
+If you want to rather keep the tittle, but have a different tittle, you replace NULL with the title you want, like this:
+
+```{r, echo= TRUE, error=TRUE}
+hist(GDPData$GDP_USDollars, xlab="GDP countries in USDollars",main="Countries of the World") 
+```
+

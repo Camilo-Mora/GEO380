@@ -1,0 +1,5 @@
+"0","library(maptools)    #library to convert points to lines"
+"2","Checking rgeos availability: TRUE
+"
+"0","worldmapLines <- map2SpatialLines(worldmap, proj4string=CRS(""+proj=longlat +datum=WGS84"")) "
+"0","plot( worldmapLines)     #check the map"

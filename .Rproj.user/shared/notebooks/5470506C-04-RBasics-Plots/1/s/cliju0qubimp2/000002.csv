@@ -1,0 +1,2 @@
+"0",""
+"0","plot(log(GlobalPopulation),col =magma(1000)) #plot human population with 100 color in my scale"
