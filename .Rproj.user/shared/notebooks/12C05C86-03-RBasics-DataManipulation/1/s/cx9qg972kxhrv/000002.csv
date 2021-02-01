@@ -1,8 +1,0 @@
-"0","a=""camilo"" #here I have a character variable, that I want to concatenate with another one. "
-"0","b=""1989"" #second variable."
-"0","c=paste(a,b,sep=""_"") #here I merge a and b, and separate them with an underscore"
-"0","c"
-"1","[1]"
-"1"," ""camilo_1989"""
-"1","
-"

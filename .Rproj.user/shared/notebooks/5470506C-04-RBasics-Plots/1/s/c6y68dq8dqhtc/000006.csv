@@ -1,2 +1,0 @@
-"0","#You can also plot by column name using the $ sign as indicated earlier to call a column"
-"0","plot(DataFrame$x2~DataFrame$x3)"

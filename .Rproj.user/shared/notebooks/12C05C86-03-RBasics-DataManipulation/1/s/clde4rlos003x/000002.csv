@@ -1,3 +1,0 @@
-"0","DataFrame<- data.frame( x1 = c(rep(1,25)),     # in Column 1 I repeat the number 1 for 25 times"
-"0","                        x2 = seq(1:25), #Column 2 I create a sequence of numbers from 1 to 25"
-"0","                        x3 = sample(seq(1:1000),25)) # select 25 random numbers between 1 and 10000"

@@ -1,4 +1,0 @@
-"0","#lets reload the data, just in case you have not loaded it"
-"0","GDPData=read.csv(""https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_GDP.csv"")"
-"0",""
-"0","head(GDPData)   #now lets check the data"
