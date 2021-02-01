@@ -241,7 +241,7 @@ By Camilo Mora, Ph.D.
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="plotting-maps.html#cb116-1"></a><span class="kw">library</span> (raster)</span>
 <span id="cb116-2"><a href="plotting-maps.html#cb116-2"></a>GlobalPopulation=<span class="kw">raster</span>(<span class="st">&quot;https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/GlobalHumanPopulation2020.tif&quot;</span>) <span class="co">#load the raster.</span></span></code></pre></div>
 <p>In the code above, I create a variable called GlobalPopulation that has the global data on human population.</p>
-<p>Note that to load the data of the raster, you use the same method you used before to load the .csv file. That is, using the path the file, preceded by the command that reads the file.</p>
+<p>Note that to load the data of the raster, you use the same method you used before to load the .csv file. That is, using the path to the file, preceded by the command that reads the file.</p>
 <p>In this case, you use the command raster to read the file rather than read.csv. as the data you want to load is a raster and not a csv file.</p>
 <p>To plot the raster, all you have to do is to plot that variable, like this:</p>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="plotting-maps.html#cb117-1"></a><span class="kw">plot</span> (GlobalPopulation)</span></code></pre></div>

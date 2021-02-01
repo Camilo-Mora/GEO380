@@ -254,7 +254,7 @@ By Camilo Mora, Ph.D.
 <span id="cb114-3"><a href="density-plots.html#cb114-3"></a>my_colors=<span class="kw">colorRampPalette</span>(<span class="kw">rev</span>(<span class="kw">brewer.pal</span>(<span class="dv">11</span>,<span class="st">&#39;Spectral&#39;</span>))) <span class="co">#this is the color scale</span></span>
 <span id="cb114-4"><a href="density-plots.html#cb114-4"></a><span class="kw">plot</span>(bin, <span class="dt">main=</span><span class="st">&quot;&quot;</span> , <span class="dt">colramp=</span>my_colors , <span class="dt">legend=</span>F )  <span class="co">#now lets plot the hexbin/grid</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-128-1.png" width="672" /></p>
-<p>Now you can see the same data, but plotting the hexbin/grid. You can play with different setting of the hexbin package, by typing ?hexbin in the R console.</p>
+<p>Now you can see the same data, but plotting the hexbin/grid. You can play with different settings of the hexbin package, by typing ?hexbin in the R console.</p>
 <p>You can also display both plots side by side using the par function.</p>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="density-plots.html#cb115-1"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">.1</span>, <span class="fl">.1</span>))</span>
 <span id="cb115-2"><a href="density-plots.html#cb115-2"></a><span class="kw">plot</span>(bin,<span class="dt">colramp=</span>my_colors)  <span class="co">#hexbin plot</span></span>

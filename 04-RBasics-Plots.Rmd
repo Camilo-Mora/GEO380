@@ -39,7 +39,7 @@ Regardless of the guidelines for the specific journal, it is important that your
 
 3. Ensure that your axes have tickmarks.
 
-4. Ensure all data are displayed. If you constraint the values shown in your axes. Be sure you do not remove data by accident.
+4. Ensure all data are displayed. If you constraint the values shown in your axes, be sure you do not remove data by accident.
 
 5. Ensure the lines of the axes are black color. At times the axes colors are grey. The problem with this setting is that when printed, such axes may not appear, depending on how good your printer is.
 
@@ -75,7 +75,7 @@ plot(DataFrame$x2~DataFrame$x3)
 
 Now it comes the different settings needed to format the figure. Almost any attribute of a figure in R can be formatted. 
 
-Next, I will show you how to format a few parameters. Once you know how to format a given parameter of a figure, you should be able to format any other parameter. Obviously a figure has tens of parameters you can modify, so you should not expect to know them all by memory, but you should be able to know how to find the given parameter, which by know you know it is by asking your friend Google. 
+Next, I will show you how to format a few parameters. Once you know how to format a given parameter of a figure, you should be able to format any other parameter. Obviously a figure has tens of parameters you can modify, so you should not expect to know them all by memory, but you should be able to know how to find the given parameter, which by now you know it is by asking your friend Google. 
 
 Let's modify a few parameters from the figure above.
 
@@ -201,7 +201,7 @@ plot(bin, main="" , colramp=my_colors , legend=F )  #now lets plot the hexbin/gr
 
 ```
 
-Now you can see the same data, but plotting the hexbin/grid. You can play with different setting of the hexbin package, by typing ?hexbin in the R console.
+Now you can see the same data, but plotting the hexbin/grid. You can play with different settings of the hexbin package, by typing ?hexbin in the R console.
 
 You can also display both plots side by side using the par function. 
 
@@ -232,7 +232,7 @@ GlobalPopulation=raster("https://raw.githubusercontent.com/Camilo-Mora/GEO380/ma
 
 In the code above, I create a variable called GlobalPopulation that has the global data on human population. 
 
-Note that to load the data of the raster, you use the same method you used before to load the .csv file. That is, using the path the file, preceded by the command that reads the file.
+Note that to load the data of the raster, you use the same method you used before to load the .csv file. That is, using the path to the file, preceded by the command that reads the file.
 
 In this case, you use the command raster to read the file rather than read.csv. as the data you want to load is a raster and not a csv file.
 
@@ -387,11 +387,23 @@ knitr::include_graphics("images/AnimatedPlot.gif")
 
 ## Saving plots {-}
 
-Of course, if you do a plot in R is because you want to use it somewhere else. The quick and very dirty way to get a figure from R is to use the simple PrintScreen in your keyboard, which will create a figure of whatever you have in your screen at the moment. You can then right click on any software, like Paint, Word, PowerPoint, etc. and click Paste to display the figure.
+Of course, if you do a plot in R is because you want to use it somewhere else. The quick and very dirty way to get a figure from R is to use the simple PrintScreen in your keyboard, which will create a figure of whatever you have in your screen at the moment. 
 
-Of course, R offers a large suite of formats to save plots. Here we will save the figures as a PDF using the function "pdf". Basically, the function pdf requires you to write the name you want for your file (e.g. "RPlot.pdf"), how big you want the plot, the size of the letters, and few other options. Type ?pdf to see additional settings.
+
+```{r, out.width = "100%", echo= FALSE, fig.align = 'center',fig.cap = 'Pixelation effect of figure format'}
+knitr::include_graphics("images/PrintScreen.jpg")
+```
+
+
+
+After clicking on Print screen, then open any software, like Paint, Word, PowerPoint, etc., then right click on a new document and click Paste to display the figure.
+
+Of course, R offers many formats to save plots. Here we will save a figure as a PDF using the function "pdf".
+
+Basically, the function pdf requires you to write the name you want for your file (e.g. "RPlot.pdf"), how big you want the plot, the size of the letters, and few other options. Type ?pdf to see additional settings.
 
 The way to save any figure in R is like this: Firsts, you write the line of code indicating the type of file you want to save as. That creates a clean sheet, where you can place your plot or plots. Once done with your figure or figures, you need a line of code called dev.off(); that closes the sheet and save the file. Lets try,
+
 
 ```{r, echo= TRUE, message=FALSE,warning=FALSE,results='hide'}
 pdf("RPlot.pdf", width = 3, height = 3,pointsize=8,paper="letter")
@@ -399,9 +411,11 @@ plot(bin,colramp=my_colors)  #hexbin plot
 dev.off()
 ```
 
+
 If you now check your working folder, there should be a file called RPlot.pdf, which has the figure you just created. Of course, you can edit the figure as you like, as we showed in the Scatterplot section.
 
 The benefit of l saving files as PDF is that the resolution is never affected. You can zoom in into a PDF file and the resolution is always the same. In turn, other types of figures like jpeg, gif, png, etc. you need to define the resolution in advance, and if you zoom in into those type of figure formats you will notice the pixelation.
+
 
 
 ```{r, out.width = "100%", echo= FALSE, fig.align = 'center',fig.cap = 'Pixelation effect of figure format'}
@@ -414,6 +428,6 @@ knitr::include_graphics("images/PDFvsPNG.png")
 
 ## Excersice {-}
 
-Now that you know how to manipulate data and do some basic figures. For this chapters exercise, please find the guidelines for figures in the journal Nature and do a plot according to the standards required for that journal.
+Now that you know how to manipulate data and do some basic figures. For this chapter's exercise, please find the guidelines for figures in the journal Nature and do a plot according to the standards required for that journal.
 
 Plot the relationship between GDP and population size, using the databases that have been provided to you already, and include of the basic criteria for figures mentioned at the start of this chapter.

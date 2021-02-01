@@ -234,18 +234,26 @@ By Camilo Mora, Ph.D.
             <section class="normal" id="section-">
 <div id="saving-plots" class="section level2 unnumbered">
 <h2>Saving plots</h2>
-<p>Of course, if you do a plot in R is because you want to use it somewhere else. The quick and very dirty way to get a figure from R is to use the simple PrintScreen in your keyboard, which will create a figure of whatever you have in your screen at the moment. You can then right click on any software, like Paint, Word, PowerPoint, etc. and click Paste to display the figure.</p>
-<p>Of course, R offers a large suite of formats to save plots. Here we will save the figures as a PDF using the function “pdf”. Basically, the function pdf requires you to write the name you want for your file (e.g. “RPlot.pdf”), how big you want the plot, the size of the letters, and few other options. Type ?pdf to see additional settings.</p>
+<p>Of course, if you do a plot in R is because you want to use it somewhere else. The quick and very dirty way to get a figure from R is to use the simple PrintScreen in your keyboard, which will create a figure of whatever you have in your screen at the moment.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-138"></span>
+<img src="images/PrintScreen.jpg" alt="Pixelation effect of figure format" width="100%" />
+<p class="caption">
+Figure 4.6: Pixelation effect of figure format
+</p>
+</div>
+<p>After clicking on Print screen, then open any software, like Paint, Word, PowerPoint, etc., then right click on a new document and click Paste to display the figure.</p>
+<p>Of course, R offers many formats to save plots. Here we will save a figure as a PDF using the function “pdf”.</p>
+<p>Basically, the function pdf requires you to write the name you want for your file (e.g. “RPlot.pdf”), how big you want the plot, the size of the letters, and few other options. Type ?pdf to see additional settings.</p>
 <p>The way to save any figure in R is like this: Firsts, you write the line of code indicating the type of file you want to save as. That creates a clean sheet, where you can place your plot or plots. Once done with your figure or figures, you need a line of code called dev.off(); that closes the sheet and save the file. Lets try,</p>
 <div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="saving-plots.html#cb135-1"></a><span class="kw">pdf</span>(<span class="st">&quot;RPlot.pdf&quot;</span>, <span class="dt">width =</span> <span class="dv">3</span>, <span class="dt">height =</span> <span class="dv">3</span>,<span class="dt">pointsize=</span><span class="dv">8</span>,<span class="dt">paper=</span><span class="st">&quot;letter&quot;</span>)</span>
 <span id="cb135-2"><a href="saving-plots.html#cb135-2"></a><span class="kw">plot</span>(bin,<span class="dt">colramp=</span>my_colors)  <span class="co">#hexbin plot</span></span>
 <span id="cb135-3"><a href="saving-plots.html#cb135-3"></a><span class="kw">dev.off</span>()</span></code></pre></div>
 <p>If you now check your working folder, there should be a file called RPlot.pdf, which has the figure you just created. Of course, you can edit the figure as you like, as we showed in the Scatterplot section.</p>
 <p>The benefit of l saving files as PDF is that the resolution is never affected. You can zoom in into a PDF file and the resolution is always the same. In turn, other types of figures like jpeg, gif, png, etc. you need to define the resolution in advance, and if you zoom in into those type of figure formats you will notice the pixelation.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-139"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-140"></span>
 <img src="images/PDFvsPNG.png" alt="Pixelation effect of figure format" width="100%" />
 <p class="caption">
-Figure 4.6: Pixelation effect of figure format
+Figure 4.7: Pixelation effect of figure format
 </p>
 </div>
 </div>
