@@ -139,7 +139,8 @@ The mean of a sample is denoted wit the letter $\bar{X}$; at times it does not i
 The mean of a population is at times denoted with the lowercase letter $u$, at times it is not cursive. They are both calculated the same way.
 ```
 
-The symbol that looks like a pacman is call **summation**. The lower letter $i$ indicates that the summation starts from the first number (i.e., i=1), and the higher letter *n*, means until the last number. $Xi$ means each value. In short, the numerator of the equation above says: sum all values starting from the first one until the last one. $n$ indicates the sample size or total number of values in your database (it is was the average of a sample, you will likely see the lowercase $n$ instead of $N$).
+The symbol that looks like a pacman is call **summation**. The lower letter $i$ indicates that the summation starts from the first number (i.e., i=1), and the higher letter *n*, means until the last number. $Xi$ means each value. In short, the numerator of the equation above says: sum all values starting from the first one until the last one. $n$ indicates the sample size or total number of values in your database (it is was the average of a population, you will likely see capital letter $N$
+instead of the lowercase $n$ ).
 
 
 
@@ -181,7 +182,7 @@ mean (VectorMissingAValue,na.rm = TRUE)
 
 
 ```{block2, type='rmdcaution'}
-In most R functions, it is important to include the command 'na.rm = TRUE', which means to exclude any missing value. If your any reason your data has empty cells or missing values, falling to include the 'na.rm = TRUE' command will result in an error....again this will be a problem only when you are missing data.
+In most R functions, it is important to include the command 'na.rm = TRUE', which means to exclude any missing value. If for any reason your data has empty cells or missing values, falling to include the 'na.rm = TRUE' command will result in an error....again this will be a problem only when you are missing data.
 ```
 
 
@@ -521,7 +522,7 @@ Take my population of ten rabbits below, and say I want to know the 80th percent
 knitr::include_graphics("images/Percentile 1.png")
 ```
 
-Because I am interested in height, measure their heights. Say they were  37, 15, 35, 36, 5, 40, 41, 68, 45, and 56cm (I am  making these numbers up, so do not overthink the size of my rabbits).
+Because I am interested in height, I measure their heights. Say they were  37, 15, 35, 36, 5, 40, 41, 68, 45, and 56cm (I am  making these numbers up, so do not overthink the size of my rabbits).
 
 
 I sort my rabbits by height. Say their sorted heights are 5, 15, 35, 36, 37, 40, 41, 45, 56 and 68cm.
@@ -803,6 +804,26 @@ Take the following numbers (8 2 7 2 6), using the R console below estimate the m
 
 Now lets check some equations:
 <iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=12" width="959" height="647" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+
+## Homework {-}
+
+
+In Tinn-R, write down a code that:
+
+1. Create a sample of 1000 points from a normal distribution, and place them in a data.frame, with one column named X.
+
+2. Estimate the mean, median and mode of variable X, have these individual values stored in their own variable names.
+
+3. Estimate the standard deviation and place it in its own variable name.
+
+4. Make a histogram of the data you created in numeral one. Adjust parameters of the figure to the guidelines for good figures.
+
+5. Place the mean, median, mode and 2SDs from the mean as vertical lines. Make the color lines distinctive.
+
+6. Name the vertical lines above. Work with the XY position of the 'text' so the labels look nice.
+
+7. Save the code and email it as a homework.
 
 
 

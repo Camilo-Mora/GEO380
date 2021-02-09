@@ -229,6 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-coefience-of-variance"><i class="fa fa-check"></i>The coefience of variance</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="homework-2.html"><a href="homework-2.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
@@ -282,7 +283,8 @@ Figure 5.1: Measures of central tendency
 The mean of a population is at times denoted with the lowercase letter <span class="math inline">\(u\)</span>, at times it is not cursive. They are both calculated the same way.
 </div>
 
-<p>The symbol that looks like a pacman is call <strong>summation</strong>. The lower letter <span class="math inline">\(i\)</span> indicates that the summation starts from the first number (i.e., i=1), and the higher letter <em>n</em>, means until the last number. <span class="math inline">\(Xi\)</span> means each value. In short, the numerator of the equation above says: sum all values starting from the first one until the last one. <span class="math inline">\(n\)</span> indicates the sample size or total number of values in your database (it is was the average of a sample, you will likely see the lowercase <span class="math inline">\(n\)</span> instead of <span class="math inline">\(N\)</span>).</p>
+<p>The symbol that looks like a pacman is call <strong>summation</strong>. The lower letter <span class="math inline">\(i\)</span> indicates that the summation starts from the first number (i.e., i=1), and the higher letter <em>n</em>, means until the last number. <span class="math inline">\(Xi\)</span> means each value. In short, the numerator of the equation above says: sum all values starting from the first one until the last one. <span class="math inline">\(n\)</span> indicates the sample size or total number of values in your database (it is was the average of a population, you will likely see capital letter <span class="math inline">\(N\)</span>
+instead of the lowercase <span class="math inline">\(n\)</span> ).</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-148"></span>
 <img src="images/Stupid%20mean.jpg" alt="The stupid mean" width="100%" />
 <p class="caption">
@@ -303,7 +305,7 @@ Figure 5.2: The stupid mean
 <pre><code>## [1] 8.22</code></pre>
 
 <div class="rmdcaution">
-In most R functions, it is important to include the command ‘na.rm = TRUE’, which means to exclude any missing value. If your any reason your data has empty cells or missing values, falling to include the ‘na.rm = TRUE’ command will result in an error….again this will be a problem only when you are missing data.
+In most R functions, it is important to include the command ‘na.rm = TRUE’, which means to exclude any missing value. If for any reason your data has empty cells or missing values, falling to include the ‘na.rm = TRUE’ command will result in an error….again this will be a problem only when you are missing data.
 </div>
 
 <p>Alright, lets keep going. You can visualize the mean in the histogram using the function <em>abline</em>, and put a name using the <em>text</em> function, like this:</p>
