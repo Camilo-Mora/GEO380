@@ -1,8 +1,15 @@
+
+.sourceCode{
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
 p.caption {
   color: #777;
-  margin-top: 10px;
+  margin-top: 50px;
 }
 p code {
+  margin-bottom: 100px;
   white-space: inherit;
 }
 pre {
@@ -46,3 +53,16 @@ pre code {
 .rmdexercise {
   background-image: url("images/exercise.png");
 }
+
+
+.figure {
+   margin-top: 100px;
+   margin-bottom: 100px;
+}
+
+table {
+    margin-top: 100px;
+    margin-bottom: 100px !important;
+}
+
+

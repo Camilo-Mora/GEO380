@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Central tendency | GEOG380.utf8</title>
+  <meta name="description" content="This is a entry level course to learn stats and R" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Central tendency | GEOG380.utf8" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a entry level course to learn stats and R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Central tendency | GEOG380.utf8" />
+  
+  <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-distributions.html"/>
+<link rel="next" href="dispersion.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a>GEOG380 Basic Stats with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
+<li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
+<li class="chapter" data-level="" data-path="do-not-dispair-please.html"><a href="do-not-dispair-please.html"><i class="fa fa-check"></i>Do not dispair, please</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="the-scientific-method.html"><a href="the-scientific-method.html"><i class="fa fa-check"></i><b>1</b> The scientific method</a><ul>
+<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html"><i class="fa fa-check"></i>The problem</a><ul>
+<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#narrow-the-problem"><i class="fa fa-check"></i>Narrow the problem</a></li>
+<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#search-prior-knowledge"><i class="fa fa-check"></i>Search prior knowledge</a></li>
+<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#back-to-defining-the-problem"><i class="fa fa-check"></i>Back to defining the problem</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a><ul>
+<li><a href="the-hyphotesis.html#the-null-hypothesis-h0">The null hypothesis <em>H0</em></a></li>
+<li><a href="the-hyphotesis.html#the-alternate-hypothesis-h1">The alternate hypothesis <em>H1</em></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a><ul>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#population-sample-subject"><i class="fa fa-check"></i>Population, sample, subject</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#variables"><i class="fa fa-check"></i>Variables</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#the-control-and-treatment"><i class="fa fa-check"></i>The control and treatment</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#replication"><i class="fa fa-check"></i>Replication</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#pseudo-replication"><i class="fa fa-check"></i>Pseudo-Replication</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#randomness"><i class="fa fa-check"></i>Randomness</a></li>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#design-experiment"><i class="fa fa-check"></i>Design experiment</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-collection.html"><a href="data-collection.html"><i class="fa fa-check"></i>Data collection</a></li>
+<li class="chapter" data-level="" data-path="analyze-your-data.html"><a href="analyze-your-data.html"><i class="fa fa-check"></i>Analyze your data</a></li>
+<li class="chapter" data-level="" data-path="vizualize-the-data.html"><a href="vizualize-the-data.html"><i class="fa fa-check"></i>Vizualize the data</a></li>
+<li class="chapter" data-level="" data-path="write-report.html"><a href="write-report.html"><i class="fa fa-check"></i>Write report</a></li>
+<li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html"><i class="fa fa-check"></i>Excercises</a><ul>
+<li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html#exercise-1"><i class="fa fa-check"></i>Exercise 1</a></li>
+<li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html#exercise-2"><i class="fa fa-check"></i>Exercise 2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="homework.html"><a href="homework.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="installing-programs.html"><a href="installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a><ul>
+<li class="chapter" data-level="" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i>Installing R</a></li>
+<li class="chapter" data-level="" data-path="tinn-r.html"><a href="tinn-r.html"><i class="fa fa-check"></i>Tinn-R</a></li>
+<li class="chapter" data-level="" data-path="installing-packages.html"><a href="installing-packages.html"><i class="fa fa-check"></i>Installing packages</a></li>
+<li class="chapter" data-level="" data-path="asking-for-help.html"><a href="asking-for-help.html"><i class="fa fa-check"></i>Asking for help</a></li>
+<li class="chapter" data-level="" data-path="exercise.html"><a href="exercise.html"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basics-on-data-manipulation-in-r.html"><a href="basics-on-data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Basics on data manipulation in R</a><ul>
+<li class="chapter" data-level="" data-path="variables-1.html"><a href="variables-1.html"><i class="fa fa-check"></i>Variables</a></li>
+<li class="chapter" data-level="" data-path="comments.html"><a href="comments.html"><i class="fa fa-check"></i>Comments</a></li>
+<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i>Operators</a><ul>
+<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#assignment-operators"><i class="fa fa-check"></i>Assignment operators</a></li>
+<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i>Arithmetic operators</a></li>
+<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#character-operators"><i class="fa fa-check"></i>Character operators</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="custom-made-functions.html"><a href="custom-made-functions.html"><i class="fa fa-check"></i>Custom made functions</a></li>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html"><i class="fa fa-check"></i>Data structure types</a><ul>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#matrix"><i class="fa fa-check"></i>Matrix</a></li>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#dataframes"><i class="fa fa-check"></i>DataFrames</a></li>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#loading-your-own-data-into-r"><i class="fa fa-check"></i>Loading your own data into R</a></li>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#calling-elements"><i class="fa fa-check"></i>Calling elements</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="filter-data.html"><a href="filter-data.html"><i class="fa fa-check"></i>Filter data</a></li>
+<li class="chapter" data-level="" data-path="pivot-table.html"><a href="pivot-table.html"><i class="fa fa-check"></i>Pivot table</a></li>
+<li class="chapter" data-level="" data-path="merge-data.html"><a href="merge-data.html"><i class="fa fa-check"></i>Merge data</a></li>
+<li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html"><i class="fa fa-check"></i>Subsetting columns</a><ul>
+<li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html#deleting-columns"><i class="fa fa-check"></i>Deleting columns</a></li>
+<li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html#selecting-columns"><i class="fa fa-check"></i>Selecting columns</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="adding-results-to-databases.html"><a href="adding-results-to-databases.html"><i class="fa fa-check"></i>Adding results to databases</a></li>
+<li class="chapter" data-level="" data-path="exercise-3.html"><a href="exercise-3.html"><i class="fa fa-check"></i>Exercise</a></li>
+<li class="chapter" data-level="" data-path="homework-1.html"><a href="homework-1.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="basic-plots.html"><a href="basic-plots.html"><i class="fa fa-check"></i><b>4</b> Basic plots</a><ul>
+<li class="chapter" data-level="" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i>Scatterplots</a></li>
+<li class="chapter" data-level="" data-path="histograms.html"><a href="histograms.html"><i class="fa fa-check"></i>Histograms</a></li>
+<li class="chapter" data-level="" data-path="density-plots.html"><a href="density-plots.html"><i class="fa fa-check"></i>Density plots</a></li>
+<li class="chapter" data-level="" data-path="plotting-maps.html"><a href="plotting-maps.html"><i class="fa fa-check"></i>Plotting maps</a></li>
+<li class="chapter" data-level="" data-path="animated-plots.html"><a href="animated-plots.html"><i class="fa fa-check"></i>Animated plots</a></li>
+<li class="chapter" data-level="" data-path="saving-plots.html"><a href="saving-plots.html"><i class="fa fa-check"></i>Saving plots</a></li>
+<li class="chapter" data-level="" data-path="excersise.html"><a href="excersise.html"><i class="fa fa-check"></i>Excersise</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>5</b> Descriptive statistics</a><ul>
+<li class="chapter" data-level="" data-path="data-distributions.html"><a href="data-distributions.html"><i class="fa fa-check"></i>Data distributions</a></li>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html"><i class="fa fa-check"></i>Central tendency</a><ul>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-arithmetic-mean"><i class="fa fa-check"></i>The arithmetic mean</a></li>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-trimmed-mean"><i class="fa fa-check"></i>The trimmed mean</a></li>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-weighted-average"><i class="fa fa-check"></i>The weighted average</a></li>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-median"><i class="fa fa-check"></i>The median</a></li>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-mode"><i class="fa fa-check"></i>The mode</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html"><i class="fa fa-check"></i>Dispersion</a><ul>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-minimum-and-the-maximum"><i class="fa fa-check"></i>The minimum and the maximum</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-range"><i class="fa fa-check"></i>The range</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-percentile"><i class="fa fa-check"></i>The percentile</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-quantile"><i class="fa fa-check"></i>The quantile</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-variance"><i class="fa fa-check"></i>The variance</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-standard-deviation"><i class="fa fa-check"></i>The standard deviation</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-coefience-of-variance"><i class="fa fa-check"></i>The coefience of variance</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i>Exercises</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="central-tendency" class="section level2 unnumbered">
+<h2>Central tendency</h2>
+<p>Central tendency refers to metrics that attempt to describe what is in the middle of your data. The main metrics of central tendency are the mean (also called average), the median, and the mode.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-145"></span>
+<img src="images/Central%20Tendency%20Measures.png" alt="Measures of central tendency" width="100%" />
+<p class="caption">
+Figure 5.1: Measures of central tendency
+</p>
+</div>
+<p>l</p>
+<p>Let’s create some dummy data to see what these metrics are intended to show, how to interpret them and when to use them.</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="central-tendency.html#cb136-1"></a><span class="kw">set.seed</span> (<span class="dv">10</span>)</span>
+<span id="cb136-2"><a href="central-tendency.html#cb136-2"></a>y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>) <span class="co"># the function rnorm allows you to create a random set of numbers from a normal distribution</span></span>
+<span id="cb136-3"><a href="central-tendency.html#cb136-3"></a></span>
+<span id="cb136-4"><a href="central-tendency.html#cb136-4"></a><span class="co">#lets now plot that data using the hist function, you already know how to use:</span></span>
+<span id="cb136-5"><a href="central-tendency.html#cb136-5"></a><span class="kw">hist</span>(y, <span class="dt">main =</span> <span class="st">&quot;Normal Distribution&quot;</span>,<span class="dt">breaks =</span> <span class="dv">30</span>)</span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-146-1.png" width="672" /></p>
+<div id="the-arithmetic-mean" class="section level3 unnumbered">
+<h3>The arithmetic mean</h3>
+<p>The arithmetic mean is the average of the numbers. It is easy to calculate: add up all the numbers, then divide by how many numbers there are.</p>
+<p>Mathematically, it is expressed as:</p>
+<p><span class="math display">\[\begin{equation}
+\bar{X} = \frac{\sum_{i=1}^n X_i}{n}
+\end{equation}\]</span></p>
+
+<div class="rmdimportant">
+<p>The mean of a sample is denoted wit the letter <span class="math inline">\(\bar{X}\)</span>; at times it does not include the horizontal bar above the letter.</p>
+The mean of a population is at times denoted with the lowercase letter <span class="math inline">\(u\)</span>, at times it is not cursive. They are both calculated the same way.
+</div>
+
+<p>The symbol that looks like a pacman is call <strong>summation</strong>. The lower letter <span class="math inline">\(i\)</span> indicates that the summation starts from the first number (i.e., i=1), and the higher letter <em>n</em>, means until the last number. <span class="math inline">\(Xi\)</span> means each value. In short, the numerator of the equation above says: sum all values starting from the first one until the last one. <span class="math inline">\(n\)</span> indicates the sample size or total number of values in your database (it is was the average of a sample, you will likely see the lowercase <span class="math inline">\(n\)</span> instead of <span class="math inline">\(N\)</span>).</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-148"></span>
+<img src="images/Stupid%20mean.jpg" alt="The stupid mean" width="100%" />
+<p class="caption">
+Figure 5.2: The stupid mean
+</p>
+</div>
+<p>y</p>
+<p>In R, the mean is calculated with the function mean.</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="central-tendency.html#cb137-1"></a>MEAN=<span class="kw">mean</span> (y, <span class="dt">na.rm =</span> <span class="ot">FALSE</span>)  <span class="co">#here I calculate the mean, and assign it to a variable.</span></span>
+<span id="cb137-2"><a href="central-tendency.html#cb137-2"></a>MEAN           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
+<pre><code>## [1] 0.01137474</code></pre>
+<p>You may have noted that I added ‘na.rm = TRUE’ in the mean function. This command is used as a caution to calculate the mean even if you have empty values. Lets check,</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="central-tendency.html#cb139-1"></a>VectorMissingAValue &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">7</span>,<span class="dv">3</span>,<span class="fl">4.2</span>,<span class="dv">18</span>,<span class="dv">2</span>,<span class="dv">54</span>,<span class="op">-</span><span class="dv">21</span>,<span class="dv">8</span>,<span class="op">-</span><span class="dv">5</span>,<span class="ot">NA</span>)<span class="co">#here I created a vector of values, incluidng a missing value NA (NA in R stands for Not Available)</span></span>
+<span id="cb139-2"><a href="central-tendency.html#cb139-2"></a><span class="kw">mean</span> (VectorMissingAValue)  <span class="co">#If I calculate the mean of a vector with missing values I get</span></span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>Now, if you include the command ‘na.rm = TRUE’, that will re-do the calculation excluding any missing value.</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="central-tendency.html#cb141-1"></a><span class="kw">mean</span> (VectorMissingAValue,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>)  </span></code></pre></div>
+<pre><code>## [1] 8.22</code></pre>
+
+<div class="rmdcaution">
+In most R functions, it is important to include the command ‘na.rm = TRUE’, which means to exclude any missing value. If your any reason your data has empty cells or missing values, falling to include the ‘na.rm = TRUE’ command will result in an error….again this will be a problem only when you are missing data.
+</div>
+
+<p>Alright, lets keep going. You can visualize the mean in the histogram using the function <em>abline</em>, and put a name using the <em>text</em> function, like this:</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="central-tendency.html#cb143-1"></a><span class="kw">hist</span>(y, <span class="dt">main =</span> <span class="ot">NULL</span>,<span class="dt">breaks =</span> <span class="dv">30</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>),)</span>
+<span id="cb143-2"><a href="central-tendency.html#cb143-2"></a><span class="kw">abline</span>(<span class="dt">v=</span>MEAN, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">5</span>) <span class="co">#abline put a line in a figure...you use v for vertical and h for horizontal, the value that proceeds is where the line will be drawn.</span></span>
+<span id="cb143-3"><a href="central-tendency.html#cb143-3"></a></span>
+<span id="cb143-4"><a href="central-tendency.html#cb143-4"></a></span>
+<span id="cb143-5"><a href="central-tendency.html#cb143-5"></a><span class="kw">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="dt">x=</span>MEAN,<span class="dt">y=</span><span class="dv">100</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>) <span class="co">#the text function places a label on your figure at the given x and y position you like...there are several other parameters you can control. You can also use the function *legend*, which allows you more controls, including background colors.</span></span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-153-1.png" width="672" /></p>
+</div>
+<div id="the-trimmed-mean" class="section level3 unnumbered">
+<h3>The trimmed mean</h3>
+<p>There are several variations to calculate the mean, for instance the trimmed mean. One of the problems with the arithmetic mean is that it can be strongly impacted by extreme values. In those cases, it is recommend to trim the extremes and calculate the mean on the resulting values.</p>
+<p>Commonly, a %5 trimmed mean should satisfy. As its name indicates, you remove the top and bottom 5% of the data, and calculate the mean on those values.</p>
+<p>Lets try a simple example. Say you measured the time it took 20 students to run 100m.</p>
+<p>The individual values in seconds were 10, 20, 23, 23, 22, 20, 25, 22, 20, 25, 22, 20, 25, 20, 21, 21, 23, 21, 24, and 120.</p>
+<p>To calculate this in R, I put all values in a vector and calculate the mean,</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="central-tendency.html#cb144-1"></a>vals=<span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">23</span>,<span class="dv">23</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">21</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">24</span>,<span class="dv">120</span>)</span>
+<span id="cb144-2"><a href="central-tendency.html#cb144-2"></a>  </span>
+<span id="cb144-3"><a href="central-tendency.html#cb144-3"></a>  <span class="kw">mean</span>(vals)</span></code></pre></div>
+<pre><code>## [1] 26.35</code></pre>
+<p>But from the data, you can tell that one student was very fast (only took 10 secs) and another one was very slow (he took 120secs). Lets try a 5% trimmed mean,</p>
+<p>First, you sort the data from smallest to largest,</p>
+<p><span style="color: red;">10</span>,20,20,20,20,20,21,21,21,22,22,22,23,23,23,24,25,25,25,<span style="color: red;">120</span></p>
+<p>Now you remove the first and last (i.e, 5% of 20 is 1, so you delete the bottom and top one records, red numbers in the array).</p>
+<p>Now calculate the mean of the resulting data or the so-call 5% trimmed mean:</p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="central-tendency.html#cb146-1"></a>Trimmedvals=<span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">23</span>,<span class="dv">23</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">21</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">24</span>)</span>
+<span id="cb146-2"><a href="central-tendency.html#cb146-2"></a>  </span>
+<span id="cb146-3"><a href="central-tendency.html#cb146-3"></a><span class="kw">mean</span>(Trimmedvals)</span></code></pre></div>
+<pre><code>## [1] 22.05556</code></pre>
+<p>The 5% trimmed mean is 22.06 compared to the arithmetic mean 26.35.</p>
+</div>
+<div id="the-weighted-average" class="section level3 unnumbered">
+<h3>The weighted average</h3>
+<p>Sometimes we wish to average numbers, but we want to assign more importance, or
+weight, to some of the numbers. For that we used the weighted average, which is calculated as:</p>
+<p><span class="math display">\[\begin{equation}
+Weighted \ average= \frac{\sum_{i=1}^n (X_i * w)}{\sum_{i=1}^n  w} 
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(Xi\)</span> is a data value and w is the weight assigned to that data value.</p>
+<p>Lets try an example.</p>
+<p>Suppose your professor tells you that your grade will be based on a midterm and a final exam, each of which is based on 100 possible points. However, the final exam will be worth 60% of the grade and the midterm only 40%. How could you determine an average score that would reflect these different weights? The average you need is the weighted average.</p>
+<p>If you scored 83 in your midterm and 95 in your final, what will be your final grade?.</p>
+<p><span class="math display">\[\begin{equation}
+Weighted \ average= \frac{(83*40)+(95*60)}{(40+60)} 
+\end{equation}\]</span></p>
+<p>So your final grade will be 90.2. Your average is high enough to earn an A, which I hope you all get in my class!. And if you have been paying attention, here are two tokens: jj</p>
+</div>
+<div id="the-median" class="section level3 unnumbered">
+<h3>The median</h3>
+<p>The median (also referred to as the 50th percentile) is the middle value in a sample of ordered values. Half the values are above the median and half are below the median.</p>
+<p>To calculate the median, you start by sorting all values from lowest to highest, the <em>median</em> is the value in the middle.</p>
+<p>When your set of numbers is odd, the median is the single value in the middle of the sorted list. Below is a vector of values indicating the price of different candy.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-156"></span>
+<img src="images/Median%20odd%20Numbers.png" alt="Median calculation for odd number of values" width="100%" />
+<p class="caption">
+Figure 5.3: Median calculation for odd number of values
+</p>
+</div>
+<p>When your set of numbers is even, you have a problem because there will be two numbers right in the middle of the sorted vector. In this case you report the arithmetic mean of the two values in the middle.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-157"></span>
+<img src="images/Median%20Even%20Numbers.png" alt="Median calculation for even number of values" width="100%" />
+<p class="caption">
+Figure 5.4: Median calculation for even number of values
+</p>
+</div>
+<p>y</p>
+<p>In R, the median is calculated with the function median.</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="central-tendency.html#cb148-1"></a>MEDIAN=<span class="kw">median</span> (y)  <span class="co">#here I calculate the mean, and assign it to a variable.</span></span>
+<span id="cb148-2"><a href="central-tendency.html#cb148-2"></a>MEDIAN           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
+<pre><code>## [1] -0.003001333</code></pre>
+<p>p</p>
+<p>Let’s plot the median with the mean value to the histogram we were doing before.</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="central-tendency.html#cb150-1"></a><span class="kw">hist</span>(y, <span class="dt">main =</span> <span class="ot">NULL</span>,<span class="dt">breaks =</span> <span class="dv">30</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">110</span>),)</span>
+<span id="cb150-2"><a href="central-tendency.html#cb150-2"></a></span>
+<span id="cb150-3"><a href="central-tendency.html#cb150-3"></a><span class="co">#lets plot the mean</span></span>
+<span id="cb150-4"><a href="central-tendency.html#cb150-4"></a>MEAN=<span class="kw">mean</span>(y)</span>
+<span id="cb150-5"><a href="central-tendency.html#cb150-5"></a><span class="kw">abline</span>(<span class="dt">v=</span>MEAN, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">5</span>) </span>
+<span id="cb150-6"><a href="central-tendency.html#cb150-6"></a><span class="kw">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="dt">x=</span>MEAN,<span class="dt">y=</span><span class="dv">110</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">pos=</span><span class="dv">4</span>) <span class="co">#pos=4 means, to place the text to the right of the coordinates xy.</span></span>
+<span id="cb150-7"><a href="central-tendency.html#cb150-7"></a></span>
+<span id="cb150-8"><a href="central-tendency.html#cb150-8"></a><span class="co"># now the median</span></span>
+<span id="cb150-9"><a href="central-tendency.html#cb150-9"></a><span class="kw">abline</span>(<span class="dt">v=</span>MEDIAN, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">lty=</span><span class="dv">2</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span id="cb150-10"><a href="central-tendency.html#cb150-10"></a><span class="kw">text</span>(<span class="st">&quot;Median&quot;</span>,<span class="dt">x=</span>MEDIAN,<span class="dt">y=</span><span class="dv">100</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">pos=</span><span class="dv">2</span>) </span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-159-1.png" width="672" /></p>
+</div>
+<div id="the-mode" class="section level3 unnumbered">
+<h3>The mode</h3>
+<p>The mode is simply the most common value in all of your data.</p>
+<p>R does not have a standard in-built function to calculate mode. So we create a user function to calculate the mode of a dataset. This function takes a vector as input and gives the mode value as output.</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="central-tendency.html#cb151-1"></a>getmode &lt;-<span class="st"> </span><span class="cf">function</span>(v) {   <span class="co"># the function will take a vector of values</span></span>
+<span id="cb151-2"><a href="central-tendency.html#cb151-2"></a>   uniqv &lt;-<span class="st"> </span><span class="kw">unique</span>(v)      <span class="co">#select all the unique values in the vector </span></span>
+<span id="cb151-3"><a href="central-tendency.html#cb151-3"></a>   uniqv[<span class="kw">which.max</span>(<span class="kw">tabulate</span>(<span class="kw">match</span>(v, uniqv)))] <span class="co">#stimate the number of times each value appears and return the largest</span></span>
+<span id="cb151-4"><a href="central-tendency.html#cb151-4"></a>}</span></code></pre></div>
+<p>Now let’s use our new function</p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="central-tendency.html#cb152-1"></a>MODE=<span class="kw">getmode</span>(y)  <span class="co">#here I calculate the mode, and assign it to a variable.</span></span>
+<span id="cb152-2"><a href="central-tendency.html#cb152-2"></a>MODE           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
+<pre><code>## [1] 0.01874617</code></pre>
+<p>Unlike the mean and the median, the mode can also be used with character data (i.e., words). For instance, you want to know what is the most common name in the USA?. For that you can use the mode.</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="central-tendency.html#cb154-1"></a><span class="co"># Create the vector with characters.</span></span>
+<span id="cb154-2"><a href="central-tendency.html#cb154-2"></a>NAMES &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Peter&quot;</span>, <span class="st">&quot;Carl&quot;</span>, <span class="st">&quot;Darrell&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Peter&quot;</span>)</span>
+<span id="cb154-3"><a href="central-tendency.html#cb154-3"></a></span>
+<span id="cb154-4"><a href="central-tendency.html#cb154-4"></a><span class="kw">getmode</span>(NAMES)  <span class="co">#here I calculate the mode, and assign it to a variable.</span></span></code></pre></div>
+<pre><code>## [1] &quot;Peter&quot;</code></pre>
+<p>Let’s plot our mode in the histogram with the mean and the median we were working on before.</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="central-tendency.html#cb156-1"></a><span class="kw">hist</span>(y, <span class="dt">main =</span> <span class="ot">NULL</span>,<span class="dt">breaks =</span> <span class="dv">30</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">110</span>),)</span>
+<span id="cb156-2"><a href="central-tendency.html#cb156-2"></a></span>
+<span id="cb156-3"><a href="central-tendency.html#cb156-3"></a><span class="co">#lets plot the mean</span></span>
+<span id="cb156-4"><a href="central-tendency.html#cb156-4"></a><span class="kw">abline</span>(<span class="dt">v=</span>MEAN, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">6</span>) </span>
+<span id="cb156-5"><a href="central-tendency.html#cb156-5"></a><span class="kw">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="dt">x=</span>MEAN,<span class="dt">y=</span><span class="dv">110</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">pos=</span><span class="dv">4</span>) </span>
+<span id="cb156-6"><a href="central-tendency.html#cb156-6"></a></span>
+<span id="cb156-7"><a href="central-tendency.html#cb156-7"></a><span class="co"># now the median</span></span>
+<span id="cb156-8"><a href="central-tendency.html#cb156-8"></a><span class="kw">abline</span>(<span class="dt">v=</span>MEDIAN, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">lty=</span><span class="dv">2</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span id="cb156-9"><a href="central-tendency.html#cb156-9"></a><span class="kw">text</span>(<span class="st">&quot;Median&quot;</span>,<span class="dt">x=</span>MEDIAN,<span class="dt">y=</span><span class="dv">100</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">pos=</span><span class="dv">2</span>) </span>
+<span id="cb156-10"><a href="central-tendency.html#cb156-10"></a></span>
+<span id="cb156-11"><a href="central-tendency.html#cb156-11"></a><span class="co">#now let&#39;s plot the mode</span></span>
+<span id="cb156-12"><a href="central-tendency.html#cb156-12"></a>MODE=<span class="kw">getmode</span>(y)</span>
+<span id="cb156-13"><a href="central-tendency.html#cb156-13"></a><span class="kw">abline</span>(<span class="dt">v=</span>MODE, <span class="dt">col=</span><span class="st">&quot;orange&quot;</span>,<span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">lty=</span><span class="dv">3</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span id="cb156-14"><a href="central-tendency.html#cb156-14"></a><span class="kw">text</span>(<span class="st">&quot;Mode&quot;</span>,<span class="dt">x=</span>MODE,<span class="dt">y=</span><span class="dv">90</span>, <span class="dt">col=</span><span class="st">&quot;orange&quot;</span>, <span class="dt">pos=</span><span class="dv">4</span>) </span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-163-1.png" width="672" /></p>
+<p>You should have noted that the mean, median and mode are almost the same in this case. That is because the data are normally distributed (follow a normal distribution).</p>
+<p>Let’s see what happens when the data are skew.</p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-164-1.png" width="672" /></p>
+<p>k</p>
+<p>The reverse happens with a right or positive distribution:
+<img src="GEOG380_files/figure-html/unnamed-chunk-165-1.png" width="672" /></p>
+<p>If you see the two skewed distributions above, you will notice how the mean is pulled by the extreme values of the distribution. That is a critical consideration of the arithmetic mean, it is affected by extreme values or so-call <strong>outliers</strong>.</p>
+<p>So a basic rule of thumb is to look at the mean and the median. If they’re the same you can just use the mean, that’s more easy for the average reader to understand. If they differ significantly report them both, or just report the median</p>
+<p>With skew distributions is when it becomes important the distinction between the mean and the median. Lets check an example in which you can deceive a conclusion based on reporting only the mean.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-166"></span>
+<img src="images/USA%20Household%20Income.png" alt="Income distribution in the USA" width="100%" />
+<p class="caption">
+Figure 5.5: Income distribution in the USA
+</p>
+</div>
+<p>The figure above shows the household income of people in the USA. Clearly, the data follows a right distribution. In this distribution, the mean is larger than the median or the mode. So if you report the mean only, it may create an illusion that most people get paid well in the USA, when in reality most get paid much less.</p>
+<p>In this case, the mean increases primarily as a result of the wealthy becoming wealthier. If we are concerned about how the average American is doing, median is actually a better measure to understand their status.</p>
+<p>The figure below summarizes the central tendency metrics by the type of data distribution.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-167"></span>
+<img src="images/Distribution%20Skews.png" alt="Central tendendy metrics in skew distributions" width="100%" />
+<p class="caption">
+Figure 5.6: Central tendendy metrics in skew distributions
+</p>
+</div>
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=11" width="958" height="312" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+</div>
+</div>
+<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://basic-stats-with-r.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-distributions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dispersion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/Camilo-Mora/GEOG380/blob/main/05-DescriptiveStatistics.Rmd",
+"text": null
+},
+"download": ["GEOG380.pdf", "GEOG380.epub"],
+"toc": {
+"collapse": "subsection"
+},
+"highlight": "pigments"
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

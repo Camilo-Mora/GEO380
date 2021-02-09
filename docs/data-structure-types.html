@@ -208,7 +208,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="plotting-maps.html"><a href="plotting-maps.html"><i class="fa fa-check"></i>Plotting maps</a></li>
 <li class="chapter" data-level="" data-path="animated-plots.html"><a href="animated-plots.html"><i class="fa fa-check"></i>Animated plots</a></li>
 <li class="chapter" data-level="" data-path="saving-plots.html"><a href="saving-plots.html"><i class="fa fa-check"></i>Saving plots</a></li>
-<li class="chapter" data-level="" data-path="excersice.html"><a href="excersice.html"><i class="fa fa-check"></i>Excersice</a></li>
+<li class="chapter" data-level="" data-path="excersise.html"><a href="excersise.html"><i class="fa fa-check"></i>Excersise</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>5</b> Descriptive statistics</a><ul>
+<li class="chapter" data-level="" data-path="data-distributions.html"><a href="data-distributions.html"><i class="fa fa-check"></i>Data distributions</a></li>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html"><i class="fa fa-check"></i>Central tendency</a><ul>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-arithmetic-mean"><i class="fa fa-check"></i>The arithmetic mean</a></li>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-trimmed-mean"><i class="fa fa-check"></i>The trimmed mean</a></li>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-weighted-average"><i class="fa fa-check"></i>The weighted average</a></li>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-median"><i class="fa fa-check"></i>The median</a></li>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-mode"><i class="fa fa-check"></i>The mode</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html"><i class="fa fa-check"></i>Dispersion</a><ul>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-minimum-and-the-maximum"><i class="fa fa-check"></i>The minimum and the maximum</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-range"><i class="fa fa-check"></i>The range</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-percentile"><i class="fa fa-check"></i>The percentile</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-quantile"><i class="fa fa-check"></i>The quantile</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-variance"><i class="fa fa-check"></i>The variance</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-standard-deviation"><i class="fa fa-check"></i>The standard deviation</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-coefience-of-variance"><i class="fa fa-check"></i>The coefience of variance</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i>Exercises</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
@@ -423,285 +443,285 @@ Figure 3.6: Slash keys in keyboard
 <p>If I try to see the full database, I just type the name of the dataframe and click enter. However, as you will notice calling the full dataframe will use a lot of your screen space because it will attempt to display all the data.</p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-structure-types.html#cb63-1"></a>DataFrame</span></code></pre></div>
 <pre><code>##     x1  x2  x3
-## 1    1   1 333
-## 2    1   2 655
-## 3    1   3 987
-## 4    1   4 270
-## 5    1   5 953
-## 6    1   6 961
-## 7    1   7 497
-## 8    1   8 829
-## 9    1   9 753
-## 10   1  10 686
-## 11   1  11 177
-## 12   1  12 928
-## 13   1  13 592
-## 14   1  14 355
-## 15   1  15 305
-## 16   1  16 163
-## 17   1  17 404
-## 18   1  18 324
-## 19   1  19 668
-## 20   1  20 988
-## 21   1  21 182
-## 22   1  22 116
-## 23   1  23 802
-## 24   1  24 122
-## 25   1  25 665
-## 26   1  26 777
-## 27   1  27 552
-## 28   1  28 650
-## 29   1  29 202
-## 30   1  30  98
-## 31   1  31 387
-## 32   1  32 986
-## 33   1  33 228
-## 34   1  34 793
-## 35   1  35 482
-## 36   1  36 503
-## 37   1  37 972
-## 38   1  38 428
-## 39   1  39 283
-## 40   1  40 173
-## 41   1  41 632
-## 42   1  42 597
-## 43   1  43 272
-## 44   1  44 438
-## 45   1  45 573
-## 46   1  46 551
-## 47   1  47   2
-## 48   1  48 684
-## 49   1  49 242
-## 50   1  50 331
-## 51   1  51 716
-## 52   1  52   5
-## 53   1  53 263
-## 54   1  54 935
-## 55   1  55  37
-## 56   1  56 540
-## 57   1  57  57
-## 58   1  58 763
-## 59   1  59 810
-## 60   1  60 813
-## 61   1  61 991
-## 62   1  62 820
-## 63   1  63 569
-## 64   1  64 681
-## 65   1  65 512
-## 66   1  66 421
-## 67   1  67 672
-## 68   1  68 831
-## 69   1  69 184
-## 70   1  70 745
-## 71   1  71 245
-## 72   1  72 939
-## 73   1  73 589
-## 74   1  74 511
-## 75   1  75 640
-## 76   1  76 273
-## 77   1  77 591
-## 78   1  78   8
-## 79   1  79 598
-## 80   1  80 287
-## 81   1  81 775
-## 82   1  82 425
-## 83   1  83 254
-## 84   1  84 218
-## 85   1  85 483
-## 86   1  86 548
-## 87   1  87 555
-## 88   1  88  93
-## 89   1  89 633
-## 90   1  90 321
-## 91   1  91 771
-## 92   1  92  77
-## 93   1  93 261
-## 94   1  94 647
-## 95   1  95 437
-## 96   1  96 568
-## 97   1  97 673
-## 98   1  98 544
-## 99   1  99 887
-## 100  1 100 712
-## 101  1 101 258
-## 102  1 102 132
-## 103  1 103 910
-## 104  1 104 502
-## 105  1 105 588
-## 106  1 106 337
-## 107  1 107 427
-## 108  1 108 529
-## 109  1 109 463
-## 110  1 110 383
-## 111  1 111 702
-## 112  1 112 624
-## 113  1 113 575
-## 114  1 114 747
-## 115  1 115 814
-## 116  1 116 949
-## 117  1 117 436
-## 118  1 118 816
-## 119  1 119 705
-## 120  1 120 617
-## 121  1 121 125
-## 122  1 122 579
-## 123  1 123 178
-## 124  1 124 794
-## 125  1 125 643
-## 126  1 126 730
-## 127  1 127  27
-## 128  1 128  62
-## 129  1 129  53
-## 130  1 130 678
-## 131  1 131 923
-## 132  1 132 599
-## 133  1 133 244
-## 134  1 134 874
-## 135  1 135 824
-## 136  1 136 468
-## 137  1 137 828
-## 138  1 138 572
-## 139  1 139 451
-## 140  1 140 736
-## 141  1 141 255
-## 142  1 142 448
-## 143  1 143 229
-## 144  1 144 335
-## 145  1 145 691
-## 146  1 146  30
-## 147  1 147 703
-## 148  1 148 417
-## 149  1 149 222
-## 150  1 150  25
-## 151  1 151 543
-## 152  1 152  22
-## 153  1 153 296
-## 154  1 154 742
-## 155  1 155 319
-## 156  1 156 995
-## 157  1 157 147
-## 158  1 158  23
-## 159  1 159 977
-## 160  1 160 247
-## 161  1 161 840
-## 162  1 162 576
-## 163  1 163 965
-## 164  1 164 659
-## 165  1 165 539
-## 166  1 166 142
-## 167  1 167 905
-## 168  1 168 879
-## 169  1 169 867
-## 170  1 170 699
-## 171  1 171 834
-## 172  1 172 303
-## 173  1 173 221
-## 174  1 174 720
-## 175  1 175 898
-## 176  1 176 644
-## 177  1 177 602
-## 178  1 178 596
-## 179  1 179 808
-## 180  1 180 626
-## 181  1 181  40
-## 182  1 182 236
-## 183  1 183 637
-## 184  1 184 754
-## 185  1 185 940
-## 186  1 186 190
-## 187  1 187 527
-## 188  1 188 901
-## 189  1 189  66
-## 190  1 190 674
-## 191  1 191 158
-## 192  1 192 677
-## 193  1 193 469
-## 194  1 194 517
-## 195  1 195 696
-## 196  1 196 741
-## 197  1 197 439
-## 198  1 198 260
-## 199  1 199 500
-## 200  1 200 133
-## 201  1 201 152
-## 202  1 202 704
-## 203  1 203 861
-## 204  1 204 890
-## 205  1 205 978
-## 206  1 206 231
-## 207  1 207 446
-## 208  1 208 117
-## 209  1 209 608
-## 210  1 210 877
-## 211  1 211 652
-## 212  1 212 558
-## 213  1 213 951
-## 214  1 214 377
-## 215  1 215 235
-## 216  1 216 547
-## 217  1 217 513
-## 218  1 218 631
-## 219  1 219 778
-## 220  1 220 926
-## 221  1 221 243
-## 222  1 222 769
-## 223  1 223 280
-## 224  1 224 675
-## 225  1 225 859
-## 226  1 226 827
-## 227  1 227  52
-## 228  1 228  86
-## 229  1 229 946
-## 230  1 230 723
-## 231  1 231 107
-## 232  1 232 100
-## 233  1 233 849
-## 234  1 234 706
-## 235  1 235 476
-## 236  1 236 888
-## 237  1 237 534
-## 238  1 238 917
-## 239  1 239 876
-## 240  1 240 198
-## 241  1 241 183
-## 242  1 242 345
-## 243  1 243 937
-## 244  1 244 265
-## 245  1 245 740
-## 246  1 246 927
-## 247  1 247 332
-## 248  1 248 205
-## 249  1 249 322
-## 250  1 250 880</code></pre>
+## 1    1   1 782
+## 2    1   2 440
+## 3    1   3 506
+## 4    1   4 759
+## 5    1   5  40
+## 6    1   6 824
+## 7    1   7 226
+## 8    1   8 385
+## 9    1   9 116
+## 10   1  10 997
+## 11   1  11 716
+## 12   1  12 518
+## 13   1  13 680
+## 14   1  14 299
+## 15   1  15 846
+## 16   1  16 831
+## 17   1  17 952
+## 18   1  18 321
+## 19   1  19 600
+## 20   1  20 577
+## 21   1  21 901
+## 22   1  22  41
+## 23   1  23 475
+## 24   1  24 993
+## 25   1  25  77
+## 26   1  26 701
+## 27   1  27 109
+## 28   1  28 660
+## 29   1  29 367
+## 30   1  30 703
+## 31   1  31 944
+## 32   1  32 198
+## 33   1  33  63
+## 34   1  34 902
+## 35   1  35 969
+## 36   1  36 512
+## 37   1  37 183
+## 38   1  38 823
+## 39   1  39 748
+## 40   1  40 391
+## 41   1  41 714
+## 42   1  42 795
+## 43   1  43 252
+## 44   1  44 402
+## 45   1  45 683
+## 46   1  46 917
+## 47   1  47   9
+## 48   1  48 162
+## 49   1  49 322
+## 50   1  50 480
+## 51   1  51 958
+## 52   1  52 536
+## 53   1  53  88
+## 54   1  54 117
+## 55   1  55 479
+## 56   1  56 655
+## 57   1  57 203
+## 58   1  58 427
+## 59   1  59 258
+## 60   1  60 722
+## 61   1  61 278
+## 62   1  62 132
+## 63   1  63  44
+## 64   1  64 106
+## 65   1  65 239
+## 66   1  66 730
+## 67   1  67 137
+## 68   1  68 425
+## 69   1  69 253
+## 70   1  70 260
+## 71   1  71  33
+## 72   1  72 589
+## 73   1  73 643
+## 74   1  74 555
+## 75   1  75 742
+## 76   1  76 832
+## 77   1  77 962
+## 78   1  78 615
+## 79   1  79 319
+## 80   1  80 363
+## 81   1  81 914
+## 82   1  82 257
+## 83   1  83 463
+## 84   1  84 732
+## 85   1  85 486
+## 86   1  86 261
+## 87   1  87 331
+## 88   1  88 794
+## 89   1  89 570
+## 90   1  90 874
+## 91   1  91 652
+## 92   1  92 664
+## 93   1  93 335
+## 94   1  94  75
+## 95   1  95 746
+## 96   1  96 500
+## 97   1  97 857
+## 98   1  98 442
+## 99   1  99 840
+## 100  1 100 955
+## 101  1 101 230
+## 102  1 102 178
+## 103  1 103 957
+## 104  1 104 635
+## 105  1 105 432
+## 106  1 106 865
+## 107  1 107 210
+## 108  1 108 340
+## 109  1 109 567
+## 110  1 110 169
+## 111  1 111 407
+## 112  1 112 189
+## 113  1 113 168
+## 114  1 114 878
+## 115  1 115   2
+## 116  1 116 232
+## 117  1 117 899
+## 118  1 118 501
+## 119  1 119  34
+## 120  1 120 828
+## 121  1 121 114
+## 122  1 122 973
+## 123  1 123 708
+## 124  1 124 984
+## 125  1 125  11
+## 126  1 126 514
+## 127  1 127 175
+## 128  1 128 421
+## 129  1 129 745
+## 130  1 130  15
+## 131  1 131 934
+## 132  1 132 710
+## 133  1 133 274
+## 134  1 134 698
+## 135  1 135 910
+## 136  1 136 641
+## 137  1 137 564
+## 138  1 138 735
+## 139  1 139 939
+## 140  1 140 697
+## 141  1 141 591
+## 142  1 142 930
+## 143  1 143 561
+## 144  1 144 750
+## 145  1 145 843
+## 146  1 146  86
+## 147  1 147 308
+## 148  1 148 743
+## 149  1 149 170
+## 150  1 150 542
+## 151  1 151 822
+## 152  1 152 379
+## 153  1 153 604
+## 154  1 154 762
+## 155  1 155 961
+## 156  1 156 447
+## 157  1 157 922
+## 158  1 158 873
+## 159  1 159 988
+## 160  1 160 657
+## 161  1 161  73
+## 162  1 162 813
+## 163  1 163 437
+## 164  1 164  68
+## 165  1 165 798
+## 166  1 166 608
+## 167  1 167 808
+## 168  1 168 417
+## 169  1 169 348
+## 170  1 170 807
+## 171  1 171 195
+## 172  1 172 877
+## 173  1 173 218
+## 174  1 174 672
+## 175  1 175 155
+## 176  1 176 389
+## 177  1 177 201
+## 178  1 178 401
+## 179  1 179 638
+## 180  1 180 890
+## 181  1 181 851
+## 182  1 182 510
+## 183  1 183 350
+## 184  1 184  60
+## 185  1 185 344
+## 186  1 186 333
+## 187  1 187 576
+## 188  1 188 464
+## 189  1 189 158
+## 190  1 190 999
+## 191  1 191 525
+## 192  1 192 414
+## 193  1 193 719
+## 194  1 194 678
+## 195  1 195 465
+## 196  1 196 216
+## 197  1 197 639
+## 198  1 198 792
+## 199  1 199 393
+## 200  1 200 424
+## 201  1 201 280
+## 202  1 202 790
+## 203  1 203 799
+## 204  1 204 715
+## 205  1 205 788
+## 206  1 206 839
+## 207  1 207 854
+## 208  1 208 575
+## 209  1 209 938
+## 210  1 210 741
+## 211  1 211 970
+## 212  1 212 266
+## 213  1 213 349
+## 214  1 214 819
+## 215  1 215 841
+## 216  1 216 119
+## 217  1 217 412
+## 218  1 218  31
+## 219  1 219  18
+## 220  1 220 277
+## 221  1 221 325
+## 222  1 222 527
+## 223  1 223 785
+## 224  1 224 647
+## 225  1 225 316
+## 226  1 226 627
+## 227  1 227 797
+## 228  1 228 533
+## 229  1 229 177
+## 230  1 230 891
+## 231  1 231 709
+## 232  1 232 916
+## 233  1 233 624
+## 234  1 234 495
+## 235  1 235 893
+## 236  1 236 594
+## 237  1 237 129
+## 238  1 238 484
+## 239  1 239 342
+## 240  1 240  17
+## 241  1 241 812
+## 242  1 242 355
+## 243  1 243 436
+## 244  1 244 264
+## 245  1 245 651
+## 246  1 246 202
+## 247  1 247 382
+## 248  1 248  62
+## 249  1 249 222
+## 250  1 250 127</code></pre>
 <div id="head" class="section level4 unnumbered">
 <h4>Head</h4>
 <p>Alternatively, you can just check the top rows using the head function. Like this:</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-structure-types.html#cb65-1"></a><span class="kw">head</span>(DataFrame)</span></code></pre></div>
 <pre><code>##   x1 x2  x3
-## 1  1  1 333
-## 2  1  2 655
-## 3  1  3 987
-## 4  1  4 270
-## 5  1  5 953
-## 6  1  6 961</code></pre>
+## 1  1  1 782
+## 2  1  2 440
+## 3  1  3 506
+## 4  1  4 759
+## 5  1  5  40
+## 6  1  6 824</code></pre>
 </div>
 <div id="tail" class="section level4 unnumbered">
 <h4>Tail</h4>
 <p>Or the bottom rows using the tail function. Like this:</p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-structure-types.html#cb67-1"></a><span class="kw">tail</span>(DataFrame)</span></code></pre></div>
 <pre><code>##     x1  x2  x3
-## 245  1 245 740
-## 246  1 246 927
-## 247  1 247 332
-## 248  1 248 205
-## 249  1 249 322
-## 250  1 250 880</code></pre>
+## 245  1 245 651
+## 246  1 246 202
+## 247  1 247 382
+## 248  1 248  62
+## 249  1 249 222
+## 250  1 250 127</code></pre>
 </div>
 <div id="index" class="section level4 unnumbered">
 <h4>Index</h4>
 <p>You can also check specific elements of the dataframe using the index function, which in R is indicated with the square brackets [row,column]. The number to the left of the comma will be the row number, and the number to the right the column number. If you do not add a number, it will display all columns or all rows. For instance, check what number is in column 3 in the 2th row?</p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-structure-types.html#cb69-1"></a>DataFrame[<span class="dv">2</span>,<span class="dv">3</span>]</span></code></pre></div>
-<pre><code>## [1] 655</code></pre>
+<pre><code>## [1] 440</code></pre>
 <iframe src="https://mora.shinyapps.io/QuestionsChapter3/" width="100%" height="400px">
 </iframe>
 </div>
@@ -709,7 +729,7 @@ Figure 3.6: Slash keys in keyboard
 <h4>Calling columns by name</h4>
 <p>To call a column by name in a dataframe, you use the dollar sign $ to merge the name of the dataframe with the name of the column, like this,</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-structure-types.html#cb71-1"></a><span class="kw">head</span>(DataFrame<span class="op">$</span>x3) <span class="co">#here I only display the top values of the column Country_Name</span></span></code></pre></div>
-<pre><code>## [1] 333 655 987 270 953 961</code></pre>
+<pre><code>## [1] 782 440 506 759  40 824</code></pre>
 </div>
 </div>
 </div>
@@ -789,6 +809,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

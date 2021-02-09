@@ -426,7 +426,7 @@ knitr::include_graphics("images/PDFvsPNG.png")
 
 
 
-## Excersice {-}
+## Excersise {-}
 
 Now that you know how to manipulate data and do some basic figures. For this chapter's exercise, please find the guidelines for figures in the journal Nature and do a plot according to the standards required for that journal.
 
