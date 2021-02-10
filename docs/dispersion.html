@@ -304,7 +304,7 @@ Figure 5.7: The effect of the range
 <p>How is the percentile calculated?. Simple,</p>
 <ol style="list-style-type: decimal">
 <li><p>Rank the values in your database from smallest to largest, we called this the sorted vector.</p></li>
-<li><p>Multiple the number of values in your database by the given percentile you want to find as a fraction (It you want the 90th percentile, the fraction is 0.9), we call this resulting number the index or <span class="math inline">\(Xth\)</span> point</p></li>
+<li><p>Multiply the number of values in your database by the given percentile you want to find as a fraction (If you want the 90th percentile, the fraction is 0.9), we call this resulting number the index or <span class="math inline">\(Xth\)</span> point</p></li>
 <li><p>Now go back to your sorted vector, starting from the first number in that vector move to the right until the value located at the Xth point. The value located at the Xth point is your given percentile.</p></li>
 </ol>
 <p>Lets do an example,</p>
@@ -323,7 +323,7 @@ Figure 5.8: My rabbit population
 Figure 5.9: My rabbits sorted by height
 </p>
 </div>
-<p>Next, I multiple the percentile of interest (80th) as a fraction (i.e., 0.8) by the number of rabbits (10). So the 80th percentile height is the height of whatever rabbit is sitting in 8th position. In this case the number is 45. So the 80th percentile of my rabbit population is 45cm.</p>
+<p>Next, I multiply the percentile of interest (80th) as a fraction (i.e., 0.8) by the number of rabbits (10). So the 80th percentile height is the height of whatever rabbit is sitting in 8th position. In this case the number is 45. So the 80th percentile of my rabbit population is 45cm.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-172"></span>
 <img src="images/Percentile%202.png" alt="The 80th percentile" width="100%" />
 <p class="caption">
@@ -392,7 +392,7 @@ Variance = σ^2=\frac{\sum_{i=1}^n (X_i-u)^2}{N}
 <p>The parameter <span class="math inline">\((X_i-\bar{X})^2\)</span> is called <em>sum of squares</em>. Becuase each value is compared to the mean, if you do not square it, the result will be zero because the negative values will cancel the positive values. Squaring the difference between <span class="math inline">\((X_i-\bar{X})\)</span> will make the quantity nonnegative.</p>
 </div>
 
-<p>I few things you may have notice about these two equationss.</p>
+<p>A few things you may have notice about these two equationss.</p>
 <ol style="list-style-type: decimal">
 <li><p>The equations are almost identical to the arithmetic mean. Indeed, they are. The variance can be thought of as the average of the differences from each value to the mean.</p></li>
 <li><p>When calculating the variance of a population we use the capital letter N but lowercase letter n when it is a sample.</p></li>
@@ -468,7 +468,8 @@ Standard \ deviation= S = \sqrt {s^2}
 <iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=10" width="958" height="371" frameborder="0" allowfullscreen="allowfullscreen">
 </iframe>
 <script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
-<p>In the example with the dogs, we have the problem of low sample size. In you recall and earlier chapter, the problem with low samples is that the variability increases and that is reflected in the standard deviation (SD). Lets try the standard deviation in a large sample size.</p>
+<p>In the example with the dogs, we have the problem of low sample size. If you recall an earlier chapter, the problem with low samples is that the variability increases as the sample size decreases and that is reflected in the standard deviation (SD).</p>
+<p>Lets try the standard deviation in a large sample size.</p>
 <div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="dispersion.html#cb169-1"></a>y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>) <span class="co"># the function rnorm allows you to create a random set of numbers from a normal distribution</span></span>
 <span id="cb169-2"><a href="dispersion.html#cb169-2"></a></span>
 <span id="cb169-3"><a href="dispersion.html#cb169-3"></a><span class="co">#lets now plot that data using the hist function, you already know how to use:</span></span>

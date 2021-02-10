@@ -44,7 +44,7 @@ The metrics used to describe data overall are called **descriptive statistics**.
 
 As mentioned several times in this class, the first thing to always do when analyzing data is to create a visual representation. You need to see what are the general tendencies in your data, and for that we commonly start with the frequency distribution.
 
-Lets image that the plot below is the number of seedlings (points) at each height in my nursery. Interesting, ahh?. That type of distribution is called bimodal (there are two picks in the data). Clearly, there is something going on in my nursery, some seedlings are doing particularly better than others.
+Lets image that the plot below is the number of seedlings (points) at each height in my nursery. Interesting, ahh?. That type of distribution is called bimodal (there are two peaks in the data). Clearly, there is something going on in my nursery, some seedlings are doing particularly better than others.
 
 
 
@@ -139,8 +139,7 @@ The mean of a sample is denoted wit the letter $\bar{X}$; at times it does not i
 The mean of a population is at times denoted with the lowercase letter $u$, at times it is not cursive. They are both calculated the same way.
 ```
 
-The symbol that looks like a pacman is call **summation**. The lower letter $i$ indicates that the summation starts from the first number (i.e., i=1), and the higher letter *n*, means until the last number. $Xi$ means each value. In short, the numerator of the equation above says: sum all values starting from the first one until the last one. $n$ indicates the sample size or total number of values in your database (it is was the average of a population, you will likely see capital letter $N$
-instead of the lowercase $n$ ).
+The symbol that looks like a pacman, $\sum_{}$, is call **summation**. The lower letter $i$ indicates that the summation starts from the first number (i.e., i=1), and the higher letter *n*, means the last number. $Xi$ means each value. In short, the numerator of the equation above says: sum all values starting from the first one until the last one. $n$ indicates the sample size or total number of values in your database (if it is was the average of a population, you will likely see capital letter $N$ instead of the lowercase $n$ ).
 
 
 
@@ -509,7 +508,7 @@ How is the percentile calculated?. Simple,
 
 1. Rank the values in your database from smallest to largest, we called this the sorted vector.
 
-2. Multiple the number of values in your database by the given percentile you want to find as a fraction (It you want the 90th percentile, the fraction is 0.9), we call this resulting number the index or $Xth$ point
+2. Multiply the number of values in your database by the given percentile you want to find as a fraction (If you want the 90th percentile, the fraction is 0.9), we call this resulting number the index or $Xth$ point
 
 3. Now go back to your sorted vector, starting from the first number in that vector move to the right until the value located at the Xth point. The value located at the Xth point is your given percentile.
 
@@ -533,7 +532,7 @@ knitr::include_graphics("images/Percentile.png")
 ```
 
 
-Next, I multiple the percentile of interest (80th) as a fraction (i.e., 0.8) by the number of rabbits (10). So the 80th percentile height is the height of whatever rabbit is sitting in 8th position. In this case the number is 45. So the 80th percentile of my rabbit population is 45cm.
+Next, I multiply the percentile of interest (80th) as a fraction (i.e., 0.8) by the number of rabbits (10). So the 80th percentile height is the height of whatever rabbit is sitting in 8th position. In this case the number is 45. So the 80th percentile of my rabbit population is 45cm.
 
 ```{r,fig.margin = TRUE, out.width = "100%", echo= FALSE, fig.align = 'center',fig.cap = 'The 80th percentile'}
 knitr::include_graphics("images/Percentile 2.png")
@@ -623,7 +622,7 @@ The parameter  $(X_i-\bar{X})^2$ is called *sum of squares*. Becuase each value 
 ```
 
 
-I few things you may have notice about these two equationss.
+A few things you may have notice about these two equationss.
 
 1. The equations are almost identical to the arithmetic mean. Indeed, they are. The variance can be thought of as the average of the differences from each value to the mean.
 
@@ -742,7 +741,9 @@ In a normal distribution, 95% of the observations are within 2SD from the mean. 
 <iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=10" width="958" height="371" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 
-In the example with the dogs, we have the problem of low sample size. In you recall and earlier chapter, the problem with low samples is that the variability increases and that is reflected in the standard deviation (SD). Lets try the standard deviation in a large sample size.
+In the example with the dogs, we have the problem of low sample size. If you recall an earlier chapter, the problem with low samples is that the variability increases as the sample size decreases and that is reflected in the standard deviation (SD).
+
+Lets try the standard deviation in a large sample size.
 
 ```{r , message=FALSE,warning=FALSE}
 y <- rnorm(1000) # the function rnorm allows you to create a random set of numbers from a normal distribution
@@ -811,9 +812,9 @@ Now lets check some equations:
 
 In Tinn-R, write down a code that:
 
-1. Create a sample of 1000 points from a normal distribution, and place them in a data.frame, with one column named X.
+1. Creates a sample of 1000 points from a normal distribution, and place them in a data.frame, with one column named X.
 
-2. Estimate the mean, median and mode of variable X, have these individual values stored in their own variable names.
+2. Estimate the mean, median and mode of variable X; have these individual values stored in their own variable names.
 
 3. Estimate the standard deviation and place it in its own variable name.
 
