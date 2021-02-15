@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Excersice | GEOG380.utf8</title>
+  <title>5 Descriptive statistics | GEOG380.utf8</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Excersice | GEOG380.utf8" />
+  <meta property="og:title" content="5 Descriptive statistics | GEOG380.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Excersice | GEOG380.utf8" />
+  <meta name="twitter:title" content="5 Descriptive statistics | GEOG380.utf8" />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="saving-plots.html"/>
-<link rel="next" href="descriptive-statistics.html"/>
+<link rel="prev" href="excersise.html"/>
+<link rel="next" href="data-distributions.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -138,7 +138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
 <li class="chapter" data-level="" data-path="do-not-dispair-please.html"><a href="do-not-dispair-please.html"><i class="fa fa-check"></i>Do not dispair, please</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="the-scientific-method.html"><a href="the-scientific-method.html"><i class="fa fa-check"></i><b>1</b> The scientific method</a><ul>
+<li class="chapter" data-level="1" data-path="1-the-scientific-method.html"><a href="1-the-scientific-method.html"><i class="fa fa-check"></i><b>1</b> The scientific method</a><ul>
 <li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html"><i class="fa fa-check"></i>The problem</a><ul>
 <li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#narrow-the-problem"><i class="fa fa-check"></i>Narrow the problem</a></li>
 <li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#search-prior-knowledge"><i class="fa fa-check"></i>Search prior knowledge</a></li>
@@ -167,14 +167,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="homework.html"><a href="homework.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="installing-programs.html"><a href="installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a><ul>
+<li class="chapter" data-level="2" data-path="2-installing-programs.html"><a href="2-installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a><ul>
 <li class="chapter" data-level="" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i>Installing R</a></li>
 <li class="chapter" data-level="" data-path="tinn-r.html"><a href="tinn-r.html"><i class="fa fa-check"></i>Tinn-R</a></li>
+<li class="chapter" data-level="" data-path="r-studio.html"><a href="r-studio.html"><i class="fa fa-check"></i>R-Studio</a></li>
 <li class="chapter" data-level="" data-path="installing-packages.html"><a href="installing-packages.html"><i class="fa fa-check"></i>Installing packages</a></li>
 <li class="chapter" data-level="" data-path="asking-for-help.html"><a href="asking-for-help.html"><i class="fa fa-check"></i>Asking for help</a></li>
 <li class="chapter" data-level="" data-path="exercise.html"><a href="exercise.html"><i class="fa fa-check"></i>Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="basics-on-data-manipulation-in-r.html"><a href="basics-on-data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Basics on data manipulation in R</a><ul>
+<li class="chapter" data-level="3" data-path="3-basics-on-data-manipulation-in-r.html"><a href="3-basics-on-data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Basics on data manipulation in R</a><ul>
 <li class="chapter" data-level="" data-path="variables-1.html"><a href="variables-1.html"><i class="fa fa-check"></i>Variables</a></li>
 <li class="chapter" data-level="" data-path="comments.html"><a href="comments.html"><i class="fa fa-check"></i>Comments</a></li>
 <li class="chapter" data-level="" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i>Operators</a><ul>
@@ -201,21 +202,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercise-3.html"><a href="exercise-3.html"><i class="fa fa-check"></i>Exercise</a></li>
 <li class="chapter" data-level="" data-path="homework-1.html"><a href="homework-1.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="basic-plots.html"><a href="basic-plots.html"><i class="fa fa-check"></i><b>4</b> Basic plots</a><ul>
+<li class="chapter" data-level="4" data-path="4-basic-plots.html"><a href="4-basic-plots.html"><i class="fa fa-check"></i><b>4</b> Basic plots</a><ul>
 <li class="chapter" data-level="" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i>Scatterplots</a></li>
 <li class="chapter" data-level="" data-path="histograms.html"><a href="histograms.html"><i class="fa fa-check"></i>Histograms</a></li>
 <li class="chapter" data-level="" data-path="density-plots.html"><a href="density-plots.html"><i class="fa fa-check"></i>Density plots</a></li>
 <li class="chapter" data-level="" data-path="plotting-maps.html"><a href="plotting-maps.html"><i class="fa fa-check"></i>Plotting maps</a></li>
 <li class="chapter" data-level="" data-path="animated-plots.html"><a href="animated-plots.html"><i class="fa fa-check"></i>Animated plots</a></li>
 <li class="chapter" data-level="" data-path="saving-plots.html"><a href="saving-plots.html"><i class="fa fa-check"></i>Saving plots</a></li>
-<li class="chapter" data-level="" data-path="excersice.html"><a href="excersice.html"><i class="fa fa-check"></i>Excersice</a></li>
+<li class="chapter" data-level="" data-path="excersise.html"><a href="excersise.html"><i class="fa fa-check"></i>Excersise</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="descriptive-statistics.html"><a href="descriptive-statistics.html"><i class="fa fa-check"></i><b>5</b> Descriptive statistics</a><ul>
+<li class="chapter" data-level="5" data-path="5-descriptive-statistics.html"><a href="5-descriptive-statistics.html"><i class="fa fa-check"></i><b>5</b> Descriptive statistics</a><ul>
 <li class="chapter" data-level="" data-path="data-distributions.html"><a href="data-distributions.html"><i class="fa fa-check"></i>Data distributions</a></li>
-<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html"><i class="fa fa-check"></i>Central tendency</a></li>
-<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html"><i class="fa fa-check"></i>Dispersion</a><ul>
-<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-range"><i class="fa fa-check"></i>The range</a></li>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html"><i class="fa fa-check"></i>Central tendency</a><ul>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-arithmetic-mean"><i class="fa fa-check"></i>The arithmetic mean</a></li>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-trimmed-mean"><i class="fa fa-check"></i>The trimmed mean</a></li>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-weighted-average"><i class="fa fa-check"></i>The weighted average</a></li>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-median"><i class="fa fa-check"></i>The median</a></li>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-mode"><i class="fa fa-check"></i>The mode</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html"><i class="fa fa-check"></i>Dispersion</a><ul>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-minimum-and-the-maximum"><i class="fa fa-check"></i>The minimum and the maximum</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-range"><i class="fa fa-check"></i>The range</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-percentile"><i class="fa fa-check"></i>The percentile</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-quantile"><i class="fa fa-check"></i>The quantile</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-variance"><i class="fa fa-check"></i>The variance</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-standard-deviation"><i class="fa fa-check"></i>The standard deviation</a></li>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-coefience-of-variance"><i class="fa fa-check"></i>The coefience of variance</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="homework-2.html"><a href="homework-2.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
@@ -239,13 +254,36 @@ By Camilo Mora, Ph.D.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="excersice" class="section level2 unnumbered">
-<h2>Excersice</h2>
-<p>Now that you know how to manipulate data and do some basic figures. For this chapter’s exercise, please find the guidelines for figures in the journal Nature and do a plot according to the standards required for that journal.</p>
-<p>Plot the relationship between GDP and population size, using the databases that have been provided to you already, and include of the basic criteria for figures mentioned at the start of this chapter.</p>
+<div id="descriptive-statistics" class="section level1">
+<h1><span class="header-section-number">5</span> Descriptive statistics</h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OLCReYns0dQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Ok, guys, by now you know how:</p>
+<ol style="list-style-type: decimal">
+<li>to set a question,</li>
+<li>reformulate the question based on your literature review,</li>
+<li>set up an error proof experiment,</li>
+<li>enter and manipulate data in R and</li>
+<li>do some basic plots in R.</li>
+</ol>
+<p>Nice, ah?.</p>
+<p>Now we move on to the analysis of any data you collect. That process is called <strong>inference</strong>; basically, drowning a conclusion based on the numbers and your interpretation of those numbers.</p>
+<p>iii</p>
 
+<div class="rmdnote">
+Inference is defined as the process of drawing conclusions based on evidence and reasoning.
 </div>
-<!-- </div> -->
+
+<p>Once you finish an experiment and collect your data, there are a few things to do:</p>
+<p>First, you need visualize the data, using plots you learned how to do in the prior chapter.</p>
+<p>Second, you need to use a set of available metrics to describe your data in general. You need to get the big picture first. Those BIG picture metrics are called <strong>DESCRIPTIVE STATISTICS</strong>.</p>
+<p>Say you get hired to analyze the visiting times of costumers in a store. The manager wants to ensure his costumers are always being attended to so he wants to hire more people at pick hours.</p>
+<p>To tackled this problem, you probably want to record the time people walk into the store. Let’s say 100 people came in a day.</p>
+<p>If you want to report your findings to the manager, you cannot just go and tell him, the first costumer came at 7 am, the second at 7:10, the third at 8:20 am….(one hour later)…and the 100th costumer came in at 7:00pm.</p>
+<p>Very likely there is a pattern in that data, but the manager cannot really perceived it when the data are presented in raw form. So the manager cannot really make any decision to solve his problem based on what you did, so he may not have a reason to keep you.</p>
+<p>Really what you want to do is to describe that data for him, as to facilitate his decision.</p>
+<p>The metrics used to describe data overall are called <strong>descriptive statistics</strong>. Such metrics are commonly divided into those dealing with what is at the middle of your data (the so-call metrics of <strong>central tendency</strong>) and those dealing with how variable your data are (the so-call <strong>metrics of dispersion</strong>).</p>
+</div>
 <div id="disqus_thread"></div>
 <script>
     /**
@@ -270,8 +308,8 @@ By Camilo Mora, Ph.D.
           </div>
         </div>
       </div>
-<a href="saving-plots.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="descriptive-statistics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="excersise.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-distributions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -310,7 +348,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/Camilo-Mora/GEOG380/blob/main/04-RBasics-Plots.Rmd",
+"link": "https://github.com/Camilo-Mora/GEOG380/blob/main/05-DescriptiveStatistics.Rmd",
 "text": null
 },
 "download": ["GEOG380.pdf", "GEOG380.epub"],
@@ -322,6 +360,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

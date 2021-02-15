@@ -388,7 +388,7 @@ knitr::include_graphics("images/Keyboard.png")
 So the path to the file should be change from this:
 
 ```{r}
-# "C:\Users\Camilo\Desktop\Data"
+# "D:/GEO380/Datasets/"
 ```
 
 
@@ -396,7 +396,7 @@ So the path to the file should be change from this:
 to this:
 
 ```{r}
-# "C:/Users/Camilo/Desktop/Data/"
+# "D:/GEO380/Datasets/"
 ```
 
 
@@ -405,7 +405,7 @@ Now, to the path of the folder in which you have the file, you need to add the f
 
 
 ```{r}
-# "C:/Users/Camilo/Desktop/Data/Countries_GDP.csv"
+# "D:/GEO380/Datasets/Countries_GDP.csv"
 ```
 
 
@@ -416,7 +416,7 @@ Now add to your path the R function that is used read csv files, which is "read.
 
 
 ```{r}
-# read.csv("C:/Users/Camilo/Desktop/Data/Countries_GDP.csv")
+# read.csv("D:/GEO380/Datasets/Countries_GDP.csv")
 ```
 
 
@@ -425,7 +425,7 @@ I suggest you attach this file to a variable name, so you can call it later.
 
 
 ```{r}
-GDPData=read.csv("C:/Users/Camilo/Desktop/Data/Countries_GDP.csv")
+GDPData=read.csv("D:/GEO380/Datasets/Countries_GDP.csv")
 ```
 
 

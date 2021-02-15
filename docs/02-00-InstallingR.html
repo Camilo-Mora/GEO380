@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Installing programs | GEOG380.utf8</title>
+  <meta name="description" content="This is a entry level course to learn stats and R" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Installing programs | GEOG380.utf8" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a entry level course to learn stats and R" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Installing programs | GEOG380.utf8" />
+  
+  <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="01-ScientificMethod.html"/>
+<link rel="next" href="03-RBasics-DataManipulation.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a>GEOG380 Basic Stats with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#book-data-collection"><i class="fa fa-check"></i>Book data collection</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-is-r"><i class="fa fa-check"></i>What is R?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#do-not-dispair-please"><i class="fa fa-check"></i>Do not dispair, please</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html"><i class="fa fa-check"></i><b>1</b> The scientific method</a><ul>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#the-problem"><i class="fa fa-check"></i>The problem</a><ul>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#narrow-the-problem"><i class="fa fa-check"></i>Narrow the problem</a></li>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#search-prior-knowledge"><i class="fa fa-check"></i>Search prior knowledge</a></li>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#back-to-defining-the-problem"><i class="fa fa-check"></i>Back to defining the problem</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#the-hyphotesis"><i class="fa fa-check"></i>The hyphotesis</a><ul>
+<li><a href="01-ScientificMethod.html#the-null-hypothesis-h0">The null hypothesis <em>H0</em></a></li>
+<li><a href="01-ScientificMethod.html#the-alternate-hypothesis-h1">The alternate hypothesis <em>H1</em></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#the-experiment"><i class="fa fa-check"></i>The experiment</a><ul>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#population-sample-subject"><i class="fa fa-check"></i>Population, sample, subject</a></li>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#variables"><i class="fa fa-check"></i>Variables</a></li>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#the-control-and-treatment"><i class="fa fa-check"></i>The control and treatment</a></li>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#replication"><i class="fa fa-check"></i>Replication</a></li>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#pseudo-replication"><i class="fa fa-check"></i>Pseudo-Replication</a></li>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#randomness"><i class="fa fa-check"></i>Randomness</a></li>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#design-experiment"><i class="fa fa-check"></i>Design experiment</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#data-collection"><i class="fa fa-check"></i>Data collection</a></li>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#analyze-your-data"><i class="fa fa-check"></i>Analyze your data</a></li>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#vizualize-the-data"><i class="fa fa-check"></i>Vizualize the data</a></li>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#write-report"><i class="fa fa-check"></i>Write report</a></li>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#excercises"><i class="fa fa-check"></i>Excercises</a><ul>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#exercise-1"><i class="fa fa-check"></i>Exercise 1</a></li>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#exercise-2"><i class="fa fa-check"></i>Exercise 2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="01-ScientificMethod.html"><a href="01-ScientificMethod.html#homework"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="02-00-InstallingR.html"><a href="02-00-InstallingR.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a><ul>
+<li class="chapter" data-level="" data-path="02-00-InstallingR.html"><a href="02-00-InstallingR.html#installing-r"><i class="fa fa-check"></i>Installing R</a></li>
+<li class="chapter" data-level="" data-path="02-00-InstallingR.html"><a href="02-00-InstallingR.html#tinn-r"><i class="fa fa-check"></i>Tinn-R</a></li>
+<li class="chapter" data-level="" data-path="02-00-InstallingR.html"><a href="02-00-InstallingR.html#r-studio"><i class="fa fa-check"></i>R-Studio</a></li>
+<li class="chapter" data-level="" data-path="02-00-InstallingR.html"><a href="02-00-InstallingR.html#installing-packages"><i class="fa fa-check"></i>Installing packages</a></li>
+<li class="chapter" data-level="" data-path="02-00-InstallingR.html"><a href="02-00-InstallingR.html#asking-for-help"><i class="fa fa-check"></i>Asking for help</a></li>
+<li class="chapter" data-level="" data-path="02-00-InstallingR.html"><a href="02-00-InstallingR.html#exercise"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html"><i class="fa fa-check"></i><b>3</b> Basics on data manipulation in R</a><ul>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#variables-1"><i class="fa fa-check"></i>Variables</a></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#comments"><i class="fa fa-check"></i>Comments</a></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#operators"><i class="fa fa-check"></i>Operators</a><ul>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#assignment-operators"><i class="fa fa-check"></i>Assignment operators</a></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#arithmetic-operators"><i class="fa fa-check"></i>Arithmetic operators</a></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#character-operators"><i class="fa fa-check"></i>Character operators</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#custom-made-functions"><i class="fa fa-check"></i>Custom made functions</a></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#data-structure-types"><i class="fa fa-check"></i>Data structure types</a><ul>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#matrix"><i class="fa fa-check"></i>Matrix</a></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#dataframes"><i class="fa fa-check"></i>DataFrames</a></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#loading-your-own-data-into-r"><i class="fa fa-check"></i>Loading your own data into R</a></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#calling-elements"><i class="fa fa-check"></i>Calling elements</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#filter-data"><i class="fa fa-check"></i>Filter data</a></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#pivot-table"><i class="fa fa-check"></i>Pivot table</a></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#merge-data"><i class="fa fa-check"></i>Merge data</a></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#subsetting-columns"><i class="fa fa-check"></i>Subsetting columns</a><ul>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#deleting-columns"><i class="fa fa-check"></i>Deleting columns</a></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#selecting-columns"><i class="fa fa-check"></i>Selecting columns</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#adding-results-to-databases"><i class="fa fa-check"></i>Adding results to databases</a></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#exercise-3"><i class="fa fa-check"></i>Exercise</a></li>
+<li class="chapter" data-level="" data-path="03-RBasics-DataManipulation.html"><a href="03-RBasics-DataManipulation.html#homework-1"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="04-RBasics-Plots.html"><a href="04-RBasics-Plots.html"><i class="fa fa-check"></i><b>4</b> Basic plots</a><ul>
+<li class="chapter" data-level="" data-path="04-RBasics-Plots.html"><a href="04-RBasics-Plots.html#scatterplots"><i class="fa fa-check"></i>Scatterplots</a></li>
+<li class="chapter" data-level="" data-path="04-RBasics-Plots.html"><a href="04-RBasics-Plots.html#histograms"><i class="fa fa-check"></i>Histograms</a></li>
+<li class="chapter" data-level="" data-path="04-RBasics-Plots.html"><a href="04-RBasics-Plots.html#density-plots"><i class="fa fa-check"></i>Density plots</a></li>
+<li class="chapter" data-level="" data-path="04-RBasics-Plots.html"><a href="04-RBasics-Plots.html#plotting-maps"><i class="fa fa-check"></i>Plotting maps</a></li>
+<li class="chapter" data-level="" data-path="04-RBasics-Plots.html"><a href="04-RBasics-Plots.html#animated-plots"><i class="fa fa-check"></i>Animated plots</a></li>
+<li class="chapter" data-level="" data-path="04-RBasics-Plots.html"><a href="04-RBasics-Plots.html#saving-plots"><i class="fa fa-check"></i>Saving plots</a></li>
+<li class="chapter" data-level="" data-path="04-RBasics-Plots.html"><a href="04-RBasics-Plots.html#excersise"><i class="fa fa-check"></i>Excersise</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html"><i class="fa fa-check"></i><b>5</b> Descriptive statistics</a><ul>
+<li class="chapter" data-level="" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html#data-distributions"><i class="fa fa-check"></i>Data distributions</a></li>
+<li class="chapter" data-level="" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html#central-tendency"><i class="fa fa-check"></i>Central tendency</a><ul>
+<li class="chapter" data-level="" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html#the-arithmetic-mean"><i class="fa fa-check"></i>The arithmetic mean</a></li>
+<li class="chapter" data-level="" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html#the-trimmed-mean"><i class="fa fa-check"></i>The trimmed mean</a></li>
+<li class="chapter" data-level="" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html#the-weighted-average"><i class="fa fa-check"></i>The weighted average</a></li>
+<li class="chapter" data-level="" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html#the-median"><i class="fa fa-check"></i>The median</a></li>
+<li class="chapter" data-level="" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html#the-mode"><i class="fa fa-check"></i>The mode</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html#dispersion"><i class="fa fa-check"></i>Dispersion</a><ul>
+<li class="chapter" data-level="" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html#the-minimum-and-the-maximum"><i class="fa fa-check"></i>The minimum and the maximum</a></li>
+<li class="chapter" data-level="" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html#the-range"><i class="fa fa-check"></i>The range</a></li>
+<li class="chapter" data-level="" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html#the-percentile"><i class="fa fa-check"></i>The percentile</a></li>
+<li class="chapter" data-level="" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html#the-quantile"><i class="fa fa-check"></i>The quantile</a></li>
+<li class="chapter" data-level="" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html#the-variance"><i class="fa fa-check"></i>The variance</a></li>
+<li class="chapter" data-level="" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html#the-standard-deviation"><i class="fa fa-check"></i>The standard deviation</a></li>
+<li class="chapter" data-level="" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html#the-coefience-of-variance"><i class="fa fa-check"></i>The coefience of variance</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html#exercises"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="05-DescriptiveStatistics.html"><a href="05-DescriptiveStatistics.html#homework-2"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="installing-programs" class="section level1">
+<h1><span class="header-section-number">2</span> Installing programs</h1>
+<p>We are going to take a break of stats for the following two chapters to install and learn some basics about R.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zFFonOicjeo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</center>
+<div id="installing-r" class="section level2 unnumbered">
+<h2>Installing R</h2>
+<p>As mentioned earlier, R is free and it can be downloaded from <a href="https://www.r-project.org/">Here</a>.</p>
+<p>Once in that page click on CRAN (see red arrow in the figure below).</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-27"></span>
+<img src="images/RProject.png" alt="RProject Webpage" width="80%" />
+<p class="caption">
+Figure 2.1: RProject Webpage
+</p>
+</div>
+<p>Next select the mirror. Mirrors are servers around the world that maintain copies of R and all the packages. You can click on the “0-Cloud”, but any mirror will be fine (see image below)</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-28"></span>
+<img src="images/Mirror.png" alt="Installing R" width="80%" />
+<p class="caption">
+Figure 2.2: Installing R
+</p>
+</div>
+<p>Next,select the system of your computer. I recommend you use Windows. There are only small differences between systems, and it should work the same in any system. But if you have Apple, you are on your own. There are several perks in Apple, not a big deal, but be aware that due to compatibility and settings, issues may emerge.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-29"></span>
+<img src="images/System.png" alt="Installing R" width="80%" />
+<p class="caption">
+Figure 2.3: Installing R
+</p>
+</div>
+<p>Next, download the executable file of R, which is indicated in the read arrow in the figure below.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-30"></span>
+<img src="images/ExeFile.png" alt="Installing R" width="80%" />
+<p class="caption">
+Figure 2.4: Installing R
+</p>
+</div>
+<p>Once downloaded, the file should be in the “Downloads” folder. Double click on it and accept all the default settings. The R icon should now appear at the bottom your tab or Windows menu (See arrows in image below).</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-31"></span>
+<img src="images/RTab.png" alt="Installing R" width="80%" />
+<p class="caption">
+Figure 2.5: Installing R
+</p>
+</div>
+<p>Click on the icon, and welcome to R. Crazy how that screen does not look like much but it is a portal to a world of opportunities.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-32"></span>
+<img src="images/RGUI.png" alt="Installing R" width="80%" />
+<p class="caption">
+Figure 2.6: Installing R
+</p>
+</div>
+</div>
+<div id="tinn-r" class="section level2 unnumbered">
+<h2>Tinn-R</h2>
+<p>Once you run a line of code in R, it cannot be un-done. So very commonly, you have to re-run lines of code.</p>
+<p>For this reason, it is better if you write your code in a text editor program, and then running it R.
+You can save the text file, and next time, simply copy and paste.</p>
+<p>You can save your R code in any word processor. Notepad from Windows is just fine. You can also use Microsoft Word, but be mindful that that software commonly capitalizes the first letter in each new line. R is case sensitive, so Word is not worth the trouble.</p>
+<p>I personally use Tinn-R. It allows you to save your codes in a single file, gives you hints into your code, etc.</p>
+<p>Please install Tinn-R from <a href="https://sourceforge.net/projects/tinn-r/">here</a>.</p>
+
+<div class="rmdwarning">
+<strong>R</strong> is case sensitive. “A” is different from “a” in R!
+This simple rule is at the core of most bugs in R!
+</div>
+
+<p>To create a file in Tinn-R, click on the Tinn-R icon (see arrow in image below). Once there, click on “File”, then on “New”. This will create a clean sheet for you to start writing your codes. You will use this type of sheets to save your codes, as you move along.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
+<img src="images/TinnR.png" alt="Installing Tinn-R" width="80%" />
+<p class="caption">
+Figure 2.7: Installing Tinn-R
+</p>
+</div>
+</div>
+<div id="r-studio" class="section level2 unnumbered">
+<h2>R-Studio</h2>
+<p>There is also a very popular GUI (Graphical User Interface) called R-Studio, which allows you to run R while having the functionality of Tinn-R.</p>
+<p>Please know that R is not R studio. In R-Studio, R is almost hidden in the background, so it is important that you still know how to run R without R-Studio.</p>
+<p>With that said, R-studio facilitates considerably the learning of R, the downside is to think that R-studio is R.</p>
+<p>You can download R-studio from <a href="https://rstudio.com/products/rstudio/download/">here</a>; use the free version. Follow the instructions of the page to install the software.</p>
+<p>After installation R-Studio should appear as the icon in the image below.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-35"></span>
+<img src="images/RStudio.png" alt="Installing Tinn-R" width="80%" />
+<p class="caption">
+Figure 2.8: Installing Tinn-R
+</p>
+</div>
+<p>The next video show you for how to use R-Studio.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ghhIu98Sxc4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</center>
+</div>
+<div id="installing-packages" class="section level2 unnumbered">
+<h2>Installing packages</h2>
+<p>Part of the power of R is that tools developed by users around the world can be integrated into the R’s general functionality. Such tools are integrated into containers called packages, and deposited into the R repository for anyone to use. There are so many tools already developed that chances are there is a packages for anything you may need.</p>
+
+<div class="rmdwarning">
+The directory of available R-packages is available <a href="https://www.rdocumentation.org/taskviews">here</a>. You can click on any available package to learn more about it, including instructions on how to use them.
+</div>
+
+<p>The primary way to install a package is using the command:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="02-00-InstallingR.html#cb1-1"></a><span class="co"># install.packages(&quot;raster&quot;)</span></span></code></pre></div>
+<p>Between brackets should be the name of the package you want to install. You will be prompted to select a mirror. If this is the first time installing a package, you will also be asked to select a folder where to install the packages. I suggest you accept the default suggestions that are provided.</p>
+<p>Once installed in your local harddrive, you need to load the packages into your console every time you want to use it. To do so, you use the command:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="02-00-InstallingR.html#cb2-1"></a><span class="kw">library</span>(<span class="st">&quot;raster&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: package &#39;raster&#39; was built under R version 4.0.3</code></pre>
+<pre><code>## Loading required package: sp</code></pre>
+<p>Between quotations is the name of the raster. Rlease remember that R is case sensitive.</p>
+</div>
+<div id="asking-for-help" class="section level2 unnumbered">
+<h2>Asking for help</h2>
+<p>You can access help on any specific R function using the question mark sign, followed by the name of the function. For instance, to ask for help on the mean, you type:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="02-00-InstallingR.html#cb5-1"></a><span class="co"># ?mean</span></span></code></pre></div>
+<p>A window with available help on the function will pop-up (like the one in the image below).</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-40"></span>
+<img src="images/Help.png" alt="Asking for help in R" width="80%" />
+<p class="caption">
+Figure 2.9: Asking for help in R
+</p>
+</div>
+<p>One super nice thing about R’s help is that it provides examples on how the function should be used. See, for instance, the image above, an example (indicated with the red arrow) on how to use the mean function in R. You can simply copy those lines of commands and paste them in your console. This becomes very useful, as you can simply adjust that given code to your given data.</p>
+</div>
+<div id="exercise" class="section level2 unnumbered">
+<h2>Exercise</h2>
+<p>Please install R and Tinn-R in your computer. Then install and load the package “raster”. Run the first example for the function raster.</p>
+
+</div>
+</div>
+<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://basic-stats-with-r.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="01-ScientificMethod.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="03-RBasics-DataManipulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/Camilo-Mora/GEOG380/blob/main/02-00-InstallingR.Rmd",
+"text": null
+},
+"download": ["GEOG380.pdf", "GEOG380.epub"],
+"toc": {
+"collapse": "subsection"
+},
+"highlight": "pigments"
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

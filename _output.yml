@@ -1,7 +1,7 @@
 bookdown::gitbook:
   includes:
     after_body: disqus.html
-  split_by: section
+  split_by: section+number
   css: style.css
   config:
     highlight: pigments

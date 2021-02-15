@@ -68,17 +68,34 @@ Please install Tinn-R from [here](https://sourceforge.net/projects/tinn-r/).
 This simple rule is at the core of most bugs in R!
 ```
 
-There is also a very popular GUI (Graphical User Interface) called R-Studio, which you can download from [here](https://rstudio.com/products/rstudio/download/); use the free version. 
-
-For the purpose of this class, we will astart with basic R and Tinn-R. I want you to know the insides of R, and later on if you like you can move to use user interfaces that simplify things, but that may also hide things you should know.
-
-
-Click on the Tinn-R icon (see arrow in image below). Once there, click on "File", then on "New". This will create a clean sheet for you to start writing your codes. You will use this type of sheets to save your codes, as you move along.
+To create a file in Tinn-R, click on the Tinn-R icon (see arrow in image below). Once there, click on "File", then on "New". This will create a clean sheet for you to start writing your codes. You will use this type of sheets to save your codes, as you move along.
 
 ```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'Installing Tinn-R'}
 knitr::include_graphics("images/TinnR.png")
 ```
 
+
+## R-Studio {-}
+There is also a very popular GUI (Graphical User Interface) called R-Studio, which allows you to run R while having the functionality of Tinn-R.
+
+Please know that R is not R studio. In R-Studio, R is almost hidden in the background, so it is important that you still know how to run R without R-Studio. 
+
+With that said, R-studio facilitates considerably the learning of R, the downside is to think that R-studio is R.
+
+
+You can download R-studio from [here](https://rstudio.com/products/rstudio/download/); use the free version. Follow the instructions of the page to install the software.
+
+After installation R-Studio should appear as the icon in the image below.
+
+```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'R-Studio'}
+knitr::include_graphics("images/RStudio.png")
+```
+
+The next video show you for how to use R-Studio.
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ghhIu98Sxc4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>
 
 
 ## Installing packages {-}
