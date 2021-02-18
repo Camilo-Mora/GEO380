@@ -286,12 +286,14 @@ For the equation above, all we have to compute is $\sum_{}x$, $\sum_{}y$, $\sum_
 ```{r, message=FALSE,warning=FALSE}
 Y=StudyingTimes$Score
 X=StudyingTimes$Hours_Studying
+
+
 SumX= sum(X) #sum all values of x
 SumY= sum(Y)              #sum all values of y
 SumX2=sum (X^2) #sum all values of x^2..
 SumY2=sum (Y^2)      #   sprintf("%.0f",sum (Y **2))    
 SumXY=sum (X*Y)  #sum all value of x * y
-n=nrow(Data) # the number of observations is basically the number of rows in the database
+n=length(Y) # the number of observations is basically the number of rows in the database
 ```
 
 The results are:
@@ -377,20 +379,23 @@ knitr::include_graphics("images/Sharks eat icecream people.png")
 
 If you were to take any two random variables and correlate them together, you will still get a correlation value. 
 
-You may think that if the two variables are random, then the correlation will be close to zero...well you are wrong. 
+You may think that if the two variables are random, then the correlation will be close to zero...well, you are wrong. 
 
-It turns out that even by random chance alone variables may still be correlated. The chances of getting a higher correlation increase the lower the sample size. Just think about it, if you were to correlate any two data points, almost certainly your correlation will be 1 or -1.
+It turns out that even by random chance alone, two variables may still be correlated. The chances of getting a higher correlation increase the lower the sample size. 
 
-To address this potential caveat, we use established tables that tell you if the correlation you found could be different from random. Basically, you need to know if the correlation is significant or not.
+Just think about it, if you were to correlate any two data points, almost certainly your correlation will be 1 or -1.
 
-That word "significant" is tricky because it implies a level or threshold of error you are willing to take. That threshold is called **critical value**, commonly identified with the letter alpha, $\alpha$. Again it is the margin of error you are willing to accept as error.
+To address this potential caveat, we need to assess the "Significance" of the correlation. Basically, can the correlation you found emerge by chance alone?
 
-In biology, we normally give ourselves a 5%  chance of being wrong (p<0.05). But at times, it is preferable to be more certain and we take only a 1% chance (p<0.01).
+That word "significance or significant" is tricky because it implies a level or threshold of error you are willing to take. That threshold is called **critical value**, commonly identified with the letter alpha, $\alpha$. Again it is the margin of error you are willing to accept as error.
+
+In biology, we normally give ourselves a 5%  chance of being wrong (p<0.05). But at times, it is preferable to be more certain and we take only a 1% chance (p<0.01). At times rather, you just provide the exact probability of the correlation being random, in which case we provide the exact p-value. 
 
 ```{block2, type='rmdnote'}
 Remember that the parameter $n$ is call **sample size**.
 ```
 
+### correlation tables {-}
 For the case of the correlation, the significance of the correlation can be assessed quickly with a probability table, as the one shown below:
 
 
@@ -414,6 +419,24 @@ At that row, if you look over the value in the second column, that is the coeffi
 Our correlation coefficients was larger, $r$=`r round(r,2)`, meaning that it is unlikely our correlation could occur by chance alone.
 
 There you have it: the more time you study the better grades you get, now demonstrated mathematically. Take a couple tokens, gh, so you do not forget that conclusion!
+
+### Correlation p-values {-}
+At times, you want to be more specific about the likely error that the correlation you found can be caused by chance alone. In this case, we need to report an exact p-value. Later on we will be studying p-values in more detail.
+
+In R, the exact p-value of a correlation is calculated with the function *cor.test*.
+
+```{r, message=FALSE,warning=FALSE}
+Y=StudyingTimes$Score
+X=StudyingTimes$Hours_Studying
+
+
+cor.test (X,Y)
+```
+There are several things to the output of that R-function, *cor.test*, but for now, you just need to focus on the p-value number, which in our case, for the correlation between time studying and grades, is p-value=0.002963.
+
+Basically, given our sample size, there is a 0.3%, less than 1% chance, that our correlation can emerge by chance alone. 
+In conclusion, if you want a good grade in my class you really need to take good time to study. Mathematics tells you that there is no way around it; we are nearly 99.9% that is a legit correlation!.
+
 
 ## Exercises {-}
 

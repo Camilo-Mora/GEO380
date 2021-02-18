@@ -242,7 +242,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="interpreting-r.html"><a href="interpreting-r.html"><i class="fa fa-check"></i>Interpreting r</a></li>
 <li class="chapter" data-level="" data-path="causation.html"><a href="causation.html"><i class="fa fa-check"></i>Causation</a></li>
-<li class="chapter" data-level="" data-path="significance.html"><a href="significance.html"><i class="fa fa-check"></i>Significance</a></li>
+<li class="chapter" data-level="" data-path="significance.html"><a href="significance.html"><i class="fa fa-check"></i>Significance</a><ul>
+<li class="chapter" data-level="" data-path="significance.html"><a href="significance.html#correlation-tables"><i class="fa fa-check"></i>correlation tables</a></li>
+<li class="chapter" data-level="" data-path="significance.html"><a href="significance.html#correlation-p-values"><i class="fa fa-check"></i>Correlation p-values</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-3.html"><a href="homework-3.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
@@ -272,16 +275,19 @@ By Camilo Mora, Ph.D.
 <div id="significance" class="section level2 unnumbered">
 <h2>Significance</h2>
 <p>If you were to take any two random variables and correlate them together, you will still get a correlation value.</p>
-<p>You may think that if the two variables are random, then the correlation will be close to zero…well you are wrong.</p>
-<p>It turns out that even by random chance alone variables may still be correlated. The chances of getting a higher correlation increase the lower the sample size. Just think about it, if you were to correlate any two data points, almost certainly your correlation will be 1 or -1.</p>
-<p>To address this potential caveat, we use established tables that tell you if the correlation you found could be different from random. Basically, you need to know if the correlation is significant or not.</p>
-<p>That word “significant” is tricky because it implies a level or threshold of error you are willing to take. That threshold is called <strong>critical value</strong>, commonly identified with the letter alpha, <span class="math inline">\(\alpha\)</span>. Again it is the margin of error you are willing to accept as error.</p>
-<p>In biology, we normally give ourselves a 5% chance of being wrong (p&lt;0.05). But at times, it is preferable to be more certain and we take only a 1% chance (p&lt;0.01).</p>
+<p>You may think that if the two variables are random, then the correlation will be close to zero…well, you are wrong.</p>
+<p>It turns out that even by random chance alone, two variables may still be correlated. The chances of getting a higher correlation increase the lower the sample size.</p>
+<p>Just think about it, if you were to correlate any two data points, almost certainly your correlation will be 1 or -1.</p>
+<p>To address this potential caveat, we need to assess the “Significance” of the correlation. Basically, can the correlation you found emerge by chance alone?</p>
+<p>That word “significance or significant” is tricky because it implies a level or threshold of error you are willing to take. That threshold is called <strong>critical value</strong>, commonly identified with the letter alpha, <span class="math inline">\(\alpha\)</span>. Again it is the margin of error you are willing to accept as error.</p>
+<p>In biology, we normally give ourselves a 5% chance of being wrong (p&lt;0.05). But at times, it is preferable to be more certain and we take only a 1% chance (p&lt;0.01). At times rather, you just provide the exact probability of the correlation being random, in which case we provide the exact p-value.</p>
 
 <div class="rmdnote">
 Remember that the parameter <span class="math inline">\(n\)</span> is call <strong>sample size</strong>.
 </div>
 
+<div id="correlation-tables" class="section level3 unnumbered">
+<h3>correlation tables</h3>
 <p>For the case of the correlation, the significance of the correlation can be assessed quickly with a probability table, as the one shown below:</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-211"></span>
 <img src="images/CorrelationCoeficientP.png" alt="Significance of correlations" width="50%" />
@@ -289,13 +295,38 @@ Remember that the parameter <span class="math inline">\(n\)</span> is call <stro
 Figure 6.10: Significance of correlations
 </p>
 </div>
-<p>Lets use the example we have been working on about the relationship between the time students study and their grades. In that case, <span class="math inline">\(r\)</span>=0.94 and the sample size <span class="math inline">\(n\)</span> was 5 students.</p>
+<p>Lets use the example we have been working on about the relationship between the time students study and their grades. In that case, <span class="math inline">\(r\)</span>=0.98 and the sample size <span class="math inline">\(n\)</span> was 5 students.</p>
 <p>Is that coefficient of correlation significant?. Can I obtain a similarly high correlation, ifor any similar set of random variables?.</p>
 <p>To find out, you first select your critical value, <span class="math inline">\(\alpha\)</span>, lets choose 0.05. In this case, the second column in the table above will be the one we are interested on.</p>
 <p>Next, you scroll-down column one until the sample size in the table matches ours (that is 5).</p>
 <p>At that row, if you look over the value in the second column, that is the coefficient of correlation of any two random variables with five points. In our case, that value is 0.88.</p>
-<p>Our correlation coefficients was larger, <span class="math inline">\(r\)</span>=0.94, meaning that it is unlikely our correlation could occur by chance alone.</p>
+<p>Our correlation coefficients was larger, <span class="math inline">\(r\)</span>=0.98, meaning that it is unlikely our correlation could occur by chance alone.</p>
 <p>There you have it: the more time you study the better grades you get, now demonstrated mathematically. Take a couple tokens, gh, so you do not forget that conclusion!</p>
+</div>
+<div id="correlation-p-values" class="section level3 unnumbered">
+<h3>Correlation p-values</h3>
+<p>At times, you want to be more specific about the likely error that the correlation you found can be caused by chance alone. In this case, we need to report an exact p-value. Later on we will be studying p-values in more detail.</p>
+<p>In R, the exact p-value of a correlation is calculated with the function <em>cor.test</em>.</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="significance.html#cb189-1"></a>Y=StudyingTimes<span class="op">$</span>Score</span>
+<span id="cb189-2"><a href="significance.html#cb189-2"></a>X=StudyingTimes<span class="op">$</span>Hours_Studying</span>
+<span id="cb189-3"><a href="significance.html#cb189-3"></a></span>
+<span id="cb189-4"><a href="significance.html#cb189-4"></a></span>
+<span id="cb189-5"><a href="significance.html#cb189-5"></a><span class="kw">cor.test</span> (X,Y)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  X and Y
+## t = 8.9289, df = 3, p-value = 0.002963
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.7427169 0.9988455
+## sample estimates:
+##       cor 
+## 0.9817004</code></pre>
+<p>There are several things to the output of that R-function, <em>cor.test</em>, but for now, you just need to focus on the p-value number, which in our case, for the correlation between time studying and grades, is p-value=0.002963.</p>
+<p>Basically, given our sample size, there is a 0.3%, less than 1% chance, that our correlation can emerge by chance alone.
+In conclusion, if you want a good grade in my class you really need to take good time to study. Mathematics tells you that there is no way around it; we are nearly 99.9% that is a legit correlation!.</p>
+</div>
 </div>
 <div id="disqus_thread"></div>
 <script>

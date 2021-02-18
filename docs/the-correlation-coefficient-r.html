@@ -242,7 +242,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="interpreting-r.html"><a href="interpreting-r.html"><i class="fa fa-check"></i>Interpreting r</a></li>
 <li class="chapter" data-level="" data-path="causation.html"><a href="causation.html"><i class="fa fa-check"></i>Causation</a></li>
-<li class="chapter" data-level="" data-path="significance.html"><a href="significance.html"><i class="fa fa-check"></i>Significance</a></li>
+<li class="chapter" data-level="" data-path="significance.html"><a href="significance.html"><i class="fa fa-check"></i>Significance</a><ul>
+<li class="chapter" data-level="" data-path="significance.html"><a href="significance.html#correlation-tables"><i class="fa fa-check"></i>correlation tables</a></li>
+<li class="chapter" data-level="" data-path="significance.html"><a href="significance.html#correlation-p-values"><i class="fa fa-check"></i>Correlation p-values</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-3.html"><a href="homework-3.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
@@ -312,19 +315,21 @@ whereas <span class="math inline">\((\sum_{}x)^2\)</span> means first sum the x 
 <p>For the equation above, all we have to compute is <span class="math inline">\(\sum_{}x\)</span>, <span class="math inline">\(\sum_{}y\)</span>, <span class="math inline">\(\sum_{}x^2\)</span>, <span class="math inline">\(\sum_{}y^2\)</span>, and <span class="math inline">\(\sum_{}x*y\)</span>. Let try, for the sake of being sure and for you to use some tools from R.</p>
 <div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="the-correlation-coefficient-r.html#cb186-1"></a>Y=StudyingTimes<span class="op">$</span>Score</span>
 <span id="cb186-2"><a href="the-correlation-coefficient-r.html#cb186-2"></a>X=StudyingTimes<span class="op">$</span>Hours_Studying</span>
-<span id="cb186-3"><a href="the-correlation-coefficient-r.html#cb186-3"></a>SumX=<span class="st"> </span><span class="kw">sum</span>(X) <span class="co">#sum all values of x</span></span>
-<span id="cb186-4"><a href="the-correlation-coefficient-r.html#cb186-4"></a>SumY=<span class="st"> </span><span class="kw">sum</span>(Y)              <span class="co">#sum all values of y</span></span>
-<span id="cb186-5"><a href="the-correlation-coefficient-r.html#cb186-5"></a>SumX2=<span class="kw">sum</span> (X<span class="op">^</span><span class="dv">2</span>) <span class="co">#sum all values of x^2..</span></span>
-<span id="cb186-6"><a href="the-correlation-coefficient-r.html#cb186-6"></a>SumY2=<span class="kw">sum</span> (Y<span class="op">^</span><span class="dv">2</span>)      <span class="co">#   sprintf(&quot;%.0f&quot;,sum (Y **2))    </span></span>
-<span id="cb186-7"><a href="the-correlation-coefficient-r.html#cb186-7"></a>SumXY=<span class="kw">sum</span> (X<span class="op">*</span>Y)  <span class="co">#sum all value of x * y</span></span>
-<span id="cb186-8"><a href="the-correlation-coefficient-r.html#cb186-8"></a>n=<span class="kw">nrow</span>(Data) <span class="co"># the number of observations is basically the number of rows in the database</span></span></code></pre></div>
+<span id="cb186-3"><a href="the-correlation-coefficient-r.html#cb186-3"></a></span>
+<span id="cb186-4"><a href="the-correlation-coefficient-r.html#cb186-4"></a></span>
+<span id="cb186-5"><a href="the-correlation-coefficient-r.html#cb186-5"></a>SumX=<span class="st"> </span><span class="kw">sum</span>(X) <span class="co">#sum all values of x</span></span>
+<span id="cb186-6"><a href="the-correlation-coefficient-r.html#cb186-6"></a>SumY=<span class="st"> </span><span class="kw">sum</span>(Y)              <span class="co">#sum all values of y</span></span>
+<span id="cb186-7"><a href="the-correlation-coefficient-r.html#cb186-7"></a>SumX2=<span class="kw">sum</span> (X<span class="op">^</span><span class="dv">2</span>) <span class="co">#sum all values of x^2..</span></span>
+<span id="cb186-8"><a href="the-correlation-coefficient-r.html#cb186-8"></a>SumY2=<span class="kw">sum</span> (Y<span class="op">^</span><span class="dv">2</span>)      <span class="co">#   sprintf(&quot;%.0f&quot;,sum (Y **2))    </span></span>
+<span id="cb186-9"><a href="the-correlation-coefficient-r.html#cb186-9"></a>SumXY=<span class="kw">sum</span> (X<span class="op">*</span>Y)  <span class="co">#sum all value of x * y</span></span>
+<span id="cb186-10"><a href="the-correlation-coefficient-r.html#cb186-10"></a>n=<span class="kw">length</span>(Y) <span class="co"># the number of observations is basically the number of rows in the database</span></span></code></pre></div>
 <p>The results are:</p>
 <p><span class="math inline">\(\sum_{}x\)</span> = 13</p>
 <p><span class="math inline">\(\sum_{}y\)</span> = 371</p>
 <p><span class="math inline">\(\sum_{}x^2\)</span> = 43.94</p>
 <p><span class="math inline">\(\sum_{}y^2\)</span> = 28495</p>
 <p><span class="math inline">\(\sum_{}x*y\)</span> = 1061.8</p>
-<p>n = 49</p>
+<p>n = 5</p>
 <p>Now we plug those values into the coefficient of correlation, r, equation:</p>
 <p>.</p>
 <p><span class="math display">\[\begin{equation}
@@ -332,16 +337,16 @@ r = \frac{n * \sum_{} xy- (\sum_{} x)*(\sum_{} y)}{\sqrt {n * \sum_{} x^2- (\sum
 \end{equation}\]</span></p>
 <p>.</p>
 <p><span class="math display">\[\begin{equation}
-r = \frac{49 * 1061.8- (13)*(371)}{\sqrt {49 * 43.94- (13)^2 } * \sqrt {49 * 28495- (371)^2 }}
+r = \frac{5 * 1061.8- (13)*(371)}{\sqrt {5 * 43.94- (13)^2 } * \sqrt {5 * 28495- (371)^2 }}
 \end{equation}\]</span></p>
 <p>.</p>
 <p>In R, it is basically:</p>
 <div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="the-correlation-coefficient-r.html#cb187-1"></a>r=(n<span class="op">*</span>SumXY<span class="op">-</span>(SumX<span class="op">*</span>SumY))   <span class="op">/</span><span class="st">  </span>( <span class="kw">sqrt</span>(n<span class="op">*</span>SumX2 <span class="op">-</span>SumX<span class="op">^</span><span class="dv">2</span>)  <span class="op">*</span><span class="st"> </span><span class="kw">sqrt</span>(n<span class="op">*</span>SumY2 <span class="op">-</span>SumY<span class="op">^</span><span class="dv">2</span>)   )</span>
 <span id="cb187-2"><a href="the-correlation-coefficient-r.html#cb187-2"></a></span>
 <span id="cb187-3"><a href="the-correlation-coefficient-r.html#cb187-3"></a>r</span></code></pre></div>
-<pre><code>## [1] 0.9446396</code></pre>
+<pre><code>## [1] 0.9817004</code></pre>
 <p><span class="math display">\[\begin{equation}
-r = 0.94
+r = 0.98
 \end{equation}\]</span></p>
 <p>Hmm, what do you think is causing the difference to the original calculation?</p>
 </div>
