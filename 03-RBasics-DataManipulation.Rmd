@@ -342,7 +342,7 @@ knitr::kable(Differences)
 
 ```
 
-### Loading your own data into R{-}
+## Loading your own data into R{-}
 R also allows you to import your own data from a diversity of formats. Here we will use the most basic one, which is to import .csv files (the so-called comma delimited data). In this type of file, data are listed by rows, with the number between commas in a row indicating the columns.
 
 To load a .csv file in R, you use the command read.csv(). Between brackets you put the path to where the file is located. You write that path between quotation. It sounds complicated, but it is simple. Let's just try an example.
@@ -449,7 +449,7 @@ GDPData=read.csv("https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Data
 
 
 
-### Calling elements  {-}
+## Calling elements in a data frame  {-}
 Ok, now that you know how to store data in R. We need to learn how to see the data. To see a given data container, you can simply typeb its name and click enter. For instance,
 
 

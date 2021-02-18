@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-structure-types.html"/>
+<link rel="prev" href="calling-elements-in-a-data-frame.html"/>
 <link rel="next" href="pivot-table.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -188,9 +188,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
 <li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#matrix"><i class="fa fa-check"></i>Matrix</a></li>
 <li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#dataframes"><i class="fa fa-check"></i>DataFrames</a></li>
-<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#loading-your-own-data-into-r"><i class="fa fa-check"></i>Loading your own data into R</a></li>
-<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#calling-elements"><i class="fa fa-check"></i>Calling elements</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="loading-your-own-data-into-r.html"><a href="loading-your-own-data-into-r.html"><i class="fa fa-check"></i>Loading your own data into R</a></li>
+<li class="chapter" data-level="" data-path="calling-elements-in-a-data-frame.html"><a href="calling-elements-in-a-data-frame.html"><i class="fa fa-check"></i>Calling elements in a data frame</a></li>
 <li class="chapter" data-level="" data-path="filter-data.html"><a href="filter-data.html"><i class="fa fa-check"></i>Filter data</a></li>
 <li class="chapter" data-level="" data-path="pivot-table.html"><a href="pivot-table.html"><i class="fa fa-check"></i>Pivot table</a></li>
 <li class="chapter" data-level="" data-path="merge-data.html"><a href="merge-data.html"><i class="fa fa-check"></i>Merge data</a></li>
@@ -231,6 +231,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-2.html"><a href="homework-2.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i>Correlation</a><ul>
+<li class="chapter" data-level="" data-path="visualization-of-relationships.html"><a href="visualization-of-relationships.html"><i class="fa fa-check"></i>Visualization of relationships</a></li>
+<li class="chapter" data-level="" data-path="linear-relationships.html"><a href="linear-relationships.html"><i class="fa fa-check"></i>Linear relationships</a></li>
+<li class="chapter" data-level="" data-path="non-linear-relationships.html"><a href="non-linear-relationships.html"><i class="fa fa-check"></i>Non-linear relationships</a></li>
+<li class="chapter" data-level="" data-path="the-covariance.html"><a href="the-covariance.html"><i class="fa fa-check"></i>The Covariance</a></li>
+<li class="chapter" data-level="" data-path="correlation-coefficient.html"><a href="correlation-coefficient.html"><i class="fa fa-check"></i>Correlation Coefficient</a></li>
+<li class="chapter" data-level="" data-path="interpreting-r.html"><a href="interpreting-r.html"><i class="fa fa-check"></i>Interpreting r</a></li>
+<li class="chapter" data-level="" data-path="causation.html"><a href="causation.html"><i class="fa fa-check"></i>Causation</a></li>
+<li class="chapter" data-level="" data-path="p-value.html"><a href="p-value.html"><i class="fa fa-check"></i>p-value</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i>Regression</a><ul>
+<li class="chapter" data-level="" data-path="visualization-of-relationships-1.html"><a href="visualization-of-relationships-1.html"><i class="fa fa-check"></i>Visualization of relationships</a></li>
+<li class="chapter" data-level="" data-path="linear-relationships-1.html"><a href="linear-relationships-1.html"><i class="fa fa-check"></i>Linear relationships</a></li>
+<li class="chapter" data-level="" data-path="non-linear-relationships-1.html"><a href="non-linear-relationships-1.html"><i class="fa fa-check"></i>Non-linear relationships</a></li>
+<li class="chapter" data-level="" data-path="the-covariance-1.html"><a href="the-covariance-1.html"><i class="fa fa-check"></i>The Covariance</a></li>
+<li class="chapter" data-level="" data-path="correlation-coefficient-1.html"><a href="correlation-coefficient-1.html"><i class="fa fa-check"></i>Correlation Coefficient</a></li>
+<li class="chapter" data-level="" data-path="interpreting-r-1.html"><a href="interpreting-r-1.html"><i class="fa fa-check"></i>Interpreting r</a></li>
+<li class="chapter" data-level="" data-path="causation-1.html"><a href="causation-1.html"><i class="fa fa-check"></i>Causation</a></li>
+<li class="chapter" data-level="" data-path="p-value-1.html"><a href="p-value-1.html"><i class="fa fa-check"></i>p-value</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
@@ -707,7 +727,7 @@ Pipes, %&gt;%, are a powerful tool for doing sequential operations. Commonly it 
           </div>
         </div>
       </div>
-<a href="data-structure-types.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="calling-elements-in-a-data-frame.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="pivot-table.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

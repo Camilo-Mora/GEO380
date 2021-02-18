@@ -1,0 +1,26 @@
+# Regression {}
+
+Work in progress...no ready to review
+
+One of the core goals in statistics is to calculate the strength of the relationship between two variables. That goal can be applied to a broad diversity of research questions.
+
+Say you did an experiment to test the effect of temperature on plants and say you have plantss growing at different temperatures. In this case, you probably would like to relate temperature to a dependent variable like say plant size. 
+
+Instead, you may be interested to see how rain affects the common cold, in which case you may wish to relate the amount of daily rainfall and the daily number of hospitalizations by cold....
+
+The possibilities are endless...but at the end of the day...all of them come down to simply assessing the strength of the relationship between two variables. For this specific purpose, we use the correlation and/or the regression analysis.
+
+.
+
+**Expectation for this chapter**
+
+At the end of this chapter, it is expected that you:
+
+4. Estimate the equation that defines the linear relationship between two variables using the least-squares criterion.
+
+5. Use the equation of the regression model to predict Y-values (interpolation and extrapolation).
+
+6. Calculate the coefficient of determination and understand what it tells you about the relationship between two variables.
+
+
+Alright, a lot to cover, so let's get started.

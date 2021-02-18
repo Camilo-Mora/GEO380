@@ -600,6 +600,9 @@ text(Names,x=Quartiles,y=800, col="black", pos=2) #place quartile names at y=800
 ### The variance {-}
 The variance measures how far a set of numbers is spread out from their average value. Put in another way, the variance measures the average degree to which each number is different from the mean. 
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Zr73e_XEug0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 For a sample, the variance is calculated as:
 
 
@@ -810,7 +813,7 @@ Now lets check some equations:
 ## Homework {-}
 
 
-In Tinn-R, write down a code that:
+Using Tinn-R or R-Studio, write down a code that:
 
 1. Creates a sample of 1000 points from a normal distribution, and place them in a data.frame, with one column named X.
 

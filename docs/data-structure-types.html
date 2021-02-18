@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="custom-made-functions.html"/>
-<link rel="next" href="filter-data.html"/>
+<link rel="next" href="loading-your-own-data-into-r.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -188,9 +188,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
 <li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#matrix"><i class="fa fa-check"></i>Matrix</a></li>
 <li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#dataframes"><i class="fa fa-check"></i>DataFrames</a></li>
-<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#loading-your-own-data-into-r"><i class="fa fa-check"></i>Loading your own data into R</a></li>
-<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#calling-elements"><i class="fa fa-check"></i>Calling elements</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="loading-your-own-data-into-r.html"><a href="loading-your-own-data-into-r.html"><i class="fa fa-check"></i>Loading your own data into R</a></li>
+<li class="chapter" data-level="" data-path="calling-elements-in-a-data-frame.html"><a href="calling-elements-in-a-data-frame.html"><i class="fa fa-check"></i>Calling elements in a data frame</a></li>
 <li class="chapter" data-level="" data-path="filter-data.html"><a href="filter-data.html"><i class="fa fa-check"></i>Filter data</a></li>
 <li class="chapter" data-level="" data-path="pivot-table.html"><a href="pivot-table.html"><i class="fa fa-check"></i>Pivot table</a></li>
 <li class="chapter" data-level="" data-path="merge-data.html"><a href="merge-data.html"><i class="fa fa-check"></i>Merge data</a></li>
@@ -231,6 +231,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-2.html"><a href="homework-2.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i>Correlation</a><ul>
+<li class="chapter" data-level="" data-path="visualization-of-relationships.html"><a href="visualization-of-relationships.html"><i class="fa fa-check"></i>Visualization of relationships</a></li>
+<li class="chapter" data-level="" data-path="linear-relationships.html"><a href="linear-relationships.html"><i class="fa fa-check"></i>Linear relationships</a></li>
+<li class="chapter" data-level="" data-path="non-linear-relationships.html"><a href="non-linear-relationships.html"><i class="fa fa-check"></i>Non-linear relationships</a></li>
+<li class="chapter" data-level="" data-path="the-covariance.html"><a href="the-covariance.html"><i class="fa fa-check"></i>The Covariance</a></li>
+<li class="chapter" data-level="" data-path="correlation-coefficient.html"><a href="correlation-coefficient.html"><i class="fa fa-check"></i>Correlation Coefficient</a></li>
+<li class="chapter" data-level="" data-path="interpreting-r.html"><a href="interpreting-r.html"><i class="fa fa-check"></i>Interpreting r</a></li>
+<li class="chapter" data-level="" data-path="causation.html"><a href="causation.html"><i class="fa fa-check"></i>Causation</a></li>
+<li class="chapter" data-level="" data-path="p-value.html"><a href="p-value.html"><i class="fa fa-check"></i>p-value</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i>Regression</a><ul>
+<li class="chapter" data-level="" data-path="visualization-of-relationships-1.html"><a href="visualization-of-relationships-1.html"><i class="fa fa-check"></i>Visualization of relationships</a></li>
+<li class="chapter" data-level="" data-path="linear-relationships-1.html"><a href="linear-relationships-1.html"><i class="fa fa-check"></i>Linear relationships</a></li>
+<li class="chapter" data-level="" data-path="non-linear-relationships-1.html"><a href="non-linear-relationships-1.html"><i class="fa fa-check"></i>Non-linear relationships</a></li>
+<li class="chapter" data-level="" data-path="the-covariance-1.html"><a href="the-covariance-1.html"><i class="fa fa-check"></i>The Covariance</a></li>
+<li class="chapter" data-level="" data-path="correlation-coefficient-1.html"><a href="correlation-coefficient-1.html"><i class="fa fa-check"></i>Correlation Coefficient</a></li>
+<li class="chapter" data-level="" data-path="interpreting-r-1.html"><a href="interpreting-r-1.html"><i class="fa fa-check"></i>Interpreting r</a></li>
+<li class="chapter" data-level="" data-path="causation-1.html"><a href="causation-1.html"><i class="fa fa-check"></i>Causation</a></li>
+<li class="chapter" data-level="" data-path="p-value-1.html"><a href="p-value-1.html"><i class="fa fa-check"></i>p-value</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
@@ -362,378 +382,6 @@ Data types are heterogeneous.
 </tbody>
 </table>
 </div>
-<div id="loading-your-own-data-into-r" class="section level3 unnumbered">
-<h3>Loading your own data into R</h3>
-<p>R also allows you to import your own data from a diversity of formats. Here we will use the most basic one, which is to import .csv files (the so-called comma delimited data). In this type of file, data are listed by rows, with the number between commas in a row indicating the columns.</p>
-<p>To load a .csv file in R, you use the command read.csv(). Between brackets you put the path to where the file is located. You write that path between quotation. It sounds complicated, but it is simple. Let’s just try an example.</p>
-<ol style="list-style-type: decimal">
-<li><p>Create a folder in your local desktop called “Data”. It is good practice to keep your data and codes in separated folders that you can then easily identify by the name alone.</p></li>
-<li><p>Download a csv file from <a href="https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_GDP.csv">here</a>. Right click on the page and click on “Save page as” in the pop-up window. Name the file “Countries_GDP.csv”, and navigate to the “Data” folder you just created to save the file in there. Click “Save”. That file should now appear in your “Data” folder.</p></li>
-<li><p>Now that you have the csv file in your local hard-drive, you can load it into R. For this you need to do a couple things. First, get the path to where the file is at. For this, click on your windows explorer (that is the button that looks like a folder in your desktop, see image below)</p></li>
-</ol>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-73"></span>
-<img src="images/WindowsBar.png" alt="Windows explorer" width="100%" />
-<p class="caption">
-Figure 3.2: Windows explorer
-</p>
-</div>
-<p>Navigate to the folder Data where you saved the file, and put the mouse cursor in the selectable window (See arrow in image below). That will reveal the path where the file is saved in your computer.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-74"></span>
-<img src="images/DataFolder.png" alt="Getting path to file" width="100%" />
-<p class="caption">
-Figure 3.3: Getting path to file
-</p>
-</div>
-<p>Next, right click on that same window, and click on Copy. That will copy the path to your file (See image below).</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-75"></span>
-<img src="images/CopyPath.png" alt="Getting path to file" width="100%" />
-<p class="caption">
-Figure 3.4: Getting path to file
-</p>
-</div>
-<p>Open R, right click anywhere inside the main window of R and click on “Paste”. It should look something like this:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-76"></span>
-<img src="images/PathInR.png" alt="Getting path to file" width="100%" />
-<p class="caption">
-Figure 3.5: Getting path to file
-</p>
-</div>
-<p>Now you need to replace each back-slash for a forward-slash in your path. The position of those keys in my keyboard are shown in the image below.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-77"></span>
-<img src="images/Keyboard.png" alt="Slash keys in keyboard" width="100%" />
-<p class="caption">
-Figure 3.6: Slash keys in keyboard
-</p>
-</div>
-<p>So the path to the file should be change from this:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-structure-types.html#cb52-1"></a><span class="co"># &quot;D:/GEO380/Datasets/&quot;</span></span></code></pre></div>
-<p>to this:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-structure-types.html#cb53-1"></a><span class="co"># &quot;D:/GEO380/Datasets/&quot;</span></span></code></pre></div>
-<p>Now, to the path of the folder in which you have the file, you need to add the file name, like this:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-structure-types.html#cb54-1"></a><span class="co"># &quot;D:/GEO380/Datasets/Countries_GDP.csv&quot;</span></span></code></pre></div>
-<p>I have to tell you that when I got started in R. A colleague sent me a file and told me to open his file in R. It sounded simple at the time, but it took me two days to figure out all these tiny things about setting the file correctly. Back in those days the internet was not so full of useful tutorials about how to do this. Ok, let’s keep going.</p>
-<p>Now add to your path the R function that is used read csv files, which is “read.csv()”, like this:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="data-structure-types.html#cb55-1"></a><span class="co"># read.csv(&quot;D:/GEO380/Datasets/Countries_GDP.csv&quot;)</span></span></code></pre></div>
-<p>I suggest you attach this file to a variable name, so you can call it later.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="data-structure-types.html#cb56-1"></a>GDPData=<span class="kw">read.csv</span>(<span class="st">&quot;D:/GEO380/Datasets/Countries_GDP.csv&quot;</span>)</span></code></pre></div>
-<p>That is it, now you have loaded your data into R. Check it out by looking at the top part of the database</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data-structure-types.html#cb57-1"></a><span class="kw">head</span> (GDPData)</span></code></pre></div>
-<pre><code>##       country continent year gdpPercap
-## 1 Afghanistan      Asia 1952  779.4453
-## 2 Afghanistan      Asia 1957  820.8530
-## 3 Afghanistan      Asia 1962  853.1007
-## 4 Afghanistan      Asia 1967  836.1971
-## 5 Afghanistan      Asia 1972  739.9811
-## 6 Afghanistan      Asia 1977  786.1134</code></pre>
-<p>By the way, if you know that the csv file in the web will not be deleted or moved, you can read the data from the web directly using the URL to the file, instead of the path. Like this,</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-structure-types.html#cb59-1"></a>GDPData=<span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_GDP.csv&quot;</span>)</span></code></pre></div>
-</div>
-<div id="calling-elements" class="section level3 unnumbered">
-<h3>Calling elements</h3>
-<p>Ok, now that you know how to store data in R. We need to learn how to see the data. To see a given data container, you can simply typeb its name and click enter. For instance,</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-structure-types.html#cb60-1"></a>DataFrame</span></code></pre></div>
-<pre><code>##   Height Width
-## 1      1    56
-## 2      4    42
-## 3      5    93</code></pre>
-<p>This is an ok way to see your data if the data container is not too big. However, if you have lots of data this command will fill up your screen. Instead, you can use the function head or tail, which will let you see the top five or the bottom five rows in a dataframe. Lets see.</p>
-<p>Let me first create a medium size dataframe:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-structure-types.html#cb62-1"></a>DataFrame&lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">x1 =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">250</span>)),     <span class="co"># in Column 1 I repeat the number 1 for 25 times</span></span>
-<span id="cb62-2"><a href="data-structure-types.html#cb62-2"></a>                        <span class="dt">x2 =</span> <span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">250</span>), <span class="co">#Column 2 I create a sequence of numbers from 1 to 25</span></span>
-<span id="cb62-3"><a href="data-structure-types.html#cb62-3"></a>                        <span class="dt">x3 =</span> <span class="kw">sample</span>(<span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>),<span class="dv">250</span>)) <span class="co"># select 25 random numbers between 1 and 10000</span></span></code></pre></div>
-<p>In the code above, I just create a dummy dataframe with three columns and 250 rows using functions we already described in the chapter on arithmetic operators.</p>
-<p>If I try to see the full database, I just type the name of the dataframe and click enter. However, as you will notice calling the full dataframe will use a lot of your screen space because it will attempt to display all the data.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-structure-types.html#cb63-1"></a>DataFrame</span></code></pre></div>
-<pre><code>##     x1  x2  x3
-## 1    1   1  11
-## 2    1   2 799
-## 3    1   3 532
-## 4    1   4 920
-## 5    1   5 578
-## 6    1   6  41
-## 7    1   7 887
-## 8    1   8 581
-## 9    1   9 553
-## 10   1  10 520
-## 11   1  11 635
-## 12   1  12 234
-## 13   1  13 907
-## 14   1  14 250
-## 15   1  15 253
-## 16   1  16 164
-## 17   1  17 936
-## 18   1  18 707
-## 19   1  19 879
-## 20   1  20  27
-## 21   1  21 353
-## 22   1  22 358
-## 23   1  23 904
-## 24   1  24 962
-## 25   1  25  76
-## 26   1  26 538
-## 27   1  27  21
-## 28   1  28 719
-## 29   1  29 312
-## 30   1  30 801
-## 31   1  31 322
-## 32   1  32 493
-## 33   1  33 605
-## 34   1  34 188
-## 35   1  35 132
-## 36   1  36 107
-## 37   1  37 245
-## 38   1  38   8
-## 39   1  39 155
-## 40   1  40 451
-## 41   1  41 834
-## 42   1  42 893
-## 43   1  43 470
-## 44   1  44 858
-## 45   1  45 534
-## 46   1  46 337
-## 47   1  47 527
-## 48   1  48 471
-## 49   1  49 351
-## 50   1  50 195
-## 51   1  51 641
-## 52   1  52 327
-## 53   1  53 667
-## 54   1  54 528
-## 55   1  55 652
-## 56   1  56 663
-## 57   1  57  45
-## 58   1  58 408
-## 59   1  59 866
-## 60   1  60 983
-## 61   1  61 973
-## 62   1  62 489
-## 63   1  63 666
-## 64   1  64 400
-## 65   1  65 418
-## 66   1  66 509
-## 67   1  67 828
-## 68   1  68 286
-## 69   1  69   7
-## 70   1  70 556
-## 71   1  71 297
-## 72   1  72 303
-## 73   1  73 898
-## 74   1  74 673
-## 75   1  75 587
-## 76   1  76  29
-## 77   1  77 579
-## 78   1  78 214
-## 79   1  79 789
-## 80   1  80 869
-## 81   1  81 447
-## 82   1  82 550
-## 83   1  83 525
-## 84   1  84 806
-## 85   1  85 395
-## 86   1  86 151
-## 87   1  87 831
-## 88   1  88 814
-## 89   1  89 782
-## 90   1  90  87
-## 91   1  91 931
-## 92   1  92 209
-## 93   1  93  22
-## 94   1  94  28
-## 95   1  95 807
-## 96   1  96 510
-## 97   1  97 608
-## 98   1  98 861
-## 99   1  99 223
-## 100  1 100 305
-## 101  1 101 185
-## 102  1 102 384
-## 103  1 103 273
-## 104  1 104 314
-## 105  1 105 779
-## 106  1 106 428
-## 107  1 107 119
-## 108  1 108 870
-## 109  1 109 503
-## 110  1 110 392
-## 111  1 111 363
-## 112  1 112  62
-## 113  1 113 182
-## 114  1 114 154
-## 115  1 115 844
-## 116  1 116 848
-## 117  1 117 129
-## 118  1 118 704
-## 119  1 119 615
-## 120  1 120 987
-## 121  1 121 614
-## 122  1 122 863
-## 123  1 123 874
-## 124  1 124 549
-## 125  1 125 311
-## 126  1 126 206
-## 127  1 127 381
-## 128  1 128 885
-## 129  1 129 626
-## 130  1 130  58
-## 131  1 131 570
-## 132  1 132 267
-## 133  1 133 632
-## 134  1 134 571
-## 135  1 135 775
-## 136  1 136 628
-## 137  1 137 266
-## 138  1 138 961
-## 139  1 139 167
-## 140  1 140 767
-## 141  1 141 264
-## 142  1 142 378
-## 143  1 143 438
-## 144  1 144 648
-## 145  1 145 352
-## 146  1 146 128
-## 147  1 147 301
-## 148  1 148 633
-## 149  1 149 916
-## 150  1 150 239
-## 151  1 151 867
-## 152  1 152 434
-## 153  1 153 458
-## 154  1 154 575
-## 155  1 155 333
-## 156  1 156 991
-## 157  1 157 822
-## 158  1 158 914
-## 159  1 159 955
-## 160  1 160 335
-## 161  1 161 975
-## 162  1 162 184
-## 163  1 163  90
-## 164  1 164 958
-## 165  1 165 967
-## 166  1 166 597
-## 167  1 167 681
-## 168  1 168 405
-## 169  1 169 742
-## 170  1 170 467
-## 171  1 171 193
-## 172  1 172  37
-## 173  1 173 884
-## 174  1 174 495
-## 175  1 175 240
-## 176  1 176 852
-## 177  1 177 263
-## 178  1 178 242
-## 179  1 179 289
-## 180  1 180 157
-## 181  1 181 348
-## 182  1 182 982
-## 183  1 183 320
-## 184  1 184 526
-## 185  1 185 883
-## 186  1 186 993
-## 187  1 187  52
-## 188  1 188 464
-## 189  1 189 971
-## 190  1 190 692
-## 191  1 191 929
-## 192  1 192 787
-## 193  1 193 777
-## 194  1 194 207
-## 195  1 195   3
-## 196  1 196 644
-## 197  1 197 970
-## 198  1 198 918
-## 199  1 199 978
-## 200  1 200  79
-## 201  1 201  16
-## 202  1 202 265
-## 203  1 203 660
-## 204  1 204 909
-## 205  1 205 491
-## 206  1 206 261
-## 207  1 207 127
-## 208  1 208 218
-## 209  1 209 213
-## 210  1 210 977
-## 211  1 211 350
-## 212  1 212 198
-## 213  1 213 671
-## 214  1 214 689
-## 215  1 215 896
-## 216  1 216 908
-## 217  1 217 466
-## 218  1 218 496
-## 219  1 219 137
-## 220  1 220 836
-## 221  1 221 621
-## 222  1 222  89
-## 223  1 223 930
-## 224  1 224 942
-## 225  1 225 357
-## 226  1 226 654
-## 227  1 227  60
-## 228  1 228 990
-## 229  1 229  74
-## 230  1 230 379
-## 231  1 231 700
-## 232  1 232 649
-## 233  1 233  39
-## 234  1 234 502
-## 235  1 235 745
-## 236  1 236 592
-## 237  1 237 816
-## 238  1 238 773
-## 239  1 239 901
-## 240  1 240 895
-## 241  1 241  46
-## 242  1 242 541
-## 243  1 243 760
-## 244  1 244 294
-## 245  1 245 461
-## 246  1 246 989
-## 247  1 247 795
-## 248  1 248 382
-## 249  1 249  64
-## 250  1 250 123</code></pre>
-<div id="head" class="section level4 unnumbered">
-<h4>Head</h4>
-<p>Alternatively, you can just check the top rows using the head function. Like this:</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-structure-types.html#cb65-1"></a><span class="kw">head</span>(DataFrame)</span></code></pre></div>
-<pre><code>##   x1 x2  x3
-## 1  1  1  11
-## 2  1  2 799
-## 3  1  3 532
-## 4  1  4 920
-## 5  1  5 578
-## 6  1  6  41</code></pre>
-</div>
-<div id="tail" class="section level4 unnumbered">
-<h4>Tail</h4>
-<p>Or the bottom rows using the tail function. Like this:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-structure-types.html#cb67-1"></a><span class="kw">tail</span>(DataFrame)</span></code></pre></div>
-<pre><code>##     x1  x2  x3
-## 245  1 245 461
-## 246  1 246 989
-## 247  1 247 795
-## 248  1 248 382
-## 249  1 249  64
-## 250  1 250 123</code></pre>
-</div>
-<div id="index" class="section level4 unnumbered">
-<h4>Index</h4>
-<p>You can also check specific elements of the dataframe using the index function, which in R is indicated with the square brackets [row,column]. The number to the left of the comma will be the row number, and the number to the right the column number. If you do not add a number, it will display all columns or all rows. For instance, check what number is in column 3 in the 2th row?</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-structure-types.html#cb69-1"></a>DataFrame[<span class="dv">2</span>,<span class="dv">3</span>]</span></code></pre></div>
-<pre><code>## [1] 799</code></pre>
-<iframe src="https://mora.shinyapps.io/QuestionsChapter3/" width="100%" height="400px">
-</iframe>
-</div>
-<div id="calling-columns-by-name" class="section level4 unnumbered">
-<h4>Calling columns by name</h4>
-<p>To call a column by name in a dataframe, you use the dollar sign $ to merge the name of the dataframe with the name of the column, like this,</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-structure-types.html#cb71-1"></a><span class="kw">head</span>(DataFrame<span class="op">$</span>x3) <span class="co">#here I only display the top values of the column Country_Name</span></span></code></pre></div>
-<pre><code>## [1]  11 799 532 920 578  41</code></pre>
-</div>
-</div>
 </div>
 <div id="disqus_thread"></div>
 <script>
@@ -760,7 +408,7 @@ Figure 3.6: Slash keys in keyboard
         </div>
       </div>
 <a href="custom-made-functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="filter-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="loading-your-own-data-into-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
