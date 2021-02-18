@@ -132,8 +132,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a>GEOG380 Basic Stats with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
 <li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
 <li class="chapter" data-level="" data-path="do-not-dispair-please.html"><a href="do-not-dispair-please.html"><i class="fa fa-check"></i>Do not dispair, please</a></li>
@@ -273,7 +272,7 @@ By Camilo Mora, Ph.D.
 <p>If you were to take any two random variables and correlate them together, you will still get a correlation value. You may think that if the two variables are random, then the correlation will be close to zero…well you are wrong.</p>
 <p>It turns out that even by random chance alone variables may still be correlated. The chances of getting a higher correlation increase the lower the sample size. Just think about it, if you were two correlate any two data points, almost certainly your correlation will be 1 or -1.</p>
 <p>To address this potential caveat, we use established tables that tell you if the correlation you found could be different from random. Basically, you need to know if the correlation is significant or not.</p>
-<p>That word “significant” is tricky because it implies a level or threshold of error you are willing to take. That threshold is call <strong>critical value</strong>, again it is the margin of error you are willing to accept as error.</p>
+<p>That word “significant” is tricky because it implies a level or threshold of error you are willing to take. That threshold is call <strong>critical value</strong>, commonly identified with the letter alpha, <span class="math inline">\(\alpha\)</span>.Again it is the margin of error you are willing to accept as error.</p>
 <p>In biology, we normally give ourselves a 5% chance of being wrong (p&lt;0.05). But at times, it is preferable to be more certain and we take only a 1% chance (p&lt;0.01).</p>
 
 <div class="rmdnote">
@@ -281,7 +280,7 @@ Remember that the parameter <span class="math inline">\(n\)</span> is call <stro
 </div>
 
 <p>For the case of the correlation, the significance of the correlation can be assessed quickly with a probability table, as the one shown below:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-211"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-26"></span>
 <img src="images/CorrelationCoeficientP.png" alt="Significance of correlations" width="50%" />
 <p class="caption">
 Figure 6.10: Significance of correlations
@@ -291,9 +290,9 @@ Figure 6.10: Significance of correlations
 <p>Is that coefficient of correlation significant?. Can I obtain a similarly high correlation, ifor any similar set of random variables?.</p>
 <p>To find out, you first select your critical value, <span class="math inline">\(\alpha\)</span>, lets choose 0.05. In this case, the second column is the one we are interested on.</p>
 <p>Next, you scroll-down column one until the sample size in the table matches ours (that is 5).</p>
-<p>At that row, if you look over the value in the second column, that is the coefficient of correlation of any two random variables with five points. In our case, that value is 0.81.</p>
+<p>At that row, if you look over the value in the second column, that is the coefficient of correlation of any two random variables with five points. In our case, that value is 0.88.</p>
 <p>Our correlation coefficients was larger, <span class="math inline">\(r\)</span>=0.94, meaning that it is unlikely our correlation could occur by chance alone.</p>
-<p>There you have it. The more time you study the better grades you get, now demonstrated mathematically. keep a couple tokens while you are at it…gh…</p>
+<p>There you have it: the more time you study the better grades you get, now demonstrated mathematically. Take a couple tokens, gh, so you do not forget that conclusion!</p>
 </div>
 <div id="disqus_thread"></div>
 <script>

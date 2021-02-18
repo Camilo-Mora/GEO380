@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Custom made functions | GEOG380.utf8</title>
+  <title>Significance (\(p\) and \(\alpha\)) | GEOG380.utf8</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Custom made functions | GEOG380.utf8" />
+  <meta property="og:title" content="Significance (\(p\) and \(\alpha\)) | GEOG380.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Custom made functions | GEOG380.utf8" />
+  <meta name="twitter:title" content="Significance (\(p\) and \(\alpha\)) | GEOG380.utf8" />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="operators.html"/>
-<link rel="next" href="data-structure-types.html"/>
+<link rel="prev" href="causation.html"/>
+<link rel="next" href="homework-3.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -132,8 +132,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a>GEOG380 Basic Stats with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
 <li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
 <li class="chapter" data-level="" data-path="do-not-dispair-please.html"><a href="do-not-dispair-please.html"><i class="fa fa-check"></i>Do not dispair, please</a></li>
@@ -242,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="interpreting-r.html"><a href="interpreting-r.html"><i class="fa fa-check"></i>Interpreting r</a></li>
 <li class="chapter" data-level="" data-path="causation.html"><a href="causation.html"><i class="fa fa-check"></i>Causation</a></li>
-<li class="chapter" data-level="" data-path="significance.html"><a href="significance.html"><i class="fa fa-check"></i>Significance</a></li>
+<li><a href="significance-p-and-alpha.html#significance-p-and-alpha">Significance (<span class="math inline">\(p\)</span> and <span class="math inline">\(\alpha\)</span>)</a></li>
 <li class="chapter" data-level="" data-path="homework-3.html"><a href="homework-3.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-regression.html"><a href="7-regression.html"><i class="fa fa-check"></i><b>7</b> Regression</a></li>
@@ -268,50 +267,32 @@ By Camilo Mora, Ph.D.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="custom-made-functions" class="section level2 unnumbered">
-<h2>Custom made functions</h2>
-<p>As you become better at coding, you probably want to start creating your own functions. You can even create functions, that use other functions. Think of it like a lego game, in which you have thousands of functions (legos) that you can use to create whatever you want. Just as the Legos game, creating functions is very simple.</p>
-<p>The structure of an R function is as follow:</p>
-<p><img src="images/Function.png" width="80%" style="display: block; margin: auto;" /></p>
-<ol style="list-style-type: decimal">
-<li>You have the name you want for your function</li>
-<li>What arguments are needed for your function</li>
-<li>Between {} you place what you want to do with your arguments</li>
-<li>Outline what you want to output from your function</li>
-</ol>
-<p>Let’s have an example. Say, I have two numbers (12.78454 and 1.34893439), which I want to first multiple, then divide the result by 2, then estimate the cosine, then multiple by pi, then estimate the ceiling; and I want to do this four times with different starting numbers. So lets start coding this,</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="custom-made-functions.html#cb29-1"></a>a=<span class="fl">12.78454</span>              <span class="co">#I place  first number in a variable, so I do not have to retype all numbers</span></span>
-<span id="cb29-2"><a href="custom-made-functions.html#cb29-2"></a>b=<span class="fl">1.34893439</span>            <span class="co">#same for second number</span></span>
-<span id="cb29-3"><a href="custom-made-functions.html#cb29-3"></a>Multiple_AB=a<span class="op">*</span>b         <span class="co">#first command I have to do. Create new varaible multiplying a and b</span></span>
-<span id="cb29-4"><a href="custom-made-functions.html#cb29-4"></a>Divide=<span class="st"> </span>Multiple_AB<span class="op">/</span><span class="dv">2</span>   <span class="co">#second command is to divide the output by 2</span></span>
-<span id="cb29-5"><a href="custom-made-functions.html#cb29-5"></a>Cosine=<span class="st"> </span><span class="kw">cos</span>(Divide)     <span class="co">#third command is to estimate the cosine in the results</span></span>
-<span id="cb29-6"><a href="custom-made-functions.html#cb29-6"></a>PI=Cosine<span class="op">*</span>pi            <span class="co">#four command is to multiply result by pi</span></span>
-<span id="cb29-7"><a href="custom-made-functions.html#cb29-7"></a>Cealing=<span class="kw">ceiling</span>(PI)     <span class="co">#finally, estimate the largest integer</span></span>
-<span id="cb29-8"><a href="custom-made-functions.html#cb29-8"></a>Cealing                 <span class="co">#here is the result of that operation above</span></span></code></pre></div>
-<pre><code>## [1] -2</code></pre>
-<p>If you see the code above, I wrote 8 lines of code to get the result for the first two set of numbers. If I want to do the same for say three other set of numbers, I will have to write 24 lines of code, not to mention the chance for error.</p>
-<p>Since the general operation is same for all cases, you can simply create a function, which will reduce the lenght of the code, while ensuring you use exactly the same procedure for all numbers. Let’s do it,</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="custom-made-functions.html#cb31-1"></a>CamilosFunction &lt;-<span class="st"> </span><span class="cf">function</span>(argument1, argument2) { <span class="co">#Argument 1 and 2, are the two numbers I have to run in my function</span></span>
-<span id="cb31-2"><a href="custom-made-functions.html#cb31-2"></a>Multiple_AB=argument1<span class="op">*</span>argument2         <span class="co">#first command I have to do</span></span>
-<span id="cb31-3"><a href="custom-made-functions.html#cb31-3"></a>Divide=<span class="st"> </span>Multiple_AB<span class="op">/</span><span class="dv">2</span>                   <span class="co">#second command is to divide the output by 2</span></span>
-<span id="cb31-4"><a href="custom-made-functions.html#cb31-4"></a>Cosine=<span class="st"> </span><span class="kw">cos</span>(Divide)                     <span class="co">#third command is to estimate the cosine in the results</span></span>
-<span id="cb31-5"><a href="custom-made-functions.html#cb31-5"></a>PI=Cosine<span class="op">*</span>pi                            <span class="co">#four command is to multiply result by pi</span></span>
-<span id="cb31-6"><a href="custom-made-functions.html#cb31-6"></a>Cealing=<span class="kw">ceiling</span>(PI)                     <span class="co">#finally, estimate the largest integer</span></span>
-<span id="cb31-7"><a href="custom-made-functions.html#cb31-7"></a><span class="kw">return</span> (Cealing)                        <span class="co">#here is the result of that operation above</span></span>
-<span id="cb31-8"><a href="custom-made-functions.html#cb31-8"></a>}                 </span></code></pre></div>
-<p>If you see, all I did was to copy my entire process from the first set of values, and replace a and b, for the arguments in my function, add the {} and name my function. I just created a function, called CamilosFunction, that requires two values, to do the process indicated above, and return the result. Lets see,</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="custom-made-functions.html#cb32-1"></a>a=<span class="fl">12.78454</span></span>
-<span id="cb32-2"><a href="custom-made-functions.html#cb32-2"></a>b=<span class="fl">1.34893439</span></span>
-<span id="cb32-3"><a href="custom-made-functions.html#cb32-3"></a><span class="kw">CamilosFunction</span> (a, b) <span class="co">#here is my function, which run many commands and give me a single result.</span></span></code></pre></div>
-<pre><code>## [1] -2</code></pre>
-<p>You can now reuse your function with different numbers, each time requiring only one line of code.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="custom-made-functions.html#cb34-1"></a><span class="kw">CamilosFunction</span> (<span class="fl">12.78454</span>,<span class="fl">10002.78454</span>) </span></code></pre></div>
-<pre><code>## [1] -2</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="custom-made-functions.html#cb36-1"></a><span class="kw">CamilosFunction</span> (<span class="fl">120.78454</span>,<span class="fl">102.78454</span>) </span></code></pre></div>
-<pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="custom-made-functions.html#cb38-1"></a><span class="kw">CamilosFunction</span> (<span class="fl">912.74</span>,<span class="fl">10002.78454</span>) </span></code></pre></div>
-<pre><code>## [1] -1</code></pre>
-<p>Create your own function now. In which you take three numbers (4,2,3), calculate their average, then multiple the result by 4, then estimate the sin, and finally calculate the square.</p>
+<div id="significance-p-and-alpha" class="section level2 unnumbered">
+<h2>Significance (<span class="math inline">\(p\)</span> and <span class="math inline">\(\alpha\)</span>)</h2>
+<p>If you were to take any two random variables and correlate them together, you will still get a correlation value. You may think that if the two variables are random, then the correlation will be close to zero…well you are wrong.</p>
+<p>It turns out that even by random chance alone variables may still be correlated. The chances of getting a higher correlation increase the lower the sample size. Just think about it, if you were two correlate any two data points, almost certainly your correlation will be 1 or -1.</p>
+<p>To address this potential caveat, we use established tables that tell you if the correlation you found could be different from random. Basically, you need to know if the correlation is significant or not.</p>
+<p>That word “significant” is tricky because it implies a level or threshold of error you are willing to take. That threshold is call <strong>critical value</strong>, commonly identified with the letter alpha, <span class="math inline">\(\alpha\)</span>.Again it is the margin of error you are willing to accept as error.</p>
+<p>In biology, we normally give ourselves a 5% chance of being wrong (p&lt;0.05). But at times, it is preferable to be more certain and we take only a 1% chance (p&lt;0.01).</p>
+
+<div class="rmdnote">
+Remember that the parameter <span class="math inline">\(n\)</span> is call <strong>sample size</strong>.
+</div>
+
+<p>For the case of the correlation, the significance of the correlation can be assessed quickly with a probability table, as the one shown below:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-26"></span>
+<img src="images/CorrelationCoeficientP.png" alt="Significance of correlations" width="50%" />
+<p class="caption">
+Figure 6.10: Significance of correlations
+</p>
+</div>
+<p>Lets use the example we have been working on about the relationship between the time students study and their grades. In that case, <span class="math inline">\(r\)</span>=0.94 and the sample size <span class="math inline">\(n\)</span> was 5 students.</p>
+<p>Is that coefficient of correlation significant?. Can I obtain a similarly high correlation, ifor any similar set of random variables?.</p>
+<p>To find out, you first select your critical value, <span class="math inline">\(\alpha\)</span>, lets choose 0.05. In this case, the second column is the one we are interested on.</p>
+<p>Next, you scroll-down column one until the sample size in the table matches ours (that is 5).</p>
+<p>At that row, if you look over the value in the second column, that is the coefficient of correlation of any two random variables with five points. In our case, that value is 0.88.</p>
+<p>Our correlation coefficients was larger, <span class="math inline">\(r\)</span>=0.94, meaning that it is unlikely our correlation could occur by chance alone.</p>
+<p>There you have it: the more time you study the better grades you get, now demonstrated mathematically. Take a couple tokens, gh, so you do not forget that conclusion!</p>
 </div>
 <div id="disqus_thread"></div>
 <script>
@@ -337,8 +318,8 @@ By Camilo Mora, Ph.D.
           </div>
         </div>
       </div>
-<a href="operators.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-structure-types.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="causation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="homework-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -377,7 +358,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/Camilo-Mora/GEOG380/blob/main/03-RBasics-DataManipulation.Rmd",
+"link": "https://github.com/Camilo-Mora/GEOG380/blob/main/06-Correlation.Rmd",
 "text": null
 },
 "download": ["GEOG380.pdf", "GEOG380.epub"],

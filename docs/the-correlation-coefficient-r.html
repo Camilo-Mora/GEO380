@@ -242,7 +242,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="interpreting-r.html"><a href="interpreting-r.html"><i class="fa fa-check"></i>Interpreting r</a></li>
 <li class="chapter" data-level="" data-path="causation.html"><a href="causation.html"><i class="fa fa-check"></i>Causation</a></li>
-<li class="chapter" data-level="" data-path="p-value.html"><a href="p-value.html"><i class="fa fa-check"></i>p-value</a></li>
+<li class="chapter" data-level="" data-path="significance.html"><a href="significance.html"><i class="fa fa-check"></i>Significance</a></li>
 <li class="chapter" data-level="" data-path="homework-3.html"><a href="homework-3.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-regression.html"><a href="7-regression.html"><i class="fa fa-check"></i><b>7</b> Regression</a></li>
@@ -276,8 +276,8 @@ By Camilo Mora, Ph.D.
 r = \frac{cov (XY)}{Sx * Sy} 
 \end{equation}\]</span></p>
 <p>Basically, the correlation coefficient, <span class="math inline">\(r\)</span>,is the Covariance divided by the multiplication of the standard deviation of the data in X and the standard deviation of the data in Y.</p>
-<p>If you think about this equation, the covariance is the product of the differences in X and Y. While the standard deviations are independently the differences in X and the differences in R. So, in practical terms, the correlation of coefficient is an standardized metric. It will never be smaller than -1 or larger than 1.</p>
-<p>That is why the correlation coefficient is such a nice term to access the over tendency between two variables. if it is closer to -1 then you know the data probably follow a strong and negative trend. If it is close to 1, then the data follow a positive and strong trend. If it is closer to zero, then the data is all over the place (there is not correlation). Towards the end of the chapter, we will do over more details on how to interpret the correlation coefficient.</p>
+<p>If you think about this equation, the covariance is the product of the differences in X and Y. While the standard deviations are independently the differences in X and the differences in Y. So, in practical terms, the correlation coefficient is an standardized metric. It will never be smaller than -1 or larger than 1.</p>
+<p>That is why the correlation coefficient is such a nice term to access the tendency between two variables. If it is closer to -1 then you know the data probably follow a strong and negative trend. If it is close to 1, then the data follow a positive and strong trend. If it is closer to zero, then the data are all over the place (there is not correlation). Towards the end of the chapter, we will learn more about how to interpret the correlation coefficient.</p>
 <p>Lets calculate it,</p>
 <div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="the-correlation-coefficient-r.html#cb182-1"></a>COVXY=<span class="st"> </span><span class="kw">cov</span>(StudyingTimes<span class="op">$</span>Score,StudyingTimes<span class="op">$</span>Hours_Studying, <span class="dt">use =</span> <span class="st">&quot;everything&quot;</span>,  <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>) <span class="co">#Covariance</span></span>
 <span id="cb182-2"><a href="the-correlation-coefficient-r.html#cb182-2"></a>SDX=<span class="st"> </span><span class="kw">sd</span>(StudyingTimes<span class="op">$</span>Hours_Studying)            <span class="co">#Standard deviation for X</span></span>
@@ -286,7 +286,7 @@ r = \frac{cov (XY)}{Sx * Sy}
 <span id="cb182-5"><a href="the-correlation-coefficient-r.html#cb182-5"></a>r</span></code></pre></div>
 <pre><code>## [1] 0.9817004</code></pre>
 <p>So the coefficient of correlation between the time that you study and the score in my class is 0.98. That means the more time you study the higher your grade…nice, ah???</p>
-<p>In R, the coefficient of correlation can be calculated direvtly with the fucntion <em>cor</em>,</p>
+<p>In R, the coefficient of correlation can be calculated directly with the function <em>cor</em>,</p>
 <div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="the-correlation-coefficient-r.html#cb184-1"></a><span class="kw">cor</span>(StudyingTimes<span class="op">$</span>Score,StudyingTimes<span class="op">$</span>Hours_Studying, <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 0.9817004</code></pre>
 <div id="alternative-formulation" class="section level3 unnumbered">
@@ -308,7 +308,7 @@ Be careful! The notation <span class="math inline">\(\sum_{}x^2\)</span> means f
 whereas <span class="math inline">\((\sum_{}x)^2\)</span> means first sum the x values and then square the result.
 </div>
 
-<p>For the equation above, all we have to compute <span class="math inline">\(\sum_{}x\)</span>, <span class="math inline">\(\sum_{}y\)</span>, <span class="math inline">\(\sum_{}x^2\)</span>, <span class="math inline">\(\sum_{}y^2\)</span>, and <span class="math inline">\(\sum_{}x*y\)</span>, Let try, for the sake of being sure and for you to use some tools from R.</p>
+<p>For the equation above, all we have to compute is <span class="math inline">\(\sum_{}x\)</span>, <span class="math inline">\(\sum_{}y\)</span>, <span class="math inline">\(\sum_{}x^2\)</span>, <span class="math inline">\(\sum_{}y^2\)</span>, and <span class="math inline">\(\sum_{}x*y\)</span>. Let try, for the sake of being sure and for you to use some tools from R.</p>
 <div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="the-correlation-coefficient-r.html#cb186-1"></a>Y=StudyingTimes<span class="op">$</span>Score</span>
 <span id="cb186-2"><a href="the-correlation-coefficient-r.html#cb186-2"></a>X=StudyingTimes<span class="op">$</span>Hours_Studying</span>
 <span id="cb186-3"><a href="the-correlation-coefficient-r.html#cb186-3"></a>SumX=<span class="st"> </span><span class="kw">sum</span>(X) <span class="co">#sum all values of x</span></span>
@@ -316,9 +316,7 @@ whereas <span class="math inline">\((\sum_{}x)^2\)</span> means first sum the x 
 <span id="cb186-5"><a href="the-correlation-coefficient-r.html#cb186-5"></a>SumX2=<span class="kw">sum</span> (X<span class="op">^</span><span class="dv">2</span>) <span class="co">#sum all values of x^2..</span></span>
 <span id="cb186-6"><a href="the-correlation-coefficient-r.html#cb186-6"></a>SumY2=<span class="kw">sum</span> (Y<span class="op">^</span><span class="dv">2</span>)      <span class="co">#   sprintf(&quot;%.0f&quot;,sum (Y **2))    </span></span>
 <span id="cb186-7"><a href="the-correlation-coefficient-r.html#cb186-7"></a>SumXY=<span class="kw">sum</span> (X<span class="op">*</span>Y)  <span class="co">#sum all value of x * y</span></span>
-<span id="cb186-8"><a href="the-correlation-coefficient-r.html#cb186-8"></a>n=<span class="kw">nrow</span>(Data) <span class="co"># the number of observations is basically the number of rows in the database</span></span>
-<span id="cb186-9"><a href="the-correlation-coefficient-r.html#cb186-9"></a>SumY2</span></code></pre></div>
-<pre><code>## [1] 28495</code></pre>
+<span id="cb186-8"><a href="the-correlation-coefficient-r.html#cb186-8"></a>n=<span class="kw">nrow</span>(Data) <span class="co"># the number of observations is basically the number of rows in the database</span></span></code></pre></div>
 <p>The results are:</p>
 <p><span class="math inline">\(\sum_{}x\)</span> = 13</p>
 <p><span class="math inline">\(\sum_{}y\)</span> = 371</p>
@@ -337,9 +335,9 @@ r = \frac{49 * 1061.8- (13)*(371)}{\sqrt {49 * 43.94- (13)^2 } * \sqrt {49 * 284
 \end{equation}\]</span></p>
 <p>.</p>
 <p>In R, it is basically:</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="the-correlation-coefficient-r.html#cb188-1"></a>r=(n<span class="op">*</span>SumXY<span class="op">-</span>(SumX<span class="op">*</span>SumY))   <span class="op">/</span><span class="st">  </span>( <span class="kw">sqrt</span>(n<span class="op">*</span>SumX2 <span class="op">-</span>SumX<span class="op">^</span><span class="dv">2</span>)  <span class="op">*</span><span class="st"> </span><span class="kw">sqrt</span>(n<span class="op">*</span>SumY2 <span class="op">-</span>SumY<span class="op">^</span><span class="dv">2</span>)   )</span>
-<span id="cb188-2"><a href="the-correlation-coefficient-r.html#cb188-2"></a></span>
-<span id="cb188-3"><a href="the-correlation-coefficient-r.html#cb188-3"></a>r</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="the-correlation-coefficient-r.html#cb187-1"></a>r=(n<span class="op">*</span>SumXY<span class="op">-</span>(SumX<span class="op">*</span>SumY))   <span class="op">/</span><span class="st">  </span>( <span class="kw">sqrt</span>(n<span class="op">*</span>SumX2 <span class="op">-</span>SumX<span class="op">^</span><span class="dv">2</span>)  <span class="op">*</span><span class="st"> </span><span class="kw">sqrt</span>(n<span class="op">*</span>SumY2 <span class="op">-</span>SumY<span class="op">^</span><span class="dv">2</span>)   )</span>
+<span id="cb187-2"><a href="the-correlation-coefficient-r.html#cb187-2"></a></span>
+<span id="cb187-3"><a href="the-correlation-coefficient-r.html#cb187-3"></a>r</span></code></pre></div>
 <pre><code>## [1] 0.9446396</code></pre>
 <p><span class="math display">\[\begin{equation}
 r = 0.94

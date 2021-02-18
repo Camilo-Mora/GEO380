@@ -30,7 +30,7 @@ When looking into correlations and relationships the main display tool is the sc
 You already know how to use the scatterplot from Chapter 4. From that chapter, you should also already know the criteria for a plot to meet the standards required for publication. 
 
 
-For the purpose of displaying a correlation and/or regression between two variables, the key consideration is if you assume if one variables influences the other.
+For the purpose of displaying a correlation and/or regression between two variables, the key consideration is if you assume one variable influences the other.
 
 From Chapter 1, the section on Experiments, you learned that the variable that influences another variable is called **the independent variable**. The one variable that is affected is called the **dependent variable**.
 
@@ -233,9 +233,9 @@ r = \frac{cov (XY)}{Sx * Sy}
 
 Basically, the correlation coefficient, $r$,is the Covariance divided by the multiplication of the standard deviation of the data in X and the standard deviation of the data in Y. 
 
-If you think about this equation, the covariance is the product of the differences in X and Y. While the standard deviations are independently the differences in X and the differences in R. So, in practical terms,  the correlation of coefficient is an standardized metric. It will never be smaller than -1 or larger than 1. 
+If you think about this equation, the covariance is the product of the differences in X and Y. While the standard deviations are independently the differences in X and the differences in Y. So, in practical terms,  the correlation coefficient is an standardized metric. It will never be smaller than -1 or larger than 1. 
 
-That is why the correlation coefficient is such a nice term to access the over tendency between two variables. if it is closer to -1 then you know the data probably follow a strong and negative trend. If it is close to 1, then the data follow a positive and strong trend. If it is closer to zero, then the data is all over the place (there is not correlation). Towards the end of the chapter, we will do over more details on how to interpret the correlation coefficient.
+That is why the correlation coefficient is such a nice term to access the tendency between two variables. If it is closer to -1 then you know the data probably follow a strong and negative trend. If it is close to 1, then the data follow a positive and strong trend. If it is closer to zero, then the data are all over the place (there is not correlation). Towards the end of the chapter, we will learn more about how to interpret the correlation coefficient.
 
 Lets calculate it,
 ```{r, message=FALSE,warning=FALSE}
@@ -247,7 +247,7 @@ r
 ```
 So the coefficient of correlation between the time that you study and the score in my class is 0.98. That means the more time you study the higher your grade...nice, ah???
 
-In R, the coefficient of correlation can be calculated direvtly with the fucntion *cor*, 
+In R, the coefficient of correlation can be calculated directly with the function *cor*, 
 
 ```{r, message=FALSE,warning=FALSE}
 cor(StudyingTimes$Score,StudyingTimes$Hours_Studying, method = "pearson")
@@ -281,7 +281,7 @@ whereas $(\sum_{}x)^2$ means first sum the x values and then square the result.
 
 
 
-For the equation above, all we have to compute $\sum_{}x$, $\sum_{}y$, $\sum_{}x^2$, $\sum_{}y^2$, and $\sum_{}x*y$,  Let try, for the sake of being sure and for you to use some tools from R.
+For the equation above, all we have to compute is $\sum_{}x$, $\sum_{}y$, $\sum_{}x^2$, $\sum_{}y^2$, and $\sum_{}x*y$. Let try, for the sake of being sure and for you to use some tools from R.
 
 ```{r, message=FALSE,warning=FALSE}
 Y=StudyingTimes$Score
@@ -292,7 +292,6 @@ SumX2=sum (X^2) #sum all values of x^2..
 SumY2=sum (Y^2)      #   sprintf("%.0f",sum (Y **2))    
 SumXY=sum (X*Y)  #sum all value of x * y
 n=nrow(Data) # the number of observations is basically the number of rows in the database
-SumY2
 ```
 
 The results are:
@@ -363,7 +362,7 @@ knitr::include_graphics("images/Causation.png")
 
 In the figure above, the dashed lines show an association.  The solid red arrows show a cause-and-effect link.  The variable x is explanatory, y is a response variable, and z is a lurking variable.
 
-Basically, in example **B**, you will find a strong correlation between x and y, not because they are causality related, but because they are both strongly affected by a variable you did not measure (i.e., Z in the case example above) or a so-call lurking variable. The effect is that you can make spurious conclusion if you interpret the coefficient correlation as a cause and effect.
+Basically, in example **B**, you will find a strong correlation between x and y, not because they are causality related, but because they are both strongly affected by a variable you did not measure (i.e., Z in the case example above) or a so-call lurking variable. The effect is that you can make a spurious conclusion if you interpret the coefficient correlation as a cause and effect. 
 
 
 
@@ -374,15 +373,17 @@ knitr::include_graphics("images/Sharks eat icecream people.png")
 ```
 
 
-## p-value {-}
+## Significance {-}
 
-If you were to take any two random variables and correlate them together, you will still get a correlation value. You may think that if the two variables are random, then the correlation will be close to zero...well you are wrong. 
+If you were to take any two random variables and correlate them together, you will still get a correlation value. 
 
-It turns out that even by random chance alone variables may still be correlated. The chances of getting a higher correlation increase the lower the sample size. Just think about it, if you were two correlate any two data points, almost certainly your correlation will be 1 or -1.
+You may think that if the two variables are random, then the correlation will be close to zero...well you are wrong. 
+
+It turns out that even by random chance alone variables may still be correlated. The chances of getting a higher correlation increase the lower the sample size. Just think about it, if you were to correlate any two data points, almost certainly your correlation will be 1 or -1.
 
 To address this potential caveat, we use established tables that tell you if the correlation you found could be different from random. Basically, you need to know if the correlation is significant or not.
 
-That word "significant" is tricky because it implies a level or threshold of error you are willing to take. That threshold is call **critical value**, again it is the margin of error you are willing to accept as error.
+That word "significant" is tricky because it implies a level or threshold of error you are willing to take. That threshold is called **critical value**, commonly identified with the letter alpha, $\alpha$. Again it is the margin of error you are willing to accept as error.
 
 In biology, we normally give ourselves a 5%  chance of being wrong (p<0.05). But at times, it is preferable to be more certain and we take only a 1% chance (p<0.01).
 
@@ -403,16 +404,16 @@ Lets use the example we have been working on about the relationship between the 
 Is that coefficient of correlation significant?. Can I obtain a similarly high correlation, ifor any similar set of random variables?.
 
 
-To find out, you first select your critical value, $\alpha$, lets choose 0.05. In this case, the second column is the one we are interested on. 
+To find out, you first select your critical value, $\alpha$, lets choose 0.05. In this case, the second column in the table above will be the one we are interested on. 
 
 Next, you scroll-down column one until the sample size in the table matches ours (that is 5). 
 
-At that row, if you look over the value in the second column, that is the coefficient of correlation of any two random variables with five points. In our case, that value is 0.81.
+At that row, if you look over the value in the second column, that is the coefficient of correlation of any two random variables with five points. In our case, that value is 0.88.
 
 
 Our correlation coefficients was larger, $r$=`r round(r,2)`, meaning that it is unlikely our correlation could occur by chance alone.
 
-There you have it. The more time you study the better grades you get, now demonstrated mathematically. keep a couple tokens while you are at it...gh...
+There you have it: the more time you study the better grades you get, now demonstrated mathematically. Take a couple tokens, gh, so you do not forget that conclusion!
 
 
 
@@ -421,6 +422,7 @@ There you have it. The more time you study the better grades you get, now demons
 When studying crime levels among universities around the country, a scientists found the following data
 
 x= 12.5, 30.0, 24.5, 14.3, 7.5, 27.7, 16.2, 20.1
+
 y= 26, 73, 39, 23, 15, 30, 15, 25
 
 Let x be students enroll (in thousands), and y the number of burglaries at the given university campus.
