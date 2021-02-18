@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Operators | GEOG380.utf8</title>
+  <title>Homework | GEOG380.utf8</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Operators | GEOG380.utf8" />
+  <meta property="og:title" content="Homework | GEOG380.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Operators | GEOG380.utf8" />
+  <meta name="twitter:title" content="Homework | GEOG380.utf8" />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="comments.html"/>
-<link rel="next" href="custom-made-functions.html"/>
+<link rel="prev" href="p-value.html"/>
+<link rel="next" href="7-regression.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -268,156 +268,22 @@ By Camilo Mora, Ph.D.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="operators" class="section level2 unnumbered">
-<h2>Operators</h2>
-<div id="assignment-operators" class="section level3 unnumbered">
-<h3>Assignment operators</h3>
-<p>As you noted in my previous page, I used the equal sign (=) to assign a value to a letter variable; that is called an assignment operator. Another more broadly recommended assignment operator is &gt;-, which is used like this:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="operators.html#cb18-1"></a>a&lt;-<span class="dv">10</span> <span class="co"># in this case I used &lt;- as the assigment operators</span></span></code></pre></div>
-<p>Note that in the code above I use &gt;- instead of =</p>
-<p>I can verify this, by typing a in the R console and then hitting enter.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="operators.html#cb19-1"></a>a</span></code></pre></div>
-<pre><code>## [1] 10</code></pre>
-</div>
-<div id="arithmetic-operators" class="section level3 unnumbered">
-<h3>Arithmetic operators</h3>
-<p>R is preloaded with a lot of built-in mathematical operators. Here are some basic ones:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Function</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">+</td>
-<td align="left">Addition</td>
-</tr>
-<tr class="even">
-<td align="left">-</td>
-<td align="left">Subtraction</td>
-</tr>
-<tr class="odd">
-<td align="left">*</td>
-<td align="left">Multiplication</td>
-</tr>
-<tr class="even">
-<td align="left">/</td>
-<td align="left">Division</td>
-</tr>
-<tr class="odd">
-<td align="left">^</td>
-<td align="left">Exponent</td>
-</tr>
-<tr class="even">
-<td align="left">log(x)</td>
-<td align="left">Natural log</td>
-</tr>
-<tr class="odd">
-<td align="left">log10(x)</td>
-<td align="left">Common log</td>
-</tr>
-<tr class="even">
-<td align="left">abs(x)</td>
-<td align="left">Absolute value</td>
-</tr>
-<tr class="odd">
-<td align="left">sqrt(x)</td>
-<td align="left">Square root</td>
-</tr>
-<tr class="even">
-<td align="left">ceiling(x)</td>
-<td align="left">Round to largest integer</td>
-</tr>
-<tr class="odd">
-<td align="left">floor(x)</td>
-<td align="left">Round to smallest integer</td>
-</tr>
-<tr class="even">
-<td align="left">round(x, digits = 0)</td>
-<td align="left">Round number to given number of digits</td>
-</tr>
-<tr class="odd">
-<td align="left">rep(x, times = 1)</td>
-<td align="left">Repeat a number a given number of times</td>
-</tr>
-<tr class="even">
-<td align="left">seq(from, to, by= )</td>
-<td align="left">Create a sequence of numbers</td>
-</tr>
-<tr class="odd">
-<td align="left">sample(x,n,replace=T)</td>
-<td align="left">Select n random numbers from vector x</td>
-</tr>
-</tbody>
-</table>
-<p>Lets say I have a variable a=145.677, but I one to stimate the largest integer of that number, then</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="operators.html#cb21-1"></a>a=<span class="fl">145.677</span></span>
-<span id="cb21-2"><a href="operators.html#cb21-2"></a>b=<span class="kw">ceiling</span>(a)</span>
-<span id="cb21-3"><a href="operators.html#cb21-3"></a>b</span></code></pre></div>
-<pre><code>## [1] 146</code></pre>
-<p>Give a try to some of these operators, yourself.</p>
-<iframe src="https://mora.shinyapps.io/Console/?showcase=0" width="100%" height="300px">
-</iframe>
-<p>Any time you need an operator, but you do not know what is it in R, simply ask your friend Google. Say you want to calculate the cosine of a number?. Simply search in Google “How to calculate a cosine in R”.</p>
-</div>
-<div id="character-operators" class="section level3 unnumbered">
-<h3>Character operators</h3>
-<p>At times, you do not want to handle numbers but words. R also has functions for that.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Function</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">substr(x, start=n1, stop=n2)</td>
-<td align="left">Extract or replace substrings in a character vector</td>
-</tr>
-<tr class="even">
-<td align="left">grep(pattern, x , ignore.case=FALSE, fixed=FALSE)</td>
-<td align="left">Search for pattern in x</td>
-</tr>
-<tr class="odd">
-<td align="left">sub(pattern, replacement, x, ignore.case =FALSE, fixed=FALSE)</td>
-<td align="left">Find pattern in x and replace with replacement text</td>
-</tr>
-<tr class="even">
-<td align="left">strsplit(x, split)</td>
-<td align="left">Split the elements of character vector x at split</td>
-</tr>
-<tr class="odd">
-<td align="left">paste(…, sep=’’)</td>
-<td align="left">Concatenate strings</td>
-</tr>
-</tbody>
-</table>
-<p>Lets try a few examples:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="operators.html#cb23-1"></a>a=<span class="st">&quot;camilo1989&quot;</span> <span class="co">#here I have a character variable, but want to remove that number, so</span></span>
-<span id="cb23-2"><a href="operators.html#cb23-2"></a>b=<span class="kw">gsub</span>(<span class="st">&quot;1989&quot;</span>, <span class="st">&quot;&quot;</span>, a) <span class="co">#here I replace the value indicated in between the first quotations, for what is in between the second quotations, in this case nothing.</span></span>
-<span id="cb23-3"><a href="operators.html#cb23-3"></a>b</span></code></pre></div>
-<pre><code>## [1] &quot;camilo&quot;</code></pre>
+<div id="homework-3" class="section level2 unnumbered">
+<h2>Homework</h2>
+<p>When studying crime levels among universities around the country, a scientists found the following data</p>
+<p>x= 12.5, 30.0, 24.5, 14.3, 7.5, 27.7, 16.2, 20.1
+y= 26, 73, 39, 23, 15, 30, 15, 25</p>
+<p>Let x be students enroll (in thousands), and y the number of burglaries at the given university campus.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Make a scatter diagram, Adjust aesthetics so the figure follows publication guidelines.</li>
+<li>Display in the plot the correlation coefficient.</li>
+<li>Would you say the correlation is low, moderate, or high? positive or negative?</li>
+<li>Was it significant?</li>
+</ol>
+<p>Place the figure in a Word document and email it as a homework</p>
 
-<div class="rmdwarning">
-Characters are always between quotations and this is done to differentiate from variable names.
-Say I have a variable I called data but I also have a word I want to use called data as well. In this case data by ilfset will be the database, but “data” will be recongnized as chracaters. Later on we will get to this.
 </div>
-
-<p>The function paste is another function that you will use a lot.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="operators.html#cb25-1"></a>a=<span class="st">&quot;camilo&quot;</span> <span class="co">#here I have a character variable, that I want to concatenate with another one. </span></span>
-<span id="cb25-2"><a href="operators.html#cb25-2"></a>b=<span class="st">&quot;1989&quot;</span> <span class="co">#second variable.</span></span>
-<span id="cb25-3"><a href="operators.html#cb25-3"></a>c=<span class="kw">paste</span>(a,b,<span class="dt">sep=</span><span class="st">&quot;_&quot;</span>) <span class="co">#here I merge a and b, and separate them with an underscore</span></span>
-<span id="cb25-4"><a href="operators.html#cb25-4"></a>c</span></code></pre></div>
-<pre><code>## [1] &quot;camilo_1989&quot;</code></pre>
-<p>If you want nothing to separate the words, put nothing between the brackets in sep, like this</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="operators.html#cb27-1"></a>c=<span class="kw">paste</span>(a,b,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb27-2"><a href="operators.html#cb27-2"></a>c</span></code></pre></div>
-<pre><code>## [1] &quot;camilo1989&quot;</code></pre>
-</div>
-</div>
+<!-- </div> -->
 <div id="disqus_thread"></div>
 <script>
     /**
@@ -442,8 +308,8 @@ Say I have a variable I called data but I also have a word I want to use called 
           </div>
         </div>
       </div>
-<a href="comments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="custom-made-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="p-value.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="7-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -482,7 +348,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/Camilo-Mora/GEOG380/blob/main/03-RBasics-DataManipulation.Rmd",
+"link": "https://github.com/Camilo-Mora/GEOG380/blob/main/06-Correlation.Rmd",
 "text": null
 },
 "download": ["GEOG380.pdf", "GEOG380.epub"],
