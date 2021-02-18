@@ -403,12 +403,16 @@ Lets use the example we have been working on about the relationship between the 
 Is that coefficient of correlation significant?. Can I obtain a similarly high correlation, ifor any similar set of random variables?.
 
 
-To find out, you first select your critical value , $/alpha$, lets choose 0.05. In this case, the second column is the one we are interested on. 
+To find out, you first select your critical value, $\alpha$, lets choose 0.05. In this case, the second column is the one we are interested on. 
 
-Next, you scroll-down column one until the sample size in the table makes ours (that is 5). At that row, if you look over the value in the second column, that is the coeficient of correlation of any two random variables with five points. In our case, that value is 0.81. 
-Our correlation coeficients was larger , $r$=`r round(r,2)`, meaning that it is unlikley our correlation could occure by chance alone.
+Next, you scroll-down column one until the sample size in the table matches ours (that is 5). 
 
-There you have it. The more time you study the better grades you get, now demonstrated mathematically.
+At that row, if you look over the value in the second column, that is the coefficient of correlation of any two random variables with five points. In our case, that value is 0.81.
+
+
+Our correlation coefficients was larger, $r$=`r round(r,2)`, meaning that it is unlikely our correlation could occur by chance alone.
+
+There you have it. The more time you study the better grades you get, now demonstrated mathematically. keep a couple tokens while you are at it...gh...
 
 
 
@@ -422,11 +426,14 @@ y= 26, 73, 39, 23, 15, 30, 15, 25
 Let x be students enroll (in thousands), and y the number of burglaries at the given university campus.
 
 
-(a) Make a scatter diagram, Adjust aesthetics so the figure follows publication guidelines.
+(a) Make a scatter diagram, adjust aesthetics so the figure follows publication guidelines.
+
 (b) Display in the plot the correlation coefficient.
+
 (c) Would you say the correlation is low, moderate, or high? positive or negative?
-(c) Was it significant?
+
+(d) Was it significant?
 
 
-Place the figure in a Word document and email it as a homework
+Place the figure and your responses in a Word document and email it as a homework. Send a nice looking document.
 
