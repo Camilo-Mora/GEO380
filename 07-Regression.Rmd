@@ -1,26 +1,249 @@
-# Regression {}
+# Linear regression {}
 
-Work in progress...no ready to review
+Chapter not ready for review
 
-One of the core goals in statistics is to calculate the strength of the relationship between two variables. That goal can be applied to a broad diversity of research questions.
+While the goal of correlation is to give you a metric of the strength of the relationship between two variables; the goal of regression is to give you a numerical representation of the tendency in your data. That numerical representation is called a model that describes a line that best represent the tendency in your two variables.
 
-Say you did an experiment to test the effect of temperature on plants and say you have plantss growing at different temperatures. In this case, you probably would like to relate temperature to a dependent variable like say plant size. 
+Here we will be working on linear regression models...this means to find an straight line to best represent the relationship between two variables.
 
-Instead, you may be interested to see how rain affects the common cold, in which case you may wish to relate the amount of daily rainfall and the daily number of hospitalizations by cold....
+```{r, echo=FALSE, message=FALSE,warning=FALSE}
+X=c(0.5, 1.8, 2.4, 3.8, 4.5)
+Y=c(55, 64, 75, 82,95)
 
-The possibilities are endless...but at the end of the day...all of them come down to simply assessing the strength of the relationship between two variables. For this specific purpose, we use the correlation and/or the regression analysis.
 
-.
+
+#now let's do the plot
+plot(Y~X,xlab="Hours a week studying", ylab="Final class score (%)")
+abline(lm(Y ~ X),  col="red",lwd=2)
+```
+
+
+As indicated in the prior chapter, all relationships do not have to be linear, those so-call non-linear relationships. For now, we will cover only linear relationships, or straight lines that best summarize the relationship between two variables.
+
+
+There are a couple cool benefits to having a single line describing the data:
+
+1. You do not need to carry/display the data every time you want to work with the database.
+
+2. It will allow you to make predictions  over areas in which you have no data.
+
+
+To define that best-fitting line, we will use what is called the **least squares** method; sounds scary, but it is actually very simple.
+
 
 **Expectation for this chapter**
 
 At the end of this chapter, it is expected that you:
 
-4. Estimate the equation that defines the linear relationship between two variables using the least-squares criterion.
+1. Can estimate a linear regression model that defines the linear relationship between two variables using the least-squares criterion.
 
-5. Use the equation of the regression model to predict Y-values (interpolation and extrapolation).
+2. Use the equation of the regression model to predict Y-values (interpolation and extrapolation).
 
-6. Calculate the coefficient of determination and understand what it tells you about the relationship between two variables.
+3. Calculate the coefficient of determination and understand what it tells you about the relationship between two variables.
 
 
-Alright, a lot to cover, so let's get started.
+Alright, let's get to it.
+
+## The least-squares line {-}
+The purpose of a regression model is to draw a **best-fit line** through the datapoints. The best fitting line will be a line that minimizes the distance from each point to that line. In mathematical terms, that line is called the **least-squares regression line**. Let's start by understanding what that means.
+
+### Explaning the least-squares line {-}
+Let's use an analogy, and imagine the best fitting line as a knife that cut a cake.
+
+Take the figure below as an example. Will that blue line be the best-fitting line?
+
+
+```{r, echo=FALSE, message=FALSE,warning=FALSE}
+X=c(0.5, 1.8, 2.4, 3.8, 4.5)
+Y=c(55, 64, 75, 82,95)
+
+LM=lm(Y ~ X)
+
+#now let's do the plot
+plot(Y~X,xlim=c(0.5,5),xaxt = 'n',yaxt = 'n', ann=FALSE)
+abline(60, 2 ,col="blue",lwd=2)
+
+Names=c("Laura", "Peter", "Tom", "Chip","John")
+text(X,Y,labels=Names,pos=4, col="orange")
+```
+
+Not quite. That lline is strongly biased downwards. k You can imagine Laura complaining about getting a smaller piece of cake. She may complain but there are four guys that will not support her. So in this case, this line is not the best describing the data.
+
+What about the line below?. Will that be a good-fitting line to the data?
+
+```{r, echo=FALSE, message=FALSE,warning=FALSE}
+X=c(0.5, 1.8, 2.4, 3.8, 4.5)
+Y=c(55, 64, 75, 82,95)
+
+LM=lm(Y ~ X)
+
+#now let's do the plot
+plot(Y~X,xlim=c(0.5,5),xaxt = 'n',yaxt = 'n', ann=FALSE)
+abline(70, 1 ,col="blue",lwd=2)
+
+Names=c("Laura", "Peter", "Tom", "Chip","John")
+text(X,Y,labels=Names,pos=4, col="orange")
+```
+
+Well, may be...you may think the complains by Laura and Peter could be balanced out by the extra happiness of Chip and John getting larger shares of the cake.
+
+However, there are some justified complains that can be avoided if we better cut that cake; a cut in which we can reduce the complains by every body. That can only be done drawing a line that minimizes the distance from each point to the line, and that is the so called "least-square regression line".
+
+
+Like in the image below:
+```{r, echo=FALSE, message=FALSE,warning=FALSE}
+X=c(0.5, 1.8, 2.4, 3.8, 4.5)
+Y=c(55, 64, 75, 82,95)
+
+LM=lm(Y ~ X)
+
+#now let's do the plot
+plot(Y~X,xlab="Hours a week studying", ylab="Final class score (%)")
+abline(LM$coefficients[1], LM$coefficients[2] ,col="red",lwd=2)
+```
+
+### Deciphering the least-squares line {-}
+
+But of all lines that we can draw through a set of data points, how can we know what is the best-fit line?. The one in which everybody is happy using the cake analogy?. There are actually different ways to get to that line...let's start by using brutal force, which may actually help us understand the idea behind the "least-squares".
+
+We know for a fact that the 'best-fitting line' has to pass by the XY coordinates defined by the mean of all values in X and the mean value of all values in Y. At that inflection point all data in X and all data in Y is evenly separated, so the best fitting-line has to pass by that given point. Let's try.
+
+
+
+```{r, echo=FALSE,message=FALSE,warning=FALSE}
+#lets use the same data we have been using so far for time studying and grades
+X=c(0.5, 1.9, 2.4, 3.5, 5) #hours studying
+Y=c(0.7, 1.2, 2.6, 4,4.7)       #grades
+
+MeanX=mean(X)
+MeanY=mean(Y)
+
+ValsX=X-MeanX
+ValsY=Y-MeanY
+
+MeanX=mean(ValsX)
+MeanY=mean(ValsY)
+
+#now let's do the plot
+plot(ValsY~ValsX,xlab="X", ylab="Y",xlim=c(-2.5,2.5),ylim=c(-2.5,2.5),xaxt = 'n',yaxt = 'n', ann=FALSE)
+
+Names=c("Laura", "Peter", "Tom", "Chip","John")
+text(ValsX,ValsY,labels=Names,pos=2, col="orange")
+points(MeanX,MeanY, col="red",pch=16, cex=2)
+
+```
+
+We draw a step line passing trough that inflection point defined by the coordinates Mean-X and Mean-Y. Like in the image below.
+
+
+Next, we measure the distance from each point to that line. Remember, we want that distance to be as small as possible for all points. Like that:
+
+```{r, echo=FALSE,message=FALSE,warning=FALSE}
+Slope=1.9
+Predicted=Slope*ValsX
+Residuals=round (ValsY-Predicted,3)
+#now let's do the plot
+plot(ValsY~ValsX,xlab="X", ylab="Y",xlim=c(-4,4),ylim=c(-4,4.5),xaxt = 'n',yaxt = 'n', ann=FALSE, col="blue",pch="*", cex=1.5)
+
+Names=c("Laura", "Peter", "Tom", "Chip","John")
+text(ValsX,ValsY,labels=Names,pos=2, col="orange")
+points(MeanX,MeanY, col="red",pch=16, cex=2)
+
+abline(0,Slope,lwd=2, col="blue")
+
+segments(ValsX,ValsY, ValsX, Predicted, col="orange", lty=1,lwd=2)
+
+text(ValsX,(ValsY-Residuals/2),labels=Residuals,pos=4, col="red",cex=.8)
+
+```
+That difference between the given point and the best-fitting line is called a **residual**. It may also be named residual errors. Why?. well in the case of the linear regression, we want a model that best describes the data.
+
+Unfortunately, the best-line does not pass by every single one of the points, so that difference between the each point and the line is the error in the model.
+
+Next, we add up all residual errors. Remember, the best fitting line will be that one with the least residual error:
+
+`r Residuals`=`r round(sum(Residuals),4)`
+
+Hmm, that does no make sense, the sum is `r round(sum(Residuals),4)`, yet we know that for Laura alone, the residual error is 2.2.
+
+
+So how can you add up positive and negative errors, so they do not cancel each other out?. You should know....
+
+I hope you say by "squaring". If you recall from the last chapter the approach of squaring any value allows to convert all values positive or negative to non-negative values...lets try.
+
+
+$(`r Residuals[1]`)^2$ +  $(`r Residuals[2]`)^2$ +  $(`r Residuals[3]`)^2$ +  $(`r Residuals[4]`)^2$ +  $(`r Residuals[5]`)^2$ =$`r round(sum(Residuals^2),4)`$
+
+Ok, that is more like it. That value that we just calculated there is call the **Sum of Square Errors** or SSE. The best fitting line, will be that one in which SSE is the smallest. There why the approach to finding out the best finding line is called the "least squares".
+
+Lets finish the exercise by brutal force drawing lines with different inclinations and estimating their SSE. Like the figure below.
+
+
+```{r, out.width = "100%", echo= FALSE, fig.align = 'center',fig.cap = 'Time stuying relates to test scores'}
+knitr::include_graphics("images/slope.GIF")
+```
+
+
+We can put all all lines together and their respective SSE, to find out the one with the least squares sum, like this:
+
+
+```{r, echo=FALSE,message=FALSE,warning=FALSE,results='hide'}
+ library(RColorBrewer)
+ColSca <- rev(brewer.pal(9, 'YlOrRd'))   #From discrete colors  brewer.pal(9,"YlOrRd")
+ColSca <- colorRampPalette(ColSca)  #to continuous
+
+#ColSca = colorRampPalette(heat.colors(10))
+
+Data=data.frame(Slope=c(),SSE=c())
+
+for (Slope in seq(2.5, 0, by=-.1)){
+  Predicted=Slope*ValsX
+  Residuals=round (ValsY-Predicted,3)
+  SSE= round(sum(Residuals^2),4)
+
+Results=data.frame(Slope=Slope,SSE=SSE)
+Data=rbind(Data,Results)
+
+}
+
+Data$colors= ColSca(100)[cut(Data$SSE, breaks = seq(0.9, 27.5, len = 100))] 
+
+Data$Line=1:nrow(Data)
+
+plot(Data$SSE~Data$Line, xlab="Line number", ylab="SSE")
+
+Winner=Data[which.min(Data$SSE),]
+points(Winner$Line,Winner$SSE, pch="*",cex=4, col="red")
+
+```
+
+And it seems we have a winner, our line number `r Winner$Line` was the one with the lowest sum of squares, which I separate from all likely lines we tested below:
+
+
+
+
+```{r, echo=FALSE, message=FALSE,warning=FALSE}
+library(TeachingDemos)
+X=c(0.5, 1.8, 2.4, 3.8, 4.5)
+Y=c(55, 64, 75, 82,95)
+
+LM=lm(Y ~ X)
+predicted <- predict(LM) 
+residuals <- round(residuals(LM),1)
+
+#now let's do the plot
+plot(Y~X,xaxt = 'n',yaxt = 'n', ann=FALSE,xlim=c(0,5))
+abline(LM$coefficients[1], LM$coefficients[2] ,col="blue",lwd=2)
+
+segments(X,Y, X, predicted, col="orange", lty=1,lwd=2)
+
+shadowtext(X,(Y-residuals/2),labels=residuals,pos=4, col="orange")
+
+
+```
+
+Ok, I hope is clear then what is it the least squares approach to find the best fitting line. Next, we will learn how to stimate that line, the smart way.
+
+### Estimating the least-squares line {-}
+
+

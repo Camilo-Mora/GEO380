@@ -66,10 +66,11 @@ fig:unnamed-chunk-207
 fig:unnamed-chunk-208
 fig:unnamed-chunk-209
 fig:unnamed-chunk-211
+fig:unnamed-chunk-219
 the-scientific-method
 installing-programs
 basics-on-data-manipulation-in-r
 basic-plots
 descriptive-statistics
 correlation
-regression
+linear-regression
