@@ -2,19 +2,21 @@
 
 Chapter not ready for review
 
-While the goal of correlation is to give you a metric of the strength of the relationship between two variables; the goal of regression is to give you a numerical representation of the tendency in your data. That numerical representation is called a model that describes a line that best represent the tendency in your two variables.
+While the goal of correlation is to give you a metric of the strength of the relationship between two variables; the goal of regression is to give you a numerical representation of the tendency in your data. That numerical representation is called a model that describes a line that best represent the tendency in your two variables. At times, that line can also be called a **regression line** or a **trend** line.
 
 Here we will be working on linear regression models...this means to find an straight line to best represent the relationship between two variables.
 
 ```{r, echo=FALSE, message=FALSE,warning=FALSE}
-X=c(0.5, 1.8, 2.4, 3.8, 4.5)
-Y=c(55, 64, 75, 82,95)
+X=c(-2.16, -0.76, -0.26,  0.84,  2.34) 
+Y=c(-1.98, -1.48,  0.12,  1.32,  2.02)       
 
+MeanX=mean(X)
+MeanY=mean(Y)
 
 
 #now let's do the plot
-plot(Y~X,xlab="Hours a week studying", ylab="Final class score (%)")
-abline(lm(Y ~ X),  col="red",lwd=2)
+plot(X, Y,xlab="X",ylab="Y", col="blue",pch="*", cex=2, xlim=c(-4,4),ylim=c(-4,4.5))
+abline(lm(Y ~ X),  col="blue",lwd=1)
 ```
 
 
@@ -37,154 +39,343 @@ At the end of this chapter, it is expected that you:
 
 1. Can estimate a linear regression model that defines the linear relationship between two variables using the least-squares criterion.
 
-2. Use the equation of the regression model to predict Y-values (interpolation and extrapolation).
+2. Be able to interpret the results from a linear model.
 
-3. Calculate the coefficient of determination and understand what it tells you about the relationship between two variables.
+3. Use the equation of the regression model to predict Y-values (interpolation and extrapolation).
+
+4. Calculate the coefficient of determination and understand what it tells you about the relationship between two variables.
 
 
 Alright, let's get to it.
 
+
+## Parts of in line {-}
+Before we get into the needy-greedy of linear regression models, we should start by knowing how a line can be constructed.
+
+In practical terms, an specific straight line, in a XY space, can be drawn by knowing just two parameters: the **intercept** and the **slope**.
+
+At times, you will see the intercept being referred with the lowercase letter $a$ or $b$ or $b1$, whereas the slope is at times named with the lowercase $m$ or $b2$ (those are not tokens).
+
+The intercept is basically the position in the Y-axis where the regression line crosses and the slope is the inclination of that line. With those two parameters, you can draw any line you like...Lets check how the intercept and the slope works.
+
+For plotting a line in R, we use the *abline* function, which we used before for drawing horizontal or vertical lines. You can also use that R-function to draw lines with specific inclinations and intercepts. Let's try.
+
+Lets plot three lines with different slopes, but the same intercept. 
+
+```{r, message=FALSE,warning=FALSE}
+#First lets create and empty plot and put make the x and y axis nicer.
+plot(0, 0,xlab="X",ylab="Y",  xlim=c(-4,4),ylim=c(-4,4.5),col="grey")
+  abline(h=0,lwd=2, col="grey",lty=1) 
+  abline(v=0,lwd=2, col="grey",lty=1) 
+  
+# lets draw a first line with an intercept of 1, and a slope of 0.5. 
+# In abline, the first number will be the intercept and the second will be the slope.
+  
+Intercept=1  #lets create a variable for the intercept, which i choose to call intercept and make that variable = 1
+Slope=0.5    #lets create a variable for the slope, which i choose to call slope and make that variable = 0.5
+
+abline(Intercept, Slope, col="orange") #lets plot the line, and make it orange to differentiate it
+
+# keep the intercept the same and increase the slope to 1.5
+Slope=1.5
+abline(Intercept, Slope, col="blue") #lets make it blue to differentiate it
+
+# keep the intercept the same and increase the slope to 2.5
+Slope=2.5
+abline(Intercept, Slope, col="green") #lets make it green to differentiate it
+
+#We can verify the intercept, by plotting the point in Y, where the line intercept.
+points(0,Intercept, pch="*",cex=3, col="red")
+
+#play around with the lines of code above to see how they work
+```
+
+
+Lets now change the intercept, but keep the slope the same
+
+
+```{r, message=FALSE,warning=FALSE}
+#plot first
+plot(0, 0,xlab="X",ylab="Y",  xlim=c(-4,4),ylim=c(-4,4.5),col="grey")
+  abline(h=0,lwd=2, col="grey",lty=1) 
+  abline(v=0,lwd=2, col="grey",lty=1) 
+  
+# now try a combination of difference intercepts but the same slope.
+  
+Intercept=1  
+Slope=0.5   
+
+abline(Intercept, Slope, col="orange") #lets plot the line, and make it orange to differentiate it
+
+# keep the slope the same and increase the Intercept to 2
+Intercept=2
+abline(Intercept, Slope, col="blue") #lets make it blue to differentiate it
+
+# keep the slope the same and increase the Intercept to 3
+Intercept=3
+abline(Intercept, Slope, col="green") #lets make it green to differentiate it
+
+#play around with the lines of code above to see how they work
+```
+
+
+
+### How to interpret the slope {-}
+
+The slope should be interpreted as the amount of change in Y for a single unit of change in X.
+
+Let's say, you are told that a given relationship between total rainfall (in litters) and the amount of time (in hours) is 500. From that slope alone, we can tell now that for each extra hour, there will be 500 litters of water falling.
+
+To contextualize the slope graphically, you can take any point along the trendline, and move horizontally one unit; the difference between the Y-point at the first X and the Y-point at X+1, is your slope...Lets check.
+
+
+```{r, message=FALSE,warning=FALSE}
+#plot first
+plot(0, 0,xlab="X",ylab="Y",  xlim=c(0,10),ylim=c(0,5000),col="grey")
+  abline(h=0,lwd=2, col="grey",lty=1) 
+  abline(v=0,lwd=2, col="grey",lty=1) 
+
+#lets draw a trend line with a slope of 500, that intercepts the orgin.
+Intercept=0  
+Slope=500  
+
+abline(Intercept, Slope, col="orange") #lets plot the trend line, and make it orange to differentiate it
+
+
+#lets move one unit along X, starting at zero
+segments (0,0,1,0, col="red",lwd=3) #lets make that segment red
+
+#from that point, X+1, lets move up 500 units, if the calculation is correct, then that segment of 500 units in Y should finish at the interception with the trend line...lets see
+
+segments (1,0,1,500, col="blue",lwd=3) #here I took a draw a segment starting a x=1, y=0...until x=1, y=500
+```
+
+```{block2, type='rmdimportant'}
+The slope represents the inclination of the regression line and reflects the amount of change in Y for a single unit of change in X.
+```
+
+### How to interpret the intercept {-}
+
+The intercept is the expected value of Y when X=0.
+
+Say that among children there is a relationship between age (in years) and size (in centimeters), and the Y-intercept is 35cm. What does that tell you?. 
+
+So since the Y-intercept is the value at which X=0, then a Y-intercept of 35cm means the size of a child when he is zero years of age. Basically, children on average are born at 35cm of size.
+
+
+```{block2, type='rmdimportant'}
+The intercept represents the value of Y, when X= 0.
+```
+
+## Purpuse of the regression line {-}
+As indicated earlier, a common name for the intercept is the lowercase letter $b$ and a common name for the slope is the lowercase letter $m$, in the regression model they come together as:
+
+\begin{equation}
+Y = mX + b
+\end{equation}
+
+The beauty of the regression model above is that by knowing $m$, and $b$, you can predict any value of Y, if you know X.
+
+Say there is a relationship between years of higher education and salary, which is well defined with a regression equation with an intercept of $25,000 and a slope of $10,000 dollars/year. Given the units given, you should predict that salary is in the Y-axis and years of education in the X-axis. I can turn that into the equation, like:
+
+\begin{equation}
+Salary = 10,000 * (Years Of Education) + 25,000
+\end{equation}
+
+I can also display, that line in an XY plot, using the abline function:
+
+```{r, message=FALSE,warning=FALSE}
+#plot first
+plot(0, 0,xlab="Years of education",ylab="Salary (in US dollars)",  xlim=c(0,10),ylim=c(0,150000),col="grey")
+  abline(h=0,lwd=2, col="grey",lty=1) 
+  abline(v=0,lwd=2, col="grey",lty=1) 
+
+#lets draw a trend line with the given parameters
+Intercept=25000  
+Slope=10000  
+
+abline(Intercept, Slope, col="orange") #lets plot the trend line, and make it orange to differentiate it
+```
+
+You can also ask questions, like what will be an average salary for a person that studies 4 years of higher education?..You simply replace the $x$ variable in the equation with the number 4 and do the mathematical calculation to get the average expected salary.
+
+\begin{equation}
+Salary = 10,000 * 4 + 25,000
+\end{equation}
+
+So the expected salary of a person that studies four years of higher education is $65.000.
+
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=18" width="958" height="329" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+Ok, at this moment you know the basics of a linear regression model. In a nutshell, a linear regression model is a mathematical equation that allows you to draw a line, from which you can also predict any value of Y given values of X.
+
 ## The least-squares line {-}
-The purpose of a regression model is to draw a **best-fit line** through the datapoints. The best fitting line will be a line that minimizes the distance from each point to that line. In mathematical terms, that line is called the **least-squares regression line**. Let's start by understanding what that means.
+By now, you know the formulation ($Y= mX + b$) and the general purpose (i.e., to predict Y, given values of X) of a linear regression model. The next task in this chapter is to figure out how to get the best line that can be drawn through two variables that we want to relate.
+
+Obviously, you can draw an infinite number of straight lines trhough a set of datapoints; then a key question is which line best describe the data?. That is the goal of the linear regression model: to draw a **best-fit line** through the datapoints. 
+
+The best fitting line will be a line that minimizes the distance from each point to that line. In mathematical terms, that line is called the **least-squares regression line**. Let's start by understanding what that means.
 
 ### Explaning the least-squares line {-}
 Let's use an analogy, and imagine the best fitting line as a knife that cut a cake.
 
-Take the figure below as an example. Will that blue line be the best-fitting line?
+Take the figure below as an example. That blue line would be the knife and the red dotted lines the pieces of cake for each person. Will this be a good cut? Will that be the best-fitting line?
 
 
 ```{r, echo=FALSE, message=FALSE,warning=FALSE}
-X=c(0.5, 1.8, 2.4, 3.8, 4.5)
-Y=c(55, 64, 75, 82,95)
 
-LM=lm(Y ~ X)
-
+Slope=-.4
+intercept=-2.5
 #now let's do the plot
-plot(Y~X,xlim=c(0.5,5),xaxt = 'n',yaxt = 'n', ann=FALSE)
-abline(60, 2 ,col="blue",lwd=2)
+plot(X, Y,xlab="X",ylab="Y", col="blue",pch="*", cex=2, xlim=c(-4,4),ylim=c(-4,4.5),xaxt = 'n',yaxt = 'n', ann=FALSE)
+
+abline(intercept, Slope ,col="blue",lwd=1)
 
 Names=c("Laura", "Peter", "Tom", "Chip","John")
-text(X,Y,labels=Names,pos=4, col="orange")
+text(X,Y,labels=Names,pos=2, col="orange")
+
+
+Predicted=intercept+Slope*X
+segments(X,Y, X, Predicted, col="red", lty=2,lwd=1)
+
+
 ```
 
-Not quite. That lline is strongly biased downwards. k You can imagine Laura complaining about getting a smaller piece of cake. She may complain but there are four guys that will not support her. So in this case, this line is not the best describing the data.
+Not quite s. I can imagine Laura not being happy about getting a smaller piece of cake. She may complain but there are four guys that will not support her, as they are likely very happy getting bigger shares of that cake. So in this case, this line is not the best describing the data.
 
 What about the line below?. Will that be a good-fitting line to the data?
 
 ```{r, echo=FALSE, message=FALSE,warning=FALSE}
-X=c(0.5, 1.8, 2.4, 3.8, 4.5)
-Y=c(55, 64, 75, 82,95)
 
-LM=lm(Y ~ X)
-
+Slope=0.1
+intercept=0
 #now let's do the plot
-plot(Y~X,xlim=c(0.5,5),xaxt = 'n',yaxt = 'n', ann=FALSE)
-abline(70, 1 ,col="blue",lwd=2)
+plot(X, Y,xlab="X",ylab="Y", col="blue",pch="*", cex=2, xlim=c(-4,4),ylim=c(-4,4.5),xaxt = 'n',yaxt = 'n', ann=FALSE)
+
+abline(intercept, Slope ,col="blue",lwd=1)
 
 Names=c("Laura", "Peter", "Tom", "Chip","John")
-text(X,Y,labels=Names,pos=4, col="orange")
+text(X,Y,labels=Names,pos=2, col="orange")
+
+
+Predicted=intercept+Slope*X
+segments(X,Y, X, Predicted, col="red", lty=2,lwd=1)
+
 ```
 
-Well, may be...you may think the complains by Laura and Peter could be balanced out by the extra happiness of Chip and John getting larger shares of the cake.
+Well, may be...you may think the complains by Laura and Peter getting smaller pieces could be balanced out by the extra happiness of Chip and John getting larger shares of the cake.
 
-However, there are some justified complains that can be avoided if we better cut that cake; a cut in which we can reduce the complains by every body. That can only be done drawing a line that minimizes the distance from each point to the line, and that is the so called "least-square regression line".
+However, there are some justified complains that can be avoided if we better cut that cake; a cut in which we can reduce the complains by every body. That can only be done drawing a line that minimizes the distance from each point to the line, and that is the so-called "least-square regression line".
 
 
 Like in the image below:
 ```{r, echo=FALSE, message=FALSE,warning=FALSE}
-X=c(0.5, 1.8, 2.4, 3.8, 4.5)
-Y=c(55, 64, 75, 82,95)
-
 LM=lm(Y ~ X)
 
-#now let's do the plot
-plot(Y~X,xlab="Hours a week studying", ylab="Final class score (%)")
-abline(LM$coefficients[1], LM$coefficients[2] ,col="red",lwd=2)
+plot(X, Y,xlab="X",ylab="Y", col="blue",pch="*", cex=2, xlim=c(-4,4),ylim=c(-4,4.5),xaxt = 'n',yaxt = 'n', ann=FALSE)
+
+abline(LM$coefficients[1], LM$coefficients[2] ,col="blue",lwd=1)
+
+Names=c("Laura", "Peter", "Tom", "Chip","John")
+text(X,Y,labels=Names,pos=2, col="orange")
+
+
+Predicted=LM$coefficients[1]  +  LM$coefficients[2]*X
+segments(X,Y, X, Predicted, col="red", lty=2,lwd=1)
+
+
 ```
 
 ### Deciphering the least-squares line {-}
 
-But of all lines that we can draw through a set of data points, how can we know what is the best-fit line?. The one in which everybody is happy using the cake analogy?. There are actually different ways to get to that line...let's start by using brutal force, which may actually help us understand the idea behind the "least-squares".
+But of all lines that we can draw through a set of data points, how can we know what is the best-fit line?, the one in which everybody is happy using the cake analogy?. There are actually different ways to get to that line...let's start by using brutal force, which may actually help us understand the idea behind the "least-squares".
 
-We know for a fact that the 'best-fitting line' has to pass by the XY coordinates defined by the mean of all values in X and the mean value of all values in Y. At that inflection point all data in X and all data in Y is evenly separated, so the best fitting-line has to pass by that given point. Let's try.
+We know for a fact that the 'best-fitting line' has to pass by the XY coordinates defined by the mean of all values in X and the mean value of all values in Y. At that inflection point, all data in X and all data in Y are evenly separated, so the best fitting-line has to pass by that given point.
+
+Let's plot the mean value of X and the mean value of Y (Dashed grey-lines in the image below) and that the interception of those lines we plot the Mid-point of XY (red dot in image below).
 
 
 
 ```{r, echo=FALSE,message=FALSE,warning=FALSE}
 #lets use the same data we have been using so far for time studying and grades
-X=c(0.5, 1.9, 2.4, 3.5, 5) #hours studying
-Y=c(0.7, 1.2, 2.6, 4,4.7)       #grades
+plot(X, Y,xlab="X",ylab="Y", col="blue",pch="*", cex=2, xlim=c(-4,4),ylim=c(-4,4.5),xaxt = 'n',yaxt = 'n', ann=FALSE)
 
-MeanX=mean(X)
-MeanY=mean(Y)
 
-ValsX=X-MeanX
-ValsY=Y-MeanY
+      abline(h=MeanY,lwd=2, col="grey",lty=2)  #Ymean
+      legend(2.8,MeanY,"Y-mean",box.col = "lightblue", bg = "lightblue",xjust=0, adj = 0.2)
 
-MeanX=mean(ValsX)
-MeanY=mean(ValsY)
+      abline(v=MeanX,lwd=2, col="grey",lty=2)  #Xmean
+      legend(-1.5,4.8,"X-mean",box.col = "lightblue", bg = "lightblue",xjust=0, adj = 0.2)
 
-#now let's do the plot
-plot(ValsY~ValsX,xlab="X", ylab="Y",xlim=c(-2.5,2.5),ylim=c(-2.5,2.5),xaxt = 'n',yaxt = 'n', ann=FALSE)
 
-Names=c("Laura", "Peter", "Tom", "Chip","John")
-text(ValsX,ValsY,labels=Names,pos=2, col="orange")
+text(X,Y,labels=Names,pos=2, col="orange")
+
 points(MeanX,MeanY, col="red",pch=16, cex=2)
 
 ```
 
-We draw a step line passing trough that inflection point defined by the coordinates Mean-X and Mean-Y. Like in the image below.
+Next, we draw a very inclined line passing trough that inflection point defined by the coordinates Mean-X and Mean-Y. Like in the image below.
 
 
-Next, we measure the distance from each point to that line. Remember, we want that distance to be as small as possible for all points. Like that:
+Next, we measure the distance from each point to that line (red-dashed lines), which I indicate with the red numbers in the image below.
+
+(Remember, the best line will be one with the smallest distance between each point and the given line)
 
 ```{r, echo=FALSE,message=FALSE,warning=FALSE}
 Slope=1.9
-Predicted=Slope*ValsX
-Residuals=round (ValsY-Predicted,3)
-#now let's do the plot
-plot(ValsY~ValsX,xlab="X", ylab="Y",xlim=c(-4,4),ylim=c(-4,4.5),xaxt = 'n',yaxt = 'n', ann=FALSE, col="blue",pch="*", cex=1.5)
+
+LM=lm(Y ~ X)
+
+plot(X, Y,xlab="X",ylab="Y", col="blue",pch="*", cex=2, xlim=c(-4,4),ylim=c(-4,4.5),xaxt = 'n',yaxt = 'n', ann=FALSE)
+
+      abline(h=MeanY,lwd=2, col="grey",lty=2)  #Ymean
+      abline(v=MeanX,lwd=2, col="grey",lty=2)  #Xmean
+      
+      
+abline(LM$coefficients[1], Slope ,col="blue",lwd=1)
 
 Names=c("Laura", "Peter", "Tom", "Chip","John")
-text(ValsX,ValsY,labels=Names,pos=2, col="orange")
-points(MeanX,MeanY, col="red",pch=16, cex=2)
+text(X,Y,labels=Names,pos=2, col="orange")
 
-abline(0,Slope,lwd=2, col="blue")
 
-segments(ValsX,ValsY, ValsX, Predicted, col="orange", lty=1,lwd=2)
+Predicted=LM$coefficients[1]  +  Slope*X
+segments(X,Y, X, Predicted, col="red", lty=2,lwd=1)
 
-text(ValsX,(ValsY-Residuals/2),labels=Residuals,pos=4, col="red",cex=.8)
+
+Residuals=round (Y-Predicted,3)
+
+text(X,(Y-Residuals/2),labels=Residuals,pos=4, col="red",cex=.8)
 
 ```
-That difference between the given point and the best-fitting line is called a **residual**. It may also be named residual errors. Why?. well in the case of the linear regression, we want a model that best describes the data.
+That difference between each point and the best-fitting line (red-dashed lines and red-numbers) are called **residuals**. It may also be named **residual errors**. 
 
-Unfortunately, the best-line does not pass by every single one of the points, so that difference between the each point and the line is the error in the model.
+Why call the residual also an error?. well, in the case of the linear regression, we want a model that best describes the data. Unfortunately, the best-line does not pass by every single one of the points, so that difference between the each point and the line is the error in the model.
 
 Next, we add up all residual errors. Remember, the best fitting line will be that one with the least residual error:
 
-`r Residuals`=`r round(sum(Residuals),4)`
+$(`r Residuals[1]`)$ +  $(`r Residuals[2]`)$ +  $(`r Residuals[3]`)$ +  $(`r Residuals[4]`)$ +  $(`r Residuals[5]`)$  = $`r round(sum(Residuals),4)`$
 
-Hmm, that does no make sense, the sum is `r round(sum(Residuals),4)`, yet we know that for Laura alone, the residual error is 2.2.
+Hmm, that does no make sense, the sum is `r round(sum(Residuals),4)`; yet we know that for Laura alone, the residual error is $(`r Residuals[1]`)$.
 
 
 So how can you add up positive and negative errors, so they do not cancel each other out?. You should know....
 
-I hope you say by "squaring". If you recall from the last chapter the approach of squaring any value allows to convert all values positive or negative to non-negative values...lets try.
+I hope you say by "squaring" pr elevating the given number to the power of 2. If you recall from the last chapter, the approach of squaring any value allows to convert all values positive or negative to non-negative values...lets try.
 
 
 $(`r Residuals[1]`)^2$ +  $(`r Residuals[2]`)^2$ +  $(`r Residuals[3]`)^2$ +  $(`r Residuals[4]`)^2$ +  $(`r Residuals[5]`)^2$ =$`r round(sum(Residuals^2),4)`$
 
 Ok, that is more like it. That value that we just calculated there is call the **Sum of Square Errors** or SSE. The best fitting line, will be that one in which SSE is the smallest. There why the approach to finding out the best finding line is called the "least squares".
 
-Lets finish the exercise by brutal force drawing lines with different inclinations and estimating their SSE. Like the figure below.
+Lets finish the exercise by brutal force, drawing lines with different inclinations and estimating their SSE. Like the figure below.
 
 
 ```{r, out.width = "100%", echo= FALSE, fig.align = 'center',fig.cap = 'Time stuying relates to test scores'}
-knitr::include_graphics("images/slope.GIF")
+knitr::include_graphics("images/test.GIF")
 ```
 
 
-We can put all all lines together and their respective SSE, to find out the one with the least squares sum, like this:
+We can compare the sum of squares errors, SSE, of each line to find out the one with the least, like this:
 
 
 ```{r, echo=FALSE,message=FALSE,warning=FALSE,results='hide'}
@@ -194,56 +385,181 @@ ColSca <- colorRampPalette(ColSca)  #to continuous
 
 #ColSca = colorRampPalette(heat.colors(10))
 
-Data=data.frame(Slope=c(),SSE=c())
-
-for (Slope in seq(2.5, 0, by=-.1)){
-  Predicted=Slope*ValsX
-  Residuals=round (ValsY-Predicted,3)
-  SSE= round(sum(Residuals^2),4)
-
-Results=data.frame(Slope=Slope,SSE=SSE)
-Data=rbind(Data,Results)
-
-}
-
+Data=read.csv("D:/GEO380/Datasets/RSS.csv")
+colnames(Data)=c("X","Line", "SSE")
 Data$colors= ColSca(100)[cut(Data$SSE, breaks = seq(0.9, 27.5, len = 100))] 
 
-Data$Line=1:nrow(Data)
 
-plot(Data$SSE~Data$Line, xlab="Line number", ylab="SSE")
+plot(Data$SSE~Data$Line, xlab="Line number", ylab="SSE",ylim=c(0,12))
 
 Winner=Data[which.min(Data$SSE),]
 points(Winner$Line,Winner$SSE, pch="*",cex=4, col="red")
 
 ```
 
-And it seems we have a winner, our line number `r Winner$Line` was the one with the lowest sum of squares, which I separate from all likely lines we tested below:
+And it seems we have a winner, our line number `r Winner$Line` was the one with the lowest sum of squares, which I separate below:
+
 
 
 
 
 ```{r, echo=FALSE, message=FALSE,warning=FALSE}
 library(TeachingDemos)
-X=c(0.5, 1.8, 2.4, 3.8, 4.5)
-Y=c(55, 64, 75, 82,95)
 
 LM=lm(Y ~ X)
 predicted <- predict(LM) 
 residuals <- round(residuals(LM),1)
 
 #now let's do the plot
-plot(Y~X,xaxt = 'n',yaxt = 'n', ann=FALSE,xlim=c(0,5))
-abline(LM$coefficients[1], LM$coefficients[2] ,col="blue",lwd=2)
-
+plot(X, Y,xlab="X",ylab="Y", col="blue",pch="*", cex=2, xlim=c(-4,4),ylim=c(-4,4.5),xaxt = 'n',yaxt = 'n', ann=FALSE)
+abline(LM$coefficients[1], LM$coefficients[2] ,col="blue",lwd=1)
+      abline(h=MeanY,lwd=2, col="grey",lty=2)  #Ymean
+      abline(v=MeanX,lwd=2, col="grey",lty=2)  #Xmean
 segments(X,Y, X, predicted, col="orange", lty=1,lwd=2)
 
-shadowtext(X,(Y-residuals/2),labels=residuals,pos=4, col="orange")
-
+shadowtext(X,(Y-residuals/2),labels=residuals,pos=4, col="red")
+text(X,Y,labels=Names,pos=2, col="orange")
 
 ```
 
-Ok, I hope is clear then what is it the least squares approach to find the best fitting line. Next, we will learn how to stimate that line, the smart way.
+Ok, I hope is clear then what is it the least squares approach to find the best fitting line. Next, we will learn how to estimate the parameters for the intercept, $b$, and the slope, $m$, that define the line in the linear regression model, the smart way.
 
-### Estimating the least-squares line {-}
+## Estimating the least-squares line {-}
+The ultimate goal of a linear regression model is to identify the parameters for the intercept, $b$, and the slope, $m$, of the line that minimizes the residual errors (i.e., the distance from each point to that regression line).
+
+```{block2, type='rmdnote'}
+The linear regression line is expresed as $Y = mX + b$
+```
+
+### Refreshing the Slope {-}
+Before we get into the mathematical equation to describe the slope of the linear regression model, lets review your 4th grade geometry about how to calculate the slope between two points.
+
+If you recall Ms. Smith, your Match teacher in 4th (think I can make up this name, because do you really remember your 4th grade Math teacher?), she told you that the slope between two points can be calculated as:
+
+\begin{equation}
+Slope = m = \frac{\Delta y}{\Delta x}= \frac{y_{2}-y_{1}}{x_{2}-x_{1}}
+\end{equation}
+
+Basically, the change in Y divided by the change in X. Put another way, if I change X by 1 unit, how much will Y change?
+
+Lets check the math, using a line for which we know the slope, using the R-function *abline*, as we did earlier.
+
+
+
+```{r, echo=FALSE, message=FALSE,warning=FALSE}
+Slope= 2  #lets set a line with a slope of 2
+Intercept=1 # We do not need the intercept but lets use a value of 1 as an example
+
+plot(0,0,xlab="X",ylab="Y", col="blue",pch=".", cex=2, xlim=c(-0,4),ylim=c(0,8), yaxs="i", xaxs="i") #lets create an empty plot
+
+#Next we draw the line with the known slope:
+abline(Intercept, Slope ,col="blue",lwd=1) 
+
+#Now place two points along that line...say a point at the coordinates (1,3) and another point at the coordinates (3,8).
+#If you recall, the coordinates of a point are x and y given between parenthesis.
+#Point 1
+points(1,3,pch=21, col="black",bg="yellow",cex=2,lwd=.1) #First point
+text(1,3, labels="(1,3)",pos=2) #lets create a label
+#Point 2
+points(3,7,pch=21, col="black",bg="yellow",cex=2,lwd=.1) #second point
+text(3,7, labels="(3,7)",pos=2) #lets create a label  
+
+#lets draw the difference in X, which basically x0=1, and x=3, so the difference in delta x=2
+segments(x0=1,y0=3,x=3,y=3, col="red", lty=2,cex=2) #lets draw the segment for for the difference in x between the two points
+text(2,3, labels="2",col="red",pos=1) #lets create a label  
+
+#lets draw the difference in Y, which basically y0=3, and y=7, so the difference in delta y=4
+segments(x0=3,y0=3,x=3,y=7, col="blue", lty=2,cex=2) #lets draw the segment for for the difference in x between the two points
+text(3,5, labels="4",col="blue",pos=4) #lets create a label  
+```
+
+Continuing with the example above, the change in Y, also called $\Delta y$, was 4. The change in X, also called $\Delta x$, was 2. So, the slope can be calculated as:
+
+\begin{equation}
+m = \frac{\Delta y}{\Delta x}= \frac{4}{2}=2
+\end{equation}
+
+
+That is exactly, the slope we set in abline, which serve the purpose to illustrate that the slope of a line is simply the change in Y divided by the change in X.
+
+With that in mind lets now calculate the slope of the regression line
+
+### The slope {-}
+
+There are numerous ways to calculate the slope, $m$, of a linear regression model. However, the simplest is:
+
+\begin{equation}
+Slope = m = \frac{\sum(x-\bar{x})*(y-\bar{y})}{\sum(x-\bar{x})^2}
+\end{equation}
+
+We have seen those terms before. The numerator was included in the covariance (i.e., how two variables trend together) and the denominator was included in the variance (i.e., how disperse are the data in one variable).
+
+If you think about it...that equation speaks by itself. 
+
+As we mentioned earlier, the slope of any line can be described as the change in Y divided by the change in X. 
+
+From Chapter 5, the Section on Dispersion, you may recall that the best indicator of the variability in a variable was the variance, which has as term $\sum(x-\bar{x})^2$. From chapter 6, you may recall that the best indicator of the tendency between two variables was the covariance $\sum(x-\bar{x})*(y-\bar{y})$.
+
+As such, we if want the slope among a set of points that follows their central tendency, then the change in X will be $\sum(x-\bar{x})^2$, and the change in Y will be how Y varies with X, which mathematically is $\sum(x-\bar{x})*(y-\bar{y})$.
+
+
+If, the variance in Y were to be exactly as the variance in X (this is the case in which the coefficient of correlation, $r$ is equal to one), then the slope would become the variance in Y divided by the variance in X. Lets see if this is true.
+
+Let's use the data on the time studying and grades
+
+```{r, echo= FALSE, message=FALSE,warning=FALSE}
+Names=c("Peter","Laura", "John", "Chip", "Tom")
+Hours_Studying=c(0.5, 1.8, 2.4, 3.8, 4.5)
+Grade=c(55, 64, 75, 82,95)
+XDif=Hours_Studying-mean(Hours_Studying)
+YDif=Grade-mean(Grade) 
+
+Data=data.frame(Names=Names,Hours_Studying=Hours_Studying,Grade=Grade,XDif=XDif,YDif=YDif)
+
+colnames(Data) <- c("Names", "Hours Studying", "Grade","$$(x-\\bar{x})$$",   "$$(y-\\bar{y})$$")
+
+
+knitr::kable(
+  Data, longtable = TRUE, booktabs = TRUE,
+  caption = 'Grades and time studying Stats'
+)
+```
+
+
+According to the slope equation for the regression line, we need to start by calculating the difference from each x value to the mean of x, $(x-\bar{x})$.
+
+We assume that hours studying is the independent variable and score is the dependent variable. So x is the hours studying,
+
+
+
+
+```{r, message=FALSE,warning=FALSE}
+Names=c("Peter","Laura", "John", "Chip", "Tom")
+Hours_Studying=c(0.5, 1.8, 2.4, 3.8, 4.5)
+Score=c(55, 64, 75, 82,95)
+
+#we assume that hours studying is the independent variable and grade is the dependent variable
+#Let's calculate the slope using the equation above for the linear regression model
+
+#we start by calculating the differences in x values to their mean
+Xdif=Hours_Studying*mean(Hours_Studying)
+
+#next the differences in the y values to the mean of y
+Ydif=Score*mean(Score)
+
+#Next we multiply the differences in x to the x mean and the differences in y to the y-mean
+XYdif=Xdif*Ydif
+
+#Next we sum those results
+sum(XYdif)
+
+#done that is the numerator
+```
+
+
+
+
+
+
 
 
