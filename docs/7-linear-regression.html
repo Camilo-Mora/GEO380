@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="homework-3.html"/>
-<link rel="next" href="parts-of-in-line.html"/>
+<link rel="next" href="parts-of-a-line.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -249,19 +249,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="homework-3.html"><a href="homework-3.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-linear-regression.html"><a href="7-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Linear regression</a><ul>
-<li class="chapter" data-level="" data-path="parts-of-in-line.html"><a href="parts-of-in-line.html"><i class="fa fa-check"></i>Parts of in line</a><ul>
-<li class="chapter" data-level="" data-path="parts-of-in-line.html"><a href="parts-of-in-line.html#how-to-interpret-the-slope"><i class="fa fa-check"></i>How to interpret the slope</a></li>
-<li class="chapter" data-level="" data-path="parts-of-in-line.html"><a href="parts-of-in-line.html#how-to-interpret-the-intercept"><i class="fa fa-check"></i>How to interpret the intercept</a></li>
+<li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html"><i class="fa fa-check"></i>Parts of a line</a><ul>
+<li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html#how-to-interpret-the-slope"><i class="fa fa-check"></i>How to interpret the slope</a></li>
+<li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html#how-to-interpret-the-intercept"><i class="fa fa-check"></i>How to interpret the intercept</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="purpuse-of-the-regression-line.html"><a href="purpuse-of-the-regression-line.html"><i class="fa fa-check"></i>Purpuse of the regression line</a></li>
 <li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html"><i class="fa fa-check"></i>The least-squares line</a><ul>
-<li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html#explaning-the-least-squares-line"><i class="fa fa-check"></i>Explaning the least-squares line</a></li>
+<li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html#understanding-the-least-squares-line"><i class="fa fa-check"></i>Understanding the least-squares line</a></li>
 <li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html#deciphering-the-least-squares-line"><i class="fa fa-check"></i>Deciphering the least-squares line</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html"><i class="fa fa-check"></i>Estimating the least-squares line</a><ul>
 <li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html#refreshing-the-slope"><i class="fa fa-check"></i>Refreshing the Slope</a></li>
-<li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html#the-slope"><i class="fa fa-check"></i>The slope</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="the-slope.html"><a href="the-slope.html"><i class="fa fa-check"></i>The slope</a></li>
+<li class="chapter" data-level="" data-path="the-intercept.html"><a href="the-intercept.html"><i class="fa fa-check"></i>The intercept</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-in-r.html"><a href="linear-regression-in-r.html"><i class="fa fa-check"></i>Linear regression in R</a></li>
+<li class="chapter" data-level="" data-path="the-coeficient-of-determination.html"><a href="the-coeficient-of-determination.html"><i class="fa fa-check"></i>The coeficient of determination</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
@@ -290,14 +293,17 @@ By Camilo Mora, Ph.D.
 <p>Chapter not ready for review</p>
 <p>While the goal of correlation is to give you a metric of the strength of the relationship between two variables; the goal of regression is to give you a numerical representation of the tendency in your data. That numerical representation is called a model that describes a line that best represent the tendency in your two variables. At times, that line can also be called a <strong>regression line</strong> or a <strong>trend</strong> line.</p>
 <p>Here we will be working on linear regression models…this means to find an straight line to best represent the relationship between two variables.</p>
+<p>For instance, the blue line below appears to represent well the tendency that exist between variables Y and X. The goal of this chapter is to use a mathematical procedure (linear regression) that allows you to identify that line.</p>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>As indicated in the prior chapter, all relationships do not have to be linear, those so-call non-linear relationships. For now, we will cover only linear relationships, or straight lines that best summarize the relationship between two variables.</p>
-<p>There are a couple cool benefits to having a single line describing the data:</p>
+<p>As indicated in the prior chapter, all relationships do not have to be linear, there are also those so-call non-linear relationships. For now, we will cover only linear relationships, or straight lines that best summarize the relationship between two variables.</p>
+<p>There are a few cool benefits to having a single line describing the data:</p>
 <ol style="list-style-type: decimal">
+<li><p>It allows you to mathematically define how two variables are related. Like if I increase X by 2 then Y increases by how much?.</p></li>
+<li><p>It will allow you to make predictions over areas in which you have no data. Like if X is 52.3 then why is?</p></li>
 <li><p>You do not need to carry/display the data every time you want to work with the database.</p></li>
-<li><p>It will allow you to make predictions over areas in which you have no data.</p></li>
 </ol>
 <p>To define that best-fitting line, we will use what is called the <strong>least squares</strong> method; sounds scary, but it is actually very simple.</p>
+<p><span class="math display">\[\\[.0005in]\]</span></p>
 <p><strong>Expectation for this chapter</strong></p>
 <p>At the end of this chapter, it is expected that you:</p>
 <ol style="list-style-type: decimal">
@@ -333,7 +339,7 @@ By Camilo Mora, Ph.D.
         </div>
       </div>
 <a href="homework-3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="parts-of-in-line.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="parts-of-a-line.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -372,10 +378,10 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/Camilo-Mora/GEOG380/blob/main/07-Regression.Rmd",
+"link": "https://github.com/Camilo-Mora/GEO380/blob/main/07-Regression.Rmd",
 "text": null
 },
-"download": ["GEOG380.pdf", "GEOG380.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection"
 },

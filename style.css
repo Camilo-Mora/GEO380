@@ -1,16 +1,19 @@
+.mjx-chtml.MJXc-display{
+  padding: 20px 0;
+}
+
 
 iframe{
 margin-bottom: 50px;
 }
 
 .sourceCode{
-  margin-top: 50px;
-  margin-bottom: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 p {
-  margin-top:100px;
-  margin-top: 50px;
+  padding-bottom: 10px;
   }
 
 
@@ -70,13 +73,12 @@ p caption {
 
 
 .figure {
-   margin-top: 60px;
-   margin-bottom: 60px;
+   margin-top: 40px;
+   margin-bottom: 40px;
 }
 
 .table {
-    margin-top: 100px;
-    margin-bottom: 100px;
+    padding: 10px 20px 15px 50px;
 }
 
 

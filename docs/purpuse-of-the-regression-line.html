@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="parts-of-in-line.html"/>
+<link rel="prev" href="parts-of-a-line.html"/>
 <link rel="next" href="the-least-squares-line.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -249,19 +249,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="homework-3.html"><a href="homework-3.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-linear-regression.html"><a href="7-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Linear regression</a><ul>
-<li class="chapter" data-level="" data-path="parts-of-in-line.html"><a href="parts-of-in-line.html"><i class="fa fa-check"></i>Parts of in line</a><ul>
-<li class="chapter" data-level="" data-path="parts-of-in-line.html"><a href="parts-of-in-line.html#how-to-interpret-the-slope"><i class="fa fa-check"></i>How to interpret the slope</a></li>
-<li class="chapter" data-level="" data-path="parts-of-in-line.html"><a href="parts-of-in-line.html#how-to-interpret-the-intercept"><i class="fa fa-check"></i>How to interpret the intercept</a></li>
+<li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html"><i class="fa fa-check"></i>Parts of a line</a><ul>
+<li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html#how-to-interpret-the-slope"><i class="fa fa-check"></i>How to interpret the slope</a></li>
+<li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html#how-to-interpret-the-intercept"><i class="fa fa-check"></i>How to interpret the intercept</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="purpuse-of-the-regression-line.html"><a href="purpuse-of-the-regression-line.html"><i class="fa fa-check"></i>Purpuse of the regression line</a></li>
 <li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html"><i class="fa fa-check"></i>The least-squares line</a><ul>
-<li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html#explaning-the-least-squares-line"><i class="fa fa-check"></i>Explaning the least-squares line</a></li>
+<li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html#understanding-the-least-squares-line"><i class="fa fa-check"></i>Understanding the least-squares line</a></li>
 <li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html#deciphering-the-least-squares-line"><i class="fa fa-check"></i>Deciphering the least-squares line</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html"><i class="fa fa-check"></i>Estimating the least-squares line</a><ul>
 <li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html#refreshing-the-slope"><i class="fa fa-check"></i>Refreshing the Slope</a></li>
-<li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html#the-slope"><i class="fa fa-check"></i>The slope</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="the-slope.html"><a href="the-slope.html"><i class="fa fa-check"></i>The slope</a></li>
+<li class="chapter" data-level="" data-path="the-intercept.html"><a href="the-intercept.html"><i class="fa fa-check"></i>The intercept</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-in-r.html"><a href="linear-regression-in-r.html"><i class="fa fa-check"></i>Linear regression in R</a></li>
+<li class="chapter" data-level="" data-path="the-coeficient-of-determination.html"><a href="the-coeficient-of-determination.html"><i class="fa fa-check"></i>The coeficient of determination</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
@@ -294,20 +297,20 @@ Y = mX + b
 <p>The beauty of the regression model above is that by knowing <span class="math inline">\(m\)</span>, and <span class="math inline">\(b\)</span>, you can predict any value of Y, if you know X.</p>
 <p>Say there is a relationship between years of higher education and salary, which is well defined with a regression equation with an intercept of $25,000 and a slope of $10,000 dollars/year. Given the units given, you should predict that salary is in the Y-axis and years of education in the X-axis. I can turn that into the equation, like:</p>
 <p><span class="math display">\[\begin{equation}
-Salary = 10,000 * (Years Of Education) + 25,000
+Salary = 10,000 * \text{(Years Of Education)} + 25,000
 \end{equation}\]</span></p>
 <p>I can also display, that line in an XY plot, using the abline function:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="purpuse-of-the-regression-line.html#cb6-1"></a><span class="co">#plot first</span></span>
-<span id="cb6-2"><a href="purpuse-of-the-regression-line.html#cb6-2"></a><span class="kw">plot</span>(<span class="dv">0</span>, <span class="dv">0</span>,<span class="dt">xlab=</span><span class="st">&quot;Years of education&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Salary (in US dollars)&quot;</span>,  <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">150000</span>),<span class="dt">col=</span><span class="st">&quot;grey&quot;</span>)</span>
-<span id="cb6-3"><a href="purpuse-of-the-regression-line.html#cb6-3"></a>  <span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>,<span class="dt">lty=</span><span class="dv">1</span>) </span>
-<span id="cb6-4"><a href="purpuse-of-the-regression-line.html#cb6-4"></a>  <span class="kw">abline</span>(<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>,<span class="dt">lty=</span><span class="dv">1</span>) </span>
-<span id="cb6-5"><a href="purpuse-of-the-regression-line.html#cb6-5"></a></span>
-<span id="cb6-6"><a href="purpuse-of-the-regression-line.html#cb6-6"></a><span class="co">#lets draw a trend line with the given parameters</span></span>
-<span id="cb6-7"><a href="purpuse-of-the-regression-line.html#cb6-7"></a>Intercept=<span class="dv">25000</span>  </span>
-<span id="cb6-8"><a href="purpuse-of-the-regression-line.html#cb6-8"></a>Slope=<span class="dv">10000</span>  </span>
-<span id="cb6-9"><a href="purpuse-of-the-regression-line.html#cb6-9"></a></span>
-<span id="cb6-10"><a href="purpuse-of-the-regression-line.html#cb6-10"></a><span class="kw">abline</span>(Intercept, Slope, <span class="dt">col=</span><span class="st">&quot;orange&quot;</span>) <span class="co">#lets plot the trend line, and make it orange to differentiate it</span></span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="purpuse-of-the-regression-line.html#cb4-1"></a><span class="co">#plot first</span></span>
+<span id="cb4-2"><a href="purpuse-of-the-regression-line.html#cb4-2"></a><span class="kw">plot</span>(<span class="dv">0</span>, <span class="dv">0</span>,<span class="dt">xlab=</span><span class="st">&quot;Years of education&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Salary (in US dollars)&quot;</span>,  <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">150000</span>),<span class="dt">col=</span><span class="st">&quot;grey&quot;</span>)</span>
+<span id="cb4-3"><a href="purpuse-of-the-regression-line.html#cb4-3"></a>  <span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>,<span class="dt">lty=</span><span class="dv">1</span>) </span>
+<span id="cb4-4"><a href="purpuse-of-the-regression-line.html#cb4-4"></a>  <span class="kw">abline</span>(<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>,<span class="dt">lty=</span><span class="dv">1</span>) </span>
+<span id="cb4-5"><a href="purpuse-of-the-regression-line.html#cb4-5"></a></span>
+<span id="cb4-6"><a href="purpuse-of-the-regression-line.html#cb4-6"></a><span class="co">#lets draw a trend line with the given parameters</span></span>
+<span id="cb4-7"><a href="purpuse-of-the-regression-line.html#cb4-7"></a>Intercept=<span class="dv">25000</span>  </span>
+<span id="cb4-8"><a href="purpuse-of-the-regression-line.html#cb4-8"></a>Slope=<span class="dv">10000</span>  </span>
+<span id="cb4-9"><a href="purpuse-of-the-regression-line.html#cb4-9"></a></span>
+<span id="cb4-10"><a href="purpuse-of-the-regression-line.html#cb4-10"></a><span class="kw">abline</span>(Intercept, Slope, <span class="dt">col=</span><span class="st">&quot;orange&quot;</span>) <span class="co">#lets plot the trend line, and make it orange to differentiate it</span></span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>You can also ask questions, like what will be an average salary for a person that studies 4 years of higher education?..You simply replace the <span class="math inline">\(x\)</span> variable in the equation with the number 4 and do the mathematical calculation to get the average expected salary.</p>
 <p><span class="math display">\[\begin{equation}
 Salary = 10,000 * 4 + 25,000
@@ -316,7 +319,7 @@ Salary = 10,000 * 4 + 25,000
 <iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=18" width="958" height="329" frameborder="0" allowfullscreen="allowfullscreen">
 </iframe>
 <script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
-<p>Ok, at this moment you know the basics of a linear regression model. In a nutshell, a linear regression model is a mathematical equation that allows you to draw a line, from which you can also predict any value of Y given values of X.</p>
+<p>Ok, at this moment you know the basics of a linear regression model. In a nutshell, a linear regression model is a mathematical equation that includes a slope and an intercept which allows you to draw a line, from which you can also predict any value of Y given values of X.</p>
 </div>
 <div id="disqus_thread"></div>
 <script>
@@ -342,7 +345,7 @@ Salary = 10,000 * 4 + 25,000
           </div>
         </div>
       </div>
-<a href="parts-of-in-line.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="parts-of-a-line.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="the-least-squares-line.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -382,10 +385,10 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/Camilo-Mora/GEOG380/blob/main/07-Regression.Rmd",
+"link": "https://github.com/Camilo-Mora/GEO380/blob/main/07-Regression.Rmd",
 "text": null
 },
-"download": ["GEOG380.pdf", "GEOG380.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection"
 },

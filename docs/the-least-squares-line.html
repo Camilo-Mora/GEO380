@@ -249,19 +249,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="homework-3.html"><a href="homework-3.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-linear-regression.html"><a href="7-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Linear regression</a><ul>
-<li class="chapter" data-level="" data-path="parts-of-in-line.html"><a href="parts-of-in-line.html"><i class="fa fa-check"></i>Parts of in line</a><ul>
-<li class="chapter" data-level="" data-path="parts-of-in-line.html"><a href="parts-of-in-line.html#how-to-interpret-the-slope"><i class="fa fa-check"></i>How to interpret the slope</a></li>
-<li class="chapter" data-level="" data-path="parts-of-in-line.html"><a href="parts-of-in-line.html#how-to-interpret-the-intercept"><i class="fa fa-check"></i>How to interpret the intercept</a></li>
+<li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html"><i class="fa fa-check"></i>Parts of a line</a><ul>
+<li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html#how-to-interpret-the-slope"><i class="fa fa-check"></i>How to interpret the slope</a></li>
+<li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html#how-to-interpret-the-intercept"><i class="fa fa-check"></i>How to interpret the intercept</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="purpuse-of-the-regression-line.html"><a href="purpuse-of-the-regression-line.html"><i class="fa fa-check"></i>Purpuse of the regression line</a></li>
 <li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html"><i class="fa fa-check"></i>The least-squares line</a><ul>
-<li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html#explaning-the-least-squares-line"><i class="fa fa-check"></i>Explaning the least-squares line</a></li>
+<li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html#understanding-the-least-squares-line"><i class="fa fa-check"></i>Understanding the least-squares line</a></li>
 <li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html#deciphering-the-least-squares-line"><i class="fa fa-check"></i>Deciphering the least-squares line</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html"><i class="fa fa-check"></i>Estimating the least-squares line</a><ul>
 <li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html#refreshing-the-slope"><i class="fa fa-check"></i>Refreshing the Slope</a></li>
-<li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html#the-slope"><i class="fa fa-check"></i>The slope</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="the-slope.html"><a href="the-slope.html"><i class="fa fa-check"></i>The slope</a></li>
+<li class="chapter" data-level="" data-path="the-intercept.html"><a href="the-intercept.html"><i class="fa fa-check"></i>The intercept</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-in-r.html"><a href="linear-regression-in-r.html"><i class="fa fa-check"></i>Linear regression in R</a></li>
+<li class="chapter" data-level="" data-path="the-coeficient-of-determination.html"><a href="the-coeficient-of-determination.html"><i class="fa fa-check"></i>The coeficient of determination</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
@@ -287,33 +290,33 @@ By Camilo Mora, Ph.D.
             <section class="normal" id="section-">
 <div id="the-least-squares-line" class="section level2 unnumbered">
 <h2>The least-squares line</h2>
-<p>By now, you know the formulation (<span class="math inline">\(Y= mX + b\)</span>) and the general purpose (i.e., to predict Y, given values of X) of a linear regression model. The next task in this chapter is to figure out how to get the best line that can be drawn through two variables that we want to relate.</p>
+<p>By now, you know the formulation (i.e., <span class="math inline">\(Y= mX + b\)</span>) and the general purpose (i.e., to predict Y, given values of X) of a linear regression model. The next task in this chapter is to figure out how to get the best line that can be drawn through two variables that we want to relate.</p>
 <p>Obviously, you can draw an infinite number of straight lines trhough a set of datapoints; then a key question is which line best describe the data?. That is the goal of the linear regression model: to draw a <strong>best-fit line</strong> through the datapoints.</p>
-<p>The best fitting line will be a line that minimizes the distance from each point to that line. In mathematical terms, that line is called the <strong>least-squares regression line</strong>. Let’s start by understanding what that means.</p>
-<div id="explaning-the-least-squares-line" class="section level3 unnumbered">
-<h3>Explaning the least-squares line</h3>
+<p>The best fitting line will be a line that minimizes the distance from each point to that line. In mathematical terms, that line is called the <strong>least-squares regression line</strong>. In a moment, you will see how that name (least-squares regression line) speaks by itself; I hope in a moment you will see how the term is self-explanatory.</p>
+<div id="understanding-the-least-squares-line" class="section level3 unnumbered">
+<h3>Understanding the least-squares line</h3>
 <p>Let’s use an analogy, and imagine the best fitting line as a knife that cut a cake.</p>
 <p>Take the figure below as an example. That blue line would be the knife and the red dotted lines the pieces of cake for each person. Will this be a good cut? Will that be the best-fitting line?</p>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>Not quite s. I can imagine Laura not being happy about getting a smaller piece of cake. She may complain but there are four guys that will not support her, as they are likely very happy getting bigger shares of that cake. So in this case, this line is not the best describing the data.</p>
 <p>What about the line below?. Will that be a good-fitting line to the data?</p>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>Well, may be…you may think the complains by Laura and Peter getting smaller pieces could be balanced out by the extra happiness of Chip and John getting larger shares of the cake.</p>
 <p>However, there are some justified complains that can be avoided if we better cut that cake; a cut in which we can reduce the complains by every body. That can only be done drawing a line that minimizes the distance from each point to the line, and that is the so-called “least-square regression line”.</p>
 <p>Like in the image below:
-<img src="GEOG380_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<img src="GEOG380_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 </div>
 <div id="deciphering-the-least-squares-line" class="section level3 unnumbered">
 <h3>Deciphering the least-squares line</h3>
 <p>But of all lines that we can draw through a set of data points, how can we know what is the best-fit line?, the one in which everybody is happy using the cake analogy?. There are actually different ways to get to that line…let’s start by using brutal force, which may actually help us understand the idea behind the “least-squares”.</p>
 <p>We know for a fact that the ‘best-fitting line’ has to pass by the XY coordinates defined by the mean of all values in X and the mean value of all values in Y. At that inflection point, all data in X and all data in Y are evenly separated, so the best fitting-line has to pass by that given point.</p>
-<p>Let’s plot the mean value of X and the mean value of Y (Dashed grey-lines in the image below) and that the interception of those lines we plot the Mid-point of XY (red dot in image below).</p>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Let’s plot the mean value of X and the mean value of Y (Dashed grey-lines in the image below) and at the interception of those lines let’s we plot the mean of X and the mean of Y (red dot in image below).</p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>Next, we draw a very inclined line passing trough that inflection point defined by the coordinates Mean-X and Mean-Y. Like in the image below.</p>
 <p>Next, we measure the distance from each point to that line (red-dashed lines), which I indicate with the red numbers in the image below.</p>
 <p>(Remember, the best line will be one with the smallest distance between each point and the given line)</p>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-12-1.png" width="672" />
-That difference between each point and the best-fitting line (red-dashed lines and red-numbers) are called <strong>residuals</strong>. It may also be named <strong>residual errors</strong>.</p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>That difference between each point and the best-fitting line (red-dashed lines and red-numbers) are called <strong>residuals</strong>. It may also be named <strong>residual errors</strong>.</p>
 <p>Why call the residual also an error?. well, in the case of the linear regression, we want a model that best describes the data. Unfortunately, the best-line does not pass by every single one of the points, so that difference between the each point and the line is the error in the model.</p>
 <p>Next, we add up all residual errors. Remember, the best fitting line will be that one with the least residual error:</p>
 <p><span class="math inline">\((2.124)\)</span> + <span class="math inline">\((-0.036)\)</span> + <span class="math inline">\((0.614)\)</span> + <span class="math inline">\((-0.276)\)</span> + <span class="math inline">\((-2.426)\)</span> = <span class="math inline">\(0\)</span></p>
@@ -321,19 +324,19 @@ That difference between each point and the best-fitting line (red-dashed lines a
 <p>So how can you add up positive and negative errors, so they do not cancel each other out?. You should know….</p>
 <p>I hope you say by “squaring” pr elevating the given number to the power of 2. If you recall from the last chapter, the approach of squaring any value allows to convert all values positive or negative to non-negative values…lets try.</p>
 <p><span class="math inline">\((2.124)^2\)</span> + <span class="math inline">\((-0.036)^2\)</span> + <span class="math inline">\((0.614)^2\)</span> + <span class="math inline">\((-0.276)^2\)</span> + <span class="math inline">\((-2.426)^2\)</span> =<span class="math inline">\(10.8513\)</span></p>
-<p>Ok, that is more like it. That value that we just calculated there is call the <strong>Sum of Square Errors</strong> or SSE. The best fitting line, will be that one in which SSE is the smallest. There why the approach to finding out the best finding line is called the “least squares”.</p>
+<p>Ok, that is more like it. That value that we just calculated is call the <strong>Sum of Square Errors</strong> or SSE. The best fitting line, will be that one in which SSE is the smallest. There why the approach to finding out the best finding line is called the “least squares”.</p>
 <p>Lets finish the exercise by brutal force, drawing lines with different inclinations and estimating their SSE. Like the figure below.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
-<img src="images/test.gif" alt="Time stuying relates to test scores" width="100%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
+<img src="images/test.gif" alt="Finiding the line with the least-squares error" width="100%" />
 <p class="caption">
-Figure 7.1: Time stuying relates to test scores
+Figure 7.2: Finiding the line with the least-squares error
 </p>
 </div>
 <p>We can compare the sum of squares errors, SSE, of each line to find out the one with the least, like this:</p>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>And it seems we have a winner, our line number 30 was the one with the lowest sum of squares, which I separate below:</p>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
-<p>Ok, I hope is clear then what is it the least squares approach to find the best fitting line. Next, we will learn how to estimate the parameters for the intercept, <span class="math inline">\(b\)</span>, and the slope, <span class="math inline">\(m\)</span>, that define the line in the linear regression model, the smart way.</p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>Ok, I hope is clear then what is it the least squares approach to find the best fitting line. Next, we will learn how to estimate the parameters for the intercept, <span class="math inline">\(b\)</span>, and the slope, <span class="math inline">\(m\)</span>, that define the line in the linear regression model, the smart and easy way.</p>
 </div>
 </div>
 <div id="disqus_thread"></div>
@@ -400,10 +403,10 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/Camilo-Mora/GEOG380/blob/main/07-Regression.Rmd",
+"link": "https://github.com/Camilo-Mora/GEO380/blob/main/07-Regression.Rmd",
 "text": null
 },
-"download": ["GEOG380.pdf", "GEOG380.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection"
 },

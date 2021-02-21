@@ -312,21 +312,21 @@ n = `r n`
 
 Now we plug those values into the coefficient of correlation, r, equation:
 
-.
+$$\\[.0005in]$$
 
 \begin{equation}
 r = \frac{n * \sum_{} xy- (\sum_{} x)*(\sum_{} y)}{\sqrt {n * \sum_{} x^2- (\sum_{} x)^2 } * \sqrt {n * \sum_{} y^2- (\sum_{} y)^2 }}
 \end{equation}
 
 
-.
+$$\\[.0005in]$$
 
 
 \begin{equation}
 r = \frac{`r n` * `r round(SumXY,2)`- (`r round(SumX,2)`)*(`r round(SumY,2)`)}{\sqrt {`r n` * `r round(SumX2,2)`- (`r round(SumX,2)`)^2 } * \sqrt {`r n` * `r format(SumY2, scientific=FALSE)`- (`r round(SumY,2)`)^2 }}
 \end{equation}
 
-.
+$$\\[.0005in]$$
 
 In R, it is basically:
 
@@ -340,6 +340,8 @@ r
 \begin{equation}
 r = `r round(r,2)`
 \end{equation}
+
+$$\\[.0005in]$$
 
 Hmm, what do you think is causing the difference to the original calculation?
 
