@@ -271,6 +271,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="outliers.html"><a href="outliers.html"><i class="fa fa-check"></i>Outliers</a></li>
 <li class="chapter" data-level="" data-path="the-significance.html"><a href="the-significance.html"><i class="fa fa-check"></i>The significance</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i>Multiple regression</a></li>
+<li class="chapter" data-level="" data-path="non-linear-regression.html"><a href="non-linear-regression.html"><i class="fa fa-check"></i>Non-linear regression</a></li>
 <li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
@@ -323,6 +325,7 @@ Y = 9.59* 4 + 49.28
 <p><span class="math display">\[\begin{equation}
 Y = 87.64
 \end{equation}\]</span></p>
+<p>For a person that studies four hours a week the expected grade will be 87.64.</p>
 <div id="interpolation-and-extrapolation" class="section level3 unnumbered">
 <h3>Interpolation and Extrapolation</h3>
 <p>Predictions based on a linear model can be separated between those that are within the data you have, in which case the prediction is called an “interpolation”. If the prediction is beyond the values of X that you have, then the prediction is call and extrapolation.</p>
@@ -341,7 +344,7 @@ Predicting Y values for X values that are beyond observed X values in the data s
 
 
 <div class="rmdcaution">
-Becuase extrapolation predict values beyind what is know, uncertainty is much higher and at times produce unrealistic forecasts.
+Becuase extrapolation predict values beyond what is known, uncertainty is much higher and at times forecasts can be unrealistic.
 </div>
 
 <p>In R, you can predict any value from a linear model, using the <em>predict</em> function, let’s try.</p>

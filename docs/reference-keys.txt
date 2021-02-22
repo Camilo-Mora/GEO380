@@ -80,6 +80,7 @@ fig:unnamed-chunk-248
 fig:unnamed-chunk-249
 fig:unnamed-chunk-250
 fig:unnamed-chunk-252
+fig:unnamed-chunk-254
 the-scientific-method
 installing-programs
 basics-on-data-manipulation-in-r

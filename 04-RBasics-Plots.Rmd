@@ -431,3 +431,5 @@ knitr::include_graphics("images/PDFvsPNG.png")
 Now that you know how to manipulate data and do some basic figures. For this chapter's exercise, please find the guidelines for figures in the journal Nature and do a plot according to the standards required for that journal.
 
 Plot the relationship between GDP and population size, using the databases that have been provided to you already, and include of the basic criteria for figures mentioned at the start of this chapter.
+
+Place that plot in a Word document and submitting as the homework for this chapter.

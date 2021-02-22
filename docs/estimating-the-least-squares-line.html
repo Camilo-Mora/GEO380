@@ -271,6 +271,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="outliers.html"><a href="outliers.html"><i class="fa fa-check"></i>Outliers</a></li>
 <li class="chapter" data-level="" data-path="the-significance.html"><a href="the-significance.html"><i class="fa fa-check"></i>The significance</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i>Multiple regression</a></li>
+<li class="chapter" data-level="" data-path="non-linear-regression.html"><a href="non-linear-regression.html"><i class="fa fa-check"></i>Non-linear regression</a></li>
 <li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
@@ -332,7 +334,7 @@ Slope = m = \frac{\Delta y}{\Delta x}= \frac{y_{2}-y_{1}}{x_{2}-x_{1}}
 <span id="cb195-17"><a href="estimating-the-least-squares-line.html#cb195-17"></a><span class="kw">points</span>(<span class="dv">3</span>,<span class="dv">7</span>,<span class="dt">pch=</span><span class="dv">21</span>, <span class="dt">col=</span><span class="st">&quot;black&quot;</span>,<span class="dt">bg=</span><span class="st">&quot;yellow&quot;</span>,<span class="dt">cex=</span><span class="dv">2</span>,<span class="dt">lwd=</span>.<span class="dv">1</span>) <span class="co">#second point</span></span>
 <span id="cb195-18"><a href="estimating-the-least-squares-line.html#cb195-18"></a><span class="kw">text</span>(<span class="dv">3</span>,<span class="dv">7</span>, <span class="dt">labels=</span><span class="st">&quot;(3,7)&quot;</span>,<span class="dt">pos=</span><span class="dv">2</span>) <span class="co">#lets create a label  </span></span>
 <span id="cb195-19"><a href="estimating-the-least-squares-line.html#cb195-19"></a></span>
-<span id="cb195-20"><a href="estimating-the-least-squares-line.html#cb195-20"></a><span class="co">#lets draw a segment for the change X, which if x0=1, and x=3, then the difference is 2.</span></span>
+<span id="cb195-20"><a href="estimating-the-least-squares-line.html#cb195-20"></a><span class="co">#lets draw a segment for the change X: is x0=1, and x1=3, then the difference is 2.</span></span>
 <span id="cb195-21"><a href="estimating-the-least-squares-line.html#cb195-21"></a><span class="kw">segments</span>(<span class="dt">x0=</span><span class="dv">1</span>,<span class="dt">y0=</span><span class="dv">3</span>,<span class="dt">x=</span><span class="dv">3</span>,<span class="dt">y=</span><span class="dv">3</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>,<span class="dt">cex=</span><span class="dv">2</span>) <span class="co">#lets draw the segment for the difference in x between the two points, and make it red</span></span>
 <span id="cb195-22"><a href="estimating-the-least-squares-line.html#cb195-22"></a><span class="kw">text</span>(<span class="dv">2</span>,<span class="dv">3</span>, <span class="dt">labels=</span><span class="st">&quot;2&quot;</span>,<span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">pos=</span><span class="dv">1</span>) <span class="co">#lets create a label for that segment</span></span>
 <span id="cb195-23"><a href="estimating-the-least-squares-line.html#cb195-23"></a></span>

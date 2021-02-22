@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="outliers.html"/>
-<link rel="next" href="exercises-2.html"/>
+<link rel="next" href="multiple-regression.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -271,6 +271,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="outliers.html"><a href="outliers.html"><i class="fa fa-check"></i>Outliers</a></li>
 <li class="chapter" data-level="" data-path="the-significance.html"><a href="the-significance.html"><i class="fa fa-check"></i>The significance</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i>Multiple regression</a></li>
+<li class="chapter" data-level="" data-path="non-linear-regression.html"><a href="non-linear-regression.html"><i class="fa fa-check"></i>Non-linear regression</a></li>
 <li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
@@ -303,14 +305,20 @@ The linear regression model is not different. There may still be a chance that y
 <p>To rule out that possibility, we use what is called an F-test. We will review the F-statistics in more detail later in the Chapter about hypothesis testing.</p>
 <p>Basically, some people have taken the time to run millions of simulations of “fake” “random” datasets, created linear models with them with varying sample sizes and number of parameters, and estimated the fitness of those models. Then, they put the results of those “random” models in <strong>F-tables</strong>, which you can find at the end of most books on stats.</p>
 <p>The beauty of those tables is that you can compare your model, given the number of samples and the number of variables, to find out the fraction of models similar to yours that could have happened by chance.</p>
-<p>To compare your model to theirs, you need the F-value from your model, which we will get into in a sec, the number of variables in your model (for the purpose of comparison to the their tables, we will call this value <span class="math inline">\(v1\)</span>). You also will need a parameter, we will call <span class="math inline">\(v2\)</span>, which is the number of datapoints minus the number of predictors in the model plus one. <span class="math inline">\(v1 and v2\)</span> are just parameters needed to compare to random models of similar parameters.</p>
+<p>To compare your model to theirs, you need:</p>
+<ol style="list-style-type: decimal">
+<li>the F-value from your model, which we will get into in a sec.</li>
+<li>the number of variables in your model (for the purpose of comparison to the their tables, we will call this value <span class="math inline">\(v1\)</span>)</li>
+<li>A parameter, we will call <span class="math inline">\(v2\)</span>, which is the number of datapoints in the model minus the number of predictors in the model plus one.</li>
+</ol>
+<p><span class="math inline">\(v1\)</span> and <span class="math inline">\(v2\)</span> are just parameters needed to compare to random models of similar parameters.</p>
 <p>If your model is similar to theirs, then, your results could have emerged by simple chance. If your results were different, then the relationship you found is legit. We will work more on this later on.</p>
 <p>Ok, but we need to estimate the F-Value of our model. There is an specific equation to calculate the F-value or F-statistics of a linear regression model. However, it can also be predicted using the <span class="math inline">\(r^2\)</span>, which we will use here for simplicity, using the following equation:</p>
 <p><span class="math display">\[\begin{equation}
 F_{statistics} = \frac{r^2}{1-r^2} *\frac{v2}{v1}
 \end{equation}\]</span></p>
 <p>Where <span class="math inline">\(r^2\)</span>, is the coefficient of determination; <span class="math inline">\(v1\)</span> is number of predictors in the model; <span class="math inline">\(v2\)</span> is the number of datapoints minus the number of predictors in the model plus one.</p>
-<p>If you think about that formulate above, you are estimating an standard metric of the variance explained, <span class="math inline">\(r^2\)</span>, to the variance not explained, <span class="math inline">\(1-r^2\)</span>, for a model of certain characteristics of sample size and variables used.</p>
+<p>If you think about that formula above, you are estimating an standard metric of the variance explained, <span class="math inline">\(r^2\)</span>, to the variance not explained, <span class="math inline">\(1-r^2\)</span>, for a model of certain characteristics of sample size and variables used.</p>
 <p>Because the most variance you can explain in any case is always just 100%, this metric could be assumed standard among any model random or not. And that is how then, we can compare our results on legit data to fake data, and see if any result of ours is different from random.</p>
 <p>With all parameters at hand for our model, we need to look into an <em>F-table</em> to estimate the <em>critical F-value</em>. A <em>critical F-value</em> is the expected F-value at which certain fraction of random models occur. Let’s take a moment to understand this.</p>
 <p>Image a statistician runs one million regressions with random data using certain number of samples and independent variables and for each model he estimates the F-value above. He then creates a frequency distribution of the number of models at each F-value, like the figure below.</p>
@@ -324,9 +332,9 @@ Figure 7.10: F-distribution
 <p>If say our model has an F-value larger than that critical F-value then we are 90% sure our model cannot have emerge by chance.</p>
 <p>Alternatively, you could say our model is significant at p&gt;0.1, which is the complement of 90% or 0.9 if you look at it as fractions. That p-value is also called the <em>critical p-value</em> or at times also named alpha, <span class="math inline">\(\alpha\)</span>.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-249"></span>
-<img src="images/F-distribution.png" alt="lm outputs" width="80%" />
+<img src="images/F-distribution.png" alt="Critical f-Value at 90% or p=0.1" width="80%" />
 <p class="caption">
-Figure 7.11: lm outputs
+Figure 7.11: Critical f-Value at 90% or p=0.1
 </p>
 </div>
 <p>Lets estimate the F-value for our regression model between grades and time studying, for which we know the <span class="math inline">\(r^2\)</span> was <span class="math inline">\(0.96\)</span>. <span class="math inline">\(v1\)</span>, the number of predictors in the model would be 1, as we only have one independent variable (i.e., time studying) and, <span class="math inline">\(v2\)</span> is 3; If you recall <span class="math inline">\(v2\)</span> is the number of datapoints (five student) minus the number of predictors (one in our case) plus one. So</p>
@@ -336,8 +344,8 @@ F_{statistics} = \frac{0.96}{1-0.96} *\frac{3}{1}
 <p><span class="math display">\[\begin{equation}
 F_{statistics} = 79.7259164
 \end{equation}\]</span></p>
-<p>So the F-value for our model was <span class="math inline">\(79.73\)</span>. Now we need to find out the <em>critical F-value</em>, and lets take a <span class="math inline">\(\alpha =0.05\)</span>. For this we use an F-table, like the one below.</p>
-<p>Because v1 = 1 in our case, you have to select the first column, then scroll down until v2 in the grey column is equal to 3, at the interception is the <strong>F-critical</strong>. Or the F-value at which 95% of the random models occurred. Threes are similar tables like this for each <span class="math inline">\(\alpha\)</span>.</p>
+<p>So the F-value for our model was <span class="math inline">\(79.73\)</span>. Now we need to find out the <em>critical F-value</em>, and lets take a <span class="math inline">\(\alpha =0.05\)</span>. For this we use an F-table, like the one below, which you can find on most books on stats.</p>
+<p>Because <span class="math inline">\(v1\)</span> = 1 in our case, you have to select the first column, then scroll down until <span class="math inline">\(v2\)</span> in the gray column is equal to 3, at the interception is the <strong>F-critical</strong>. Or the F-value at which 95% of the random models occurred. There are similar tables like this for each <span class="math inline">\(\alpha\)</span>.</p>
 <p>So for a model like ours, 95% of the random models should have an critical F-value smaller than 10.13. However, our model had an F-value = 79.7259164. So our model is very different from the random expectation, or also-called significantly different at p&gt;0.05.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-250"></span>
 <img src="images/Ftable.png" alt="lm outputs" width="80%" />
@@ -345,7 +353,7 @@ F_{statistics} = 79.7259164
 Figure 7.12: lm outputs
 </p>
 </div>
-<p>In R, the F-value is produced automatically with the <span class="math inline">\(lm\)</span> function and the summary function. The outputs from the linear model, lm, also include the exact probability at which our model could be random, see image below.</p>
+<p>In R, the F-value is produced automatically with the <span class="math inline">\(lm\)</span> function and the <span class="math inline">\(summary\)</span> function. The outputs from the linear model, lm, also include the exact probability at which our model could be random, see image below.</p>
 <div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="the-significance.html#cb202-1"></a><span class="kw">summary</span> (LM)   <span class="co">#Here LM is the linear model, lm, we create in the code just above.  </span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-252"></span>
 <img src="images/Fvalue.png" alt="lm outputs" width="80%" />
@@ -353,7 +361,7 @@ Figure 7.12: lm outputs
 Figure 7.13: lm outputs
 </p>
 </div>
-<p>In conclusion, there is a significantly strong relations (<span class="math inline">\(r^2 = 0.96\)</span>) at p&gt;0.05 between studying for my class and getting a nice grade. There you go, keep studying.</p>
+<p>In conclusion, there is a significantly strong relations (<span class="math inline">\(r^2 = 0.96\)</span>) at p&lt;0.05 between studying for my class and getting a nice grade. There you go, keep studying.</p>
 </div>
 <div id="disqus_thread"></div>
 <script>
@@ -380,7 +388,7 @@ Figure 7.13: lm outputs
         </div>
       </div>
 <a href="outliers.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exercises-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="multiple-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

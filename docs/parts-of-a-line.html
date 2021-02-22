@@ -271,6 +271,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="outliers.html"><a href="outliers.html"><i class="fa fa-check"></i>Outliers</a></li>
 <li class="chapter" data-level="" data-path="the-significance.html"><a href="the-significance.html"><i class="fa fa-check"></i>The significance</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i>Multiple regression</a></li>
+<li class="chapter" data-level="" data-path="non-linear-regression.html"><a href="non-linear-regression.html"><i class="fa fa-check"></i>Non-linear regression</a></li>
 <li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
@@ -319,7 +321,7 @@ At times, you will see the intercept being referred with the lowercase letter <s
 <p>Lets plot three lines with different slopes, but the same intercept.</p>
 <div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="parts-of-a-line.html#cb191-1"></a><span class="co">#play around with the lines of code below to see how they work</span></span>
 <span id="cb191-2"><a href="parts-of-a-line.html#cb191-2"></a></span>
-<span id="cb191-3"><a href="parts-of-a-line.html#cb191-3"></a><span class="co">#First lets create and empty plot and make the x and y axis nicer.</span></span>
+<span id="cb191-3"><a href="parts-of-a-line.html#cb191-3"></a><span class="co">#First lets create an empty plot and make the x and y axis nicer.</span></span>
 <span id="cb191-4"><a href="parts-of-a-line.html#cb191-4"></a><span class="kw">plot</span>(<span class="dv">0</span>, <span class="dv">0</span>,<span class="dt">xlab=</span><span class="st">&quot;X&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;Y&quot;</span>,  <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>,<span class="fl">4.5</span>),<span class="dt">col=</span><span class="st">&quot;grey&quot;</span>)</span>
 <span id="cb191-5"><a href="parts-of-a-line.html#cb191-5"></a>  <span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>,<span class="dt">lty=</span><span class="dv">1</span>) </span>
 <span id="cb191-6"><a href="parts-of-a-line.html#cb191-6"></a>  <span class="kw">abline</span>(<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>,<span class="dt">lty=</span><span class="dv">1</span>) </span>
@@ -381,7 +383,7 @@ The units of the slope are the units of the variable in Y divided by the units o
 <span id="cb193-3"><a href="parts-of-a-line.html#cb193-3"></a>  <span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>,<span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>,<span class="dt">lty=</span><span class="dv">1</span>) </span>
 <span id="cb193-4"><a href="parts-of-a-line.html#cb193-4"></a>  <span class="kw">abline</span>(<span class="dt">v=</span><span class="dv">0</span>,<span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>,<span class="dt">lty=</span><span class="dv">1</span>) </span>
 <span id="cb193-5"><a href="parts-of-a-line.html#cb193-5"></a></span>
-<span id="cb193-6"><a href="parts-of-a-line.html#cb193-6"></a><span class="co">#lets draw a trend line with a slope of 500, that intercepts the orgin.</span></span>
+<span id="cb193-6"><a href="parts-of-a-line.html#cb193-6"></a><span class="co">#lets draw a trend line with a slope of 500, that intercepts the origin.</span></span>
 <span id="cb193-7"><a href="parts-of-a-line.html#cb193-7"></a>Intercept=<span class="dv">0</span>  </span>
 <span id="cb193-8"><a href="parts-of-a-line.html#cb193-8"></a>Slope=<span class="dv">500</span>  </span>
 <span id="cb193-9"><a href="parts-of-a-line.html#cb193-9"></a></span>

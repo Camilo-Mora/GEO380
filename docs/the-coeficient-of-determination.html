@@ -271,6 +271,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="outliers.html"><a href="outliers.html"><i class="fa fa-check"></i>Outliers</a></li>
 <li class="chapter" data-level="" data-path="the-significance.html"><a href="the-significance.html"><i class="fa fa-check"></i>The significance</a></li>
+<li class="chapter" data-level="" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i>Multiple regression</a></li>
+<li class="chapter" data-level="" data-path="non-linear-regression.html"><a href="non-linear-regression.html"><i class="fa fa-check"></i>Non-linear regression</a></li>
 <li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
@@ -304,10 +306,11 @@ By Camilo Mora, Ph.D.
 <li><p>It tells you how good is the relationship between the two variables, although you sort of know this from the correlation coefficient, <span class="math inline">\(r\)</span>, that you estimated earlier.</p></li>
 <li><p>It tells you the percent of variance of Y that is explained by X.</p></li>
 </ol>
-<p>Say you found a relationship between plant size and nutrient input with an <span class="math inline">\(r^2\)</span> of 85%. This tells you that 85% of the variability you have among your plants can be explained by the input of nutrients. It will probably goo idea to add nutrient to the plants.</p>
-<p>Say that in the opposite you found an <span class="math inline">\(r^2\)</span> of 5%. Then only 5% of the variability in plant size can be explained by nutrient input. In this case, it may be wastefull to add nutrients to the plants, since they affect so little how plants will grow. This may be the case if you have some good soil, so, no need for nutrients.</p>
+<p>Say you found a relationship between plant size and nutrient input with an <span class="math inline">\(r^2\)</span> of 85%. This tells you that 85% of the variability you have among your plants can be explained by the input of nutrients.</p>
+<p>In other words, if the relationship was positive, then plants that grew a lot had lots of nutrients, while plants that did not grow well was because they did not have nutrients. So given the high <span class="math inline">\(r^2\)</span>, it will probably be good idea to add nutrients to the plants.</p>
+<p>Say that in the opposite you found an <span class="math inline">\(r^2\)</span> of 5%. Then only 5% of the variability in plant size can be explained by nutrient input. In this case, it may be wasteful to add nutrients to the plants, since they affect so little how plants will grow. This may be the case if you have some good soil, so, no need for nutrients.</p>
 <p>In this example about nutrients and plants, you can see how <span class="math inline">\(r^2\)</span> let you make inferences about the strength of the relationships.</p>
-<p>The only bad thing about this <span class="math inline">\(r^2\)</span>, as oppose to the correlation coefficient, <span class="math inline">\(r\)</span>, is that you cannot know the direction of the relation. So you may still have to relay on the correlation coefficient, <span class="math inline">\(r\)</span>, to know in which direction are the two variables related.</p>
+<p>One bad thing about <span class="math inline">\(r^2\)</span>, as oppose to the correlation coefficient, <span class="math inline">\(r\)</span>, is that you cannot know the direction of the relation (i.e., whether it is positive or negative). So you may still have to relay on the correlation coefficient, <span class="math inline">\(r\)</span>, to know in which direction are the two variables related.</p>
 <p>Before we get into the mathematics of the <span class="math inline">\(r^2\)</span>, check out this brief explanation:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wHvxTZWV-sE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
@@ -324,7 +327,7 @@ By Camilo Mora, Ph.D.
 Figure 7.4: Sum of Squares from the Mean, SSmean
 </p>
 </div>
-<p>You need to think of the Sum of Squares of the Mean,<span class="math inline">\(SSmean\)</span>, as the variability in Y.</p>
+<p>You need to think of the Sum of Squares of the Mean, <span class="math inline">\(SSmean\)</span>, as the variability in Y.</p>
 <p><span class="math inline">\(SSfit\)</span>, stands for Sum of Squares around the Fit. Let’s see what this means.</p>
 <p>Take the data on grades and time studying, relate grades against times studying, and find the best line (Orange line in figure below). Then for each point measure the distance from the point to the line, or so-call <em>residuals</em> (red-dotted lines). Take each residual, square it, and then add them together. What you get is the Sum of Squares around the Fit, <span class="math inline">\(SSfit\)</span>.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-237"></span>
@@ -341,18 +344,18 @@ Figure 7.5: Sum of Squares around the Fit, SSfit
 <span id="cb197-2"><a href="the-coeficient-of-determination.html#cb197-2"></a>X=<span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>) <span class="co">#hours studying</span></span>
 <span id="cb197-3"><a href="the-coeficient-of-determination.html#cb197-3"></a>Y=<span class="kw">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)       <span class="co">#grades</span></span>
 <span id="cb197-4"><a href="the-coeficient-of-determination.html#cb197-4"></a></span>
-<span id="cb197-5"><a href="the-coeficient-of-determination.html#cb197-5"></a><span class="co"># lets stimate the regression line using lm, and lets put that model in a variable</span></span>
+<span id="cb197-5"><a href="the-coeficient-of-determination.html#cb197-5"></a><span class="co"># lets estimate the regression line using lm, and lets put that model in a variable</span></span>
 <span id="cb197-6"><a href="the-coeficient-of-determination.html#cb197-6"></a>LM =<span class="st"> </span><span class="kw">lm</span> (Y<span class="op">~</span>X)   <span class="co">#this is the linear model between Grades~Hours_Studying</span></span>
 <span id="cb197-7"><a href="the-coeficient-of-determination.html#cb197-7"></a></span>
-<span id="cb197-8"><a href="the-coeficient-of-determination.html#cb197-8"></a><span class="co">#you can find out the residuals of that model using the R-Fucniton residuals.</span></span>
+<span id="cb197-8"><a href="the-coeficient-of-determination.html#cb197-8"></a><span class="co">#you can find out the residuals of that model using the R-Function residuals.</span></span>
 <span id="cb197-9"><a href="the-coeficient-of-determination.html#cb197-9"></a>Residuals=<span class="st"> </span><span class="kw">residuals</span> (LM)  <span class="co">#here we create a vector with the residuals from our model</span></span>
 <span id="cb197-10"><a href="the-coeficient-of-determination.html#cb197-10"></a></span>
 <span id="cb197-11"><a href="the-coeficient-of-determination.html#cb197-11"></a><span class="co">#Estimate SSfit</span></span>
 <span id="cb197-12"><a href="the-coeficient-of-determination.html#cb197-12"></a>SSFit=<span class="st"> </span><span class="kw">sum</span> (Residuals<span class="op">^</span><span class="dv">2</span>)  <span class="co"># here you are squaring each residual, then adding them</span></span>
 <span id="cb197-13"><a href="the-coeficient-of-determination.html#cb197-13"></a></span>
-<span id="cb197-14"><a href="the-coeficient-of-determination.html#cb197-14"></a><span class="co">#Lets now stimate SSMean</span></span>
-<span id="cb197-15"><a href="the-coeficient-of-determination.html#cb197-15"></a>DeltaY=Y<span class="op">-</span><span class="kw">mean</span>(Y)  <span class="co"># here you take each value in Y and substract it to the mean of Y</span></span>
-<span id="cb197-16"><a href="the-coeficient-of-determination.html#cb197-16"></a>SSMean=<span class="st"> </span><span class="kw">sum</span>(DeltaY<span class="op">^</span><span class="dv">2</span>) <span class="co">#here you square each score in the line above, square it and sum them together</span></span>
+<span id="cb197-14"><a href="the-coeficient-of-determination.html#cb197-14"></a><span class="co">#Lets now estimate SSMean</span></span>
+<span id="cb197-15"><a href="the-coeficient-of-determination.html#cb197-15"></a>DeltaY=Y<span class="op">-</span><span class="kw">mean</span>(Y)  <span class="co"># here you take each value in Y and subtract it to the mean of Y</span></span>
+<span id="cb197-16"><a href="the-coeficient-of-determination.html#cb197-16"></a>SSMean=<span class="st"> </span><span class="kw">sum</span>(DeltaY<span class="op">^</span><span class="dv">2</span>) <span class="co">#here you square each score in the line above, sum them together</span></span>
 <span id="cb197-17"><a href="the-coeficient-of-determination.html#cb197-17"></a></span>
 <span id="cb197-18"><a href="the-coeficient-of-determination.html#cb197-18"></a><span class="co">#we have all we need for the calculation of the R2.</span></span>
 <span id="cb197-19"><a href="the-coeficient-of-determination.html#cb197-19"></a></span>
@@ -361,8 +364,8 @@ Figure 7.5: Sum of Squares around the Fit, SSfit
 <pre><code>## [1] 0.9637357</code></pre>
 <p>So, the <span class="math inline">\(r^2\)</span> of the relationship between grades and time studying is 0.96. That is the fraction of the variability in grades that is explained by the amount of time students study. You can also report the <span class="math inline">\(r^2\)</span> as a percentage by multiplying the fraction by 100.</p>
 <p>In R, the <span class="math inline">\(r^2\)</span> is outputted as part of the <em>lm</em> function in combination with the function <em>summary</em>, like this:</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="the-coeficient-of-determination.html#cb199-1"></a><span class="kw">summary</span> (LM)   <span class="co">#Here LM is the linear model, lm, we create in the code just above.  </span></span></code></pre></div>
-The image below indicates the outputs, we have studied so far:
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="the-coeficient-of-determination.html#cb199-1"></a><span class="kw">summary</span> (LM)   <span class="co">#summary results of the lm we created in the code above.  </span></span></code></pre></div>
+The image below indicates the different outputs, we have studied so far:
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-240"></span>
 <img src="images/R2.png" alt="lm outputs" width="80%" />
 <p class="caption">

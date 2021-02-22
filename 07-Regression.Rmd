@@ -1,8 +1,6 @@
 # Linear regression {}
 
-Chapter not ready for review
-
-While the goal of correlation is to give you a metric of the strength of the relationship between two variables; the goal of regression is to give you a numerical representation of the tendency in your data. That numerical representation is called a model that describes a line that best represent the tendency in your two variables. At times, that line can also be called a **regression line** or a **trend** line.
+While the goal of correlation is to give you a metric of the strength of the relationship between two variables; the goal of regression is to give you a numerical representation of the tendency in your data. That numerical representation is called a **model** that describes a line that best represent the tendency in your two variables. At times, that line can also be called a **regression line** or a **trend** line.
 
 Here we will be working on linear regression models...this means to find an straight line to best represent the relationship between two variables.
 
@@ -29,7 +27,7 @@ There are a few cool benefits to having a single line describing the data:
 
 1. It allows you to mathematically define how two variables are related. Like if I increase X by 2 then Y increases by how much?.
 
-2. It will allow you to make predictions  over areas in which you have no data. Like if X is 52.3 then why is?
+2. It will allow you to make predictions  over areas in which you have no data. Like if X is 52.3 then Y is?
 
 3. You do not need to carry/display the data every time you want to work with the database.
 
@@ -91,7 +89,7 @@ Lets plot three lines with different slopes, but the same intercept.
 ```{r, message=FALSE,warning=FALSE}
 #play around with the lines of code below to see how they work
 
-#First lets create and empty plot and make the x and y axis nicer.
+#First lets create an empty plot and make the x and y axis nicer.
 plot(0, 0,xlab="X",ylab="Y",  xlim=c(-4,4),ylim=c(-4,4.5),col="grey")
   abline(h=0,lwd=2, col="grey",lty=1) 
   abline(v=0,lwd=2, col="grey",lty=1) 
@@ -166,7 +164,7 @@ plot(0, 0,xlab="X",ylab="Y",  xlim=c(0,10),ylim=c(0,5000),col="grey")
   abline(h=0,lwd=2, col="grey",lty=1) 
   abline(v=0,lwd=2, col="grey",lty=1) 
 
-#lets draw a trend line with a slope of 500, that intercepts the orgin.
+#lets draw a trend line with a slope of 500, that intercepts the origin.
 Intercept=0  
 Slope=500  
 
@@ -454,7 +452,7 @@ text(X,Y,labels=Names,pos=2, col="orange")
 
 ```
 
-Ok, I hope is clear then what is it the least squares approach to find the best fitting line. Next, we will learn how to estimate the parameters for the intercept, $b$, and the slope, $m$, that define the line in the linear regression model, the smart and easy way.
+Ok, I hope is clear then what it is the least squares approach to find the best fitting line. Next, we will learn how to estimate the parameters for the intercept, $b$, and the slope, $m$, that define the line in the linear regression model, the smart and easy way.
 
 ## Estimating the least-squares line {-}
 The ultimate goal of a linear regression model is to identify the parameters for the intercept, $b$, and the slope, $m$, of the line that minimize<span style="color: blue;">s</span> the sum of square errors also called least-square errors.
@@ -498,7 +496,7 @@ text(1,3, labels="(1,3)",pos=2) #lets create a label
 points(3,7,pch=21, col="black",bg="yellow",cex=2,lwd=.1) #second point
 text(3,7, labels="(3,7)",pos=2) #lets create a label  
 
-#lets draw a segment for the change X, which if x0=1, and x=3, then the difference is 2.
+#lets draw a segment for the change X: is x0=1, and x1=3, then the difference is 2.
 segments(x0=1,y0=3,x=3,y=3, col="red", lty=2,cex=2) #lets draw the segment for the difference in x between the two points, and make it red
 text(2,3, labels="2",col="red",pos=1) #lets create a label for that segment
 
@@ -603,7 +601,7 @@ You could isolate the intercept, $b$, as:
 b = Y - mX
 \end{equation}
 
-If you recall, the line of the least-squares regression line has to pass by the coordinates defined by the mean value of X and the mean value of x. So to stimate the interecpt all you have to do is to replace the $X$ and $Y$ parameters of the linear regression equation by the mean of X, $\bar{x}$, and the mean of Y, $\bar{y}$. Like this:
+If you recall, the line of the least-squares regression line has to pass by the coordinates defined by the mean value of X and the mean value of X. So to estimate the intercept all you have to do is to replace the $X$ and $Y$ parameters of the linear regression equation by the mean of X, $\bar{x}$, and the mean of Y, $\bar{y}$. Like this:
 
 \begin{equation}
 b = \bar{y} - m\bar{x}
@@ -611,7 +609,7 @@ b = \bar{y} - m\bar{x}
 
 Because you also know the slope from the prior section. Then you have all parameters of the equation above to stimate the intercept.
 
-Let's estimate the intercept with the data on the time studying and grades. From that data, the mean of X, $\bar{x}$, was `r mean (Hours_Studying)`, and the mean of Y, $\bar{y}$, was `r mean (Grade)`. So, the intercept for that linear regression is:
+Let's estimate the intercept for the relationship between time studying and grades. From that data, the mean of X, $\bar{x}$, was `r mean (Hours_Studying)`, and the mean of Y, $\bar{y}$, was `r mean (Grade)`. So, the intercept for that linear regression is:
 
 
 \begin{equation}
@@ -631,13 +629,13 @@ So the Y-Intercept of the least-square line for the relationship between grades 
 ## Linear regression in R {-}
 By now you know the equation of the linear regression model, the idea behind the least-squares approach, and how to calculate and interpret the different elements of the equation.
 
-R can calculate all those equations automatically for you using the *lm* function, which stands for *linear model*. The cool think is that you can now interpret the results from that function. Lets try using eh data on grades and time studying.
+R can calculate all those equations automatically for you using the *lm* function, which stands for *linear model*. The cool think is that you can now interpret the results from that function. Lets try using the data on grades and time studying.
 
 
 
 
 
-```{r, echo= FALSE, message=FALSE,warning=FALSE}
+```{r, results='hide', message=FALSE,warning=FALSE}
 #lets start by bringing back the data 
 Hours_Studying=c(0.5, 1.8, 2.4, 3.8, 4.5)
 Grade=c(55, 64, 75, 82,95)
@@ -652,6 +650,8 @@ The results of the linear model, *lm*, in R are pretty straightforward, check th
 knitr::include_graphics("images/lm in R.png")
 ```
 
+
+
 ## The coeficient of determination {-}
 There is one final cool thing about the linear regression model: it allows you to quantify a neat parameter called the coefficient of determination, $r^2$.
 
@@ -661,13 +661,15 @@ That parameter is useful for two main reasons:
 
 2. It tells you the percent of variance of Y that is explained by X.
 
-Say you found a relationship between plant size and nutrient input with an $r^2$ of 85%. This tells you that 85% of the variability you have among your plants can be explained by the input of nutrients. It will probably goo idea to add nutrient to the plants.
+Say you found a relationship between plant size and nutrient input with an $r^2$ of 85%. This tells you that 85% of the variability you have among your plants can be explained by the input of nutrients. 
 
-Say that in the opposite you found an $r^2$ of 5%. Then only 5% of the variability in plant size can be explained by nutrient input. In this case, it may be wastefull to add nutrients to the plants, since they affect so little how plants will grow. This may be the case if you have some good soil, so, no need for nutrients.
+In other words, if the relationship was positive, then plants that grew a lot had lots of nutrients, while plants that did not grow well was because they did not have nutrients. So given the high $r^2$, it will probably be good idea to add nutrients to the plants.
+
+Say that in the opposite you found an $r^2$ of 5%. Then only 5% of the variability in plant size can be explained by nutrient input. In this case, it may be wasteful to add nutrients to the plants, since they affect so little how plants will grow. This may be the case if you have some good soil, so, no need for nutrients.
 
 In this example about nutrients and plants, you can see how $r^2$ let you make inferences about the strength of the relationships. 
 
-The only bad thing about this $r^2$, as oppose to the correlation coefficient, $r$, is that you cannot know the direction of the relation. So you may still have to relay on the correlation coefficient, $r$, to know in which direction are the two variables related.
+One bad thing about $r^2$, as oppose to the correlation coefficient, $r$, is that you cannot know the direction of the relation (i.e., whether it is positive or negative). So you may still have to relay on the correlation coefficient, $r$, to know in which direction are the two variables related.
 
 Before we get into the mathematics of the $r^2$, check out this brief explanation:
 
@@ -693,7 +695,7 @@ Just to refresh, you take the mean of all values in Y (horizontal line, in image
 knitr::include_graphics("images/SSMean.gif")
 ```
 
-You need to think of the Sum of Squares of the Mean,$SSmean$, as the variability in Y.
+You need to think of the Sum of Squares of the Mean, $SSmean$, as the variability in Y.
 
 
 $SSfit$, stands for Sum of Squares around the Fit. Let's see what this means.
@@ -718,18 +720,18 @@ Let's calculate $r^2$,
 X=c(0.5, 1.8, 2.4, 3.8, 4.5) #hours studying
 Y=c(55, 64, 75, 82,95)       #grades
 
-# lets stimate the regression line using lm, and lets put that model in a variable
+# lets estimate the regression line using lm, and lets put that model in a variable
 LM = lm (Y~X)   #this is the linear model between Grades~Hours_Studying
 
-#you can find out the residuals of that model using the R-Fucniton residuals.
+#you can find out the residuals of that model using the R-Function residuals.
 Residuals= residuals (LM)  #here we create a vector with the residuals from our model
 
 #Estimate SSfit
 SSFit= sum (Residuals^2)  # here you are squaring each residual, then adding them
 
-#Lets now stimate SSMean
-DeltaY=Y-mean(Y)  # here you take each value in Y and substract it to the mean of Y
-SSMean= sum(DeltaY^2) #here you square each score in the line above, square it and sum them together
+#Lets now estimate SSMean
+DeltaY=Y-mean(Y)  # here you take each value in Y and subtract it to the mean of Y
+SSMean= sum(DeltaY^2) #here you square each score in the line above, sum them together
 
 #we have all we need for the calculation of the R2.
 
@@ -744,10 +746,10 @@ So, the $r^2$ of the relationship between grades and time studying is `r round(R
 In R, the $r^2$ is outputted as part of the *lm* function in combination with the function *summary*, like this:
 
 ```{r,  results='hide', message=FALSE,warning=FALSE}
-summary (LM)   #Here LM is the linear model, lm, we create in the code just above.  
+summary (LM)   #summary results of the lm we created in the code above.  
 ```
 
-The image below indicates the outputs, we have studied so far:
+The image below indicates the different outputs, we have studied so far:
 ```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'lm outputs'}
 knitr::include_graphics("images/R2.png")
 ```
@@ -789,6 +791,9 @@ Y = `r round(sum(XDif*YDif)/sum(XDif^2),2)`* 4 + `r  round(mean (Grade) - mean (
 Y = `r round(sum(XDif*YDif)/sum(XDif^2),2)*4 +   round(mean (Grade) - mean (Hours_Studying) * sum(XDif*YDif)/sum(XDif^2),2)`
 \end{equation}
 
+For a person that studies four hours a week the expected grade will be `r round(sum(XDif*YDif)/sum(XDif^2),2)*4 +   round(mean (Grade) - mean (Hours_Studying) * sum(XDif*YDif)/sum(XDif^2),2)`.
+
+
 ### Interpolation and Extrapolation {-}
 Predictions based on a linear model can be separated between those that are within the data you have, in which case the prediction is called an "interpolation". If the prediction is beyond the values of X that you have, then the prediction is call and extrapolation. 
 
@@ -806,7 +811,7 @@ Predicting Y values for X values that are beyond observed X values in the data s
 ```
 
 ```{block2, type='rmdcaution'}
-Becuase extrapolation predict values beyind what is know, uncertainty is much higher and at times produce unrealistic forecasts.
+Becuase extrapolation predict values beyond what is known, uncertainty is much higher and at times forecasts can be unrealistic.
 ```
 
 In R, you can predict any value from a linear model, using the *predict* function, let's try.
@@ -849,7 +854,7 @@ At this point, one statistician turned to the other and said, "Gee, I hope we do
 
 
 ## Outliers {-}
-One of the critical issues with regression models, is that by looking at the residuals of the data to the linear model, it can be influenced by extreme points. Those extreme points that clearly do not follow the main pattern are called **outliers**. 
+One of the critical issues with regression models, is that they can be influenced by extreme points. Those extreme points that clearly do not follow the main pattern are called **outliers**. 
 
 Sometimes, those outliers could be measurement errors, but at times could also indicate the influence of variables that you did not measure. It is always good to visualize the data in an scatterplot to see if such cases examples of outliers exist on your data. 
 
@@ -874,7 +879,13 @@ Basically, some people have taken the time to run millions of simulations of "fa
 
 The beauty of those tables is that you can compare your model, given the number of samples and the number of variables, to find out the fraction of models similar to yours that could have happened  by chance.
 
-To compare your model to theirs, you need the F-value from your model, which we will get into in a sec, the number of variables in your model (for the purpose of comparison to the their tables, we will call this value $v1$). You also will need a parameter, we will call $v2$, which is the number of datapoints minus the number of predictors in the model plus one. $v1 and v2$ are just parameters needed to compare to random models of similar parameters.
+To compare your model to theirs, you need:
+
+1. the F-value from your model, which we will get into in a sec.
+2. the number of variables in your model (for the purpose of comparison to the their tables, we will call this value $v1$)
+3. A parameter, we will call $v2$, which is the number of datapoints in the model minus the number of predictors in the model plus one. 
+
+$v1$ and $v2$ are just parameters needed to compare to random models of similar parameters.
 
 If your model is similar to theirs, then, your results could have emerged by simple chance. If your results were different, then the relationship you found is legit. We will work more on this later on.
 
@@ -886,7 +897,7 @@ F_{statistics} = \frac{r^2}{1-r^2} *\frac{v2}{v1}
 
 Where $r^2$, is the coefficient of determination; $v1$ is number of predictors in the model;  $v2$ is the number of datapoints minus the number of predictors in the model plus one. 
 
-If you think about that formulate above, you are estimating an standard metric of the variance explained, $r^2$, to the variance not explained, $1-r^2$, for a model of certain characteristics of sample size and variables used. 
+If you think about that formula above, you are estimating an standard metric of the variance explained, $r^2$, to the variance not explained, $1-r^2$, for a model of certain characteristics of sample size and variables used. 
 
 Because the most variance you can explain in any case is always just 100%, this metric could be assumed standard among any model random or not. And that is how then, we can compare our results on legit data to fake data, and see if any result of ours is different from random.
 
@@ -905,7 +916,7 @@ If say our model has an F-value larger than that critical F-value then we are 90
 Alternatively, you could say our model is significant at p>0.1, which is the complement of 90% or 0.9 if you look at it as fractions. That p-value is also called the *critical p-value* or at times also named alpha, $\alpha$.
 
 
-```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'lm outputs'}
+```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'Critical f-Value at 90% or p=0.1'}
 knitr::include_graphics("images/F-distribution.png")
 ```
 
@@ -919,9 +930,9 @@ F_{statistics} = \frac{`r round (R2,2)`}{1-`r round (R2,2)`} *\frac{3}{1}
 F_{statistics} = `r (R2/(1-R2)) *((3/1))`
 \end{equation}
 
-So the F-value for our model was $`r round((R2/(1-R2)) *((3/1)),2)`$. Now we need to find out the *critical F-value*, and lets take a $\alpha =0.05$. For this we use an F-table, like the one below.
+So the F-value for our model was $`r round((R2/(1-R2)) *((3/1)),2)`$. Now we need to find out the *critical F-value*, and lets take a $\alpha =0.05$. For this we use an F-table, like the one below, which you can find on most books on stats.
 
-Because v1 = 1 in our case, you have to select the first column, then scroll down until v2 in the grey column is equal to 3, at the interception is the **F-critical**. Or the F-value at which 95% of the random models occurred. Threes are similar tables like this for each $\alpha$. 
+Because $v1$ = 1 in our case, you have to select the first column, then scroll down until $v2$ in the gray column is equal to 3, at the interception is the **F-critical**. Or the F-value at which 95% of the random models occurred. There are similar tables like this for each $\alpha$.
 
 So for a model like ours, 95% of the random models should have an critical F-value smaller than 10.13. However, our model had an F-value = `r (R2/(1-R2)) *((3/1))`. So our model is very different from the random expectation, or also-called significantly different at p>0.05.
 
@@ -931,7 +942,7 @@ knitr::include_graphics("images/Ftable.png")
 ```
 
 
-In R, the F-value is produced automatically with the $lm$ function and the summary function. The outputs from the linear model, lm, also include the exact probability at which our model could be random, see image below.
+In R, the F-value is produced automatically with the $lm$ function and the $summary$ function. The outputs from the linear model, lm, also include the exact probability at which our model could be random, see image below.
 
 ```{r,  results='hide', message=FALSE,warning=FALSE}
 summary (LM)   #Here LM is the linear model, lm, we create in the code just above.  
@@ -942,8 +953,98 @@ summary (LM)   #Here LM is the linear model, lm, we create in the code just abov
 knitr::include_graphics("images/Fvalue.png")
 ```
 
-In conclusion, there is a significantly strong relations ($r^2 = 0.96$) at p>0.05 between studying for my class and getting a nice grade. There you go, keep studying.
+In conclusion, there is a significantly strong relations ($r^2 = 0.96$) at p<0.05 between studying for my class and getting a nice grade. There you go, keep studying.
 
+## Multiple regression {-}
+Up to now, we have used the linear regression model to predict Y in terms of only one variable, X. However, as you may have noted in the examples above, it is rare for a model with a single independent variable to predict fully the dependent variable...those residuals that are left tell you there is something else that may influence the dependent variable. 
+
+Linear regression further allows you to check for the effect of additional variables, using the same principle.
+
+Think about it this way...you run a linear regression model with one independent variable and some residuals are left.
+
+Take those residuals as independent variable in a second linear model, relate those residuals to another variable, and see how much the unexplained variation by the first independent variable is explained by the second independent variable. 
+
+You can keep going at it, until you could potentially find all the set of variables that explain your response variable.
+
+The example above is an oversimplification of how multiple regression works, as there are some collinearities among independent variables that you have to handle. But for now I just want you to know that linear regression allows you to test additional variables by trying to explain the unexplained variation in Y with additional variables. The so-call **multiple regression** analysis.
+
+Let's take the data we have been using, and say, we also got data on the amount of debt of each student...this variable may indicate the level of stress of the student, a likelihood that they have a job that prevents them of working fully and well, etc...how does this second variable influences the grades of students in my class?. 
+
+Let's check..
+
+```{r, results='hide', message=FALSE,warning=FALSE}
+#lets start by bringing back the data on time studying and grades
+Names=c("Peter","Laura", "John", "Chip", "Tom")
+Hours_Studying=c(0.5, 1.8, 2.4, 3.8, 4.5)
+Grade=c(55, 64, 75, 82,95)
+
+#here is the data for the second independent variable for the same students
+Debt=c(80, 60, 55, 15, 5) #debt of students in thousands of dollars
+
+# we use the same lm function we used before and add debt as independent variable, like this:
+MultipleRegression=lm (Grade ~ Hours_Studying + Debt)
+
+#next we check the results
+summary(MultipleRegression)
+```
+
+
+```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'R multiple regression results'}
+knitr::include_graphics("images/Mutiple regression in R.png")
+```
+
+The outputs are the same as we sow before. You have a unique intercept, but now you have a slope for each variable. You also need to pay attention to a second result, which is the p-values for the individual variables, which I indicate in the image above. Plus, the p-value for the full model. 
+
+In this case, while the full model was significant, the individual variables were not.
+
+In this specific case, this is happening because our sample size is too small, which bring me to the caution that you need to have when running multiple regression analysis: adding more variables, while it will increase the predictive power of the model, also will increase your chances that the results may happen by chance.
+
+## Non-linear regression {-}
+There will be numerous instances in which a variable Y does not relate linearly to a variable X. Think the growth of people, for instance.
+
+Early in life a person will grow fast, but over time this growth will reduce, eventually leveling off. These types of relationships are not well described with linear models; and there is where non-linear models come in.
+
+In R, non-linear regression models are handled with an specific function call $nlm$, but you can also linearize the variable and use the linear model you used before.
+
+Take the example below, showing the relationship between age and height of a random person. Let's start by fitting a linear model to it.
+
+
+```{r, message=FALSE,warning=FALSE}
+#let's create a variable for height (dependent variable) and other for age (independent variable)
+Age=c(2,4,6,8,10,12,14,16,18,20,22,24,26,28,30)
+Height=c(50, 65,85, 95, 110, 120,130,140,145, 152, 158, 169, 170, 171, 171.2)
+
+  
+LM=lm(Height~Age) #here is the linear model
+
+plot(Height~Age)
+abline(coef = coef(LM))
+summary(LM)
+```
+
+The $R^2$ is pretty good, $r^2$=`r summary(LM)$r.squared`.
+
+You can try a non-linear model, by transforming the data...there are numerous types of transformations possible, and many will give you different types of fit using linear models. Here is where an approach called model selection comes in, which is to find which of all models to fit to the data is the best. That is quite an endeavor that we will not cover in this basic stats class, but you should know that selecting among different types of models is non-trivial.
+
+For for the sake of seeing how a non-linear model is done, let's try a logarithmic transformation of the data used above for height and age.
+
+```{r, message=FALSE,warning=FALSE}
+Age=c(2,4,6,8,10,12,14,16,18,20,22,24,26,28,30)
+Height=c(50, 65,85, 95, 110, 120,130,140,145, 152, 158, 169, 170, 171, 171.2)
+
+#to log transform simply use the log function:
+LogHeight=log(Height) #log transforming the variable Y
+LogAge=log(Age)       #log transforming the variable X
+
+LogLM=lm(LogHeight~LogAge) #now we re-run the model, but with the transformed variables
+
+plot(LogHeight~LogAge, ylab=("Log height (cm)"), xlab=("Log age (years)"))
+abline(coef = coef(LogLM))
+summary(LogLM)
+```
+You can now see how  this non-linear modeling of the variables gives you an even better $r^2$=`r summary(LogLM)$r.squared`.
+
+There are numerous complexities to the use of non-linear models, that will not be addressed here...the main goal at this introductory level is to know that regression modeling can be done in non-linear relationships.
 
 ## Exercises {-}
 
