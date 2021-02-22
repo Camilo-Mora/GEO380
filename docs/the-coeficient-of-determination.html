@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="linear-regression-in-r.html"/>
-
+<link rel="next" href="predict-interpolation-extrapolation.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -132,7 +132,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a>GEOG380 Basic Stats with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
 <li class="chapter" data-level="" data-path="do-not-dispair-please.html"><a href="do-not-dispair-please.html"><i class="fa fa-check"></i>Do not dispair, please</a></li>
@@ -265,6 +266,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="the-intercept.html"><a href="the-intercept.html"><i class="fa fa-check"></i>The intercept</a></li>
 <li class="chapter" data-level="" data-path="linear-regression-in-r.html"><a href="linear-regression-in-r.html"><i class="fa fa-check"></i>Linear regression in R</a></li>
 <li class="chapter" data-level="" data-path="the-coeficient-of-determination.html"><a href="the-coeficient-of-determination.html"><i class="fa fa-check"></i>The coeficient of determination</a></li>
+<li class="chapter" data-level="" data-path="predict-interpolation-extrapolation.html"><a href="predict-interpolation-extrapolation.html"><i class="fa fa-check"></i>Predict: Interpolation, Extrapolation</a><ul>
+<li class="chapter" data-level="" data-path="predict-interpolation-extrapolation.html"><a href="predict-interpolation-extrapolation.html#interpolation-and-extrapolation"><i class="fa fa-check"></i>Interpolation and Extrapolation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="outliers.html"><a href="outliers.html"><i class="fa fa-check"></i>Outliers</a></li>
+<li class="chapter" data-level="" data-path="the-significance.html"><a href="the-significance.html"><i class="fa fa-check"></i>The significance</a></li>
+<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
@@ -300,6 +308,9 @@ By Camilo Mora, Ph.D.
 <p>Say that in the opposite you found an <span class="math inline">\(r^2\)</span> of 5%. Then only 5% of the variability in plant size can be explained by nutrient input. In this case, it may be wastefull to add nutrients to the plants, since they affect so little how plants will grow. This may be the case if you have some good soil, so, no need for nutrients.</p>
 <p>In this example about nutrients and plants, you can see how <span class="math inline">\(r^2\)</span> let you make inferences about the strength of the relationships.</p>
 <p>The only bad thing about this <span class="math inline">\(r^2\)</span>, as oppose to the correlation coefficient, <span class="math inline">\(r\)</span>, is that you cannot know the direction of the relation. So you may still have to relay on the correlation coefficient, <span class="math inline">\(r\)</span>, to know in which direction are the two variables related.</p>
+<p>Before we get into the mathematics of the <span class="math inline">\(r^2\)</span>, check out this brief explanation:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wHvxTZWV-sE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
 <p>The coefficient of determination, <span class="math inline">\(r^2\)</span>, is mathematically calculated as:</p>
 <p><span class="math display">\[\begin{equation}
 \text{Coefficient of Determination} = r^2 = \frac{SSmean - SSfit}{SSmean}
@@ -307,8 +318,8 @@ By Camilo Mora, Ph.D.
 <p>Let’s break that equation into its pieces to see what is doing.</p>
 <p><span class="math inline">\(SSmean\)</span>, stands for Sum of Squares of the Mean. That is the same term we have used before <span class="math inline">\(\sum(y - \bar y)^2\)</span>. Basically, how far from the mean is each point. If we were to divide that by the number of samples, you will get the variance that we studied earlier.</p>
 <p>Just to refresh, you take the mean of all values in Y (horizontal line, in image below), for each point measure the distance to that mean (dotted lines), then you square each value and add them together. If you did not square them, when summing them, the result will be zero.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-24"></span>
-<img src="images/Sum%20of%20Squares.png" alt="Sum of Squares from the Mean, SSmean" width="20%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-236"></span>
+<img src="images/SSMean.gif" alt="Sum of Squares from the Mean, SSmean" width="80%" />
 <p class="caption">
 Figure 7.4: Sum of Squares from the Mean, SSmean
 </p>
@@ -316,8 +327,8 @@ Figure 7.4: Sum of Squares from the Mean, SSmean
 <p>You need to think of the Sum of Squares of the Mean,<span class="math inline">\(SSmean\)</span>, as the variability in Y.</p>
 <p><span class="math inline">\(SSfit\)</span>, stands for Sum of Squares around the Fit. Let’s see what this means.</p>
 <p>Take the data on grades and time studying, relate grades against times studying, and find the best line (Orange line in figure below). Then for each point measure the distance from the point to the line, or so-call <em>residuals</em> (red-dotted lines). Take each residual, square it, and then add them together. What you get is the Sum of Squares around the Fit, <span class="math inline">\(SSfit\)</span>.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-25"></span>
-<img src="images/Sum%20of%20Squares%20Fit.png" alt="Sum of Squares around the Fit, SSfit" width="50%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-237"></span>
+<img src="images/SSFit.gif" alt="Sum of Squares around the Fit, SSfit" width="80%" />
 <p class="caption">
 Figure 7.5: Sum of Squares around the Fit, SSfit
 </p>
@@ -326,37 +337,39 @@ Figure 7.5: Sum of Squares around the Fit, SSfit
 <p>Remember, the regression line is the mathematical formulation of how Y relates to X, whatever is not accounted for by that line are the residuals, or the variation in Y, that remains to be accounted for.</p>
 <p>So, it you look at the formulation for <span class="math inline">\(r^2\)</span>, basically, you are trying to quantify the fraction of variability of Y that was accounted for by the relationship of Y to X. Easy right?</p>
 <p>Let’s calculate <span class="math inline">\(r^2\)</span>,</p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="the-coeficient-of-determination.html#cb197-1"></a><span class="co">#take the data on grades and time studying</span></span>
+<span id="cb197-2"><a href="the-coeficient-of-determination.html#cb197-2"></a>X=<span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>) <span class="co">#hours studying</span></span>
+<span id="cb197-3"><a href="the-coeficient-of-determination.html#cb197-3"></a>Y=<span class="kw">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)       <span class="co">#grades</span></span>
+<span id="cb197-4"><a href="the-coeficient-of-determination.html#cb197-4"></a></span>
+<span id="cb197-5"><a href="the-coeficient-of-determination.html#cb197-5"></a><span class="co"># lets stimate the regression line using lm, and lets put that model in a variable</span></span>
+<span id="cb197-6"><a href="the-coeficient-of-determination.html#cb197-6"></a>LM =<span class="st"> </span><span class="kw">lm</span> (Y<span class="op">~</span>X)   <span class="co">#this is the linear model between Grades~Hours_Studying</span></span>
+<span id="cb197-7"><a href="the-coeficient-of-determination.html#cb197-7"></a></span>
+<span id="cb197-8"><a href="the-coeficient-of-determination.html#cb197-8"></a><span class="co">#you can find out the residuals of that model using the R-Fucniton residuals.</span></span>
+<span id="cb197-9"><a href="the-coeficient-of-determination.html#cb197-9"></a>Residuals=<span class="st"> </span><span class="kw">residuals</span> (LM)  <span class="co">#here we create a vector with the residuals from our model</span></span>
+<span id="cb197-10"><a href="the-coeficient-of-determination.html#cb197-10"></a></span>
+<span id="cb197-11"><a href="the-coeficient-of-determination.html#cb197-11"></a><span class="co">#Estimate SSfit</span></span>
+<span id="cb197-12"><a href="the-coeficient-of-determination.html#cb197-12"></a>SSFit=<span class="st"> </span><span class="kw">sum</span> (Residuals<span class="op">^</span><span class="dv">2</span>)  <span class="co"># here you are squaring each residual, then adding them</span></span>
+<span id="cb197-13"><a href="the-coeficient-of-determination.html#cb197-13"></a></span>
+<span id="cb197-14"><a href="the-coeficient-of-determination.html#cb197-14"></a><span class="co">#Lets now stimate SSMean</span></span>
+<span id="cb197-15"><a href="the-coeficient-of-determination.html#cb197-15"></a>DeltaY=Y<span class="op">-</span><span class="kw">mean</span>(Y)  <span class="co"># here you take each value in Y and substract it to the mean of Y</span></span>
+<span id="cb197-16"><a href="the-coeficient-of-determination.html#cb197-16"></a>SSMean=<span class="st"> </span><span class="kw">sum</span>(DeltaY<span class="op">^</span><span class="dv">2</span>) <span class="co">#here you square each score in the line above, square it and sum them together</span></span>
+<span id="cb197-17"><a href="the-coeficient-of-determination.html#cb197-17"></a></span>
+<span id="cb197-18"><a href="the-coeficient-of-determination.html#cb197-18"></a><span class="co">#we have all we need for the calculation of the R2.</span></span>
+<span id="cb197-19"><a href="the-coeficient-of-determination.html#cb197-19"></a></span>
+<span id="cb197-20"><a href="the-coeficient-of-determination.html#cb197-20"></a>R2=(SSMean<span class="op">-</span>SSFit)<span class="op">/</span>SSMean</span>
+<span id="cb197-21"><a href="the-coeficient-of-determination.html#cb197-21"></a>R2</span></code></pre></div>
 <pre><code>## [1] 0.9637357</code></pre>
 <p>So, the <span class="math inline">\(r^2\)</span> of the relationship between grades and time studying is 0.96. That is the fraction of the variability in grades that is explained by the amount of time students study. You can also report the <span class="math inline">\(r^2\)</span> as a percentage by multiplying the fraction by 100.</p>
 <p>In R, the <span class="math inline">\(r^2\)</span> is outputted as part of the <em>lm</em> function in combination with the function <em>summary</em>, like this:</p>
-<pre><code>## 
-## Call:
-## lm(formula = Y ~ X)
-## 
-## Residuals:
-##       1       2       3       4       5 
-##  0.9302 -2.5314  2.7172 -3.7030  2.5870 
-## 
-## Coefficients:
-##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)   49.277      3.183  15.484 0.000585 ***
-## X              9.586      1.074   8.929 0.002963 ** 
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 3.419 on 3 degrees of freedom
-## Multiple R-squared:  0.9637, Adjusted R-squared:  0.9516 
-## F-statistic: 79.73 on 1 and 3 DF,  p-value: 0.002963</code></pre>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="the-coeficient-of-determination.html#cb199-1"></a><span class="kw">summary</span> (LM)   <span class="co">#Here LM is the linear model, lm, we create in the code just above.  </span></span></code></pre></div>
 The image below indicates the outputs, we have studied so far:
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-28"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-240"></span>
 <img src="images/R2.png" alt="lm outputs" width="80%" />
 <p class="caption">
 Figure 7.6: lm outputs
 </p>
 </div>
-
 </div>
-<!-- </div> -->
 <div id="disqus_thread"></div>
 <script>
     /**
@@ -381,8 +394,8 @@ Figure 7.6: lm outputs
           </div>
         </div>
       </div>
-<a href="linear-regression-in-r.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="linear-regression-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="predict-interpolation-extrapolation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

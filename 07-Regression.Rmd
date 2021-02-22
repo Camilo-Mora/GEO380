@@ -581,7 +581,7 @@ slope = m = 9.6
 \end{equation}
 
 
-So the slope is, m, is equal to `r round(sum(XDif*YDif)/sum(XDif^2),2)`. The units will be the units in Y (i.e., grade), divided by the units of x (i.e., hours studying). So if the unit of change in X in one hour then the unit of change in Y will be `r round(sum(XDif*YDif)/sum(XDif^2),2)` points higher in grade. 
+So the slope, m, is equal to `r round(sum(XDif*YDif)/sum(XDif^2),2)`. The units will be the units in Y (i.e., grade), divided by the units of x (i.e., hours studying). So if the unit of change in X in one hour then the unit of change in Y will be `r round(sum(XDif*YDif)/sum(XDif^2),2)` points higher in grade. 
 
 Put another way, for each extra hour that you study a week, you can expect a `r round(sum(XDif*YDif)/sum(XDif^2),2)` points higher in your grade, neat or what?.
 
@@ -689,8 +689,8 @@ $SSmean$, stands for Sum of Squares of the Mean. That is the same term we have u
 
 Just to refresh, you take the mean of all values in Y (horizontal line, in image below), for each point measure the distance to that mean (dotted lines), then you square each value and add them together. If you did not square them, when summing them, the result will be zero. 
 
-```{r, out.width = "20%", echo= FALSE, fig.align = 'center',fig.cap = 'Sum of Squares from the Mean, SSmean'}
-knitr::include_graphics("images/Sum of Squares.png")
+```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'Sum of Squares from the Mean, SSmean'}
+knitr::include_graphics("images/SSMean.gif")
 ```
 
 You need to think of the Sum of Squares of the Mean,$SSmean$, as the variability in Y.
@@ -701,8 +701,8 @@ $SSfit$, stands for Sum of Squares around the Fit. Let's see what this means.
 Take the data on grades and time studying, relate grades against times studying, and find the best line (Orange line in figure below). Then for each point measure the distance from the point to the line, or so-call *residuals* (red-dotted lines). Take each residual, square it, and then add them together. What you get is the Sum of Squares around the Fit, $SSfit$.
 
 
-```{r, out.width = "50%", echo= FALSE, fig.align = 'center',fig.cap = 'Sum of Squares around the Fit, SSfit'}
-knitr::include_graphics("images/Sum of Squares Fit.png")
+```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'Sum of Squares around the Fit, SSfit'}
+knitr::include_graphics("images/SSFit.gif")
 ```
 
 You need to think of the Sum of Squares around the Fit, $SSfit$, as the variability in Y that was not explained by X.
@@ -713,7 +713,7 @@ So, it you look at the formulation for $r^2$, basically, you are trying to quant
 
 Let's calculate $r^2$,
 
-```{r, echo= FALSE, message=FALSE,warning=FALSE}
+```{r, message=FALSE,warning=FALSE}
 #take the data on grades and time studying
 X=c(0.5, 1.8, 2.4, 3.8, 4.5) #hours studying
 Y=c(55, 64, 75, 82,95)       #grades
@@ -743,7 +743,7 @@ So, the $r^2$ of the relationship between grades and time studying is `r round(R
 
 In R, the $r^2$ is outputted as part of the *lm* function in combination with the function *summary*, like this:
 
-```{r, echo= FALSE, message=FALSE,warning=FALSE}
+```{r,  results='hide', message=FALSE,warning=FALSE}
 summary (LM)   #Here LM is the linear model, lm, we create in the code just above.  
 ```
 
@@ -752,14 +752,244 @@ The image below indicates the outputs, we have studied so far:
 knitr::include_graphics("images/R2.png")
 ```
 
+## Predict: Interpolation, Extrapolation {-}
+Ok, now we know how to build a linear regression model of the form:
+
+\begin{equation}
+Y = mX + b
+\end{equation}
+
+Isn't it beauty?
+
+
+That equation describes, to the best possible, how Y relates to X. With the extra support of the Coefficient of Determination, $r^2$, you can also know how strong the relationship is. 
+
+And it just keep giving. With that relationship, you can now predict any value of Y, at any given value of X. All you have is to replace the X parameter in the equation above, for the value you like, run the calculation to get the expected value of Y.
+
+```{r, out.width = "60%", echo= FALSE, fig.align = 'center',fig.cap = 'Predictions with linear models'}
+knitr::include_graphics("images/Prediction.png")
+```
+
+Let's try. From the relationship between grades and time studying, we already know that the intercept, $b$, was
+`r  round(mean (Grade) - mean (Hours_Studying) * sum(XDif*YDif)/sum(XDif^2),2)`, and that the slope, $m$, was `r round(sum(XDif*YDif)/sum(XDif^2),2)`. So, the linear model can be formulated as:
+
+
+\begin{equation}
+Y = `r round(sum(XDif*YDif)/sum(XDif^2),2)`X + `r  round(mean (Grade) - mean (Hours_Studying) * sum(XDif*YDif)/sum(XDif^2),2)`
+\end{equation}
+
+So, given that model, what would be the expected grade of a person studying 4 hours a week?. Simple, replace X for 4, run calculation and done,
+
+
+\begin{equation}
+Y = `r round(sum(XDif*YDif)/sum(XDif^2),2)`* 4 + `r  round(mean (Grade) - mean (Hours_Studying) * sum(XDif*YDif)/sum(XDif^2),2)`
+\end{equation}
+
+\begin{equation}
+Y = `r round(sum(XDif*YDif)/sum(XDif^2),2)*4 +   round(mean (Grade) - mean (Hours_Studying) * sum(XDif*YDif)/sum(XDif^2),2)`
+\end{equation}
+
+### Interpolation and Extrapolation {-}
+Predictions based on a linear model can be separated between those that are within the data you have, in which case the prediction is called an "interpolation". If the prediction is beyond the values of X that you have, then the prediction is call and extrapolation. 
+
+```{r, out.width = "60%", echo= FALSE, fig.align = 'center',fig.cap = 'Interpolation and Extrapolation'}
+knitr::include_graphics("images/Extrapolation.png")
+```
+
+Needless to say, that when you extrapolate, there is always a risk that the forecast is wrong. The model you created only modeled the relationship between Y and X, for the data you have. Pass that set of data, the relationship may be different, so It is always important to be careful with extrapolations.
+
+
+```{block2, type='rmdnote'}
+Predicting Y values for X values that are between observed X values in the data set is called interpolation.
+
+Predicting Y values for X values that are beyond observed X values in the data set is called extrapolation or forecasts. 
+```
+
+```{block2, type='rmdcaution'}
+Becuase extrapolation predict values beyind what is know, uncertainty is much higher and at times produce unrealistic forecasts.
+```
+
+In R, you can predict any value from a linear model, using the *predict* function, let's try.
+
+```{r, message=FALSE,warning=FALSE}
+#take the data on grades and time studying
+X=c(0.5, 1.8, 2.4, 3.8, 4.5) #hours studying
+Y=c(55, 64, 75, 82,95)       #grades
+
+# lets estimate the regression line using lm, and lets put that model in a variable
+LM = lm (Y~X)   #this is the linear model between Grades~Hours_Studying
+
+# lets now predict, the expected grades for three students that studied 1 hour, 3 hours and 10 hours
+PredictGradres=data.frame(X = c(1,3,100)) #here I create a data.frame with the times studied by the three students. You need to create a column, with the same name, as the model, so lm can know which one is  the X-variable
+
+predict(LM, PredictGradres)
+
+
+```
+
+From the predictions above, you can see how the model wrongly predicts that a person that studies 100 hours a week, will get a 1000.7 grade in the class. Obviously, the most you can get is 100%. This helps to illustrate the caution needed when extrapolating a linear model beyond the limits of the data.
+
+
+```{block2, type='rmdnote'}
+Two statisticians were traveling in an airplane from LA to New York.
+
+About an hour into the flight, the pilot announced that they had lost an engine. "Don’t worry", says the pilot, "there are three left; but, instead of 5 hours it would take 7 hours to get to New York". 
+
+
+A little later, the pilot announced that a second engine failed. "Don’t worry", says the pilot, "there are two left; but, instead of 5 hours it would take 10 hours to get to New York". 
+
+
+
+Somewhat later, the pilot came on the intercom again and announced that a third engine had died. "Never fear", he announced, "the plane can fly on a single engine. However, it would now take 18 hours to get to NewYork", the pilot added.
+
+At this point, one statistician turned to the other and said, "Gee, I hope we don't lose that last engine, or we'll be up here forever!"
+```
+
+
+
+
+## Outliers {-}
+One of the critical issues with regression models, is that by looking at the residuals of the data to the linear model, it can be influenced by extreme points. Those extreme points that clearly do not follow the main pattern are called **outliers**. 
+
+Sometimes, those outliers could be measurement errors, but at times could also indicate the influence of variables that you did not measure. It is always good to visualize the data in an scatterplot to see if such cases examples of outliers exist on your data. 
+
+Outliers can also be tested mathematically, by re-running the linear model without them, and check for the effect of removing them on the linear model.
+
+There are several approaches to test if such an effect of removing the outlier is significant or not in the linear model, which we will not cover here. But you need to know.
+
+
+```{r, out.width = "50%", echo= FALSE, fig.align = 'center',fig.cap = 'The outlier'}
+knitr::include_graphics("images/Outlier.png")
+```
+
+
 ## The significance {-}
 
-Several times in this book, we have mentioned how there is always a chance that any result can arise by chance alone. The linear regression model is not different. There may still be a chance that you find an $r^2$ similar to the one you found if you did not use any variable. 
+Several times in this book, we have mentioned how there is always a chance that any result can arise by chance alone. 
+The linear regression model is not different. There may still be a chance that you find an $r^2$ similar to the one you found if you did not use any independent variable at all. 
 
-any two random variables, with the same number of samples, will give you the same regression line and  than you found for two given variables.
+To rule out that possibility, we use what is called an F-test. We will review the F-statistics in more detail later in the Chapter about hypothesis testing. 
 
-To rule out that possibility, so guys 
+Basically, some people have taken the time to run millions of simulations of "fake" "random" datasets, created linear models with them with varying sample sizes and number of parameters, and estimated the fitness of those models. Then, they put the results of those "random" models in **F-tables**, which you can find at the end of most books on stats.  
+
+The beauty of those tables is that you can compare your model, given the number of samples and the number of variables, to find out the fraction of models similar to yours that could have happened  by chance.
+
+To compare your model to theirs, you need the F-value from your model, which we will get into in a sec, the number of variables in your model (for the purpose of comparison to the their tables, we will call this value $v1$). You also will need a parameter, we will call $v2$, which is the number of datapoints minus the number of predictors in the model plus one. $v1 and v2$ are just parameters needed to compare to random models of similar parameters.
+
+If your model is similar to theirs, then, your results could have emerged by simple chance. If your results were different, then the relationship you found is legit. We will work more on this later on.
+
+Ok, but we need to estimate the F-Value of our model. There is an specific equation to calculate the F-value or F-statistics of a linear regression model. However, it can also be predicted using the $r^2$, which we will use here for simplicity, using the following equation:
+
+\begin{equation}
+F_{statistics} = \frac{r^2}{1-r^2} *\frac{v2}{v1}
+\end{equation}
+
+Where $r^2$, is the coefficient of determination; $v1$ is number of predictors in the model;  $v2$ is the number of datapoints minus the number of predictors in the model plus one. 
+
+If you think about that formulate above, you are estimating an standard metric of the variance explained, $r^2$, to the variance not explained, $1-r^2$, for a model of certain characteristics of sample size and variables used. 
+
+Because the most variance you can explain in any case is always just 100%, this metric could be assumed standard among any model random or not. And that is how then, we can compare our results on legit data to fake data, and see if any result of ours is different from random.
+
+With all parameters at hand for our model, we need to look into an *F-table* to estimate the *critical F-value*. A *critical F-value* is the expected F-value at which certain fraction of random models occur. Let's take a moment to understand this.
+
+Image a statistician runs one million regressions with random data using certain number of samples and independent variables and for each model he estimates the F-value above. He then creates a frequency distribution of the number of models at each F-value, like the figure below.
+
+```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'F-distribution'}
+knitr::include_graphics("images/F-distributionA.png")
+```
+
+From that distribution, you can now find out the F-value at which say 90% of the random models occur; that value is the *critical F-value*, like in the image below.
+
+If say our model has an F-value larger than that critical F-value then we are 90% sure our model cannot have emerge by chance.
+
+Alternatively, you could say our model is significant at p>0.1, which is the complement of 90% or 0.9 if you look at it as fractions. That p-value is also called the *critical p-value* or at times also named alpha, $\alpha$.
 
 
+```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'lm outputs'}
+knitr::include_graphics("images/F-distribution.png")
+```
+
+Lets estimate the F-value for our regression model between grades and time studying, for which we know the $r^2$ was $`r round (R2,2)`$. $v1$, the number of predictors in the model would be 1, as we only have one independent variable (i.e., time studying) and, $v2$ is 3; If you recall $v2$ is the number of datapoints (five student) minus the number of predictors (one in our case) plus one. So
+
+\begin{equation}
+F_{statistics} = \frac{`r round (R2,2)`}{1-`r round (R2,2)`} *\frac{3}{1}
+\end{equation}
+
+\begin{equation}
+F_{statistics} = `r (R2/(1-R2)) *((3/1))`
+\end{equation}
+
+So the F-value for our model was $`r round((R2/(1-R2)) *((3/1)),2)`$. Now we need to find out the *critical F-value*, and lets take a $\alpha =0.05$. For this we use an F-table, like the one below.
+
+Because v1 = 1 in our case, you have to select the first column, then scroll down until v2 in the grey column is equal to 3, at the interception is the **F-critical**. Or the F-value at which 95% of the random models occurred. Threes are similar tables like this for each $\alpha$. 
+
+So for a model like ours, 95% of the random models should have an critical F-value smaller than 10.13. However, our model had an F-value = `r (R2/(1-R2)) *((3/1))`. So our model is very different from the random expectation, or also-called significantly different at p>0.05.
 
 
+```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'lm outputs'}
+knitr::include_graphics("images/Ftable.png")
+```
+
+
+In R, the F-value is produced automatically with the $lm$ function and the summary function. The outputs from the linear model, lm, also include the exact probability at which our model could be random, see image below.
+
+```{r,  results='hide', message=FALSE,warning=FALSE}
+summary (LM)   #Here LM is the linear model, lm, we create in the code just above.  
+```
+
+
+```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'lm outputs'}
+knitr::include_graphics("images/Fvalue.png")
+```
+
+In conclusion, there is a significantly strong relations ($r^2 = 0.96$) at p>0.05 between studying for my class and getting a nice grade. There you go, keep studying.
+
+
+## Exercises {-}
+
+Some of these questions may take a while to load depending on your internet connection.
+
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=20" width="958" height="396" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=19" width="958" height="779" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=22" width="958" height="311" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=23" width="958" height="788" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=24" width="958" height="645" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=25" width="958" height="688" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=26" width="958" height="687" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=27" width="958" height="705" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+## Homework {-}
+
+A biologist has been monitoring the population of wolfs and caribou for several years in Denali National Park, Alaska.
+
+Let x  represents the caribou population (in hundreds) and y the wolf population in the park.
+
+x = 30 34 27 25 17 23 20
+y = 66 79 70 60 48 55 60
+
+
+(a) Make a scatter plot of the data, adjust aesthetics so the figure follows publication guidelines.
+
+(b) What is the equation that defines the linear relationship between wolfs and caribou.
+
+(c) What is the wolf population when there are not caribou.
+
+(d) What is the increase wolf population for each hundred caribou.
+
+(e) What will be the expected wolf population, at say 1000 caribou?. any caution on this prediction? 
+
+(f) Is that a strong relationship?. what evidence can you provide?
+
+(g) Was it significant, what evidence can you provide?. also what does is mean significant?
+
+
+Place the figure and your responses in a Word document and email it as a homework. Send a nice looking document.

@@ -72,6 +72,14 @@ tab:unnamed-chunk-233
 fig:unnamed-chunk-235
 fig:unnamed-chunk-236
 fig:unnamed-chunk-237
+fig:unnamed-chunk-240
+fig:unnamed-chunk-241
+fig:unnamed-chunk-242
+fig:unnamed-chunk-247
+fig:unnamed-chunk-248
+fig:unnamed-chunk-249
+fig:unnamed-chunk-250
+fig:unnamed-chunk-252
 the-scientific-method
 installing-programs
 basics-on-data-manipulation-in-r
@@ -79,6 +87,3 @@ basic-plots
 descriptive-statistics
 correlation
 linear-regression
-fig:unnamed-chunk-2
-tab:unnamed-chunk-21
-fig:unnamed-chunk-25
