@@ -310,18 +310,19 @@ By Camilo Mora, Ph.D.
             <section class="normal" id="section-">
 <div id="significance-level" class="section level2 unnumbered">
 <h2>Significance level</h2>
-<p>When the question is formulated of whether something is different; inherently, you are making a decision with a chance that we may be wrong. Put another way, we imply that there is a threshold beyond which we may be wrong. In statistics that threshold is called <strong>significance level</strong> or alpha, <span class="math inline">\(\alpha\)</span>.</p>
+<p>When the question is formulated of whether something is different; inherently, you are making a decision with a chance that we may be wrong. Put another way, we imply that there is a threshold beyond which we may be wrong. In statistics that threshold is called <strong>significance level</strong>, or alpha, <span class="math inline">\(\alpha\)</span>.</p>
 <p>Take my rabbit population below, and say I found a rabbit in the street and that all I have to compare is body size? Could this be one rabbit be one of my rabbits?</p>
 <p>Tricky right?. Nine out of my ten rabbits are smaller. So is this one guy different as to be not one of mine?</p>
 <p>Well, it depends on the chance I want to give myself of being wrong.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-258"></span>
-<img src="images/IsDifferent.png" alt="Population, sample, individual" width="80%" />
+<img src="images/IsDifferent.png" alt="Is it mine?" width="80%" />
 <p class="caption">
-Figure 8.2: Population, sample, individual
+Figure 8.2: Is it mine?
 </p>
 </div>
 <p>If I assume a threshold of say 20% chance of me being wrong. Then this rabbit would not be mine… 80% of my rabbits are smaller than 6.1 not included. The rabbit I found was 6.8, so at a 20% chance, this rabbit is too big to be from my rabbit population.</p>
-<p>What if I set the threshold of me being wrong at a 10% chance? In this case I am considering that the rabbit I found has to be smaller than the 10% largest rabbits in my population, for it to be mine. In my rabbit population 10% of the rabbits are larger than 7, the rabbit I found was 6.8 so in this case this rabbit belongs to my population at a 10% chance that I may be wrong.</p>
+<p>What if I set the threshold of me being wrong at a 10% chance? In this case I am considering that the rabbit I found has to be smaller than the 10% largest rabbits in my population, for it to be mine.</p>
+<p>In my rabbit population 10% of the rabbits are larger than 7, the rabbit I found was 6.8 so in this case this rabbit belongs to my population at a 10% chance that I may be wrong.</p>
 <p>This examples serves the purpose to illustrate that in hypothesis testing there is always a chance of you being wrong and that such a chance is proportional to how different the thing you have is compared to the population you are comparing to.</p>
 
 <div class="rmdimportant">

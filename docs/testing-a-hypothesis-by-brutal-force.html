@@ -311,30 +311,81 @@ By Camilo Mora, Ph.D.
 <div id="testing-a-hypothesis-by-brutal-force" class="section level2 unnumbered">
 <h2>Testing a hypothesis by brutal force</h2>
 <p>In the following chapters, we will introduce standardized ways to test hypotheses; I want to finish this chapter by illustrating the ultimate idea behind testing a hypothesis by running a brief simulation. This simulation will aim to show the general approach of hypothesis testing.</p>
-<p>Lets say that you work for the FDA, and you have been commissioned to provide evidence for a lawsuit case involving the calories in MacDonals burgers (this is a fictitious example). The pending lawsuit refer to a person who suffered a heart attack after its cholesterol levels increased considerably. Prior to the heart attack, his doctor recommended that he kept a daily diet of no more than 2000 calories a day, so he satisfied his weakness for burgers eating a new type of MacDonals burger than claimed to have less than 1,500 calories (Standard deviation, SD= 100).</p>
+<p>Lets say that you work for the FDA, and you have been commissioned to provide evidence for a lawsuit case involving the calories in MacDonals burgers (this is a fictitious example). The pending lawsuit refers to a person who suffered a heart attack after its cholesterol levels increased considerably. Prior to the heart attack, his doctor recommended that he kept a daily diet of no more than 2000 calories a day, so he satisfied his weakness for burgers eating a new type of MacDonals burger than claimed to have less than 1,500 calories (Standard deviation, SD= 100).</p>
 <p>x = 1350, 1600, 1510, 1850, 1750, 1756, 1400, 1500, 1350, 1400</p>
 <p>Let x be the calorimetric value of a random sample of ten burger you took. So the question is, do the claims by this individual hold any right?</p>
 <p>Let’s start by stating the hypotheses:</p>
-<p>NUll hypothesis, Ho: burger &lt;= 1,500 calories
-Alternative hypothesis, H1: burger &gt; 1,500 calories</p>
-<p>We want to test this hypothesis at a 5% level of confidence.</p>
+<p>Null hypothesis, Ho: burger &lt;= 1,500 calories.</p>
+<p>Alternative hypothesis, H1: burger &gt; 1,500 calories.</p>
+<p>In this case, I specifically want to know is these burgers have less than 1500 calories as claimed by the company.</p>
+<p>We want to test this hypothesis at a <span class="math inline">\(\alpha\)</span>, level of confidence, of 5%.</p>
 <p>Alright, lets start our simulation.</p>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-271-1.png" width="672" /></p>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-1"></a><span class="co">#Lets put the data of the sample of ten burgers in a vector</span></span>
+<span id="cb217-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-2"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1350</span>, <span class="dv">1600</span>, <span class="dv">1510</span>, <span class="dv">1850</span>, <span class="dv">1750</span>, <span class="dv">1756</span>, <span class="dv">1400</span>, <span class="dv">1500</span>, <span class="dv">1350</span>, <span class="dv">1400</span>)</span>
+<span id="cb217-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-3"></a></span>
+<span id="cb217-4"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-4"></a>MeanCal=<span class="st"> </span><span class="kw">mean</span> (x) <span class="co">#lets calculate the mean of the sample, or so call p-value. </span></span>
+<span id="cb217-5"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-5"></a></span>
+<span id="cb217-6"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-6"></a><span class="kw">plot</span>(<span class="dv">1</span>, <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Calories per burger&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Percent of burgers&quot;</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="co"># lets create an empty plot</span></span>
+<span id="cb217-7"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-7"></a></span>
+<span id="cb217-8"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-8"></a></span>
+<span id="cb217-9"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-9"></a><span class="co">#plot the p-value</span></span>
+<span id="cb217-10"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-10"></a><span class="kw">abline</span>(<span class="dt">v=</span>MeanCal, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>) </span>
+<span id="cb217-11"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-11"></a></span>
+<span id="cb217-12"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-12"></a><span class="co">#lets name the mean sample value</span></span>
+<span id="cb217-13"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-13"></a><span class="kw">text</span>(MeanCal,<span class="dv">10</span>,<span class="dt">labels=</span><span class="st">&quot;p-value&quot;</span>,<span class="dt">pos=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-272-1.png" width="672" /></p>
 <p>Next, we take one random sample of ten values from a normal population with a mean of 1500 and an standard deviation, SD, of 50. In R, you can take any number of individuals from any normally distributed population using the function <span class="math inline">\(rnorm\)</span>.</p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-1"></a>MeanPopulation=<span class="dv">1500</span></span>
+<span id="cb218-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-2"></a>SDPopulation=<span class="dv">50</span></span>
+<span id="cb218-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-3"></a>RandomSample1&lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>,MeanPopulation,SDPopulation) </span>
+<span id="cb218-4"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-4"></a></span>
+<span id="cb218-5"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-5"></a>RandomSample1</span></code></pre></div>
 <pre><code>##  [1] 1508.210 1478.508 1462.981 1508.355 1509.168 1518.494 1526.078 1433.667
 ##  [9] 1441.798 1504.135</code></pre>
-<p>Our actual sample of 10 burgers had an average calorimetric content of <span class="math inline">\(1546.6\)</span> while the expected value of this one random sample was <span class="math inline">\(1489.1393646\)</span>.</p>
-<p>Hmm, from that one comparison it seems the one guy may be right; these burgers have more calories than what they claim. But we only have one random sample. To be robust, we probably should take 10000 random samples and from all of those see how many calories are on the top 5% of the random samples, which is our critical threshold.</p>
-<p>To run such a simulation, we can use the <em>for</em> loop function in R. Lets try. lets explain that function with the example.</p>
+<p>Our actual sample of 10 burgers had an average calorimetric content of <span class="math inline">\(1546.6\)</span> while the expected value of this one random sample was <span class="math inline">\(1489.14\)</span>.</p>
+<p>Hmm, from that one comparison it seems the one guy may be right; these burgers have more calories than what they claim. But we only have one random sample. To be robust, we probably should take 10000 random samples and from all of those see is the top 5% of the random samples, our critical threshold, is larger or smaller than our observed value/p-value.</p>
+<p>To run such a simulation, we can use the <em>for</em> loop function in R. Lets try. Let me explain that function with the example.</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb220-1"></a>population=<span class="st"> </span><span class="kw">c</span>()  <span class="co">#we create an empty vector where we will store the random averages of our 1000 random samples of ten burgers</span></span>
+<span id="cb220-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb220-2"></a><span class="cf">for</span> (sampleI <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>) { <span class="co"># here I set a variable called sampleI that will loop from 1 to 1000</span></span>
+<span id="cb220-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb220-3"></a>  </span>
+<span id="cb220-4"><a href="testing-a-hypothesis-by-brutal-force.html#cb220-4"></a>RandomSampleI&lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10</span>,MeanPopulation,SDPopulation) <span class="co">#take 10 values randomly</span></span>
+<span id="cb220-5"><a href="testing-a-hypothesis-by-brutal-force.html#cb220-5"></a></span>
+<span id="cb220-6"><a href="testing-a-hypothesis-by-brutal-force.html#cb220-6"></a><span class="co">#next calculate the average calories in the random sample</span></span>
+<span id="cb220-7"><a href="testing-a-hypothesis-by-brutal-force.html#cb220-7"></a>meanRandomSampleI=<span class="st"> </span><span class="kw">mean</span> (RandomSampleI)</span>
+<span id="cb220-8"><a href="testing-a-hypothesis-by-brutal-force.html#cb220-8"></a></span>
+<span id="cb220-9"><a href="testing-a-hypothesis-by-brutal-force.html#cb220-9"></a><span class="co">#lets place the value for that sample in the vector</span></span>
+<span id="cb220-10"><a href="testing-a-hypothesis-by-brutal-force.html#cb220-10"></a>population=<span class="kw">c</span>(population, meanRandomSampleI ) <span class="co">#basically I am appending the mean of every sample in every loop to the vector</span></span>
+<span id="cb220-11"><a href="testing-a-hypothesis-by-brutal-force.html#cb220-11"></a>}</span>
+<span id="cb220-12"><a href="testing-a-hypothesis-by-brutal-force.html#cb220-12"></a><span class="co"># the code between {} will run for 1000 times. to test lest count the number of entries in the vector</span></span>
+<span id="cb220-13"><a href="testing-a-hypothesis-by-brutal-force.html#cb220-13"></a></span>
+<span id="cb220-14"><a href="testing-a-hypothesis-by-brutal-force.html#cb220-14"></a><span class="kw">length</span>(population)</span></code></pre></div>
 <pre><code>## [1] 10000</code></pre>
 <p>Ok, we just created a population of 10000 random samples from a normal population with a mean of 1500 and an standard deviation, SD, of 50. Let’s do a histogram of that database</p>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-274-1.png" width="672" />
-Looking good….lets draw a line for the 5% level of confidence for the expected distribution of calories in a burger given the claims o f MacDonalds. We will use the R function <span class="math inline">\(quantile\)</span>, which we used earlier, to find out the values located at the 95% percentile.</p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb222-1"></a>breaks =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1300</span>, <span class="dv">1600</span>, <span class="dt">length.out =</span> <span class="dv">100</span>) <span class="co">#lets create a set of bins</span></span>
+<span id="cb222-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb222-2"></a></span>
+<span id="cb222-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb222-3"></a><span class="kw">hist</span>(population,<span class="dt">main=</span><span class="ot">NA</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">1400</span>, <span class="dv">1600</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),<span class="dt">breaks =</span> breaks, <span class="dt">xlab =</span> <span class="st">&quot;Caloric content of burgers&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;Number of ramdon samples&quot;</span>)</span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-275-1.png" width="672" />
+Looking good….lets draw a line for the 5% level of confidence for the expected distribution of calories in a burger given the claims of MacDonalds. We will use the R function <span class="math inline">\(quantile\)</span>, which we used earlier, to find out the value located at the 95% percentile.</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb223-1"></a>FivePercent=<span class="kw">quantile</span>(population,<span class="fl">0.95</span>,<span class="dt">type=</span><span class="dv">1</span>) <span class="co">#quantile finds the value in the population of calories located at the top 5% percentile</span></span>
+<span id="cb223-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb223-2"></a>FivePercent</span></code></pre></div>
 <pre><code>##      95% 
 ## 1526.469</code></pre>
 <p>Now we can compare the average calorimetric content in our actual sample of 10 burgers (p-value) to the value located at the 5% mark (i.e., the level of confidence).</p>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-276-1.png" width="672" /></p>
-<p>The amount of calories in our sample of ten burgers (Blue line in figure above) was much larger than the critical value at 5% chance (red line), We then reject the null hypothesis that these burgers have less than 1,500 calories, and would have to embrace the alternative hypothesis that the burgers have more than 1500 calories. You can surmise in our report to the jidge that the one guy suiting MacDonalds was deceived. A case of false advertisement.</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb225-1"></a><span class="kw">hist</span>(population,<span class="dt">main=</span><span class="ot">NA</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">1400</span>, <span class="dv">1600</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),<span class="dt">breaks =</span> breaks, <span class="dt">xlab =</span> <span class="st">&quot;Caloric content of burgers&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;Number of ramdon samples&quot;</span>)</span>
+<span id="cb225-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb225-2"></a></span>
+<span id="cb225-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb225-3"></a><span class="co">#plot critical value or confidence level</span></span>
+<span id="cb225-4"><a href="testing-a-hypothesis-by-brutal-force.html#cb225-4"></a><span class="kw">abline</span>(<span class="dt">v=</span>FivePercent, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>) </span>
+<span id="cb225-5"><a href="testing-a-hypothesis-by-brutal-force.html#cb225-5"></a><span class="co">#lets name the critical value</span></span>
+<span id="cb225-6"><a href="testing-a-hypothesis-by-brutal-force.html#cb225-6"></a><span class="kw">text</span>(FivePercent,<span class="dv">1000</span>,<span class="dt">labels=</span><span class="st">&quot;Critical p-value&quot;</span>,<span class="dt">pos=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb225-7"><a href="testing-a-hypothesis-by-brutal-force.html#cb225-7"></a></span>
+<span id="cb225-8"><a href="testing-a-hypothesis-by-brutal-force.html#cb225-8"></a></span>
+<span id="cb225-9"><a href="testing-a-hypothesis-by-brutal-force.html#cb225-9"></a><span class="co">#plot the p-value</span></span>
+<span id="cb225-10"><a href="testing-a-hypothesis-by-brutal-force.html#cb225-10"></a><span class="kw">abline</span>(<span class="dt">v=</span>MeanCal, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>) </span>
+<span id="cb225-11"><a href="testing-a-hypothesis-by-brutal-force.html#cb225-11"></a></span>
+<span id="cb225-12"><a href="testing-a-hypothesis-by-brutal-force.html#cb225-12"></a><span class="co">#lets name the mean sample value</span></span>
+<span id="cb225-13"><a href="testing-a-hypothesis-by-brutal-force.html#cb225-13"></a><span class="kw">text</span>(MeanCal,<span class="dv">1000</span>,<span class="dt">labels=</span><span class="st">&quot;p-value&quot;</span>,<span class="dt">pos=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-277-1.png" width="672" /></p>
+<p>The amount of calories in our sample of ten burgers (Blue line in figure above) was much larger than the critical value at 5% chance (red line), We then reject the null hypothesis that these burgers have less than 1,500 calories, and would have to embrace the alternative hypothesis that the burgers have more than 1500 calories. You can surmise in your report to the judge that the one guy lawsuiting MacDonalds was deceived. A case of false advertisement.</p>
 </div>
 <div id="disqus_thread"></div>
 <script>

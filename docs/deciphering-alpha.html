@@ -321,25 +321,19 @@ By Camilo Mora, Ph.D.
 <span id="cb213-7"><a href="deciphering-alpha.html#cb213-7"></a></span>
 <span id="cb213-8"><a href="deciphering-alpha.html#cb213-8"></a><span class="co">#next I plot the data for the size of the entire population of men in the USA</span></span>
 <span id="cb213-9"><a href="deciphering-alpha.html#cb213-9"></a> <span class="kw">hist</span>(MenUSPop, <span class="dt">main=</span><span class="ot">NA</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">240</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">20000000</span>),<span class="dt">breaks =</span> breaks, <span class="dt">xlab =</span> <span class="st">&quot;US men heigth (cm)&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;Number of people&quot;</span>)</span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-260-1.png" width="672" />
-As you can see from the figure above some men are tall, others shorter, but on average the US men population is 177.8 cm tall.</p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-260-1.png" width="672" /></p>
+<p>As you can see from the figure above some men are tall, others shorter, but on average the US men population is 177.8 cm tall.</p>
 <p>When we refer to a significance level, <span class="math inline">\(\alpha\)</span>, we are referring to an specific fraction of the population that is on the tails of that distribution. Basically, those individuals that are different or special.</p>
 <p>As mentioned earlier, in biology and most sciences, we generally accept an <span class="math inline">\(\alpha\)</span> of 0.05. Basically, we assume something is different/special, if it is larger or smaller than the top or bottom 5% of all individual in that population.</p>
+<p>If you may recall from Chapter 5, we mentioned that 95% of the individuals on any normally distributed population are within two-standard deviations from the mean. With that said, and following on the example above about men heights’, any individual that is taller or shorter than two standard deviation below or above the mean, is different at a 5% level of confidence.</p>
+<p>In the figure below, I illustrate random samples of males taken from the US men height population. If I were to count the fraction of people two standard deviations below or above the mean (percentage red numbers shown in the figure), you would see that on any sample there are cumulatively almost always 5%, or about 2.5% on each tail of the distribution.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-261"></span>
-<img src="images/P05.png" alt="Critical f-Value at 90% or p=0.1" width="80%" />
+<img src="images/AnimatedDistribution.gif" alt="Critical f-Value at 90% or p=0.1" width="80%" />
 <p class="caption">
 Figure 8.3: Critical f-Value at 90% or p=0.1
 </p>
 </div>
-<p>If you may recall from Chapter 5, 95% of the individuals on any normally distributed population are within two-standard deviations from the mean. With that said, and following on the example above with men heights’, any individual that is taller or shorter than two standard deviation below or above the mean, is different at a 5% level of confidence.</p>
-<p>In the figure below, I illustrate random samples of males taken from the US men height population. If I were to count the fraction of people two standard deviations below or above the mean (percentage red numbers shown in the figure), you would see that on any sample there are cumulatively almost always 5%, or about 2.5% on each tail of the distribution.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-262"></span>
-<img src="images/AnimatedDistribution.gif" alt="Critical f-Value at 90% or p=0.1" width="80%" />
-<p class="caption">
-Figure 8.4: Critical f-Value at 90% or p=0.1
-</p>
-</div>
-<p>Of course, you could use different levels of confidence when testing if something is significantly different. But in all cases, it will be the threshold beyond which you conclude that something is significantly different.</p>
+<p>Of course, you could use different levels of confidence, <span class="math inline">\(\alpha\)</span>, when testing if something is significantly different. But in all cases, <span class="math inline">\(\alpha\)</span> will be the threshold beyond which you conclude that something is significantly different.</p>
 </div>
 <div id="disqus_thread"></div>
 <script>
