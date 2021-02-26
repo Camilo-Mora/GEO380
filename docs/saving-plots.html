@@ -276,6 +276,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis Testing</a><ul>
+<li class="chapter" data-level="" data-path="significance-level.html"><a href="significance-level.html"><i class="fa fa-check"></i>Significance level</a></li>
+<li><a href="deciphering-alpha.html#deciphering-alpha">Deciphering <span class="math inline">\(\alpha\)</span></a></li>
+<li class="chapter" data-level="" data-path="error-types.html"><a href="error-types.html"><i class="fa fa-check"></i>Error types</a></li>
+<li class="chapter" data-level="" data-path="stating-hyphotheses-and-tails.html"><a href="stating-hyphotheses-and-tails.html"><i class="fa fa-check"></i>Stating hyphotheses and tails</a></li>
+<li class="chapter" data-level="" data-path="accepting-or-rejecting-the-null-hypothesis.html"><a href="accepting-or-rejecting-the-null-hypothesis.html"><i class="fa fa-check"></i>Accepting or rejecting the null hypothesis</a></li>
+<li class="chapter" data-level="" data-path="testing-a-hypothesis-by-brutal-force.html"><a href="testing-a-hypothesis-by-brutal-force.html"><i class="fa fa-check"></i>Testing a hypothesis by brutal force</a></li>
+<li class="chapter" data-level="" data-path="exercises-3.html"><a href="exercises-3.html"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="homework-5.html"><a href="homework-5.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
 
@@ -311,9 +321,9 @@ Figure 4.6: Pixelation effect of figure format
 <p>Of course, R offers many formats to save plots. Here we will save a figure as a PDF using the function “pdf”.</p>
 <p>Basically, the function pdf requires you to write the name you want for your file (e.g. “RPlot.pdf”), how big you want the plot, the size of the letters, and few other options. Type ?pdf to see additional settings.</p>
 <p>The way to save any figure in R is like this: Firsts, you write the line of code indicating the type of file you want to save as. That creates a clean sheet, where you can place your plot or plots. Once done with your figure or figures, you need a line of code called dev.off(); that closes the sheet and save the file. Lets try,</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="saving-plots.html#cb135-1"></a><span class="kw">pdf</span>(<span class="st">&quot;RPlot.pdf&quot;</span>, <span class="dt">width =</span> <span class="dv">3</span>, <span class="dt">height =</span> <span class="dv">3</span>,<span class="dt">pointsize=</span><span class="dv">8</span>,<span class="dt">paper=</span><span class="st">&quot;letter&quot;</span>)</span>
-<span id="cb135-2"><a href="saving-plots.html#cb135-2"></a><span class="kw">plot</span>(bin,<span class="dt">colramp=</span>my_colors)  <span class="co">#hexbin plot</span></span>
-<span id="cb135-3"><a href="saving-plots.html#cb135-3"></a><span class="kw">dev.off</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="saving-plots.html#cb138-1"></a><span class="kw">pdf</span>(<span class="st">&quot;RPlot.pdf&quot;</span>, <span class="dt">width =</span> <span class="dv">3</span>, <span class="dt">height =</span> <span class="dv">3</span>,<span class="dt">pointsize=</span><span class="dv">8</span>,<span class="dt">paper=</span><span class="st">&quot;letter&quot;</span>)</span>
+<span id="cb138-2"><a href="saving-plots.html#cb138-2"></a><span class="kw">plot</span>(bin,<span class="dt">colramp=</span>my_colors)  <span class="co">#hexbin plot</span></span>
+<span id="cb138-3"><a href="saving-plots.html#cb138-3"></a><span class="kw">dev.off</span>()</span></code></pre></div>
 <p>If you now check your working folder, there should be a file called RPlot.pdf, which has the figure you just created. Of course, you can edit the figure as you like, as we showed in the Scatterplot section.</p>
 <p>The benefit of l saving files as PDF is that the resolution is never affected. You can zoom in into a PDF file and the resolution is always the same. In turn, other types of figures like jpeg, gif, png, etc. you need to define the resolution in advance, and if you zoom in into those type of figure formats you will notice the pixelation.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-141"></span>

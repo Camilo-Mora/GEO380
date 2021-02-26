@@ -518,9 +518,11 @@ head(DataFrame$x3) #here I only display the top values of the column Country_Nam
 A recurring task in data analytics is to filter data, this means to select specific subsets/chucks of your data. Filters can be used to create new variables, to apply new functions, to see specific data, etc. There are numerous ways to filter data in R, but here we wall use the function filter in the package "dplyr".
 
 ```{r, echo= TRUE, message=FALSE,warning=FALSE}
-# install.packages("dplyr") #First, I install the package dplyr, since I have not installed it previously
+# install.packages("dplyr")     #First, I install the package dplyr and tidyverse, since I have not installed it previously
+# install.packages("tidyverse") 
 
-library(dplyr)            #next I load the package into the current section of R.
+library(tidyverse) #next I load the packages into the current section of R.
+library(dplyr)            
 ```
 
 Now, lets check the first few rows in the GDP database we loaded earlier, 

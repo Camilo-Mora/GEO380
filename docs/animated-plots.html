@@ -276,6 +276,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis Testing</a><ul>
+<li class="chapter" data-level="" data-path="significance-level.html"><a href="significance-level.html"><i class="fa fa-check"></i>Significance level</a></li>
+<li><a href="deciphering-alpha.html#deciphering-alpha">Deciphering <span class="math inline">\(\alpha\)</span></a></li>
+<li class="chapter" data-level="" data-path="error-types.html"><a href="error-types.html"><i class="fa fa-check"></i>Error types</a></li>
+<li class="chapter" data-level="" data-path="stating-hyphotheses-and-tails.html"><a href="stating-hyphotheses-and-tails.html"><i class="fa fa-check"></i>Stating hyphotheses and tails</a></li>
+<li class="chapter" data-level="" data-path="accepting-or-rejecting-the-null-hypothesis.html"><a href="accepting-or-rejecting-the-null-hypothesis.html"><i class="fa fa-check"></i>Accepting or rejecting the null hypothesis</a></li>
+<li class="chapter" data-level="" data-path="testing-a-hypothesis-by-brutal-force.html"><a href="testing-a-hypothesis-by-brutal-force.html"><i class="fa fa-check"></i>Testing a hypothesis by brutal force</a></li>
+<li class="chapter" data-level="" data-path="exercises-3.html"><a href="exercises-3.html"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="homework-5.html"><a href="homework-5.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
 
@@ -301,17 +311,17 @@ By Camilo Mora, Ph.D.
 <div id="animated-plots" class="section level2 unnumbered">
 <h2>Animated plots</h2>
 <p>What about animated plots?. If you recall the database on socio-economic data from countries in the world, you will notice that each variable was collected at different years. What year to display?. Well you can display them all and see how any pattern will change over time using an animated plot that displays each year sequentially. For animated plots, we will use the ggplot2 and the gganimate libraries/packages. i</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="animated-plots.html#cb131-1"></a><span class="co">#first lets bring the data.</span></span>
-<span id="cb131-2"><a href="animated-plots.html#cb131-2"></a>ExpectancyData=<span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_LifeExpectancy.csv&quot;</span>)</span>
-<span id="cb131-3"><a href="animated-plots.html#cb131-3"></a>GDPData=<span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_GDP.csv&quot;</span>)</span>
-<span id="cb131-4"><a href="animated-plots.html#cb131-4"></a></span>
-<span id="cb131-5"><a href="animated-plots.html#cb131-5"></a><span class="co">#lets merge those two databases, using the dplyr packaged that we used earlier.</span></span>
-<span id="cb131-6"><a href="animated-plots.html#cb131-6"></a><span class="kw">library</span>(dplyr)  <span class="co">#load package to merge database</span></span>
-<span id="cb131-7"><a href="animated-plots.html#cb131-7"></a></span>
-<span id="cb131-8"><a href="animated-plots.html#cb131-8"></a><span class="co">#merge the databases</span></span>
-<span id="cb131-9"><a href="animated-plots.html#cb131-9"></a>MergeData &lt;-<span class="st"> </span><span class="kw">full_join</span>(GDPData, ExpectancyData, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;country&quot;</span>,<span class="st">&quot;year&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="animated-plots.html#cb134-1"></a><span class="co">#first lets bring the data.</span></span>
+<span id="cb134-2"><a href="animated-plots.html#cb134-2"></a>ExpectancyData=<span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_LifeExpectancy.csv&quot;</span>)</span>
+<span id="cb134-3"><a href="animated-plots.html#cb134-3"></a>GDPData=<span class="kw">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_GDP.csv&quot;</span>)</span>
+<span id="cb134-4"><a href="animated-plots.html#cb134-4"></a></span>
+<span id="cb134-5"><a href="animated-plots.html#cb134-5"></a><span class="co">#lets merge those two databases, using the dplyr packaged that we used earlier.</span></span>
+<span id="cb134-6"><a href="animated-plots.html#cb134-6"></a><span class="kw">library</span>(dplyr)  <span class="co">#load package to merge database</span></span>
+<span id="cb134-7"><a href="animated-plots.html#cb134-7"></a></span>
+<span id="cb134-8"><a href="animated-plots.html#cb134-8"></a><span class="co">#merge the databases</span></span>
+<span id="cb134-9"><a href="animated-plots.html#cb134-9"></a>MergeData &lt;-<span class="st"> </span><span class="kw">full_join</span>(GDPData, ExpectancyData, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;country&quot;</span>,<span class="st">&quot;year&quot;</span>))</span></code></pre></div>
 <p>As it is customary, lets check the data were loaded and display correctly.</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="animated-plots.html#cb132-1"></a><span class="kw">tail</span> (MergeData)</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="animated-plots.html#cb135-1"></a><span class="kw">tail</span> (MergeData)</span></code></pre></div>
 <pre><code>##       country continent.x year gdpPercap    X continent.y lifeExp
 ## 1699 Zimbabwe      Africa 1982  788.8550 1699      Africa  60.363
 ## 1700 Zimbabwe      Africa 1987  706.1573 1700      Africa  62.351
@@ -321,22 +331,22 @@ By Camilo Mora, Ph.D.
 ## 1704 Zimbabwe      Africa 2007  469.7093 1704      Africa  43.487</code></pre>
 <p>It seems data were loaded fine. The three variables of interest here are gdpPercap (GDP per capita), lifeExp (life expectancy), year and continent. (note that continent is double, because that column was on each of the dataset we merged, and we did not specific to do the merging by continent as well).</p>
 <p>Lets create an animated plot of that data. Since the code needed will require several lines, it is recommended that you create the code in Tinn-R firts. Once it is done, copy and paste in the R console.</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="animated-plots.html#cb134-1"></a><span class="co"># for the figures we will need </span></span>
-<span id="cb134-2"><a href="animated-plots.html#cb134-2"></a>    <span class="kw">library</span>(ggplot2)      <span class="co">#this package is to do all sorts of plots</span></span>
-<span id="cb134-3"><a href="animated-plots.html#cb134-3"></a>    <span class="kw">library</span>(gganimate)    <span class="co">#this package does the animation</span></span>
-<span id="cb134-4"><a href="animated-plots.html#cb134-4"></a> </span>
-<span id="cb134-5"><a href="animated-plots.html#cb134-5"></a><span class="co"># Make a ggplot, but add frame=year: one image per year</span></span>
-<span id="cb134-6"><a href="animated-plots.html#cb134-6"></a>    <span class="kw">ggplot</span>(MergeData, <span class="kw">aes</span>(gdpPercap, lifeExp, <span class="dt">color =</span> continent.x)) <span class="op">+</span></span>
-<span id="cb134-7"><a href="animated-plots.html#cb134-7"></a><span class="st">      </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
-<span id="cb134-8"><a href="animated-plots.html#cb134-8"></a><span class="st">      </span><span class="kw">scale_x_log10</span>() <span class="op">+</span></span>
-<span id="cb134-9"><a href="animated-plots.html#cb134-9"></a><span class="st">      </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
-<span id="cb134-10"><a href="animated-plots.html#cb134-10"></a><span class="co"># gganimate specific bits:</span></span>
-<span id="cb134-11"><a href="animated-plots.html#cb134-11"></a><span class="st">      </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&#39;Year: {frame_time}&#39;</span>, <span class="dt">x =</span> <span class="st">&#39;GDP per capita&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;life expectancy&#39;</span>) <span class="op">+</span></span>
-<span id="cb134-12"><a href="animated-plots.html#cb134-12"></a><span class="st">      </span><span class="kw">transition_time</span>(year) <span class="op">+</span></span>
-<span id="cb134-13"><a href="animated-plots.html#cb134-13"></a><span class="st">      </span><span class="kw">ease_aes</span>(<span class="st">&#39;linear&#39;</span>)</span>
-<span id="cb134-14"><a href="animated-plots.html#cb134-14"></a></span>
-<span id="cb134-15"><a href="animated-plots.html#cb134-15"></a><span class="co"># Save at gif:</span></span>
-<span id="cb134-16"><a href="animated-plots.html#cb134-16"></a>    <span class="kw">anim_save</span>(<span class="st">&quot;AnimatedPlot.gif&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="animated-plots.html#cb137-1"></a><span class="co"># for the figures we will need </span></span>
+<span id="cb137-2"><a href="animated-plots.html#cb137-2"></a>    <span class="kw">library</span>(ggplot2)      <span class="co">#this package is to do all sorts of plots</span></span>
+<span id="cb137-3"><a href="animated-plots.html#cb137-3"></a>    <span class="kw">library</span>(gganimate)    <span class="co">#this package does the animation</span></span>
+<span id="cb137-4"><a href="animated-plots.html#cb137-4"></a> </span>
+<span id="cb137-5"><a href="animated-plots.html#cb137-5"></a><span class="co"># Make a ggplot, but add frame=year: one image per year</span></span>
+<span id="cb137-6"><a href="animated-plots.html#cb137-6"></a>    <span class="kw">ggplot</span>(MergeData, <span class="kw">aes</span>(gdpPercap, lifeExp, <span class="dt">color =</span> continent.x)) <span class="op">+</span></span>
+<span id="cb137-7"><a href="animated-plots.html#cb137-7"></a><span class="st">      </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb137-8"><a href="animated-plots.html#cb137-8"></a><span class="st">      </span><span class="kw">scale_x_log10</span>() <span class="op">+</span></span>
+<span id="cb137-9"><a href="animated-plots.html#cb137-9"></a><span class="st">      </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb137-10"><a href="animated-plots.html#cb137-10"></a><span class="co"># gganimate specific bits:</span></span>
+<span id="cb137-11"><a href="animated-plots.html#cb137-11"></a><span class="st">      </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&#39;Year: {frame_time}&#39;</span>, <span class="dt">x =</span> <span class="st">&#39;GDP per capita&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;life expectancy&#39;</span>) <span class="op">+</span></span>
+<span id="cb137-12"><a href="animated-plots.html#cb137-12"></a><span class="st">      </span><span class="kw">transition_time</span>(year) <span class="op">+</span></span>
+<span id="cb137-13"><a href="animated-plots.html#cb137-13"></a><span class="st">      </span><span class="kw">ease_aes</span>(<span class="st">&#39;linear&#39;</span>)</span>
+<span id="cb137-14"><a href="animated-plots.html#cb137-14"></a></span>
+<span id="cb137-15"><a href="animated-plots.html#cb137-15"></a><span class="co"># Save at gif:</span></span>
+<span id="cb137-16"><a href="animated-plots.html#cb137-16"></a>    <span class="kw">anim_save</span>(<span class="st">&quot;AnimatedPlot.gif&quot;</span>)</span></code></pre></div>
 <p>The code above generate the plot below, which should now appear in your working folder.</p>
 
 <div class="rmdnote">

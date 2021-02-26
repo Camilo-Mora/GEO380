@@ -276,6 +276,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis Testing</a><ul>
+<li class="chapter" data-level="" data-path="significance-level.html"><a href="significance-level.html"><i class="fa fa-check"></i>Significance level</a></li>
+<li><a href="deciphering-alpha.html#deciphering-alpha">Deciphering <span class="math inline">\(\alpha\)</span></a></li>
+<li class="chapter" data-level="" data-path="error-types.html"><a href="error-types.html"><i class="fa fa-check"></i>Error types</a></li>
+<li class="chapter" data-level="" data-path="stating-hyphotheses-and-tails.html"><a href="stating-hyphotheses-and-tails.html"><i class="fa fa-check"></i>Stating hyphotheses and tails</a></li>
+<li class="chapter" data-level="" data-path="accepting-or-rejecting-the-null-hypothesis.html"><a href="accepting-or-rejecting-the-null-hypothesis.html"><i class="fa fa-check"></i>Accepting or rejecting the null hypothesis</a></li>
+<li class="chapter" data-level="" data-path="testing-a-hypothesis-by-brutal-force.html"><a href="testing-a-hypothesis-by-brutal-force.html"><i class="fa fa-check"></i>Testing a hypothesis by brutal force</a></li>
+<li class="chapter" data-level="" data-path="exercises-3.html"><a href="exercises-3.html"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="homework-5.html"><a href="homework-5.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
 
@@ -304,17 +314,17 @@ By Camilo Mora, Ph.D.
 <p>Early in life a person will grow fast, but over time this growth will reduce, eventually leveling off. These types of relationships are not well described with linear models; and there is where non-linear models come in.</p>
 <p>In R, non-linear regression models are handled with an specific function call <span class="math inline">\(nlm\)</span>, but you can also linearize the variable and use the linear model you used before.</p>
 <p>Take the example below, showing the relationship between age and height of a random person. Let’s start by fitting a linear model to it.</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="non-linear-regression.html#cb204-1"></a><span class="co">#let&#39;s create a variable for height (dependent variable) and other for age (independent variable)</span></span>
-<span id="cb204-2"><a href="non-linear-regression.html#cb204-2"></a>Age=<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">14</span>,<span class="dv">16</span>,<span class="dv">18</span>,<span class="dv">20</span>,<span class="dv">22</span>,<span class="dv">24</span>,<span class="dv">26</span>,<span class="dv">28</span>,<span class="dv">30</span>)</span>
-<span id="cb204-3"><a href="non-linear-regression.html#cb204-3"></a>Height=<span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">65</span>,<span class="dv">85</span>, <span class="dv">95</span>, <span class="dv">110</span>, <span class="dv">120</span>,<span class="dv">130</span>,<span class="dv">140</span>,<span class="dv">145</span>, <span class="dv">152</span>, <span class="dv">158</span>, <span class="dv">169</span>, <span class="dv">170</span>, <span class="dv">171</span>, <span class="fl">171.2</span>)</span>
-<span id="cb204-4"><a href="non-linear-regression.html#cb204-4"></a></span>
-<span id="cb204-5"><a href="non-linear-regression.html#cb204-5"></a>  </span>
-<span id="cb204-6"><a href="non-linear-regression.html#cb204-6"></a>LM=<span class="kw">lm</span>(Height<span class="op">~</span>Age) <span class="co">#here is the linear model</span></span>
-<span id="cb204-7"><a href="non-linear-regression.html#cb204-7"></a></span>
-<span id="cb204-8"><a href="non-linear-regression.html#cb204-8"></a><span class="kw">plot</span>(Height<span class="op">~</span>Age)</span>
-<span id="cb204-9"><a href="non-linear-regression.html#cb204-9"></a><span class="kw">abline</span>(<span class="dt">coef =</span> <span class="kw">coef</span>(LM))</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="non-linear-regression.html#cb207-1"></a><span class="co">#let&#39;s create a variable for height (dependent variable) and other for age (independent variable)</span></span>
+<span id="cb207-2"><a href="non-linear-regression.html#cb207-2"></a>Age=<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">14</span>,<span class="dv">16</span>,<span class="dv">18</span>,<span class="dv">20</span>,<span class="dv">22</span>,<span class="dv">24</span>,<span class="dv">26</span>,<span class="dv">28</span>,<span class="dv">30</span>)</span>
+<span id="cb207-3"><a href="non-linear-regression.html#cb207-3"></a>Height=<span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">65</span>,<span class="dv">85</span>, <span class="dv">95</span>, <span class="dv">110</span>, <span class="dv">120</span>,<span class="dv">130</span>,<span class="dv">140</span>,<span class="dv">145</span>, <span class="dv">152</span>, <span class="dv">158</span>, <span class="dv">169</span>, <span class="dv">170</span>, <span class="dv">171</span>, <span class="fl">171.2</span>)</span>
+<span id="cb207-4"><a href="non-linear-regression.html#cb207-4"></a></span>
+<span id="cb207-5"><a href="non-linear-regression.html#cb207-5"></a>  </span>
+<span id="cb207-6"><a href="non-linear-regression.html#cb207-6"></a>LM=<span class="kw">lm</span>(Height<span class="op">~</span>Age) <span class="co">#here is the linear model</span></span>
+<span id="cb207-7"><a href="non-linear-regression.html#cb207-7"></a></span>
+<span id="cb207-8"><a href="non-linear-regression.html#cb207-8"></a><span class="kw">plot</span>(Height<span class="op">~</span>Age)</span>
+<span id="cb207-9"><a href="non-linear-regression.html#cb207-9"></a><span class="kw">abline</span>(<span class="dt">coef =</span> <span class="kw">coef</span>(LM))</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-255-1.png" width="672" /></p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="non-linear-regression.html#cb205-1"></a><span class="kw">summary</span>(LM)</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="non-linear-regression.html#cb208-1"></a><span class="kw">summary</span>(LM)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Height ~ Age)
@@ -336,19 +346,19 @@ By Camilo Mora, Ph.D.
 <p>The <span class="math inline">\(R^2\)</span> is pretty good, <span class="math inline">\(r^2\)</span>=0.9383925.</p>
 <p>You can try a non-linear model, by transforming the data…there are numerous types of transformations possible, and many will give you different types of fit using linear models. Here is where an approach called model selection comes in, which is to find which of all models to fit to the data is the best. That is quite an endeavor that we will not cover in this basic stats class, but you should know that selecting among different types of models is non-trivial.</p>
 <p>For for the sake of seeing how a non-linear model is done, let’s try a logarithmic transformation of the data used above for height and age.</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="non-linear-regression.html#cb207-1"></a>Age=<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">14</span>,<span class="dv">16</span>,<span class="dv">18</span>,<span class="dv">20</span>,<span class="dv">22</span>,<span class="dv">24</span>,<span class="dv">26</span>,<span class="dv">28</span>,<span class="dv">30</span>)</span>
-<span id="cb207-2"><a href="non-linear-regression.html#cb207-2"></a>Height=<span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">65</span>,<span class="dv">85</span>, <span class="dv">95</span>, <span class="dv">110</span>, <span class="dv">120</span>,<span class="dv">130</span>,<span class="dv">140</span>,<span class="dv">145</span>, <span class="dv">152</span>, <span class="dv">158</span>, <span class="dv">169</span>, <span class="dv">170</span>, <span class="dv">171</span>, <span class="fl">171.2</span>)</span>
-<span id="cb207-3"><a href="non-linear-regression.html#cb207-3"></a></span>
-<span id="cb207-4"><a href="non-linear-regression.html#cb207-4"></a><span class="co">#to log transform simply use the log function:</span></span>
-<span id="cb207-5"><a href="non-linear-regression.html#cb207-5"></a>LogHeight=<span class="kw">log</span>(Height) <span class="co">#log transforming the variable Y</span></span>
-<span id="cb207-6"><a href="non-linear-regression.html#cb207-6"></a>LogAge=<span class="kw">log</span>(Age)       <span class="co">#log transforming the variable X</span></span>
-<span id="cb207-7"><a href="non-linear-regression.html#cb207-7"></a></span>
-<span id="cb207-8"><a href="non-linear-regression.html#cb207-8"></a>LogLM=<span class="kw">lm</span>(LogHeight<span class="op">~</span>LogAge) <span class="co">#now we re-run the model, but with the transformed variables</span></span>
-<span id="cb207-9"><a href="non-linear-regression.html#cb207-9"></a></span>
-<span id="cb207-10"><a href="non-linear-regression.html#cb207-10"></a><span class="kw">plot</span>(LogHeight<span class="op">~</span>LogAge, <span class="dt">ylab=</span>(<span class="st">&quot;Log height (cm)&quot;</span>), <span class="dt">xlab=</span>(<span class="st">&quot;Log age (years)&quot;</span>))</span>
-<span id="cb207-11"><a href="non-linear-regression.html#cb207-11"></a><span class="kw">abline</span>(<span class="dt">coef =</span> <span class="kw">coef</span>(LogLM))</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="non-linear-regression.html#cb210-1"></a>Age=<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">14</span>,<span class="dv">16</span>,<span class="dv">18</span>,<span class="dv">20</span>,<span class="dv">22</span>,<span class="dv">24</span>,<span class="dv">26</span>,<span class="dv">28</span>,<span class="dv">30</span>)</span>
+<span id="cb210-2"><a href="non-linear-regression.html#cb210-2"></a>Height=<span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">65</span>,<span class="dv">85</span>, <span class="dv">95</span>, <span class="dv">110</span>, <span class="dv">120</span>,<span class="dv">130</span>,<span class="dv">140</span>,<span class="dv">145</span>, <span class="dv">152</span>, <span class="dv">158</span>, <span class="dv">169</span>, <span class="dv">170</span>, <span class="dv">171</span>, <span class="fl">171.2</span>)</span>
+<span id="cb210-3"><a href="non-linear-regression.html#cb210-3"></a></span>
+<span id="cb210-4"><a href="non-linear-regression.html#cb210-4"></a><span class="co">#to log transform simply use the log function:</span></span>
+<span id="cb210-5"><a href="non-linear-regression.html#cb210-5"></a>LogHeight=<span class="kw">log</span>(Height) <span class="co">#log transforming the variable Y</span></span>
+<span id="cb210-6"><a href="non-linear-regression.html#cb210-6"></a>LogAge=<span class="kw">log</span>(Age)       <span class="co">#log transforming the variable X</span></span>
+<span id="cb210-7"><a href="non-linear-regression.html#cb210-7"></a></span>
+<span id="cb210-8"><a href="non-linear-regression.html#cb210-8"></a>LogLM=<span class="kw">lm</span>(LogHeight<span class="op">~</span>LogAge) <span class="co">#now we re-run the model, but with the transformed variables</span></span>
+<span id="cb210-9"><a href="non-linear-regression.html#cb210-9"></a></span>
+<span id="cb210-10"><a href="non-linear-regression.html#cb210-10"></a><span class="kw">plot</span>(LogHeight<span class="op">~</span>LogAge, <span class="dt">ylab=</span>(<span class="st">&quot;Log height (cm)&quot;</span>), <span class="dt">xlab=</span>(<span class="st">&quot;Log age (years)&quot;</span>))</span>
+<span id="cb210-11"><a href="non-linear-regression.html#cb210-11"></a><span class="kw">abline</span>(<span class="dt">coef =</span> <span class="kw">coef</span>(LogLM))</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-256-1.png" width="672" /></p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="non-linear-regression.html#cb208-1"></a><span class="kw">summary</span>(LogLM)</span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="non-linear-regression.html#cb211-1"></a><span class="kw">summary</span>(LogLM)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = LogHeight ~ LogAge)

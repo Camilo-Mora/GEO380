@@ -276,6 +276,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis Testing</a><ul>
+<li class="chapter" data-level="" data-path="significance-level.html"><a href="significance-level.html"><i class="fa fa-check"></i>Significance level</a></li>
+<li><a href="deciphering-alpha.html#deciphering-alpha">Deciphering <span class="math inline">\(\alpha\)</span></a></li>
+<li class="chapter" data-level="" data-path="error-types.html"><a href="error-types.html"><i class="fa fa-check"></i>Error types</a></li>
+<li class="chapter" data-level="" data-path="stating-hyphotheses-and-tails.html"><a href="stating-hyphotheses-and-tails.html"><i class="fa fa-check"></i>Stating hyphotheses and tails</a></li>
+<li class="chapter" data-level="" data-path="accepting-or-rejecting-the-null-hypothesis.html"><a href="accepting-or-rejecting-the-null-hypothesis.html"><i class="fa fa-check"></i>Accepting or rejecting the null hypothesis</a></li>
+<li class="chapter" data-level="" data-path="testing-a-hypothesis-by-brutal-force.html"><a href="testing-a-hypothesis-by-brutal-force.html"><i class="fa fa-check"></i>Testing a hypothesis by brutal force</a></li>
+<li class="chapter" data-level="" data-path="exercises-3.html"><a href="exercises-3.html"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="homework-5.html"><a href="homework-5.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
 
@@ -306,30 +316,30 @@ By Camilo Mora, Ph.D.
 <p>The most basic metrics of the data dispersion are the minimum and the maximum. As their names indicate they are the lowest and the highest values in your data.</p>
 <p>In R, the minimum and maximum are calculated with the function min and max, respectively.</p>
 <p>Let’s plot them:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="dispersion.html#cb157-1"></a><span class="kw">hist</span>(y, <span class="dt">main =</span> <span class="ot">NULL</span>,<span class="dt">breaks =</span> <span class="dv">30</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">110</span>),)</span>
-<span id="cb157-2"><a href="dispersion.html#cb157-2"></a></span>
-<span id="cb157-3"><a href="dispersion.html#cb157-3"></a><span class="co">#lets plot the mean</span></span>
-<span id="cb157-4"><a href="dispersion.html#cb157-4"></a><span class="kw">abline</span>(<span class="dt">v=</span>MEAN, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">6</span>) </span>
-<span id="cb157-5"><a href="dispersion.html#cb157-5"></a><span class="kw">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="dt">x=</span>MEAN,<span class="dt">y=</span><span class="dv">110</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">pos=</span><span class="dv">4</span>) </span>
-<span id="cb157-6"><a href="dispersion.html#cb157-6"></a></span>
-<span id="cb157-7"><a href="dispersion.html#cb157-7"></a><span class="co"># now the median</span></span>
-<span id="cb157-8"><a href="dispersion.html#cb157-8"></a><span class="kw">abline</span>(<span class="dt">v=</span>MEDIAN, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">lty=</span><span class="dv">2</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
-<span id="cb157-9"><a href="dispersion.html#cb157-9"></a><span class="kw">text</span>(<span class="st">&quot;Median&quot;</span>,<span class="dt">x=</span>MEDIAN,<span class="dt">y=</span><span class="dv">100</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">pos=</span><span class="dv">2</span>) </span>
-<span id="cb157-10"><a href="dispersion.html#cb157-10"></a></span>
-<span id="cb157-11"><a href="dispersion.html#cb157-11"></a><span class="co">#now let&#39;s plot the mode</span></span>
-<span id="cb157-12"><a href="dispersion.html#cb157-12"></a><span class="kw">abline</span>(<span class="dt">v=</span>MODE, <span class="dt">col=</span><span class="st">&quot;orange&quot;</span>,<span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">lty=</span><span class="dv">3</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
-<span id="cb157-13"><a href="dispersion.html#cb157-13"></a><span class="kw">text</span>(<span class="st">&quot;Mode&quot;</span>,<span class="dt">x=</span>MODE,<span class="dt">y=</span><span class="dv">90</span>, <span class="dt">col=</span><span class="st">&quot;orange&quot;</span>, <span class="dt">pos=</span><span class="dv">4</span>) </span>
-<span id="cb157-14"><a href="dispersion.html#cb157-14"></a></span>
-<span id="cb157-15"><a href="dispersion.html#cb157-15"></a></span>
-<span id="cb157-16"><a href="dispersion.html#cb157-16"></a><span class="co">#now let&#39;s plot the minimum</span></span>
-<span id="cb157-17"><a href="dispersion.html#cb157-17"></a>MINIMUM=<span class="kw">min</span>(y)</span>
-<span id="cb157-18"><a href="dispersion.html#cb157-18"></a><span class="kw">abline</span>(<span class="dt">v=</span>MINIMUM, <span class="dt">col=</span><span class="st">&quot;dark grey&quot;</span>,<span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">lty=</span><span class="dv">3</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
-<span id="cb157-19"><a href="dispersion.html#cb157-19"></a><span class="kw">text</span>(<span class="st">&quot;Minimum&quot;</span>,<span class="dt">x=</span>MINIMUM,<span class="dt">y=</span><span class="dv">90</span>, <span class="dt">col=</span><span class="st">&quot;dark grey&quot;</span>, <span class="dt">pos=</span><span class="dv">4</span>) </span>
-<span id="cb157-20"><a href="dispersion.html#cb157-20"></a></span>
-<span id="cb157-21"><a href="dispersion.html#cb157-21"></a><span class="co">#now let&#39;s plot the maximum</span></span>
-<span id="cb157-22"><a href="dispersion.html#cb157-22"></a>MAXIMUM=<span class="kw">max</span>(y)</span>
-<span id="cb157-23"><a href="dispersion.html#cb157-23"></a><span class="kw">abline</span>(<span class="dt">v=</span>MAXIMUM, <span class="dt">col=</span><span class="st">&quot;dark grey&quot;</span>,<span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">lty=</span><span class="dv">3</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
-<span id="cb157-24"><a href="dispersion.html#cb157-24"></a><span class="kw">text</span>(<span class="st">&quot;Maximum&quot;</span>,<span class="dt">x=</span>MAXIMUM,<span class="dt">y=</span><span class="dv">90</span>, <span class="dt">col=</span><span class="st">&quot;dark grey&quot;</span>, <span class="dt">pos=</span><span class="dv">2</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="dispersion.html#cb160-1"></a><span class="kw">hist</span>(y, <span class="dt">main =</span> <span class="ot">NULL</span>,<span class="dt">breaks =</span> <span class="dv">30</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">110</span>),)</span>
+<span id="cb160-2"><a href="dispersion.html#cb160-2"></a></span>
+<span id="cb160-3"><a href="dispersion.html#cb160-3"></a><span class="co">#lets plot the mean</span></span>
+<span id="cb160-4"><a href="dispersion.html#cb160-4"></a><span class="kw">abline</span>(<span class="dt">v=</span>MEAN, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">6</span>) </span>
+<span id="cb160-5"><a href="dispersion.html#cb160-5"></a><span class="kw">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="dt">x=</span>MEAN,<span class="dt">y=</span><span class="dv">110</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">pos=</span><span class="dv">4</span>) </span>
+<span id="cb160-6"><a href="dispersion.html#cb160-6"></a></span>
+<span id="cb160-7"><a href="dispersion.html#cb160-7"></a><span class="co"># now the median</span></span>
+<span id="cb160-8"><a href="dispersion.html#cb160-8"></a><span class="kw">abline</span>(<span class="dt">v=</span>MEDIAN, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">lty=</span><span class="dv">2</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span id="cb160-9"><a href="dispersion.html#cb160-9"></a><span class="kw">text</span>(<span class="st">&quot;Median&quot;</span>,<span class="dt">x=</span>MEDIAN,<span class="dt">y=</span><span class="dv">100</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">pos=</span><span class="dv">2</span>) </span>
+<span id="cb160-10"><a href="dispersion.html#cb160-10"></a></span>
+<span id="cb160-11"><a href="dispersion.html#cb160-11"></a><span class="co">#now let&#39;s plot the mode</span></span>
+<span id="cb160-12"><a href="dispersion.html#cb160-12"></a><span class="kw">abline</span>(<span class="dt">v=</span>MODE, <span class="dt">col=</span><span class="st">&quot;orange&quot;</span>,<span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">lty=</span><span class="dv">3</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span id="cb160-13"><a href="dispersion.html#cb160-13"></a><span class="kw">text</span>(<span class="st">&quot;Mode&quot;</span>,<span class="dt">x=</span>MODE,<span class="dt">y=</span><span class="dv">90</span>, <span class="dt">col=</span><span class="st">&quot;orange&quot;</span>, <span class="dt">pos=</span><span class="dv">4</span>) </span>
+<span id="cb160-14"><a href="dispersion.html#cb160-14"></a></span>
+<span id="cb160-15"><a href="dispersion.html#cb160-15"></a></span>
+<span id="cb160-16"><a href="dispersion.html#cb160-16"></a><span class="co">#now let&#39;s plot the minimum</span></span>
+<span id="cb160-17"><a href="dispersion.html#cb160-17"></a>MINIMUM=<span class="kw">min</span>(y)</span>
+<span id="cb160-18"><a href="dispersion.html#cb160-18"></a><span class="kw">abline</span>(<span class="dt">v=</span>MINIMUM, <span class="dt">col=</span><span class="st">&quot;dark grey&quot;</span>,<span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">lty=</span><span class="dv">3</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span id="cb160-19"><a href="dispersion.html#cb160-19"></a><span class="kw">text</span>(<span class="st">&quot;Minimum&quot;</span>,<span class="dt">x=</span>MINIMUM,<span class="dt">y=</span><span class="dv">90</span>, <span class="dt">col=</span><span class="st">&quot;dark grey&quot;</span>, <span class="dt">pos=</span><span class="dv">4</span>) </span>
+<span id="cb160-20"><a href="dispersion.html#cb160-20"></a></span>
+<span id="cb160-21"><a href="dispersion.html#cb160-21"></a><span class="co">#now let&#39;s plot the maximum</span></span>
+<span id="cb160-22"><a href="dispersion.html#cb160-22"></a>MAXIMUM=<span class="kw">max</span>(y)</span>
+<span id="cb160-23"><a href="dispersion.html#cb160-23"></a><span class="kw">abline</span>(<span class="dt">v=</span>MAXIMUM, <span class="dt">col=</span><span class="st">&quot;dark grey&quot;</span>,<span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">lty=</span><span class="dv">3</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span id="cb160-24"><a href="dispersion.html#cb160-24"></a><span class="kw">text</span>(<span class="st">&quot;Maximum&quot;</span>,<span class="dt">x=</span>MAXIMUM,<span class="dt">y=</span><span class="dv">90</span>, <span class="dt">col=</span><span class="st">&quot;dark grey&quot;</span>, <span class="dt">pos=</span><span class="dv">2</span>) </span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-169-1.png" width="672" /></p>
 </div>
 <div id="the-range" class="section level3 unnumbered">
@@ -377,9 +387,9 @@ Figure 5.10: The 80th percentile
 </div>
 <p>In R, the percentile value in an vector of values is calculated with the function quantile. Basically, you need to enter the array of values, and the quantile you need (as a fraction).</p>
 <p>Lets take the height of my rabbits above.</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="dispersion.html#cb158-1"></a>MyRabbits=<span class="kw">c</span>(<span class="dv">37</span>, <span class="dv">15</span>, <span class="dv">35</span>, <span class="dv">36</span>, <span class="dv">5</span>, <span class="dv">40</span>, <span class="dv">41</span>, <span class="dv">68</span>, <span class="dv">45</span>, <span class="dv">56</span>) <span class="co">#vector of rabbit height, it does no</span></span>
-<span id="cb158-2"><a href="dispersion.html#cb158-2"></a></span>
-<span id="cb158-3"><a href="dispersion.html#cb158-3"></a><span class="kw">quantile</span>(MyRabbits, <span class="fl">.8</span>,<span class="dt">type =</span> <span class="dv">1</span>)                  <span class="co"># the type parameter allows you to use different ways to approximate the value. check ?quantile  for more details</span></span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="dispersion.html#cb161-1"></a>MyRabbits=<span class="kw">c</span>(<span class="dv">37</span>, <span class="dv">15</span>, <span class="dv">35</span>, <span class="dv">36</span>, <span class="dv">5</span>, <span class="dv">40</span>, <span class="dv">41</span>, <span class="dv">68</span>, <span class="dv">45</span>, <span class="dv">56</span>) <span class="co">#vector of rabbit height, it does no</span></span>
+<span id="cb161-2"><a href="dispersion.html#cb161-2"></a></span>
+<span id="cb161-3"><a href="dispersion.html#cb161-3"></a><span class="kw">quantile</span>(MyRabbits, <span class="fl">.8</span>,<span class="dt">type =</span> <span class="dv">1</span>)                  <span class="co"># the type parameter allows you to use different ways to approximate the value. check ?quantile  for more details</span></span></code></pre></div>
 <pre><code>## 80% 
 ##  45</code></pre>
 </div>
@@ -388,37 +398,37 @@ Figure 5.10: The 80th percentile
 <p>The quantiles are specific percentiles that divide the data in equal amounts. Quantiles can take different names. For instance, quartiles break the data in four groups, deciles in ten groups, and percentiles in 100 groups.</p>
 <p>Lets take the quartile example. In this case, the data needs to be broken in four groups, so the breaking points will be 0.25, 0.5, and 0.75. Those break points will create four different categories in which I can group my data (0 to 0.25], (0.25 to 0.5], (0.5 to 0.75] and (0.75, 1]. They can also be called the 1st quartile, 2nd quartile, 3rd quartile and 4th quartile. You can see those indexes at times being called Q1, Q2, Q3, and Q4.</p>
 <p>Lets display the quartiles for a normal distribution.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="dispersion.html#cb160-1"></a><span class="kw">library</span> (RColorBrewer)</span>
-<span id="cb160-2"><a href="dispersion.html#cb160-2"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb160-3"><a href="dispersion.html#cb160-3"></a><span class="kw">library</span>(scales)</span>
-<span id="cb160-4"><a href="dispersion.html#cb160-4"></a><span class="kw">set.seed</span>(<span class="dv">3</span>)  </span>
-<span id="cb160-5"><a href="dispersion.html#cb160-5"></a></span>
-<span id="cb160-6"><a href="dispersion.html#cb160-6"></a></span>
-<span id="cb160-7"><a href="dispersion.html#cb160-7"></a>dt &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">rbeta</span>(<span class="dv">20000</span>,<span class="dv">100</span>,<span class="dv">100</span>)<span class="op">*</span><span class="dv">20000</span>)             <span class="co">#Lets create some dummy normal data</span></span>
-<span id="cb160-8"><a href="dispersion.html#cb160-8"></a>dt<span class="op">$</span>x &lt;-<span class="st"> </span><span class="kw">rescale</span>(dt<span class="op">$</span>x,<span class="dt">to =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">100</span>), <span class="dt">from =</span> <span class="kw">range</span>(dt<span class="op">$</span>x))   <span class="co">#I rescale the data from 1 to 100 to better visualize the percentage results</span></span>
-<span id="cb160-9"><a href="dispersion.html#cb160-9"></a></span>
-<span id="cb160-10"><a href="dispersion.html#cb160-10"></a></span>
-<span id="cb160-11"><a href="dispersion.html#cb160-11"></a>dt=dt <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(x)                  <span class="co">#Sort values from smallest to largest</span></span>
-<span id="cb160-12"><a href="dispersion.html#cb160-12"></a>dt<span class="op">$</span>Position=<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(dt)                <span class="co">#Rank each value from smallest to largest</span></span>
-<span id="cb160-13"><a href="dispersion.html#cb160-13"></a>dt<span class="op">$</span>y=(dt<span class="op">$</span>Position<span class="op">/</span><span class="kw">nrow</span>(dt)) <span class="op">*</span><span class="dv">100</span>      <span class="co">#Assign the percentile position of each value</span></span>
-<span id="cb160-14"><a href="dispersion.html#cb160-14"></a></span>
-<span id="cb160-15"><a href="dispersion.html#cb160-15"></a><span class="co">#Create colors to make the plot look nicer</span></span>
-<span id="cb160-16"><a href="dispersion.html#cb160-16"></a>ColSca &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(<span class="dv">9</span>, <span class="st">&#39;YlOrRd&#39;</span>)   <span class="co">#Create a vector of nice colors in the  YlOrRd color scale</span></span>
-<span id="cb160-17"><a href="dispersion.html#cb160-17"></a>ColSca &lt;-<span class="st"> </span><span class="kw">colorRampPalette</span>(ColSca)  <span class="co">#create a color ramp for the colors above</span></span>
-<span id="cb160-18"><a href="dispersion.html#cb160-18"></a>Colors=<span class="st"> </span><span class="kw">ColSca</span>(<span class="dv">110</span>) <span class="co">#create list of 100 colors in the ramp above</span></span>
-<span id="cb160-19"><a href="dispersion.html#cb160-19"></a></span>
-<span id="cb160-20"><a href="dispersion.html#cb160-20"></a><span class="co">#create histogram</span></span>
-<span id="cb160-21"><a href="dispersion.html#cb160-21"></a><span class="kw">hist</span>(dt<span class="op">$</span>x, <span class="dt">col=</span>Colors,<span class="dt">main =</span> <span class="ot">NULL</span>,<span class="dt">breaks =</span> <span class="dv">100</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">800</span>),<span class="dt">xlab=</span><span class="st">&quot;Percent&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Frequency&quot;</span>)  </span>
-<span id="cb160-22"><a href="dispersion.html#cb160-22"></a></span>
-<span id="cb160-23"><a href="dispersion.html#cb160-23"></a><span class="co">#calculate and add the quartiles and their names to the histogram.</span></span>
-<span id="cb160-24"><a href="dispersion.html#cb160-24"></a>Prob=<span class="kw">c</span>(<span class="fl">0.25</span>,<span class="fl">0.5</span>,<span class="fl">0.75</span>,<span class="dv">1</span>)  <span class="co"># this is the list of values that define my four quartiles</span></span>
-<span id="cb160-25"><a href="dispersion.html#cb160-25"></a>Quartiles=<span class="kw">quantile</span>(dt<span class="op">$</span>x,Prob ,<span class="dt">type =</span> <span class="dv">1</span>)  <span class="co">#calculate the quartiles of my data</span></span>
-<span id="cb160-26"><a href="dispersion.html#cb160-26"></a></span>
-<span id="cb160-27"><a href="dispersion.html#cb160-27"></a><span class="kw">abline</span>(<span class="dt">v=</span>Quartiles, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>,<span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">lty=</span><span class="dv">1</span>) <span class="co">#I plot the quartiles</span></span>
-<span id="cb160-28"><a href="dispersion.html#cb160-28"></a></span>
-<span id="cb160-29"><a href="dispersion.html#cb160-29"></a><span class="co"># now lets put names </span></span>
-<span id="cb160-30"><a href="dispersion.html#cb160-30"></a>Names=<span class="kw">c</span>(<span class="st">&quot;Q1&quot;</span>, <span class="st">&quot;Q2&quot;</span>, <span class="st">&quot;Q3&quot;</span>, <span class="st">&quot;Q4&quot;</span>)   <span class="co">#vector of names for my quartiles</span></span>
-<span id="cb160-31"><a href="dispersion.html#cb160-31"></a><span class="kw">text</span>(Names,<span class="dt">x=</span>Quartiles,<span class="dt">y=</span><span class="dv">800</span>, <span class="dt">col=</span><span class="st">&quot;black&quot;</span>, <span class="dt">pos=</span><span class="dv">2</span>) <span class="co">#place quartile names at y=800 and x= quartile values</span></span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="dispersion.html#cb163-1"></a><span class="kw">library</span> (RColorBrewer)</span>
+<span id="cb163-2"><a href="dispersion.html#cb163-2"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb163-3"><a href="dispersion.html#cb163-3"></a><span class="kw">library</span>(scales)</span>
+<span id="cb163-4"><a href="dispersion.html#cb163-4"></a><span class="kw">set.seed</span>(<span class="dv">3</span>)  </span>
+<span id="cb163-5"><a href="dispersion.html#cb163-5"></a></span>
+<span id="cb163-6"><a href="dispersion.html#cb163-6"></a></span>
+<span id="cb163-7"><a href="dispersion.html#cb163-7"></a>dt &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">rbeta</span>(<span class="dv">20000</span>,<span class="dv">100</span>,<span class="dv">100</span>)<span class="op">*</span><span class="dv">20000</span>)             <span class="co">#Lets create some dummy normal data</span></span>
+<span id="cb163-8"><a href="dispersion.html#cb163-8"></a>dt<span class="op">$</span>x &lt;-<span class="st"> </span><span class="kw">rescale</span>(dt<span class="op">$</span>x,<span class="dt">to =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">100</span>), <span class="dt">from =</span> <span class="kw">range</span>(dt<span class="op">$</span>x))   <span class="co">#I rescale the data from 1 to 100 to better visualize the percentage results</span></span>
+<span id="cb163-9"><a href="dispersion.html#cb163-9"></a></span>
+<span id="cb163-10"><a href="dispersion.html#cb163-10"></a></span>
+<span id="cb163-11"><a href="dispersion.html#cb163-11"></a>dt=dt <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(x)                  <span class="co">#Sort values from smallest to largest</span></span>
+<span id="cb163-12"><a href="dispersion.html#cb163-12"></a>dt<span class="op">$</span>Position=<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(dt)                <span class="co">#Rank each value from smallest to largest</span></span>
+<span id="cb163-13"><a href="dispersion.html#cb163-13"></a>dt<span class="op">$</span>y=(dt<span class="op">$</span>Position<span class="op">/</span><span class="kw">nrow</span>(dt)) <span class="op">*</span><span class="dv">100</span>      <span class="co">#Assign the percentile position of each value</span></span>
+<span id="cb163-14"><a href="dispersion.html#cb163-14"></a></span>
+<span id="cb163-15"><a href="dispersion.html#cb163-15"></a><span class="co">#Create colors to make the plot look nicer</span></span>
+<span id="cb163-16"><a href="dispersion.html#cb163-16"></a>ColSca &lt;-<span class="st"> </span><span class="kw">brewer.pal</span>(<span class="dv">9</span>, <span class="st">&#39;YlOrRd&#39;</span>)   <span class="co">#Create a vector of nice colors in the  YlOrRd color scale</span></span>
+<span id="cb163-17"><a href="dispersion.html#cb163-17"></a>ColSca &lt;-<span class="st"> </span><span class="kw">colorRampPalette</span>(ColSca)  <span class="co">#create a color ramp for the colors above</span></span>
+<span id="cb163-18"><a href="dispersion.html#cb163-18"></a>Colors=<span class="st"> </span><span class="kw">ColSca</span>(<span class="dv">110</span>) <span class="co">#create list of 100 colors in the ramp above</span></span>
+<span id="cb163-19"><a href="dispersion.html#cb163-19"></a></span>
+<span id="cb163-20"><a href="dispersion.html#cb163-20"></a><span class="co">#create histogram</span></span>
+<span id="cb163-21"><a href="dispersion.html#cb163-21"></a><span class="kw">hist</span>(dt<span class="op">$</span>x, <span class="dt">col=</span>Colors,<span class="dt">main =</span> <span class="ot">NULL</span>,<span class="dt">breaks =</span> <span class="dv">100</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">800</span>),<span class="dt">xlab=</span><span class="st">&quot;Percent&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Frequency&quot;</span>)  </span>
+<span id="cb163-22"><a href="dispersion.html#cb163-22"></a></span>
+<span id="cb163-23"><a href="dispersion.html#cb163-23"></a><span class="co">#calculate and add the quartiles and their names to the histogram.</span></span>
+<span id="cb163-24"><a href="dispersion.html#cb163-24"></a>Prob=<span class="kw">c</span>(<span class="fl">0.25</span>,<span class="fl">0.5</span>,<span class="fl">0.75</span>,<span class="dv">1</span>)  <span class="co"># this is the list of values that define my four quartiles</span></span>
+<span id="cb163-25"><a href="dispersion.html#cb163-25"></a>Quartiles=<span class="kw">quantile</span>(dt<span class="op">$</span>x,Prob ,<span class="dt">type =</span> <span class="dv">1</span>)  <span class="co">#calculate the quartiles of my data</span></span>
+<span id="cb163-26"><a href="dispersion.html#cb163-26"></a></span>
+<span id="cb163-27"><a href="dispersion.html#cb163-27"></a><span class="kw">abline</span>(<span class="dt">v=</span>Quartiles, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>,<span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">lty=</span><span class="dv">1</span>) <span class="co">#I plot the quartiles</span></span>
+<span id="cb163-28"><a href="dispersion.html#cb163-28"></a></span>
+<span id="cb163-29"><a href="dispersion.html#cb163-29"></a><span class="co"># now lets put names </span></span>
+<span id="cb163-30"><a href="dispersion.html#cb163-30"></a>Names=<span class="kw">c</span>(<span class="st">&quot;Q1&quot;</span>, <span class="st">&quot;Q2&quot;</span>, <span class="st">&quot;Q3&quot;</span>, <span class="st">&quot;Q4&quot;</span>)   <span class="co">#vector of names for my quartiles</span></span>
+<span id="cb163-31"><a href="dispersion.html#cb163-31"></a><span class="kw">text</span>(Names,<span class="dt">x=</span>Quartiles,<span class="dt">y=</span><span class="dv">800</span>, <span class="dt">col=</span><span class="st">&quot;black&quot;</span>, <span class="dt">pos=</span><span class="dv">2</span>) <span class="co">#place quartile names at y=800 and x= quartile values</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-175-1.png" width="672" /></p>
 </div>
 <div id="the-variance" class="section level3 unnumbered">
@@ -456,9 +466,9 @@ Figure 5.11: Sample of dogs heights
 </div>
 <p>The heights (at the shoulders) are: 600mm, 470mm, 170mm, 430mm and 300mm.</p>
 <p>Next, you calculate the sample mean height, which is 394 mm (green line in figure below).</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="dispersion.html#cb161-1"></a>HeightOfDog=<span class="kw">c</span>(<span class="dv">600</span>, <span class="dv">470</span>, <span class="dv">170</span>, <span class="dv">430</span> , <span class="dv">300</span>)</span>
-<span id="cb161-2"><a href="dispersion.html#cb161-2"></a></span>
-<span id="cb161-3"><a href="dispersion.html#cb161-3"></a><span class="kw">mean</span>(HeightOfDog)</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="dispersion.html#cb164-1"></a>HeightOfDog=<span class="kw">c</span>(<span class="dv">600</span>, <span class="dv">470</span>, <span class="dv">170</span>, <span class="dv">430</span> , <span class="dv">300</span>)</span>
+<span id="cb164-2"><a href="dispersion.html#cb164-2"></a></span>
+<span id="cb164-3"><a href="dispersion.html#cb164-3"></a><span class="kw">mean</span>(HeightOfDog)</span></code></pre></div>
 <pre><code>## [1] 394</code></pre>
 <p>j</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-179"></span>
@@ -489,9 +499,9 @@ Variance = s^2=\frac{206^2 + 76^2 + (−224)^2 + 36^2 + (−94)^2}{5-1}
 Variance = s^2=27130mm^2
 \end{equation}\]</span></p>
 <p>In R, the variance is calculate with the function var,</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="dispersion.html#cb163-1"></a>HeightOfDog=<span class="kw">c</span>(<span class="dv">600</span>, <span class="dv">470</span>, <span class="dv">170</span>, <span class="dv">430</span> , <span class="dv">300</span>)</span>
-<span id="cb163-2"><a href="dispersion.html#cb163-2"></a></span>
-<span id="cb163-3"><a href="dispersion.html#cb163-3"></a><span class="kw">var</span>(HeightOfDog)</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="dispersion.html#cb166-1"></a>HeightOfDog=<span class="kw">c</span>(<span class="dv">600</span>, <span class="dv">470</span>, <span class="dv">170</span>, <span class="dv">430</span> , <span class="dv">300</span>)</span>
+<span id="cb166-2"><a href="dispersion.html#cb166-2"></a></span>
+<span id="cb166-3"><a href="dispersion.html#cb166-3"></a><span class="kw">var</span>(HeightOfDog)</span></code></pre></div>
 <pre><code>## [1] 27130</code></pre>
 <p>Hmm, right?. The simplest variance to understand is when variance = 0, which means all values are the same. In reality, however, variance results are normally large numbers that are hard to interpret intuitively. But the variance allows you to calculate the standard deviation, which is actually much easy to comprehend.</p>
 </div>
@@ -502,12 +512,12 @@ Variance = s^2=27130mm^2
 Standard \ deviation= S = \sqrt {s^2}
 \end{equation}\]</span></p>
 <p>In R, the standard deviation is calculated with the function sd,</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="dispersion.html#cb165-1"></a>HeightOfDog=<span class="kw">c</span>(<span class="dv">600</span>, <span class="dv">470</span>, <span class="dv">170</span>, <span class="dv">430</span> , <span class="dv">300</span>)</span>
-<span id="cb165-2"><a href="dispersion.html#cb165-2"></a></span>
-<span id="cb165-3"><a href="dispersion.html#cb165-3"></a><span class="kw">sd</span>(HeightOfDog)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="dispersion.html#cb168-1"></a>HeightOfDog=<span class="kw">c</span>(<span class="dv">600</span>, <span class="dv">470</span>, <span class="dv">170</span>, <span class="dv">430</span> , <span class="dv">300</span>)</span>
+<span id="cb168-2"><a href="dispersion.html#cb168-2"></a></span>
+<span id="cb168-3"><a href="dispersion.html#cb168-3"></a><span class="kw">sd</span>(HeightOfDog)</span></code></pre></div>
 <pre><code>## [1] 164.7119</code></pre>
 <p>You can also try the square root of the variance,</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="dispersion.html#cb167-1"></a><span class="kw">sqrt</span>(<span class="kw">var</span>(HeightOfDog))</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="dispersion.html#cb170-1"></a><span class="kw">sqrt</span>(<span class="kw">var</span>(HeightOfDog))</span></code></pre></div>
 <pre><code>## [1] 164.7119</code></pre>
 <p>Basically, SD= 164mm.</p>
 <p>Now lets interpret that number….</p>
@@ -517,26 +527,26 @@ Standard \ deviation= S = \sqrt {s^2}
 <script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 <p>In the example with the dogs, we have the problem of low sample size. If you recall an earlier chapter, the problem with low samples is that the variability increases as the sample size decreases and that is reflected in the standard deviation (SD).</p>
 <p>Lets try the standard deviation in a large sample size.</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="dispersion.html#cb169-1"></a>y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>) <span class="co"># the function rnorm allows you to create a random set of numbers from a normal distribution</span></span>
-<span id="cb169-2"><a href="dispersion.html#cb169-2"></a></span>
-<span id="cb169-3"><a href="dispersion.html#cb169-3"></a><span class="co">#lets now plot that data using the hist function, you already know how to use:</span></span>
-<span id="cb169-4"><a href="dispersion.html#cb169-4"></a><span class="kw">hist</span>(y, <span class="dt">main =</span> <span class="ot">NULL</span>,<span class="dt">breaks =</span> <span class="dv">30</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">120</span>))</span>
-<span id="cb169-5"><a href="dispersion.html#cb169-5"></a></span>
-<span id="cb169-6"><a href="dispersion.html#cb169-6"></a>SD=<span class="kw">sd</span>(y)</span>
-<span id="cb169-7"><a href="dispersion.html#cb169-7"></a>Mean=<span class="kw">mean</span>(y)</span>
-<span id="cb169-8"><a href="dispersion.html#cb169-8"></a></span>
-<span id="cb169-9"><a href="dispersion.html#cb169-9"></a><span class="co">#plot the mean</span></span>
-<span id="cb169-10"><a href="dispersion.html#cb169-10"></a><span class="kw">abline</span>(<span class="dt">v=</span>(Mean), <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">4</span>)</span>
-<span id="cb169-11"><a href="dispersion.html#cb169-11"></a><span class="kw">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="dt">x=</span>Mean,<span class="dt">y=</span><span class="dv">100</span>, <span class="dt">col=</span><span class="st">&quot;Blue&quot;</span>, <span class="dt">pos=</span><span class="dv">4</span>) </span>
-<span id="cb169-12"><a href="dispersion.html#cb169-12"></a></span>
-<span id="cb169-13"><a href="dispersion.html#cb169-13"></a><span class="co">#add two standard deviations </span></span>
-<span id="cb169-14"><a href="dispersion.html#cb169-14"></a><span class="kw">abline</span>(<span class="dt">v=</span>(Mean<span class="op">+</span>(SD<span class="op">*</span><span class="dv">2</span>)), <span class="dt">col=</span><span class="st">&quot;red&quot;</span>) </span>
-<span id="cb169-15"><a href="dispersion.html#cb169-15"></a><span class="kw">text</span>(<span class="st">&quot;+2 SDs&quot;</span>,<span class="dt">x=</span>(Mean<span class="op">+</span>(SD<span class="op">*</span><span class="dv">2</span>)),<span class="dt">y=</span><span class="dv">100</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">pos=</span><span class="dv">4</span>) </span>
-<span id="cb169-16"><a href="dispersion.html#cb169-16"></a></span>
-<span id="cb169-17"><a href="dispersion.html#cb169-17"></a></span>
-<span id="cb169-18"><a href="dispersion.html#cb169-18"></a><span class="co">#minus two standard deviations </span></span>
-<span id="cb169-19"><a href="dispersion.html#cb169-19"></a><span class="kw">abline</span>(<span class="dt">v=</span>(Mean<span class="op">-</span>(SD<span class="op">*</span><span class="dv">2</span>)), <span class="dt">col=</span><span class="st">&quot;red&quot;</span>) </span>
-<span id="cb169-20"><a href="dispersion.html#cb169-20"></a><span class="kw">text</span>(<span class="st">&quot;-2 SDs&quot;</span>,<span class="dt">x=</span>(Mean<span class="op">-</span>(SD<span class="op">*</span><span class="dv">2</span>)),<span class="dt">y=</span><span class="dv">100</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">pos=</span><span class="dv">4</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="dispersion.html#cb172-1"></a>y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>) <span class="co"># the function rnorm allows you to create a random set of numbers from a normal distribution</span></span>
+<span id="cb172-2"><a href="dispersion.html#cb172-2"></a></span>
+<span id="cb172-3"><a href="dispersion.html#cb172-3"></a><span class="co">#lets now plot that data using the hist function, you already know how to use:</span></span>
+<span id="cb172-4"><a href="dispersion.html#cb172-4"></a><span class="kw">hist</span>(y, <span class="dt">main =</span> <span class="ot">NULL</span>,<span class="dt">breaks =</span> <span class="dv">30</span>,<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">120</span>))</span>
+<span id="cb172-5"><a href="dispersion.html#cb172-5"></a></span>
+<span id="cb172-6"><a href="dispersion.html#cb172-6"></a>SD=<span class="kw">sd</span>(y)</span>
+<span id="cb172-7"><a href="dispersion.html#cb172-7"></a>Mean=<span class="kw">mean</span>(y)</span>
+<span id="cb172-8"><a href="dispersion.html#cb172-8"></a></span>
+<span id="cb172-9"><a href="dispersion.html#cb172-9"></a><span class="co">#plot the mean</span></span>
+<span id="cb172-10"><a href="dispersion.html#cb172-10"></a><span class="kw">abline</span>(<span class="dt">v=</span>(Mean), <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">4</span>)</span>
+<span id="cb172-11"><a href="dispersion.html#cb172-11"></a><span class="kw">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="dt">x=</span>Mean,<span class="dt">y=</span><span class="dv">100</span>, <span class="dt">col=</span><span class="st">&quot;Blue&quot;</span>, <span class="dt">pos=</span><span class="dv">4</span>) </span>
+<span id="cb172-12"><a href="dispersion.html#cb172-12"></a></span>
+<span id="cb172-13"><a href="dispersion.html#cb172-13"></a><span class="co">#add two standard deviations </span></span>
+<span id="cb172-14"><a href="dispersion.html#cb172-14"></a><span class="kw">abline</span>(<span class="dt">v=</span>(Mean<span class="op">+</span>(SD<span class="op">*</span><span class="dv">2</span>)), <span class="dt">col=</span><span class="st">&quot;red&quot;</span>) </span>
+<span id="cb172-15"><a href="dispersion.html#cb172-15"></a><span class="kw">text</span>(<span class="st">&quot;+2 SDs&quot;</span>,<span class="dt">x=</span>(Mean<span class="op">+</span>(SD<span class="op">*</span><span class="dv">2</span>)),<span class="dt">y=</span><span class="dv">100</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">pos=</span><span class="dv">4</span>) </span>
+<span id="cb172-16"><a href="dispersion.html#cb172-16"></a></span>
+<span id="cb172-17"><a href="dispersion.html#cb172-17"></a></span>
+<span id="cb172-18"><a href="dispersion.html#cb172-18"></a><span class="co">#minus two standard deviations </span></span>
+<span id="cb172-19"><a href="dispersion.html#cb172-19"></a><span class="kw">abline</span>(<span class="dt">v=</span>(Mean<span class="op">-</span>(SD<span class="op">*</span><span class="dv">2</span>)), <span class="dt">col=</span><span class="st">&quot;red&quot;</span>) </span>
+<span id="cb172-20"><a href="dispersion.html#cb172-20"></a><span class="kw">text</span>(<span class="st">&quot;-2 SDs&quot;</span>,<span class="dt">x=</span>(Mean<span class="op">-</span>(SD<span class="op">*</span><span class="dv">2</span>)),<span class="dt">y=</span><span class="dv">100</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">pos=</span><span class="dv">4</span>) </span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-185-1.png" width="672" /></p>
 <p>In the figure above, ~95% of the data should be between those two red lines.</p>
 </div>

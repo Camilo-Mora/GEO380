@@ -276,6 +276,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis Testing</a><ul>
+<li class="chapter" data-level="" data-path="significance-level.html"><a href="significance-level.html"><i class="fa fa-check"></i>Significance level</a></li>
+<li><a href="deciphering-alpha.html#deciphering-alpha">Deciphering <span class="math inline">\(\alpha\)</span></a></li>
+<li class="chapter" data-level="" data-path="error-types.html"><a href="error-types.html"><i class="fa fa-check"></i>Error types</a></li>
+<li class="chapter" data-level="" data-path="stating-hyphotheses-and-tails.html"><a href="stating-hyphotheses-and-tails.html"><i class="fa fa-check"></i>Stating hyphotheses and tails</a></li>
+<li class="chapter" data-level="" data-path="accepting-or-rejecting-the-null-hypothesis.html"><a href="accepting-or-rejecting-the-null-hypothesis.html"><i class="fa fa-check"></i>Accepting or rejecting the null hypothesis</a></li>
+<li class="chapter" data-level="" data-path="testing-a-hypothesis-by-brutal-force.html"><a href="testing-a-hypothesis-by-brutal-force.html"><i class="fa fa-check"></i>Testing a hypothesis by brutal force</a></li>
+<li class="chapter" data-level="" data-path="exercises-3.html"><a href="exercises-3.html"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="homework-5.html"><a href="homework-5.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
 
@@ -348,17 +358,17 @@ Becuase extrapolation predict values beyond what is known, uncertainty is much h
 </div>
 
 <p>In R, you can predict any value from a linear model, using the <em>predict</em> function, let’s try.</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="predict-interpolation-extrapolation.html#cb200-1"></a><span class="co">#take the data on grades and time studying</span></span>
-<span id="cb200-2"><a href="predict-interpolation-extrapolation.html#cb200-2"></a>X=<span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>) <span class="co">#hours studying</span></span>
-<span id="cb200-3"><a href="predict-interpolation-extrapolation.html#cb200-3"></a>Y=<span class="kw">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)       <span class="co">#grades</span></span>
-<span id="cb200-4"><a href="predict-interpolation-extrapolation.html#cb200-4"></a></span>
-<span id="cb200-5"><a href="predict-interpolation-extrapolation.html#cb200-5"></a><span class="co"># lets estimate the regression line using lm, and lets put that model in a variable</span></span>
-<span id="cb200-6"><a href="predict-interpolation-extrapolation.html#cb200-6"></a>LM =<span class="st"> </span><span class="kw">lm</span> (Y<span class="op">~</span>X)   <span class="co">#this is the linear model between Grades~Hours_Studying</span></span>
-<span id="cb200-7"><a href="predict-interpolation-extrapolation.html#cb200-7"></a></span>
-<span id="cb200-8"><a href="predict-interpolation-extrapolation.html#cb200-8"></a><span class="co"># lets now predict, the expected grades for three students that studied 1 hour, 3 hours and 10 hours</span></span>
-<span id="cb200-9"><a href="predict-interpolation-extrapolation.html#cb200-9"></a>PredictGradres=<span class="kw">data.frame</span>(<span class="dt">X =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">100</span>)) <span class="co">#here I create a data.frame with the times studied by the three students. You need to create a column, with the same name, as the model, so lm can know which one is  the X-variable</span></span>
-<span id="cb200-10"><a href="predict-interpolation-extrapolation.html#cb200-10"></a></span>
-<span id="cb200-11"><a href="predict-interpolation-extrapolation.html#cb200-11"></a><span class="kw">predict</span>(LM, PredictGradres)</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="predict-interpolation-extrapolation.html#cb203-1"></a><span class="co">#take the data on grades and time studying</span></span>
+<span id="cb203-2"><a href="predict-interpolation-extrapolation.html#cb203-2"></a>X=<span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>) <span class="co">#hours studying</span></span>
+<span id="cb203-3"><a href="predict-interpolation-extrapolation.html#cb203-3"></a>Y=<span class="kw">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)       <span class="co">#grades</span></span>
+<span id="cb203-4"><a href="predict-interpolation-extrapolation.html#cb203-4"></a></span>
+<span id="cb203-5"><a href="predict-interpolation-extrapolation.html#cb203-5"></a><span class="co"># lets estimate the regression line using lm, and lets put that model in a variable</span></span>
+<span id="cb203-6"><a href="predict-interpolation-extrapolation.html#cb203-6"></a>LM =<span class="st"> </span><span class="kw">lm</span> (Y<span class="op">~</span>X)   <span class="co">#this is the linear model between Grades~Hours_Studying</span></span>
+<span id="cb203-7"><a href="predict-interpolation-extrapolation.html#cb203-7"></a></span>
+<span id="cb203-8"><a href="predict-interpolation-extrapolation.html#cb203-8"></a><span class="co"># lets now predict, the expected grades for three students that studied 1 hour, 3 hours and 10 hours</span></span>
+<span id="cb203-9"><a href="predict-interpolation-extrapolation.html#cb203-9"></a>PredictGradres=<span class="kw">data.frame</span>(<span class="dt">X =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">100</span>)) <span class="co">#here I create a data.frame with the times studied by the three students. You need to create a column, with the same name, as the model, so lm can know which one is  the X-variable</span></span>
+<span id="cb203-10"><a href="predict-interpolation-extrapolation.html#cb203-10"></a></span>
+<span id="cb203-11"><a href="predict-interpolation-extrapolation.html#cb203-11"></a><span class="kw">predict</span>(LM, PredictGradres)</span></code></pre></div>
 <pre><code>##          1          2          3 
 ##   58.86272   78.03432 1007.85680</code></pre>
 <p>From the predictions above, you can see how the model wrongly predicts that a person that studies 100 hours a week, will get a 1000.7 grade in the class. Obviously, the most you can get is 100%. This helps to illustrate the caution needed when extrapolating a linear model beyond the limits of the data.</p>

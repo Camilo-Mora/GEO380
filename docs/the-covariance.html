@@ -276,6 +276,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis Testing</a><ul>
+<li class="chapter" data-level="" data-path="significance-level.html"><a href="significance-level.html"><i class="fa fa-check"></i>Significance level</a></li>
+<li><a href="deciphering-alpha.html#deciphering-alpha">Deciphering <span class="math inline">\(\alpha\)</span></a></li>
+<li class="chapter" data-level="" data-path="error-types.html"><a href="error-types.html"><i class="fa fa-check"></i>Error types</a></li>
+<li class="chapter" data-level="" data-path="stating-hyphotheses-and-tails.html"><a href="stating-hyphotheses-and-tails.html"><i class="fa fa-check"></i>Stating hyphotheses and tails</a></li>
+<li class="chapter" data-level="" data-path="accepting-or-rejecting-the-null-hypothesis.html"><a href="accepting-or-rejecting-the-null-hypothesis.html"><i class="fa fa-check"></i>Accepting or rejecting the null hypothesis</a></li>
+<li class="chapter" data-level="" data-path="testing-a-hypothesis-by-brutal-force.html"><a href="testing-a-hypothesis-by-brutal-force.html"><i class="fa fa-check"></i>Testing a hypothesis by brutal force</a></li>
+<li class="chapter" data-level="" data-path="exercises-3.html"><a href="exercises-3.html"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="chapter" data-level="" data-path="homework-5.html"><a href="homework-5.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
 
@@ -394,15 +404,15 @@ Tom
 </tbody>
 </table>
 <p>As always, we start by plotting the data:</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="the-covariance.html#cb179-1"></a>StudyingTimes=<span class="st"> </span><span class="kw">data.frame</span>(</span>
-<span id="cb179-2"><a href="the-covariance.html#cb179-2"></a>  <span class="dt">Names=</span><span class="kw">c</span>(<span class="st">&quot;Peter&quot;</span>,<span class="st">&quot;Laura&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Chip&quot;</span>, <span class="st">&quot;Tom&quot;</span>), <span class="co">#lets create a data.frame with three columns</span></span>
-<span id="cb179-3"><a href="the-covariance.html#cb179-3"></a>  <span class="dt">Hours_Studying=</span><span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>),</span>
-<span id="cb179-4"><a href="the-covariance.html#cb179-4"></a>  <span class="dt">Score=</span><span class="kw">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>))</span>
-<span id="cb179-5"><a href="the-covariance.html#cb179-5"></a></span>
-<span id="cb179-6"><a href="the-covariance.html#cb179-6"></a></span>
-<span id="cb179-7"><a href="the-covariance.html#cb179-7"></a></span>
-<span id="cb179-8"><a href="the-covariance.html#cb179-8"></a><span class="co">#now let&#39;s do the plot</span></span>
-<span id="cb179-9"><a href="the-covariance.html#cb179-9"></a><span class="kw">plot</span>(Score<span class="op">~</span>Hours_Studying,<span class="dt">data=</span>StudyingTimes,<span class="dt">xlab=</span><span class="st">&quot;Hours a week studying&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Final class score (%)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="the-covariance.html#cb182-1"></a>StudyingTimes=<span class="st"> </span><span class="kw">data.frame</span>(</span>
+<span id="cb182-2"><a href="the-covariance.html#cb182-2"></a>  <span class="dt">Names=</span><span class="kw">c</span>(<span class="st">&quot;Peter&quot;</span>,<span class="st">&quot;Laura&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Chip&quot;</span>, <span class="st">&quot;Tom&quot;</span>), <span class="co">#lets create a data.frame with three columns</span></span>
+<span id="cb182-3"><a href="the-covariance.html#cb182-3"></a>  <span class="dt">Hours_Studying=</span><span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>),</span>
+<span id="cb182-4"><a href="the-covariance.html#cb182-4"></a>  <span class="dt">Score=</span><span class="kw">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>))</span>
+<span id="cb182-5"><a href="the-covariance.html#cb182-5"></a></span>
+<span id="cb182-6"><a href="the-covariance.html#cb182-6"></a></span>
+<span id="cb182-7"><a href="the-covariance.html#cb182-7"></a></span>
+<span id="cb182-8"><a href="the-covariance.html#cb182-8"></a><span class="co">#now let&#39;s do the plot</span></span>
+<span id="cb182-9"><a href="the-covariance.html#cb182-9"></a><span class="kw">plot</span>(Score<span class="op">~</span>Hours_Studying,<span class="dt">data=</span>StudyingTimes,<span class="dt">xlab=</span><span class="st">&quot;Hours a week studying&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Final class score (%)&quot;</span>)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-197-1.png" width="672" /></p>
 <p>Lets break the calculation of the covariance into its parts so we can better appreciate what it does.</p>
 <p>First, we calculate the mean of alll values in X and the difference from each value to that mean:</p>
@@ -436,7 +446,7 @@ Covariance = COV(XY) =24.3 Hours*Test Score
 \end{equation}\]</span></p>
 <p>Hmm???, Right?…as mentioned earlier the score of the covariance by itself is hard to interpret, but it may still provide useful information about the trend of the data…in this case the covariance is positive, indicating that the differences in X trend in a positive direction as the differences in Y. Basically, as students study more they get higher grades…Please remember that!…and here it goes a token j</p>
 <p>In R, the covariance is calculated with the <em>cov</em> function:</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="the-covariance.html#cb180-1"></a><span class="kw">cov</span>(StudyingTimes<span class="op">$</span>Score,StudyingTimes<span class="op">$</span>Hours_Studying, <span class="dt">use =</span> <span class="st">&quot;everything&quot;</span>,  <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="the-covariance.html#cb183-1"></a><span class="kw">cov</span>(StudyingTimes<span class="op">$</span>Score,StudyingTimes<span class="op">$</span>Hours_Studying, <span class="dt">use =</span> <span class="st">&quot;everything&quot;</span>,  <span class="dt">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 24.3</code></pre>
 </div>
 <div id="disqus_thread"></div>
