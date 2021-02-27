@@ -13,14 +13,13 @@ knitr::include_graphics("images/NastyReject.png")
 
 At the end of this chapter, it is expected that you:
 
-1. Can set a hypothesis.
+1. Can states a null hypothesis and alternative hypothesis.
 
 2. Can interpret the different types of errors when making a conclusion on a hypothesis.
 
-3. Can interpret p-values.
+3. Can interpret the critical p-values, significance level.
 
-4. Can interpret the critical p-values, significance levels.
-
+4. Can interpret p-values.
 
 
 Alright, let's get to it.
@@ -53,7 +52,7 @@ This examples serves the purpose to illustrate that in hypothesis testing there 
 
 
 ```{block2, type='rmdimportant'}
-The threshold beyond which we reject a hyphothesis is called the **level of significance** or alpha, $\alpha$.
+The threshold beyond which we reject a null hyphothesis is called the **level of significance** or alpha, $\alpha$.
 ```
 
 ## Deciphering $\alpha$ {-}
@@ -78,8 +77,11 @@ As you can see from the figure above some men are tall, others shorter, but on a
 
 When we refer to a significance level, $\alpha$, we are referring to an specific fraction of the population that is on the tails of that distribution. Basically, those individuals that are different or special.
 
-As mentioned earlier, in biology and most sciences, we generally accept an $\alpha$ of 0.05. Basically, we assume something is different/special, if it is larger or smaller than the top or bottom 5% of all individual in that population.
+As mentioned earlier, in biology and most sciences, we generally accept an $\alpha$ smaller than 0.05. Basically, we assume something is different/special, if it is larger or smaller than the top or bottom 5% of all individual in that population.
 
+```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'How p<0.05 feels like'}
+knitr::include_graphics("images/P05feelslike.png")
+```
 
 If you may recall from Chapter 5, we mentioned that 95% of the individuals on any normally distributed population are within two-standard deviations from the mean. With that said, and following on the example above about men heights', any individual that is taller or shorter than two standard deviation below or above the mean, is different at a 5% level of confidence.
 

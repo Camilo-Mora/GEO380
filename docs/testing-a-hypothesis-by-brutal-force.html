@@ -276,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis Testing</a><ul>
+<li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis testing</a><ul>
 <li class="chapter" data-level="" data-path="significance-level.html"><a href="significance-level.html"><i class="fa fa-check"></i>Significance level</a></li>
 <li><a href="deciphering-alpha.html#deciphering-alpha">Deciphering <span class="math inline">\(\alpha\)</span></a></li>
 <li class="chapter" data-level="" data-path="error-types.html"><a href="error-types.html"><i class="fa fa-check"></i>Error types</a></li>
@@ -333,7 +333,7 @@ By Camilo Mora, Ph.D.
 <span id="cb217-11"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-11"></a></span>
 <span id="cb217-12"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-12"></a><span class="co">#lets name the mean sample value</span></span>
 <span id="cb217-13"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-13"></a><span class="kw">text</span>(MeanCal,<span class="dv">10</span>,<span class="dt">labels=</span><span class="st">&quot;p-value&quot;</span>,<span class="dt">pos=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-272-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-273-1.png" width="672" /></p>
 <p>Next, we take one random sample of ten values from a normal population with a mean of 1500 and an standard deviation, SD, of 50. In R, you can take any number of individuals from any normally distributed population using the function <span class="math inline">\(rnorm\)</span>.</p>
 <div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-1"></a>MeanPopulation=<span class="dv">1500</span></span>
 <span id="cb218-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-2"></a>SDPopulation=<span class="dv">50</span></span>
@@ -364,7 +364,7 @@ By Camilo Mora, Ph.D.
 <div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb222-1"></a>breaks =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1300</span>, <span class="dv">1600</span>, <span class="dt">length.out =</span> <span class="dv">100</span>) <span class="co">#lets create a set of bins</span></span>
 <span id="cb222-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb222-2"></a></span>
 <span id="cb222-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb222-3"></a><span class="kw">hist</span>(population,<span class="dt">main=</span><span class="ot">NA</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">1400</span>, <span class="dv">1600</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),<span class="dt">breaks =</span> breaks, <span class="dt">xlab =</span> <span class="st">&quot;Caloric content of burgers&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;Number of ramdon samples&quot;</span>)</span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-275-1.png" width="672" />
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-276-1.png" width="672" />
 Looking good….lets draw a line for the 5% level of confidence for the expected distribution of calories in a burger given the claims of MacDonalds. We will use the R function <span class="math inline">\(quantile\)</span>, which we used earlier, to find out the value located at the 95% percentile.</p>
 <div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb223-1"></a>FivePercent=<span class="kw">quantile</span>(population,<span class="fl">0.95</span>,<span class="dt">type=</span><span class="dv">1</span>) <span class="co">#quantile finds the value in the population of calories located at the top 5% percentile</span></span>
 <span id="cb223-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb223-2"></a>FivePercent</span></code></pre></div>
@@ -384,7 +384,7 @@ Looking good….lets draw a line for the 5% level of confidence for the expected
 <span id="cb225-11"><a href="testing-a-hypothesis-by-brutal-force.html#cb225-11"></a></span>
 <span id="cb225-12"><a href="testing-a-hypothesis-by-brutal-force.html#cb225-12"></a><span class="co">#lets name the mean sample value</span></span>
 <span id="cb225-13"><a href="testing-a-hypothesis-by-brutal-force.html#cb225-13"></a><span class="kw">text</span>(MeanCal,<span class="dv">1000</span>,<span class="dt">labels=</span><span class="st">&quot;p-value&quot;</span>,<span class="dt">pos=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-277-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-278-1.png" width="672" /></p>
 <p>The amount of calories in our sample of ten burgers (Blue line in figure above) was much larger than the critical value at 5% chance (red line), We then reject the null hypothesis that these burgers have less than 1,500 calories, and would have to embrace the alternative hypothesis that the burgers have more than 1500 calories. You can surmise in your report to the judge that the one guy lawsuiting MacDonalds was deceived. A case of false advertisement.</p>
 </div>
 <div id="disqus_thread"></div>

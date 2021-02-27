@@ -276,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis Testing</a><ul>
+<li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis testing</a><ul>
 <li class="chapter" data-level="" data-path="significance-level.html"><a href="significance-level.html"><i class="fa fa-check"></i>Significance level</a></li>
 <li><a href="deciphering-alpha.html#deciphering-alpha">Deciphering <span class="math inline">\(\alpha\)</span></a></li>
 <li class="chapter" data-level="" data-path="error-types.html"><a href="error-types.html"><i class="fa fa-check"></i>Error types</a></li>
@@ -339,7 +339,7 @@ By Camilo Mora, Ph.D.
 <span id="cb214-17"><a href="stating-hyphotheses-and-tails.html#cb214-17"></a><span class="co">#Lets plot the critical areas</span></span>
 <span id="cb214-18"><a href="stating-hyphotheses-and-tails.html#cb214-18"></a><span class="kw">polygon</span>(<span class="kw">c</span>(x[x<span class="op">&gt;=</span>PositiveAlpha], PositiveAlpha), <span class="kw">c</span>(y[x<span class="op">&gt;=</span>PositiveAlpha], y[x<span class="op">==</span><span class="kw">max</span>(x)]), <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>) <span class="co">#right hand tail</span></span>
 <span id="cb214-19"><a href="stating-hyphotheses-and-tails.html#cb214-19"></a><span class="kw">polygon</span>(<span class="kw">c</span>(x[x<span class="op">&lt;=</span>NegativeAlpha], NegativeAlpha), <span class="kw">c</span>(y[x<span class="op">&lt;=</span>NegativeAlpha], y[x<span class="op">==</span><span class="kw">max</span>(x)]), <span class="dt">col=</span><span class="st">&quot;red&quot;</span>) <span class="co">#right hand tail</span></span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-265-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-266-1.png" width="672" /></p>
 <p>In the example above, I would reject the null hypothesis, if the sample I took, was larger or smaller than the significance level, <span class="math inline">\(\alpha\)</span>, I set. Basically, if my sample is on the red or blue area above, I can claim that my sample was significantly different than what the company claims.</p>
 <p>The hypotheses could also be set like this:</p>
 <p>Null hypothesis, Ho: Combo1 &lt;= 1,800 calories.</p>
@@ -362,7 +362,7 @@ By Camilo Mora, Ph.D.
 <span id="cb215-14"><a href="stating-hyphotheses-and-tails.html#cb215-14"></a></span>
 <span id="cb215-15"><a href="stating-hyphotheses-and-tails.html#cb215-15"></a><span class="co">#Lets plot the one critical area</span></span>
 <span id="cb215-16"><a href="stating-hyphotheses-and-tails.html#cb215-16"></a><span class="kw">polygon</span>(<span class="kw">c</span>(x[x<span class="op">&gt;=</span>PositiveAlpha], PositiveAlpha), <span class="kw">c</span>(y[x<span class="op">&gt;=</span>PositiveAlpha], y[x<span class="op">==</span><span class="kw">max</span>(x)]), <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>) <span class="co">#right hand tail</span></span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-266-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-267-1.png" width="672" /></p>
 <p>In this case, I will reject the null hypothesis if the sample I took has more calories than the significance level I chosen; if my sample fall anywhere in the blue area.</p>
 <p>The hypotheses could also be set like this:</p>
 <p>Null hypothesis, Ho: Combo1 &gt;= 1,800 calories.</p>
@@ -388,7 +388,7 @@ By Camilo Mora, Ph.D.
 <span id="cb216-17"><a href="stating-hyphotheses-and-tails.html#cb216-17"></a></span>
 <span id="cb216-18"><a href="stating-hyphotheses-and-tails.html#cb216-18"></a><span class="co">#plot the critical thresholds set by alpha</span></span>
 <span id="cb216-19"><a href="stating-hyphotheses-and-tails.html#cb216-19"></a><span class="kw">abline</span>(<span class="dt">v=</span>NegativeAlpha, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;orange&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>) </span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-267-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-268-1.png" width="672" /></p>
 <p>In this case, I will reject the null hypothesis if the sample I took has less calories than the significance level I chosen; if my sample fall anywhere in the red area.</p>
 </div>
 <div id="disqus_thread"></div>
