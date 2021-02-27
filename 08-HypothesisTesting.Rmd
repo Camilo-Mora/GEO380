@@ -1,4 +1,4 @@
-# Hypothesis Testing {}
+# Hypothesis testing {}
 
 In the prior chapters, we have been dealing with three of the core goals of statistics: visualization of data (i.e., scatterplots, histograms, etc.), description of the data (i.e., mean, mode, SD, etc), and relationships among variables (e.g., correlation, regression). In this chapter, we will deal with a fourth main goal of statistics: to tell if something (one thing) or somethings (many things) are different.
 
