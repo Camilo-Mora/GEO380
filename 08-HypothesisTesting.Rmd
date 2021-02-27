@@ -13,7 +13,7 @@ knitr::include_graphics("images/NastyReject.png")
 
 At the end of this chapter, it is expected that you:
 
-1. Can states a null hypothesis and alternative hypothesis.
+1. Can state a null hypothesis and alternative hypothesis.
 
 2. Can interpret the different types of errors when making a conclusion on a hypothesis.
 
@@ -44,7 +44,7 @@ If I assume a threshold of say 20% chance of me being wrong. Then this rabbit wo
 
 What if I set the threshold of me being wrong at a 10% chance? In this case I am considering that the rabbit I found has to be smaller than the 10% largest rabbits in my population, for it to be mine.
 
-In my rabbit population 10% of the rabbits are larger than 7, the rabbit I found was 6.8 so in this case this rabbit belongs to my population at a 10% chance that I may be wrong.
+In my rabbit population, the top 10% largest rabbits are larger than 7, the rabbit I found was 6.8 so in this case this rabbit belongs to my population at a 10% chance that I may be wrong.
 
 
 This examples serves the purpose to illustrate that in hypothesis testing there is always a chance of you being wrong and that such a chance is proportional to how different the thing you have is compared to the population you are comparing to.
@@ -52,7 +52,7 @@ This examples serves the purpose to illustrate that in hypothesis testing there 
 
 
 ```{block2, type='rmdimportant'}
-The threshold beyond which we reject a null hyphothesis is called the **level of significance** or alpha, $\alpha$.
+The threshold beyond which we reject a null hyphothesis is called the **level of significance** or alpha, $\alpha$. You will also see named as a $critical value$.
 ```
 
 ## Deciphering $\alpha$ {-}
@@ -77,20 +77,20 @@ As you can see from the figure above some men are tall, others shorter, but on a
 
 When we refer to a significance level, $\alpha$, we are referring to an specific fraction of the population that is on the tails of that distribution. Basically, those individuals that are different or special.
 
-As mentioned earlier, in biology and most sciences, we generally accept an $\alpha$ smaller than 0.05. Basically, we assume something is different/special, if it is larger or smaller than the top or bottom 5% of all individual in that population.
+As mentioned earlier, in biology and most sciences, we generally accept an $\alpha$ smaller than 0.05. Basically, we assume something is different/special, if it is larger or smaller than the top or bottom 5% of all individuals in that population.
 
 ```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'How p<0.05 feels like'}
 knitr::include_graphics("images/P05feelslike.png")
 ```
 
-If you may recall from Chapter 5, we mentioned that 95% of the individuals on any normally distributed population are within two-standard deviations from the mean. With that said, and following on the example above about men heights', any individual that is taller or shorter than two standard deviation below or above the mean, is different at a 5% level of confidence.
+If you recall Chapter 5, we mentioned that 95% of the individuals on any normally distributed population are within two-standard deviations from the mean. With that said, and following on the example above about men heights', any individual that is taller or shorter than two standard deviation below or above the mean, is different at a 5% level of confidence.
 
 In the figure below, I illustrate random samples of males taken from the US men height population. If I were to count the fraction of people two standard deviations below or above the mean (percentage red numbers shown in the figure), you would see that on any sample there are cumulatively almost always 5%, or about 2.5% on each tail of the distribution. 
 
 
 
 
-```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'Critical f-Value at 90% or p=0.1'}
+```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'Significance level'}
 knitr::include_graphics("images/AnimatedDistribution.gif")
 ```
 
@@ -128,8 +128,9 @@ knitr::include_graphics("images/TypesOfError.png")
 ```
 
 ```{block2, type='rmdimportant'}
-Type I error is to reject the null hypothesis when it is, in fact, true.
-Type II error is to accept the null hypothesis when it is, in fact, false.
+A false positive, also call Type I error, is to reject the null hypothesis when it is, in fact, true.
+
+A false negative, also call Type II error, is to accept the null hypothesis when it is, in fact, false.
 ```
 
 
@@ -142,7 +143,11 @@ The **null hypothesis** is denoted with the letters $Ho$. The **alternative hypo
 
 The **null hypothesis** is always making reference to how things should commonly be, it can also make references to the option of no-difference or that something is equal to a given value. The **alternative hypothesis**  is all what the **null hypothesis** is not. 
 
-In statistics, you can only accept or reject the null hypothesis. This is why, when you reject the null hypothesis, you do not necessary accept the alternative hypothesis. 
+In statistics, you can only **reject the null hypothesis** or **fail to reject the null hypothesis** (synonym for accept, but this term is not accepted because we are never certain). Along the same lines, when you reject the null hypothesis, we you do not accept the alternative hypothesis. 
+
+```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'Painfull rejection narrative'}
+knitr::include_graphics("images/FailedToReject.png")
+```
 
 There are several ways to state hypotheses. Let's try a few examples to clarify:
 
@@ -154,7 +159,7 @@ Alternative hypothesis,  H1:  Combo1 $\neq$ 1,800 calories.
 
 In this form, I am asking if the burger is equal to 1,800 calories. In this case, the alternative has to be that the burger is different than 1,800cal. To be different, a burger could be much smaller than 1,800cal but it can also be much larger than 1,800 calories.
 
-If I take several of their burgers, and measure their caloric content, I can reject the null hypothesis if the sample I took had much higher number of calories, but also if the sample have many fewer calories than the significance level, $\alpha$, I chosen. This is what is call a **two-tail** hypothesis. Lets visualize this in R,
+If I take several of their burgers, and measure their caloric content, I can reject the null hypothesis if the sample I took had much higher number of calories, but also if the sample have many fewer calories than the significance level, $\alpha$, I chosen. This is what is call a **two-tail** test. Lets visualize this in R,
 
 
 
@@ -257,7 +262,7 @@ In this case, I will reject the null hypothesis if the sample I took has less ca
 
 
 ## Accepting or rejecting the null hypothesis {-}
-In a nutshell, the idea of testing a hypothesis is to see if a given individual or sample is different compared to a population at a certain level of significance, $\alpha$. The given value for the individual or sample is called the p-value, basically an standardized metric of how far from the mean your individual or sample is.
+In a nutshell, the idea of testing a hypothesis is to see if a given individual or sample is different compared to a population at a certain level of significance, $\alpha$. For the sake of simplicity, at this stage in the course, we will call the given value for the individual or sample the p-value; later on, we will transform this value for the individual or sample into an  standardized metric of how far from the mean your individual or sample is.
 
 ```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'The P-value'}
 knitr::include_graphics("images/P05.png")
@@ -265,10 +270,6 @@ knitr::include_graphics("images/P05.png")
 
 In a two tail test, the null hypothesis is rejected if the p-value is larger or smaller than the significance level. On the contrary, if your p-value is within the range outlined by your level of confidence, then you conclude that you failed to reject the null-hypothesis. Please remember that in statistics you only "fail to reject" or reject the null hypothesis but you never prove the alternative hypothesis when you reject the null hypothesis. 
 
-
-```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'Painfull rejection narrative'}
-knitr::include_graphics("images/FailedToReject.png")
-```
 
 In a right tail test, the null hypothesis is rejected if the p-value is larger than the significance level.
 
@@ -292,7 +293,7 @@ knitr::include_graphics("images/PHO.jpg")
 In the following chapters, we will introduce standardized ways to test hypotheses; I want to finish this chapter by illustrating the ultimate idea behind testing a hypothesis by running a brief simulation. This simulation will aim to show the general approach of hypothesis testing.
 
 
-Lets say that you work for the FDA, and you have been commissioned to provide evidence for a lawsuit case involving the calories in MacDonals burgers (this is a fictitious example). The pending lawsuit refers to a person who suffered a heart attack after its cholesterol levels increased considerably. Prior to the heart attack, his doctor recommended that he kept a daily diet of no more than 2000 calories a day, so he satisfied his weakness for burgers eating a new type of MacDonals burger that claimed to have less than 1,500 calories (Standard deviation, SD= 100). 
+Lets say that you work for the FDA, and you have been commissioned to provide evidence for a lawsuit case involving the calories in MacDonals burgers (this is a fictitious example). The pending lawsuit refers to a person who suffered a heart attack after his cholesterol levels increased considerably. Prior to the heart attack, his doctor recommended that he kept a daily diet of no more than 2000 calories a day, so he satisfied his weakness for burgers eating a new type of MacDonals burger that claimed to have less than 1,500 calories (Standard deviation, SD= 100). 
 
 x = 1350, 1600, 1510, 1850, 1750, 1756, 1400, 1500, 1350, 1400
 
@@ -328,7 +329,7 @@ abline(v=MeanCal, lwd=2, col="blue", lty=2)
 text(MeanCal,10,labels="p-value",pos=4, col="blue")
 ```
 
-Next, we take one random sample of ten values from a normal population with a mean of 1500 and an standard deviation, SD, of 50. In R, you can take any number of individuals from any normally distributed population using the function $rnorm$.
+Next, we take one random sample of ten values from a normal population with a mean of 1500 and an standard deviation, SD, of 50. In R, you can take any number of individuals randomly from any normally distributed population using the function $rnorm$.
 
 
 
@@ -344,7 +345,7 @@ RandomSample1
 ```
 Our actual sample of 10 burgers had an average calorimetric content of $`r MeanCal`$ while the expected value of this one random sample was  $`r round(mean (RandomSample1),2)`$.
 
-Hmm, from that one comparison it seems the one guy may be right; these burgers have more calories than what they claim. But we only have one random sample. To be robust, we probably should take 10000 random samples and from all of those see if the top 5% of the random samples, our critical threshold, is larger or smaller than our observed value/p-value.
+Hmm, from that one comparison it seems the one guy may be right; these burgers in actuality have more calories than what they claim. But we only have one random sample. To be robust, we probably should take 10000 random samples and from all of those see if the top 5% of the random samples, our critical threshold, is larger or smaller than our observed value/p-value.
 
 To run such a simulation, we can use the *for* loop function in R. Lets try. Let me explain that function with the example.
 
@@ -373,7 +374,8 @@ breaks = seq(1300, 1600, length.out = 100) #lets create a set of bins
 
 hist(population,main=NA,xlim=c(1400, 1600),ylim=c(0, 1000),breaks = breaks, xlab = "Caloric content of burgers",ylab = "Number of ramdon samples")
 ```
-Looking good....lets draw a line for the 5% level of confidence for the expected distribution of calories in a burger given the claims of MacDonalds. We will use the R function $quantile$, which we used earlier, to find out the value located at the 95% percentile.
+
+Looking good....lets draw a line for the 5% level of confidence for the expected distribution. We will use the R function $quantile$, which we used earlier, to find out the value located at the 95% percentile, which will outline the position to the right where 5% of the cases occur.
 
 ```{r, message=FALSE,warning=FALSE}
 
