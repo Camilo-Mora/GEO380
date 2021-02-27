@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>The intercept | GEOG380.utf8</title>
+  <title>The Z-score | GEOG380.utf8</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="The intercept | GEOG380.utf8" />
+  <meta property="og:title" content="The Z-score | GEOG380.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The intercept | GEOG380.utf8" />
+  <meta name="twitter:title" content="The Z-score | GEOG380.utf8" />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="the-slope.html"/>
-<link rel="next" href="linear-regression-in-r.html"/>
+<link rel="prev" href="9-is-a-sample-different.html"/>
+<link rel="next" href="exercises-4.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -313,33 +313,9 @@ By Camilo Mora, Ph.D.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-intercept" class="section level2 unnumbered">
-<h2>The intercept</h2>
-<p>There are numerous combulated equations to calculate the intercept of the linear regression model. Here I want us to use a procedure that you probably learned in 6th grade.</p>
-<p>If you look at the linear regression model equation,</p>
-<p><span class="math display">\[\begin{equation}
-Y = mX + b
-\end{equation}\]</span></p>
-<p>You could isolate the intercept, <span class="math inline">\(b\)</span>, as:</p>
-<p><span class="math display">\[\begin{equation}
-b = Y - mX
-\end{equation}\]</span></p>
-<p>If you recall, the line of the least-squares regression line has to pass by the coordinates defined by the mean value of X and the mean value of X. So to estimate the intercept all you have to do is to replace the <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> parameters of the linear regression equation by the mean of X, <span class="math inline">\(\bar{x}\)</span>, and the mean of Y, <span class="math inline">\(\bar{y}\)</span>. Like this:</p>
-<p><span class="math display">\[\begin{equation}
-b = \bar{y} - m\bar{x}
-\end{equation}\]</span></p>
-<p>Because you also know the slope from the prior section. Then you have all parameters of the equation above to stimate the intercept.</p>
-<p>Let’s estimate the intercept for the relationship between time studying and grades. From that data, the mean of X, <span class="math inline">\(\bar{x}\)</span>, was 2.6, and the mean of Y, <span class="math inline">\(\bar{y}\)</span>, was 74.2. So, the intercept for that linear regression is:</p>
-<p><span class="math display">\[\begin{equation}
-Intercept = b =74.2 - 2.6*9.586
-
-\end{equation}\]</span></p>
-<p><span class="math display">\[\begin{equation}
-Intercept = b =49.277
-
-\end{equation}\]</span></p>
-<p>So the Y-Intercept of the least-square line for the relationship between grades and time studying is
-49.28. You can interpret that value as the grade that you can expect in my class if you do not study a single hour of the week. Hmm, not good.</p>
+<div id="the-z-score" class="section level2 unnumbered">
+<h2>The Z-score</h2>
+<p>As it has been indicated several times in this book, it is relatively easy to know the proportion of individuals in a population at certain standard deviations from the mean. AS an example, plus or minus two standard deviations from the mean include about 95% of the individuals in that population (assuming of course the population is normally distributed). Given this principle then you can easily know the fraction or individuals</p>
 </div>
 <div id="disqus_thread"></div>
 <script>
@@ -365,8 +341,8 @@ Intercept = b =49.277
           </div>
         </div>
       </div>
-<a href="the-slope.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="linear-regression-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="9-is-a-sample-different.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exercises-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -405,7 +381,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/Camilo-Mora/GEO380/blob/main/07-Regression.Rmd",
+"link": "https://github.com/Camilo-Mora/GEO380/blob/main/09-Z-Test.Rmd",
 "text": null
 },
 "download": null,
