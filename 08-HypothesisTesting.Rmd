@@ -1,6 +1,6 @@
 # Hypothesis Testing {}
 
-In the prior chapters, we have been dealing with three of the core goals of statistics: visualization of data (i.e., scatterplots, histograms, etc.), description of the data (i.e., mean, mode, SD, etc), and relationships among variables (e.g., correlation, regression. In this chapter, we will deal with a fourth main goal of statistics: to tell if something (one thing) or somethings (many things) are different.
+In the prior chapters, we have been dealing with three of the core goals of statistics: visualization of data (i.e., scatterplots, histograms, etc.), description of the data (i.e., mean, mode, SD, etc), and relationships among variables (e.g., correlation, regression). In this chapter, we will deal with a fourth main goal of statistics: to tell if something (one thing) or somethings (many things) are different.
 
 
 There is an amazing level of complexity to that single question, of whether a thing or set of things are different. In this chapter, I want to break that complexity into its peaces, so you can better comprehend the results of any test aimed at testing for significant differences.
@@ -30,7 +30,7 @@ Alright, let's get to it.
 
 When the question is formulated of whether something is different; inherently, you are making a decision with a chance that we may be wrong. Put another way, we imply that there is a threshold  beyond which we may be wrong. In statistics that threshold is called **significance level**, or alpha, $\alpha$.
 
-Take my rabbit population below, and say I found a rabbit in the street and that all I have to compare is body size? Could this be one rabbit be one of my rabbits? 
+Take my rabbit population below, and say I found a rabbit in the street and that all I have to compare is body size? Could this one rabbit be one of my rabbits? 
 
 Tricky right?. Nine out of my ten rabbits are smaller. So is this one guy different as to be not one of mine?
 
@@ -136,11 +136,13 @@ Type II error is to accept the null hypothesis when it is, in fact, false.
 
 The statistical approach to hypothesis testing is to reduce all likely options to a binary choice between the **null hypothesis** or the **alternative hypothesis**.
 
-The **null hypothesis** is denoted with the letters $Ho$. The **alternative hypothesis** is denoted with the letters $H1$ , and it is all what the null hypothesis is not. 
+The **null hypothesis** is denoted with the letters $Ho$. The **alternative hypothesis** is denoted with the letters $H1$. 
+
+The **null hypothesis** is always making reference to how things should commonly be, it can also make references to the option of no-difference or that something is equal to a given value. The **alternative hypothesis**  is all what the **null hypothesis** is not. 
 
 In statistics, you can only accept or reject the null hypothesis. This is why, when you reject the null hypothesis, you do not necessary accept the alternative hypothesis. 
 
-There are several ways to state your hypothesis. Let's try a few examples to clarify:
+There are several ways to state hypotheses. Let's try a few examples to clarify:
 
 Say a burger company claims that their Combo #1 has 1,800 calories, with a variability (Standard deviation, SD) of 50 calories. To test if this is true you can set your hypotheses different ways, like:
 
@@ -148,7 +150,7 @@ Null hypothesis,         Ho:  Combo1 = 1,800 calories.
 
 Alternative hypothesis,  H1:  Combo1 $\neq$ 1,800 calories.
 
-In this form, I am asking if the burger is equal to 1,800 calories. In this case, the alternative has to be that the burger is different than 1,800cal. To be different, a burger could be much smaller than 1,800 but it can also be much larger than 1,800 calories.
+In this form, I am asking if the burger is equal to 1,800 calories. In this case, the alternative has to be that the burger is different than 1,800cal. To be different, a burger could be much smaller than 1,800cal but it can also be much larger than 1,800 calories.
 
 If I take several of their burgers, and measure their caloric content, I can reject the null hypothesis if the sample I took had much higher number of calories, but also if the sample have many fewer calories than the significance level, $\alpha$, I chosen. This is what is call a **two-tail** hypothesis. Lets visualize this in R,
 
@@ -259,7 +261,7 @@ In a nutshell, the idea of testing a hypothesis is to see if a given individual 
 knitr::include_graphics("images/P05.png")
 ```
 
-In a two tail test, the null hypothesis is rejected if the p-value is larger or smaller than the significance level. On the contrary, if your p-value is within the range outlined by your level of confidence, then you conclude that you failed to reject the null-hypothesis. Please remember that in statistics you only accept or reject the null hypothesis but you never prove the alternative hypothesis when you reject the null hypothesis. 
+In a two tail test, the null hypothesis is rejected if the p-value is larger or smaller than the significance level. On the contrary, if your p-value is within the range outlined by your level of confidence, then you conclude that you failed to reject the null-hypothesis. Please remember that in statistics you only "fail to reject" or reject the null hypothesis but you never prove the alternative hypothesis when you reject the null hypothesis. 
 
 
 ```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'Painfull rejection narrative'}
@@ -288,13 +290,14 @@ knitr::include_graphics("images/PHO.jpg")
 In the following chapters, we will introduce standardized ways to test hypotheses; I want to finish this chapter by illustrating the ultimate idea behind testing a hypothesis by running a brief simulation. This simulation will aim to show the general approach of hypothesis testing.
 
 
-Lets say that you work for the FDA, and you have been commissioned to provide evidence for a lawsuit case involving the calories in MacDonals burgers (this is a fictitious example). The pending lawsuit refers to a person who suffered a heart attack after its cholesterol levels increased considerably. Prior to the heart attack, his doctor recommended that he kept a daily diet of no more than 2000 calories a day, so he satisfied his weakness for burgers eating a new type of MacDonals burger than claimed to have less than 1,500 calories (Standard deviation, SD= 100). 
+Lets say that you work for the FDA, and you have been commissioned to provide evidence for a lawsuit case involving the calories in MacDonals burgers (this is a fictitious example). The pending lawsuit refers to a person who suffered a heart attack after its cholesterol levels increased considerably. Prior to the heart attack, his doctor recommended that he kept a daily diet of no more than 2000 calories a day, so he satisfied his weakness for burgers eating a new type of MacDonals burger that claimed to have less than 1,500 calories (Standard deviation, SD= 100). 
 
 x = 1350, 1600, 1510, 1850, 1750, 1756, 1400, 1500, 1350, 1400
 
 Let x be the calorimetric value of a random sample of ten burger you took. So the question is, do the claims by this individual hold any right?
 
 Let's start by stating the hypotheses:
+
 
 Null hypothesis,         Ho:  burger <= 1,500 calories.
 
@@ -339,7 +342,7 @@ RandomSample1
 ```
 Our actual sample of 10 burgers had an average calorimetric content of $`r MeanCal`$ while the expected value of this one random sample was  $`r round(mean (RandomSample1),2)`$.
 
-Hmm, from that one comparison it seems the one guy may be right; these burgers have more calories than what they claim. But we only have one random sample. To be robust, we probably should take 10000 random samples and from all of those see is the top 5% of the random samples, our critical threshold, is larger or smaller than our observed value/p-value.
+Hmm, from that one comparison it seems the one guy may be right; these burgers have more calories than what they claim. But we only have one random sample. To be robust, we probably should take 10000 random samples and from all of those see if the top 5% of the random samples, our critical threshold, is larger or smaller than our observed value/p-value.
 
 To run such a simulation, we can use the *for* loop function in R. Lets try. Let me explain that function with the example.
 

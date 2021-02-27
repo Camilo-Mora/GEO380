@@ -249,7 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-3.html"><a href="homework-3.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="7-linear-regression.html"><a href="7-linear-regression.html"><i class="fa fa-check"></i><b>7</b> Linear regression</a><ul>
+<li class="chapter" data-level="7" data-path="7-regression.html"><a href="7-regression.html"><i class="fa fa-check"></i><b>7</b> Regression</a><ul>
 <li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html"><i class="fa fa-check"></i>Parts of a line</a><ul>
 <li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html#how-to-interpret-the-slope"><i class="fa fa-check"></i>How to interpret the slope</a></li>
 <li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html#how-to-interpret-the-intercept"><i class="fa fa-check"></i>How to interpret the intercept</a></li>
@@ -311,13 +311,14 @@ By Camilo Mora, Ph.D.
 <div id="stating-hyphotheses-and-tails" class="section level2 unnumbered">
 <h2>Stating hyphotheses and tails</h2>
 <p>The statistical approach to hypothesis testing is to reduce all likely options to a binary choice between the <strong>null hypothesis</strong> or the <strong>alternative hypothesis</strong>.</p>
-<p>The <strong>null hypothesis</strong> is denoted with the letters <span class="math inline">\(Ho\)</span>. The <strong>alternative hypothesis</strong> is denoted with the letters <span class="math inline">\(H1\)</span> , and it is all what the null hypothesis is not.</p>
+<p>The <strong>null hypothesis</strong> is denoted with the letters <span class="math inline">\(Ho\)</span>. The <strong>alternative hypothesis</strong> is denoted with the letters <span class="math inline">\(H1\)</span>.</p>
+<p>The <strong>null hypothesis</strong> is always making reference to how things should commonly be, it can also make references to the option of no-difference or that something is equal to a given value. The <strong>alternative hypothesis</strong> is all what the <strong>null hypothesis</strong> is not.</p>
 <p>In statistics, you can only accept or reject the null hypothesis. This is why, when you reject the null hypothesis, you do not necessary accept the alternative hypothesis.</p>
-<p>There are several ways to state your hypothesis. Let’s try a few examples to clarify:</p>
+<p>There are several ways to state hypotheses. Let’s try a few examples to clarify:</p>
 <p>Say a burger company claims that their Combo #1 has 1,800 calories, with a variability (Standard deviation, SD) of 50 calories. To test if this is true you can set your hypotheses different ways, like:</p>
 <p>Null hypothesis, Ho: Combo1 = 1,800 calories.</p>
 <p>Alternative hypothesis, H1: Combo1 <span class="math inline">\(\neq\)</span> 1,800 calories.</p>
-<p>In this form, I am asking if the burger is equal to 1,800 calories. In this case, the alternative has to be that the burger is different than 1,800cal. To be different, a burger could be much smaller than 1,800 but it can also be much larger than 1,800 calories.</p>
+<p>In this form, I am asking if the burger is equal to 1,800 calories. In this case, the alternative has to be that the burger is different than 1,800cal. To be different, a burger could be much smaller than 1,800cal but it can also be much larger than 1,800 calories.</p>
 <p>If I take several of their burgers, and measure their caloric content, I can reject the null hypothesis if the sample I took had much higher number of calories, but also if the sample have many fewer calories than the significance level, <span class="math inline">\(\alpha\)</span>, I chosen. This is what is call a <strong>two-tail</strong> hypothesis. Lets visualize this in R,</p>
 <div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="stating-hyphotheses-and-tails.html#cb214-1"></a>mean=<span class="dv">1800</span> <span class="co"># this is the mean number of calories in their burger. We can think of this as the population mean</span></span>
 <span id="cb214-2"><a href="stating-hyphotheses-and-tails.html#cb214-2"></a>sd=<span class="dv">50</span>     <span class="co">#this is the variability in calories</span></span>

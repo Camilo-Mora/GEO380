@@ -1,4 +1,4 @@
-# Linear regression {}
+# Regression {}
 
 While the goal of correlation is to give you a metric of the strength of the relationship between two variables; the goal of regression is to give you a numerical representation of the tendency in your data. That numerical representation is called a **model** that describes a line that best represent the tendency in your two variables. At times, that line can also be called a **regression line** or a **trend** line.
 

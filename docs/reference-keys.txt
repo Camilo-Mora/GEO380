@@ -96,5 +96,5 @@ basics-on-data-manipulation-in-r
 basic-plots
 descriptive-statistics
 correlation
-linear-regression
+regression
 hypothesis-testing
