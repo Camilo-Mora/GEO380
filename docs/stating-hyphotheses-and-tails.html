@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="error-types.html"/>
+<link rel="prev" href="approach-to-testing-a-hyphothesis.html"/>
 <link rel="next" href="accepting-or-rejecting-the-null-hypothesis.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -277,12 +277,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis testing</a><ul>
-<li class="chapter" data-level="" data-path="significance-level.html"><a href="significance-level.html"><i class="fa fa-check"></i>Significance level</a></li>
-<li><a href="deciphering-alpha.html#deciphering-alpha">Deciphering <span class="math inline">\(\alpha\)</span></a></li>
-<li class="chapter" data-level="" data-path="error-types.html"><a href="error-types.html"><i class="fa fa-check"></i>Error types</a></li>
+<li class="chapter" data-level="" data-path="background-info.html"><a href="background-info.html"><i class="fa fa-check"></i>Background info</a><ul>
+<li class="chapter" data-level="" data-path="background-info.html"><a href="background-info.html#p-value-and-alpha"><i class="fa fa-check"></i>p-value and alpha</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="approach-to-testing-a-hyphothesis.html"><a href="approach-to-testing-a-hyphothesis.html"><i class="fa fa-check"></i>Approach to testing a hyphothesis</a></li>
 <li class="chapter" data-level="" data-path="stating-hyphotheses-and-tails.html"><a href="stating-hyphotheses-and-tails.html"><i class="fa fa-check"></i>Stating hyphotheses and tails</a></li>
 <li class="chapter" data-level="" data-path="accepting-or-rejecting-the-null-hypothesis.html"><a href="accepting-or-rejecting-the-null-hypothesis.html"><i class="fa fa-check"></i>Accepting or rejecting the null hypothesis</a></li>
 <li class="chapter" data-level="" data-path="testing-a-hypothesis-by-brutal-force.html"><a href="testing-a-hypothesis-by-brutal-force.html"><i class="fa fa-check"></i>Testing a hypothesis by brutal force</a></li>
+<li class="chapter" data-level="" data-path="error-types.html"><a href="error-types.html"><i class="fa fa-check"></i>Error types</a></li>
 <li class="chapter" data-level="" data-path="exercises-3.html"><a href="exercises-3.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-5.html"><a href="homework-5.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
@@ -318,11 +320,11 @@ By Camilo Mora, Ph.D.
 <p>The statistical approach to hypothesis testing is to reduce all likely options to a binary choice between the <strong>null hypothesis</strong> or the <strong>alternative hypothesis</strong>.</p>
 <p>The <strong>null hypothesis</strong> is denoted with the letters <span class="math inline">\(Ho\)</span>. The <strong>alternative hypothesis</strong> is denoted with the letters <span class="math inline">\(H1\)</span>.</p>
 <p>The <strong>null hypothesis</strong> is always making reference to how things should commonly be, it can also make references to the option of no-difference or that something is equal to a given value. The <strong>alternative hypothesis</strong> is all what the <strong>null hypothesis</strong> is not.</p>
-<p>In statistics, you can only <strong>reject the null hypothesis</strong> or <strong>fail to reject the null hypothesis</strong> (synonym for accept, but this term is not accepted because we are never certain). Along the same lines, when you reject the null hypothesis, we you do not accept the alternative hypothesis.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-266"></span>
+<p>In statistics, you can only <strong>reject the null hypothesis</strong> or <strong>fail to reject the null hypothesis</strong> (this is synonym for accept the null hypothesis, but this term is not accepted because we are never certain). Along the same lines, when you reject the null hypothesis, we you do not accept the alternative hypothesis.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-268"></span>
 <img src="images/FailedToReject.png" alt="Painfull rejection narrative" width="80%" />
 <p class="caption">
-Figure 8.7: Painfull rejection narrative
+Figure 8.8: Painfull rejection narrative
 </p>
 </div>
 <p>There are several ways to state hypotheses. Let’s try a few examples to clarify:</p>
@@ -330,7 +332,7 @@ Figure 8.7: Painfull rejection narrative
 <p>Null hypothesis, Ho: Combo1 = 1,800 calories.</p>
 <p>Alternative hypothesis, H1: Combo1 <span class="math inline">\(\neq\)</span> 1,800 calories.</p>
 <p>In this form, I am asking if the burger is equal to 1,800 calories. In this case, the alternative has to be that the burger is different than 1,800cal. To be different, a burger could be much smaller than 1,800cal but it can also be much larger than 1,800 calories.</p>
-<p>If I take several of their burgers, and measure their caloric content, I can reject the null hypothesis if the sample I took had much higher number of calories, but also if the sample have many fewer calories than the significance level, <span class="math inline">\(\alpha\)</span>, I chosen. This is what is call a <strong>two-tail</strong> test. Lets visualize this in R,</p>
+<p>If I take several of their burgers, and measure their caloric content, I can reject the null hypothesis if the sample I took had much higher or lower number of calories that the <strong>critical value</strong> at which the <strong>significance level</strong>, <span class="math inline">\(\alpha\)</span>, I chosen falls. This is what is call a <strong>two-tail</strong> test. Lets visualize this in R,</p>
 <div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="stating-hyphotheses-and-tails.html#cb214-1"></a>mean=<span class="dv">1800</span> <span class="co"># this is the mean number of calories in their burger. We can think of this as the population mean</span></span>
 <span id="cb214-2"><a href="stating-hyphotheses-and-tails.html#cb214-2"></a>sd=<span class="dv">50</span>     <span class="co">#this is the variability in calories</span></span>
 <span id="cb214-3"><a href="stating-hyphotheses-and-tails.html#cb214-3"></a></span>
@@ -350,13 +352,12 @@ Figure 8.7: Painfull rejection narrative
 <span id="cb214-17"><a href="stating-hyphotheses-and-tails.html#cb214-17"></a><span class="co">#Lets plot the critical areas</span></span>
 <span id="cb214-18"><a href="stating-hyphotheses-and-tails.html#cb214-18"></a><span class="kw">polygon</span>(<span class="kw">c</span>(x[x<span class="op">&gt;=</span>PositiveAlpha], PositiveAlpha), <span class="kw">c</span>(y[x<span class="op">&gt;=</span>PositiveAlpha], y[x<span class="op">==</span><span class="kw">max</span>(x)]), <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>) <span class="co">#right hand tail</span></span>
 <span id="cb214-19"><a href="stating-hyphotheses-and-tails.html#cb214-19"></a><span class="kw">polygon</span>(<span class="kw">c</span>(x[x<span class="op">&lt;=</span>NegativeAlpha], NegativeAlpha), <span class="kw">c</span>(y[x<span class="op">&lt;=</span>NegativeAlpha], y[x<span class="op">==</span><span class="kw">max</span>(x)]), <span class="dt">col=</span><span class="st">&quot;red&quot;</span>) <span class="co">#right hand tail</span></span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-267-1.png" width="672" /></p>
-<p>In the example above, I would reject the null hypothesis, if the sample I took, was larger or smaller than the significance level, <span class="math inline">\(\alpha\)</span>, I set. Basically, if my sample is on the red or blue area above, I can claim that my sample was significantly different than what the company claims.</p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-269-1.png" width="672" /></p>
 <p>The hypotheses could also be set like this:</p>
 <p>Null hypothesis, Ho: Combo1 &lt;= 1,800 calories.</p>
 <p>Alternative hypothesis, H1: Combo1 &gt; 1,800 calories.</p>
 <p>In the example above, I am being more specific, testing the null hypothesis that the average burger has less than 1,800 caloriess; the alternative hypothesis has ti be that the burger has more than 1,800 calories.</p>
-<p>If I take several of their burgers, and measure their caloric content, I can reject the null hypothesis only if the sample I took had much higher number of calories than the significance level, <span class="math inline">\(\alpha\)</span>, I chosen. This is what is call a <strong>right-tail</strong> test. Lets visualize this in R,</p>
+<p>If I take several of their burgers, and measure their caloric content, I can reject the null hypothesis only if the sample I took had much higher number of calories than the <strong>critical value</strong> at which the <strong>significance level</strong>, <span class="math inline">\(\alpha\)</span>, I chosen falls. This is what is call a <strong>right-tail</strong> test. Lets visualize this in R,</p>
 <div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="stating-hyphotheses-and-tails.html#cb215-1"></a>mean=<span class="dv">1800</span> <span class="co"># this is the mean number of calories in their burger. We can think of this as the population mean</span></span>
 <span id="cb215-2"><a href="stating-hyphotheses-and-tails.html#cb215-2"></a>sd=<span class="dv">50</span>     <span class="co">#this is the variability in calories</span></span>
 <span id="cb215-3"><a href="stating-hyphotheses-and-tails.html#cb215-3"></a></span>
@@ -373,13 +374,12 @@ Figure 8.7: Painfull rejection narrative
 <span id="cb215-14"><a href="stating-hyphotheses-and-tails.html#cb215-14"></a></span>
 <span id="cb215-15"><a href="stating-hyphotheses-and-tails.html#cb215-15"></a><span class="co">#Lets plot the one critical area</span></span>
 <span id="cb215-16"><a href="stating-hyphotheses-and-tails.html#cb215-16"></a><span class="kw">polygon</span>(<span class="kw">c</span>(x[x<span class="op">&gt;=</span>PositiveAlpha], PositiveAlpha), <span class="kw">c</span>(y[x<span class="op">&gt;=</span>PositiveAlpha], y[x<span class="op">==</span><span class="kw">max</span>(x)]), <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>) <span class="co">#right hand tail</span></span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-268-1.png" width="672" /></p>
-<p>In this case, I will reject the null hypothesis if the sample I took has more calories than the significance level I chosen; if my sample fall anywhere in the blue area.</p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-270-1.png" width="672" /></p>
 <p>The hypotheses could also be set like this:</p>
 <p>Null hypothesis, Ho: Combo1 &gt;= 1,800 calories.</p>
 <p>Alternative hypothesis, H1: Combo1 &lt; 1,800 calories.</p>
 <p>In the example above, I am testing if the burgers have more calories than what the company claims. The alternative hypothesis, then has to be that the burgers have less than 1,800 calories.</p>
-<p>If I take several of their burgers, and measure their caloric content, I can reject the null hypothesis only if the sample I took had much fewer number of calories than the significance level, <span class="math inline">\(\alpha\)</span>, I chosen. This is what is call a <strong>left-tail</strong> test. Lets visualize this in R,</p>
+<p>If I take several of their burgers, and measure their caloric content, I can reject the null hypothesis only if the sample I took had much fewer number of calories than the <strong>critical value</strong> at which the significance level I chosen falls. This is what is call a <strong>left-tail</strong> test. Lets visualize this in R,</p>
 <div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="stating-hyphotheses-and-tails.html#cb216-1"></a>mean=<span class="dv">1800</span> <span class="co"># this is the mean number of calories in their burger. We can think of this as the population mean</span></span>
 <span id="cb216-2"><a href="stating-hyphotheses-and-tails.html#cb216-2"></a>sd=<span class="dv">50</span>     <span class="co">#this is the variability in calories</span></span>
 <span id="cb216-3"><a href="stating-hyphotheses-and-tails.html#cb216-3"></a></span>
@@ -399,8 +399,7 @@ Figure 8.7: Painfull rejection narrative
 <span id="cb216-17"><a href="stating-hyphotheses-and-tails.html#cb216-17"></a></span>
 <span id="cb216-18"><a href="stating-hyphotheses-and-tails.html#cb216-18"></a><span class="co">#plot the critical thresholds set by alpha</span></span>
 <span id="cb216-19"><a href="stating-hyphotheses-and-tails.html#cb216-19"></a><span class="kw">abline</span>(<span class="dt">v=</span>NegativeAlpha, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;orange&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>) </span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-269-1.png" width="672" /></p>
-<p>In this case, I will reject the null hypothesis if the sample I took has less calories than the significance level I chosen; if my sample fall anywhere in the red area.</p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-271-1.png" width="672" /></p>
 </div>
 <div id="disqus_thread"></div>
 <script>
@@ -426,7 +425,7 @@ Figure 8.7: Painfull rejection narrative
           </div>
         </div>
       </div>
-<a href="error-types.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="approach-to-testing-a-hyphothesis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="accepting-or-rejecting-the-null-hypothesis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

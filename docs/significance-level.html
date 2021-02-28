@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="8-hypothesis-testing.html"/>
-<link rel="next" href="deciphering-alpha.html"/>
+<link rel="prev" href="homework-5.html"/>
+<link rel="next" href="9-is-a-sample-different.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -132,8 +132,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a>GEOG380 Basic Stats with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
 <li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
 <li class="chapter" data-level="" data-path="do-not-dispair-please.html"><a href="do-not-dispair-please.html"><i class="fa fa-check"></i>Do not dispair, please</a></li>
@@ -277,14 +276,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis testing</a><ul>
-<li class="chapter" data-level="" data-path="significance-level.html"><a href="significance-level.html"><i class="fa fa-check"></i>Significance level</a></li>
-<li><a href="deciphering-alpha.html#deciphering-alpha">Deciphering <span class="math inline">\(\alpha\)</span></a></li>
-<li class="chapter" data-level="" data-path="error-types.html"><a href="error-types.html"><i class="fa fa-check"></i>Error types</a></li>
+<li class="chapter" data-level="" data-path="background-info.html"><a href="background-info.html"><i class="fa fa-check"></i>Background info</a><ul>
+<li class="chapter" data-level="" data-path="background-info.html"><a href="background-info.html#p-value-and-alpha"><i class="fa fa-check"></i>p-value and alpha</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="approach-to-testing-a-hyphothesis.html"><a href="approach-to-testing-a-hyphothesis.html"><i class="fa fa-check"></i>Approach to testing a hyphothesis</a></li>
 <li class="chapter" data-level="" data-path="stating-hyphotheses-and-tails.html"><a href="stating-hyphotheses-and-tails.html"><i class="fa fa-check"></i>Stating hyphotheses and tails</a></li>
 <li class="chapter" data-level="" data-path="accepting-or-rejecting-the-null-hypothesis.html"><a href="accepting-or-rejecting-the-null-hypothesis.html"><i class="fa fa-check"></i>Accepting or rejecting the null hypothesis</a></li>
 <li class="chapter" data-level="" data-path="testing-a-hypothesis-by-brutal-force.html"><a href="testing-a-hypothesis-by-brutal-force.html"><i class="fa fa-check"></i>Testing a hypothesis by brutal force</a></li>
+<li class="chapter" data-level="" data-path="error-types.html"><a href="error-types.html"><i class="fa fa-check"></i>Error types</a></li>
 <li class="chapter" data-level="" data-path="exercises-3.html"><a href="exercises-3.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-5.html"><a href="homework-5.html"><i class="fa fa-check"></i>Homework</a></li>
+<li class="chapter" data-level="" data-path="significance-level.html"><a href="significance-level.html"><i class="fa fa-check"></i>Significance level</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="9-is-a-sample-different.html"><a href="9-is-a-sample-different.html"><i class="fa fa-check"></i><b>9</b> Is a sample different?</a><ul>
 <li class="chapter" data-level="" data-path="the-z-score.html"><a href="the-z-score.html"><i class="fa fa-check"></i>The Z-score</a></li>
@@ -315,26 +317,19 @@ By Camilo Mora, Ph.D.
             <section class="normal" id="section-">
 <div id="significance-level" class="section level2 unnumbered">
 <h2>Significance level</h2>
-<p>When the question is formulated of whether something is different; inherently, you are making a decision with a chance that we may be wrong. Put another way, we imply that there is a threshold beyond which we may be wrong. In statistics that threshold is called <strong>significance level</strong>, or alpha, <span class="math inline">\(\alpha\)</span>.</p>
 <p>Take my rabbit population below, and say I found a rabbit in the street and that all I have to compare is body size? Could this one rabbit be one of my rabbits?</p>
 <p>Tricky right?. Nine out of my ten rabbits are smaller. So is this one guy different as to be not one of mine?</p>
 <p>Well, it depends on the chance I want to give myself of being wrong.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-258"></span>
-<img src="images/IsDifferent.png" alt="Is it mine?" width="80%" />
-<p class="caption">
-Figure 8.2: Is it mine?
-</p>
-</div>
 <p>If I assume a threshold of say 20% chance of me being wrong. Then this rabbit would not be mine… 80% of my rabbits are smaller than 6.1 not included. The rabbit I found was 6.8, so at a 20% chance, this rabbit is too big to be from my rabbit population.</p>
 <p>What if I set the threshold of me being wrong at a 10% chance? In this case I am considering that the rabbit I found has to be smaller than the 10% largest rabbits in my population, for it to be mine.</p>
 <p>In my rabbit population, the top 10% largest rabbits are larger than 7, the rabbit I found was 6.8 so in this case this rabbit belongs to my population at a 10% chance that I may be wrong.</p>
 <p>This examples serves the purpose to illustrate that in hypothesis testing there is always a chance of you being wrong and that such a chance is proportional to how different the thing you have is compared to the population you are comparing to.</p>
+<p>When we refer to a significance level, <span class="math inline">\(\alpha\)</span>, we are referring to an specific fraction of the population that is on the tails of that distribution. Basically, those individuals that are different or special.</p>
+<p>With that said, and following on the example above about men heights’, any individual that is taller or shorter than two standard deviation below or above the mean, is different at a 5% level of confidence.</p>
+<p>Of course, you could use different levels of confidence, <span class="math inline">\(\alpha\)</span>, when testing if something is significantly different. But in all cases, <span class="math inline">\(\alpha\)</span> will be the threshold beyond which you conclude that something is significantly different.</p>
 
-<div class="rmdimportant">
-The threshold beyond which we reject a null hyphothesis is called the <strong>level of significance</strong> or alpha, <span class="math inline">\(\alpha\)</span>. You will also see named as a <span class="math inline">\(critical value\)</span>.
 </div>
-
-</div>
+<!-- </div> -->
 <div id="disqus_thread"></div>
 <script>
     /**
@@ -359,8 +354,8 @@ The threshold beyond which we reject a null hyphothesis is called the <strong>le
           </div>
         </div>
       </div>
-<a href="8-hypothesis-testing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="deciphering-alpha.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="homework-5.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="9-is-a-sample-different.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

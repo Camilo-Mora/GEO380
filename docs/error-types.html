@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="deciphering-alpha.html"/>
-<link rel="next" href="stating-hyphotheses-and-tails.html"/>
+<link rel="prev" href="testing-a-hypothesis-by-brutal-force.html"/>
+<link rel="next" href="exercises-3.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -277,12 +277,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis testing</a><ul>
-<li class="chapter" data-level="" data-path="significance-level.html"><a href="significance-level.html"><i class="fa fa-check"></i>Significance level</a></li>
-<li><a href="deciphering-alpha.html#deciphering-alpha">Deciphering <span class="math inline">\(\alpha\)</span></a></li>
-<li class="chapter" data-level="" data-path="error-types.html"><a href="error-types.html"><i class="fa fa-check"></i>Error types</a></li>
+<li class="chapter" data-level="" data-path="background-info.html"><a href="background-info.html"><i class="fa fa-check"></i>Background info</a><ul>
+<li class="chapter" data-level="" data-path="background-info.html"><a href="background-info.html#p-value-and-alpha"><i class="fa fa-check"></i>p-value and alpha</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="approach-to-testing-a-hyphothesis.html"><a href="approach-to-testing-a-hyphothesis.html"><i class="fa fa-check"></i>Approach to testing a hyphothesis</a></li>
 <li class="chapter" data-level="" data-path="stating-hyphotheses-and-tails.html"><a href="stating-hyphotheses-and-tails.html"><i class="fa fa-check"></i>Stating hyphotheses and tails</a></li>
 <li class="chapter" data-level="" data-path="accepting-or-rejecting-the-null-hypothesis.html"><a href="accepting-or-rejecting-the-null-hypothesis.html"><i class="fa fa-check"></i>Accepting or rejecting the null hypothesis</a></li>
 <li class="chapter" data-level="" data-path="testing-a-hypothesis-by-brutal-force.html"><a href="testing-a-hypothesis-by-brutal-force.html"><i class="fa fa-check"></i>Testing a hypothesis by brutal force</a></li>
+<li class="chapter" data-level="" data-path="error-types.html"><a href="error-types.html"><i class="fa fa-check"></i>Error types</a></li>
 <li class="chapter" data-level="" data-path="exercises-3.html"><a href="exercises-3.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-5.html"><a href="homework-5.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
@@ -315,13 +317,13 @@ By Camilo Mora, Ph.D.
             <section class="normal" id="section-">
 <div id="error-types" class="section level2 unnumbered">
 <h2>Error types</h2>
-<p>Hypothesis testing deals primarily with those things we could never know for sure; there is always a chance that we are wrong when making a conclusion. That chance of being wrong can be separated into two different types of errors called <strong>Type I</strong> and <strong>Type II</strong> errors.</p>
+<p>You probably noted the level of caution used while testing hypotheses. That is because we work on probabilities, so we are never certain. In hypothesis testing we deal primarily with those things we could never know for sure; there is always a chance that we are wrong when making a conclusion. That chance of being wrong can be separated into two different types of errors called <strong>Type I</strong> and <strong>Type II</strong> errors.</p>
 <p>I found a couple neat examples online you should check for further clarification on the Type-I and Type-II errors <a href="http://experimentaltheology.blogspot.com/2010/09/theology-of-type-1-type-2-errors.html">here</a> and <a href="https://www.analyticsvidhya.com/blog/2020/06/statistics-analytics-hypothesis-testing-z-test-t-test/">here</a></p>
-<p>Lets try the one about going to hell or to heaven depending on your threshold of what qualifies as a good or a bad thing…the example goes like this:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-263"></span>
+<p>Lets try the one example about going to hell or to heaven depending on your threshold of what qualifies as a good or a bad thing…the example goes like this:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-282"></span>
 <img src="images/Divine%20alpha.png" alt="Errors that send you to hell" width="90%" />
 <p class="caption">
-Figure 8.5: Errors that send you to hell
+Figure 8.12: Errors that send you to hell
 </p>
 </div>
 <p>There is a God, we have never met in person, that holds the <strong>ultimate threshold</strong> of the actions that qualify to go to heaven or not. Because we do not know the guy, and we do not have fully clear guidelines, there may be an speculation on that threshold. The point here is that there is an <strong>ultimate threshold</strong>, the <strong>ultimate truth</strong>, which we do not know for certain.</p>
@@ -329,11 +331,11 @@ Figure 8.5: Errors that send you to hell
 <p>The point above is that there is an ultimate threshold that defines the truth, a threshold that we do not know for certain, but that we can approximate. This approximation threshold it what we called <span class="math inline">\(\alpha\)</span> earlier: the chance we are giving ourselves to be wrong in our decisions.</p>
 <p>When our human <span class="math inline">\(\alpha\)</span> threshold matches the divine threshold, then we got lucky, and we were right every time we did something in life. No errors here. I did all right things knowingly knowing I will end up in heaven or I did all wrong things knowingly knowing I would end up in hell.</p>
 <p>However, if my threshold was too low and I did a lot of mean things, that turned out to be bad and reduced my going-to-heaven-score, then my threshold did have an error that let me to conclude that doing certain things were ok, when in truth they were not. If you think about this type of error, you accepted the hypothesis that certain things were ok, but turned out to be they were not fine. This is what is call a <strong>false negative</strong>, or a <strong>Type II</strong> error.</p>
-<p>Say that in the opposite my threshold to define what was right or not was too high…this may not necessary ensure me a ticket to heaven. While I am minimizing my Type II error, such a very high threshold means that I am probably not doing things that could be ok, things that may have help other people or the planet. So a high threshold may defeat the purpose of why God send me here, and we may be penalized for that. A very high threshold will lead to what is call a <strong>false positive</strong> or a <strong>Type I error</strong>. Rejecting things that could be ok. Over preaching and not doing could may well be a type I error.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-264"></span>
+<p>Say that in the opposite my threshold to define what was right or not was too high…this may not necessary ensure me a ticket to heaven. While I am minimizing my Type II error, such a very high threshold means that I am probably not doing things that could be ok, things that may have help other people or the planet. So a high threshold may defeat the purpose of why God send me here, and we may be penalized for that. A very high threshold will lead to what is call a <strong>false positive</strong> or a <strong>Type I error</strong>. Rejecting things that turned aout be ok.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-283"></span>
 <img src="images/TypesOfError.png" alt="Type I and Type II errors" width="80%" />
 <p class="caption">
-Figure 8.6: Type I and Type II errors
+Figure 8.13: Type I and Type II errors
 </p>
 </div>
 
@@ -367,8 +369,8 @@ A false negative, also call Type II error, is to accept the null hypothesis when
           </div>
         </div>
       </div>
-<a href="deciphering-alpha.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="stating-hyphotheses-and-tails.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="testing-a-hypothesis-by-brutal-force.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exercises-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
