@@ -318,22 +318,22 @@ By Camilo Mora, Ph.D.
 <div id="accepting-or-rejecting-the-null-hypothesis" class="section level2 unnumbered">
 <h2>Accepting or rejecting the null hypothesis</h2>
 <p>In a nutshell, the idea of testing a hypothesis is to see if a given individual or sample is larger or smaller than the population cutoff set by the level of significance, <span class="math inline">\(\alpha\)</span>.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-272"></span>
-<img src="images/P05.png" alt="The P-value" width="70%" />
-<p class="caption">
-Figure 8.9: The P-value
-</p>
-</div>
 <p>In a two tail test, the null hypothesis is rejected if the sample value is larger or smaller than the critical value. On the contrary, if your sample value is within the range outlined by your critical value, then you conclude that you failed to reject the null-hypothesis. Please remember that in statistics you only “fail to reject” or “reject” the null hypothesis but you never prove the alternative hypothesis when you reject the null hypothesis.</p>
 <p>In a right tail test, the null hypothesis is rejected if the sample value is larger than the critical value.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-273"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-272"></span>
 <img src="images/TestTypes.png" alt="Types of tests" width="80%" />
 <p class="caption">
-Figure 8.10: Types of tests
+Figure 8.9: Types of tests
 </p>
 </div>
 <p>In a left tail test, the null hypothesis is rejected if the sample value is smaller than the critical value.</p>
-<p>hypothesis can also be tested by simply comparing your choose level of significance, <span class="math inline">\(\alpha\)</span> to your p-value. Every time your p-value is smaller than the <span class="math inline">\(\alpha\)</span> you reject the null hypothesis.</p>
+<p>Hypotheses can also be tested by simply comparing your chosen level of significance, <span class="math inline">\(\alpha\)</span>, to your p-value. Every time your p-value is smaller than the <span class="math inline">\(\alpha\)</span> you reject the null hypothesis.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-273"></span>
+<img src="images/PHO.jpg" alt="If the P is low, the Ho must go" width="80%" />
+<p class="caption">
+Figure 8.10: If the P is low, the Ho must go
+</p>
+</div>
 <p>Think about this for a moment.</p>
 <p>Let’s say I am testing if the heart rate of a person is significantly larger that the average population using a <strong>level of significance</strong> at 0.05.</p>
 <p>In this case, I am assuming a heart rate will be significantly larger for any heart rate faster than the top 5% of all hearth rates in the human population.</p>
@@ -341,9 +341,9 @@ Figure 8.10: Types of tests
 <p>This means that the heart rate of this one person is as fast as the top 2% fastest hearth rates in the population.</p>
 <p>In this case, the p-value is smaller than <span class="math inline">\(\alpha\)</span>, so I reject the null hypothesis, and conclude that indeed the hearth rate of the given individual is significantly larger than expected from the average human population.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-274"></span>
-<img src="images/PHO.jpg" alt="If the P is low, the Ho must go" width="80%" />
+<img src="images/P05.png" alt="The P-value" width="70%" />
 <p class="caption">
-Figure 8.11: If the P is low, the Ho must go
+Figure 8.11: The P-value
 </p>
 </div>
 </div>

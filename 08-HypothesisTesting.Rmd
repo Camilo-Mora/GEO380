@@ -299,9 +299,7 @@ abline(v=NegativeAlpha, lwd=2, col="orange", lty=2)
 ## Accepting or rejecting the null hypothesis {-}
 In a nutshell, the idea of testing a hypothesis is to see if a given individual or sample is larger or smaller than the population cutoff set by the level of significance, $\alpha$.
 
-```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'The P-value'}
-knitr::include_graphics("images/P05.png")
-```
+
 
 In a two tail test, the null hypothesis is rejected if the sample value is larger or smaller than the critical value. On the contrary, if your sample value is within the range outlined by your critical value, then you conclude that you failed to reject the null-hypothesis. Please remember that in statistics you only "fail to reject" or "reject" the null hypothesis but you never prove the alternative hypothesis when you reject the null hypothesis. 
 
@@ -316,7 +314,11 @@ knitr::include_graphics("images/TestTypes.png")
 
 In a left tail test, the null hypothesis is rejected if the sample value is smaller than the critical value.
 
-hypothesis can also be tested by simply comparing your choose level of significance, $\alpha$ to your p-value. Every time your p-value is smaller than the $\alpha$ you reject the null hypothesis.  
+Hypotheses can also be tested by simply comparing your chosen level of significance, $\alpha$, to your p-value. Every time your p-value is smaller than the $\alpha$ you reject the null hypothesis.  
+
+```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'If the P is low, the Ho must go'}
+knitr::include_graphics("images/PHO.jpg")
+```
 
 Think about this for a moment. 
 
@@ -330,11 +332,11 @@ This means that the heart rate of this one person is as fast as the top 2% faste
 
 In this case, the p-value is smaller than $\alpha$, so I reject the null hypothesis, and conclude that indeed the hearth rate of the given individual is significantly larger than expected from the average human population. 
 
-```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'If the P is low, the Ho must go'}
-knitr::include_graphics("images/PHO.jpg")
+
+
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'The P-value'}
+knitr::include_graphics("images/P05.png")
 ```
-
-
 
 ## Testing a hypothesis by brutal force {-}
 In the following chapters, we will introduce standardized ways to test hypotheses comparing sample values to critical values; I want to finish this chapter by illustrating the ultimate idea behind testing a hypothesis by running a brief simulation. This simulation will aim to show the general approach of hypothesis testing.
@@ -477,6 +479,7 @@ Pretty neat, ah?. the modeled and statistical critical value were identical. And
 
 
 ## Error types {-}
+
 You probably noted the level of caution used while testing hypotheses. That is because we work on probabilities, so we are never certain. In hypothesis testing we deal primarily with those things we could never know for sure; there is always a chance that we are wrong when making a conclusion. That chance of being wrong can be separated into two different types of errors called **Type I** and **Type II** errors. 
 
 I found a couple neat examples online you should check for further clarification on the Type-I and Type-II errors [here](http://experimentaltheology.blogspot.com/2010/09/theology-of-type-1-type-2-errors.html) and [here](https://www.analyticsvidhya.com/blog/2020/06/statistics-analytics-hypothesis-testing-z-test-t-test/)
