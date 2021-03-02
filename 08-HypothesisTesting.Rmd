@@ -1,13 +1,11 @@
 # Hypothesis testing {}
 
-Chapter not ready for review
-
 In the prior chapters, we have been dealing with three of the core goals of statistics: visualization of data (i.e., scatterplots, histograms, etc.), description of the data (i.e., mean, mode, SD, etc), and relationships among variables (e.g., correlation, regression). In this chapter, we will deal with a fourth main goal of statistics: to tell if something (one thing) or somethings (many things) are different.
 
 
 There is an amazing level of complexity to that single question, of whether a thing or set of things are different. In this chapter, I want to break that complexity into its peaces, so you can better comprehend the results of any test aimed at testing for significant differences.
 
-```{r, out.width = "90%", echo= FALSE, fig.align = 'center',fig.cap = 'Rejecting the extremes or special'}
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Rejecting the extremes or special'}
 knitr::include_graphics("images/NastyReject.png")
 ```
 
@@ -17,9 +15,9 @@ At the end of this chapter, it is expected that you:
 
 1. Can state a null hypothesis and alternative hypothesis.
 
-2. Can interpret the level of significance and the critical values,
+2. Can interpret the level of significance and the critical values.
 
-3. Can interpret p-value.
+3. Can interpret the p-value.
 
 4. Can interpret the different types of errors when making a conclusion on a hypothesis.
 
@@ -61,7 +59,7 @@ In the example below, 10% of the rabbits are larger than 7in. In this case, the 
 
 It is called critical value, because that is the cut off that will determine if your sample is significantly different or not. 
 
-In the example below, the rabbit I want to compare is 6.8in tall, so at a $significance level$=0.01, this rabbit is not significantly large. 
+In the example below, the rabbit I want to compare is 6.8in tall, so at a *significance level*=0.01, this rabbit is not significantly large. 
 
 
 ```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'Critical value'}
@@ -113,7 +111,7 @@ If you recall Chapter 5, we mentioned that 95% of the individuals on any normall
 In the figure below, I illustrate random samples of males taken from the US men height population. If I were to count the fraction of men two standard deviations below or above the mean height (percentage red numbers shown in the figure) on each sample, you would see that on any sample there are cumulatively almost always 5%, or about 2.5% on each tail of the distribution. Cool ah?
 
 
-```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'Frcation of population beyond 2SD'}
+```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'Fraction of population beyond 2SD l'}
 knitr::include_graphics("images/AnimatedDistribution.gif")
 ```
 
@@ -132,17 +130,17 @@ knitr::include_graphics("images/TallShort.jpg")
 This mathematic property of a normal population also works in reverse. Let's say I found a men that is $`r round(Mean_Height  - (2*SD_Heigh),2)`$cm tall?. What fraction can be shorter than him?
 
 
-In this case, this guy is 2SD (Standard deviations) below the mean. The average height was $`r Mean_Height `$ and one standard deviation, SD, was $`r SD_Heigh`$. So $`r Mean_Height `$ - (2 *$`r SD_Heigh`) = $`r round(Mean_Height  - (2*SD_Heigh),2)`$.
+In this case, this guy is 2SD (Standard deviations) below the mean. The average height was $`r Mean_Height `$ and one standard deviation, SD, was $`r SD_Heigh`$. So $`r Mean_Height `$ - (2 *$`r SD_Heigh`)$ = $`r round(Mean_Height  - (2*SD_Heigh),2)`$.
 
-We know that above the mean there are 50% of men, and two standard deviations below the mean are 47.5%. So 97.5% of the men are taller than that guy. This guys is as short as the shortest 2.5% of the men in th USA. If we assume a level of significance of 5%, then you can claim this one guy is significantly short.
+We know that above the mean there are 50% of men, and two standard deviations below the mean are 47.5%. So 97.5% of the men are taller than that guy. This guy is as short as the shortest 2.5% of the men in th USA. If we assume a level of significance of 5%, then you can claim this one guy is significantly short.
 
-In statistics, the fraction of individuals, members, data points, etc. that are above or below the given sample value in a population is called the p-value.
+In statistics, the fraction of individuals, members, data points, etc. that are above or below the given sample value in a population is called the **p-value**.
 
 So in the example above, our conclusion that this one guy was significantly shorter has a p-value = 0.025 or 2.5%.
 
 If we assume a level of significance, $\alpha$, of 0.05, then we are assuming that something is significantly smaller or taller, if it is as short or as tall to the shortest or tallest 5% of the population. 
 
-In R, we can find out the critical value in a distribution of data at any given significance level using the $qnorm$ function, which we used earlier. Worth nothing that this function assumes that the population is normally distributed. 
+In R, we can find out the critical value in a distribution of data at any given significance level using the $qnorm$ function, which we used earlier. Worth nothing that this function assumes that the population is normally distributed. We will use this fucntion briefly.
 
 
 In the example just above, the short guy was $`r round(Mean_Height  - (2*SD_Heigh),2)`$cm tall, which was as short as the shortest 2.5% of the population. So this person is significantly small at an $\alpha$ of 0.05.  In fact, we can be more confident than that as our conclusion has a p-value of 0.025; We know that over 97.5% of the US population is taller than him.
@@ -156,13 +154,13 @@ All you need to know is how many standard deviations from the mean a given indiv
 
 
 ```{block2, type='rmdimportant'}
-P-VALUE is the fraction of individuals in a population as extreme as or more extreme than an observed individual.
+P-VALUE is the fraction of individuals in a population as extreme as or more extreme than an observed sample
 It is also refered as a probability. 
 ```
 
 
 
-Lets finish this section by looking at the fraction of individuals in a population at increasing larger standard deviation.
+Lets finish this section by looking at the fraction of individuals in a population at increasing larger standard deviation. In short the fractions at each tail of a distributiona re very predictable if you know the standard deviation from a population.
 
 ```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'Significance level'}
 knitr::include_graphics("images/CummulativeNormalDistribution.gif")
@@ -249,15 +247,11 @@ text(UpperCriticalVal,0.0065,"Reject",pos=4)
 #while we are at it, lets indicate the zone of the level of confidence
 Arrows(LowerCriticalVal,0.0085,UpperCriticalVal,0.0085,lwd=2, arr.type="curved",code=3)
 text(mean,0.0085,"Level of confidence ",pos=3)
-
-#finally, let's add a label to indicate the types of hyphotesis this test will help anwser
-
-
 ```
 
 
 
-The hypotheses could also be set like this:
+The hypotheses could also be stated as:
 
 Null hypothesis,         Ho:  Combo1 <= 1,800 calories.
 
@@ -421,7 +415,7 @@ plot(1, type="n", xlab="Total calories in MacDonal's bugers", ylab="Percent of b
 
 #plot the critical value
   abline(v=CriticalVal, lwd=2, col="red", lty=2) 
-  #lets name the mean sample value
+  #lets name the statistical critical value
   text(CriticalVal,10,labels="Statistical critical value",pos=2, col="red")
 
 ```
@@ -505,12 +499,14 @@ text(ModelledCriticalValue,6000,labels="Modeled critical value",pos=2, col="oran
 
 ```
 
-Pretty neat, ah?. the modeled and statistical critical value were identical. And they both were below the sample value. In short, the sample of ten burgers (Blue line in figure above) was much larger than the critical value at 5% (red lines), we then reject the null hypothesis that these burgers have less than 1,500 calories, and would have to embrace the alternative hypothesis that the burgers have more than 1500 calories. You can surmise in your report to the judge that the one guy lawsuiting MacDonalds was deceived. A case of false advertisement.
+Pretty neat, ah?. the modeled and statistical critical value were identical. And they both were below the sample value. In short, the sample of ten burgers (Blue line in figure above) was much larger than the critical value at 5% (red lines), we then reject the null hypothesis that these burgers have less than 1,500 calories, and would have to embrace the alternative hypothesis that the burgers have more than 1500 calories. You can surmise in your report to the judge that the one guy lawsuiting MacDonals was deceived. A potential case of false advertisement.
 
 
 ## Error types {-}
 
-You probably noted the level of caution used while testing hypotheses. That is because we work on probabilities, so we are never certain. In hypothesis testing we deal primarily with those things we could never know for sure; there is always a chance that we are wrong when making a conclusion. That chance of being wrong can be separated into two different types of errors called **Type I** and **Type II** errors. 
+You probably noted the level of caution used while testing hypotheses. That is because we work on probabilities, so we are never certain.
+
+In hypothesis testing, we deal primarily with those things we could never know for sure; there is always a chance that we are wrong when making a conclusion. That chance of being wrong can be separated into two different types of errors called **Type I** and **Type II** errors. 
 
 I found a couple neat examples online you should check for further clarification on the Type-I and Type-II errors [here](http://experimentaltheology.blogspot.com/2010/09/theology-of-type-1-type-2-errors.html) and [here](https://www.analyticsvidhya.com/blog/2020/06/statistics-analytics-hypothesis-testing-z-test-t-test/)
 
@@ -524,14 +520,14 @@ There is a God, we have never met in person, that holds the **ultimate threshold
 
 On the other side of this problem is our judgment of what God would mean such threshold is. The ten commitments were a nice start, but what about when you are mean to your teacher?. The Bible says do not do to others what you do not want others to do to you. Would being mean to another person take points out my score to go to heaven?. If I were you I would play it save and be nice to everyone, including your teacher, but we are uncertain if being mean reduces the score of the going-to-heaven ticket.
 
-The point above is that there is an ultimate threshold that defines the truth, a threshold that we do not know for certain, but that we can approximate. This approximation threshold it what we called $\alpha$ earlier: the chance we are giving ourselves to be wrong in our decisions. 
+The point above is that there is an ultimate threshold that defines the truth, a threshold that we do not know for certain, but that we can approximate. This approximation threshold is what we called $\alpha$ earlier: the chance we are giving ourselves to be wrong in our decisions. 
 
 When our human $\alpha$ threshold matches the divine threshold, then we got lucky, and we were right every time we did something in life. No errors here. I did all right things knowingly  knowing I will end up in heaven or I did all wrong things knowingly knowing I would end up in hell.
 
 
 However, if my threshold was too low and I did a lot of mean things, that turned out to be bad and reduced my going-to-heaven-score, then my threshold did have an error that let me to conclude that doing certain things were ok, when in truth they were not. If you think about this type of error, you accepted the hypothesis that certain things were ok, but turned out to be they were not fine. This is what is call a **false negative**, or a **Type II** error.
 
-Say that in the opposite my threshold to define what was right or not was too high...this may not necessary ensure me a ticket to heaven. While I am minimizing my Type II error, such a very high threshold means that I am probably not doing things that could be ok,  things that may have help other people or the planet. So a high threshold may defeat the purpose of why God send me here, and we may be penalized for that. A very high threshold will lead to what is call a **false positive** or a **Type I error**. Rejecting things that turned aout be ok.
+Say that in the opposite my threshold to define what was right or not was too high. While it may help me minimize my Type II error, such a very high threshold means that I am probably not doing things that could be ok, things that may make life nicer. A very high threshold will lead to what is call a **false positive** or a **Type I error**. Rejecting things that turned out were ok.
 
 
 
@@ -551,36 +547,36 @@ A false negative, also call Type II error, is to accept the null hypothesis when
 ## Exercises {-}
 Some of these questions may take a while to load depending on your internet connection.
 
-<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=28" width="958" height="344" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=28" width="1000" height="344" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 
-<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=29" width="958" height="572" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=29" width="1000" height="572" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 
-<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=30" width="958" height="530" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=30" width="1000" height="530" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
-<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=36" width="958" height="531" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=36" width="1000" height="531" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
-<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=31" width="958" height="311" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
-
-
-<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=32" width="958" height="311" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=31" width="1000" height="311" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 
-<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=33" width="958" height="311" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=32" width="1000" height="311" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 
-<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=34" width="958" height="311" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=33" width="1000" height="311" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 
-<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=35" width="958" height="312" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=34" width="1000" height="311" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=35" width="1000" height="312" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 
 
 
 ## Homework {-}
 
-The annual migration of a bird through a watershed in Florida has remained stable for several years at an average of 1,2 million birds and a standard deviation of 100,000 birds. In the last year, the number of birds was 700,000. There have been numerous concern that a development project may be damaging the habitats of the bird. As a first order of inquiry, we need to know if this year's numbers are significantly lower than in prior years. Please test this hypothesis at a 5% level of confidence?
+The annual migration of a bird through a watershed in Florida has remained stable for several years at an average of 1,2 million birds and a standard deviation of 100,000 birds. In the last year, the number of birds was 700,000. There have been numerous concerns that a development project may be damaging the habitats of the bird. As a first order of inquiry, we need to know if this year's number was significantly lower than in prior years. Please test this hypothesis at a 5% level of confidence?
 
 
 In this exercise, please:

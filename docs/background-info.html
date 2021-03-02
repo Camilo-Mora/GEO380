@@ -347,7 +347,7 @@ Figure 8.3: How p&lt;0.05 feels like
 <p>The particular value in a distribution where the given <span class="math inline">\(\alpha\)</span> occurs is call the <strong>critical value</strong>. Say you want to test a hypothesis that a given rabbit is significantly larger than the common rabbit and you want to test this hypothesis with a level of significance of 0.1. In this case, you need to know the size at which 10% of the common rabbit occurs.</p>
 <p>In the example below, 10% of the rabbits are larger than 7in. In this case, the critical value for a level of significance of 0.1 is 7in.</p>
 <p>It is called critical value, because that is the cut off that will determine if your sample is significantly different or not.</p>
-<p>In the example below, the rabbit I want to compare is 6.8in tall, so at a <span class="math inline">\(significance level\)</span>=0.01, this rabbit is not significantly large.</p>
+<p>In the example below, the rabbit I want to compare is 6.8in tall, so at a <em>significance level</em>=0.01, this rabbit is not significantly large.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-261"></span>
 <img src="images/IsDifferent.png" alt="Critical value" width="80%" />
 <p class="caption">
@@ -387,9 +387,9 @@ The threshold beyond which we reject a null hyphothesis is called the <strong>le
 <p>If you recall Chapter 5, we mentioned that 95% of the individuals on any normally distributed population are within two-standard deviations from the mean. Lets check that out.</p>
 <p>In the figure below, I illustrate random samples of males taken from the US men height population. If I were to count the fraction of men two standard deviations below or above the mean height (percentage red numbers shown in the figure) on each sample, you would see that on any sample there are cumulatively almost always 5%, or about 2.5% on each tail of the distribution. Cool ah?</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-264"></span>
-<img src="images/AnimatedDistribution.gif" alt="Frcation of population beyond 2SD" width="80%" />
+<img src="images/AnimatedDistribution.gif" alt="Fraction of population beyond 2SD l" width="80%" />
 <p class="caption">
-Figure 8.5: Frcation of population beyond 2SD
+Figure 8.5: Fraction of population beyond 2SD l
 </p>
 </div>
 <p>And it gets even better, you can know very precisely, then the fraction of individuals in a population that are above or below a given standard deviation.</p>
@@ -403,23 +403,23 @@ Figure 8.6: How do you like me?
 </p>
 </div>
 <p>This mathematic property of a normal population also works in reverse. Let’s say I found a men that is <span class="math inline">\(162.56\)</span>cm tall?. What fraction can be shorter than him?</p>
-<p>In this case, this guy is 2SD (Standard deviations) below the mean. The average height was <span class="math inline">\(177.8\)</span> and one standard deviation, SD, was <span class="math inline">\(7.62\)</span>. So <span class="math inline">\(177.8\)</span> - (2 *$7.62) = <span class="math inline">\(162.56\)</span>.</p>
-<p>We know that above the mean there are 50% of men, and two standard deviations below the mean are 47.5%. So 97.5% of the men are taller than that guy. This guys is as short as the shortest 2.5% of the men in th USA. If we assume a level of significance of 5%, then you can claim this one guy is significantly short.</p>
-<p>In statistics, the fraction of individuals, members, data points, etc. that are above or below the given sample value in a population is called the p-value.</p>
+<p>In this case, this guy is 2SD (Standard deviations) below the mean. The average height was <span class="math inline">\(177.8\)</span> and one standard deviation, SD, was <span class="math inline">\(7.62\)</span>. So <span class="math inline">\(177.8\)</span> - (2 *<span class="math inline">\(7.62)\)</span> = <span class="math inline">\(162.56\)</span>.</p>
+<p>We know that above the mean there are 50% of men, and two standard deviations below the mean are 47.5%. So 97.5% of the men are taller than that guy. This guy is as short as the shortest 2.5% of the men in th USA. If we assume a level of significance of 5%, then you can claim this one guy is significantly short.</p>
+<p>In statistics, the fraction of individuals, members, data points, etc. that are above or below the given sample value in a population is called the <strong>p-value</strong>.</p>
 <p>So in the example above, our conclusion that this one guy was significantly shorter has a p-value = 0.025 or 2.5%.</p>
 <p>If we assume a level of significance, <span class="math inline">\(\alpha\)</span>, of 0.05, then we are assuming that something is significantly smaller or taller, if it is as short or as tall to the shortest or tallest 5% of the population.</p>
-<p>In R, we can find out the critical value in a distribution of data at any given significance level using the <span class="math inline">\(qnorm\)</span> function, which we used earlier. Worth nothing that this function assumes that the population is normally distributed.</p>
+<p>In R, we can find out the critical value in a distribution of data at any given significance level using the <span class="math inline">\(qnorm\)</span> function, which we used earlier. Worth nothing that this function assumes that the population is normally distributed. We will use this fucntion briefly.</p>
 <p>In the example just above, the short guy was <span class="math inline">\(162.56\)</span>cm tall, which was as short as the shortest 2.5% of the population. So this person is significantly small at an <span class="math inline">\(\alpha\)</span> of 0.05. In fact, we can be more confident than that as our conclusion has a p-value of 0.025; We know that over 97.5% of the US population is taller than him.</p>
 <p>Multiple academic discussions have taken place around the need to report the <strong>level of significance</strong> when the <strong>p-value</strong> is more accurate. At least now you know what they both mean.</p>
 <p>From the example above, we can see that the overall approach to test if something is significantly different is relatively straightforward.</p>
 <p>All you need to know is how many standard deviations from the mean a given individual or sample is. From this you can know the fraction of individuals that are above or below that given number (the p-value). You can then compare that p-value to the level of significance, <span class="math inline">\(\alpha\)</span>, you want to use. If the p-value is smaller than the level of significance then you conclude that the one thing is significantly different at the given <span class="math inline">\(\alpha\)</span>.</p>
 
 <div class="rmdimportant">
-P-VALUE is the fraction of individuals in a population as extreme as or more extreme than an observed individual.
+P-VALUE is the fraction of individuals in a population as extreme as or more extreme than an observed sample
 It is also refered as a probability.
 </div>
 
-<p>Lets finish this section by looking at the fraction of individuals in a population at increasing larger standard deviation.</p>
+<p>Lets finish this section by looking at the fraction of individuals in a population at increasing larger standard deviation. In short the fractions at each tail of a distributiona re very predictable if you know the standard deviation from a population.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-267"></span>
 <img src="images/CummulativeNormalDistribution.gif" alt="Significance level" width="80%" />
 <p class="caption">
