@@ -384,7 +384,7 @@ By Camilo Mora, Ph.D.
 <span id="cb228-25"><a href="alternative-types-of-tests.html#cb228-25"></a></span>
 <span id="cb228-26"><a href="alternative-types-of-tests.html#cb228-26"></a></span>
 <span id="cb228-27"><a href="alternative-types-of-tests.html#cb228-27"></a><span class="co">#lets plot the first distribution</span></span>
-<span id="cb228-28"><a href="alternative-types-of-tests.html#cb228-28"></a><span class="kw">plot</span>(GasA, <span class="dt">main=</span><span class="ot">NA</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="fl">0.7</span>, <span class="fl">1.4</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1400</span>),<span class="dt">breaks =</span> breaks, <span class="dt">xlab =</span> <span class="st">&quot;Dispensed gas volume for a reported 1 gallon (in gallons)&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;Number of trials&quot;</span> ,<span class="dt">col=</span>LightBlue)</span>
+<span id="cb228-28"><a href="alternative-types-of-tests.html#cb228-28"></a><span class="kw">plot</span>(GasA, <span class="dt">main=</span><span class="ot">NA</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="fl">0.7</span>, <span class="fl">1.4</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1500</span>),<span class="dt">breaks =</span> breaks, <span class="dt">xlab =</span> <span class="st">&quot;Dispensed gas volume for a reported 1 gallon (in gallons)&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;Number of trials&quot;</span> ,<span class="dt">col=</span>LightBlue)</span>
 <span id="cb228-29"><a href="alternative-types-of-tests.html#cb228-29"></a></span>
 <span id="cb228-30"><a href="alternative-types-of-tests.html#cb228-30"></a><span class="kw">plot</span>(GasB, <span class="dt">add=</span>T ,<span class="dt">col=</span>DarkRed)  <span class="co">#note how for the parameter col, you indicate the color you create as a variable above</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-286-1.png" width="672" /></p>
@@ -435,15 +435,19 @@ By Camilo Mora, Ph.D.
 <span id="cb229-38"><a href="alternative-types-of-tests.html#cb229-38"></a><span class="kw">plot</span>(France, <span class="dt">add=</span>T ,<span class="dt">col=</span>DarkRed)  <span class="co">#note how for the parameter col, you indicate the color you create as a variable above</span></span>
 <span id="cb229-39"><a href="alternative-types-of-tests.html#cb229-39"></a></span>
 <span id="cb229-40"><a href="alternative-types-of-tests.html#cb229-40"></a><span class="kw">plot</span>(NKorea, <span class="dt">add=</span>T ,<span class="dt">col=</span>MiddleOrange)  <span class="co">#note how for the parameter col, you indicate the color you create as a variable above</span></span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-287-1.png" width="672" />
-#selecting the right test {-}
-At this moment you should be able to identify cases involving comparisons between one, two or more samples. When you are interested for testing for significant differences int he cases above you have an option between tests called Z-test, T-test and the ANOVA or so-called analysis if variances. Which test you should use is based primarily on the number of samples to use, whether you know the variance of your population and whether the sample size is larger than 30 individuals or not. You need to use the following chart to select the proper test. Pleas remember that these are parametric tests, meaning they are only useful for cases in which data are normally distributed.</p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-287-1.png" width="672" /></p>
+<p>##selecting the right test {-}
+At this moment you should be able to identify cases involving comparisons between one, two or more samples. When you are interested for testing for significant differences int he cases above you have an option between tests called Z-test, T-test and the ANOVA or so-called analysis if variances.</p>
+<p>Which test you should use is based primarily on the number of samples to use, whether you know the variance of your population and whether the sample size is larger than 30 individuals or not. You need to use the following chart to select the proper test. Pleas remember that these are parametric tests, meaning they are only useful for cases in which data are normally distributed.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-288"></span>
 <img src="images/SelectingTest.png" alt="Selecting statistical test" width="70%" />
 <p class="caption">
 Figure 9.1: Selecting statistical test
 </p>
 </div>
+<p>Also take a moment to review how hypotheses are stated, as that will be important in a moment to select the right type of test.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8NKaocZectc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
 </div>
 </div>
 <div id="disqus_thread"></div>

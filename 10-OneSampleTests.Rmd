@@ -5,7 +5,7 @@ is it the gas in Hawaii significantly more expensive than the rest of the USA?.
 
 is a 10 year old girl taller than expected?
 
-These types of questions can be answered with either the Z-test or the T-Test, which we will introduce in this chapter. Both of these tests are suited for one-sample test, but the Z-test is used for cases in which you know the population SD and your sample size is larger than 30 individuals.  If on the controrary, you do not know your population SD or your sample size is smaller thn 30, then you used the T-Test.
+These types of questions can be answered with either the Z-test or the T-Test, which we will introduce in this chapter. Both of these tests are suited for one-sample test, but the Z-test is used for cases in which you know the population SD and your sample size is larger than 30 individuals.  If on the contrary, you do not know your population SD or your sample size is smaller thn 30, then you used the T-Test.
 
 ```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Z-score fucntion'}
 knitr::include_graphics("images/SelectingOnSampleTest.png")

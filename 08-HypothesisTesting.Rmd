@@ -188,6 +188,10 @@ The **null hypothesis** is denoted with the letters $Ho$. The **alternative hypo
 
 The **null hypothesis** is always making reference to how things should commonly be, it can also make references to the option of no-difference or that something is equal to a given value. The **alternative hypothesis**  is all what the **null hypothesis** is not. 
 
+Check the following video, about how to state hypothesis.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8NKaocZectc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 In statistics, you can only **reject the null hypothesis** or **fail to reject the null hypothesis** (this is synonym for accept the null hypothesis, but this term is not accepted because we are never certain). Along the same lines, when you reject the null hypothesis, we you do not accept the alternative hypothesis. 
 
 ```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'Painfull rejection narrative'}

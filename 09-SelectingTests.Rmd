@@ -79,7 +79,7 @@ DarkRed <- rgb(255,192,203, max = 255, alpha = 95, names = "lt.pink")
 
 
 #lets plot the first distribution
-plot(GasA, main=NA,xlim=c(0.7, 1.4),ylim=c(0, 1400),breaks = breaks, xlab = "Dispensed gas volume for a reported 1 gallon (in gallons)",ylab = "Number of trials" ,col=LightBlue)
+plot(GasA, main=NA,xlim=c(0.7, 1.4),ylim=c(0, 1500),breaks = breaks, xlab = "Dispensed gas volume for a reported 1 gallon (in gallons)",ylab = "Number of trials" ,col=LightBlue)
 
 plot(GasB, add=T ,col=DarkRed)  #note how for the parameter col, you indicate the color you create as a variable above
  
@@ -140,8 +140,11 @@ plot(NKorea, add=T ,col=MiddleOrange)  #note how for the parameter col, you indi
 
  
 ``` 
-#selecting the right test {-}
-At this moment you should be able to identify cases involving comparisons between one, two or more samples. When you are interested for testing for significant differences int he cases above you have an option between tests called Z-test, T-test and the ANOVA or so-called analysis if variances. Which test you should use is based primarily on the number of samples to use, whether you know the variance of your population and whether the sample size is larger than 30 individuals or not. You need to use the following chart to select the proper test. Pleas remember that these are parametric tests, meaning they are only useful for cases in which data are normally distributed.
+
+##selecting the right test {-}
+At this moment you should be able to identify cases involving comparisons between one, two or more samples. When you are interested for testing for significant differences int he cases above you have an option between tests called Z-test, T-test and the ANOVA or so-called analysis if variances. 
+
+Which test you should use is based primarily on the number of samples to use, whether you know the variance of your population and whether the sample size is larger than 30 individuals or not. You need to use the following chart to select the proper test. Pleas remember that these are parametric tests, meaning they are only useful for cases in which data are normally distributed.
 
 
 
@@ -149,6 +152,9 @@ At this moment you should be able to identify cases involving comparisons betwee
 knitr::include_graphics("images/SelectingTest.png")
 ```
 
+Also take a moment to review how hypotheses are stated, as that will be important in a moment to select the right type of test.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8NKaocZectc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ## Homework {-}
