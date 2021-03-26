@@ -1,0 +1,14 @@
+# Standard hyphostesis tests {}
+
+## The Z-score {-}
+As it has been indicated several times in this book, it is relatively easy to know the proportion of individuals in a population at certain standard deviations from the mean. AS an example, plus or minus two standard deviations from the mean include about 95% of the individuals in that population (assuming of course the population is normally distributed). Given this principle then you can easily know the fraction or individuals  
+
+## Exercises {-}
+Some of these questions may take a while to load depending on your internet connection.
+
+
+1.Running a one sample Z-test, interpreting its results from R.
+2.Running a one sample T-test, interpreting its results from R.
+
+
+## Homework {-}

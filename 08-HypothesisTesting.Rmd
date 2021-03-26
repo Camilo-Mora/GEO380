@@ -436,7 +436,7 @@ RandomSample1<- rnorm(1,MeanPopulation,SDPopulation)
 RandomSample1
 
 ```
-Our actual sample of 10 burgers had an average calorimetric content of $`r MeanCal`$ while the expected value of this one random sample was  $`r round(mean (RandomSample1),2)`$.
+So one sample burger from a population with a mean of 1500 and a standard deviation, SD, of 50 is $`r round(mean (RandomSample1),2)`$.
 
 Hmm, ok, but we only have one random sample. To be robust, we probably should take 100,000 random samples and from all of those see if the top 5% of the random samples, our critical threshold, is larger or smaller than our observed sample value.
 
