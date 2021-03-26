@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="9-standard-hyphostesis-tests.html"/>
-<link rel="next" href="the-z-score.html"/>
+<link rel="next" href="homework-6.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -291,10 +291,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html"><i class="fa fa-check"></i>Alternative types of tests</a><ul>
 <li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html#one-sample-test"><i class="fa fa-check"></i>One sample test</a></li>
 <li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html#two-sample-test"><i class="fa fa-check"></i>Two sample test</a></li>
+<li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html#more-than-two-sample-test"><i class="fa fa-check"></i>More than two sample test</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="homework-6.html"><a href="homework-6.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="10-standard-hyphostesis-tests-1.html"><a href="10-standard-hyphostesis-tests-1.html"><i class="fa fa-check"></i><b>10</b> Standard hyphostesis tests</a><ul>
 <li class="chapter" data-level="" data-path="the-z-score.html"><a href="the-z-score.html"><i class="fa fa-check"></i>The Z-score</a></li>
 <li class="chapter" data-level="" data-path="exercises-4.html"><a href="exercises-4.html"><i class="fa fa-check"></i>Exercises</a></li>
-<li class="chapter" data-level="" data-path="homework-6.html"><a href="homework-6.html"><i class="fa fa-check"></i>Homework</a></li>
+<li class="chapter" data-level="" data-path="homework-7.html"><a href="homework-7.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
@@ -362,21 +366,77 @@ By Camilo Mora, Ph.D.
 <span id="cb2-9"><a href="alternative-types-of-tests.html#cb2-9"></a>SimulatedGasB&lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10000</span>,MeanGasB,SDGasB) <span class="co">#lets simulate a population for gas station A.</span></span>
 <span id="cb2-10"><a href="alternative-types-of-tests.html#cb2-10"></a></span>
 <span id="cb2-11"><a href="alternative-types-of-tests.html#cb2-11"></a></span>
-<span id="cb2-12"><a href="alternative-types-of-tests.html#cb2-12"></a>breaks =<span class="st"> </span><span class="kw">seq</span>(<span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="dt">length.out =</span> <span class="dv">100</span>) <span class="co">#I create a set of bins for the x-axis of the distribution, this will determine how many bis you have</span></span>
+<span id="cb2-12"><a href="alternative-types-of-tests.html#cb2-12"></a>breaks =<span class="st"> </span><span class="kw">seq</span>(<span class="fl">0.8</span>, <span class="fl">1.3</span>, <span class="dt">length.out =</span> <span class="dv">100</span>) <span class="co">#I create a set of bins for the x-axis of the distribution, this will determine how many bis you have</span></span>
 <span id="cb2-13"><a href="alternative-types-of-tests.html#cb2-13"></a></span>
 <span id="cb2-14"><a href="alternative-types-of-tests.html#cb2-14"></a><span class="co">#next I plot the data. because we want to plot two distributions on top of each other. we need to create each distribution independently and then add them to a  single plot</span></span>
 <span id="cb2-15"><a href="alternative-types-of-tests.html#cb2-15"></a></span>
 <span id="cb2-16"><a href="alternative-types-of-tests.html#cb2-16"></a><span class="co">#histogram for gass station A.</span></span>
-<span id="cb2-17"><a href="alternative-types-of-tests.html#cb2-17"></a>GasA=<span class="st"> </span><span class="kw">hist</span>(SimulatedGasA, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">1.5</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1500</span>),<span class="dt">breaks =</span> breaks,  <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb2-17"><a href="alternative-types-of-tests.html#cb2-17"></a>GasA=<span class="st"> </span><span class="kw">hist</span>(SimulatedGasA, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="fl">0.8</span>, <span class="fl">1.3</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">500</span>),<span class="dt">breaks =</span> breaks,  <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
 <span id="cb2-18"><a href="alternative-types-of-tests.html#cb2-18"></a></span>
 <span id="cb2-19"><a href="alternative-types-of-tests.html#cb2-19"></a><span class="co">#histogram for gass station B.</span></span>
-<span id="cb2-20"><a href="alternative-types-of-tests.html#cb2-20"></a>GasA=<span class="st"> </span><span class="kw">hist</span>(SimulatedGasB, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">1.5</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),<span class="dt">breaks =</span> breaks,  <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb2-20"><a href="alternative-types-of-tests.html#cb2-20"></a>GasB=<span class="st"> </span><span class="kw">hist</span>(SimulatedGasB, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="fl">0.8</span>, <span class="fl">1.3</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">500</span>),<span class="dt">breaks =</span> breaks,  <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
 <span id="cb2-21"><a href="alternative-types-of-tests.html#cb2-21"></a></span>
-<span id="cb2-22"><a href="alternative-types-of-tests.html#cb2-22"></a></span>
-<span id="cb2-23"><a href="alternative-types-of-tests.html#cb2-23"></a><span class="co">#lets plot the first distribution</span></span>
-<span id="cb2-24"><a href="alternative-types-of-tests.html#cb2-24"></a><span class="kw">plot</span>(GasA, <span class="dt">main=</span><span class="ot">NA</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">1.5</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),<span class="dt">breaks =</span> breaks, <span class="dt">xlab =</span> <span class="st">&quot;Dispensed gas volume for a reported 1 gallon (in gallons)&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;Number of trials&quot;</span> )</span></code></pre></div>
+<span id="cb2-22"><a href="alternative-types-of-tests.html#cb2-22"></a><span class="co">#because you are plotting two distributions, it will be nice to use different colors. and because they likelu overlap, you should use semitransparent colors</span></span>
+<span id="cb2-23"><a href="alternative-types-of-tests.html#cb2-23"></a>LightBlue &lt;-<span class="st"> </span><span class="kw">rgb</span>(<span class="dv">173</span>,<span class="dv">216</span>,<span class="dv">230</span>,<span class="dt">max =</span> <span class="dv">255</span>, <span class="dt">alpha =</span> <span class="dv">5</span>, <span class="dt">names =</span> <span class="st">&quot;lt.blue&quot;</span>) <span class="co">#the fucntion rgb lets your select one color, and the alpha gives you how tranparent</span></span>
+<span id="cb2-24"><a href="alternative-types-of-tests.html#cb2-24"></a>DarkRed &lt;-<span class="st"> </span><span class="kw">rgb</span>(<span class="dv">255</span>,<span class="dv">192</span>,<span class="dv">203</span>, <span class="dt">max =</span> <span class="dv">255</span>, <span class="dt">alpha =</span> <span class="dv">95</span>, <span class="dt">names =</span> <span class="st">&quot;lt.pink&quot;</span>)</span>
+<span id="cb2-25"><a href="alternative-types-of-tests.html#cb2-25"></a></span>
+<span id="cb2-26"><a href="alternative-types-of-tests.html#cb2-26"></a></span>
+<span id="cb2-27"><a href="alternative-types-of-tests.html#cb2-27"></a><span class="co">#lets plot the first distribution</span></span>
+<span id="cb2-28"><a href="alternative-types-of-tests.html#cb2-28"></a><span class="kw">plot</span>(GasA, <span class="dt">main=</span><span class="ot">NA</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="fl">0.8</span>, <span class="fl">1.3</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),<span class="dt">breaks =</span> breaks, <span class="dt">xlab =</span> <span class="st">&quot;Dispensed gas volume for a reported 1 gallon (in gallons)&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;Number of trials&quot;</span> ,<span class="dt">col=</span>LightBlue)</span>
+<span id="cb2-29"><a href="alternative-types-of-tests.html#cb2-29"></a></span>
+<span id="cb2-30"><a href="alternative-types-of-tests.html#cb2-30"></a><span class="kw">plot</span>(GasB, <span class="dt">add=</span>T ,<span class="dt">col=</span>DarkRed)  <span class="co">#note how for the parameter col, you indicate the color you create as a variable above</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+</div>
+<div id="more-than-two-sample-test" class="section level3 unnumbered">
+<h3>More than two sample test</h3>
+<p>These are cases when you want to compare samples from more than two different populations.</p>
+<p>Say you have have visited three countries and notice that men were very different in height. You are use to the men in the USA, which we already established have an average height of 177.8cm +/-SD 7.62 cm. In France, they were 172.8cm +/-SD 5.62 cm and in North Korea they were 155.5 cm +/- 8.5cm.</p>
+<p>This is a case of a three samples, and you what to test if they are different.</p>
+<p>Lets visualize this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="alternative-types-of-tests.html#cb3-1"></a>USA_Height=<span class="fl">177.8</span>   <span class="co"># height of average male in the USA</span></span>
+<span id="cb3-2"><a href="alternative-types-of-tests.html#cb3-2"></a>USA_SD=<span class="fl">7.62</span>       <span class="co"># Standard deviation of male population in the USA</span></span>
+<span id="cb3-3"><a href="alternative-types-of-tests.html#cb3-3"></a></span>
+<span id="cb3-4"><a href="alternative-types-of-tests.html#cb3-4"></a>France_Height=<span class="fl">172.8</span>   <span class="co"># France data</span></span>
+<span id="cb3-5"><a href="alternative-types-of-tests.html#cb3-5"></a>France_SD=<span class="fl">5.62</span>       <span class="co"># SD for france</span></span>
+<span id="cb3-6"><a href="alternative-types-of-tests.html#cb3-6"></a></span>
+<span id="cb3-7"><a href="alternative-types-of-tests.html#cb3-7"></a>NKorea_Height=<span class="fl">155.5</span>   <span class="co"># North Korea data</span></span>
+<span id="cb3-8"><a href="alternative-types-of-tests.html#cb3-8"></a>NKorea_SD=<span class="fl">8.5</span>       <span class="co"># SD for North Korea</span></span>
+<span id="cb3-9"><a href="alternative-types-of-tests.html#cb3-9"></a></span>
+<span id="cb3-10"><a href="alternative-types-of-tests.html#cb3-10"></a></span>
+<span id="cb3-11"><a href="alternative-types-of-tests.html#cb3-11"></a>SimulatedUSA&lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10000</span>,USA_Height,USA_SD) <span class="co">#lets simulate a population for USA</span></span>
+<span id="cb3-12"><a href="alternative-types-of-tests.html#cb3-12"></a>SimulatedFrance&lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10000</span>,France_Height,France_SD) <span class="co">#lets simulate a population for USA</span></span>
+<span id="cb3-13"><a href="alternative-types-of-tests.html#cb3-13"></a>SimulatedNKorea&lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">10000</span>,NKorea_Height,NKorea_SD) <span class="co">#lets simulate a population for USA</span></span>
+<span id="cb3-14"><a href="alternative-types-of-tests.html#cb3-14"></a></span>
+<span id="cb3-15"><a href="alternative-types-of-tests.html#cb3-15"></a></span>
+<span id="cb3-16"><a href="alternative-types-of-tests.html#cb3-16"></a>breaks =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">120</span>, <span class="dv">220</span>, <span class="dt">length.out =</span> <span class="dv">100</span>) <span class="co">#bins for the distribution</span></span>
+<span id="cb3-17"><a href="alternative-types-of-tests.html#cb3-17"></a></span>
+<span id="cb3-18"><a href="alternative-types-of-tests.html#cb3-18"></a><span class="co">#histogram for USA</span></span>
+<span id="cb3-19"><a href="alternative-types-of-tests.html#cb3-19"></a>USA=<span class="st"> </span><span class="kw">hist</span>(SimulatedUSA, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">120</span>,<span class="dv">220</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">500</span>),<span class="dt">breaks =</span> breaks,  <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb3-20"><a href="alternative-types-of-tests.html#cb3-20"></a></span>
+<span id="cb3-21"><a href="alternative-types-of-tests.html#cb3-21"></a><span class="co">#histogram for FCrance</span></span>
+<span id="cb3-22"><a href="alternative-types-of-tests.html#cb3-22"></a>France=<span class="st"> </span><span class="kw">hist</span>(SimulatedFrance, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">120</span>,<span class="dv">220</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">500</span>),<span class="dt">breaks =</span> breaks,  <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb3-23"><a href="alternative-types-of-tests.html#cb3-23"></a></span>
+<span id="cb3-24"><a href="alternative-types-of-tests.html#cb3-24"></a><span class="co">#histogram for USA</span></span>
+<span id="cb3-25"><a href="alternative-types-of-tests.html#cb3-25"></a>NKorea=<span class="st"> </span><span class="kw">hist</span>(SimulatedNKorea, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">120</span>,<span class="dv">220</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">500</span>),<span class="dt">breaks =</span> breaks,  <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb3-26"><a href="alternative-types-of-tests.html#cb3-26"></a></span>
+<span id="cb3-27"><a href="alternative-types-of-tests.html#cb3-27"></a></span>
+<span id="cb3-28"><a href="alternative-types-of-tests.html#cb3-28"></a></span>
+<span id="cb3-29"><a href="alternative-types-of-tests.html#cb3-29"></a><span class="co">#because you are plotting three distributions, it will be nice to use different colors. and because they likely overlap, you should use semitransparent colors</span></span>
+<span id="cb3-30"><a href="alternative-types-of-tests.html#cb3-30"></a>LightBlue &lt;-<span class="st"> </span><span class="kw">rgb</span>(<span class="dv">173</span>,<span class="dv">216</span>,<span class="dv">230</span>,<span class="dt">max =</span> <span class="dv">255</span>, <span class="dt">alpha =</span> <span class="dv">100</span>, <span class="dt">names =</span> <span class="st">&quot;lt.blue&quot;</span>) <span class="co">#the fucntion rgb lets your select one color, and the alpha gives you how tranparent</span></span>
+<span id="cb3-31"><a href="alternative-types-of-tests.html#cb3-31"></a>DarkRed &lt;-<span class="st"> </span><span class="kw">rgb</span>(<span class="dv">255</span>,<span class="dv">192</span>,<span class="dv">203</span>, <span class="dt">max =</span> <span class="dv">255</span>, <span class="dt">alpha =</span> <span class="dv">95</span>)</span>
+<span id="cb3-32"><a href="alternative-types-of-tests.html#cb3-32"></a></span>
+<span id="cb3-33"><a href="alternative-types-of-tests.html#cb3-33"></a>MiddleOrange &lt;-<span class="st"> </span><span class="kw">rgb</span>(<span class="dv">255</span>,<span class="dv">69</span>,<span class="dv">0</span>, <span class="dt">max =</span> <span class="dv">255</span>, <span class="dt">alpha =</span> <span class="dv">95</span>)</span>
+<span id="cb3-34"><a href="alternative-types-of-tests.html#cb3-34"></a></span>
+<span id="cb3-35"><a href="alternative-types-of-tests.html#cb3-35"></a><span class="co">#lets plot the first distribution</span></span>
+<span id="cb3-36"><a href="alternative-types-of-tests.html#cb3-36"></a><span class="kw">plot</span>(USA, <span class="dt">main=</span><span class="ot">NA</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">120</span>, <span class="dv">220</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">800</span>),<span class="dt">breaks =</span> breaks, <span class="dt">xlab =</span> <span class="st">&quot;Men size (cm)&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;Number of people&quot;</span> ,<span class="dt">col=</span>LightBlue)</span>
+<span id="cb3-37"><a href="alternative-types-of-tests.html#cb3-37"></a></span>
+<span id="cb3-38"><a href="alternative-types-of-tests.html#cb3-38"></a><span class="kw">plot</span>(France, <span class="dt">add=</span>T ,<span class="dt">col=</span>DarkRed)  <span class="co">#note how for the parameter col, you indicate the color you create as a variable above</span></span>
+<span id="cb3-39"><a href="alternative-types-of-tests.html#cb3-39"></a></span>
+<span id="cb3-40"><a href="alternative-types-of-tests.html#cb3-40"></a><span class="kw">plot</span>(NKorea, <span class="dt">add=</span>T ,<span class="dt">col=</span>MiddleOrange)  <span class="co">#note how for the parameter col, you indicate the color you create as a variable above</span></span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+#selecting the right test {-}
+At this moment you should be able to identify cases involving comparisons between one, two or more samples. When you are interested for testing for significant differences int he cases above you have an option between tests called Z-test, T-test and the ANOVA or so-called analysis if variances. Which test you should use is based primarily on the number of samples to use, whether you know the variance of your population and whether the sample size is larger than 30 individuals or not. You need to use the following chart to select the proper test. Pleas remember that these are parametric tests, meaning they are only useful for cases in which data are normally distributed.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
 <img src="images/SelectingTest.png" alt="Selecting statistical test" width="70%" />
 <p class="caption">
 Figure 9.1: Selecting statistical test
@@ -409,7 +469,7 @@ Figure 9.1: Selecting statistical test
         </div>
       </div>
 <a href="9-standard-hyphostesis-tests.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="the-z-score.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="homework-6.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

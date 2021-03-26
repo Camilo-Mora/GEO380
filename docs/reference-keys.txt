@@ -1,0 +1,10 @@
+the-scientific-method
+installing-programs
+basics-on-data-manipulation-in-r
+basic-plots
+descriptive-statistics
+correlation
+regression
+hypothesis-testing
+standard-hyphostesis-tests
+one-sample-tests
