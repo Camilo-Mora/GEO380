@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="homework-6.html"/>
-<link rel="next" href="the-z-score.html"/>
+<link rel="next" href="the-one-sample-z-test.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -297,7 +297,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="homework-6.html"><a href="homework-6.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-one-sample-tests.html"><a href="10-one-sample-tests.html"><i class="fa fa-check"></i><b>10</b> One sample tests</a><ul>
-<li class="chapter" data-level="" data-path="the-z-score.html"><a href="the-z-score.html"><i class="fa fa-check"></i>The Z-score</a></li>
+<li class="chapter" data-level="" data-path="the-one-sample-z-test.html"><a href="the-one-sample-z-test.html"><i class="fa fa-check"></i>The one-sample Z-test</a></li>
+<li class="chapter" data-level="" data-path="the-one-sample-t-test.html"><a href="the-one-sample-t-test.html"><i class="fa fa-check"></i>The one-sample T-test</a></li>
 <li class="chapter" data-level="" data-path="exercises-4.html"><a href="exercises-4.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-7.html"><a href="homework-7.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
@@ -325,6 +326,21 @@ By Camilo Mora, Ph.D.
             <section class="normal" id="section-">
 <div id="one-sample-tests" class="section level1">
 <h1><span class="header-section-number">10</span> One sample tests</h1>
+<p>One sample tests are for cases in which you have one sample, and what to determine if it belongs to a certain population. Like:</p>
+<p>is it the gas in Hawaii significantly more expensive than the rest of the USA?.</p>
+<p>is a 10 year old girl taller than expected?</p>
+<p>These types of questions can be answered with either the Z-test or the T-Test, which we will introduce in this chapter. Both of these tests are suited for one-sample test, but the Z-test is used for cases in which you know the population SD and your sample size is larger than 30 individuals. If on the controrary, you do not know your population SD or your sample size is smaller thn 30, then you used the T-Test.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-289"></span>
+<img src="images/SelectingOnSampleTest.png" alt="Z-score fucntion" width="70%" />
+<p class="caption">
+Figure 10.1: Z-score fucntion
+</p>
+</div>
+<p>At the end of this chapter, you are expected to:</p>
+<ol style="list-style-type: decimal">
+<li>Run a one sample Z-test and interpret its results from R.</li>
+<li>Run a one sample T-test and interprets its results from R.</li>
+</ol>
 </div>
 <div id="disqus_thread"></div>
 <script>
@@ -351,7 +367,7 @@ By Camilo Mora, Ph.D.
         </div>
       </div>
 <a href="homework-6.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="the-z-score.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="the-one-sample-z-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
