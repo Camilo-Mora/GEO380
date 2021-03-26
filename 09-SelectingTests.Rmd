@@ -63,15 +63,15 @@ SimulatedGasA<- rnorm(10000,MeanGasA,SDGasA) #lets simulate a population for gas
 SimulatedGasB<- rnorm(10000,MeanGasB,SDGasB) #lets simulate a population for gas station A.
 
 
-breaks = seq(0.8, 1.3, length.out = 100) #I create a set of bins for the x-axis of the distribution, this will determine how many bis you have
+breaks = seq(0.7, 1.4, length.out = 100) #I create a set of bins for the x-axis of the distribution, this will determine how many bis you have
 
 #next I plot the data. because we want to plot two distributions on top of each other. we need to create each distribution independently and then add them to a  single plot
 
 #histogram for gass station A.
-GasA= hist(SimulatedGasA, xlim=c(0.8, 1.3),ylim=c(0, 500),breaks = breaks,  plot = FALSE)
+GasA= hist(SimulatedGasA, xlim=c(0.7, 1.4),ylim=c(0, 500),breaks = breaks,  plot = FALSE)
 
 #histogram for gass station B.
-GasB= hist(SimulatedGasB, xlim=c(0.8, 1.3),ylim=c(0, 500),breaks = breaks,  plot = FALSE)
+GasB= hist(SimulatedGasB, xlim=c(0.7, 1.4),ylim=c(0, 500),breaks = breaks,  plot = FALSE)
 
 #because you are plotting two distributions, it will be nice to use different colors. and because they likelu overlap, you should use semitransparent colors
 LightBlue <- rgb(173,216,230,max = 255, alpha = 5, names = "lt.blue") #the fucntion rgb lets your select one color, and the alpha gives you how tranparent
@@ -79,7 +79,7 @@ DarkRed <- rgb(255,192,203, max = 255, alpha = 95, names = "lt.pink")
 
 
 #lets plot the first distribution
-plot(GasA, main=NA,xlim=c(0.8, 1.3),ylim=c(0, 1000),breaks = breaks, xlab = "Dispensed gas volume for a reported 1 gallon (in gallons)",ylab = "Number of trials" ,col=LightBlue)
+plot(GasA, main=NA,xlim=c(0.7, 1.4),ylim=c(0, 1400),breaks = breaks, xlab = "Dispensed gas volume for a reported 1 gallon (in gallons)",ylab = "Number of trials" ,col=LightBlue)
 
 plot(GasB, add=T ,col=DarkRed)  #note how for the parameter col, you indicate the color you create as a variable above
  
