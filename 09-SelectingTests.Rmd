@@ -3,7 +3,16 @@ In the prior chapter, we learned that the basic principle of hypothesis testing 
 
 There are a diversity of statistical tests available for testing hypotheses, but here we will deal only with those tests intended to test if one thing, two things or more than two things are different.
 
-By the way,  the suitability of available tests depends on whether your data are normally distributed or not (please recall from chapter 3 that normally distributed data looks like a bell-shape curve). Tests for normally distributed data are call **parametric tests**. In cases, where your data are not normal (e.g., it is biased, or homogeneous) requires a different set of tests called non-parametric tests. We will not cover non-parametric here but you need to be aware of this distinction. 
+By the way,  the suitability of available tests depends on whether your data are normally distributed or not (please recall from chapter 3 that normally distributed data looks like a bell-shape curve). 
+
+
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Data distribution'}
+knitr::include_graphics("images/Distribution Skews.png")
+```
+
+
+
+Tests for normally distributed data are call **parametric tests**. In cases, where your data are not normal (e.g., it is biased, or homogeneous) requires a different set of tests called non-parametric tests. We will not cover non-parametric here but you need to be aware of this distinction. 
 
 
 
@@ -23,10 +32,10 @@ Let's visualize this:
 
 ```{r, message=FALSE,warning=FALSE}
 SampleWeight=180  # this is the average weight of the samples you took
-PopulationWeight=200   # Average weight reported in the lable of the candy bar
-SD=10       # reported Standard deviation for the candy bars
+PopulationWeight=200   # Average weight reported in the lable of the candy bar. This of this as the population mean.
+SD=10       # reported Standard deviation for the candy bars. Think if this as the population standard deviation
 
-SimulatedPopulation<- rnorm(10000,PopulationWeight,SD) #lets simulate a population of 10000 candy bars with .
+SimulatedPopulation<- rnorm(10000,PopulationWeight,SD) #lets simulate a population of 10000 candy bars.
 
 breaks = seq(150, 250, length.out = 80) #I create a set of bins for the x-axis of the distribution, this will determine how many bis you have
 
@@ -34,20 +43,22 @@ breaks = seq(150, 250, length.out = 80) #I create a set of bins for the x-axis o
  hist(SimulatedPopulation, main=NA,xlim=c(150, 250),ylim=c(0, 800),breaks = breaks, xlab = "Candy bar weight (g)",ylab = "Number of candies")
  
  
-#plot the mean height of men
+#plot the sample mean
 abline(v=SampleWeight, lwd=2, col="red", lty=2) 
 
 #lets add a label to mean label
-text(SampleWeight,2000,labels="Sample",pos=4, col="blue") 
+text(SampleWeight,700,labels="Sample",pos=4, col="red") 
  
 ```
 
 ### Two sample test  {-}
 These are cases when you want to compare samples from two different populations. 
 
-Say you have noted that when you fuel-up your at a gas station A, you can take on average one more trip to work than when you fuelup your car at gas station B. You can suspect one of the gas stations is adding more gas or actually giving less gas than it is suppose to. You can report this to the consumer group, and a likely test will be to take say samples of one gallon from both gas stations and measure the actual volume they dispense. Say a sample of 50 trials yeilds valumes of 1.1 gal +/-.05gal in Gas station A and 1.01 gal +/-.02gal in Gas station B.
+Say you have noted that when you fuel-up your car at a gas station A, you can take on average one more trip to work than when you fuel-up your car at gas station B. You are suspecting gas station B is giving less gas than it is suppose to.
 
-This is a case of a two-sample test. In this case, you can treat both samples as independent, and assume they come from independent populations that are the same.
+You can report this to a consumer group, and a likely test will be to take samples of one gallon from both gas stations and measure the actual volume they dispense. Say a sample of 50 trials yields volumes of 1.1 gal +/-.05gal in Gas station A and 1.01 gal +/-.02gal in Gas station B.
+
+This is a case of a two-sample test. In this case, you can treat both samples as independent, and assume they come from independent populations that should be similar.
 
 Lets visualize this:
 
@@ -60,22 +71,22 @@ SDGasB=0.02   # SD for sample from gas station B
 
 
 SimulatedGasA<- rnorm(10000,MeanGasA,SDGasA) #lets simulate a population for gas station A.
-SimulatedGasB<- rnorm(10000,MeanGasB,SDGasB) #lets simulate a population for gas station A.
+SimulatedGasB<- rnorm(10000,MeanGasB,SDGasB) #lets simulate a population for gas station B.
 
 
 breaks = seq(0.7, 1.4, length.out = 100) #I create a set of bins for the x-axis of the distribution, this will determine how many bis you have
 
 #next I plot the data. because we want to plot two distributions on top of each other. we need to create each distribution independently and then add them to a  single plot
 
-#histogram for gass station A.
+#histogram for gas station A.
 GasA= hist(SimulatedGasA, xlim=c(0.7, 1.4),ylim=c(0, 500),breaks = breaks,  plot = FALSE)
 
-#histogram for gass station B.
+#histogram for gas station B.
 GasB= hist(SimulatedGasB, xlim=c(0.7, 1.4),ylim=c(0, 500),breaks = breaks,  plot = FALSE)
 
-#because you are plotting two distributions, it will be nice to use different colors. and because they likelu overlap, you should use semitransparent colors
-LightBlue <- rgb(173,216,230,max = 255, alpha = 5, names = "lt.blue") #the fucntion rgb lets your select one color, and the alpha gives you how tranparent
-DarkRed <- rgb(255,192,203, max = 255, alpha = 95, names = "lt.pink")
+#because you are plotting two distributions, it will be nice to use different colors. and because they likely overlap, you should use semitransparent colors
+LightBlue <- rgb(173,216,230,max = 255, alpha = 5) #the function rgb lets you select one color, and the alpha gives you how transparent
+DarkRed <- rgb(255,192,203, max = 255, alpha = 95)
 
 
 #lets plot the first distribution
@@ -89,10 +100,10 @@ plot(GasB, add=T ,col=DarkRed)  #note how for the parameter col, you indicate th
 
 These are cases when you want to compare samples from more than two different populations. 
 
-Say you have have visited three countries and notice that men were very different in height. You are use to the men in the USA, which we already established have an average height of 177.8cm +/-SD 7.62 cm. In France, they were 172.8cm +/-SD 5.62 cm and in North Korea they were 155.5 cm +/- 8.5cm. 
+Say you have visited three countries and noticed that men were very different in height. You are use to the men in the USA, which we already established have an average height of 177.8cm +/-SD 7.62 cm. In France, they were 172.8cm +/-SD 5.62 cm and in North Korea they were 155.5 cm +/- 8.5cm. 
 
 
-This is a case of a three samples, and you what to test if they are different.
+This is a case of a three samples, at times called multiple samples.
 
 Lets visualize this:
 
@@ -108,8 +119,8 @@ NKorea_SD=8.5       # SD for North Korea
 
 
 SimulatedUSA<- rnorm(10000,USA_Height,USA_SD) #lets simulate a population for USA
-SimulatedFrance<- rnorm(10000,France_Height,France_SD) #lets simulate a population for USA
-SimulatedNKorea<- rnorm(10000,NKorea_Height,NKorea_SD) #lets simulate a population for USA
+SimulatedFrance<- rnorm(10000,France_Height,France_SD) #lets simulate a population for France
+SimulatedNKorea<- rnorm(10000,NKorea_Height,NKorea_SD) #lets simulate a population for NKorea
 
 
 breaks = seq(120, 220, length.out = 100) #bins for the distribution
@@ -126,14 +137,14 @@ NKorea= hist(SimulatedNKorea, xlim=c(120,220),ylim=c(0, 500),breaks = breaks,  p
 
 
 #because you are plotting three distributions, it will be nice to use different colors. and because they likely overlap, you should use semitransparent colors
-LightBlue <- rgb(173,216,230,max = 255, alpha = 100, names = "lt.blue") #the fucntion rgb lets your select one color, and the alpha gives you how tranparent
+LightBlue <- rgb(173,216,230,max = 255, alpha = 100) #the fucntion rgb lets your select one color, and the alpha gives you how tranparent
 DarkRed <- rgb(255,192,203, max = 255, alpha = 95)
-
 MiddleOrange <- rgb(255,69,0, max = 255, alpha = 95)
 
 #lets plot the first distribution
 plot(USA, main=NA,xlim=c(120, 220),ylim=c(0, 800),breaks = breaks, xlab = "Men size (cm)",ylab = "Number of people" ,col=LightBlue)
 
+#now add the second distribution to the first plot, using the parameter add=TRUE, or add=T, theya re both the same
 plot(France, add=T ,col=DarkRed)  #note how for the parameter col, you indicate the color you create as a variable above
 
 plot(NKorea, add=T ,col=MiddleOrange)  #note how for the parameter col, you indicate the color you create as a variable above
@@ -141,14 +152,19 @@ plot(NKorea, add=T ,col=MiddleOrange)  #note how for the parameter col, you indi
  
 ``` 
 
-##selecting the right test {-}
-At this moment you should be able to identify cases involving comparisons between one, two or more samples. When you are interested for testing for significant differences int he cases above you have an option between tests called Z-test, T-test and the ANOVA or so-called analysis if variances. 
 
-Which test you should use is based primarily on the number of samples to use, whether you know the variance of your population and whether the sample size is larger than 30 individuals or not. You need to use the following chart to select the proper test. Pleas remember that these are parametric tests, meaning they are only useful for cases in which data are normally distributed.
+## Selecting the right test {-}
+At this moment you should be able to identify cases involving comparisons between one, two or more samples. 
+
+When you are interested for testing for significant differences in the cases above you have have to select among tests called Z-test, T-test or the ANOVA (also so-called analysis if variances). 
+
+Which test you should use is based primarily on the number of samples you have, whether you know the variance of your population and whether the sample size is larger than 30 individuals or not.
+
+You need to use the following chart to select the proper test. Please remember that these are parametric tests, meaning they are only useful for cases in which data are normally distributed.
 
 
 
-```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Selecting statistical test'}
+```{r, out.width = "90%", echo= FALSE, fig.align = 'center',fig.cap = 'Selecting statistical test'}
 knitr::include_graphics("images/SelectingTest.png")
 ```
 
@@ -167,3 +183,6 @@ Create a publication quality plot for each of these case examples. For each plot
 2. Students at a school got on average GPA of 3.8, and are being considered for an award if they are among the best at the national level, in which the average GPA was 3.5 +/-0.12.
 
 3. China is currently looking to optimize food production within its borders and run an experiment on biomass production for wheat, rice and corn. The annual yields were 55500 tns +/-500tns for wheat, 45500 tns +/-200tns for rice, and 35500 tns +/-255tns for corn.
+
+Generate only the quality plots, no need to have the code in your report.
+

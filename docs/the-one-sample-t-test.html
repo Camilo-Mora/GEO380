@@ -294,6 +294,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html#two-sample-test"><i class="fa fa-check"></i>Two sample test</a></li>
 <li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html#more-than-two-sample-test"><i class="fa fa-check"></i>More than two sample test</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="selecting-the-right-test.html"><a href="selecting-the-right-test.html"><i class="fa fa-check"></i>Selecting the right test</a></li>
 <li class="chapter" data-level="" data-path="homework-6.html"><a href="homework-6.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="10-one-sample-tests.html"><a href="10-one-sample-tests.html"><i class="fa fa-check"></i><b>10</b> One sample tests</a><ul>
@@ -327,7 +328,7 @@ By Camilo Mora, Ph.D.
 <div id="the-one-sample-t-test" class="section level2 unnumbered">
 <h2>The one-sample T-test</h2>
 <p>We perform a One-Sample t-test when we want to compare a sample mean with the population mean and we do not know the population standard deviation or our sample size is small, n &lt; 30. The difference from the Z Test is that we do not have the information on Population Variance here. We use the sample standard deviation instead of population standard deviation in this case.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-296"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-297"></span>
 <img src="images/T-test.png" alt="R-results for a one-sample z-test" width="80%" />
 <p class="caption">
 Figure 10.6: R-results for a one-sample z-test
@@ -358,7 +359,7 @@ H1: <span class="math inline">\(\mu\)</span> &gt; 600</p>
 <p>Now, we need to find out the critical t-value at the 0.05 significance level. For this, we need to estimate something call <strong>Degrees of freedom</strong>, which in this case is simply our sample size minus one. In our case, the degrees of freedom, then , are 9.</p>
 <p>With the information of the ⍺ value (i.e., 0.05 in our case) and the degrees of freedom, <strong>DF</strong> (i.e, 9 in our case), we can look for the critical T-value in a table, like the one below.</p>
 <p>Basically, scroll down the first column looking for 9 DF, then move horizontally to the column displaying the 0.05 level of significance, in our case that is 1.8331.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-298"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-299"></span>
 <img src="images/TTable.jpg" alt="R-results for a one-sample z-test" width="100%" />
 <p class="caption">
 Figure 10.7: R-results for a one-sample z-test
@@ -379,7 +380,7 @@ Figure 10.7: R-results for a one-sample z-test
 <span id="cb234-11"><a href="the-one-sample-t-test.html#cb234-11"></a></span>
 <span id="cb234-12"><a href="the-one-sample-t-test.html#cb234-12"></a><span class="co">#the parameters needed to run a T-test are self-explanatory. mean.x is the mean of your sample data. alternative is the type of test to run, in this case we want to check is the sample is greater than the population mean. mu is the population mean, and s.x is the standard deviation of the sample. This function ask for the confidence level, which as we indicated before is the complement to the level of significance to use, in our case our significance level is 0.05, so the confidence level will be 0.95</span></span></code></pre></div>
 <p>The results will look like the image below, which are nearly identical to our hand calculation.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-300"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-301"></span>
 <img src="images/ToneSampleTestResultsR.png" alt="R-results for a one-sample z-test" width="80%" />
 <p class="caption">
 Figure 10.8: R-results for a one-sample z-test
