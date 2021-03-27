@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="the-one-sample-z-test.html"/>
-<link rel="next" href="exercises-4.html"/>
+<link rel="next" href="homework-7.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -300,7 +300,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="10-one-sample-tests.html"><a href="10-one-sample-tests.html"><i class="fa fa-check"></i><b>10</b> One sample tests</a><ul>
 <li class="chapter" data-level="" data-path="the-one-sample-z-test.html"><a href="the-one-sample-z-test.html"><i class="fa fa-check"></i>The one-sample Z-test</a></li>
 <li class="chapter" data-level="" data-path="the-one-sample-t-test.html"><a href="the-one-sample-t-test.html"><i class="fa fa-check"></i>The one-sample T-test</a></li>
-<li class="chapter" data-level="" data-path="exercises-4.html"><a href="exercises-4.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-7.html"><a href="homework-7.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -327,7 +326,7 @@ By Camilo Mora, Ph.D.
             <section class="normal" id="section-">
 <div id="the-one-sample-t-test" class="section level2 unnumbered">
 <h2>The one-sample T-test</h2>
-<p>We perform a One-Sample t-test when we want to compare a sample mean with the population mean and we do not know the population standard deviation or our sample size is small, n &lt; 30. The difference from the Z Test is that we do not have the information on Population Variance here. We use the sample standard deviation instead of population standard deviation in this case.</p>
+<p>We perform a <em>one-Sample t-test</em> when we want to compare a sample mean with the population mean and we do not know the population standard deviation or our sample size is small, n &lt; 30. The difference from the Z Test is that we do not have the information on Population Variance here. We use the sample standard deviation instead of population standard deviation in this case.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-297"></span>
 <img src="images/T-test.png" alt="R-results for a one-sample z-test" width="80%" />
 <p class="caption">
@@ -335,26 +334,25 @@ Figure 10.6: R-results for a one-sample z-test
 </p>
 </div>
 <p>Lets try an example.</p>
-<p>Let’s say we want to determine if on average girls score more than 600 in a given exam. We do not have the information related to variance (or standard deviation) for girls’ scores, so we take randomly the scores of 10 girls. We choose our ⍺ value (significance level) to be 0.05.</p>
-<p>for Hypothesis Testing. The scores for the ten girl are 587, 602, 627, 610, 619, 622, 605, 608, 596, 592.</p>
+<p>Let’s say we want to determine if on average girls score more than 600 points in a given exam. We do not have the information related to variance (or standard deviation) for girls’ scores, so we take randomly the scores of 10 girls. We choose our ⍺ value (significance level) to be 0.05.</p>
+<p>The scores for the ten girl were 587, 602, 627, 610, 619, 622, 605, 608, 596, 592.</p>
 <p>Lets’ set the hypothesis</p>
-<p>H0: <span class="math inline">\(\mu\)</span> &lt;= 600
-H1: <span class="math inline">\(\mu\)</span> &gt; 600</p>
+<p>H0: <span class="math inline">\(\mu\)</span> =&lt; 600 the true or expected value
+H1: <span class="math inline">\(\mu\)</span> &gt; 600 the question of interest, which in this case is to know if these scored higher</p>
 <p>In this case, we have a one-sample comparison, we do not know the population variance, and our sample size is only 10 individuals, so a T-test is best suited here.</p>
 <p>Let’s do one by hand,</p>
 <div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="the-one-sample-t-test.html#cb233-1"></a>Sample=<span class="kw">c</span>(<span class="dv">587</span>, <span class="dv">602</span>, <span class="dv">627</span>, <span class="dv">610</span>, <span class="dv">619</span>, <span class="dv">622</span>, <span class="dv">605</span>, <span class="dv">608</span>, <span class="dv">596</span>, <span class="dv">592</span>) <span class="co">#lets put the values in a vector</span></span>
 <span id="cb233-2"><a href="the-one-sample-t-test.html#cb233-2"></a></span>
-<span id="cb233-3"><a href="the-one-sample-t-test.html#cb233-3"></a>SampleMean=<span class="kw">mean</span>(Sample) <span class="co">#mean time racing for the girls sampled</span></span>
+<span id="cb233-3"><a href="the-one-sample-t-test.html#cb233-3"></a>SampleMean=<span class="kw">mean</span>(Sample) <span class="co">#mean score of the girls sampled</span></span>
 <span id="cb233-4"><a href="the-one-sample-t-test.html#cb233-4"></a>SampleSD=<span class="kw">sd</span>(Sample) <span class="co">#this is the sample standard deviation</span></span>
-<span id="cb233-5"><a href="the-one-sample-t-test.html#cb233-5"></a></span>
-<span id="cb233-6"><a href="the-one-sample-t-test.html#cb233-6"></a>PopulationMean=<span class="st"> </span><span class="dv">600</span> <span class="co">#this is the population mean...</span></span>
-<span id="cb233-7"><a href="the-one-sample-t-test.html#cb233-7"></a></span>
-<span id="cb233-8"><a href="the-one-sample-t-test.html#cb233-8"></a>SampleSize=<span class="st"> </span><span class="kw">length</span>(Sample)  <span class="co"># this is the sample size </span></span>
-<span id="cb233-9"><a href="the-one-sample-t-test.html#cb233-9"></a></span>
-<span id="cb233-10"><a href="the-one-sample-t-test.html#cb233-10"></a><span class="co">#let&#39;s now estimate the T-score using the equation above.</span></span>
-<span id="cb233-11"><a href="the-one-sample-t-test.html#cb233-11"></a></span>
-<span id="cb233-12"><a href="the-one-sample-t-test.html#cb233-12"></a>TTest=(SampleMean<span class="op">-</span>PopulationMean)<span class="op">/</span>(SampleSD<span class="op">/</span><span class="kw">sqrt</span>(SampleSize))</span>
-<span id="cb233-13"><a href="the-one-sample-t-test.html#cb233-13"></a>TTest</span></code></pre></div>
+<span id="cb233-5"><a href="the-one-sample-t-test.html#cb233-5"></a>SampleSize=<span class="st"> </span><span class="kw">length</span>(Sample)  <span class="co"># this is the sample size </span></span>
+<span id="cb233-6"><a href="the-one-sample-t-test.html#cb233-6"></a></span>
+<span id="cb233-7"><a href="the-one-sample-t-test.html#cb233-7"></a>PopulationMean=<span class="st"> </span><span class="dv">600</span> <span class="co">#this is the true, expected value, think of it as the population mean...</span></span>
+<span id="cb233-8"><a href="the-one-sample-t-test.html#cb233-8"></a></span>
+<span id="cb233-9"><a href="the-one-sample-t-test.html#cb233-9"></a><span class="co">#let&#39;s now estimate the T-score using the equation above.</span></span>
+<span id="cb233-10"><a href="the-one-sample-t-test.html#cb233-10"></a></span>
+<span id="cb233-11"><a href="the-one-sample-t-test.html#cb233-11"></a>TTest=(SampleMean<span class="op">-</span>PopulationMean)<span class="op">/</span>(SampleSD<span class="op">/</span><span class="kw">sqrt</span>(SampleSize))</span>
+<span id="cb233-12"><a href="the-one-sample-t-test.html#cb233-12"></a>TTest</span></code></pre></div>
 <p>So our estimated T-value is 1.64.</p>
 <p>Now, we need to find out the critical t-value at the 0.05 significance level. For this, we need to estimate something call <strong>Degrees of freedom</strong>, which in this case is simply our sample size minus one. In our case, the degrees of freedom, then , are 9.</p>
 <p>With the information of the ⍺ value (i.e., 0.05 in our case) and the degrees of freedom, <strong>DF</strong> (i.e, 9 in our case), we can look for the critical T-value in a table, like the one below.</p>
@@ -366,19 +364,22 @@ Figure 10.7: R-results for a one-sample z-test
 </p>
 </div>
 <p>Our critical t-value for 9DF and <span class="math inline">\(\alpha\)</span>=0.05 is 1.8331. This means 5% of the given population are above a T-value of 1.8331. In our case, the calculated t-value was 1.64, which is smaller than the critical value, so we <em>fail to reject the null hypothesis</em> and don’t have enough evidence to support the hypothesis that on average, girls score more than 600 in the exam.</p>
-<p>We can run such a test in R, using the package BSDA, and its function tsum.test. Lets try it.</p>
+<p>There is only one T-table for cases of left-, right-, or two-tail test. When in need of a left-side score, simply remove the sign and look for the critical t-value in the table above. This is because the T-distribution is symmetric from the mean: it is the same right or left.</p>
+<p>When in need of a two-tail test, divide the p-value by 2. Say, you are using a p-value of 0.05 testing an alternative hypothesis of something being different, then you will be running a two-tail test, meaning you will be looking to see if your sample value is on either tail of the population distribution. In this case you need to divide the p-value of interest by two to account for the fact that you are checking the two-tails of the distribution.</p>
+<p>We can run a T-test in R, using the package BSDA, and its function tsum.test. Lets try it.</p>
 <div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="the-one-sample-t-test.html#cb234-1"></a><span class="kw">library</span> (<span class="st">&quot;BSDA&quot;</span>)           <span class="co">#load the library</span></span>
 <span id="cb234-2"><a href="the-one-sample-t-test.html#cb234-2"></a>Sample=<span class="kw">c</span>(<span class="dv">587</span>, <span class="dv">602</span>, <span class="dv">627</span>, <span class="dv">610</span>, <span class="dv">619</span>, <span class="dv">622</span>, <span class="dv">605</span>, <span class="dv">608</span>, <span class="dv">596</span>, <span class="dv">592</span>) <span class="co">#lets put the values in a vector</span></span>
-<span id="cb234-3"><a href="the-one-sample-t-test.html#cb234-3"></a>PopulationMean=<span class="st"> </span><span class="dv">600</span> <span class="co">#this is the population mean...or the historical time it has taken people to run 100m</span></span>
-<span id="cb234-4"><a href="the-one-sample-t-test.html#cb234-4"></a></span>
-<span id="cb234-5"><a href="the-one-sample-t-test.html#cb234-5"></a>SampleMean=<span class="kw">mean</span>(Sample) <span class="co">#this is the sample mean</span></span>
-<span id="cb234-6"><a href="the-one-sample-t-test.html#cb234-6"></a>SampleSD=<span class="st"> </span><span class="kw">sd</span>(Sample)    <span class="co">#this is the sample standard deviation</span></span>
-<span id="cb234-7"><a href="the-one-sample-t-test.html#cb234-7"></a>SampleSize=<span class="kw">length</span>(Sample)</span>
-<span id="cb234-8"><a href="the-one-sample-t-test.html#cb234-8"></a></span>
-<span id="cb234-9"><a href="the-one-sample-t-test.html#cb234-9"></a><span class="kw">tsum.test</span>(<span class="dt">mean.x=</span>SampleMean, <span class="dt">s.x =</span> SampleSD, <span class="dt">n.x =</span> SampleSize, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>, <span class="dt">mu =</span> PopulationMean, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb234-10"><a href="the-one-sample-t-test.html#cb234-10"></a></span>
+<span id="cb234-3"><a href="the-one-sample-t-test.html#cb234-3"></a></span>
+<span id="cb234-4"><a href="the-one-sample-t-test.html#cb234-4"></a>SampleMean=<span class="kw">mean</span>(Sample) <span class="co">#this is the sample mean</span></span>
+<span id="cb234-5"><a href="the-one-sample-t-test.html#cb234-5"></a>SampleSD=<span class="st"> </span><span class="kw">sd</span>(Sample)    <span class="co">#this is the sample standard deviation</span></span>
+<span id="cb234-6"><a href="the-one-sample-t-test.html#cb234-6"></a>SampleSize=<span class="kw">length</span>(Sample)  <span class="co">#sample size</span></span>
+<span id="cb234-7"><a href="the-one-sample-t-test.html#cb234-7"></a></span>
+<span id="cb234-8"><a href="the-one-sample-t-test.html#cb234-8"></a>PopulationMean=<span class="st"> </span><span class="dv">600</span> <span class="co">#this is the population mean...or the expected score, which is assumed to be 600 points</span></span>
+<span id="cb234-9"><a href="the-one-sample-t-test.html#cb234-9"></a></span>
+<span id="cb234-10"><a href="the-one-sample-t-test.html#cb234-10"></a><span class="kw">tsum.test</span>(<span class="dt">mean.x=</span>SampleMean, <span class="dt">s.x =</span> SampleSD, <span class="dt">n.x =</span> SampleSize, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>, <span class="dt">mu =</span> PopulationMean, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</span>
 <span id="cb234-11"><a href="the-one-sample-t-test.html#cb234-11"></a></span>
-<span id="cb234-12"><a href="the-one-sample-t-test.html#cb234-12"></a><span class="co">#the parameters needed to run a T-test are self-explanatory. mean.x is the mean of your sample data. alternative is the type of test to run, in this case we want to check is the sample is greater than the population mean. mu is the population mean, and s.x is the standard deviation of the sample. This function ask for the confidence level, which as we indicated before is the complement to the level of significance to use, in our case our significance level is 0.05, so the confidence level will be 0.95</span></span></code></pre></div>
+<span id="cb234-12"><a href="the-one-sample-t-test.html#cb234-12"></a></span>
+<span id="cb234-13"><a href="the-one-sample-t-test.html#cb234-13"></a><span class="co">#the parameters needed to run a T-test are self-explanatory. mean.x is the mean of your sample data. alternative is the type of test to run, in this case we want to check is the sample is greater than the population mean. mu is the population mean, and s.x is the standard deviation of the sample. This function ask for the confidence level, which as we indicated before is the complement to the level of significance to use, in our case our significance level is 0.05, so the confidence level will be 0.95</span></span></code></pre></div>
 <p>The results will look like the image below, which are nearly identical to our hand calculation.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-301"></span>
 <img src="images/ToneSampleTestResultsR.png" alt="R-results for a one-sample z-test" width="80%" />
@@ -412,7 +413,7 @@ Figure 10.8: R-results for a one-sample z-test
         </div>
       </div>
 <a href="the-one-sample-z-test.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exercises-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="homework-7.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
