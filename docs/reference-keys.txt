@@ -104,6 +104,12 @@ fig:unnamed-chunk-296
 fig:unnamed-chunk-297
 fig:unnamed-chunk-299
 fig:unnamed-chunk-301
+fig:unnamed-chunk-302
+fig:unnamed-chunk-303
+fig:unnamed-chunk-307
+fig:unnamed-chunk-308
+fig:unnamed-chunk-311
+fig:unnamed-chunk-313
 the-scientific-method
 installing-programs
 basics-on-data-manipulation-in-r
@@ -114,3 +120,4 @@ regression
 hypothesis-testing
 standard-hyphostesis-tests
 one-sample-tests
+two-sample-tests

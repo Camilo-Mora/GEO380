@@ -20,7 +20,7 @@ At the end of this chapter, you are expected to:
 
 
 
-## The one-sample Z-test {-}
+## The one-sample Z-test by hand {-}
 As mentioned earlier, the Z-test is used in cases when you want to run a one-sample test, you know the population standard deviation and your sample size is larger than 30 individuals.
 
 
@@ -95,6 +95,7 @@ In our case, the p-value for a Z-score of -1.90 is 0.0287.
 
 What that tells you is that the girls in that team are as fast as the top 2.87% of all runners. If you use a **significance level**, $\alpha$, of 0.05. Thus, you reject the null hypothesis that the 100m run time of this team is 9.5sec or higher and conclude that these girls indeed run faster than the historical average.
 
+## The one-sample Z-test in R {-}
 
 We can run such a test in R, using the package BSDA, and its function z.test. Lets try it.
 
@@ -116,7 +117,7 @@ The results will look like the image below, which are nearly identical to our ha
 knitr::include_graphics("images/ZoneSampleTestResultsR.png")
 ```
 
-## The one-sample T-test {-}
+## The one-sample T-test by hand {-}
 We perform a *one-Sample t-test* when we want to compare a sample mean with the population mean and we do not know the population standard deviation or our sample size is small, n < 30. The difference from the Z Test is that we do not have the information on Population Variance here. We use the sample standard deviation instead of population standard deviation in this case.
 
 ```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'R-results for a one-sample z-test'}
@@ -172,7 +173,7 @@ There is only one T-table for cases of left-, right-, or two-tail test. When in 
 
 When in need of a two-tail test, divide the p-value by 2. Say, you are using a p-value of 0.05 testing an alternative hypothesis of something being different, then you will be running a two-tail test, meaning you will be looking to see if your sample value is on either tail of the population distribution. In this case you need to divide the p-value of interest by two to account for the fact that you are checking the two-tails of the distribution.
 
-
+## The one-sample T-test in R {-}
 
 We can run  a T-test in R, using the package BSDA, and its function tsum.test. Lets try it.
 
@@ -206,7 +207,8 @@ knitr::include_graphics("images/ToneSampleTestResultsR.png")
 For each of the problems below do:
 
 1. State the null and alternative hypothesis.
-3. Indicate the type of test to use.
+2. will this be a one tail or two-tail test?
+3. Indicate the type of test to use (Z-test or T-test).
 4. Run the given test in R.
 5. Report your results on top of a publication quality plot.
 6. Describe your conclusion.
