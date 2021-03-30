@@ -311,6 +311,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="the-two-sample-t-test-in-r.html"><a href="the-two-sample-t-test-in-r.html"><i class="fa fa-check"></i>The two-sample T-test in R</a></li>
 <li class="chapter" data-level="" data-path="homework-8.html"><a href="homework-8.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="12-multiple-sample-test.html"><a href="12-multiple-sample-test.html"><i class="fa fa-check"></i><b>12</b> Multiple sample test</a><ul>
+<li class="chapter" data-level="" data-path="anova-theory.html"><a href="anova-theory.html"><i class="fa fa-check"></i>ANOVA theory</a></li>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html"><i class="fa fa-check"></i>ANOVA by hand</a></li>
+<li class="chapter" data-level="" data-path="anova-in-r.html"><a href="anova-in-r.html"><i class="fa fa-check"></i>ANOVA in R</a></li>
+<li class="chapter" data-level="" data-path="post-hoc-test-in-r.html"><a href="post-hoc-test-in-r.html"><i class="fa fa-check"></i>Post-hoc test in R</a></li>
+<li class="chapter" data-level="" data-path="homework-9.html"><a href="homework-9.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
 
@@ -335,12 +342,12 @@ By Camilo Mora, Ph.D.
             <section class="normal" id="section-">
 <div id="the-one-sample-z-test-by-hand" class="section level2 unnumbered">
 <h2>The one-sample Z-test by hand</h2>
-<p>As mentioned earlier, the Z-test is used in cases when you want to run a one-sample test, you know the population standard deviation and your sample size is larger than 30 individuals.</p>
+<p>As mentioned earlier, the Z-test is used in cases when you want to run a one-sample test, you know the population standard deviation and your sample size is larger than 30 individuals. (grabs this token L).</p>
 <p>The principle of the Z-score is very straightforward. Basically, this score allows you to know how many Standard deviations from the mean a given sample is.</p>
-<p>As it has been indicated several times in this book, it is relatively easy to know the proportion of individuals in a population at certain standard deviations from the mean.</p>
+<p>As it has been indicated several times in this book, it is relatively easy to know the proportion of individuals in a population at certain standard deviations from the mean (when the data are normally distributed, of course).</p>
 <p>As an example, plus or minus two standard deviations from the mean includes about 95% of the individuals in that population (assuming the population is normally distributed).</p>
 <p>Given this principle then you can easily know the fraction of individuals at certain standard deviations from the mean.</p>
-<p>The z-cores is basically an index that allows you to convert/standardize any value to a given number of standard deviations.</p>
+<p>The z-cores is basically an index that allows you to convert/standardize any value to a given number of standard deviations from the mean.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-291"></span>
 <img src="images/Z-Score.png" alt="Z-test fucntion" width="70%" />
 <p class="caption">
@@ -348,13 +355,14 @@ Figure 10.2: Z-test fucntion
 </p>
 </div>
 <p>Lets try an example.</p>
-<p>Say you want to know if females in a team run particularly faster the 100m race.</p>
-<p>You measured the times of 31 girls and they were 9.7, 9.7, 8.9, 9.2, 9.4, 9.1, 9.5, 9.6, 8.9, 9.1, 9.5, 9.2, 9.5, 9.4, 9.6, 9.2, 9.9, 10, 9.3, 9.6, 9.1, 9.5, 9.2, 9.5, 9.4, 9.6, 9.2, 9.9, 10, 9.3, 9.6.</p>
-<p>In turn, the historical times running that race are 9.5sec +/-0.2sec.</p>
+<p>Say you want to know if the USA female team run particularly faster the 100m race than other teams.</p>
+<p>You studeid 31 girls and their times runing 100m in seconds were:</p>
+<p>9.7, 9.7, 8.9, 9.2, 9.4, 9.1, 9.5, 9.6, 8.9, 9.1, 9.5, 9.2, 9.5, 9.4, 9.6, 9.2, 9.9, 10, 9.3, 9.6, 9.1, 9.5, 9.2, 9.5, 9.4, 9.6, 9.2, 9.9, 10, 9.3, 9.6.</p>
+<p>In turn, the historical time running that race is 9.5sec +/-0.2sec.</p>
 <p>From the example, it looks like we have one sample that we want to compare to a population. We have the standard deviation, SD, of the population and our sample size is larger than 30, so the best test here is a Z-test.</p>
 <p>As it is customary, we start by stating the hypothesis:</p>
-<p>H0: Time girls = 9.5 sec The null hypothesis is how things are suppose to be…that means, the historical time of 9.5sec</p>
-<p>H1: Time girls &lt; 9.5 sec The alternative hypothesis is what we are interested on, or claiming…that the team is faster than 9.5sec</p>
+<p>H0: Time USA team = 9.5 sec The null hypothesis is how things are suppose to be…that means, the historical time of 9.5sec</p>
+<p>H1: Time USA team &lt; 9.5 sec The alternative hypothesis is what we are interested on, or claiming…that the USA team is faster than 9.5sec</p>
 <p>Let’s calculate the z-score:</p>
 <div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="the-one-sample-z-test-by-hand.html#cb230-1"></a>Sample=<span class="kw">c</span>(<span class="fl">9.7</span>, <span class="fl">9.7</span>, <span class="fl">8.9</span>, <span class="fl">9.2</span>, <span class="fl">9.4</span>, <span class="fl">9.1</span>, <span class="fl">9.5</span>, <span class="fl">9.6</span>, <span class="fl">8.9</span>, <span class="fl">9.1</span>, <span class="fl">9.5</span>, <span class="fl">9.2</span>, <span class="fl">9.5</span>, <span class="fl">9.4</span>, <span class="fl">9.6</span>, <span class="fl">9.2</span>, <span class="fl">9.9</span>, <span class="dv">10</span>, <span class="fl">9.3</span>, <span class="fl">9.6</span>, <span class="fl">9.1</span>, <span class="fl">9.5</span>, <span class="fl">9.2</span>, <span class="fl">9.5</span>, <span class="fl">9.4</span>, <span class="fl">9.6</span>, <span class="fl">9.2</span>, <span class="fl">9.9</span>, <span class="dv">10</span>, <span class="fl">9.3</span>, <span class="fl">9.6</span>) <span class="co">#lets put the values in a vector</span></span>
 <span id="cb230-2"><a href="the-one-sample-z-test-by-hand.html#cb230-2"></a></span>
@@ -370,14 +378,18 @@ Figure 10.2: Z-test fucntion
 <span id="cb230-12"><a href="the-one-sample-z-test-by-hand.html#cb230-12"></a>ZTest=(SampleMean<span class="op">-</span>PopulationMean)<span class="op">/</span>(PopulationSD<span class="op">/</span><span class="kw">sqrt</span>(SampleSize))</span>
 <span id="cb230-13"><a href="the-one-sample-z-test-by-hand.html#cb230-13"></a>ZTest</span></code></pre></div>
 <pre><code>## [1] -1.70625</code></pre>
-<p>Now you need to recall chapter 8 to find out if this is a left-, right- or two tail test.</p>
+<p>Now you need to recall chapter 8 to find out if this is a left-, right- or two tail test. If you have forgotten, check the video as a refreshers:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8NKaocZectc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Because, our alternative hypothesis is stating that the sample is smaller than, then we have to use a left-sided test.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-293"></span>
 <img src="images/TestTypes.png" alt="Types of tests" width="80%" />
 <p class="caption">
 Figure 10.3: Types of tests
 </p>
 </div>
-<p>Because, our alternative hypothesis is stating that the sample is smaller than, then we have to use a left-sided test. And with that you should look for the p-value in a Z-table for the left-sided test, like this one below (These tables are in the back of each stats book and online). The Z-table would give you the p-value for a given Z-value…in other words, what fraction of the population is beyond the given z-score.</p>
+<p>And with that you should look for the significance level (<span class="math inline">\(\alpha\)</span>) in a Z-table of a left-sided test, like this one below (These tables are in the back of each stats book and online).</p>
+<p>The Z-table would give you the p-value for a given Z-value…in other words, what fraction of the population is beyond the given z-score.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-294"></span>
 <img src="images/NegativeZtable.jpg" alt="Left-sided Z-table" width="80%" />
 <p class="caption">
@@ -388,7 +400,9 @@ Figure 10.4: Left-sided Z-table
 <p>Once on that row, go back to the first row, and move horizontally until the column with the second decimal point in your calculated Z-score, which in our case is 0.</p>
 <p>Basically, you are looking for the value at the interception between the first decimal point in your calculated z-score indicated in the first column, and the second decimal of your z-score indicated in the first row of the Z-table.</p>
 <p>In our case, the p-value for a Z-score of -1.90 is 0.0287.</p>
-<p>What that tells you is that the girls in that team are as fast as the top 2.87% of all runners. If you use a <strong>significance level</strong>, <span class="math inline">\(\alpha\)</span>, of 0.05. Thus, you reject the null hypothesis that the 100m run time of this team is 9.5sec or higher and conclude that these girls indeed run faster than the historical average.</p>
+<p>What that tells you is that the girls in the USA team are as fast as the top 2.87% of all teams.</p>
+<p>If we compare our <strong>significance level</strong>, <span class="math inline">\(\alpha\)</span>, of 0.05, to our calculated p-value of 0.0287, you can observed that the p-value is smaller than the <span class="math inline">\(\alpha\)</span>, so the Ho (null hypothesis) must go.</p>
+<p>Basically, we reject the null hypothesis that the 100m run time of this team is 9.5sec or higher and conclude that these girls indeed run faster than the historical average.</p>
 </div>
 <div id="disqus_thread"></div>
 <script>

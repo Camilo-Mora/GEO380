@@ -5,7 +5,7 @@ is it the gas in Hawaii significantly more expensive than the rest of the USA?.
 
 is a 10 year old girl taller than expected?
 
-These types of questions can be answered with either the Z-test or the T-Test, which we will introduce in this chapter. Both of these tests are suited for one-sample test, but the Z-test is used for cases in which you know the population SD and your sample size is larger than 30 individuals.  If on the contrary, you do not know your population SD or your sample size is smaller than 30, then you used the T-Test.
+These types of questions can be answered with either the Z-test or the T-Test, which we will introduce in this chapter. Both of these tests are suited for one-sample test, but the Z-test is used for cases in which you know the population standard deviation (SD) and your sample size is larger than 30 observations.  If on the contrary, you do not know your population SD or your sample size is smaller than 30 observations, then you used the T-Test.
 
 ```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Z-score fucntion'}
 knitr::include_graphics("images/SelectingOnSampleTest.png")
@@ -21,38 +21,41 @@ At the end of this chapter, you are expected to:
 
 
 ## The one-sample Z-test by hand {-}
-As mentioned earlier, the Z-test is used in cases when you want to run a one-sample test, you know the population standard deviation and your sample size is larger than 30 individuals.
+As mentioned earlier, the Z-test is used in cases when you want to run a one-sample test, you know the population standard deviation and your sample size is larger than 30 individuals. (grabs this token L).
 
 
 The principle of the Z-score is very straightforward. Basically, this score allows you to know how many Standard deviations from the mean a given sample is.
 
 
-As it has been indicated several times in this book, it is relatively easy to know the proportion of individuals in a population at certain standard deviations from the mean. 
+As it has been indicated several times in this book, it is relatively easy to know the proportion of individuals in a population at certain standard deviations from the mean (when the data are normally distributed, of course). 
 
 As an example, plus or minus two standard deviations from the mean includes about 95% of the individuals in that population (assuming the population is normally distributed).
 
 Given this principle then you can easily know the fraction of individuals at certain standard deviations from the mean.
 
-The z-cores is basically an index that allows you to convert/standardize any value to a given number of standard deviations.
+The z-cores is basically an index that allows you to convert/standardize any value to a given number of standard deviations from the mean.
 
 ```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Z-test fucntion'}
 knitr::include_graphics("images/Z-score.png")
 ```
+
 Lets try an example.
 
-Say you want to know if females in a team run particularly faster the 100m race.
+Say you want to know if the USA female team run particularly faster the 100m race than other teams.
 
-You measured the times of 31 girls and they were 9.7, 9.7, 8.9, 9.2, 9.4, 9.1, 9.5, 9.6, 8.9, 9.1, 9.5, 9.2, 9.5, 9.4, 9.6, 9.2, 9.9, 10, 9.3, 9.6, 9.1, 9.5, 9.2, 9.5, 9.4, 9.6, 9.2, 9.9, 10, 9.3, 9.6. 
+You studeid 31 girls and their times runing 100m in seconds were:
 
-In turn, the historical times running that race are 9.5sec +/-0.2sec.
+9.7, 9.7, 8.9, 9.2, 9.4, 9.1, 9.5, 9.6, 8.9, 9.1, 9.5, 9.2, 9.5, 9.4, 9.6, 9.2, 9.9, 10, 9.3, 9.6, 9.1, 9.5, 9.2, 9.5, 9.4, 9.6, 9.2, 9.9, 10, 9.3, 9.6. 
+
+In turn, the historical time running that race is 9.5sec +/-0.2sec.
 
 From the example, it looks like we have one sample that we want to compare to a population. We have the standard deviation, SD, of the population and our sample size is larger than 30, so the best test here is a Z-test.
 
 As it is customary, we start by stating the hypothesis:
 
-H0: Time girls = 9.5 sec      The null hypothesis is how things are suppose to be...that means, the historical time of 9.5sec
+H0: Time USA team = 9.5 sec      The null hypothesis is how things are suppose to be...that means, the historical time of 9.5sec
 
-H1: Time girls < 9.5 sec      The alternative hypothesis is what we are interested on, or claiming...that the team is faster than 9.5sec
+H1: Time USA team < 9.5 sec      The alternative hypothesis is what we are interested on, or claiming...that the USA team is faster than 9.5sec
 
 Let's calculate the z-score:
 
@@ -74,13 +77,21 @@ ZTest
  
 ``` 
 
-Now you need to recall chapter 8 to find out if this is a left-, right- or two tail test.
+Now you need to recall chapter 8 to find out if this is a left-, right- or two tail test. If you have forgotten, check the video as a refreshers:
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8NKaocZectc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Because, our alternative hypothesis is stating that the sample is smaller than, then we have to use a left-sided test.
+
 
 ```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'Types of tests'}
 knitr::include_graphics("images/TestTypes.png")
 ```
 
-Because, our alternative hypothesis is stating that the sample is smaller than, then we have to use a left-sided test. And with that you should look for the p-value in a Z-table for the left-sided test, like this one below (These tables are in the back of each stats book and online). The Z-table would give you the p-value for a given Z-value...in other words, what fraction of the population is beyond the given z-score.
+And with that you should look for the significance level ($\alpha$) in a Z-table of a left-sided test, like this one below (These tables are in the back of each stats book and online). 
+
+The Z-table would give you the p-value for a given Z-value...in other words, what fraction of the population is beyond the given z-score.
 
 ```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'Left-sided Z-table'}
 knitr::include_graphics("images/NegativeZtable.jpg")
@@ -94,7 +105,12 @@ Basically, you are looking for the value at the interception between  the first 
 
 In our case, the p-value for a Z-score of -1.90 is 0.0287.
 
-What that tells you is that the girls in that team are as fast as the top 2.87% of all runners. If you use a **significance level**, $\alpha$, of 0.05. Thus, you reject the null hypothesis that the 100m run time of this team is 9.5sec or higher and conclude that these girls indeed run faster than the historical average.
+What that tells you is that the girls in the USA team are as fast as the top 2.87% of all teams.
+
+If we compare our **significance level**, $\alpha$, of 0.05, to our calculated p-value of 0.0287, you can observed that the p-value is smaller than the $\alpha$, so the Ho (null hypothesis) must go. 
+
+Basically, we reject the null hypothesis that the 100m run time of this team is 9.5sec or higher and conclude that these girls indeed run faster than the historical average.
+
 
 ## The one-sample Z-test in R {-}
 
@@ -127,15 +143,17 @@ knitr::include_graphics("images/T-test.png")
 
 Lets try an example.
 
-Let’s say we want to determine if on average girls score more than 600 points in a given exam. We do not have the information related to variance (or standard deviation) for girls’ scores, so we take randomly the scores of 10 girls. We choose our ⍺ value (significance level) to be 0.05.
+Let’s say we want to determine if on average girls score more than 600 points in a given exam. We do not have the information related to variance (or standard deviation) for girls’ scores, so we take randomly the scores of 10 girls. We choose our $\alpha$ value (significance level) to be 0.05.
 
-The scores for the ten girl were 587, 602, 627, 610, 619, 622, 605, 608, 596, 592.
+The scores for the ten girl were:
+
+587, 602, 627, 610, 619, 622, 605, 608, 596, 592.
 
 Lets' set the hypothesis
 
 H0: $\mu$ =< 600     the true or expected value
 
-H1: $\mu$ >  600     the question of interest, which in this case is to know if these scored higher
+H1: $\mu$ >  600     the question of interest, which in this case is to know if the girsl scored higher
 
 In this case, we have a one-sample comparison, we do not know the population variance, and our sample size is only 10 individuals, so a T-test is best suited here.
 
@@ -159,21 +177,23 @@ TTest
 
 So our estimated T-value is 1.64.
 
-Now, we need to find out the critical t-value at the 0.05 significance level. For this, we need to estimate something call **Degrees of freedom**, which in this case is simply our sample size minus one. In our case, the degrees of freedom, then , are 9.
+Now, we need to find out the critical t-value at the 0.05 significance level. For this, we need to estimate something call **Degrees of freedom**, which in this case is simply our sample size minus one. In our case, the degrees of freedom, then, are 9.
 
-With the information of the ⍺ value (i.e., 0.05 in our case) and the degrees of freedom, **DF** (i.e, 9 in our case), we can look for the critical T-value in a table, like the one below.
+With the information of the $\alpha$ value (i.e., 0.05 in our case) and the degrees of freedom, **DF** (i.e, 9 in our case), we can look for the critical T-value in a table, like the one below.
 
-Basically, scroll down the first column looking for 9 DF, then move horizontally to the column displaying the 0.05 level of significance, in our case that is 1.8331.
+Basically, scroll down the first column looking for 9 DF, then move horizontally to the column displaying the 0.05 level of significance, where they intercept that is our critical t-value. In our case that number is 1.8331.
 
 
 ```{r, out.width = "100%", echo= FALSE, fig.align = 'center',fig.cap = 'R-results for a one-sample z-test'}
 knitr::include_graphics("images/TTable.jpg")
 ```
-Our critical t-value for 9DF and $\alpha$=0.05 is 1.8331. This means 5% of the given population are above a T-value of 1.8331. In our case, the calculated t-value was 1.64, which is smaller than the critical value, so we *fail to reject the null hypothesis* and don’t have enough evidence to support the hypothesis that on average, girls score more than 600 in the exam.
+Our critical t-value for 9DF and $\alpha$=0.05 is 1.8331. This means 5% of the given population are above a T-value of 1.8331. 
+
+In our case, the calculated t-value was 1.64, which is smaller than the critical value, so we *fail to reject the null hypothesis* and don’t have enough evidence to support the hypothesis that on average, girls score more than 600 in the exam.
 
 There is only one T-table for cases of left-, right-, or two-tail test. When in need of a left-side score, simply remove the sign and look for the critical t-value in the table above. This is because the T-distribution is symmetric from the mean: it is the same right or left. 
 
-When in need of a two-tail test, divide the p-value by 2. Say, you are using a p-value of 0.05 testing an alternative hypothesis of something being different, then you will be running a two-tail test, meaning you will be looking to see if your sample value is on either tail of the population distribution. In this case you need to divide the p-value of interest by two to account for the fact that you are checking the two-tails of the distribution.
+When in need of a two-tail test, divide the significance level by 2, and look for that value in the T-table. Say, you are using a significance level of 0.05 testing an alternative hypothesis of something being different, then you will be running a two-tail test, meaning you will be looking to see if your sample value is on either tail of the population distribution. In this case, you need to divide the significance level ($\alpha$) by 2 to account for the fact that you are checking the two-tails of the distribution.
 
 ## The one-sample T-test in R {-}
 
@@ -220,5 +240,5 @@ Public safety standards indicate that CO2 emissions of gasoline cars should be 8
 
 
 **Problem 2:**
-An energy drink company recently purchased a bottling machine for their 250ml trade-mark product. Before releasing any product, the factory manager wants to confirm the right volume of liquid is being dispensed by this machine. He measured the volume of liquid in several samples, which were 245.5, 249.2, 251.2, 251.1, 252. Given these data, what will be your recommendation about starting to pack the product?
+An energy drink company recently purchased a bottling machine for their 250ml trade-mark product. Before releasing any product, the factory manager wants to confirm the right volume of liquid is being dispensed by this machine. He measured the volume of liquid in several samples, which were 245.5, 249.2, 251.2, 251.1, 252ml. Given these data, what will be your recommendation about starting to pack the product with his machine?
 

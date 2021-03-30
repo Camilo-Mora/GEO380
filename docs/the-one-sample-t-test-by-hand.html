@@ -311,6 +311,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="the-two-sample-t-test-in-r.html"><a href="the-two-sample-t-test-in-r.html"><i class="fa fa-check"></i>The two-sample T-test in R</a></li>
 <li class="chapter" data-level="" data-path="homework-8.html"><a href="homework-8.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="12-multiple-sample-test.html"><a href="12-multiple-sample-test.html"><i class="fa fa-check"></i><b>12</b> Multiple sample test</a><ul>
+<li class="chapter" data-level="" data-path="anova-theory.html"><a href="anova-theory.html"><i class="fa fa-check"></i>ANOVA theory</a></li>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html"><i class="fa fa-check"></i>ANOVA by hand</a></li>
+<li class="chapter" data-level="" data-path="anova-in-r.html"><a href="anova-in-r.html"><i class="fa fa-check"></i>ANOVA in R</a></li>
+<li class="chapter" data-level="" data-path="post-hoc-test-in-r.html"><a href="post-hoc-test-in-r.html"><i class="fa fa-check"></i>Post-hoc test in R</a></li>
+<li class="chapter" data-level="" data-path="homework-9.html"><a href="homework-9.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
 
@@ -343,11 +350,12 @@ Figure 10.6: R-results for a one-sample z-test
 </p>
 </div>
 <p>Lets try an example.</p>
-<p>Let’s say we want to determine if on average girls score more than 600 points in a given exam. We do not have the information related to variance (or standard deviation) for girls’ scores, so we take randomly the scores of 10 girls. We choose our ⍺ value (significance level) to be 0.05.</p>
-<p>The scores for the ten girl were 587, 602, 627, 610, 619, 622, 605, 608, 596, 592.</p>
+<p>Let’s say we want to determine if on average girls score more than 600 points in a given exam. We do not have the information related to variance (or standard deviation) for girls’ scores, so we take randomly the scores of 10 girls. We choose our <span class="math inline">\(\alpha\)</span> value (significance level) to be 0.05.</p>
+<p>The scores for the ten girl were:</p>
+<p>587, 602, 627, 610, 619, 622, 605, 608, 596, 592.</p>
 <p>Lets’ set the hypothesis</p>
 <p>H0: <span class="math inline">\(\mu\)</span> =&lt; 600 the true or expected value</p>
-<p>H1: <span class="math inline">\(\mu\)</span> &gt; 600 the question of interest, which in this case is to know if these scored higher</p>
+<p>H1: <span class="math inline">\(\mu\)</span> &gt; 600 the question of interest, which in this case is to know if the girsl scored higher</p>
 <p>In this case, we have a one-sample comparison, we do not know the population variance, and our sample size is only 10 individuals, so a T-test is best suited here.</p>
 <p>Let’s do one by hand,</p>
 <div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="the-one-sample-t-test-by-hand.html#cb233-1"></a>Sample=<span class="kw">c</span>(<span class="dv">587</span>, <span class="dv">602</span>, <span class="dv">627</span>, <span class="dv">610</span>, <span class="dv">619</span>, <span class="dv">622</span>, <span class="dv">605</span>, <span class="dv">608</span>, <span class="dv">596</span>, <span class="dv">592</span>) <span class="co">#lets put the values in a vector</span></span>
@@ -363,18 +371,19 @@ Figure 10.6: R-results for a one-sample z-test
 <span id="cb233-11"><a href="the-one-sample-t-test-by-hand.html#cb233-11"></a>TTest=(SampleMean<span class="op">-</span>PopulationMean)<span class="op">/</span>(SampleSD<span class="op">/</span><span class="kw">sqrt</span>(SampleSize))</span>
 <span id="cb233-12"><a href="the-one-sample-t-test-by-hand.html#cb233-12"></a>TTest</span></code></pre></div>
 <p>So our estimated T-value is 1.64.</p>
-<p>Now, we need to find out the critical t-value at the 0.05 significance level. For this, we need to estimate something call <strong>Degrees of freedom</strong>, which in this case is simply our sample size minus one. In our case, the degrees of freedom, then , are 9.</p>
-<p>With the information of the ⍺ value (i.e., 0.05 in our case) and the degrees of freedom, <strong>DF</strong> (i.e, 9 in our case), we can look for the critical T-value in a table, like the one below.</p>
-<p>Basically, scroll down the first column looking for 9 DF, then move horizontally to the column displaying the 0.05 level of significance, in our case that is 1.8331.</p>
+<p>Now, we need to find out the critical t-value at the 0.05 significance level. For this, we need to estimate something call <strong>Degrees of freedom</strong>, which in this case is simply our sample size minus one. In our case, the degrees of freedom, then, are 9.</p>
+<p>With the information of the <span class="math inline">\(\alpha\)</span> value (i.e., 0.05 in our case) and the degrees of freedom, <strong>DF</strong> (i.e, 9 in our case), we can look for the critical T-value in a table, like the one below.</p>
+<p>Basically, scroll down the first column looking for 9 DF, then move horizontally to the column displaying the 0.05 level of significance, where they intercept that is our critical t-value. In our case that number is 1.8331.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-299"></span>
 <img src="images/TTable.jpg" alt="R-results for a one-sample z-test" width="100%" />
 <p class="caption">
 Figure 10.7: R-results for a one-sample z-test
 </p>
 </div>
-<p>Our critical t-value for 9DF and <span class="math inline">\(\alpha\)</span>=0.05 is 1.8331. This means 5% of the given population are above a T-value of 1.8331. In our case, the calculated t-value was 1.64, which is smaller than the critical value, so we <em>fail to reject the null hypothesis</em> and don’t have enough evidence to support the hypothesis that on average, girls score more than 600 in the exam.</p>
+<p>Our critical t-value for 9DF and <span class="math inline">\(\alpha\)</span>=0.05 is 1.8331. This means 5% of the given population are above a T-value of 1.8331.</p>
+<p>In our case, the calculated t-value was 1.64, which is smaller than the critical value, so we <em>fail to reject the null hypothesis</em> and don’t have enough evidence to support the hypothesis that on average, girls score more than 600 in the exam.</p>
 <p>There is only one T-table for cases of left-, right-, or two-tail test. When in need of a left-side score, simply remove the sign and look for the critical t-value in the table above. This is because the T-distribution is symmetric from the mean: it is the same right or left.</p>
-<p>When in need of a two-tail test, divide the p-value by 2. Say, you are using a p-value of 0.05 testing an alternative hypothesis of something being different, then you will be running a two-tail test, meaning you will be looking to see if your sample value is on either tail of the population distribution. In this case you need to divide the p-value of interest by two to account for the fact that you are checking the two-tails of the distribution.</p>
+<p>When in need of a two-tail test, divide the significance level by 2, and look for that value in the T-table. Say, you are using a significance level of 0.05 testing an alternative hypothesis of something being different, then you will be running a two-tail test, meaning you will be looking to see if your sample value is on either tail of the population distribution. In this case, you need to divide the significance level (<span class="math inline">\(\alpha\)</span>) by 2 to account for the fact that you are checking the two-tails of the distribution.</p>
 </div>
 <div id="disqus_thread"></div>
 <script>

@@ -111,6 +111,9 @@ fig:unnamed-chunk-308
 fig:unnamed-chunk-309
 fig:unnamed-chunk-312
 fig:unnamed-chunk-314
+fig:unnamed-chunk-315
+fig:unnamed-chunk-316
+fig:unnamed-chunk-317
 the-scientific-method
 installing-programs
 basics-on-data-manipulation-in-r
@@ -122,3 +125,4 @@ hypothesis-testing
 standard-hyphostesis-tests
 one-sample-tests
 two-sample-tests
+multiple-sample-test

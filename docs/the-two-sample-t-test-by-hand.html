@@ -311,6 +311,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="the-two-sample-t-test-in-r.html"><a href="the-two-sample-t-test-in-r.html"><i class="fa fa-check"></i>The two-sample T-test in R</a></li>
 <li class="chapter" data-level="" data-path="homework-8.html"><a href="homework-8.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="12-multiple-sample-test.html"><a href="12-multiple-sample-test.html"><i class="fa fa-check"></i><b>12</b> Multiple sample test</a><ul>
+<li class="chapter" data-level="" data-path="anova-theory.html"><a href="anova-theory.html"><i class="fa fa-check"></i>ANOVA theory</a></li>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html"><i class="fa fa-check"></i>ANOVA by hand</a></li>
+<li class="chapter" data-level="" data-path="anova-in-r.html"><a href="anova-in-r.html"><i class="fa fa-check"></i>ANOVA in R</a></li>
+<li class="chapter" data-level="" data-path="post-hoc-test-in-r.html"><a href="post-hoc-test-in-r.html"><i class="fa fa-check"></i>Post-hoc test in R</a></li>
+<li class="chapter" data-level="" data-path="homework-9.html"><a href="homework-9.html"><i class="fa fa-check"></i>Homework</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
 
@@ -343,12 +350,12 @@ Figure 11.5: T-test fucntion for two samples
 </p>
 </div>
 <p>Lets try an example.</p>
-<p>Historically, males have scored 15 points more than girls in a given exam. No standard deviations exists. To test if this is true today, a researcher performed such a test in 10 males and 10 females and found that males scored 630.1 on average (+/- 13.42SD) and females 606.8 (+/- 13.14 SD). He wants to test the significance of this conclusion with a ⍺ value (significance level) of 0.05.</p>
-<p>Let’s start with stating the hypothesis:</p>
-<p>H0: Men scores-Female scores &lt;= 15, the null hypothesis is the complement of the alternative hypothesis, so set that one first</p>
-<p>H1: Men scores-Female scores &gt; 15 , The question of interest, which is that males get 15 points more than females</p>
+<p>Historically, males have scored 15 points more than girls in a given exam. No standard deviations exists. To test if this is true today, a researcher performed such a test in 10 males and 10 females and found that males scored 630.1 on average (+/- 13.42SD) and females 606.8 (+/- 13.14 SD). He wants to test the significance of this conclusion with a <span class="math inline">\(\alpha\)</span> value (significance level) of 0.05.</p>
+<p>Let’s start by stating the hypotheses:</p>
+<p>H0: Men scores -(minus) Female scores &lt;= 15, The null hypothesis is the complement of the alternative hypothesis, so set that one first</p>
+<p>H1: Men scores-Female scores &gt; 15 The question of interest is that males get 15 points more than females. So the difference between male and female scores is larger than 15 points.</p>
 <p>What test to use?. Well the sample size is smaller than 30, so we need to use a T-Test.</p>
-<p>An before we do any calculations, lets lets start by visualizing these data:</p>
+<p>And before we do any calculations, lets start by visualizing these data:</p>
 <div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="the-two-sample-t-test-by-hand.html#cb239-1"></a>Males_Mean=<span class="fl">630.1</span>  </span>
 <span id="cb239-2"><a href="the-two-sample-t-test-by-hand.html#cb239-2"></a>Males_SDSD=<span class="fl">13.42</span></span>
 <span id="cb239-3"><a href="the-two-sample-t-test-by-hand.html#cb239-3"></a></span>
@@ -367,7 +374,7 @@ Figure 11.5: T-test fucntion for two samples
 <span id="cb239-16"><a href="the-two-sample-t-test-by-hand.html#cb239-16"></a>Females=<span class="st"> </span><span class="kw">hist</span>(SimulatedFemales, <span class="dt">breaks =</span> breaks,  <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
 <span id="cb239-17"><a href="the-two-sample-t-test-by-hand.html#cb239-17"></a></span>
 <span id="cb239-18"><a href="the-two-sample-t-test-by-hand.html#cb239-18"></a></span>
-<span id="cb239-19"><a href="the-two-sample-t-test-by-hand.html#cb239-19"></a><span class="co">#because you are plotting three distributions, it will be nice to use different colors. and because they likely overlap, you should use semitransparent colors</span></span>
+<span id="cb239-19"><a href="the-two-sample-t-test-by-hand.html#cb239-19"></a><span class="co">#because you are plotting two distributions, it will be nice to use different colors. and because they likely overlap, you should use semitransparent colors</span></span>
 <span id="cb239-20"><a href="the-two-sample-t-test-by-hand.html#cb239-20"></a>LightBlue &lt;-<span class="st"> </span><span class="kw">rgb</span>(<span class="dv">173</span>,<span class="dv">216</span>,<span class="dv">230</span>,<span class="dt">max =</span> <span class="dv">255</span>, <span class="dt">alpha =</span> <span class="dv">100</span>) <span class="co">#the function rgb lets your select one color, and the alpha gives you how tranparent</span></span>
 <span id="cb239-21"><a href="the-two-sample-t-test-by-hand.html#cb239-21"></a>DarkRed &lt;-<span class="st"> </span><span class="kw">rgb</span>(<span class="dv">255</span>,<span class="dv">192</span>,<span class="dv">203</span>, <span class="dt">max =</span> <span class="dv">255</span>, <span class="dt">alpha =</span> <span class="dv">95</span>)</span>
 <span id="cb239-22"><a href="the-two-sample-t-test-by-hand.html#cb239-22"></a></span>
@@ -378,14 +385,14 @@ Figure 11.5: T-test fucntion for two samples
 <span id="cb239-27"><a href="the-two-sample-t-test-by-hand.html#cb239-27"></a><span class="co">#now add the second distribution to the first plot, using the parameter add=TRUE, or add=T, they are both the same</span></span>
 <span id="cb239-28"><a href="the-two-sample-t-test-by-hand.html#cb239-28"></a><span class="kw">plot</span>(Females, <span class="dt">add=</span>T ,<span class="dt">col=</span>DarkRed)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-310-1.png" width="672" /></p>
-<p>Lets calculate the T-score for comparing two samples</p>
+<p>Lets calculate the T-score for comparing two samples:</p>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="the-two-sample-t-test-by-hand.html#cb240-1"></a>Males_Mean=<span class="fl">630.1</span>  </span>
 <span id="cb240-2"><a href="the-two-sample-t-test-by-hand.html#cb240-2"></a>Males_SDSD=<span class="fl">13.42</span></span>
 <span id="cb240-3"><a href="the-two-sample-t-test-by-hand.html#cb240-3"></a></span>
 <span id="cb240-4"><a href="the-two-sample-t-test-by-hand.html#cb240-4"></a>Females_Mean=<span class="fl">606.8</span></span>
 <span id="cb240-5"><a href="the-two-sample-t-test-by-hand.html#cb240-5"></a>Females_SD=<span class="fl">13.14</span></span>
 <span id="cb240-6"><a href="the-two-sample-t-test-by-hand.html#cb240-6"></a></span>
-<span id="cb240-7"><a href="the-two-sample-t-test-by-hand.html#cb240-7"></a>SampleSize=<span class="st"> </span><span class="dv">10</span>  <span class="co">#we can use this variable for both males and females, since in both cases 10 people were analysed</span></span>
+<span id="cb240-7"><a href="the-two-sample-t-test-by-hand.html#cb240-7"></a>SampleSize=<span class="st"> </span><span class="dv">10</span>  <span class="co">#we can use this variable for both males and females, since in both cases 10 people were analyzed</span></span>
 <span id="cb240-8"><a href="the-two-sample-t-test-by-hand.html#cb240-8"></a></span>
 <span id="cb240-9"><a href="the-two-sample-t-test-by-hand.html#cb240-9"></a> </span>
 <span id="cb240-10"><a href="the-two-sample-t-test-by-hand.html#cb240-10"></a>T_Score_Numerator=<span class="st"> </span>(Males_Mean<span class="op">-</span>Females_Mean) <span class="dv">-15</span>  <span class="co">#because we assume that males score 15 point more, we need to assume that the difference between the population means is 15 points</span></span>
@@ -395,7 +402,7 @@ Figure 11.5: T-test fucntion for two samples
 <span id="cb240-14"><a href="the-two-sample-t-test-by-hand.html#cb240-14"></a>T_score=T_Score_Numerator<span class="op">/</span>T_Score_denominator</span>
 <span id="cb240-15"><a href="the-two-sample-t-test-by-hand.html#cb240-15"></a>T_score</span></code></pre></div>
 <pre><code>## [1] 1.397465</code></pre>
-<p>Next, look for the t-critical value in the t-table for 18 degrees of freedom. In the case of a two sample t-test, degrees of freedoms are equal to the sample size one plus sample size two minus two) and a p-value of 0.05 (Here we are looking at one tail test, as the alternative hypothesis states that one thing is larger than the other)</p>
+<p>Next, look for the t-critical value in the t-table for 18 degrees of freedom. In the case of a two sample t-test, degrees of freedoms are equal to the sample size one plus sample size two minus two) and a level of significance <span class="math inline">\(\alpha\)</span> of 0.05 (Here we are looking at one tail test, as the alternative hypothesis states that one mean is larger than the other).</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-312"></span>
 <img src="images/TTable.jpg" alt="R-results for a one-sample z-test" width="100%" />
 <p class="caption">
@@ -403,7 +410,7 @@ Figure 11.6: R-results for a one-sample z-test
 </p>
 </div>
 <p>So the critical t-Score is 1.734.</p>
-<p>Since our calculated t-value (i.e., 1.397465) was smaller than the critical t-value (1.734), we fail to reject the null hypothesis. Males doe not get 15 scores higher than females, as it has been historically.</p>
+<p>Since our calculated t-value (i.e., 1.397465) was smaller than the critical t-value (1.734), we <strong>fail to reject the null hypothesis</strong>. Males doe not get 15 points higher than females in this exam as it has been historically.</p>
 </div>
 <div id="disqus_thread"></div>
 <script>
