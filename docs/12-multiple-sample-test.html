@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="homework-8.html"/>
-<link rel="next" href="anova-theory.html"/>
+<link rel="next" href="anova-reasoning.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -312,7 +312,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="homework-8.html"><a href="homework-8.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="12-multiple-sample-test.html"><a href="12-multiple-sample-test.html"><i class="fa fa-check"></i><b>12</b> Multiple sample test</a><ul>
-<li class="chapter" data-level="" data-path="anova-theory.html"><a href="anova-theory.html"><i class="fa fa-check"></i>ANOVA theory</a></li>
+<li class="chapter" data-level="" data-path="anova-reasoning.html"><a href="anova-reasoning.html"><i class="fa fa-check"></i>ANOVA reasoning</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html"><i class="fa fa-check"></i>ANOVA by hand</a></li>
 <li class="chapter" data-level="" data-path="anova-in-r.html"><a href="anova-in-r.html"><i class="fa fa-check"></i>ANOVA in R</a></li>
 <li class="chapter" data-level="" data-path="post-hoc-test-in-r.html"><a href="post-hoc-test-in-r.html"><i class="fa fa-check"></i>Post-hoc test in R</a></li>
@@ -344,7 +344,8 @@ By Camilo Mora, Ph.D.
 <h1><span class="header-section-number">12</span> Multiple sample test</h1>
 <p>This chapter describes the mathematical approach to check for differences among independent groups, or so-call ANOVA test (or Analysis of Variance). Although the name of the technique refers to variances, the main goal of ANOVA is to investigate differences among means.</p>
 <p>There are numerous ways in which you can look for differences among groups, which will determine the type of ANOVA to use. Lets check some examples, to clarify the distinctions.</p>
-<p>Say the International Olympic Association wants to endorse an energy drink for its athletes and two different companies send samples of their products.A first, order question could be if the drinks make any difference in the endurance of their athletes. And you can compare, say the times running 100m for groups of athletes given the two types of drinks and a control given water. In this case, you want tot test, if at least one of the three groups is different, and in this case, you will use what is call a <strong>one-way ANOVA</strong>. You only have one factor, which is the drink type.</p>
+<p>Say the International Olympic Association wants to endorse an energy drink for its athletes and two different companies send samples of their products.</p>
+<p>A first order question could be if the drinks make any difference in the endurance of the athletes. And you can compare, say the times running 100m for groups of athletes given the two types of drinks and a control given water. In this case, you want to test, if at least one of the three groups is different, and in this case, you will use what is call a <strong>one-way ANOVA</strong>. You only have one factor, which is the drink type.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-315"></span>
 <img src="images/OneWayAnova.png" alt="Z-test or T-test?" width="70%" />
 <p class="caption">
@@ -352,6 +353,7 @@ Figure 12.1: Z-test or T-test?
 </p>
 </div>
 <p>Say, however, that you are also interested in knowing if such an effect varies between men and females. In this case, you have two factors and you will need to know the effect of the drink and the effect of gender. For this type of cases, you will use what is called a two-way ANOVA.You have two factors (drink type and gender).</p>
+<p>If now you want to check for the effect of the drinks among different types of sports, you will now have a third factor (sport type), and then you will use a three-way ANOVA, as you have three factors: drink type, gender, and sport type.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-316"></span>
 <img src="images/TwoWayAnova.png" alt="Z-test or T-test?" width="70%" />
 <p class="caption">
@@ -360,15 +362,15 @@ Figure 12.2: Z-test or T-test?
 </div>
 <p>In this course, we will study only one-way ANOVAS. You should also be aware that to run an ANOVA you need to test for different key assumptions.</p>
 <ol style="list-style-type: decimal">
-<li><p>The data are normally distributed. As mentioned earlier, this assumption is key to all types of parametric tests. Basically we need to know the data follows a bell shape, such that we can approximates the distribution of data.</p></li>
-<li><p>The variances among the different groups have to be homogeneous, or so-call homogeneity of variance.As we will learn soon, ANOVA is bassed on the ratio the variance between groups and the variance within groups. So if variances are non homogeneous among groups this could bias the ANOVA test.</p></li>
+<li><p>The data are normally distributed. As mentioned earlier, this assumption is key to all types of parametric tests. Basically, we need to know the data follows a bell shape, such that we can approximates the distribution of data.</p></li>
+<li><p>The variances among the different groups have to be homogeneous, or so-call homogeneity of variance. As we will learn soon, ANOVA is based on the ratio of the variance between groups and the variance within groups. So if variances are non homogeneous among groups this could bias the ANOVA test.</p></li>
 <li><p>The observations are independent.</p></li>
 <li><p>No outliers are present.</p></li>
 </ol>
 <p>At the end of this chapter, you are expected to:</p>
 <ol style="list-style-type: decimal">
-<li>Run an ANOVA in R, and interpret its results</li>
-<li>Run a post-hoc test, identify differences among specific pairs of samples.</li>
+<li><p>Run an ANOVA in R, and interpret its results.</p></li>
+<li><p>Run a post-hoc test, identify differences among specific pairs of groups.</p></li>
 </ol>
 </div>
 <div id="disqus_thread"></div>
@@ -396,7 +398,7 @@ Figure 12.2: Z-test or T-test?
         </div>
       </div>
 <a href="homework-8.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="anova-theory.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="anova-reasoning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

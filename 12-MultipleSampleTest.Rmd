@@ -4,7 +4,9 @@ This chapter describes the mathematical approach to check for differences among 
 
 There are numerous ways in which you can look for differences among groups, which will determine the type of ANOVA to use. Lets check some examples, to clarify the distinctions.
 
-Say the International Olympic Association wants to endorse an energy drink for its athletes and two different companies send samples of their products.A first, order question could be if the drinks make any difference in the endurance of their athletes. And you can compare, say the times running 100m for groups of athletes given the two types of drinks and a control given water. In this case, you want tot test, if at least one of the three groups is different, and in this case, you will use what is call a **one-way ANOVA**. You only have one factor, which is the drink type. 
+Say the International Olympic Association wants to endorse an energy drink for its athletes and two different companies send samples of their products.
+
+A first order question could be if the drinks make any difference in the endurance of the athletes. And you can compare, say the times running 100m for groups of athletes given the two types of drinks and a control given water. In this case, you want to test, if at least one of the three groups is different, and in this case, you will use what is call a **one-way ANOVA**. You only have one factor, which is the drink type. 
 
 ```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Z-test or T-test?'}
 knitr::include_graphics("images/OneWayAnova.png")
@@ -13,6 +15,8 @@ knitr::include_graphics("images/OneWayAnova.png")
 
 Say, however, that you are also interested in knowing if such an effect varies between men and females. In this case, you have two factors and you will need to know the effect of the drink and the effect of gender. For this type of cases, you will use what is called a two-way ANOVA.You have two factors (drink type and gender). 
 
+If now you want to check for the effect of the drinks among different types of sports, you will now have a third factor (sport type), and then you will use a three-way ANOVA, as you have three factors: drink type, gender, and sport type.
+
 
 ```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Z-test or T-test?'}
 knitr::include_graphics("images/TwoWayAnova.png")
@@ -20,9 +24,9 @@ knitr::include_graphics("images/TwoWayAnova.png")
 
 In this course, we will study only one-way  ANOVAS. You should also be aware that to run an ANOVA you need to test for different key assumptions.
 
-1. The data are normally distributed. As mentioned earlier, this assumption is key to all types of parametric tests. Basically we need to know the data follows a bell shape, such that we can approximates the distribution of data.
+1. The data are normally distributed. As mentioned earlier, this assumption is key to all types of parametric tests. Basically, we need to know the data follows a bell shape, such that we can approximates the distribution of data.
 
-2. The variances among the different groups have to be homogeneous, or so-call homogeneity of variance.As we will learn soon, ANOVA is bassed on the ratio the variance between groups and the variance within groups. So if variances are non homogeneous among groups this could bias the ANOVA test.
+2. The variances among the different groups have to be homogeneous, or so-call homogeneity of variance. As we will learn soon, ANOVA is based on the ratio of the variance between groups and the variance within groups. So if variances are non homogeneous among groups this could bias the ANOVA test.
 
 3. The observations are independent.
 
@@ -31,15 +35,59 @@ In this course, we will study only one-way  ANOVAS. You should also be aware tha
 
 At the end of this chapter, you are expected to:
 
-1. Run an ANOVA in R, and interpret its results
-2. Run a post-hoc test, identify differences among specific pairs of samples.    
+1. Run an ANOVA in R, and interpret its results.
 
-## ANOVA theory {-}
+2. Run a post-hoc test, identify differences among specific pairs of groups.    
+
+## ANOVA reasoning {-}
+Before we get to deep into mathematical equations, we should learn the overall idea of testing for significant differences among groups.
+
+When you are comparing say three groups of observations, you can divide the variance among different groups in three different ways. 
+
+If you recall from Chapter 5, the variance is simply the difference between each observation and the mean divided by the number of observation minus one.
+
+The variance of the observations in the three groups can be divided into:
 
 
-```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Z-test or T-test?'}
-knitr::include_graphics("images/Anova.png")
+1. **Total variance, SSt**: This is also called the total sum of squares. Basically, forget that the observations belong to any group, and simply calculate the the difference from each observation to the **grand mean**. We can also calculate the total degrees of freedom (DFt), which is simply the total number of observations minus one.
+
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Total variance and degrees of freedom, DF'}
+knitr::include_graphics("images/Anova_TotalVariance.png")
 ```
+
+That total variance can be now divided in between and among groups:
+
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Between and within group vaiance'}
+knitr::include_graphics("images/ANOVA.png")
+```
+
+2. **Between groups variance, SSb**: This is the fraction of the total variance that is due to variations between groups. It is simply the difference between each group mean and the grand mean times the observations in each group. We can also calculate the between group degrees of freedom (DFb), which is simply the total number of groups minus one. If this case we are only obtaining information from the groups.
+
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Between group variance and degrees of freedom, DF'}
+knitr::include_graphics("images/Anova_BetweenGroupVariance.png")
+```
+
+
+3. **Within groups variance, SSw**: This is the fraction of the total variance that is due to variations within groups. It is simply the difference between each observation in a group and the mean of that group. We can also calculate the within group degrees of freedom (DFw), which is simply the total number of observation (n)  minus one times the total number of groups (k).
+
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Within group variance and degrees of freedom, DF'}
+knitr::include_graphics("images/Anova_WithinGroupVariance.png")
+```
+
+If we take the results from the example illustrated in the above figures, we can see how the within and between group variance and the within and between degrees of freedom add up to the total variance and total degrees of freedom.
+
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Within group variance and degrees of freedom, DF'}
+knitr::include_graphics("images/Anova_Variance_Fractitioning.png")
+```
+
+The idea behind the ANOVA is to estimate the ration of the variance between groups to the variance within groups, what is also called the F-statistics, after Sir Ronald A. Fisher, who came out with this idea back in the 1920s.
+
+If you simply divide the variance between groups by the variance within group, and the the resulting F-value is smaller than one, it indicates that there are no significant difference between the means of the samples being compared.
+
+However, a higher ratio implies that the variation among group means are greatly different from each other compared to the variation of the individual observations in each groups.
+
+
+
 
 
 

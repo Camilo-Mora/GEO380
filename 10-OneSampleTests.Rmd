@@ -231,7 +231,7 @@ For each of the problems below do:
 1. State the null and alternative hypothesis.
 2. will this be a one tail or two-tail test?.
 3. Indicate the type of test to use (Z-test or T-test).
-4. Run the given test in R.
+4. Run the given test in R, or by hand, which ever is easier.
 5. Report your results on top of a publication quality plot.
 6. Describe your conclusion.
 
