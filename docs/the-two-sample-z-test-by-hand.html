@@ -336,10 +336,10 @@ By Camilo Mora, Ph.D.
 <div id="the-two-sample-z-test-by-hand" class="section level2 unnumbered">
 <h2>The two-sample Z-test by hand</h2>
 <p>The two-sample Z-test is used to compare the means of two different samples, when you know the population standard deviation and your sample size is larger than 30 individuals.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-303"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-304"></span>
 <img src="images/Z-Score%20two%20samples.png" alt="Z-test fucntion for two samples" width="70%" />
 <p class="caption">
-Figure 11.2: Z-test fucntion for two samples
+Figure 11.3: Z-test fucntion for two samples
 </p>
 </div>
 <p>Lets try an example.</p>
@@ -374,10 +374,10 @@ Figure 11.2: Z-test fucntion for two samples
 <span id="cb235-26"><a href="the-two-sample-z-test-by-hand.html#cb235-26"></a></span>
 <span id="cb235-27"><a href="the-two-sample-z-test-by-hand.html#cb235-27"></a><span class="co">#now add the second distribution to the first plot, using the parameter add=TRUE, or add=T, theya re both the same</span></span>
 <span id="cb235-28"><a href="the-two-sample-z-test-by-hand.html#cb235-28"></a><span class="kw">plot</span>(Placebo, <span class="dt">add=</span>T ,<span class="dt">col=</span>DarkRed)  <span class="co">#note how for the parameter col, you indicate the color you create as a variable above</span></span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-304-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-305-1.png" width="672" /></p>
 <p>Lets state the hypotheses:</p>
-<p>H0: Drug performance time = placebo time the null hypothesis is that the two groups take the same time
-H1: Drug performance time <span class="math inline">\(\neq\)</span> placebo time</p>
+<p>H0: Drug performance time = placebo time the null hypothesis is that the two groups take the same time</p>
+<p>H1: Drug performance time <span class="math inline">\(\neq\)</span> placebo time</p>
 <p>So what test do we use?. well the sample size is larger than 30, so a Z-test seems appropriated.</p>
 <p>Lets calculate the Z-score for comparing two samples</p>
 <div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="the-two-sample-z-test-by-hand.html#cb236-1"></a>Drug_Mean=<span class="fl">9.78</span>   </span>

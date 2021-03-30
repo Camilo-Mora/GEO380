@@ -51,6 +51,7 @@ From the example, it looks like we have one sample that we want to compare to a 
 As it is customary, we start by stating the hypothesis:
 
 H0: Time girls = 9.5 sec      The null hypothesis is how things are suppose to be...that means, the historical time of 9.5sec
+
 H1: Time girls < 9.5 sec      The alternative hypothesis is what we are interested on, or claiming...that the team is faster than 9.5sec
 
 Let's calculate the z-score:
@@ -133,6 +134,7 @@ The scores for the ten girl were 587, 602, 627, 610, 619, 622, 605, 608, 596, 59
 Lets' set the hypothesis
 
 H0: $\mu$ =< 600     the true or expected value
+
 H1: $\mu$ >  600     the question of interest, which in this case is to know if these scored higher
 
 In this case, we have a one-sample comparison, we do not know the population variance, and our sample size is only 10 individuals, so a T-test is best suited here.
@@ -207,7 +209,7 @@ knitr::include_graphics("images/ToneSampleTestResultsR.png")
 For each of the problems below do:
 
 1. State the null and alternative hypothesis.
-2. will this be a one tail or two-tail test?
+2. will this be a one tail or two-tail test?.
 3. Indicate the type of test to use (Z-test or T-test).
 4. Run the given test in R.
 5. Report your results on top of a publication quality plot.

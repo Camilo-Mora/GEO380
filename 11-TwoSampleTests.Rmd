@@ -1,9 +1,16 @@
 # Two sample tests {}
 Two sample tests are for cases in which you want to compare two independent samples. Like:
 
-Are the students in school A yielding better math scores than students in School B?
+Are the students in school A yielding better math scores than students in School B?.
 
-Are apples heavier than oranges?
+Are apples heavier than oranges?.
+
+The premise is that the more similar the two populations, the less likely they are to be significantly different.
+
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Two populations with different means, n=5'}
+knitr::include_graphics("images/OverlapAndPvalue.gif")
+```
+
 
 These types of questions can be answered with either the Z-test or the T-Test, which we will introduce in this chapter. Both of these tests are suited for two-sample tests, but the Z-test is preferred to the t-test for large samples (N > 30) or when the variance is known.
 
@@ -71,6 +78,7 @@ plot(Placebo, add=T ,col=DarkRed)  #note how for the parameter col, you indicate
 Lets state the hypotheses:
 
 H0: Drug performance time = placebo  time       the null hypothesis is that the two groups take the same time
+
 H1: Drug performance time $\neq$ placebo  time
 
 So what test do we use?. well the sample size is larger than 30, so a Z-test seems appropriated.
@@ -139,7 +147,9 @@ Lets try an example.
 Historically, males have scored 15 points more than girls in a  given exam. No standard deviations exists. To test if this is true today, a researcher performed such a test in 10 males and 10 females and found that males scored 630.1 on average (+/- 13.42SD) and females 606.8 (+/- 13.14 SD). He wants to test the significance of this conclusion with a ⍺ value (significance level) of 0.05.
 
 Let's start with stating the hypothesis:
+
 H0: Men scores-Female scores <= 15,   the null hypothesis is the complement of the alternative hypothesis, so set that one first
+
 H1: Men scores-Female scores > 15 ,  The question of interest, which is that males get 15 points more than females
 
 What test to use?. Well the sample size is smaller than 30, so we need to use a T-Test.
@@ -250,6 +260,7 @@ For each of the problems below do:
 Two competing headache remedies claim to give fast-acting relief. An experiment was performed to compare the mean lengths of time required for bodily absorption of brand A and brand B headache remedies. The lengths of time in minutes for the drugs to reach a specified level in the blood were recorded. Results were are follow:
 
 Brand A: Mean time= 21.8 min; sd= 8.7 min; n=500
+
 Brand B: Mean time= 18.9 min; sd= 7.5 min; n=350
 
 Are the two drugs different?. test this at a significance level of 0.05
@@ -258,6 +269,7 @@ Are the two drugs different?. test this at a significance level of 0.05
 A consumer group is testing two camp stoves. To test the heating capacity of a stove, it measures the time required to bring 2 quarts of water from 50°F to boiling (at sea level). The following results are obtained:
 
 Model 1: Mean time = 11.4 min; sd= 2.5 min; n= 10 stoves
+
 Model 2: Mean time = 9.9 min; s2=3.0 min; n=12 stoves
 
 Assume that the time required to bring water to a boil is normally distributed for each stove.  Is there any difference between the performances of these two models? Use a 5% level of significance.

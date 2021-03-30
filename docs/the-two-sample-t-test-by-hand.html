@@ -336,17 +336,17 @@ By Camilo Mora, Ph.D.
 <div id="the-two-sample-t-test-by-hand" class="section level2 unnumbered">
 <h2>The two-sample T-test by hand</h2>
 <p>We perform a Two-Sample t-test when we want to compare the mean of two samples, and our sample sizes are smaller than 30.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-308"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-309"></span>
 <img src="images/T-Score%20two%20samples.png" alt="T-test fucntion for two samples" width="70%" />
 <p class="caption">
-Figure 11.4: T-test fucntion for two samples
+Figure 11.5: T-test fucntion for two samples
 </p>
 </div>
 <p>Lets try an example.</p>
 <p>Historically, males have scored 15 points more than girls in a given exam. No standard deviations exists. To test if this is true today, a researcher performed such a test in 10 males and 10 females and found that males scored 630.1 on average (+/- 13.42SD) and females 606.8 (+/- 13.14 SD). He wants to test the significance of this conclusion with a ⍺ value (significance level) of 0.05.</p>
-<p>Let’s start with stating the hypothesis:
-H0: Men scores-Female scores &lt;= 15, the null hypothesis is the complement of the alternative hypothesis, so set that one first
-H1: Men scores-Female scores &gt; 15 , The question of interest, which is that males get 15 points more than females</p>
+<p>Let’s start with stating the hypothesis:</p>
+<p>H0: Men scores-Female scores &lt;= 15, the null hypothesis is the complement of the alternative hypothesis, so set that one first</p>
+<p>H1: Men scores-Female scores &gt; 15 , The question of interest, which is that males get 15 points more than females</p>
 <p>What test to use?. Well the sample size is smaller than 30, so we need to use a T-Test.</p>
 <p>An before we do any calculations, lets lets start by visualizing these data:</p>
 <div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="the-two-sample-t-test-by-hand.html#cb239-1"></a>Males_Mean=<span class="fl">630.1</span>  </span>
@@ -377,7 +377,7 @@ H1: Men scores-Female scores &gt; 15 , The question of interest, which is that m
 <span id="cb239-26"><a href="the-two-sample-t-test-by-hand.html#cb239-26"></a></span>
 <span id="cb239-27"><a href="the-two-sample-t-test-by-hand.html#cb239-27"></a><span class="co">#now add the second distribution to the first plot, using the parameter add=TRUE, or add=T, they are both the same</span></span>
 <span id="cb239-28"><a href="the-two-sample-t-test-by-hand.html#cb239-28"></a><span class="kw">plot</span>(Females, <span class="dt">add=</span>T ,<span class="dt">col=</span>DarkRed)</span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-309-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-310-1.png" width="672" /></p>
 <p>Lets calculate the T-score for comparing two samples</p>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="the-two-sample-t-test-by-hand.html#cb240-1"></a>Males_Mean=<span class="fl">630.1</span>  </span>
 <span id="cb240-2"><a href="the-two-sample-t-test-by-hand.html#cb240-2"></a>Males_SDSD=<span class="fl">13.42</span></span>
@@ -396,10 +396,10 @@ H1: Men scores-Female scores &gt; 15 , The question of interest, which is that m
 <span id="cb240-15"><a href="the-two-sample-t-test-by-hand.html#cb240-15"></a>T_score</span></code></pre></div>
 <pre><code>## [1] 1.397465</code></pre>
 <p>Next, look for the t-critical value in the t-table for 18 degrees of freedom. In the case of a two sample t-test, degrees of freedoms are equal to the sample size one plus sample size two minus two) and a p-value of 0.05 (Here we are looking at one tail test, as the alternative hypothesis states that one thing is larger than the other)</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-311"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-312"></span>
 <img src="images/TTable.jpg" alt="R-results for a one-sample z-test" width="100%" />
 <p class="caption">
-Figure 11.5: R-results for a one-sample z-test
+Figure 11.6: R-results for a one-sample z-test
 </p>
 </div>
 <p>So the critical t-Score is 1.734.</p>

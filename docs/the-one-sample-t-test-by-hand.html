@@ -346,8 +346,8 @@ Figure 10.6: R-results for a one-sample z-test
 <p>Let’s say we want to determine if on average girls score more than 600 points in a given exam. We do not have the information related to variance (or standard deviation) for girls’ scores, so we take randomly the scores of 10 girls. We choose our ⍺ value (significance level) to be 0.05.</p>
 <p>The scores for the ten girl were 587, 602, 627, 610, 619, 622, 605, 608, 596, 592.</p>
 <p>Lets’ set the hypothesis</p>
-<p>H0: <span class="math inline">\(\mu\)</span> =&lt; 600 the true or expected value
-H1: <span class="math inline">\(\mu\)</span> &gt; 600 the question of interest, which in this case is to know if these scored higher</p>
+<p>H0: <span class="math inline">\(\mu\)</span> =&lt; 600 the true or expected value</p>
+<p>H1: <span class="math inline">\(\mu\)</span> &gt; 600 the question of interest, which in this case is to know if these scored higher</p>
 <p>In this case, we have a one-sample comparison, we do not know the population variance, and our sample size is only 10 individuals, so a T-test is best suited here.</p>
 <p>Let’s do one by hand,</p>
 <div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="the-one-sample-t-test-by-hand.html#cb233-1"></a>Sample=<span class="kw">c</span>(<span class="dv">587</span>, <span class="dv">602</span>, <span class="dv">627</span>, <span class="dv">610</span>, <span class="dv">619</span>, <span class="dv">622</span>, <span class="dv">605</span>, <span class="dv">608</span>, <span class="dv">596</span>, <span class="dv">592</span>) <span class="co">#lets put the values in a vector</span></span>
