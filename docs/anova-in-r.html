@@ -318,17 +318,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#total-variance"><i class="fa fa-check"></i>Total variance</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#between-group-variance"><i class="fa fa-check"></i>Between group variance</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#within-group-variance"><i class="fa fa-check"></i>Within group variance</a></li>
-<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#variace-partictioning"><i class="fa fa-check"></i>Variace partictioning</a></li>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#variance-partitioning"><i class="fa fa-check"></i>Variance partitioning</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#f-statistics"><i class="fa fa-check"></i>F-Statistics</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#critical-f-value"><i class="fa fa-check"></i>Critical F-value</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#ploting-the-data"><i class="fa fa-check"></i>Ploting the data</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="anova-in-r.html"><a href="anova-in-r.html"><i class="fa fa-check"></i>ANOVA in R</a></li>
 <li class="chapter" data-level="" data-path="post-hoc-test-in-r.html"><a href="post-hoc-test-in-r.html"><i class="fa fa-check"></i>Post-hoc test in R</a></li>
-<li class="chapter" data-level="" data-path="check-assumptions.html"><a href="check-assumptions.html"><i class="fa fa-check"></i>Check assumptions</a><ul>
-<li class="chapter" data-level="" data-path="check-assumptions.html"><a href="check-assumptions.html#outliers-1"><i class="fa fa-check"></i>Outliers</a></li>
-<li class="chapter" data-level="" data-path="check-assumptions.html"><a href="check-assumptions.html#normality"><i class="fa fa-check"></i>Normality</a></li>
-<li class="chapter" data-level="" data-path="check-assumptions.html"><a href="check-assumptions.html#homogneity-of-variance"><i class="fa fa-check"></i>Homogneity of variance</a></li>
+<li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html"><i class="fa fa-check"></i>Checking assumptions</a><ul>
+<li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html#outliers-1"><i class="fa fa-check"></i>Outliers</a></li>
+<li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html#normality"><i class="fa fa-check"></i>Normality</a></li>
+<li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html#homogneity-of-variance"><i class="fa fa-check"></i>Homogneity of variance</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="homework-9.html"><a href="homework-9.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
@@ -367,37 +367,32 @@ By Camilo Mora, Ph.D.
 <span id="cb244-8"><a href="anova-in-r.html#cb244-8"></a><span class="co">#The ANOVA function is anova_test, which simply requires the response variable (number of tomatoes in our case) equal to the independent variable or factor (Variety of tomatoes in our case)</span></span>
 <span id="cb244-9"><a href="anova-in-r.html#cb244-9"></a>res.aov &lt;-<span class="st"> </span>Data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">anova_test</span>(NumTomatoes <span class="op">~</span><span class="st"> </span>Variety)</span></code></pre></div>
 The results are identical to our hand calculations:
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-330"></span>
-<img src="images/F-statistic_In_R.png" alt="Within group variance and degrees of freedom, DF" width="70%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-331"></span>
+<img src="images/F-statistic_In_R.png" alt="Anova in R using anova_test" width="70%" />
 <p class="caption">
-Figure 12.14: Within group variance and degrees of freedom, DF
+Figure 12.14: Anova in R using anova_test
 </p>
 </div>
-<p>We can also run an ANOVA in R using the aov fucntion, which is part of the default fucntions in R.</p>
+<p>We can also run an ANOVA in R using the aov function, which is part of the default functions in R.</p>
 <div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="anova-in-r.html#cb245-1"></a>Data=<span class="kw">data.frame</span>(<span class="dt">Variety=</span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;VarA&quot;</span>,<span class="dv">3</span>),<span class="kw">rep</span>(<span class="st">&quot;VarB&quot;</span>,<span class="dv">3</span>),<span class="kw">rep</span>(<span class="st">&quot;VarC&quot;</span>,<span class="dv">3</span>)), <span class="dt">NumTomatoes=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>, <span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>, <span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>))</span>
 <span id="cb245-2"><a href="anova-in-r.html#cb245-2"></a></span>
 <span id="cb245-3"><a href="anova-in-r.html#cb245-3"></a>aovAnova &lt;-<span class="st"> </span><span class="kw">aov</span>(NumTomatoes <span class="op">~</span><span class="st"> </span>Variety, <span class="dt">data =</span> Data)</span></code></pre></div>
 The results are identical to our hand calculations:
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-332"></span>
-<img src="images/F-statistic_In_R_oav.png" alt="Within group variance and degrees of freedom, DF" width="70%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-333"></span>
+<img src="images/F-statistic_In_R_oav.png" alt="Anova in R using aov" width="70%" />
 <p class="caption">
-Figure 12.15: Within group variance and degrees of freedom, DF
+Figure 12.15: Anova in R using aov
 </p>
 </div>
-<p>You can see a different set of results from that function.</p>
+<p>You can see a different set of results from the aov function, using the summary function.</p>
 <div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="anova-in-r.html#cb246-1"></a>Data=<span class="kw">data.frame</span>(<span class="dt">Variety=</span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;VarA&quot;</span>,<span class="dv">3</span>),<span class="kw">rep</span>(<span class="st">&quot;VarB&quot;</span>,<span class="dv">3</span>),<span class="kw">rep</span>(<span class="st">&quot;VarC&quot;</span>,<span class="dv">3</span>)), <span class="dt">NumTomatoes=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>, <span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>, <span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>))</span>
 <span id="cb246-2"><a href="anova-in-r.html#cb246-2"></a></span>
 <span id="cb246-3"><a href="anova-in-r.html#cb246-3"></a>aovAnova &lt;-<span class="st"> </span><span class="kw">aov</span>(NumTomatoes <span class="op">~</span><span class="st"> </span>Variety, <span class="dt">data =</span> Data)</span>
 <span id="cb246-4"><a href="anova-in-r.html#cb246-4"></a><span class="kw">summary</span>(aovAnova)</span></code></pre></div>
-<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)   
-## Variety      2     24      12      12  0.008 **
-## Residuals    6      6       1                  
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-334"></span>
-<img src="images/F-statistic_In_R_oav_Sumamry.png" alt="Within group variance and degrees of freedom, DF" width="70%" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-335"></span>
+<img src="images/F-statistic_In_R_oav_Sumamry.png" alt="Anova in R using aov" width="70%" />
 <p class="caption">
-Figure 12.16: Within group variance and degrees of freedom, DF
+Figure 12.16: Anova in R using aov
 </p>
 </div>
 </div>

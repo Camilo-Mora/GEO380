@@ -132,8 +132,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a>GEOG380 Basic Stats with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a><ul>
 <li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
 <li class="chapter" data-level="" data-path="do-not-dispair-please.html"><a href="do-not-dispair-please.html"><i class="fa fa-check"></i>Do not dispair, please</a></li>
@@ -318,7 +317,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#total-variance"><i class="fa fa-check"></i>Total variance</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#between-group-variance"><i class="fa fa-check"></i>Between group variance</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#within-group-variance"><i class="fa fa-check"></i>Within group variance</a></li>
-<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#variace-partictioning"><i class="fa fa-check"></i>Variace partictioning</a></li>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#variance-partitioning"><i class="fa fa-check"></i>Variance partitioning</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#f-statistics"><i class="fa fa-check"></i>F-Statistics</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#critical-f-value"><i class="fa fa-check"></i>Critical F-value</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#ploting-the-data"><i class="fa fa-check"></i>Ploting the data</a></li>
@@ -360,7 +359,7 @@ By Camilo Mora, Ph.D.
 <div id="outliers-1" class="section level3 unnumbered">
 <h3>Outliers</h3>
 <p>Outliers can be easily identified using box plot method, we used early but spotted mathematically with the R function identify_outliers() [rstatix package].</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="check-assumptions.html#cb250-1"></a>Data <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">group_by</span>(Variety) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">identify_outliers</span>(NumTomatoes)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="check-assumptions.html#cb8-1"></a>Data <span class="op">%&gt;%</span><span class="st">  </span><span class="kw">group_by</span>(Variety) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">identify_outliers</span>(NumTomatoes)</span></code></pre></div>
 <pre><code>## [1] Variety     NumTomatoes is.outlier  is.extreme 
 ## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
 <p>The result of this function yields zero rows meaning that there we not outliers in our database. Should there be outlier, it is recomended to run the analysis with and without them, to see the level of the effect and for you to make judgement call of whether to remove them or now,a nd justify any choice you make.</p>
@@ -370,17 +369,17 @@ By Camilo Mora, Ph.D.
 <p>The normality assumption can be checked by using one of the following two approaches:</p>
 <p>Analyzing the ANOVA model residuals to check the normality for all groups together. This approach is easier and it’s very handy when you have many groups or if there are few data points per group.</p>
 <p>To check normality with model residuals, we use QQ plot and Shapiro-Wilk test. QQ plot draws the correlation between a given data and the normal distribution.</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="check-assumptions.html#cb252-1"></a><span class="co"># Build the linear model</span></span>
-<span id="cb252-2"><a href="check-assumptions.html#cb252-2"></a>model  &lt;-<span class="st"> </span><span class="kw">lm</span>(NumTomatoes <span class="op">~</span><span class="st"> </span>Variety, <span class="dt">data =</span> Data)</span>
-<span id="cb252-3"><a href="check-assumptions.html#cb252-3"></a><span class="co"># Create a QQ plot of residuals</span></span>
-<span id="cb252-4"><a href="check-assumptions.html#cb252-4"></a><span class="kw">ggqqplot</span>(<span class="kw">residuals</span>(model))</span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-337-1.png" width="672" /></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="check-assumptions.html#cb10-1"></a><span class="co"># Build the linear model</span></span>
+<span id="cb10-2"><a href="check-assumptions.html#cb10-2"></a>model  &lt;-<span class="st"> </span><span class="kw">lm</span>(NumTomatoes <span class="op">~</span><span class="st"> </span>Variety, <span class="dt">data =</span> Data)</span>
+<span id="cb10-3"><a href="check-assumptions.html#cb10-3"></a><span class="co"># Create a QQ plot of residuals</span></span>
+<span id="cb10-4"><a href="check-assumptions.html#cb10-4"></a><span class="kw">ggqqplot</span>(<span class="kw">residuals</span>(model))</span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 <p>From the plot, you can see all values are within the confidence limits expected under normality.</p>
 <p>The second method check normality for each group separately, using the Shapiro-Wilk test. This approach might be used when you have only a few groups and many data points per group.</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="check-assumptions.html#cb253-1"></a><span class="co"># Build the linear model</span></span>
-<span id="cb253-2"><a href="check-assumptions.html#cb253-2"></a>model  &lt;-<span class="st"> </span><span class="kw">lm</span>(NumTomatoes <span class="op">~</span><span class="st"> </span>Variety, <span class="dt">data =</span> Data)</span>
-<span id="cb253-3"><a href="check-assumptions.html#cb253-3"></a><span class="co"># run the Shapiro test</span></span>
-<span id="cb253-4"><a href="check-assumptions.html#cb253-4"></a><span class="kw">shapiro_test</span>(<span class="kw">residuals</span>(model))</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="check-assumptions.html#cb11-1"></a><span class="co"># Build the linear model</span></span>
+<span id="cb11-2"><a href="check-assumptions.html#cb11-2"></a>model  &lt;-<span class="st"> </span><span class="kw">lm</span>(NumTomatoes <span class="op">~</span><span class="st"> </span>Variety, <span class="dt">data =</span> Data)</span>
+<span id="cb11-3"><a href="check-assumptions.html#cb11-3"></a><span class="co"># run the Shapiro test</span></span>
+<span id="cb11-4"><a href="check-assumptions.html#cb11-4"></a><span class="kw">shapiro_test</span>(<span class="kw">residuals</span>(model))</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 3
 ##   variable         statistic p.value
 ##   &lt;chr&gt;                &lt;dbl&gt;   &lt;dbl&gt;
@@ -390,11 +389,11 @@ By Camilo Mora, Ph.D.
 <div id="homogneity-of-variance" class="section level3 unnumbered">
 <h3>Homogneity of variance</h3>
 <p>The Homogeneity of variance can be checked by plotting the residuals versus fits valued.</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="check-assumptions.html#cb255-1"></a><span class="kw">plot</span>(model, <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-339-1.png" width="672" />
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="check-assumptions.html#cb13-1"></a><span class="kw">plot</span>(model, <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-26-1.png" width="672" />
 In the plot above, there is no evident relationships between residuals and fitted values (the mean of each groups), which is good. So, we can assume the homogeneity of variances.</p>
 <p>One can also use the Levene’s test to check the homogeneity of variances:</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="check-assumptions.html#cb256-1"></a>Data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">levene_test</span>(NumTomatoes <span class="op">~</span><span class="st"> </span>Variety)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="check-assumptions.html#cb14-1"></a>Data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">levene_test</span>(NumTomatoes <span class="op">~</span><span class="st"> </span>Variety)</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 4
 ##     df1   df2 statistic     p
 ##   &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;

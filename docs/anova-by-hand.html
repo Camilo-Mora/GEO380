@@ -318,17 +318,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#total-variance"><i class="fa fa-check"></i>Total variance</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#between-group-variance"><i class="fa fa-check"></i>Between group variance</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#within-group-variance"><i class="fa fa-check"></i>Within group variance</a></li>
-<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#variace-partictioning"><i class="fa fa-check"></i>Variace partictioning</a></li>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#variance-partitioning"><i class="fa fa-check"></i>Variance partitioning</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#f-statistics"><i class="fa fa-check"></i>F-Statistics</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#critical-f-value"><i class="fa fa-check"></i>Critical F-value</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#ploting-the-data"><i class="fa fa-check"></i>Ploting the data</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="anova-in-r.html"><a href="anova-in-r.html"><i class="fa fa-check"></i>ANOVA in R</a></li>
 <li class="chapter" data-level="" data-path="post-hoc-test-in-r.html"><a href="post-hoc-test-in-r.html"><i class="fa fa-check"></i>Post-hoc test in R</a></li>
-<li class="chapter" data-level="" data-path="check-assumptions.html"><a href="check-assumptions.html"><i class="fa fa-check"></i>Check assumptions</a><ul>
-<li class="chapter" data-level="" data-path="check-assumptions.html"><a href="check-assumptions.html#outliers-1"><i class="fa fa-check"></i>Outliers</a></li>
-<li class="chapter" data-level="" data-path="check-assumptions.html"><a href="check-assumptions.html#normality"><i class="fa fa-check"></i>Normality</a></li>
-<li class="chapter" data-level="" data-path="check-assumptions.html"><a href="check-assumptions.html#homogneity-of-variance"><i class="fa fa-check"></i>Homogneity of variance</a></li>
+<li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html"><i class="fa fa-check"></i>Checking assumptions</a><ul>
+<li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html#outliers-1"><i class="fa fa-check"></i>Outliers</a></li>
+<li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html#normality"><i class="fa fa-check"></i>Normality</a></li>
+<li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html#homogneity-of-variance"><i class="fa fa-check"></i>Homogneity of variance</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="homework-9.html"><a href="homework-9.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
@@ -371,7 +371,7 @@ By Camilo Mora, Ph.D.
 <div id="total-variance" class="section level3 unnumbered">
 <h3>Total variance</h3>
 <p>Next we calculate the total variance:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-322"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-323"></span>
 <img src="images/Anova_TotalVariance.png" alt="Total variance and degrees of freedom, DF" width="70%" />
 <p class="caption">
 Figure 12.8: Total variance and degrees of freedom, DF
@@ -380,8 +380,8 @@ Figure 12.8: Total variance and degrees of freedom, DF
 </div>
 <div id="between-group-variance" class="section level3 unnumbered">
 <h3>Between group variance</h3>
-<p>Next we calculate the total variance:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-323"></span>
+<p>Next we calculate the variance between groups. In other words, how each group mean differs from the grand mean:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-324"></span>
 <img src="images/Anova_BetweenGroupVariance.png" alt="Between group variance and degrees of freedom, DF" width="70%" />
 <p class="caption">
 Figure 12.9: Between group variance and degrees of freedom, DF
@@ -390,47 +390,49 @@ Figure 12.9: Between group variance and degrees of freedom, DF
 </div>
 <div id="within-group-variance" class="section level3 unnumbered">
 <h3>Within group variance</h3>
-Next we calculate the total variance:
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-324"></span>
-<img src="images/Anova_WithinGroupVariance_Example.png" alt="Within group variance and degrees of freedom, DF" width="70%" />
+<p>Next we calculate the within group variance. Basically, how each observation differs from the group mean.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-325"></span>
+<img src="images/Anova_WithinGroupVariance.png" alt="Within group variance and degrees of freedom, DF" width="70%" />
 <p class="caption">
 Figure 12.10: Within group variance and degrees of freedom, DF
 </p>
 </div>
 </div>
-<div id="variace-partictioning" class="section level3 unnumbered">
-<h3>Variace partictioning</h3>
-<p>As indicated earlier, the within and between group variance and degrees of freedom should add up to the total variance and total dgrees of freedom, lets check this, by putting the results above together:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-325"></span>
-<img src="images/Anova_Variance_Fractitioning.png" alt="Within group variance and degrees of freedom, DF" width="70%" />
+<div id="variance-partitioning" class="section level3 unnumbered">
+<h3>Variance partitioning</h3>
+<p>As indicated earlier, the within and between group variance and degrees of freedom should add up to the total variance and total degrees of freedom. Lets check this by putting the results above together:</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-326"></span>
+<img src="images/Anova_Variance_Fractitioning.png" alt="Within and between group Sums of Aquares and degrees of freedom, DF" width="70%" />
 <p class="caption">
-Figure 12.11: Within group variance and degrees of freedom, DF
+Figure 12.11: Within and between group Sums of Aquares and degrees of freedom, DF
 </p>
 </div>
 </div>
 <div id="f-statistics" class="section level3 unnumbered">
 <h3>F-Statistics</h3>
-The F-statistics is simply the ratio of the btween group to the within group variance.
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-326"></span>
+<p>The F-statistics is simply the ratio of the between group to the within group variance.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-327"></span>
 <img src="images/F-statistic_Example.png" alt="Within group variance and degrees of freedom, DF" width="70%" />
 <p class="caption">
 Figure 12.12: Within group variance and degrees of freedom, DF
 </p>
 </div>
-<p>So, our F-statistic is 12. The fact that is larger than one provides good hints that this could be significant. But we still need to find out for the given degrees of freedoms, groups and level of significance (<span class="math inline">\(\alpha\)</span>), what is the critical F-Value. If our calculated F-value is larger, we reject the null hypothesis and conclude that indeed there are significant differences…same drill as we have done before.</p>
+<p>So, our F-statistic is 12. The fact that is larger than one provides good hints that this could be significant. But we still need to find out for the given degrees of freedoms, number of groups and level of significance (<span class="math inline">\(\alpha\)</span>), what is the critical F-Value.</p>
+<p>If our calculated F-value is larger, we reject the null hypothesis and conclude that indeed there are significant differences…same drill as we have done before.</p>
 </div>
 <div id="critical-f-value" class="section level3 unnumbered">
 <h3>Critical F-value</h3>
 <p>The last step in the ANOVA is to find out the critical F-Value, which we get from a F-table for the given <span class="math inline">\(\alpha\)</span>. These tables are available on most statistics books or online (Example <a href="http://www.socr.ucla.edu/Applets.dir/F_Table.html">HERE</a>. )</p>
-<p>You need to select the specific table for the given (<span class="math inline">\(\alpha\)</span>), the columns will represent the between degrees of freedom, and the rows the within degrees of freedom. In our case, the between degrees of freedom is 2, and our within degrees of freedoms is 6.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-327"></span>
+<p>You need to select the specific table for the given (<span class="math inline">\(\alpha\)</span>), the columns will represent the between degrees of freedom, and the rows the within group degrees of freedom. In our case, the between degrees of freedom is 2, and our within group degrees of freedoms is 6.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-328"></span>
 <img src="images/F-statistic_Critical.png" alt="Within group variance and degrees of freedom, DF" width="70%" />
 <p class="caption">
 Figure 12.13: Within group variance and degrees of freedom, DF
 </p>
 </div>
 <p>At the interception of column DF=2 and row DF= 6, is the cell 5.1433, which is our critical F-statistics.</p>
-<p>Just to remember, our calculated F-statistics was 12 is is much larger than the critical F-statistics at $0.05 of 5.1433. Thus, we reject the null hypothesis and conclude that indeed there are significant differences in the amount of tomatoes produced by the three varieties at level of significance of 0.05.</p>
+<p>Just to remember, our calculated F-statistics was 12, which is much larger than the critical F-statistics at <span class="math inline">\(\alpha\)</span> 0.05, which is 5.1433.</p>
+<p>Thus, we reject the null hypothesis and conclude that indeed there are significant differences in the amount of tomatoes produced by the three varieties at level of significance of 0.05.</p>
 </div>
 <div id="ploting-the-data" class="section level3 unnumbered">
 <h3>Ploting the data</h3>
@@ -443,8 +445,8 @@ Figure 12.13: Within group variance and degrees of freedom, DF
 <span id="cb243-6"><a href="anova-by-hand.html#cb243-6"></a>Data=<span class="kw">data.frame</span>(<span class="dt">Variety=</span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;VarA&quot;</span>,<span class="dv">3</span>),<span class="kw">rep</span>(<span class="st">&quot;VarB&quot;</span>,<span class="dv">3</span>),<span class="kw">rep</span>(<span class="st">&quot;VarC&quot;</span>,<span class="dv">3</span>)), <span class="dt">NumTomatoes=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>, <span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>, <span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>))</span>
 <span id="cb243-7"><a href="anova-by-hand.html#cb243-7"></a></span>
 <span id="cb243-8"><a href="anova-by-hand.html#cb243-8"></a><span class="kw">ggboxplot</span>(Data, <span class="dt">x =</span> <span class="st">&quot;Variety&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;NumTomatoes&quot;</span>)</span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-328-1.png" width="672" />
-Boxplot allows you to visualize the mean and the standard deviations of each group. From the plot above, you can see clearly that not only the mean tomatoes production of the three varieties are difference, but their variances do not overlap.</p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-329-1.png" width="672" /></p>
+<p>Boxplots allow you to visualize the mean and the standard deviations of each group. From the plot above, you can see clearly that not only the mean tomato production of the three varieties are difference, but their variances do not overlap.</p>
 </div>
 </div>
 <div id="disqus_thread"></div>
