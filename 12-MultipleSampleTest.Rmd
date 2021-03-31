@@ -52,7 +52,7 @@ The variance of the observations in the three groups can be divided into:
 1. **Total variance, SSt**: This is also called the total sum of squares. Basically, forget that the observations belong to any group, and simply calculate the the difference from each observation to the **grand mean**. We can also calculate the total degrees of freedom (DFt), which is simply the total number of observations minus one.
 
 ```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Total variance and degrees of freedom, DF'}
-knitr::include_graphics("images/Anova_TotalVariance.png")
+knitr::include_graphics("images/Anova_TotalVariance_Example.png")
 ```
 
 That total variance can be now divided in between and among groups:
@@ -64,67 +64,258 @@ knitr::include_graphics("images/ANOVA.png")
 2. **Between groups variance, SSb**: This is the fraction of the total variance that is due to variations between groups. It is simply the difference between each group mean and the grand mean times the observations in each group. We can also calculate the between group degrees of freedom (DFb), which is simply the total number of groups minus one. If this case we are only obtaining information from the groups.
 
 ```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Between group variance and degrees of freedom, DF'}
-knitr::include_graphics("images/Anova_BetweenGroupVariance.png")
+knitr::include_graphics("images/Anova_BetweenGroupVariance_Example.png")
 ```
 
 
 3. **Within groups variance, SSw**: This is the fraction of the total variance that is due to variations within groups. It is simply the difference between each observation in a group and the mean of that group. We can also calculate the within group degrees of freedom (DFw), which is simply the total number of observation (n)  minus one times the total number of groups (k).
 
 ```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Within group variance and degrees of freedom, DF'}
-knitr::include_graphics("images/Anova_WithinGroupVariance.png")
+knitr::include_graphics("images/Anova_WithinGroupVariance_Example.png")
 ```
 
-If we take the results from the example illustrated in the above figures, we can see how the within and between group variance and the within and between degrees of freedom add up to the total variance and total degrees of freedom.
-
-```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Within group variance and degrees of freedom, DF'}
-knitr::include_graphics("images/Anova_Variance_Fractitioning.png")
-```
+If you take the within and between group variance and the within and between degrees of freedom and add them up, you will get the total variance and total degrees of freedom.
 
 The idea behind the ANOVA is to estimate the ration of the variance between groups to the variance within groups, what is also called the F-statistics, after Sir Ronald A. Fisher, who came out with this idea back in the 1920s.
+
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'F-statistics or ratio of between group variance to within group variance'}
+knitr::include_graphics("images/F-statistic.png")
+```
+
 
 If you simply divide the variance between groups by the variance within group, and the the resulting F-value is smaller than one, it indicates that there are no significant difference between the means of the samples being compared.
 
 However, a higher ratio implies that the variation among group means are greatly different from each other compared to the variation of the individual observations in each groups.
 
 
-
-
-
-
-
-
 ## ANOVA by hand {-}
 
+Lets run an ANOVA by hand.
+
+Say a farmer is interested in finding out if there are differences between three available varieties of tomatoes. These were the numbers of tomatoes by the tree varieties:
+
+Variety A = 3, 2, 1
+
+Variety B = 5, 3, 4
+
+Variety C = 5, 6, 7
+
+
+
+### Stating Hyphotheses {-}
+We start by stating the hypotheses
+
+Ho: Mean Variety A = Mean Variety B  = Mean Variety C 
+
+Ha: Mean Variety A $\neq$ Mean Variety B  $\neq$ Mean Variety C 
+
+Lets test these hyphothses using a level of siginifvnace $\alpha$ of 0.05.
+
+### Total variance {-}
+Next we calculate the total variance:
+
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Total variance and degrees of freedom, DF'}
+knitr::include_graphics("images/Anova_TotalVariance.png")
+```
+
+### Between group variance {-}
+Next we calculate the total variance:
+
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Between group variance and degrees of freedom, DF'}
+knitr::include_graphics("images/Anova_BetweenGroupVariance.png")
+```
+
+
+### Within group variance {-}
+Next we calculate the total variance:
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Within group variance and degrees of freedom, DF'}
+knitr::include_graphics("images/Anova_WithinGroupVariance_Example.png")
+```
+
+### Variace partictioning {-}
+As indicated earlier, the within and between group variance and degrees of freedom should add up to the total variance and total dgrees of freedom, lets check this, by putting the results above together:
+
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Within group variance and degrees of freedom, DF'}
+knitr::include_graphics("images/Anova_Variance_Fractitioning.png")
+```
+
+### F-Statistics {-}
+
+The F-statistics is simply the ratio of the btween group to the within group variance.
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Within group variance and degrees of freedom, DF'}
+knitr::include_graphics("images/F-statistic_Example.png")
+```
+So, our F-statistic is 12. The fact that is larger than one provides good hints that this could be significant. But we still need to find out for the given degrees of freedoms, groups and level of significance ($\alpha$), what is the critical F-Value. If our calculated F-value is larger, we reject the null hypothesis and conclude that indeed there are significant differences...same drill as we have done before.
+
+### Critical F-value {-}
+The last step in the ANOVA is to find out the critical F-Value, which we get from a F-table for the given $\alpha$. These tables are available on most statistics books or online (Example [HERE](http://www.socr.ucla.edu/Applets.dir/F_Table.html). )
+
+You need to select the specific table for the given ($\alpha$), the columns will represent the between degrees of freedom, and the rows the within degrees of freedom. In our case, the between degrees of freedom is 2, and our within degrees of freedoms is 6. 
+
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Within group variance and degrees of freedom, DF'}
+knitr::include_graphics("images/F-statistic_Critical.png")
+```
+
+At the interception of column DF=2 and row DF= 6, is the cell 5.1433, which is our critical F-statistics.
+
+Just to remember, our calculated F-statistics was 12 is is much larger than the critical F-statistics at $\alpha 0.05 of 5.1433. Thus, we reject the null hypothesis and conclude that indeed there are significant differences in the amount of tomatoes produced by the three varieties at level of significance of 0.05.
+
+### Ploting the data {-}
+As it is always the case, we should visualize the data. In this case, a box plot could be an effective visualization tool.
+
+```{r, message=FALSE,warning=FALSE}
+library(tidyverse)
+library(ggpubr)
+library(rstatix) # we load this libraries, which we use to sumamrise the results
+
+#We start by putting the data in a dataframe, which two columns. one for the variety type, and the other for the number of tomatoes 
+Data=data.frame(Variety=c(rep("VarA",3),rep("VarB",3),rep("VarC",3)), NumTomatoes=c(1,2,3, 3,4,5, 5,6,7))
+
+ggboxplot(Data, x = "Variety", y = "NumTomatoes")
+``` 
+Boxplot allows you to visualize the mean and the standard deviations of each group. From the plot above, you can see clearly that not only the mean tomatoes production of the three varieties are difference, but their variances do not overlap.
+
 ## ANOVA in R {-}
+There are numerous R-packages that allow you to run ANOVAs, lets try a couple:
+```{r, message=FALSE,warning=FALSE}
+library(tidyverse)
+library(ggpubr)
+library(rstatix) # we load this libraries, which we use to sumamrise the results
+
+#We start by putting the data in a dataframe, which two columns. one for the variety type, and the other for the number of tomatoes 
+Data=data.frame(Variety=c(rep("VarA",3),rep("VarB",3),rep("VarC",3)), NumTomatoes=c(1,2,3, 3,4,5, 5,6,7))
+
+#The ANOVA function is anova_test, which simply requires the response variable (number of tomatoes in our case) equal to the independent variable or factor (Variety of tomatoes in our case)
+res.aov <- Data %>% anova_test(NumTomatoes ~ Variety)
+``` 
+
+The results are identical to our hand calculations:
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Within group variance and degrees of freedom, DF'}
+knitr::include_graphics("images/F-statistic_In_R.png")
+```
+
+
+We can also run an ANOVA in R using the aov fucntion, which is part of the default fucntions in R.
+```{r, message=FALSE,warning=FALSE}
+Data=data.frame(Variety=c(rep("VarA",3),rep("VarB",3),rep("VarC",3)), NumTomatoes=c(1,2,3, 3,4,5, 5,6,7))
+
+aovAnova <- aov(NumTomatoes ~ Variety, data = Data)
+```
+
+The results are identical to our hand calculations:
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Within group variance and degrees of freedom, DF'}
+knitr::include_graphics("images/F-statistic_In_R_oav.png")
+```
+
+You can see a different set of results from that function.
+
+```{r, message=FALSE,warning=FALSE}
+Data=data.frame(Variety=c(rep("VarA",3),rep("VarB",3),rep("VarC",3)), NumTomatoes=c(1,2,3, 3,4,5, 5,6,7))
+
+aovAnova <- aov(NumTomatoes ~ Variety, data = Data)
+summary(aovAnova)
+```
+
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Within group variance and degrees of freedom, DF'}
+knitr::include_graphics("images/F-statistic_In_R_oav_Sumamry.png")
+```
+
 
 ## Post-hoc test in R {-}
+A significant one-way ANOVA means that at least one of the group means is different from the other ones. But which ones are different?. To find this out, you need to run what is called a post-hoc test, which basically compares all possible pair-wise comparison to find out, which one are different. In R, we can run a post-hoc test with the R function: tukey_hsd() [from the packgae rstatix].
+
+Lets try:
+
+```{r, message=FALSE,warning=FALSE}
+library(tidyverse)
+library(ggpubr)
+library(rstatix) # we load this libraries, which we use to sumamrise the results
+
+#We start by putting the data in a dataframe, which two columns. one for the variety type, and the other for the number of tomatoes 
+Data=data.frame(Variety=c(rep("VarA",3),rep("VarB",3),rep("VarC",3)), NumTomatoes=c(1,2,3, 3,4,5, 5,6,7))
+
+pwc <- Data %>% tukey_hsd(NumTomatoes ~ Variety) #PairWise Comparisons
+pwc
+``` 
+From that comparison, you can tell that there are significant differences between Variety A and Variety C only. Cool, ah?. By looking at the plot, one could have concluded that they are all different. But if you look at the actual data, you will see that variety B, have data in common to varieties A and C, which given the small sample size, led to those pairs to be similar.
+
+
+## Check assumptions {-}
+Perhaps the first step in doing an ANOVA is to test the different assumptions. But I decided to leave that for last in this chapter, so we could get to understand what the ANOVA is meant to do.
+
+### Outliers {-}
+Outliers can be easily identified using box plot method, we used early but spotted mathematically with the R function identify_outliers() [rstatix package].
+```{r, message=FALSE,warning=FALSE}
+Data %>%  group_by(Variety) %>% identify_outliers(NumTomatoes)
+``` 
+The result of this function yields zero rows meaning that there we not outliers in our database. Should there be outlier, it is recomended to run the analysis with and without them, to see the level of the effect and for you to make judgement call of whether to remove them or now,a nd justify any choice you make.
+
+### Normality {-}
+
+The normality assumption can be checked by using one of the following two approaches:
+
+Analyzing the ANOVA model residuals to check the normality for all groups together. This approach is easier and it’s very handy when you have many groups or if there are few data points per group.
+
+To check normality with model residuals, we use QQ plot and Shapiro-Wilk test. QQ plot draws the correlation between a given data and the normal distribution.
+
+```{r, message=FALSE,warning=FALSE}
+# Build the linear model
+model  <- lm(NumTomatoes ~ Variety, data = Data)
+# Create a QQ plot of residuals
+ggqqplot(residuals(model))
+``` 
+
+From the plot, you can see all values are within the confidence limits expected under normality.
+
+The second method check normality for each group separately, using the Shapiro-Wilk test. This approach might be used when you have only a few groups and many data points per group.
+
+```{r, message=FALSE,warning=FALSE}
+# Build the linear model
+model  <- lm(NumTomatoes ~ Variety, data = Data)
+# run the Shapiro test
+shapiro_test(residuals(model))
+``` 
+
+These analysis reveal that the data we used is not-normally distributed. In this specific case, it is becuase we have such a small sample size. And this deviation should not affect our results significantly. Commonly, we should transform the data (e.g., applying a log function to each value) to normalize the data. Different data transformations are vailable, and they will need to be run, and tested for normality, before running an ANOVA.
+
+### Homogneity of variance {-}
+
+The Homogeneity of variance can be checked by plotting the residuals versus fits valued.
+
+```{r, message=FALSE,warning=FALSE}
+plot(model, 1)
+``` 
+In the plot above, there is no evident relationships between residuals and fitted values (the mean of each groups), which is good. So, we can assume the homogeneity of variances.
+
+One can also use the Levene’s test to check the homogeneity of variances:
+```{r, message=FALSE,warning=FALSE}
+Data %>% levene_test(NumTomatoes ~ Variety)
+``` 
+
+
+From the output above, we can see that the p-value is > 0.05, which is not significant. This means that, there is not significant difference between variances across groups. Therefore, we can assume the homogeneity of variances in the different treatment groups.
 
 ## Homework {-}
 
-For each of the problems below do:
+For the problem below do:
 
 1. State the null and alternative hypothesis.
-2. will this be a one tail or two-tail test?
-3. Indicate the type of test to use (Z-test or T-test).
-4. Run the given test in R.
-5. Report your results on top of a publication quality plot.
+2. Indicate the type of test to use.
+3. Test for the assumptions of outliers, normality and homogeneity of variances.
+3. Run the ANOVA in R.
+4. Report your results on top of a publication quality plot.
 6. Describe your conclusion.
 
-**Problem 1:**
-Two competing headache remedies claim to give fast-acting relief. An experiment was performed to compare the mean lengths of time required for bodily absorption of brand A and brand B headache remedies. The lengths of time in minutes for the drugs to reach a specified level in the blood were recorded. Results were are follow:
+**Problem:**
+A researcher has grown plants under ambient CO2, and two CO2 treatments in which he increased CO2 by 50ppm (Treatment1) and 100ppm (Treatment2). The weight of the plants in grams were:
 
-Brand A: Mean time= 21.8 min; sd= 8.7 min; n=500
+Control      = 4.81,	4.17,	4.41,	3.59,	5.87,	3.83,	6.03,	4.89,	4.32,	4.69
 
-Brand B: Mean time= 18.9 min; sd= 7.5 min; n=350
+Treatment1   = 4.17,	5.58,	5.18,	6.11,	4.5,	4.61,	5.17,	4.53,	5.33,	5.14
 
-Are the two drugs different?. test this at a significance level of 0.05
+Treatment2   = 6.31,	5.12,	5.54,	5.5,	5.37,	5.29,	4.92,	6.15,	5.8,	5.26
 
-**Problem 2:**
-A consumer group is testing two camp stoves. To test the heating capacity of a stove, it measures the time required to bring 2 quarts of water from 50°F to boiling (at sea level). The following results are obtained:
 
-Model 1: Mean time = 11.4 min; sd= 2.5 min; n= 10 stoves
 
-Model 2: Mean time = 9.9 min; s2=3.0 min; n=12 stoves
 
-Assume that the time required to bring water to a boil is normally distributed for each stove.  Is there any difference between the performances of these two models? Use a 5% level of significance.
 

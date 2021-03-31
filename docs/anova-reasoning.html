@@ -313,9 +313,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="12" data-path="12-multiple-sample-test.html"><a href="12-multiple-sample-test.html"><i class="fa fa-check"></i><b>12</b> Multiple sample test</a><ul>
 <li class="chapter" data-level="" data-path="anova-reasoning.html"><a href="anova-reasoning.html"><i class="fa fa-check"></i>ANOVA reasoning</a></li>
-<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html"><i class="fa fa-check"></i>ANOVA by hand</a></li>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html"><i class="fa fa-check"></i>ANOVA by hand</a><ul>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#stating-hyphotheses"><i class="fa fa-check"></i>Stating Hyphotheses</a></li>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#total-variance"><i class="fa fa-check"></i>Total variance</a></li>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#between-group-variance"><i class="fa fa-check"></i>Between group variance</a></li>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#within-group-variance"><i class="fa fa-check"></i>Within group variance</a></li>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#variace-partictioning"><i class="fa fa-check"></i>Variace partictioning</a></li>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#f-statistics"><i class="fa fa-check"></i>F-Statistics</a></li>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#critical-f-value"><i class="fa fa-check"></i>Critical F-value</a></li>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#ploting-the-data"><i class="fa fa-check"></i>Ploting the data</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="anova-in-r.html"><a href="anova-in-r.html"><i class="fa fa-check"></i>ANOVA in R</a></li>
 <li class="chapter" data-level="" data-path="post-hoc-test-in-r.html"><a href="post-hoc-test-in-r.html"><i class="fa fa-check"></i>Post-hoc test in R</a></li>
+<li class="chapter" data-level="" data-path="check-assumptions.html"><a href="check-assumptions.html"><i class="fa fa-check"></i>Check assumptions</a><ul>
+<li class="chapter" data-level="" data-path="check-assumptions.html"><a href="check-assumptions.html#outliers-1"><i class="fa fa-check"></i>Outliers</a></li>
+<li class="chapter" data-level="" data-path="check-assumptions.html"><a href="check-assumptions.html#normality"><i class="fa fa-check"></i>Normality</a></li>
+<li class="chapter" data-level="" data-path="check-assumptions.html"><a href="check-assumptions.html#homogneity-of-variance"><i class="fa fa-check"></i>Homogneity of variance</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="homework-9.html"><a href="homework-9.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -350,7 +364,7 @@ By Camilo Mora, Ph.D.
 <li><strong>Total variance, SSt</strong>: This is also called the total sum of squares. Basically, forget that the observations belong to any group, and simply calculate the the difference from each observation to the <strong>grand mean</strong>. We can also calculate the total degrees of freedom (DFt), which is simply the total number of observations minus one.</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-317"></span>
-<img src="images/Anova_TotalVariance.png" alt="Total variance and degrees of freedom, DF" width="70%" />
+<img src="images/Anova_TotalVariance_Example.png" alt="Total variance and degrees of freedom, DF" width="70%" />
 <p class="caption">
 Figure 12.3: Total variance and degrees of freedom, DF
 </p>
@@ -366,7 +380,7 @@ Figure 12.4: Between and within group vaiance
 <li><strong>Between groups variance, SSb</strong>: This is the fraction of the total variance that is due to variations between groups. It is simply the difference between each group mean and the grand mean times the observations in each group. We can also calculate the between group degrees of freedom (DFb), which is simply the total number of groups minus one. If this case we are only obtaining information from the groups.</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-319"></span>
-<img src="images/Anova_BetweenGroupVariance.png" alt="Between group variance and degrees of freedom, DF" width="70%" />
+<img src="images/Anova_BetweenGroupVariance_Example.png" alt="Between group variance and degrees of freedom, DF" width="70%" />
 <p class="caption">
 Figure 12.5: Between group variance and degrees of freedom, DF
 </p>
@@ -375,19 +389,19 @@ Figure 12.5: Between group variance and degrees of freedom, DF
 <li><strong>Within groups variance, SSw</strong>: This is the fraction of the total variance that is due to variations within groups. It is simply the difference between each observation in a group and the mean of that group. We can also calculate the within group degrees of freedom (DFw), which is simply the total number of observation (n) minus one times the total number of groups (k).</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-320"></span>
-<img src="images/Anova_WithinGroupVariance.png" alt="Within group variance and degrees of freedom, DF" width="70%" />
+<img src="images/Anova_WithinGroupVariance_Example.png" alt="Within group variance and degrees of freedom, DF" width="70%" />
 <p class="caption">
 Figure 12.6: Within group variance and degrees of freedom, DF
 </p>
 </div>
-<p>If we take the results from the example illustrated in the above figures, we can see how the within and between group variance and the within and between degrees of freedom add up to the total variance and total degrees of freedom.</p>
+<p>If you take the within and between group variance and the within and between degrees of freedom and add them up, you will get the total variance and total degrees of freedom.</p>
+<p>The idea behind the ANOVA is to estimate the ration of the variance between groups to the variance within groups, what is also called the F-statistics, after Sir Ronald A. Fisher, who came out with this idea back in the 1920s.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-321"></span>
-<img src="images/Anova_Variance_Fractitioning.png" alt="Within group variance and degrees of freedom, DF" width="70%" />
+<img src="images/F-statistic.png" alt="F-statistics or ratio of between group variance to within group variance" width="70%" />
 <p class="caption">
-Figure 12.7: Within group variance and degrees of freedom, DF
+Figure 12.7: F-statistics or ratio of between group variance to within group variance
 </p>
 </div>
-<p>The idea behind the ANOVA is to estimate the ration of the variance between groups to the variance within groups, what is also called the F-statistics, after Sir Ronald A. Fisher, who came out with this idea back in the 1920s.</p>
 <p>If you simply divide the variance between groups by the variance within group, and the the resulting F-value is smaller than one, it indicates that there are no significant difference between the means of the samples being compared.</p>
 <p>However, a higher ratio implies that the variation among group means are greatly different from each other compared to the variation of the individual observations in each groups.</p>
 </div>
