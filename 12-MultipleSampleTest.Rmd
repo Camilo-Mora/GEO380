@@ -41,6 +41,11 @@ At the end of this chapter, you are expected to:
 2. Run a post-hoc test, identify differences among specific pairs of groups.    
 
 ## ANOVA reasoning {-}
+Take a moment to check this video explaining how to calculate an ANOVA by hand...
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TPBLhhpgBOU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 Before we get to deep into mathematical equations, we should learn the overall idea of testing for significant differences among groups.
 
 When you are comparing different groups of observations, you can divide the variance in the data in three different ways: 
