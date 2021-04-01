@@ -1,5 +1,5 @@
 # Multiple sample test {}
-This chapter describes the mathematical approach to check for differences among independent groups, or so-call ANOVA test (or Analysis of Variance). Although the name of the technique refers to variances, the main goal of ANOVA is to investigate differences among means.
+This chapter describes the mathematical approach to check for differences among more than two independent groups, or so-call ANOVA, or Analysis of Variance. Although the name of the technique refers to variances, the main goal of ANOVA is to investigate differences among means.
 
 
 There are numerous ways in which you can look for differences among groups, which will determine the type of ANOVA to use. Lets check some examples, to clarify the distinctions.
@@ -51,32 +51,32 @@ If you recall from Chapter 5, the variance is simply the summation of the differ
 
 To better visualize the approach, we will keep the sum of squares and the degrees of freedom separated for each component.
 
-1. **Total variance**: Let's calculate the Total Sum of Squares (SSt). Basically, forget that the observations belong to any group, and simply calculate the the difference from each observation to the **grand mean**, square each value and sum them all. We can also calculate the total degrees of freedom (DFt), which is simply the total number of observations minus one.
+1. **Total variance**: For the Total Sum of Squares (SSt), forget that the observations belong to any group, and simply add up the difference, from each observation to the **grand mean**, squared. The total degrees of freedom (DFt) is the total number of observations minus one.
 
-```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Total Sum of Squares and degrees of freedom, DF'}
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Total Sum of Squares (SSt) and total degrees of freedom (DFt)'}
 knitr::include_graphics("images/Anova_TotalVariance_Example.png")
 ```
 
-That total variance can be now divided in *between* and *among* groups:
+That total variance can be now divided in the variance that occurs *between* and *among* groups:
 
 ```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Between and within group variance'}
 knitr::include_graphics("images/ANOVA.png")
 ```
 
-2. **Between groups variance**: This is the fraction of the total variance that is due to variations between groups. The Sum of Square for between groups (SSb) is simply the difference between each group mean and the grand mean times squared and multiplied by the number of observations in each group. We can also calculate the between group degrees of freedom (DFb), which is simply the total number of groups minus one. If this case we are only obtaining information from the groups.
+2. **Between groups variance**: The Sum of Squares for between groups (SSb) is summation of the difference, between each group mean and the grand mean, squared and multiplied by the number of observations in each group (Formula below). The between group degrees of freedom (DFb) is  the total number of groups minus one. In this case, we are only obtaining information from the groups.
 
 ```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Between group variance and degrees of freedom, DF'}
 knitr::include_graphics("images/Anova_BetweenGroupVariance_Example.png")
 ```
 
 
-3. **Within groups variance**: This is the fraction of the total variance that is due to variations within groups. The Sum of Square for within groups (SSw) is simply the summation of the difference between each observation in a group and the mean of that group squared. We can also calculate the within group degrees of freedom (DFw), which is simply the total number of observation (n) minus one times the total number of groups (k).
+3. **Within groups variance**: The Sum of Squares within groups (SSw) is the summation of the difference, between each observation in a group and the mean of that group, squared. The within group degrees of freedom (DFw) is the total number of observations (n) minus the total number of groups (k).
 
 ```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Within group variance and degrees of freedom, DF'}
 knitr::include_graphics("images/Anova_WithinGroupVariance_Example.png")
 ```
 
-If you take the within and between group variance and the within and between degrees of freedom and add them up, you will get the total variance and total degrees of freedom.
+If you take the within and between group variance and the within and between group degrees of freedom and add them up, you will get the total variance and total degrees of freedom.
 
 The idea behind the ANOVA is to estimate the ration of the variance between groups to the variance within groups, what is also called the F-statistics, after Sir Ronald A. Fisher, who came out with this idea back in the 1920s.
 
@@ -85,16 +85,18 @@ knitr::include_graphics("images/F-statistic.png")
 ```
 
 
-If you simply divide the variance between groups by the variance within group, and the the resulting F-value is smaller than one, it indicates that there are no significant difference between the means of the samples being compared.
+If you divide the variance between groups by the variance within groups, and the resulting F-value is smaller than one, it indicates that there are no significant differences between the means of the samples being compared.
 
-However, a higher ratio implies that the variation among group means are greatly different from each other compared to the variation of the individual observations in each groups.
+However, a higher ratio implies that the variation among group means are greatly different from each other compared to the variation of the individual observations in each group. The variance between groups is larger than the variance within groups, so the means are likely different.
+
+I said likely different, because you still would have to get a F-critical value, which will indicate how extreme was the F-value you calcualted.
 
 
 ## ANOVA by hand {-}
 
 Lets run an ANOVA by hand.
 
-Say a farmer is interested in finding out if there are differences between three available varieties of tomatoes. These were the numbers of tomatoes by the tree varieties:
+Say a farmer is interested in finding out if there are differences between three available varieties of tomatoes. These were the numbers of tomatoes by the three varieties:
 
 Variety A = 3, 2, 1
 
@@ -111,7 +113,7 @@ Ho: Mean Variety A = Mean Variety B  = Mean Variety C
 
 Ha: Mean Variety A $\neq$ Mean Variety B  $\neq$ Mean Variety C 
 
-Lets test these hyphothses using a level of siginifvnace $\alpha$ of 0.05.
+Lets test these hypotheses using a level of significance, $\alpha$, of 0.05.
 
 ### Total variance {-}
 Next we calculate the total variance:
@@ -147,7 +149,7 @@ knitr::include_graphics("images/Anova_Variance_Fractitioning.png")
 
 The F-statistics is simply the ratio of the between group to the within group variance.
 
-```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Within group variance and degrees of freedom, DF'}
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'F-Statistic'}
 knitr::include_graphics("images/F-statistic_Example.png")
 ```
 So, our F-statistic is 12. The fact that is larger than one provides good hints that this could be significant. But we still need to find out for the given degrees of freedoms, number of groups and level of significance ($\alpha$), what is the critical F-Value.
@@ -167,7 +169,7 @@ At the interception of column DF=2 and row DF= 6, is the cell 5.1433, which is o
 
 Just to remember, our calculated F-statistics was 12, which is much larger than the critical F-statistics at $\alpha$ 0.05, which is 5.1433.
 
-Thus, we reject the null hypothesis and conclude that indeed there are significant differences in the amount of tomatoes produced by the three varieties at level of significance of 0.05.
+Thus, we reject the null hypothesis and conclude that indeed there are significant differences in the amount of tomatoes produced by the three varieties at a level of significance of 0.05.
 
 ### Ploting the data {-}
 As it is always the case, we should visualize the data. In this case, a box plot could be an effective visualization tool.
@@ -183,7 +185,7 @@ Data=data.frame(Variety=c(rep("VarA",3),rep("VarB",3),rep("VarC",3)), NumTomatoe
 ggboxplot(Data, x = "Variety", y = "NumTomatoes")
 ``` 
 
-Boxplots allow you to visualize the mean and the standard deviations of each group. From the plot above, you can see clearly that not only the mean tomato production of the three varieties are difference, but their variances do not overlap.
+Boxplots allow you to visualize the mean and the standard deviations of each group. From the plot above, you can see clearly that not only the mean tomato production of the three varieties are different, but their variances do not overlap.
 
 ## ANOVA in R {-}
 There are numerous R-packages that allow you to run ANOVAs, lets try a couple:
@@ -282,9 +284,9 @@ model  <- lm(NumTomatoes ~ Variety, data = Data)
 ggqqplot(residuals(model))
 ``` 
 
-From the plot, you can see all values are within the confidence limits expected under normality, but some deviations occurred. The data are prefrecting normal, when each point fall long the normality line (black line in the plot above).
+From the plot abive, you can see that all values are within the confidence limits expected under normality, but some deviations occurred. The data are perfectly normal, when each point falls along the normality line (black line in the plot above).
 
-The second method check normality for each group separately, using the Shapiro-Wilk test. This approach might be used when you have only a few groups and many data points per group.
+The second method to check normality uses the Shapiro-Wilk test. This approach might be used when you have only a few groups and many data points per group.
 
 ```{r, message=FALSE,warning=FALSE}
 # Build the linear model
@@ -320,9 +322,10 @@ For the problem below do:
 1. State the null and alternative hypothesis.
 2. Indicate the type of test to use.
 3. Test for the assumptions of outliers, normality and homogeneity of variances.
-3. Run the ANOVA in R.
-4. Report your results on top of a publication quality plot.
-6. Describe your conclusion.
+4. Run the ANOVA in R.
+5. Run the post-hoc test.
+6. Report your results on top of a publication quality plot.
+7. Describe your conclusion.
 
 **Problem:**
 A researcher has grown plants under ambient CO2, and two CO2 treatments in which he increased CO2 by 50ppm (Treatment1) and 100ppm (Treatment2). The weight of the plants in grams were:

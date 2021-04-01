@@ -1,0 +1,45 @@
+# Class expectations {}
+
+This will be an inherently difficult class, given the mathematical nature of its content and the disparity in skills among students. However, the course is set such that I assume no basic prior understanding of programs, nor major mathematical skills.
+
+This is an introductory, not advanced, class on stats. In general, I expect that at the end of the class you can design an experiment, collect, handle and analyze your data; oh, and do professional plots. Primarily using R. 
+
+Next, I outlined the specific expectations. If you can already meet these expectations, this class then will be too basic for you, and you probably will benefit of a more advanced course. If not, then this class is for you, and I will help you meet this standards.
+
+## Scientific method {-}
+It is expected that when faced with a problem, you can design a robust experiment to solve or identify the given problem. 
+
+This includes identifying dependent and independent variables,provide proper treatments and controls,  collect data, know about replication, independence, etc.
+
+## Data manipulation {-}
+You will know basic methods to load or create databases in R, plus basic functions to manipulate data, like sorting, filtering, merging, pivoting, etc.
+
+## Data display {-}
+You will know how to do publication quality plots. Basic plots like scatterplot, histogram, boxplot, and maps.
+
+## Descriptive stats {-}
+You will know how to calculate basic metrics of central tendency and variability in your data.
+
+## Correlation {-}
+You will know how to run and interpret the results of a correlation analysis.
+
+## Regression {-}
+You will know how to run and interpret the results of a regression analysis.
+
+## Hyphothesis testing {-}
+
+You will know how to:
+
+1. State hypotheses.
+
+2. Run a one sample test using the Z-Score and the T-score.
+
+3. Run a two sample test using the Z-Score and the T-score.
+
+4. Run an ANOVA.
+
+5. Run a post-hoc test.
+
+6. Test for assumptions (outliers, normality, homogeneity of variances).
+
+

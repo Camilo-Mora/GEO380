@@ -1,5 +1,6 @@
-# Standard hyphostesis tests {}
+# Standard hypothesis tests {}
 In the prior chapter, we learned that the basic principle of hypothesis testing was to find out if a given value (from a sample) was on the extremes of a population. The threshold for what we mean by extreme is determined by the $\alpha$ value. We can test a hypothesis by brutal force running a simulation, but we can also run a set of available tests that will tell you the position of your sample in relation to the population.
+
 
 There are a diversity of statistical tests available for testing hypotheses, but here we will deal only with those tests intended to test if one thing, two things or more than two things are different.
 
