@@ -1,0 +1,22 @@
+# Final project {}
+
+At the start of this book, you were told to collect tokens (letters located where they do not belong) dispersed throughout this book. 
+
+The motivation was for you to collect some data along the book, face some of the realities of data collection, like doubting if an observation is correct or not, test how methodical you were to collect data, run some analysis, and critically ensure you read through the entire book.
+
+Now that you have your database of tokens do the following:
+
+1. Search and explain why knowing the frequency of letters may be of importance?
+
+2. Plot a frequency distribution of your tokens.
+
+3. Test if the most frequent letter was significantly different. This question is left broad and vague for you to set this question in any way you desire. 
+
+When thinking about this question, you will realize that you may not have all the elements to answer specific question you may want, or may need to collect some extra data to answer the questions you want This is part of the reality of the scientific process, and here is where you need to become resourceful to ask the question for which you have data, or for which extra data can be easily collected.
+
+Indicate the test you run, report the given test statistics, critical value, and p-value. Test this at a significance level of 0.05.
+
+Any student aiming to get an A+ in this class has to deliver this work, and so is any student in need to get extra credit for a better grade.
+
+
+WARNING: Sharing of tokens will be considered cheating, and you will be reported for ethical violations if evidence suggest that tokens were shared. So do not share your tokens.
