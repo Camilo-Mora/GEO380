@@ -48,4 +48,37 @@ You will know how to:
 
 6. Test for assumptions (outliers, normality, homogeneity of variances).
 
+## Grading {-}
+Grading in this class is not a subjective matter. At the end of this class, you should be able to look back at your work and assess the number of expectations that you meet to satisfaction. 
+
+By satisfaction, I mean you should be able to answer any question as it relates to the 10 expectations above, as well as to apply any learned statistical method to different versions of related problems.
+
+The number of expectations that you satisfy are proportional to your expected grade. 
+
+To give extra reward to  students that  followed the instructions at the start of the class, collected data methodically and analyzed them at the end, doing the final essay adds 10% to your grade. 
+
+Only those that deliver the final essay in addition to meeting all 10 expectations will earn an A+. The table below indicates the expected grade for given number of expectations:
+
+
+```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Grading and expectations'}
+knitr::include_graphics("images/Grading.png")
+```
+
+For you to make a self-assessment, I suggest you review each final homework on each chapter. If you feel confident to defend the work you did, not simply copying and pasting, but knowing what each line of code does, then you should assume you dominate to satisfaction the given expectation.
+
+Please formulate questions for each expectation, and answer them your self. A question, I may ask to confirm that you meet an expectation, could be as simple as "tell me why you know this topic"?. In this case, you can formulate questions and answer them.
+
+At the end of the class, I will ask you what grade do you think you deserve, and which topics you do not want me to ask you about. I will simply ask random questions about the topics you claim you know to confirm that your requested grade is legit, and that will be your grade.
+
+Depending on the time left in the class, you will be able to take your assessment test several times. 
+
+As much as you are worry about a grade, my worry is to ensure that you walk away from this class knowing what we planned to learn at the start. So I want you to study and try as many times as we can for you to get the best grade you deserve.
+
+I have to disclaim that, in my teaching philosophy, grading is not  among my ultimate expectations but rather knowing that you learned the content of this class. 
+
+I am confident that in 10 years time you will not remember the grade you got in this class, but you may well remember the methods you learned, may be even have a dream job in which the skills from this class are helping you, and hopefully you will remember that professor Mora challenged you to be the best of you.
+
+
+
+
 
