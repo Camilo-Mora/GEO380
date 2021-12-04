@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Testing a hypothesis by brutal force | GEOG380.utf8</title>
+  <title>Testing a hypothesis by brutal force | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22.4 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Testing a hypothesis by brutal force | GEOG380.utf8" />
+  <meta property="og:title" content="Testing a hypothesis by brutal force | GEOG380.knit" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Testing a hypothesis by brutal force | GEOG380.utf8" />
+  <meta name="twitter:title" content="Testing a hypothesis by brutal force | GEOG380.knit" />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -31,6 +31,7 @@
   
 <link rel="prev" href="accepting-or-rejecting-the-null-hypothesis.html"/>
 <link rel="next" href="error-types.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -48,22 +49,23 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -83,7 +85,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -116,6 +118,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -133,12 +136,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
 <li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
 <li class="chapter" data-level="" data-path="do-not-dispair-please.html"><a href="do-not-dispair-please.html"><i class="fa fa-check"></i>Do not dispair, please</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html"><i class="fa fa-check"></i>Class expectations</a><ul>
+<li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html"><i class="fa fa-check"></i>Class expectations</a>
+<ul>
 <li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html#scientific-method"><i class="fa fa-check"></i>1. Scientific method</a></li>
 <li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html#data-manipulation"><i class="fa fa-check"></i>2. Data manipulation</a></li>
 <li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html#data-display"><i class="fa fa-check"></i>3. Data display</a></li>
@@ -151,17 +156,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html#more-than-two-sample-test"><i class="fa fa-check"></i>10. More than two sample test</a></li>
 <li class="chapter" data-level="" data-path="grading.html"><a href="grading.html"><i class="fa fa-check"></i>Grading</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="1-the-scientific-method.html"><a href="1-the-scientific-method.html"><i class="fa fa-check"></i><b>1</b> The scientific method</a><ul>
-<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html"><i class="fa fa-check"></i>The problem</a><ul>
+<li class="chapter" data-level="1" data-path="1-the-scientific-method.html"><a href="1-the-scientific-method.html"><i class="fa fa-check"></i><b>1</b> The scientific method</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html"><i class="fa fa-check"></i>The problem</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#narrow-the-problem"><i class="fa fa-check"></i>Narrow the problem</a></li>
 <li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#search-prior-knowledge"><i class="fa fa-check"></i>Search prior knowledge</a></li>
 <li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#back-to-defining-the-problem"><i class="fa fa-check"></i>Back to defining the problem</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a><ul>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a>
+<ul>
 <li><a href="the-hyphotesis.html#the-null-hypothesis-h0">The null hypothesis <em>H0</em></a></li>
 <li><a href="the-hyphotesis.html#the-alternate-hypothesis-h1">The alternate hypothesis <em>H1</em></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a><ul>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#population-sample-subject"><i class="fa fa-check"></i>Population, sample, subject</a></li>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#variables"><i class="fa fa-check"></i>Variables</a></li>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#the-control-and-treatment"><i class="fa fa-check"></i>The control and treatment</a></li>
@@ -174,13 +183,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="analyze-your-data.html"><a href="analyze-your-data.html"><i class="fa fa-check"></i>Analyze your data</a></li>
 <li class="chapter" data-level="" data-path="vizualize-the-data.html"><a href="vizualize-the-data.html"><i class="fa fa-check"></i>Vizualize the data</a></li>
 <li class="chapter" data-level="" data-path="write-report.html"><a href="write-report.html"><i class="fa fa-check"></i>Write report</a></li>
-<li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html"><i class="fa fa-check"></i>Excercises</a><ul>
+<li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html"><i class="fa fa-check"></i>Excercises</a>
+<ul>
 <li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html#exercise-1"><i class="fa fa-check"></i>Exercise 1</a></li>
 <li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html#exercise-2"><i class="fa fa-check"></i>Exercise 2</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="homework.html"><a href="homework.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="2-installing-programs.html"><a href="2-installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a><ul>
+<li class="chapter" data-level="2" data-path="2-installing-programs.html"><a href="2-installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a>
+<ul>
 <li class="chapter" data-level="" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i>Installing R</a></li>
 <li class="chapter" data-level="" data-path="tinn-r.html"><a href="tinn-r.html"><i class="fa fa-check"></i>Tinn-R</a></li>
 <li class="chapter" data-level="" data-path="r-studio.html"><a href="r-studio.html"><i class="fa fa-check"></i>R-Studio</a></li>
@@ -188,16 +199,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="asking-for-help.html"><a href="asking-for-help.html"><i class="fa fa-check"></i>Asking for help</a></li>
 <li class="chapter" data-level="" data-path="exercise.html"><a href="exercise.html"><i class="fa fa-check"></i>Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="3-basics-on-data-manipulation-in-r.html"><a href="3-basics-on-data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Basics on data manipulation in R</a><ul>
+<li class="chapter" data-level="3" data-path="3-basics-on-data-manipulation-in-r.html"><a href="3-basics-on-data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Basics on data manipulation in R</a>
+<ul>
 <li class="chapter" data-level="" data-path="variables-1.html"><a href="variables-1.html"><i class="fa fa-check"></i>Variables</a></li>
 <li class="chapter" data-level="" data-path="comments.html"><a href="comments.html"><i class="fa fa-check"></i>Comments</a></li>
-<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i>Operators</a><ul>
+<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i>Operators</a>
+<ul>
 <li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#assignment-operators"><i class="fa fa-check"></i>Assignment operators</a></li>
 <li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i>Arithmetic operators</a></li>
 <li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#character-operators"><i class="fa fa-check"></i>Character operators</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="custom-made-functions.html"><a href="custom-made-functions.html"><i class="fa fa-check"></i>Custom made functions</a></li>
-<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html"><i class="fa fa-check"></i>Data structure types</a><ul>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html"><i class="fa fa-check"></i>Data structure types</a>
+<ul>
 <li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
 <li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#matrix"><i class="fa fa-check"></i>Matrix</a></li>
 <li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#dataframes"><i class="fa fa-check"></i>DataFrames</a></li>
@@ -207,7 +221,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="filter-data.html"><a href="filter-data.html"><i class="fa fa-check"></i>Filter data</a></li>
 <li class="chapter" data-level="" data-path="pivot-table.html"><a href="pivot-table.html"><i class="fa fa-check"></i>Pivot table</a></li>
 <li class="chapter" data-level="" data-path="merge-data.html"><a href="merge-data.html"><i class="fa fa-check"></i>Merge data</a></li>
-<li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html"><i class="fa fa-check"></i>Subsetting columns</a><ul>
+<li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html"><i class="fa fa-check"></i>Subsetting columns</a>
+<ul>
 <li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html#deleting-columns"><i class="fa fa-check"></i>Deleting columns</a></li>
 <li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html#selecting-columns"><i class="fa fa-check"></i>Selecting columns</a></li>
 </ul></li>
@@ -215,7 +230,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercise-3.html"><a href="exercise-3.html"><i class="fa fa-check"></i>Exercise</a></li>
 <li class="chapter" data-level="" data-path="homework-1.html"><a href="homework-1.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="4-basic-plots.html"><a href="4-basic-plots.html"><i class="fa fa-check"></i><b>4</b> Basic plots</a><ul>
+<li class="chapter" data-level="4" data-path="4-basic-plots.html"><a href="4-basic-plots.html"><i class="fa fa-check"></i><b>4</b> Basic plots</a>
+<ul>
 <li class="chapter" data-level="" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i>Scatterplots</a></li>
 <li class="chapter" data-level="" data-path="histograms.html"><a href="histograms.html"><i class="fa fa-check"></i>Histograms</a></li>
 <li class="chapter" data-level="" data-path="density-plots.html"><a href="density-plots.html"><i class="fa fa-check"></i>Density plots</a></li>
@@ -224,16 +240,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="saving-plots.html"><a href="saving-plots.html"><i class="fa fa-check"></i>Saving plots</a></li>
 <li class="chapter" data-level="" data-path="excersise.html"><a href="excersise.html"><i class="fa fa-check"></i>Excersise</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="5-descriptive-statistics.html"><a href="5-descriptive-statistics.html"><i class="fa fa-check"></i><b>5</b> Descriptive statistics</a><ul>
+<li class="chapter" data-level="5" data-path="5-descriptive-statistics.html"><a href="5-descriptive-statistics.html"><i class="fa fa-check"></i><b>5</b> Descriptive statistics</a>
+<ul>
 <li class="chapter" data-level="" data-path="data-distributions.html"><a href="data-distributions.html"><i class="fa fa-check"></i>Data distributions</a></li>
-<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html"><i class="fa fa-check"></i>Central tendency</a><ul>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html"><i class="fa fa-check"></i>Central tendency</a>
+<ul>
 <li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-arithmetic-mean"><i class="fa fa-check"></i>The arithmetic mean</a></li>
 <li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-trimmed-mean"><i class="fa fa-check"></i>The trimmed mean</a></li>
 <li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-weighted-average"><i class="fa fa-check"></i>The weighted average</a></li>
 <li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-median"><i class="fa fa-check"></i>The median</a></li>
 <li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-mode"><i class="fa fa-check"></i>The mode</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html"><i class="fa fa-check"></i>Dispersion</a><ul>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html"><i class="fa fa-check"></i>Dispersion</a>
+<ul>
 <li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-minimum-and-the-maximum"><i class="fa fa-check"></i>The minimum and the maximum</a></li>
 <li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-range"><i class="fa fa-check"></i>The range</a></li>
 <li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-percentile"><i class="fa fa-check"></i>The percentile</a></li>
@@ -245,41 +264,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-2.html"><a href="homework-2.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="6-correlation-1.html"><a href="6-correlation-1.html"><i class="fa fa-check"></i><b>6</b> Correlation</a><ul>
+<li class="chapter" data-level="6" data-path="6-correlation-1.html"><a href="6-correlation-1.html"><i class="fa fa-check"></i><b>6</b> Correlation</a>
+<ul>
 <li class="chapter" data-level="" data-path="visualization-of-relationships.html"><a href="visualization-of-relationships.html"><i class="fa fa-check"></i>Visualization of relationships</a></li>
 <li class="chapter" data-level="" data-path="linear-relationships.html"><a href="linear-relationships.html"><i class="fa fa-check"></i>Linear relationships</a></li>
 <li class="chapter" data-level="" data-path="non-linear-relationships.html"><a href="non-linear-relationships.html"><i class="fa fa-check"></i>Non-linear relationships</a></li>
 <li class="chapter" data-level="" data-path="the-covariance.html"><a href="the-covariance.html"><i class="fa fa-check"></i>The Covariance</a></li>
-<li class="chapter" data-level="" data-path="the-correlation-coefficient-r.html"><a href="the-correlation-coefficient-r.html"><i class="fa fa-check"></i>The Correlation Coefficient, r</a><ul>
+<li class="chapter" data-level="" data-path="the-correlation-coefficient-r.html"><a href="the-correlation-coefficient-r.html"><i class="fa fa-check"></i>The Correlation Coefficient, r</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-correlation-coefficient-r.html"><a href="the-correlation-coefficient-r.html#alternative-formulation"><i class="fa fa-check"></i>Alternative formulation</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="interpreting-r.html"><a href="interpreting-r.html"><i class="fa fa-check"></i>Interpreting r</a></li>
 <li class="chapter" data-level="" data-path="causation.html"><a href="causation.html"><i class="fa fa-check"></i>Causation</a></li>
-<li class="chapter" data-level="" data-path="significance.html"><a href="significance.html"><i class="fa fa-check"></i>Significance</a><ul>
+<li class="chapter" data-level="" data-path="significance.html"><a href="significance.html"><i class="fa fa-check"></i>Significance</a>
+<ul>
 <li class="chapter" data-level="" data-path="significance.html"><a href="significance.html#correlation-tables"><i class="fa fa-check"></i>correlation tables</a></li>
 <li class="chapter" data-level="" data-path="significance.html"><a href="significance.html#correlation-p-values"><i class="fa fa-check"></i>Correlation p-values</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-3.html"><a href="homework-3.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="7-regression-1.html"><a href="7-regression-1.html"><i class="fa fa-check"></i><b>7</b> Regression</a><ul>
-<li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html"><i class="fa fa-check"></i>Parts of a line</a><ul>
+<li class="chapter" data-level="7" data-path="7-regression-1.html"><a href="7-regression-1.html"><i class="fa fa-check"></i><b>7</b> Regression</a>
+<ul>
+<li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html"><i class="fa fa-check"></i>Parts of a line</a>
+<ul>
 <li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html#how-to-interpret-the-slope"><i class="fa fa-check"></i>How to interpret the slope</a></li>
 <li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html#how-to-interpret-the-intercept"><i class="fa fa-check"></i>How to interpret the intercept</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="purpuse-of-the-regression-line.html"><a href="purpuse-of-the-regression-line.html"><i class="fa fa-check"></i>Purpuse of the regression line</a></li>
-<li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html"><i class="fa fa-check"></i>The least-squares line</a><ul>
+<li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html"><i class="fa fa-check"></i>The least-squares line</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html#understanding-the-least-squares-line"><i class="fa fa-check"></i>Understanding the least-squares line</a></li>
 <li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html#deciphering-the-least-squares-line"><i class="fa fa-check"></i>Deciphering the least-squares line</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html"><i class="fa fa-check"></i>Estimating the least-squares line</a><ul>
+<li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html"><i class="fa fa-check"></i>Estimating the least-squares line</a>
+<ul>
 <li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html#refreshing-the-slope"><i class="fa fa-check"></i>Refreshing the Slope</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="the-slope.html"><a href="the-slope.html"><i class="fa fa-check"></i>The slope</a></li>
 <li class="chapter" data-level="" data-path="the-intercept.html"><a href="the-intercept.html"><i class="fa fa-check"></i>The intercept</a></li>
 <li class="chapter" data-level="" data-path="linear-regression-in-r.html"><a href="linear-regression-in-r.html"><i class="fa fa-check"></i>Linear regression in R</a></li>
 <li class="chapter" data-level="" data-path="the-coeficient-of-determination.html"><a href="the-coeficient-of-determination.html"><i class="fa fa-check"></i>The coeficient of determination</a></li>
-<li class="chapter" data-level="" data-path="predict-interpolation-extrapolation.html"><a href="predict-interpolation-extrapolation.html"><i class="fa fa-check"></i>Predict: Interpolation, Extrapolation</a><ul>
+<li class="chapter" data-level="" data-path="predict-interpolation-extrapolation.html"><a href="predict-interpolation-extrapolation.html"><i class="fa fa-check"></i>Predict: Interpolation, Extrapolation</a>
+<ul>
 <li class="chapter" data-level="" data-path="predict-interpolation-extrapolation.html"><a href="predict-interpolation-extrapolation.html#interpolation-and-extrapolation"><i class="fa fa-check"></i>Interpolation and Extrapolation</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="outliers.html"><a href="outliers.html"><i class="fa fa-check"></i>Outliers</a></li>
@@ -289,8 +316,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis testing</a><ul>
-<li class="chapter" data-level="" data-path="background-info.html"><a href="background-info.html"><i class="fa fa-check"></i>Background info</a><ul>
+<li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="" data-path="background-info.html"><a href="background-info.html"><i class="fa fa-check"></i>Background info</a>
+<ul>
 <li class="chapter" data-level="" data-path="background-info.html"><a href="background-info.html#p-value-and-alpha"><i class="fa fa-check"></i>p-value and alpha</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="approach-to-testing-a-hyphothesis.html"><a href="approach-to-testing-a-hyphothesis.html"><i class="fa fa-check"></i>Approach to testing a hyphothesis</a></li>
@@ -301,8 +330,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises-3.html"><a href="exercises-3.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-5.html"><a href="homework-5.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="9-standard-hypothesis-tests.html"><a href="9-standard-hypothesis-tests.html"><i class="fa fa-check"></i><b>9</b> Standard hypothesis tests</a><ul>
-<li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html"><i class="fa fa-check"></i>Alternative types of tests</a><ul>
+<li class="chapter" data-level="9" data-path="9-standard-hypothesis-tests.html"><a href="9-standard-hypothesis-tests.html"><i class="fa fa-check"></i><b>9</b> Standard hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html"><i class="fa fa-check"></i>Alternative types of tests</a>
+<ul>
 <li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html#one-sample-test-1"><i class="fa fa-check"></i>One sample test</a></li>
 <li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html#two-sample-test-1"><i class="fa fa-check"></i>Two sample test</a></li>
 <li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html#more-than-two-sample-test-1"><i class="fa fa-check"></i>More than two sample test</a></li>
@@ -310,23 +341,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="selecting-the-right-test.html"><a href="selecting-the-right-test.html"><i class="fa fa-check"></i>Selecting the right test</a></li>
 <li class="chapter" data-level="" data-path="homework-6.html"><a href="homework-6.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="10-one-sample-tests.html"><a href="10-one-sample-tests.html"><i class="fa fa-check"></i><b>10</b> One sample tests</a><ul>
+<li class="chapter" data-level="10" data-path="10-one-sample-tests.html"><a href="10-one-sample-tests.html"><i class="fa fa-check"></i><b>10</b> One sample tests</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-one-sample-z-test-by-hand.html"><a href="the-one-sample-z-test-by-hand.html"><i class="fa fa-check"></i>The one-sample Z-test by hand</a></li>
 <li class="chapter" data-level="" data-path="the-one-sample-z-test-in-r.html"><a href="the-one-sample-z-test-in-r.html"><i class="fa fa-check"></i>The one-sample Z-test in R</a></li>
 <li class="chapter" data-level="" data-path="the-one-sample-t-test-by-hand.html"><a href="the-one-sample-t-test-by-hand.html"><i class="fa fa-check"></i>The one-sample T-test by hand</a></li>
 <li class="chapter" data-level="" data-path="the-one-sample-t-test-in-r.html"><a href="the-one-sample-t-test-in-r.html"><i class="fa fa-check"></i>The one-sample T-test in R</a></li>
 <li class="chapter" data-level="" data-path="homework-7.html"><a href="homework-7.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="11-two-sample-tests.html"><a href="11-two-sample-tests.html"><i class="fa fa-check"></i><b>11</b> Two sample tests</a><ul>
+<li class="chapter" data-level="11" data-path="11-two-sample-tests.html"><a href="11-two-sample-tests.html"><i class="fa fa-check"></i><b>11</b> Two sample tests</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-two-sample-z-test-by-hand.html"><a href="the-two-sample-z-test-by-hand.html"><i class="fa fa-check"></i>The two-sample Z-test by hand</a></li>
 <li class="chapter" data-level="" data-path="the-two-sample-z-test-in-r.html"><a href="the-two-sample-z-test-in-r.html"><i class="fa fa-check"></i>The two-sample Z-test in R</a></li>
 <li class="chapter" data-level="" data-path="the-two-sample-t-test-by-hand.html"><a href="the-two-sample-t-test-by-hand.html"><i class="fa fa-check"></i>The two-sample T-test by hand</a></li>
 <li class="chapter" data-level="" data-path="the-two-sample-t-test-in-r.html"><a href="the-two-sample-t-test-in-r.html"><i class="fa fa-check"></i>The two-sample T-test in R</a></li>
 <li class="chapter" data-level="" data-path="homework-8.html"><a href="homework-8.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="12-multiple-sample-test.html"><a href="12-multiple-sample-test.html"><i class="fa fa-check"></i><b>12</b> Multiple sample test</a><ul>
+<li class="chapter" data-level="12" data-path="12-multiple-sample-test.html"><a href="12-multiple-sample-test.html"><i class="fa fa-check"></i><b>12</b> Multiple sample test</a>
+<ul>
 <li class="chapter" data-level="" data-path="anova-reasoning.html"><a href="anova-reasoning.html"><i class="fa fa-check"></i>ANOVA reasoning</a></li>
-<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html"><i class="fa fa-check"></i>ANOVA by hand</a><ul>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html"><i class="fa fa-check"></i>ANOVA by hand</a>
+<ul>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#stating-hyphotheses"><i class="fa fa-check"></i>Stating Hyphotheses</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#total-variance"><i class="fa fa-check"></i>Total variance</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#between-group-variance"><i class="fa fa-check"></i>Between group variance</a></li>
@@ -338,7 +373,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="anova-in-r.html"><a href="anova-in-r.html"><i class="fa fa-check"></i>ANOVA in R</a></li>
 <li class="chapter" data-level="" data-path="post-hoc-test-in-r.html"><a href="post-hoc-test-in-r.html"><i class="fa fa-check"></i>Post-hoc test in R</a></li>
-<li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html"><i class="fa fa-check"></i>Checking assumptions</a><ul>
+<li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html"><i class="fa fa-check"></i>Checking assumptions</a>
+<ul>
 <li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html#outliers-1"><i class="fa fa-check"></i>Outliers</a></li>
 <li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html#normality"><i class="fa fa-check"></i>Normality</a></li>
 <li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html#homogneity-of-variance"><i class="fa fa-check"></i>Homogneity of variance</a></li>
@@ -380,87 +416,87 @@ By Camilo Mora, Ph.D.
 <p>In this case, I specifically want to know if these burgers have less than 1500 calories as claimed by the company.</p>
 <p>We want to test this hypothesis at an <span class="math inline">\(\alpha\)</span>, level of significance, of 0.05 or 5%.</p>
 <p>Alright, lets start our simulation.</p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-1"></a>MeanCal =<span class="st"> </span><span class="dv">1600</span> <span class="co">#calories in the sample of burgers</span></span>
-<span id="cb217-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-2"></a></span>
-<span id="cb217-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-3"></a><span class="kw">plot</span>(<span class="dv">1</span>, <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Total calories in MacDonal&#39;s bugers&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Percent of burgers&quot;</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="co"># lets create an empty plot</span></span>
-<span id="cb217-4"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-4"></a></span>
-<span id="cb217-5"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-5"></a><span class="co">#plot the sample value</span></span>
-<span id="cb217-6"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-6"></a><span class="kw">abline</span>(<span class="dt">v=</span>MeanCal, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>) </span>
-<span id="cb217-7"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-7"></a></span>
-<span id="cb217-8"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-8"></a><span class="co">#lets name the mean sample value</span></span>
-<span id="cb217-9"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-9"></a><span class="kw">text</span>(MeanCal,<span class="dv">10</span>,<span class="dt">labels=</span><span class="st">&quot;Sample value&quot;</span>,<span class="dt">pos=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb215-1" aria-hidden="true" tabindex="-1"></a>MeanCal <span class="ot">=</span> <span class="dv">1600</span> <span class="co">#calories in the sample of burgers</span></span>
+<span id="cb215-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb215-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb215-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb215-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span>, <span class="at">type=</span><span class="st">&quot;n&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Total calories in MacDonal&#39;s bugers&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Percent of burgers&quot;</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="co"># lets create an empty plot</span></span>
+<span id="cb215-4"><a href="testing-a-hypothesis-by-brutal-force.html#cb215-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb215-5"><a href="testing-a-hypothesis-by-brutal-force.html#cb215-5" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the sample value</span></span>
+<span id="cb215-6"><a href="testing-a-hypothesis-by-brutal-force.html#cb215-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MeanCal, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">lty=</span><span class="dv">2</span>) </span>
+<span id="cb215-7"><a href="testing-a-hypothesis-by-brutal-force.html#cb215-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb215-8"><a href="testing-a-hypothesis-by-brutal-force.html#cb215-8" aria-hidden="true" tabindex="-1"></a><span class="co">#lets name the mean sample value</span></span>
+<span id="cb215-9"><a href="testing-a-hypothesis-by-brutal-force.html#cb215-9" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(MeanCal,<span class="dv">10</span>,<span class="at">labels=</span><span class="st">&quot;Sample value&quot;</span>,<span class="at">pos=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-276-1.png" width="672" /></p>
 <p>Next, you can plot the <strong>critical value</strong> for an alpha of 0.05 in a population with a mean of 1500 and an standard deviation of 50.</p>
 <p>In this case, the critical value at <span class="math inline">\(\alpha\)</span>=0.05, is simply the cutoff at which 95% of the calories in the MacDonals burgers occurs. If we are assuming the population data is normal and has a mean of 1500 and a Standard deviation, SD, of 50, we can find out that critical value using the <span class="math inline">\(qnorm\)</span> function in R.</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-1"></a>CriticalVal=<span class="kw">qnorm</span>(<span class="fl">0.95</span>,<span class="dv">1500</span>,<span class="dv">50</span>) <span class="co"># here we want to know the cutoff at which 95% of the observations occur in a population with a mean of 1500 and an SD of 50</span></span>
-<span id="cb218-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-2"></a></span>
-<span id="cb218-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-3"></a><span class="kw">plot</span>(<span class="dv">1</span>, <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Total calories in MacDonal&#39;s bugers&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Percent of burgers&quot;</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="co"># lets create an empty plot</span></span>
-<span id="cb218-4"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-4"></a></span>
-<span id="cb218-5"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-5"></a></span>
-<span id="cb218-6"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-6"></a><span class="co">#plot the sample value</span></span>
-<span id="cb218-7"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-7"></a>  <span class="kw">abline</span>(<span class="dt">v=</span>MeanCal, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>) </span>
-<span id="cb218-8"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-8"></a>  <span class="co">#lets name the mean sample value</span></span>
-<span id="cb218-9"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-9"></a>  <span class="kw">text</span>(MeanCal,<span class="dv">10</span>,<span class="dt">labels=</span><span class="st">&quot;Sample value&quot;</span>,<span class="dt">pos=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb218-10"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-10"></a></span>
-<span id="cb218-11"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-11"></a><span class="co">#plot the critical value</span></span>
-<span id="cb218-12"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-12"></a>  <span class="kw">abline</span>(<span class="dt">v=</span>CriticalVal, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>) </span>
-<span id="cb218-13"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-13"></a>  <span class="co">#lets name the statistical critical value</span></span>
-<span id="cb218-14"><a href="testing-a-hypothesis-by-brutal-force.html#cb218-14"></a>  <span class="kw">text</span>(CriticalVal,<span class="dv">10</span>,<span class="dt">labels=</span><span class="st">&quot;Statistical critical value&quot;</span>,<span class="dt">pos=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb216-1" aria-hidden="true" tabindex="-1"></a>CriticalVal<span class="ot">=</span><span class="fu">qnorm</span>(<span class="fl">0.95</span>,<span class="dv">1500</span>,<span class="dv">50</span>) <span class="co"># here we want to know the cutoff at which 95% of the observations occur in a population with a mean of 1500 and an SD of 50</span></span>
+<span id="cb216-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb216-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb216-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span>, <span class="at">type=</span><span class="st">&quot;n&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Total calories in MacDonal&#39;s bugers&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Percent of burgers&quot;</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="co"># lets create an empty plot</span></span>
+<span id="cb216-4"><a href="testing-a-hypothesis-by-brutal-force.html#cb216-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-5"><a href="testing-a-hypothesis-by-brutal-force.html#cb216-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-6"><a href="testing-a-hypothesis-by-brutal-force.html#cb216-6" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the sample value</span></span>
+<span id="cb216-7"><a href="testing-a-hypothesis-by-brutal-force.html#cb216-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">v=</span>MeanCal, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">lty=</span><span class="dv">2</span>) </span>
+<span id="cb216-8"><a href="testing-a-hypothesis-by-brutal-force.html#cb216-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#lets name the mean sample value</span></span>
+<span id="cb216-9"><a href="testing-a-hypothesis-by-brutal-force.html#cb216-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">text</span>(MeanCal,<span class="dv">10</span>,<span class="at">labels=</span><span class="st">&quot;Sample value&quot;</span>,<span class="at">pos=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb216-10"><a href="testing-a-hypothesis-by-brutal-force.html#cb216-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-11"><a href="testing-a-hypothesis-by-brutal-force.html#cb216-11" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the critical value</span></span>
+<span id="cb216-12"><a href="testing-a-hypothesis-by-brutal-force.html#cb216-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">v=</span>CriticalVal, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">lty=</span><span class="dv">2</span>) </span>
+<span id="cb216-13"><a href="testing-a-hypothesis-by-brutal-force.html#cb216-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">#lets name the statistical critical value</span></span>
+<span id="cb216-14"><a href="testing-a-hypothesis-by-brutal-force.html#cb216-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">text</span>(CriticalVal,<span class="dv">10</span>,<span class="at">labels=</span><span class="st">&quot;Statistical critical value&quot;</span>,<span class="at">pos=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-277-1.png" width="672" /></p>
 <p>For the comparison between the critical value and the sample value, we can already observe that the sample burgers in reality have more calories than claimed by MacDonals at a significance level, <span class="math inline">\(\alpha\)</span>, of 0.05.</p>
 <p>Lets try the same test but building an actual population of expected burgers. For this, we take one random sample from a normal population with a mean of 1500 and an standard deviation, SD, of 50. In R, you can take any number of individuals randomly from any normally distributed population using the function <span class="math inline">\(rnorm\)</span>.</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb219-1"></a>MeanPopulation=<span class="dv">1500</span></span>
-<span id="cb219-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb219-2"></a>SDPopulation=<span class="dv">50</span></span>
-<span id="cb219-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb219-3"></a>RandomSample1&lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1</span>,MeanPopulation,SDPopulation) </span>
-<span id="cb219-4"><a href="testing-a-hypothesis-by-brutal-force.html#cb219-4"></a></span>
-<span id="cb219-5"><a href="testing-a-hypothesis-by-brutal-force.html#cb219-5"></a>RandomSample1</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-1" aria-hidden="true" tabindex="-1"></a>MeanPopulation<span class="ot">=</span><span class="dv">1500</span></span>
+<span id="cb217-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-2" aria-hidden="true" tabindex="-1"></a>SDPopulation<span class="ot">=</span><span class="dv">50</span></span>
+<span id="cb217-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-3" aria-hidden="true" tabindex="-1"></a>RandomSample1<span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1</span>,MeanPopulation,SDPopulation) </span>
+<span id="cb217-4"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb217-5"><a href="testing-a-hypothesis-by-brutal-force.html#cb217-5" aria-hidden="true" tabindex="-1"></a>RandomSample1</span></code></pre></div>
 <pre><code>## [1] 1508.21</code></pre>
 <p>So one sample burger from a population with a mean of 1500 and a standard deviation, SD, of 50 is <span class="math inline">\(1508.21\)</span>.</p>
 <p>Hmm, ok, but we only have one random sample. To be robust, we probably should take 100,000 random samples and from all of those see if the top 5% of the random samples, our critical threshold, is larger or smaller than our observed sample value.</p>
 <p>To run such a simulation, we can use the <em>for</em> loop function in R. Lets try. Let me explain that function with the example.</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb221-1"></a>population=<span class="st"> </span><span class="kw">c</span>()  <span class="co">#we create an empty vector where we will store the random averages of our 1000 random samples of ten burgers</span></span>
-<span id="cb221-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb221-2"></a><span class="cf">for</span> (sampleI <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100000</span>) { <span class="co"># here I set a variable called sampleI that will loop from 1 to 1000</span></span>
-<span id="cb221-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb221-3"></a>  </span>
-<span id="cb221-4"><a href="testing-a-hypothesis-by-brutal-force.html#cb221-4"></a>meanRandomSampleI&lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1</span>,MeanPopulation,SDPopulation) <span class="co">#take a random value</span></span>
-<span id="cb221-5"><a href="testing-a-hypothesis-by-brutal-force.html#cb221-5"></a></span>
-<span id="cb221-6"><a href="testing-a-hypothesis-by-brutal-force.html#cb221-6"></a><span class="co">#lets place the value for that sample in the vector</span></span>
-<span id="cb221-7"><a href="testing-a-hypothesis-by-brutal-force.html#cb221-7"></a>population=<span class="kw">c</span>(population, meanRandomSampleI ) <span class="co">#basically I am appending the value of every sample in every loop to the vector</span></span>
-<span id="cb221-8"><a href="testing-a-hypothesis-by-brutal-force.html#cb221-8"></a>}</span>
-<span id="cb221-9"><a href="testing-a-hypothesis-by-brutal-force.html#cb221-9"></a><span class="co"># the code between {} will run for 100,000 times. to test lest count the number of entries in the vector</span></span>
-<span id="cb221-10"><a href="testing-a-hypothesis-by-brutal-force.html#cb221-10"></a></span>
-<span id="cb221-11"><a href="testing-a-hypothesis-by-brutal-force.html#cb221-11"></a><span class="kw">length</span>(population)</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb219-1" aria-hidden="true" tabindex="-1"></a>population<span class="ot">=</span> <span class="fu">c</span>()  <span class="co">#we create an empty vector where we will store the random averages of our 1000 random samples of ten burgers</span></span>
+<span id="cb219-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb219-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (sampleI <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100000</span>) { <span class="co"># here I set a variable called sampleI that will loop from 1 to 1000</span></span>
+<span id="cb219-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb219-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb219-4"><a href="testing-a-hypothesis-by-brutal-force.html#cb219-4" aria-hidden="true" tabindex="-1"></a>meanRandomSampleI<span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1</span>,MeanPopulation,SDPopulation) <span class="co">#take a random value</span></span>
+<span id="cb219-5"><a href="testing-a-hypothesis-by-brutal-force.html#cb219-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb219-6"><a href="testing-a-hypothesis-by-brutal-force.html#cb219-6" aria-hidden="true" tabindex="-1"></a><span class="co">#lets place the value for that sample in the vector</span></span>
+<span id="cb219-7"><a href="testing-a-hypothesis-by-brutal-force.html#cb219-7" aria-hidden="true" tabindex="-1"></a>population<span class="ot">=</span><span class="fu">c</span>(population, meanRandomSampleI ) <span class="co">#basically I am appending the value of every sample in every loop to the vector</span></span>
+<span id="cb219-8"><a href="testing-a-hypothesis-by-brutal-force.html#cb219-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb219-9"><a href="testing-a-hypothesis-by-brutal-force.html#cb219-9" aria-hidden="true" tabindex="-1"></a><span class="co"># the code between {} will run for 100,000 times. to test lest count the number of entries in the vector</span></span>
+<span id="cb219-10"><a href="testing-a-hypothesis-by-brutal-force.html#cb219-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb219-11"><a href="testing-a-hypothesis-by-brutal-force.html#cb219-11" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(population)</span></code></pre></div>
 <pre><code>## [1] 100000</code></pre>
 <p>Ok, we just created a population of 100,000 random samples from a normal population with a mean of 1500 and an standard deviation, SD, of 50. Let’s do a histogram of that database</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb223-1"></a>breaks =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1200</span>, <span class="dv">1800</span>, <span class="dt">length.out =</span> <span class="dv">100</span>) <span class="co">#lets create a set of bins</span></span>
-<span id="cb223-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb223-2"></a></span>
-<span id="cb223-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb223-3"></a><span class="kw">hist</span>(population,<span class="dt">main=</span><span class="ot">NA</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">1200</span>, <span class="dv">1800</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5000</span>),<span class="dt">breaks =</span> breaks, <span class="dt">xlab =</span> <span class="st">&quot;Total calories in MacDonal&#39;s bugers&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;Number of ramdon samples&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb221-1" aria-hidden="true" tabindex="-1"></a>breaks <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1200</span>, <span class="dv">1800</span>, <span class="at">length.out =</span> <span class="dv">100</span>) <span class="co">#lets create a set of bins</span></span>
+<span id="cb221-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb221-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb221-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb221-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(population,<span class="at">main=</span><span class="cn">NA</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">1200</span>, <span class="dv">1800</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5000</span>),<span class="at">breaks =</span> breaks, <span class="at">xlab =</span> <span class="st">&quot;Total calories in MacDonal&#39;s bugers&quot;</span>,<span class="at">ylab =</span> <span class="st">&quot;Number of ramdon samples&quot;</span>)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-280-1.png" width="672" /></p>
 <p>Looking good….lets draw a line for the 5% level of significance for the expected distribution. We will use the R function <span class="math inline">\(quantile\)</span>, which we used earlier, to find out the value located at the 95% percentile, which will outline the position to the right where 5% of the cases occur. Let’s call this the modeled critical value, to differentiate it from the statistical critical value we calculated earlier.</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-1"></a>ModelledCriticalValue=<span class="kw">quantile</span>(population,<span class="fl">0.95</span>,<span class="dt">type=</span><span class="dv">1</span>) <span class="co">#quantile finds the value in the population of calories located at the top 5% percentile</span></span>
-<span id="cb224-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-2"></a>ModelledCriticalValue</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb222-1" aria-hidden="true" tabindex="-1"></a>ModelledCriticalValue<span class="ot">=</span><span class="fu">quantile</span>(population,<span class="fl">0.95</span>,<span class="at">type=</span><span class="dv">1</span>) <span class="co">#quantile finds the value in the population of calories located at the top 5% percentile</span></span>
+<span id="cb222-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb222-2" aria-hidden="true" tabindex="-1"></a>ModelledCriticalValue</span></code></pre></div>
 <pre><code>##      95% 
 ## 1582.898</code></pre>
 <p>Now we can compare the average calorimetric content in our actual sample of 10 burgers (sample value) to the value located at the 5% mark (i.e., the level of significance).</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-1"></a><span class="kw">hist</span>(population,<span class="dt">main=</span><span class="ot">NA</span>,<span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">1200</span>, <span class="dv">1800</span>),<span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">6000</span>),<span class="dt">breaks =</span> breaks, <span class="dt">xlab =</span> <span class="st">&quot;Caloric content of burgers&quot;</span>,<span class="dt">ylab =</span> <span class="st">&quot;Number of ramdon samples&quot;</span>)</span>
-<span id="cb226-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-2"></a></span>
-<span id="cb226-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-3"></a></span>
-<span id="cb226-4"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-4"></a><span class="co">#plot the sample value</span></span>
-<span id="cb226-5"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-5"></a>    <span class="kw">abline</span>(<span class="dt">v=</span>MeanCal, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>) </span>
-<span id="cb226-6"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-6"></a>    <span class="co">#lets use a label for it</span></span>
-<span id="cb226-7"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-7"></a>    <span class="kw">text</span>(MeanCal,<span class="dv">6000</span>,<span class="dt">labels=</span><span class="st">&quot;Sample value&quot;</span>,<span class="dt">pos=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb226-8"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-8"></a></span>
-<span id="cb226-9"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-9"></a></span>
-<span id="cb226-10"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-10"></a><span class="co">#plot the 5% modeled critical value </span></span>
-<span id="cb226-11"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-11"></a><span class="kw">abline</span>(<span class="dt">v=</span>ModelledCriticalValue, <span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="st">&quot;orange&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>) </span>
-<span id="cb226-12"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-12"></a><span class="co">#lets name the critical value</span></span>
-<span id="cb226-13"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-13"></a><span class="kw">text</span>(ModelledCriticalValue,<span class="dv">6000</span>,<span class="dt">labels=</span><span class="st">&quot;Modeled critical value&quot;</span>,<span class="dt">pos=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;orange&quot;</span>)</span>
-<span id="cb226-14"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-14"></a></span>
-<span id="cb226-15"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-15"></a></span>
-<span id="cb226-16"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-16"></a></span>
-<span id="cb226-17"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-17"></a><span class="co">#plot the 5% statistical critical value</span></span>
-<span id="cb226-18"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-18"></a>  <span class="kw">abline</span>(<span class="dt">v=</span>CriticalVal, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lty=</span><span class="dv">2</span>) </span>
-<span id="cb226-19"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-19"></a>  <span class="co">#lets name the mean sample value</span></span>
-<span id="cb226-20"><a href="testing-a-hypothesis-by-brutal-force.html#cb226-20"></a>  <span class="kw">text</span>(CriticalVal,<span class="dv">5500</span>,<span class="dt">labels=</span><span class="st">&quot;Statistical critical value&quot;</span>,<span class="dt">pos=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(population,<span class="at">main=</span><span class="cn">NA</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">1200</span>, <span class="dv">1800</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6000</span>),<span class="at">breaks =</span> breaks, <span class="at">xlab =</span> <span class="st">&quot;Caloric content of burgers&quot;</span>,<span class="at">ylab =</span> <span class="st">&quot;Number of ramdon samples&quot;</span>)</span>
+<span id="cb224-2"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-3"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-4"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-4" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the sample value</span></span>
+<span id="cb224-5"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">abline</span>(<span class="at">v=</span>MeanCal, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">lty=</span><span class="dv">2</span>) </span>
+<span id="cb224-6"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">#lets use a label for it</span></span>
+<span id="cb224-7"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">text</span>(MeanCal,<span class="dv">6000</span>,<span class="at">labels=</span><span class="st">&quot;Sample value&quot;</span>,<span class="at">pos=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb224-8"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-9"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-10"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-10" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the 5% modeled critical value </span></span>
+<span id="cb224-11"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-11" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ModelledCriticalValue, <span class="at">lwd=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&quot;orange&quot;</span>, <span class="at">lty=</span><span class="dv">2</span>) </span>
+<span id="cb224-12"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-12" aria-hidden="true" tabindex="-1"></a><span class="co">#lets name the critical value</span></span>
+<span id="cb224-13"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-13" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(ModelledCriticalValue,<span class="dv">6000</span>,<span class="at">labels=</span><span class="st">&quot;Modeled critical value&quot;</span>,<span class="at">pos=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;orange&quot;</span>)</span>
+<span id="cb224-14"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-15"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-16"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb224-17"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-17" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the 5% statistical critical value</span></span>
+<span id="cb224-18"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">v=</span>CriticalVal, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">lty=</span><span class="dv">2</span>) </span>
+<span id="cb224-19"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-19" aria-hidden="true" tabindex="-1"></a>  <span class="co">#lets name the mean sample value</span></span>
+<span id="cb224-20"><a href="testing-a-hypothesis-by-brutal-force.html#cb224-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">text</span>(CriticalVal,<span class="dv">5500</span>,<span class="at">labels=</span><span class="st">&quot;Statistical critical value&quot;</span>,<span class="at">pos=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-282-1.png" width="672" /></p>
 <p>Pretty neat, ah?. the modeled and statistical critical value were identical. And they both were below the sample value. In short, the sample of ten burgers (Blue line in figure above) was much larger than the critical value at 5% (red lines), we then reject the null hypothesis that these burgers have less than 1,500 calories, and would have to embrace the alternative hypothesis that the burgers have more than 1500 calories. You can surmise in your report to the judge that the one guy lawsuiting MacDonals was deceived. A potential case of false advertisement.</p>
 </div>
@@ -512,6 +548,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -532,6 +569,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 },

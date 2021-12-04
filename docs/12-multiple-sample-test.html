@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>12 Multiple sample test | GEOG380.utf8</title>
+  <title>12 Multiple sample test | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22.4 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="12 Multiple sample test | GEOG380.utf8" />
+  <meta property="og:title" content="12 Multiple sample test | GEOG380.knit" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="12 Multiple sample test | GEOG380.utf8" />
+  <meta name="twitter:title" content="12 Multiple sample test | GEOG380.knit" />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -31,6 +31,7 @@
   
 <link rel="prev" href="homework-8.html"/>
 <link rel="next" href="anova-reasoning.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -48,22 +49,23 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -83,7 +85,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -116,6 +118,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -133,12 +136,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
 <li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
 <li class="chapter" data-level="" data-path="do-not-dispair-please.html"><a href="do-not-dispair-please.html"><i class="fa fa-check"></i>Do not dispair, please</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html"><i class="fa fa-check"></i>Class expectations</a><ul>
+<li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html"><i class="fa fa-check"></i>Class expectations</a>
+<ul>
 <li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html#scientific-method"><i class="fa fa-check"></i>1. Scientific method</a></li>
 <li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html#data-manipulation"><i class="fa fa-check"></i>2. Data manipulation</a></li>
 <li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html#data-display"><i class="fa fa-check"></i>3. Data display</a></li>
@@ -151,17 +156,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html#more-than-two-sample-test"><i class="fa fa-check"></i>10. More than two sample test</a></li>
 <li class="chapter" data-level="" data-path="grading.html"><a href="grading.html"><i class="fa fa-check"></i>Grading</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="1-the-scientific-method.html"><a href="1-the-scientific-method.html"><i class="fa fa-check"></i><b>1</b> The scientific method</a><ul>
-<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html"><i class="fa fa-check"></i>The problem</a><ul>
+<li class="chapter" data-level="1" data-path="1-the-scientific-method.html"><a href="1-the-scientific-method.html"><i class="fa fa-check"></i><b>1</b> The scientific method</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html"><i class="fa fa-check"></i>The problem</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#narrow-the-problem"><i class="fa fa-check"></i>Narrow the problem</a></li>
 <li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#search-prior-knowledge"><i class="fa fa-check"></i>Search prior knowledge</a></li>
 <li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#back-to-defining-the-problem"><i class="fa fa-check"></i>Back to defining the problem</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a><ul>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a>
+<ul>
 <li><a href="the-hyphotesis.html#the-null-hypothesis-h0">The null hypothesis <em>H0</em></a></li>
 <li><a href="the-hyphotesis.html#the-alternate-hypothesis-h1">The alternate hypothesis <em>H1</em></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a><ul>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#population-sample-subject"><i class="fa fa-check"></i>Population, sample, subject</a></li>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#variables"><i class="fa fa-check"></i>Variables</a></li>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#the-control-and-treatment"><i class="fa fa-check"></i>The control and treatment</a></li>
@@ -174,13 +183,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="analyze-your-data.html"><a href="analyze-your-data.html"><i class="fa fa-check"></i>Analyze your data</a></li>
 <li class="chapter" data-level="" data-path="vizualize-the-data.html"><a href="vizualize-the-data.html"><i class="fa fa-check"></i>Vizualize the data</a></li>
 <li class="chapter" data-level="" data-path="write-report.html"><a href="write-report.html"><i class="fa fa-check"></i>Write report</a></li>
-<li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html"><i class="fa fa-check"></i>Excercises</a><ul>
+<li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html"><i class="fa fa-check"></i>Excercises</a>
+<ul>
 <li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html#exercise-1"><i class="fa fa-check"></i>Exercise 1</a></li>
 <li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html#exercise-2"><i class="fa fa-check"></i>Exercise 2</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="homework.html"><a href="homework.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="2-installing-programs.html"><a href="2-installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a><ul>
+<li class="chapter" data-level="2" data-path="2-installing-programs.html"><a href="2-installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a>
+<ul>
 <li class="chapter" data-level="" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i>Installing R</a></li>
 <li class="chapter" data-level="" data-path="tinn-r.html"><a href="tinn-r.html"><i class="fa fa-check"></i>Tinn-R</a></li>
 <li class="chapter" data-level="" data-path="r-studio.html"><a href="r-studio.html"><i class="fa fa-check"></i>R-Studio</a></li>
@@ -188,16 +199,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="asking-for-help.html"><a href="asking-for-help.html"><i class="fa fa-check"></i>Asking for help</a></li>
 <li class="chapter" data-level="" data-path="exercise.html"><a href="exercise.html"><i class="fa fa-check"></i>Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="3-basics-on-data-manipulation-in-r.html"><a href="3-basics-on-data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Basics on data manipulation in R</a><ul>
+<li class="chapter" data-level="3" data-path="3-basics-on-data-manipulation-in-r.html"><a href="3-basics-on-data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Basics on data manipulation in R</a>
+<ul>
 <li class="chapter" data-level="" data-path="variables-1.html"><a href="variables-1.html"><i class="fa fa-check"></i>Variables</a></li>
 <li class="chapter" data-level="" data-path="comments.html"><a href="comments.html"><i class="fa fa-check"></i>Comments</a></li>
-<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i>Operators</a><ul>
+<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i>Operators</a>
+<ul>
 <li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#assignment-operators"><i class="fa fa-check"></i>Assignment operators</a></li>
 <li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i>Arithmetic operators</a></li>
 <li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#character-operators"><i class="fa fa-check"></i>Character operators</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="custom-made-functions.html"><a href="custom-made-functions.html"><i class="fa fa-check"></i>Custom made functions</a></li>
-<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html"><i class="fa fa-check"></i>Data structure types</a><ul>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html"><i class="fa fa-check"></i>Data structure types</a>
+<ul>
 <li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
 <li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#matrix"><i class="fa fa-check"></i>Matrix</a></li>
 <li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#dataframes"><i class="fa fa-check"></i>DataFrames</a></li>
@@ -207,7 +221,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="filter-data.html"><a href="filter-data.html"><i class="fa fa-check"></i>Filter data</a></li>
 <li class="chapter" data-level="" data-path="pivot-table.html"><a href="pivot-table.html"><i class="fa fa-check"></i>Pivot table</a></li>
 <li class="chapter" data-level="" data-path="merge-data.html"><a href="merge-data.html"><i class="fa fa-check"></i>Merge data</a></li>
-<li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html"><i class="fa fa-check"></i>Subsetting columns</a><ul>
+<li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html"><i class="fa fa-check"></i>Subsetting columns</a>
+<ul>
 <li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html#deleting-columns"><i class="fa fa-check"></i>Deleting columns</a></li>
 <li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html#selecting-columns"><i class="fa fa-check"></i>Selecting columns</a></li>
 </ul></li>
@@ -215,7 +230,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercise-3.html"><a href="exercise-3.html"><i class="fa fa-check"></i>Exercise</a></li>
 <li class="chapter" data-level="" data-path="homework-1.html"><a href="homework-1.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="4-basic-plots.html"><a href="4-basic-plots.html"><i class="fa fa-check"></i><b>4</b> Basic plots</a><ul>
+<li class="chapter" data-level="4" data-path="4-basic-plots.html"><a href="4-basic-plots.html"><i class="fa fa-check"></i><b>4</b> Basic plots</a>
+<ul>
 <li class="chapter" data-level="" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i>Scatterplots</a></li>
 <li class="chapter" data-level="" data-path="histograms.html"><a href="histograms.html"><i class="fa fa-check"></i>Histograms</a></li>
 <li class="chapter" data-level="" data-path="density-plots.html"><a href="density-plots.html"><i class="fa fa-check"></i>Density plots</a></li>
@@ -224,16 +240,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="saving-plots.html"><a href="saving-plots.html"><i class="fa fa-check"></i>Saving plots</a></li>
 <li class="chapter" data-level="" data-path="excersise.html"><a href="excersise.html"><i class="fa fa-check"></i>Excersise</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="5-descriptive-statistics.html"><a href="5-descriptive-statistics.html"><i class="fa fa-check"></i><b>5</b> Descriptive statistics</a><ul>
+<li class="chapter" data-level="5" data-path="5-descriptive-statistics.html"><a href="5-descriptive-statistics.html"><i class="fa fa-check"></i><b>5</b> Descriptive statistics</a>
+<ul>
 <li class="chapter" data-level="" data-path="data-distributions.html"><a href="data-distributions.html"><i class="fa fa-check"></i>Data distributions</a></li>
-<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html"><i class="fa fa-check"></i>Central tendency</a><ul>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html"><i class="fa fa-check"></i>Central tendency</a>
+<ul>
 <li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-arithmetic-mean"><i class="fa fa-check"></i>The arithmetic mean</a></li>
 <li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-trimmed-mean"><i class="fa fa-check"></i>The trimmed mean</a></li>
 <li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-weighted-average"><i class="fa fa-check"></i>The weighted average</a></li>
 <li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-median"><i class="fa fa-check"></i>The median</a></li>
 <li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-mode"><i class="fa fa-check"></i>The mode</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html"><i class="fa fa-check"></i>Dispersion</a><ul>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html"><i class="fa fa-check"></i>Dispersion</a>
+<ul>
 <li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-minimum-and-the-maximum"><i class="fa fa-check"></i>The minimum and the maximum</a></li>
 <li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-range"><i class="fa fa-check"></i>The range</a></li>
 <li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-percentile"><i class="fa fa-check"></i>The percentile</a></li>
@@ -245,41 +264,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-2.html"><a href="homework-2.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="6-correlation-1.html"><a href="6-correlation-1.html"><i class="fa fa-check"></i><b>6</b> Correlation</a><ul>
+<li class="chapter" data-level="6" data-path="6-correlation-1.html"><a href="6-correlation-1.html"><i class="fa fa-check"></i><b>6</b> Correlation</a>
+<ul>
 <li class="chapter" data-level="" data-path="visualization-of-relationships.html"><a href="visualization-of-relationships.html"><i class="fa fa-check"></i>Visualization of relationships</a></li>
 <li class="chapter" data-level="" data-path="linear-relationships.html"><a href="linear-relationships.html"><i class="fa fa-check"></i>Linear relationships</a></li>
 <li class="chapter" data-level="" data-path="non-linear-relationships.html"><a href="non-linear-relationships.html"><i class="fa fa-check"></i>Non-linear relationships</a></li>
 <li class="chapter" data-level="" data-path="the-covariance.html"><a href="the-covariance.html"><i class="fa fa-check"></i>The Covariance</a></li>
-<li class="chapter" data-level="" data-path="the-correlation-coefficient-r.html"><a href="the-correlation-coefficient-r.html"><i class="fa fa-check"></i>The Correlation Coefficient, r</a><ul>
+<li class="chapter" data-level="" data-path="the-correlation-coefficient-r.html"><a href="the-correlation-coefficient-r.html"><i class="fa fa-check"></i>The Correlation Coefficient, r</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-correlation-coefficient-r.html"><a href="the-correlation-coefficient-r.html#alternative-formulation"><i class="fa fa-check"></i>Alternative formulation</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="interpreting-r.html"><a href="interpreting-r.html"><i class="fa fa-check"></i>Interpreting r</a></li>
 <li class="chapter" data-level="" data-path="causation.html"><a href="causation.html"><i class="fa fa-check"></i>Causation</a></li>
-<li class="chapter" data-level="" data-path="significance.html"><a href="significance.html"><i class="fa fa-check"></i>Significance</a><ul>
+<li class="chapter" data-level="" data-path="significance.html"><a href="significance.html"><i class="fa fa-check"></i>Significance</a>
+<ul>
 <li class="chapter" data-level="" data-path="significance.html"><a href="significance.html#correlation-tables"><i class="fa fa-check"></i>correlation tables</a></li>
 <li class="chapter" data-level="" data-path="significance.html"><a href="significance.html#correlation-p-values"><i class="fa fa-check"></i>Correlation p-values</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-3.html"><a href="homework-3.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="7-regression-1.html"><a href="7-regression-1.html"><i class="fa fa-check"></i><b>7</b> Regression</a><ul>
-<li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html"><i class="fa fa-check"></i>Parts of a line</a><ul>
+<li class="chapter" data-level="7" data-path="7-regression-1.html"><a href="7-regression-1.html"><i class="fa fa-check"></i><b>7</b> Regression</a>
+<ul>
+<li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html"><i class="fa fa-check"></i>Parts of a line</a>
+<ul>
 <li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html#how-to-interpret-the-slope"><i class="fa fa-check"></i>How to interpret the slope</a></li>
 <li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html#how-to-interpret-the-intercept"><i class="fa fa-check"></i>How to interpret the intercept</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="purpuse-of-the-regression-line.html"><a href="purpuse-of-the-regression-line.html"><i class="fa fa-check"></i>Purpuse of the regression line</a></li>
-<li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html"><i class="fa fa-check"></i>The least-squares line</a><ul>
+<li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html"><i class="fa fa-check"></i>The least-squares line</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html#understanding-the-least-squares-line"><i class="fa fa-check"></i>Understanding the least-squares line</a></li>
 <li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html#deciphering-the-least-squares-line"><i class="fa fa-check"></i>Deciphering the least-squares line</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html"><i class="fa fa-check"></i>Estimating the least-squares line</a><ul>
+<li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html"><i class="fa fa-check"></i>Estimating the least-squares line</a>
+<ul>
 <li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html#refreshing-the-slope"><i class="fa fa-check"></i>Refreshing the Slope</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="the-slope.html"><a href="the-slope.html"><i class="fa fa-check"></i>The slope</a></li>
 <li class="chapter" data-level="" data-path="the-intercept.html"><a href="the-intercept.html"><i class="fa fa-check"></i>The intercept</a></li>
 <li class="chapter" data-level="" data-path="linear-regression-in-r.html"><a href="linear-regression-in-r.html"><i class="fa fa-check"></i>Linear regression in R</a></li>
 <li class="chapter" data-level="" data-path="the-coeficient-of-determination.html"><a href="the-coeficient-of-determination.html"><i class="fa fa-check"></i>The coeficient of determination</a></li>
-<li class="chapter" data-level="" data-path="predict-interpolation-extrapolation.html"><a href="predict-interpolation-extrapolation.html"><i class="fa fa-check"></i>Predict: Interpolation, Extrapolation</a><ul>
+<li class="chapter" data-level="" data-path="predict-interpolation-extrapolation.html"><a href="predict-interpolation-extrapolation.html"><i class="fa fa-check"></i>Predict: Interpolation, Extrapolation</a>
+<ul>
 <li class="chapter" data-level="" data-path="predict-interpolation-extrapolation.html"><a href="predict-interpolation-extrapolation.html#interpolation-and-extrapolation"><i class="fa fa-check"></i>Interpolation and Extrapolation</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="outliers.html"><a href="outliers.html"><i class="fa fa-check"></i>Outliers</a></li>
@@ -289,8 +316,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis testing</a><ul>
-<li class="chapter" data-level="" data-path="background-info.html"><a href="background-info.html"><i class="fa fa-check"></i>Background info</a><ul>
+<li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="" data-path="background-info.html"><a href="background-info.html"><i class="fa fa-check"></i>Background info</a>
+<ul>
 <li class="chapter" data-level="" data-path="background-info.html"><a href="background-info.html#p-value-and-alpha"><i class="fa fa-check"></i>p-value and alpha</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="approach-to-testing-a-hyphothesis.html"><a href="approach-to-testing-a-hyphothesis.html"><i class="fa fa-check"></i>Approach to testing a hyphothesis</a></li>
@@ -301,8 +330,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises-3.html"><a href="exercises-3.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-5.html"><a href="homework-5.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="9-standard-hypothesis-tests.html"><a href="9-standard-hypothesis-tests.html"><i class="fa fa-check"></i><b>9</b> Standard hypothesis tests</a><ul>
-<li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html"><i class="fa fa-check"></i>Alternative types of tests</a><ul>
+<li class="chapter" data-level="9" data-path="9-standard-hypothesis-tests.html"><a href="9-standard-hypothesis-tests.html"><i class="fa fa-check"></i><b>9</b> Standard hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html"><i class="fa fa-check"></i>Alternative types of tests</a>
+<ul>
 <li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html#one-sample-test-1"><i class="fa fa-check"></i>One sample test</a></li>
 <li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html#two-sample-test-1"><i class="fa fa-check"></i>Two sample test</a></li>
 <li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html#more-than-two-sample-test-1"><i class="fa fa-check"></i>More than two sample test</a></li>
@@ -310,23 +341,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="selecting-the-right-test.html"><a href="selecting-the-right-test.html"><i class="fa fa-check"></i>Selecting the right test</a></li>
 <li class="chapter" data-level="" data-path="homework-6.html"><a href="homework-6.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="10-one-sample-tests.html"><a href="10-one-sample-tests.html"><i class="fa fa-check"></i><b>10</b> One sample tests</a><ul>
+<li class="chapter" data-level="10" data-path="10-one-sample-tests.html"><a href="10-one-sample-tests.html"><i class="fa fa-check"></i><b>10</b> One sample tests</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-one-sample-z-test-by-hand.html"><a href="the-one-sample-z-test-by-hand.html"><i class="fa fa-check"></i>The one-sample Z-test by hand</a></li>
 <li class="chapter" data-level="" data-path="the-one-sample-z-test-in-r.html"><a href="the-one-sample-z-test-in-r.html"><i class="fa fa-check"></i>The one-sample Z-test in R</a></li>
 <li class="chapter" data-level="" data-path="the-one-sample-t-test-by-hand.html"><a href="the-one-sample-t-test-by-hand.html"><i class="fa fa-check"></i>The one-sample T-test by hand</a></li>
 <li class="chapter" data-level="" data-path="the-one-sample-t-test-in-r.html"><a href="the-one-sample-t-test-in-r.html"><i class="fa fa-check"></i>The one-sample T-test in R</a></li>
 <li class="chapter" data-level="" data-path="homework-7.html"><a href="homework-7.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="11-two-sample-tests.html"><a href="11-two-sample-tests.html"><i class="fa fa-check"></i><b>11</b> Two sample tests</a><ul>
+<li class="chapter" data-level="11" data-path="11-two-sample-tests.html"><a href="11-two-sample-tests.html"><i class="fa fa-check"></i><b>11</b> Two sample tests</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-two-sample-z-test-by-hand.html"><a href="the-two-sample-z-test-by-hand.html"><i class="fa fa-check"></i>The two-sample Z-test by hand</a></li>
 <li class="chapter" data-level="" data-path="the-two-sample-z-test-in-r.html"><a href="the-two-sample-z-test-in-r.html"><i class="fa fa-check"></i>The two-sample Z-test in R</a></li>
 <li class="chapter" data-level="" data-path="the-two-sample-t-test-by-hand.html"><a href="the-two-sample-t-test-by-hand.html"><i class="fa fa-check"></i>The two-sample T-test by hand</a></li>
 <li class="chapter" data-level="" data-path="the-two-sample-t-test-in-r.html"><a href="the-two-sample-t-test-in-r.html"><i class="fa fa-check"></i>The two-sample T-test in R</a></li>
 <li class="chapter" data-level="" data-path="homework-8.html"><a href="homework-8.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="12-multiple-sample-test.html"><a href="12-multiple-sample-test.html"><i class="fa fa-check"></i><b>12</b> Multiple sample test</a><ul>
+<li class="chapter" data-level="12" data-path="12-multiple-sample-test.html"><a href="12-multiple-sample-test.html"><i class="fa fa-check"></i><b>12</b> Multiple sample test</a>
+<ul>
 <li class="chapter" data-level="" data-path="anova-reasoning.html"><a href="anova-reasoning.html"><i class="fa fa-check"></i>ANOVA reasoning</a></li>
-<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html"><i class="fa fa-check"></i>ANOVA by hand</a><ul>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html"><i class="fa fa-check"></i>ANOVA by hand</a>
+<ul>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#stating-hyphotheses"><i class="fa fa-check"></i>Stating Hyphotheses</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#total-variance"><i class="fa fa-check"></i>Total variance</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#between-group-variance"><i class="fa fa-check"></i>Between group variance</a></li>
@@ -338,7 +373,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="anova-in-r.html"><a href="anova-in-r.html"><i class="fa fa-check"></i>ANOVA in R</a></li>
 <li class="chapter" data-level="" data-path="post-hoc-test-in-r.html"><a href="post-hoc-test-in-r.html"><i class="fa fa-check"></i>Post-hoc test in R</a></li>
-<li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html"><i class="fa fa-check"></i>Checking assumptions</a><ul>
+<li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html"><i class="fa fa-check"></i>Checking assumptions</a>
+<ul>
 <li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html#outliers-1"><i class="fa fa-check"></i>Outliers</a></li>
 <li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html#normality"><i class="fa fa-check"></i>Normality</a></li>
 <li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html#homogneity-of-variance"><i class="fa fa-check"></i>Homogneity of variance</a></li>
@@ -368,20 +404,20 @@ By Camilo Mora, Ph.D.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="multiple-sample-test" class="section level1">
+<div id="multiple-sample-test" class="section level1" number="12">
 <h1><span class="header-section-number">12</span> Multiple sample test</h1>
 <p>This chapter describes the mathematical approach to check for differences among more than two independent groups, or so-call ANOVA, or Analysis of Variance. Although the name of the technique refers to variances, the main goal of ANOVA is to investigate differences among means.</p>
 <p>There are numerous ways in which you can look for differences among groups, which will determine the type of ANOVA to use. Lets check some examples, to clarify the distinctions.</p>
 <p>Say the International Olympic Association wants to endorse an energy drink for its athletes and two different companies send samples of their products.</p>
 <p>A first order question could be if the drinks make any difference in the endurance of the athletes. And you can compare, say the times running 100m for groups of athletes given the two types of drinks and a control given water. In this case, you want to test, if at least one of the three groups is different, and in this case, you will use what is call a <strong>one-way ANOVA</strong>. You only have one factor, which is the drink type.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-316"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-316"></span>
 <img src="images/OneWayAnova.png" alt="One-Way ANOVA" width="50%" />
 <p class="caption">
 Figure 12.1: One-Way ANOVA
 </p>
 </div>
 <p>Say, however, that you are also interested in knowing if such an effect varies between men and females. In this case, you have two factors and you will need to know the effect of the drink and the effect of gender. For this type of cases, you will use what is called a two-way ANOVA.You have two factors (drink type and gender).</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-317"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-317"></span>
 <img src="images/TwoWayAnova.png" alt="Two-Way ANOVA" width="70%" />
 <p class="caption">
 Figure 12.2: Two-Way ANOVA
@@ -449,6 +485,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -469,6 +506,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 },

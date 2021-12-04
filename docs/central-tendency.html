@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Central tendency | GEOG380.utf8</title>
+  <title>Central tendency | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22.4 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Central tendency | GEOG380.utf8" />
+  <meta property="og:title" content="Central tendency | GEOG380.knit" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Central tendency | GEOG380.utf8" />
+  <meta name="twitter:title" content="Central tendency | GEOG380.knit" />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -31,6 +31,7 @@
   
 <link rel="prev" href="data-distributions.html"/>
 <link rel="next" href="dispersion.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -48,22 +49,23 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -83,7 +85,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -116,6 +118,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -133,12 +136,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
 <li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
 <li class="chapter" data-level="" data-path="do-not-dispair-please.html"><a href="do-not-dispair-please.html"><i class="fa fa-check"></i>Do not dispair, please</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html"><i class="fa fa-check"></i>Class expectations</a><ul>
+<li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html"><i class="fa fa-check"></i>Class expectations</a>
+<ul>
 <li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html#scientific-method"><i class="fa fa-check"></i>1. Scientific method</a></li>
 <li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html#data-manipulation"><i class="fa fa-check"></i>2. Data manipulation</a></li>
 <li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html#data-display"><i class="fa fa-check"></i>3. Data display</a></li>
@@ -151,17 +156,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="class-expectations.html"><a href="class-expectations.html#more-than-two-sample-test"><i class="fa fa-check"></i>10. More than two sample test</a></li>
 <li class="chapter" data-level="" data-path="grading.html"><a href="grading.html"><i class="fa fa-check"></i>Grading</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="1-the-scientific-method.html"><a href="1-the-scientific-method.html"><i class="fa fa-check"></i><b>1</b> The scientific method</a><ul>
-<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html"><i class="fa fa-check"></i>The problem</a><ul>
+<li class="chapter" data-level="1" data-path="1-the-scientific-method.html"><a href="1-the-scientific-method.html"><i class="fa fa-check"></i><b>1</b> The scientific method</a>
+<ul>
+<li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html"><i class="fa fa-check"></i>The problem</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#narrow-the-problem"><i class="fa fa-check"></i>Narrow the problem</a></li>
 <li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#search-prior-knowledge"><i class="fa fa-check"></i>Search prior knowledge</a></li>
 <li class="chapter" data-level="" data-path="the-problem.html"><a href="the-problem.html#back-to-defining-the-problem"><i class="fa fa-check"></i>Back to defining the problem</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a><ul>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a>
+<ul>
 <li><a href="the-hyphotesis.html#the-null-hypothesis-h0">The null hypothesis <em>H0</em></a></li>
 <li><a href="the-hyphotesis.html#the-alternate-hypothesis-h1">The alternate hypothesis <em>H1</em></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a><ul>
+<li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#population-sample-subject"><i class="fa fa-check"></i>Population, sample, subject</a></li>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#variables"><i class="fa fa-check"></i>Variables</a></li>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html#the-control-and-treatment"><i class="fa fa-check"></i>The control and treatment</a></li>
@@ -174,13 +183,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="analyze-your-data.html"><a href="analyze-your-data.html"><i class="fa fa-check"></i>Analyze your data</a></li>
 <li class="chapter" data-level="" data-path="vizualize-the-data.html"><a href="vizualize-the-data.html"><i class="fa fa-check"></i>Vizualize the data</a></li>
 <li class="chapter" data-level="" data-path="write-report.html"><a href="write-report.html"><i class="fa fa-check"></i>Write report</a></li>
-<li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html"><i class="fa fa-check"></i>Excercises</a><ul>
+<li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html"><i class="fa fa-check"></i>Excercises</a>
+<ul>
 <li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html#exercise-1"><i class="fa fa-check"></i>Exercise 1</a></li>
 <li class="chapter" data-level="" data-path="excercises.html"><a href="excercises.html#exercise-2"><i class="fa fa-check"></i>Exercise 2</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="homework.html"><a href="homework.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="2-installing-programs.html"><a href="2-installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a><ul>
+<li class="chapter" data-level="2" data-path="2-installing-programs.html"><a href="2-installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a>
+<ul>
 <li class="chapter" data-level="" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i>Installing R</a></li>
 <li class="chapter" data-level="" data-path="tinn-r.html"><a href="tinn-r.html"><i class="fa fa-check"></i>Tinn-R</a></li>
 <li class="chapter" data-level="" data-path="r-studio.html"><a href="r-studio.html"><i class="fa fa-check"></i>R-Studio</a></li>
@@ -188,16 +199,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="asking-for-help.html"><a href="asking-for-help.html"><i class="fa fa-check"></i>Asking for help</a></li>
 <li class="chapter" data-level="" data-path="exercise.html"><a href="exercise.html"><i class="fa fa-check"></i>Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="3-basics-on-data-manipulation-in-r.html"><a href="3-basics-on-data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Basics on data manipulation in R</a><ul>
+<li class="chapter" data-level="3" data-path="3-basics-on-data-manipulation-in-r.html"><a href="3-basics-on-data-manipulation-in-r.html"><i class="fa fa-check"></i><b>3</b> Basics on data manipulation in R</a>
+<ul>
 <li class="chapter" data-level="" data-path="variables-1.html"><a href="variables-1.html"><i class="fa fa-check"></i>Variables</a></li>
 <li class="chapter" data-level="" data-path="comments.html"><a href="comments.html"><i class="fa fa-check"></i>Comments</a></li>
-<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i>Operators</a><ul>
+<li class="chapter" data-level="" data-path="operators.html"><a href="operators.html"><i class="fa fa-check"></i>Operators</a>
+<ul>
 <li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#assignment-operators"><i class="fa fa-check"></i>Assignment operators</a></li>
 <li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#arithmetic-operators"><i class="fa fa-check"></i>Arithmetic operators</a></li>
 <li class="chapter" data-level="" data-path="operators.html"><a href="operators.html#character-operators"><i class="fa fa-check"></i>Character operators</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="custom-made-functions.html"><a href="custom-made-functions.html"><i class="fa fa-check"></i>Custom made functions</a></li>
-<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html"><i class="fa fa-check"></i>Data structure types</a><ul>
+<li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html"><i class="fa fa-check"></i>Data structure types</a>
+<ul>
 <li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
 <li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#matrix"><i class="fa fa-check"></i>Matrix</a></li>
 <li class="chapter" data-level="" data-path="data-structure-types.html"><a href="data-structure-types.html#dataframes"><i class="fa fa-check"></i>DataFrames</a></li>
@@ -207,7 +221,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="filter-data.html"><a href="filter-data.html"><i class="fa fa-check"></i>Filter data</a></li>
 <li class="chapter" data-level="" data-path="pivot-table.html"><a href="pivot-table.html"><i class="fa fa-check"></i>Pivot table</a></li>
 <li class="chapter" data-level="" data-path="merge-data.html"><a href="merge-data.html"><i class="fa fa-check"></i>Merge data</a></li>
-<li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html"><i class="fa fa-check"></i>Subsetting columns</a><ul>
+<li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html"><i class="fa fa-check"></i>Subsetting columns</a>
+<ul>
 <li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html#deleting-columns"><i class="fa fa-check"></i>Deleting columns</a></li>
 <li class="chapter" data-level="" data-path="subsetting-columns.html"><a href="subsetting-columns.html#selecting-columns"><i class="fa fa-check"></i>Selecting columns</a></li>
 </ul></li>
@@ -215,7 +230,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercise-3.html"><a href="exercise-3.html"><i class="fa fa-check"></i>Exercise</a></li>
 <li class="chapter" data-level="" data-path="homework-1.html"><a href="homework-1.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="4-basic-plots.html"><a href="4-basic-plots.html"><i class="fa fa-check"></i><b>4</b> Basic plots</a><ul>
+<li class="chapter" data-level="4" data-path="4-basic-plots.html"><a href="4-basic-plots.html"><i class="fa fa-check"></i><b>4</b> Basic plots</a>
+<ul>
 <li class="chapter" data-level="" data-path="scatterplots.html"><a href="scatterplots.html"><i class="fa fa-check"></i>Scatterplots</a></li>
 <li class="chapter" data-level="" data-path="histograms.html"><a href="histograms.html"><i class="fa fa-check"></i>Histograms</a></li>
 <li class="chapter" data-level="" data-path="density-plots.html"><a href="density-plots.html"><i class="fa fa-check"></i>Density plots</a></li>
@@ -224,16 +240,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="saving-plots.html"><a href="saving-plots.html"><i class="fa fa-check"></i>Saving plots</a></li>
 <li class="chapter" data-level="" data-path="excersise.html"><a href="excersise.html"><i class="fa fa-check"></i>Excersise</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="5-descriptive-statistics.html"><a href="5-descriptive-statistics.html"><i class="fa fa-check"></i><b>5</b> Descriptive statistics</a><ul>
+<li class="chapter" data-level="5" data-path="5-descriptive-statistics.html"><a href="5-descriptive-statistics.html"><i class="fa fa-check"></i><b>5</b> Descriptive statistics</a>
+<ul>
 <li class="chapter" data-level="" data-path="data-distributions.html"><a href="data-distributions.html"><i class="fa fa-check"></i>Data distributions</a></li>
-<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html"><i class="fa fa-check"></i>Central tendency</a><ul>
+<li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html"><i class="fa fa-check"></i>Central tendency</a>
+<ul>
 <li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-arithmetic-mean"><i class="fa fa-check"></i>The arithmetic mean</a></li>
 <li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-trimmed-mean"><i class="fa fa-check"></i>The trimmed mean</a></li>
 <li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-weighted-average"><i class="fa fa-check"></i>The weighted average</a></li>
 <li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-median"><i class="fa fa-check"></i>The median</a></li>
 <li class="chapter" data-level="" data-path="central-tendency.html"><a href="central-tendency.html#the-mode"><i class="fa fa-check"></i>The mode</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html"><i class="fa fa-check"></i>Dispersion</a><ul>
+<li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html"><i class="fa fa-check"></i>Dispersion</a>
+<ul>
 <li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-minimum-and-the-maximum"><i class="fa fa-check"></i>The minimum and the maximum</a></li>
 <li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-range"><i class="fa fa-check"></i>The range</a></li>
 <li class="chapter" data-level="" data-path="dispersion.html"><a href="dispersion.html#the-percentile"><i class="fa fa-check"></i>The percentile</a></li>
@@ -245,41 +264,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-2.html"><a href="homework-2.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="6-correlation-1.html"><a href="6-correlation-1.html"><i class="fa fa-check"></i><b>6</b> Correlation</a><ul>
+<li class="chapter" data-level="6" data-path="6-correlation-1.html"><a href="6-correlation-1.html"><i class="fa fa-check"></i><b>6</b> Correlation</a>
+<ul>
 <li class="chapter" data-level="" data-path="visualization-of-relationships.html"><a href="visualization-of-relationships.html"><i class="fa fa-check"></i>Visualization of relationships</a></li>
 <li class="chapter" data-level="" data-path="linear-relationships.html"><a href="linear-relationships.html"><i class="fa fa-check"></i>Linear relationships</a></li>
 <li class="chapter" data-level="" data-path="non-linear-relationships.html"><a href="non-linear-relationships.html"><i class="fa fa-check"></i>Non-linear relationships</a></li>
 <li class="chapter" data-level="" data-path="the-covariance.html"><a href="the-covariance.html"><i class="fa fa-check"></i>The Covariance</a></li>
-<li class="chapter" data-level="" data-path="the-correlation-coefficient-r.html"><a href="the-correlation-coefficient-r.html"><i class="fa fa-check"></i>The Correlation Coefficient, r</a><ul>
+<li class="chapter" data-level="" data-path="the-correlation-coefficient-r.html"><a href="the-correlation-coefficient-r.html"><i class="fa fa-check"></i>The Correlation Coefficient, r</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-correlation-coefficient-r.html"><a href="the-correlation-coefficient-r.html#alternative-formulation"><i class="fa fa-check"></i>Alternative formulation</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="interpreting-r.html"><a href="interpreting-r.html"><i class="fa fa-check"></i>Interpreting r</a></li>
 <li class="chapter" data-level="" data-path="causation.html"><a href="causation.html"><i class="fa fa-check"></i>Causation</a></li>
-<li class="chapter" data-level="" data-path="significance.html"><a href="significance.html"><i class="fa fa-check"></i>Significance</a><ul>
+<li class="chapter" data-level="" data-path="significance.html"><a href="significance.html"><i class="fa fa-check"></i>Significance</a>
+<ul>
 <li class="chapter" data-level="" data-path="significance.html"><a href="significance.html#correlation-tables"><i class="fa fa-check"></i>correlation tables</a></li>
 <li class="chapter" data-level="" data-path="significance.html"><a href="significance.html#correlation-p-values"><i class="fa fa-check"></i>Correlation p-values</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-3.html"><a href="homework-3.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="7-regression-1.html"><a href="7-regression-1.html"><i class="fa fa-check"></i><b>7</b> Regression</a><ul>
-<li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html"><i class="fa fa-check"></i>Parts of a line</a><ul>
+<li class="chapter" data-level="7" data-path="7-regression-1.html"><a href="7-regression-1.html"><i class="fa fa-check"></i><b>7</b> Regression</a>
+<ul>
+<li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html"><i class="fa fa-check"></i>Parts of a line</a>
+<ul>
 <li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html#how-to-interpret-the-slope"><i class="fa fa-check"></i>How to interpret the slope</a></li>
 <li class="chapter" data-level="" data-path="parts-of-a-line.html"><a href="parts-of-a-line.html#how-to-interpret-the-intercept"><i class="fa fa-check"></i>How to interpret the intercept</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="purpuse-of-the-regression-line.html"><a href="purpuse-of-the-regression-line.html"><i class="fa fa-check"></i>Purpuse of the regression line</a></li>
-<li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html"><i class="fa fa-check"></i>The least-squares line</a><ul>
+<li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html"><i class="fa fa-check"></i>The least-squares line</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html#understanding-the-least-squares-line"><i class="fa fa-check"></i>Understanding the least-squares line</a></li>
 <li class="chapter" data-level="" data-path="the-least-squares-line.html"><a href="the-least-squares-line.html#deciphering-the-least-squares-line"><i class="fa fa-check"></i>Deciphering the least-squares line</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html"><i class="fa fa-check"></i>Estimating the least-squares line</a><ul>
+<li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html"><i class="fa fa-check"></i>Estimating the least-squares line</a>
+<ul>
 <li class="chapter" data-level="" data-path="estimating-the-least-squares-line.html"><a href="estimating-the-least-squares-line.html#refreshing-the-slope"><i class="fa fa-check"></i>Refreshing the Slope</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="the-slope.html"><a href="the-slope.html"><i class="fa fa-check"></i>The slope</a></li>
 <li class="chapter" data-level="" data-path="the-intercept.html"><a href="the-intercept.html"><i class="fa fa-check"></i>The intercept</a></li>
 <li class="chapter" data-level="" data-path="linear-regression-in-r.html"><a href="linear-regression-in-r.html"><i class="fa fa-check"></i>Linear regression in R</a></li>
 <li class="chapter" data-level="" data-path="the-coeficient-of-determination.html"><a href="the-coeficient-of-determination.html"><i class="fa fa-check"></i>The coeficient of determination</a></li>
-<li class="chapter" data-level="" data-path="predict-interpolation-extrapolation.html"><a href="predict-interpolation-extrapolation.html"><i class="fa fa-check"></i>Predict: Interpolation, Extrapolation</a><ul>
+<li class="chapter" data-level="" data-path="predict-interpolation-extrapolation.html"><a href="predict-interpolation-extrapolation.html"><i class="fa fa-check"></i>Predict: Interpolation, Extrapolation</a>
+<ul>
 <li class="chapter" data-level="" data-path="predict-interpolation-extrapolation.html"><a href="predict-interpolation-extrapolation.html#interpolation-and-extrapolation"><i class="fa fa-check"></i>Interpolation and Extrapolation</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="outliers.html"><a href="outliers.html"><i class="fa fa-check"></i>Outliers</a></li>
@@ -289,8 +316,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-4.html"><a href="homework-4.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis testing</a><ul>
-<li class="chapter" data-level="" data-path="background-info.html"><a href="background-info.html"><i class="fa fa-check"></i>Background info</a><ul>
+<li class="chapter" data-level="8" data-path="8-hypothesis-testing.html"><a href="8-hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="" data-path="background-info.html"><a href="background-info.html"><i class="fa fa-check"></i>Background info</a>
+<ul>
 <li class="chapter" data-level="" data-path="background-info.html"><a href="background-info.html#p-value-and-alpha"><i class="fa fa-check"></i>p-value and alpha</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="approach-to-testing-a-hyphothesis.html"><a href="approach-to-testing-a-hyphothesis.html"><i class="fa fa-check"></i>Approach to testing a hyphothesis</a></li>
@@ -301,8 +330,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercises-3.html"><a href="exercises-3.html"><i class="fa fa-check"></i>Exercises</a></li>
 <li class="chapter" data-level="" data-path="homework-5.html"><a href="homework-5.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="9-standard-hypothesis-tests.html"><a href="9-standard-hypothesis-tests.html"><i class="fa fa-check"></i><b>9</b> Standard hypothesis tests</a><ul>
-<li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html"><i class="fa fa-check"></i>Alternative types of tests</a><ul>
+<li class="chapter" data-level="9" data-path="9-standard-hypothesis-tests.html"><a href="9-standard-hypothesis-tests.html"><i class="fa fa-check"></i><b>9</b> Standard hypothesis tests</a>
+<ul>
+<li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html"><i class="fa fa-check"></i>Alternative types of tests</a>
+<ul>
 <li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html#one-sample-test-1"><i class="fa fa-check"></i>One sample test</a></li>
 <li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html#two-sample-test-1"><i class="fa fa-check"></i>Two sample test</a></li>
 <li class="chapter" data-level="" data-path="alternative-types-of-tests.html"><a href="alternative-types-of-tests.html#more-than-two-sample-test-1"><i class="fa fa-check"></i>More than two sample test</a></li>
@@ -310,23 +341,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="selecting-the-right-test.html"><a href="selecting-the-right-test.html"><i class="fa fa-check"></i>Selecting the right test</a></li>
 <li class="chapter" data-level="" data-path="homework-6.html"><a href="homework-6.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="10-one-sample-tests.html"><a href="10-one-sample-tests.html"><i class="fa fa-check"></i><b>10</b> One sample tests</a><ul>
+<li class="chapter" data-level="10" data-path="10-one-sample-tests.html"><a href="10-one-sample-tests.html"><i class="fa fa-check"></i><b>10</b> One sample tests</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-one-sample-z-test-by-hand.html"><a href="the-one-sample-z-test-by-hand.html"><i class="fa fa-check"></i>The one-sample Z-test by hand</a></li>
 <li class="chapter" data-level="" data-path="the-one-sample-z-test-in-r.html"><a href="the-one-sample-z-test-in-r.html"><i class="fa fa-check"></i>The one-sample Z-test in R</a></li>
 <li class="chapter" data-level="" data-path="the-one-sample-t-test-by-hand.html"><a href="the-one-sample-t-test-by-hand.html"><i class="fa fa-check"></i>The one-sample T-test by hand</a></li>
 <li class="chapter" data-level="" data-path="the-one-sample-t-test-in-r.html"><a href="the-one-sample-t-test-in-r.html"><i class="fa fa-check"></i>The one-sample T-test in R</a></li>
 <li class="chapter" data-level="" data-path="homework-7.html"><a href="homework-7.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="11-two-sample-tests.html"><a href="11-two-sample-tests.html"><i class="fa fa-check"></i><b>11</b> Two sample tests</a><ul>
+<li class="chapter" data-level="11" data-path="11-two-sample-tests.html"><a href="11-two-sample-tests.html"><i class="fa fa-check"></i><b>11</b> Two sample tests</a>
+<ul>
 <li class="chapter" data-level="" data-path="the-two-sample-z-test-by-hand.html"><a href="the-two-sample-z-test-by-hand.html"><i class="fa fa-check"></i>The two-sample Z-test by hand</a></li>
 <li class="chapter" data-level="" data-path="the-two-sample-z-test-in-r.html"><a href="the-two-sample-z-test-in-r.html"><i class="fa fa-check"></i>The two-sample Z-test in R</a></li>
 <li class="chapter" data-level="" data-path="the-two-sample-t-test-by-hand.html"><a href="the-two-sample-t-test-by-hand.html"><i class="fa fa-check"></i>The two-sample T-test by hand</a></li>
 <li class="chapter" data-level="" data-path="the-two-sample-t-test-in-r.html"><a href="the-two-sample-t-test-in-r.html"><i class="fa fa-check"></i>The two-sample T-test in R</a></li>
 <li class="chapter" data-level="" data-path="homework-8.html"><a href="homework-8.html"><i class="fa fa-check"></i>Homework</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="12-multiple-sample-test.html"><a href="12-multiple-sample-test.html"><i class="fa fa-check"></i><b>12</b> Multiple sample test</a><ul>
+<li class="chapter" data-level="12" data-path="12-multiple-sample-test.html"><a href="12-multiple-sample-test.html"><i class="fa fa-check"></i><b>12</b> Multiple sample test</a>
+<ul>
 <li class="chapter" data-level="" data-path="anova-reasoning.html"><a href="anova-reasoning.html"><i class="fa fa-check"></i>ANOVA reasoning</a></li>
-<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html"><i class="fa fa-check"></i>ANOVA by hand</a><ul>
+<li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html"><i class="fa fa-check"></i>ANOVA by hand</a>
+<ul>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#stating-hyphotheses"><i class="fa fa-check"></i>Stating Hyphotheses</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#total-variance"><i class="fa fa-check"></i>Total variance</a></li>
 <li class="chapter" data-level="" data-path="anova-by-hand.html"><a href="anova-by-hand.html#between-group-variance"><i class="fa fa-check"></i>Between group variance</a></li>
@@ -338,7 +373,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="anova-in-r.html"><a href="anova-in-r.html"><i class="fa fa-check"></i>ANOVA in R</a></li>
 <li class="chapter" data-level="" data-path="post-hoc-test-in-r.html"><a href="post-hoc-test-in-r.html"><i class="fa fa-check"></i>Post-hoc test in R</a></li>
-<li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html"><i class="fa fa-check"></i>Checking assumptions</a><ul>
+<li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html"><i class="fa fa-check"></i>Checking assumptions</a>
+<ul>
 <li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html#outliers-1"><i class="fa fa-check"></i>Outliers</a></li>
 <li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html#normality"><i class="fa fa-check"></i>Normality</a></li>
 <li class="chapter" data-level="" data-path="checking-assumptions.html"><a href="checking-assumptions.html#homogneity-of-variance"><i class="fa fa-check"></i>Homogneity of variance</a></li>
@@ -371,7 +407,7 @@ By Camilo Mora, Ph.D.
 <div id="central-tendency" class="section level2 unnumbered">
 <h2>Central tendency</h2>
 <p>Central tendency refers to metrics that attempt to describe what is in the middle of your data. The main metrics of central tendency are the mean (also called average), the median, and the mode.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-147"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-147"></span>
 <img src="images/Central%20Tendency%20Measures.png" alt="Measures of central tendency" width="100%" />
 <p class="caption">
 Figure 5.1: Measures of central tendency
@@ -379,11 +415,11 @@ Figure 5.1: Measures of central tendency
 </div>
 <p>l</p>
 <p>Let’s create some dummy data to see what these metrics are intended to show, how to interpret them and when to use them.</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="central-tendency.html#cb139-1"></a><span class="kw">set.seed</span> (<span class="dv">10</span>)</span>
-<span id="cb139-2"><a href="central-tendency.html#cb139-2"></a>y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1000</span>) <span class="co"># the function rnorm allows you to create a random set of numbers from a normal distribution</span></span>
-<span id="cb139-3"><a href="central-tendency.html#cb139-3"></a></span>
-<span id="cb139-4"><a href="central-tendency.html#cb139-4"></a><span class="co">#lets now plot that data using the hist function, you already know how to use:</span></span>
-<span id="cb139-5"><a href="central-tendency.html#cb139-5"></a><span class="kw">hist</span>(y, <span class="dt">main =</span> <span class="st">&quot;Normal Distribution&quot;</span>,<span class="dt">breaks =</span> <span class="dv">30</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="central-tendency.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span> (<span class="dv">10</span>)</span>
+<span id="cb137-2"><a href="central-tendency.html#cb137-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>) <span class="co"># the function rnorm allows you to create a random set of numbers from a normal distribution</span></span>
+<span id="cb137-3"><a href="central-tendency.html#cb137-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-4"><a href="central-tendency.html#cb137-4" aria-hidden="true" tabindex="-1"></a><span class="co">#lets now plot that data using the hist function, you already know how to use:</span></span>
+<span id="cb137-5"><a href="central-tendency.html#cb137-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y, <span class="at">main =</span> <span class="st">&quot;Normal Distribution&quot;</span>,<span class="at">breaks =</span> <span class="dv">30</span>)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-148-1.png" width="672" /></p>
 <div id="the-arithmetic-mean" class="section level3 unnumbered">
 <h3>The arithmetic mean</h3>
@@ -397,9 +433,8 @@ Figure 5.1: Measures of central tendency
 <p>The mean of a sample is denoted wit the letter <span class="math inline">\(\bar{X}\)</span>; at times it does not include the horizontal bar above the letter.</p>
 The mean of a population is at times denoted with the lowercase letter <span class="math inline">\(u\)</span>, at times it is not cursive. They are both calculated the same way.
 </div>
-
 <p>The symbol that looks like a pacman, <span class="math inline">\(\sum_{}\)</span>, is call <strong>summation</strong>. The lower letter <span class="math inline">\(i\)</span> indicates that the summation starts from the first number (i.e., i=1), and the higher letter <em>n</em>, means the last number. <span class="math inline">\(Xi\)</span> means each value. In short, the numerator of the equation above says: sum all values starting from the first one until the last one. <span class="math inline">\(n\)</span> indicates the sample size or total number of values in your database (if it is was the average of a population, you will likely see capital letter <span class="math inline">\(N\)</span> instead of the lowercase <span class="math inline">\(n\)</span> ).</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-150"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-150"></span>
 <img src="images/Stupid%20mean.jpg" alt="The stupid mean" width="100%" />
 <p class="caption">
 Figure 5.2: The stupid mean
@@ -407,27 +442,26 @@ Figure 5.2: The stupid mean
 </div>
 <p>y</p>
 <p>In R, the mean is calculated with the function mean.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="central-tendency.html#cb140-1"></a>MEAN=<span class="kw">mean</span> (y, <span class="dt">na.rm =</span> <span class="ot">FALSE</span>)  <span class="co">#here I calculate the mean, and assign it to a variable.</span></span>
-<span id="cb140-2"><a href="central-tendency.html#cb140-2"></a>MEAN           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="central-tendency.html#cb138-1" aria-hidden="true" tabindex="-1"></a>MEAN<span class="ot">=</span><span class="fu">mean</span> (y, <span class="at">na.rm =</span> <span class="cn">FALSE</span>)  <span class="co">#here I calculate the mean, and assign it to a variable.</span></span>
+<span id="cb138-2"><a href="central-tendency.html#cb138-2" aria-hidden="true" tabindex="-1"></a>MEAN           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
 <pre><code>## [1] 0.01137474</code></pre>
 <p>You may have noted that I added ‘na.rm = TRUE’ in the mean function. This command is used as a caution to calculate the mean even if you have empty values. Lets check,</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="central-tendency.html#cb142-1"></a>VectorMissingAValue &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">7</span>,<span class="dv">3</span>,<span class="fl">4.2</span>,<span class="dv">18</span>,<span class="dv">2</span>,<span class="dv">54</span>,<span class="op">-</span><span class="dv">21</span>,<span class="dv">8</span>,<span class="op">-</span><span class="dv">5</span>,<span class="ot">NA</span>)<span class="co">#here I created a vector of values, incluidng a missing value NA (NA in R stands for Not Available)</span></span>
-<span id="cb142-2"><a href="central-tendency.html#cb142-2"></a><span class="kw">mean</span> (VectorMissingAValue)  <span class="co">#If I calculate the mean of a vector with missing values I get</span></span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="central-tendency.html#cb140-1" aria-hidden="true" tabindex="-1"></a>VectorMissingAValue <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">7</span>,<span class="dv">3</span>,<span class="fl">4.2</span>,<span class="dv">18</span>,<span class="dv">2</span>,<span class="dv">54</span>,<span class="sc">-</span><span class="dv">21</span>,<span class="dv">8</span>,<span class="sc">-</span><span class="dv">5</span>,<span class="cn">NA</span>)<span class="co">#here I created a vector of values, incluidng a missing value NA (NA in R stands for Not Available)</span></span>
+<span id="cb140-2"><a href="central-tendency.html#cb140-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span> (VectorMissingAValue)  <span class="co">#If I calculate the mean of a vector with missing values I get</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>Now, if you include the command ‘na.rm = TRUE’, that will re-do the calculation excluding any missing value.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="central-tendency.html#cb144-1"></a><span class="kw">mean</span> (VectorMissingAValue,<span class="dt">na.rm =</span> <span class="ot">TRUE</span>)  </span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="central-tendency.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span> (VectorMissingAValue,<span class="at">na.rm =</span> <span class="cn">TRUE</span>)  </span></code></pre></div>
 <pre><code>## [1] 8.22</code></pre>
 
 <div class="rmdcaution">
 In most R functions, it is important to include the command ‘na.rm = TRUE’, which means to exclude any missing value. If for any reason your data has empty cells or missing values, falling to include the ‘na.rm = TRUE’ command will result in an error….again this will be a problem only when you are missing data.
 </div>
-
 <p>Alright, lets keep going. You can visualize the mean in the histogram using the function <em>abline</em>, and put a name using the <em>text</em> function, like this:</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="central-tendency.html#cb146-1"></a><span class="kw">hist</span>(y, <span class="dt">main =</span> <span class="ot">NULL</span>,<span class="dt">breaks =</span> <span class="dv">30</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>),)</span>
-<span id="cb146-2"><a href="central-tendency.html#cb146-2"></a><span class="kw">abline</span>(<span class="dt">v=</span>MEAN, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">5</span>) <span class="co">#abline put a line in a figure...you use v for vertical and h for horizontal, the value that proceeds is where the line will be drawn.</span></span>
-<span id="cb146-3"><a href="central-tendency.html#cb146-3"></a></span>
-<span id="cb146-4"><a href="central-tendency.html#cb146-4"></a></span>
-<span id="cb146-5"><a href="central-tendency.html#cb146-5"></a><span class="kw">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="dt">x=</span>MEAN,<span class="dt">y=</span><span class="dv">100</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>) <span class="co">#the text function places a label on your figure at the given x and y position you like...there are several other parameters you can control. You can also use the function *legend*, which allows you more controls, including background colors.</span></span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="central-tendency.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y, <span class="at">main =</span> <span class="cn">NULL</span>,<span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>),)</span>
+<span id="cb144-2"><a href="central-tendency.html#cb144-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MEAN, <span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="dv">5</span>) <span class="co">#abline put a line in a figure...you use v for vertical and h for horizontal, the value that proceeds is where the line will be drawn.</span></span>
+<span id="cb144-3"><a href="central-tendency.html#cb144-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-4"><a href="central-tendency.html#cb144-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-5"><a href="central-tendency.html#cb144-5" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="at">x=</span>MEAN,<span class="at">y=</span><span class="dv">100</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>) <span class="co">#the text function places a label on your figure at the given x and y position you like...there are several other parameters you can control. You can also use the function *legend*, which allows you more controls, including background colors.</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-155-1.png" width="672" /></p>
 </div>
 <div id="the-trimmed-mean" class="section level3 unnumbered">
@@ -437,18 +471,18 @@ In most R functions, it is important to include the command ‘na.rm = TRUE’, 
 <p>Lets try a simple example. Say you measured the time it took 20 students to run 100m.</p>
 <p>The individual values in seconds were 10, 20, 23, 23, 22, 20, 25, 22, 20, 25, 22, 20, 25, 20, 21, 21, 23, 21, 24, and 120.</p>
 <p>To calculate this in R, I put all values in a vector and calculate the mean,</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="central-tendency.html#cb147-1"></a>vals=<span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">23</span>,<span class="dv">23</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">21</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">24</span>,<span class="dv">120</span>)</span>
-<span id="cb147-2"><a href="central-tendency.html#cb147-2"></a>  </span>
-<span id="cb147-3"><a href="central-tendency.html#cb147-3"></a>  <span class="kw">mean</span>(vals)</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="central-tendency.html#cb145-1" aria-hidden="true" tabindex="-1"></a>vals<span class="ot">=</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">23</span>,<span class="dv">23</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">21</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">24</span>,<span class="dv">120</span>)</span>
+<span id="cb145-2"><a href="central-tendency.html#cb145-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb145-3"><a href="central-tendency.html#cb145-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(vals)</span></code></pre></div>
 <pre><code>## [1] 26.35</code></pre>
 <p>But from the data, you can tell that one student was very fast (only took 10 secs) and another one was very slow (he took 120secs). Lets try a 5% trimmed mean,</p>
 <p>First, you sort the data from smallest to largest,</p>
 <p><span style="color: red;">10</span>,20,20,20,20,20,21,21,21,22,22,22,23,23,23,24,25,25,25,<span style="color: red;">120</span></p>
 <p>Now you remove the first and last (i.e, 5% of 20 is 1, so you delete the bottom and top one records, red numbers in the array).</p>
 <p>Now calculate the mean of the resulting data or the so-call 5% trimmed mean:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="central-tendency.html#cb149-1"></a>Trimmedvals=<span class="kw">c</span>(<span class="dv">20</span>,<span class="dv">23</span>,<span class="dv">23</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">21</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">24</span>)</span>
-<span id="cb149-2"><a href="central-tendency.html#cb149-2"></a>  </span>
-<span id="cb149-3"><a href="central-tendency.html#cb149-3"></a><span class="kw">mean</span>(Trimmedvals)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="central-tendency.html#cb147-1" aria-hidden="true" tabindex="-1"></a>Trimmedvals<span class="ot">=</span><span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">23</span>,<span class="dv">23</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">21</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">24</span>)</span>
+<span id="cb147-2"><a href="central-tendency.html#cb147-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb147-3"><a href="central-tendency.html#cb147-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Trimmedvals)</span></code></pre></div>
 <pre><code>## [1] 22.05556</code></pre>
 <p>The 5% trimmed mean is 22.06 compared to the arithmetic mean 26.35.</p>
 </div>
@@ -473,14 +507,14 @@ Weighted \ average= \frac{(83*40)+(95*60)}{(40+60)}
 <p>The median (also referred to as the 50th percentile) is the middle value in a sample of ordered values. Half the values are above the median and half are below the median.</p>
 <p>To calculate the median, you start by sorting all values from lowest to highest, the <em>median</em> is the value in the middle.</p>
 <p>When your set of numbers is odd, the median is the single value in the middle of the sorted list. Below is a vector of values indicating the price of different candy.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-158"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-158"></span>
 <img src="images/Median%20odd%20Numbers.png" alt="Median calculation for odd number of values" width="100%" />
 <p class="caption">
 Figure 5.3: Median calculation for odd number of values
 </p>
 </div>
 <p>When your set of numbers is even, you have a problem because there will be two numbers right in the middle of the sorted vector. In this case you report the arithmetic mean of the two values in the middle.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-159"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-159"></span>
 <img src="images/Median%20Even%20Numbers.png" alt="Median calculation for even number of values" width="100%" />
 <p class="caption">
 Figure 5.4: Median calculation for even number of values
@@ -488,56 +522,56 @@ Figure 5.4: Median calculation for even number of values
 </div>
 <p>y</p>
 <p>In R, the median is calculated with the function median.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="central-tendency.html#cb151-1"></a>MEDIAN=<span class="kw">median</span> (y)  <span class="co">#here I calculate the mean, and assign it to a variable.</span></span>
-<span id="cb151-2"><a href="central-tendency.html#cb151-2"></a>MEDIAN           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="central-tendency.html#cb149-1" aria-hidden="true" tabindex="-1"></a>MEDIAN<span class="ot">=</span><span class="fu">median</span> (y)  <span class="co">#here I calculate the mean, and assign it to a variable.</span></span>
+<span id="cb149-2"><a href="central-tendency.html#cb149-2" aria-hidden="true" tabindex="-1"></a>MEDIAN           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
 <pre><code>## [1] -0.003001333</code></pre>
 <p>p</p>
 <p>Let’s plot the median with the mean value to the histogram we were doing before.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="central-tendency.html#cb153-1"></a><span class="kw">hist</span>(y, <span class="dt">main =</span> <span class="ot">NULL</span>,<span class="dt">breaks =</span> <span class="dv">30</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">110</span>),)</span>
-<span id="cb153-2"><a href="central-tendency.html#cb153-2"></a></span>
-<span id="cb153-3"><a href="central-tendency.html#cb153-3"></a><span class="co">#lets plot the mean</span></span>
-<span id="cb153-4"><a href="central-tendency.html#cb153-4"></a>MEAN=<span class="kw">mean</span>(y)</span>
-<span id="cb153-5"><a href="central-tendency.html#cb153-5"></a><span class="kw">abline</span>(<span class="dt">v=</span>MEAN, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">5</span>) </span>
-<span id="cb153-6"><a href="central-tendency.html#cb153-6"></a><span class="kw">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="dt">x=</span>MEAN,<span class="dt">y=</span><span class="dv">110</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">pos=</span><span class="dv">4</span>) <span class="co">#pos=4 means, to place the text to the right of the coordinates xy.</span></span>
-<span id="cb153-7"><a href="central-tendency.html#cb153-7"></a></span>
-<span id="cb153-8"><a href="central-tendency.html#cb153-8"></a><span class="co"># now the median</span></span>
-<span id="cb153-9"><a href="central-tendency.html#cb153-9"></a><span class="kw">abline</span>(<span class="dt">v=</span>MEDIAN, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">lty=</span><span class="dv">2</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
-<span id="cb153-10"><a href="central-tendency.html#cb153-10"></a><span class="kw">text</span>(<span class="st">&quot;Median&quot;</span>,<span class="dt">x=</span>MEDIAN,<span class="dt">y=</span><span class="dv">100</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">pos=</span><span class="dv">2</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="central-tendency.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y, <span class="at">main =</span> <span class="cn">NULL</span>,<span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">110</span>),)</span>
+<span id="cb151-2"><a href="central-tendency.html#cb151-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-3"><a href="central-tendency.html#cb151-3" aria-hidden="true" tabindex="-1"></a><span class="co">#lets plot the mean</span></span>
+<span id="cb151-4"><a href="central-tendency.html#cb151-4" aria-hidden="true" tabindex="-1"></a>MEAN<span class="ot">=</span><span class="fu">mean</span>(y)</span>
+<span id="cb151-5"><a href="central-tendency.html#cb151-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MEAN, <span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="dv">5</span>) </span>
+<span id="cb151-6"><a href="central-tendency.html#cb151-6" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="at">x=</span>MEAN,<span class="at">y=</span><span class="dv">110</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">pos=</span><span class="dv">4</span>) <span class="co">#pos=4 means, to place the text to the right of the coordinates xy.</span></span>
+<span id="cb151-7"><a href="central-tendency.html#cb151-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-8"><a href="central-tendency.html#cb151-8" aria-hidden="true" tabindex="-1"></a><span class="co"># now the median</span></span>
+<span id="cb151-9"><a href="central-tendency.html#cb151-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MEDIAN, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">lwd=</span><span class="dv">3</span>, <span class="at">lty=</span><span class="dv">2</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span id="cb151-10"><a href="central-tendency.html#cb151-10" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Median&quot;</span>,<span class="at">x=</span>MEDIAN,<span class="at">y=</span><span class="dv">100</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">pos=</span><span class="dv">2</span>) </span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-161-1.png" width="672" /></p>
 </div>
 <div id="the-mode" class="section level3 unnumbered">
 <h3>The mode</h3>
 <p>The mode is simply the most common value in all of your data.</p>
 <p>R does not have a standard in-built function to calculate mode. So we create a user function to calculate the mode of a dataset. This function takes a vector as input and gives the mode value as output.</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="central-tendency.html#cb154-1"></a>getmode &lt;-<span class="st"> </span><span class="cf">function</span>(v) {   <span class="co"># the function will take a vector of values</span></span>
-<span id="cb154-2"><a href="central-tendency.html#cb154-2"></a>   uniqv &lt;-<span class="st"> </span><span class="kw">unique</span>(v)      <span class="co">#select all the unique values in the vector </span></span>
-<span id="cb154-3"><a href="central-tendency.html#cb154-3"></a>   uniqv[<span class="kw">which.max</span>(<span class="kw">tabulate</span>(<span class="kw">match</span>(v, uniqv)))] <span class="co">#stimate the number of times each value appears and return the largest</span></span>
-<span id="cb154-4"><a href="central-tendency.html#cb154-4"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="central-tendency.html#cb152-1" aria-hidden="true" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(v) {   <span class="co"># the function will take a vector of values</span></span>
+<span id="cb152-2"><a href="central-tendency.html#cb152-2" aria-hidden="true" tabindex="-1"></a>   uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(v)      <span class="co">#select all the unique values in the vector </span></span>
+<span id="cb152-3"><a href="central-tendency.html#cb152-3" aria-hidden="true" tabindex="-1"></a>   uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(v, uniqv)))] <span class="co">#stimate the number of times each value appears and return the largest</span></span>
+<span id="cb152-4"><a href="central-tendency.html#cb152-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Now let’s use our new function</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="central-tendency.html#cb155-1"></a>MODE=<span class="kw">getmode</span>(y)  <span class="co">#here I calculate the mode, and assign it to a variable.</span></span>
-<span id="cb155-2"><a href="central-tendency.html#cb155-2"></a>MODE           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="central-tendency.html#cb153-1" aria-hidden="true" tabindex="-1"></a>MODE<span class="ot">=</span><span class="fu">getmode</span>(y)  <span class="co">#here I calculate the mode, and assign it to a variable.</span></span>
+<span id="cb153-2"><a href="central-tendency.html#cb153-2" aria-hidden="true" tabindex="-1"></a>MODE           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
 <pre><code>## [1] 0.01874617</code></pre>
 <p>Unlike the mean and the median, the mode can also be used with character data (i.e., words). For instance, you want to know what is the most common name in the USA?. For that you can use the mode.</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="central-tendency.html#cb157-1"></a><span class="co"># Create the vector with characters.</span></span>
-<span id="cb157-2"><a href="central-tendency.html#cb157-2"></a>NAMES &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Peter&quot;</span>, <span class="st">&quot;Carl&quot;</span>, <span class="st">&quot;Darrell&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Peter&quot;</span>)</span>
-<span id="cb157-3"><a href="central-tendency.html#cb157-3"></a></span>
-<span id="cb157-4"><a href="central-tendency.html#cb157-4"></a><span class="kw">getmode</span>(NAMES)  <span class="co">#here I calculate the mode, and assign it to a variable.</span></span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="central-tendency.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the vector with characters.</span></span>
+<span id="cb155-2"><a href="central-tendency.html#cb155-2" aria-hidden="true" tabindex="-1"></a>NAMES <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Peter&quot;</span>, <span class="st">&quot;Carl&quot;</span>, <span class="st">&quot;Darrell&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Peter&quot;</span>)</span>
+<span id="cb155-3"><a href="central-tendency.html#cb155-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-4"><a href="central-tendency.html#cb155-4" aria-hidden="true" tabindex="-1"></a><span class="fu">getmode</span>(NAMES)  <span class="co">#here I calculate the mode, and assign it to a variable.</span></span></code></pre></div>
 <pre><code>## [1] &quot;Peter&quot;</code></pre>
 <p>Let’s plot our mode in the histogram with the mean and the median we were working on before.</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="central-tendency.html#cb159-1"></a><span class="kw">hist</span>(y, <span class="dt">main =</span> <span class="ot">NULL</span>,<span class="dt">breaks =</span> <span class="dv">30</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">110</span>),)</span>
-<span id="cb159-2"><a href="central-tendency.html#cb159-2"></a></span>
-<span id="cb159-3"><a href="central-tendency.html#cb159-3"></a><span class="co">#lets plot the mean</span></span>
-<span id="cb159-4"><a href="central-tendency.html#cb159-4"></a><span class="kw">abline</span>(<span class="dt">v=</span>MEAN, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">6</span>) </span>
-<span id="cb159-5"><a href="central-tendency.html#cb159-5"></a><span class="kw">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="dt">x=</span>MEAN,<span class="dt">y=</span><span class="dv">110</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">pos=</span><span class="dv">4</span>) </span>
-<span id="cb159-6"><a href="central-tendency.html#cb159-6"></a></span>
-<span id="cb159-7"><a href="central-tendency.html#cb159-7"></a><span class="co"># now the median</span></span>
-<span id="cb159-8"><a href="central-tendency.html#cb159-8"></a><span class="kw">abline</span>(<span class="dt">v=</span>MEDIAN, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>,<span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">lty=</span><span class="dv">2</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
-<span id="cb159-9"><a href="central-tendency.html#cb159-9"></a><span class="kw">text</span>(<span class="st">&quot;Median&quot;</span>,<span class="dt">x=</span>MEDIAN,<span class="dt">y=</span><span class="dv">100</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">pos=</span><span class="dv">2</span>) </span>
-<span id="cb159-10"><a href="central-tendency.html#cb159-10"></a></span>
-<span id="cb159-11"><a href="central-tendency.html#cb159-11"></a><span class="co">#now let&#39;s plot the mode</span></span>
-<span id="cb159-12"><a href="central-tendency.html#cb159-12"></a>MODE=<span class="kw">getmode</span>(y)</span>
-<span id="cb159-13"><a href="central-tendency.html#cb159-13"></a><span class="kw">abline</span>(<span class="dt">v=</span>MODE, <span class="dt">col=</span><span class="st">&quot;orange&quot;</span>,<span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">lty=</span><span class="dv">3</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
-<span id="cb159-14"><a href="central-tendency.html#cb159-14"></a><span class="kw">text</span>(<span class="st">&quot;Mode&quot;</span>,<span class="dt">x=</span>MODE,<span class="dt">y=</span><span class="dv">90</span>, <span class="dt">col=</span><span class="st">&quot;orange&quot;</span>, <span class="dt">pos=</span><span class="dv">4</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="central-tendency.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y, <span class="at">main =</span> <span class="cn">NULL</span>,<span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">110</span>),)</span>
+<span id="cb157-2"><a href="central-tendency.html#cb157-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb157-3"><a href="central-tendency.html#cb157-3" aria-hidden="true" tabindex="-1"></a><span class="co">#lets plot the mean</span></span>
+<span id="cb157-4"><a href="central-tendency.html#cb157-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MEAN, <span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="dv">6</span>) </span>
+<span id="cb157-5"><a href="central-tendency.html#cb157-5" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="at">x=</span>MEAN,<span class="at">y=</span><span class="dv">110</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">pos=</span><span class="dv">4</span>) </span>
+<span id="cb157-6"><a href="central-tendency.html#cb157-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb157-7"><a href="central-tendency.html#cb157-7" aria-hidden="true" tabindex="-1"></a><span class="co"># now the median</span></span>
+<span id="cb157-8"><a href="central-tendency.html#cb157-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MEDIAN, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">lwd=</span><span class="dv">4</span>, <span class="at">lty=</span><span class="dv">2</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span id="cb157-9"><a href="central-tendency.html#cb157-9" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Median&quot;</span>,<span class="at">x=</span>MEDIAN,<span class="at">y=</span><span class="dv">100</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">pos=</span><span class="dv">2</span>) </span>
+<span id="cb157-10"><a href="central-tendency.html#cb157-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb157-11"><a href="central-tendency.html#cb157-11" aria-hidden="true" tabindex="-1"></a><span class="co">#now let&#39;s plot the mode</span></span>
+<span id="cb157-12"><a href="central-tendency.html#cb157-12" aria-hidden="true" tabindex="-1"></a>MODE<span class="ot">=</span><span class="fu">getmode</span>(y)</span>
+<span id="cb157-13"><a href="central-tendency.html#cb157-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MODE, <span class="at">col=</span><span class="st">&quot;orange&quot;</span>,<span class="at">lwd=</span><span class="dv">4</span>, <span class="at">lty=</span><span class="dv">3</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span id="cb157-14"><a href="central-tendency.html#cb157-14" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Mode&quot;</span>,<span class="at">x=</span>MODE,<span class="at">y=</span><span class="dv">90</span>, <span class="at">col=</span><span class="st">&quot;orange&quot;</span>, <span class="at">pos=</span><span class="dv">4</span>) </span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-165-1.png" width="672" /></p>
 <p>You should have noted that the mean, median and mode are almost the same in this case. That is because the data are normally distributed (follow a normal distribution).</p>
 <p>Let’s see what happens when the data are skew.</p>
@@ -548,7 +582,7 @@ Figure 5.4: Median calculation for even number of values
 <p>If you see the two skewed distributions above, you will notice how the mean is pulled by the extreme values of the distribution. That is a critical consideration of the arithmetic mean, it is affected by extreme values or so-call <strong>outliers</strong>.</p>
 <p>So a basic rule of thumb is to look at the mean and the median. If they’re the same you can just use the mean, that’s more easy for the average reader to understand. If they differ significantly report them both, or just report the median</p>
 <p>With skew distributions is when it becomes important the distinction between the mean and the median. Lets check an example in which you can deceive a conclusion based on reporting only the mean.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-168"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-168"></span>
 <img src="images/USA%20Household%20Income.png" alt="Income distribution in the USA" width="100%" />
 <p class="caption">
 Figure 5.5: Income distribution in the USA
@@ -557,7 +591,7 @@ Figure 5.5: Income distribution in the USA
 <p>The figure above shows the household income of people in the USA. Clearly, the data follows a right distribution. In this distribution, the mean is larger than the median or the mode. So if you report the mean only, it may create an illusion that most people get paid well in the USA, when in reality most get paid much less.</p>
 <p>In this case, the mean increases primarily as a result of the wealthy becoming wealthier. If we are concerned about how the average American is doing, median is actually a better measure to understand their status.</p>
 <p>The figure below summarizes the central tendency metrics by the type of data distribution.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-169"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-169"></span>
 <img src="images/Distribution%20Skews.png" alt="Central tendendy metrics in skew distributions" width="100%" />
 <p class="caption">
 Figure 5.6: Central tendendy metrics in skew distributions
@@ -616,6 +650,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -636,6 +671,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 },
