@@ -407,7 +407,7 @@ By Camilo Mora, Ph.D.
 <div id="central-tendency" class="section level2 unnumbered">
 <h2>Central tendency</h2>
 <p>Central tendency refers to metrics that attempt to describe what is in the middle of your data. The main metrics of central tendency are the mean (also called average), the median, and the mode.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-147"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-148"></span>
 <img src="images/Central%20Tendency%20Measures.png" alt="Measures of central tendency" width="100%" />
 <p class="caption">
 Figure 5.1: Measures of central tendency
@@ -415,12 +415,12 @@ Figure 5.1: Measures of central tendency
 </div>
 <p>l</p>
 <p>Let’s create some dummy data to see what these metrics are intended to show, how to interpret them and when to use them.</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="central-tendency.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span> (<span class="dv">10</span>)</span>
-<span id="cb137-2"><a href="central-tendency.html#cb137-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>) <span class="co"># the function rnorm allows you to create a random set of numbers from a normal distribution</span></span>
-<span id="cb137-3"><a href="central-tendency.html#cb137-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb137-4"><a href="central-tendency.html#cb137-4" aria-hidden="true" tabindex="-1"></a><span class="co">#lets now plot that data using the hist function, you already know how to use:</span></span>
-<span id="cb137-5"><a href="central-tendency.html#cb137-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y, <span class="at">main =</span> <span class="st">&quot;Normal Distribution&quot;</span>,<span class="at">breaks =</span> <span class="dv">30</span>)</span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-148-1.png" width="672" /></p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="central-tendency.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span> (<span class="dv">10</span>)</span>
+<span id="cb138-2"><a href="central-tendency.html#cb138-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>) <span class="co"># the function rnorm allows you to create a random set of numbers from a normal distribution</span></span>
+<span id="cb138-3"><a href="central-tendency.html#cb138-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-4"><a href="central-tendency.html#cb138-4" aria-hidden="true" tabindex="-1"></a><span class="co">#lets now plot that data using the hist function, you already know how to use:</span></span>
+<span id="cb138-5"><a href="central-tendency.html#cb138-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y, <span class="at">main =</span> <span class="st">&quot;Normal Distribution&quot;</span>,<span class="at">breaks =</span> <span class="dv">30</span>)</span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-149-1.png" width="672" /></p>
 <div id="the-arithmetic-mean" class="section level3 unnumbered">
 <h3>The arithmetic mean</h3>
 <p>The arithmetic mean is the average of the numbers. It is easy to calculate: add up all the numbers, then divide by how many numbers there are.</p>
@@ -434,7 +434,7 @@ Figure 5.1: Measures of central tendency
 The mean of a population is at times denoted with the lowercase letter <span class="math inline">\(u\)</span>, at times it is not cursive. They are both calculated the same way.
 </div>
 <p>The symbol that looks like a pacman, <span class="math inline">\(\sum_{}\)</span>, is call <strong>summation</strong>. The lower letter <span class="math inline">\(i\)</span> indicates that the summation starts from the first number (i.e., i=1), and the higher letter <em>n</em>, means the last number. <span class="math inline">\(Xi\)</span> means each value. In short, the numerator of the equation above says: sum all values starting from the first one until the last one. <span class="math inline">\(n\)</span> indicates the sample size or total number of values in your database (if it is was the average of a population, you will likely see capital letter <span class="math inline">\(N\)</span> instead of the lowercase <span class="math inline">\(n\)</span> ).</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-150"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-151"></span>
 <img src="images/Stupid%20mean.jpg" alt="The stupid mean" width="100%" />
 <p class="caption">
 Figure 5.2: The stupid mean
@@ -442,27 +442,27 @@ Figure 5.2: The stupid mean
 </div>
 <p>y</p>
 <p>In R, the mean is calculated with the function mean.</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="central-tendency.html#cb138-1" aria-hidden="true" tabindex="-1"></a>MEAN<span class="ot">=</span><span class="fu">mean</span> (y, <span class="at">na.rm =</span> <span class="cn">FALSE</span>)  <span class="co">#here I calculate the mean, and assign it to a variable.</span></span>
-<span id="cb138-2"><a href="central-tendency.html#cb138-2" aria-hidden="true" tabindex="-1"></a>MEAN           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="central-tendency.html#cb139-1" aria-hidden="true" tabindex="-1"></a>MEAN<span class="ot">=</span><span class="fu">mean</span> (y, <span class="at">na.rm =</span> <span class="cn">FALSE</span>)  <span class="co">#here I calculate the mean, and assign it to a variable.</span></span>
+<span id="cb139-2"><a href="central-tendency.html#cb139-2" aria-hidden="true" tabindex="-1"></a>MEAN           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
 <pre><code>## [1] 0.01137474</code></pre>
 <p>You may have noted that I added ‘na.rm = TRUE’ in the mean function. This command is used as a caution to calculate the mean even if you have empty values. Lets check,</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="central-tendency.html#cb140-1" aria-hidden="true" tabindex="-1"></a>VectorMissingAValue <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">7</span>,<span class="dv">3</span>,<span class="fl">4.2</span>,<span class="dv">18</span>,<span class="dv">2</span>,<span class="dv">54</span>,<span class="sc">-</span><span class="dv">21</span>,<span class="dv">8</span>,<span class="sc">-</span><span class="dv">5</span>,<span class="cn">NA</span>)<span class="co">#here I created a vector of values, incluidng a missing value NA (NA in R stands for Not Available)</span></span>
-<span id="cb140-2"><a href="central-tendency.html#cb140-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span> (VectorMissingAValue)  <span class="co">#If I calculate the mean of a vector with missing values I get</span></span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="central-tendency.html#cb141-1" aria-hidden="true" tabindex="-1"></a>VectorMissingAValue <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">7</span>,<span class="dv">3</span>,<span class="fl">4.2</span>,<span class="dv">18</span>,<span class="dv">2</span>,<span class="dv">54</span>,<span class="sc">-</span><span class="dv">21</span>,<span class="dv">8</span>,<span class="sc">-</span><span class="dv">5</span>,<span class="cn">NA</span>)<span class="co">#here I created a vector of values, incluidng a missing value NA (NA in R stands for Not Available)</span></span>
+<span id="cb141-2"><a href="central-tendency.html#cb141-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span> (VectorMissingAValue)  <span class="co">#If I calculate the mean of a vector with missing values I get</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>Now, if you include the command ‘na.rm = TRUE’, that will re-do the calculation excluding any missing value.</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="central-tendency.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span> (VectorMissingAValue,<span class="at">na.rm =</span> <span class="cn">TRUE</span>)  </span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="central-tendency.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span> (VectorMissingAValue,<span class="at">na.rm =</span> <span class="cn">TRUE</span>)  </span></code></pre></div>
 <pre><code>## [1] 8.22</code></pre>
 
 <div class="rmdcaution">
 In most R functions, it is important to include the command ‘na.rm = TRUE’, which means to exclude any missing value. If for any reason your data has empty cells or missing values, falling to include the ‘na.rm = TRUE’ command will result in an error….again this will be a problem only when you are missing data.
 </div>
 <p>Alright, lets keep going. You can visualize the mean in the histogram using the function <em>abline</em>, and put a name using the <em>text</em> function, like this:</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="central-tendency.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y, <span class="at">main =</span> <span class="cn">NULL</span>,<span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>),)</span>
-<span id="cb144-2"><a href="central-tendency.html#cb144-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MEAN, <span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="dv">5</span>) <span class="co">#abline put a line in a figure...you use v for vertical and h for horizontal, the value that proceeds is where the line will be drawn.</span></span>
-<span id="cb144-3"><a href="central-tendency.html#cb144-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb144-4"><a href="central-tendency.html#cb144-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb144-5"><a href="central-tendency.html#cb144-5" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="at">x=</span>MEAN,<span class="at">y=</span><span class="dv">100</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>) <span class="co">#the text function places a label on your figure at the given x and y position you like...there are several other parameters you can control. You can also use the function *legend*, which allows you more controls, including background colors.</span></span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-155-1.png" width="672" /></p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="central-tendency.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y, <span class="at">main =</span> <span class="cn">NULL</span>,<span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>),)</span>
+<span id="cb145-2"><a href="central-tendency.html#cb145-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MEAN, <span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="dv">5</span>) <span class="co">#abline put a line in a figure...you use v for vertical and h for horizontal, the value that proceeds is where the line will be drawn.</span></span>
+<span id="cb145-3"><a href="central-tendency.html#cb145-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-4"><a href="central-tendency.html#cb145-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-5"><a href="central-tendency.html#cb145-5" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="at">x=</span>MEAN,<span class="at">y=</span><span class="dv">100</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>) <span class="co">#the text function places a label on your figure at the given x and y position you like...there are several other parameters you can control. You can also use the function *legend*, which allows you more controls, including background colors.</span></span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-156-1.png" width="672" /></p>
 </div>
 <div id="the-trimmed-mean" class="section level3 unnumbered">
 <h3>The trimmed mean</h3>
@@ -471,18 +471,18 @@ In most R functions, it is important to include the command ‘na.rm = TRUE’, 
 <p>Lets try a simple example. Say you measured the time it took 20 students to run 100m.</p>
 <p>The individual values in seconds were 10, 20, 23, 23, 22, 20, 25, 22, 20, 25, 22, 20, 25, 20, 21, 21, 23, 21, 24, and 120.</p>
 <p>To calculate this in R, I put all values in a vector and calculate the mean,</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="central-tendency.html#cb145-1" aria-hidden="true" tabindex="-1"></a>vals<span class="ot">=</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">23</span>,<span class="dv">23</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">21</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">24</span>,<span class="dv">120</span>)</span>
-<span id="cb145-2"><a href="central-tendency.html#cb145-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb145-3"><a href="central-tendency.html#cb145-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(vals)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="central-tendency.html#cb146-1" aria-hidden="true" tabindex="-1"></a>vals<span class="ot">=</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">23</span>,<span class="dv">23</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">21</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">24</span>,<span class="dv">120</span>)</span>
+<span id="cb146-2"><a href="central-tendency.html#cb146-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb146-3"><a href="central-tendency.html#cb146-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(vals)</span></code></pre></div>
 <pre><code>## [1] 26.35</code></pre>
 <p>But from the data, you can tell that one student was very fast (only took 10 secs) and another one was very slow (he took 120secs). Lets try a 5% trimmed mean,</p>
 <p>First, you sort the data from smallest to largest,</p>
 <p><span style="color: red;">10</span>,20,20,20,20,20,21,21,21,22,22,22,23,23,23,24,25,25,25,<span style="color: red;">120</span></p>
 <p>Now you remove the first and last (i.e, 5% of 20 is 1, so you delete the bottom and top one records, red numbers in the array).</p>
 <p>Now calculate the mean of the resulting data or the so-call 5% trimmed mean:</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="central-tendency.html#cb147-1" aria-hidden="true" tabindex="-1"></a>Trimmedvals<span class="ot">=</span><span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">23</span>,<span class="dv">23</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">21</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">24</span>)</span>
-<span id="cb147-2"><a href="central-tendency.html#cb147-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb147-3"><a href="central-tendency.html#cb147-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Trimmedvals)</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="central-tendency.html#cb148-1" aria-hidden="true" tabindex="-1"></a>Trimmedvals<span class="ot">=</span><span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">23</span>,<span class="dv">23</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">22</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">21</span>,<span class="dv">23</span>,<span class="dv">21</span>,<span class="dv">24</span>)</span>
+<span id="cb148-2"><a href="central-tendency.html#cb148-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb148-3"><a href="central-tendency.html#cb148-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Trimmedvals)</span></code></pre></div>
 <pre><code>## [1] 22.05556</code></pre>
 <p>The 5% trimmed mean is 22.06 compared to the arithmetic mean 26.35.</p>
 </div>
@@ -507,14 +507,14 @@ Weighted \ average= \frac{(83*40)+(95*60)}{(40+60)}
 <p>The median (also referred to as the 50th percentile) is the middle value in a sample of ordered values. Half the values are above the median and half are below the median.</p>
 <p>To calculate the median, you start by sorting all values from lowest to highest, the <em>median</em> is the value in the middle.</p>
 <p>When your set of numbers is odd, the median is the single value in the middle of the sorted list. Below is a vector of values indicating the price of different candy.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-158"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-159"></span>
 <img src="images/Median%20odd%20Numbers.png" alt="Median calculation for odd number of values" width="100%" />
 <p class="caption">
 Figure 5.3: Median calculation for odd number of values
 </p>
 </div>
 <p>When your set of numbers is even, you have a problem because there will be two numbers right in the middle of the sorted vector. In this case you report the arithmetic mean of the two values in the middle.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-159"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-160"></span>
 <img src="images/Median%20Even%20Numbers.png" alt="Median calculation for even number of values" width="100%" />
 <p class="caption">
 Figure 5.4: Median calculation for even number of values
@@ -522,67 +522,67 @@ Figure 5.4: Median calculation for even number of values
 </div>
 <p>y</p>
 <p>In R, the median is calculated with the function median.</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="central-tendency.html#cb149-1" aria-hidden="true" tabindex="-1"></a>MEDIAN<span class="ot">=</span><span class="fu">median</span> (y)  <span class="co">#here I calculate the mean, and assign it to a variable.</span></span>
-<span id="cb149-2"><a href="central-tendency.html#cb149-2" aria-hidden="true" tabindex="-1"></a>MEDIAN           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="central-tendency.html#cb150-1" aria-hidden="true" tabindex="-1"></a>MEDIAN<span class="ot">=</span><span class="fu">median</span> (y)  <span class="co">#here I calculate the mean, and assign it to a variable.</span></span>
+<span id="cb150-2"><a href="central-tendency.html#cb150-2" aria-hidden="true" tabindex="-1"></a>MEDIAN           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
 <pre><code>## [1] -0.003001333</code></pre>
 <p>p</p>
 <p>Let’s plot the median with the mean value to the histogram we were doing before.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="central-tendency.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y, <span class="at">main =</span> <span class="cn">NULL</span>,<span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">110</span>),)</span>
-<span id="cb151-2"><a href="central-tendency.html#cb151-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-3"><a href="central-tendency.html#cb151-3" aria-hidden="true" tabindex="-1"></a><span class="co">#lets plot the mean</span></span>
-<span id="cb151-4"><a href="central-tendency.html#cb151-4" aria-hidden="true" tabindex="-1"></a>MEAN<span class="ot">=</span><span class="fu">mean</span>(y)</span>
-<span id="cb151-5"><a href="central-tendency.html#cb151-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MEAN, <span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="dv">5</span>) </span>
-<span id="cb151-6"><a href="central-tendency.html#cb151-6" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="at">x=</span>MEAN,<span class="at">y=</span><span class="dv">110</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">pos=</span><span class="dv">4</span>) <span class="co">#pos=4 means, to place the text to the right of the coordinates xy.</span></span>
-<span id="cb151-7"><a href="central-tendency.html#cb151-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-8"><a href="central-tendency.html#cb151-8" aria-hidden="true" tabindex="-1"></a><span class="co"># now the median</span></span>
-<span id="cb151-9"><a href="central-tendency.html#cb151-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MEDIAN, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">lwd=</span><span class="dv">3</span>, <span class="at">lty=</span><span class="dv">2</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
-<span id="cb151-10"><a href="central-tendency.html#cb151-10" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Median&quot;</span>,<span class="at">x=</span>MEDIAN,<span class="at">y=</span><span class="dv">100</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">pos=</span><span class="dv">2</span>) </span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-161-1.png" width="672" /></p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="central-tendency.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y, <span class="at">main =</span> <span class="cn">NULL</span>,<span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">110</span>),)</span>
+<span id="cb152-2"><a href="central-tendency.html#cb152-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-3"><a href="central-tendency.html#cb152-3" aria-hidden="true" tabindex="-1"></a><span class="co">#lets plot the mean</span></span>
+<span id="cb152-4"><a href="central-tendency.html#cb152-4" aria-hidden="true" tabindex="-1"></a>MEAN<span class="ot">=</span><span class="fu">mean</span>(y)</span>
+<span id="cb152-5"><a href="central-tendency.html#cb152-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MEAN, <span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="dv">5</span>) </span>
+<span id="cb152-6"><a href="central-tendency.html#cb152-6" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="at">x=</span>MEAN,<span class="at">y=</span><span class="dv">110</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">pos=</span><span class="dv">4</span>) <span class="co">#pos=4 means, to place the text to the right of the coordinates xy.</span></span>
+<span id="cb152-7"><a href="central-tendency.html#cb152-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-8"><a href="central-tendency.html#cb152-8" aria-hidden="true" tabindex="-1"></a><span class="co"># now the median</span></span>
+<span id="cb152-9"><a href="central-tendency.html#cb152-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MEDIAN, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">lwd=</span><span class="dv">3</span>, <span class="at">lty=</span><span class="dv">2</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span id="cb152-10"><a href="central-tendency.html#cb152-10" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Median&quot;</span>,<span class="at">x=</span>MEDIAN,<span class="at">y=</span><span class="dv">100</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">pos=</span><span class="dv">2</span>) </span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-162-1.png" width="672" /></p>
 </div>
 <div id="the-mode" class="section level3 unnumbered">
 <h3>The mode</h3>
 <p>The mode is simply the most common value in all of your data.</p>
 <p>R does not have a standard in-built function to calculate mode. So we create a user function to calculate the mode of a dataset. This function takes a vector as input and gives the mode value as output.</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="central-tendency.html#cb152-1" aria-hidden="true" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(v) {   <span class="co"># the function will take a vector of values</span></span>
-<span id="cb152-2"><a href="central-tendency.html#cb152-2" aria-hidden="true" tabindex="-1"></a>   uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(v)      <span class="co">#select all the unique values in the vector </span></span>
-<span id="cb152-3"><a href="central-tendency.html#cb152-3" aria-hidden="true" tabindex="-1"></a>   uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(v, uniqv)))] <span class="co">#stimate the number of times each value appears and return the largest</span></span>
-<span id="cb152-4"><a href="central-tendency.html#cb152-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="central-tendency.html#cb153-1" aria-hidden="true" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(v) {   <span class="co"># the function will take a vector of values</span></span>
+<span id="cb153-2"><a href="central-tendency.html#cb153-2" aria-hidden="true" tabindex="-1"></a>   uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(v)      <span class="co">#select all the unique values in the vector </span></span>
+<span id="cb153-3"><a href="central-tendency.html#cb153-3" aria-hidden="true" tabindex="-1"></a>   uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(v, uniqv)))] <span class="co">#stimate the number of times each value appears and return the largest</span></span>
+<span id="cb153-4"><a href="central-tendency.html#cb153-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Now let’s use our new function</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="central-tendency.html#cb153-1" aria-hidden="true" tabindex="-1"></a>MODE<span class="ot">=</span><span class="fu">getmode</span>(y)  <span class="co">#here I calculate the mode, and assign it to a variable.</span></span>
-<span id="cb153-2"><a href="central-tendency.html#cb153-2" aria-hidden="true" tabindex="-1"></a>MODE           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="central-tendency.html#cb154-1" aria-hidden="true" tabindex="-1"></a>MODE<span class="ot">=</span><span class="fu">getmode</span>(y)  <span class="co">#here I calculate the mode, and assign it to a variable.</span></span>
+<span id="cb154-2"><a href="central-tendency.html#cb154-2" aria-hidden="true" tabindex="-1"></a>MODE           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
 <pre><code>## [1] 0.01874617</code></pre>
 <p>Unlike the mean and the median, the mode can also be used with character data (i.e., words). For instance, you want to know what is the most common name in the USA?. For that you can use the mode.</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="central-tendency.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the vector with characters.</span></span>
-<span id="cb155-2"><a href="central-tendency.html#cb155-2" aria-hidden="true" tabindex="-1"></a>NAMES <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Peter&quot;</span>, <span class="st">&quot;Carl&quot;</span>, <span class="st">&quot;Darrell&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Peter&quot;</span>)</span>
-<span id="cb155-3"><a href="central-tendency.html#cb155-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb155-4"><a href="central-tendency.html#cb155-4" aria-hidden="true" tabindex="-1"></a><span class="fu">getmode</span>(NAMES)  <span class="co">#here I calculate the mode, and assign it to a variable.</span></span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="central-tendency.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the vector with characters.</span></span>
+<span id="cb156-2"><a href="central-tendency.html#cb156-2" aria-hidden="true" tabindex="-1"></a>NAMES <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Peter&quot;</span>, <span class="st">&quot;Carl&quot;</span>, <span class="st">&quot;Darrell&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Peter&quot;</span>)</span>
+<span id="cb156-3"><a href="central-tendency.html#cb156-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb156-4"><a href="central-tendency.html#cb156-4" aria-hidden="true" tabindex="-1"></a><span class="fu">getmode</span>(NAMES)  <span class="co">#here I calculate the mode, and assign it to a variable.</span></span></code></pre></div>
 <pre><code>## [1] &quot;Peter&quot;</code></pre>
 <p>Let’s plot our mode in the histogram with the mean and the median we were working on before.</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="central-tendency.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y, <span class="at">main =</span> <span class="cn">NULL</span>,<span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">110</span>),)</span>
-<span id="cb157-2"><a href="central-tendency.html#cb157-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-3"><a href="central-tendency.html#cb157-3" aria-hidden="true" tabindex="-1"></a><span class="co">#lets plot the mean</span></span>
-<span id="cb157-4"><a href="central-tendency.html#cb157-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MEAN, <span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="dv">6</span>) </span>
-<span id="cb157-5"><a href="central-tendency.html#cb157-5" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="at">x=</span>MEAN,<span class="at">y=</span><span class="dv">110</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">pos=</span><span class="dv">4</span>) </span>
-<span id="cb157-6"><a href="central-tendency.html#cb157-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-7"><a href="central-tendency.html#cb157-7" aria-hidden="true" tabindex="-1"></a><span class="co"># now the median</span></span>
-<span id="cb157-8"><a href="central-tendency.html#cb157-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MEDIAN, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">lwd=</span><span class="dv">4</span>, <span class="at">lty=</span><span class="dv">2</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
-<span id="cb157-9"><a href="central-tendency.html#cb157-9" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Median&quot;</span>,<span class="at">x=</span>MEDIAN,<span class="at">y=</span><span class="dv">100</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">pos=</span><span class="dv">2</span>) </span>
-<span id="cb157-10"><a href="central-tendency.html#cb157-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-11"><a href="central-tendency.html#cb157-11" aria-hidden="true" tabindex="-1"></a><span class="co">#now let&#39;s plot the mode</span></span>
-<span id="cb157-12"><a href="central-tendency.html#cb157-12" aria-hidden="true" tabindex="-1"></a>MODE<span class="ot">=</span><span class="fu">getmode</span>(y)</span>
-<span id="cb157-13"><a href="central-tendency.html#cb157-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MODE, <span class="at">col=</span><span class="st">&quot;orange&quot;</span>,<span class="at">lwd=</span><span class="dv">4</span>, <span class="at">lty=</span><span class="dv">3</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
-<span id="cb157-14"><a href="central-tendency.html#cb157-14" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Mode&quot;</span>,<span class="at">x=</span>MODE,<span class="at">y=</span><span class="dv">90</span>, <span class="at">col=</span><span class="st">&quot;orange&quot;</span>, <span class="at">pos=</span><span class="dv">4</span>) </span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-165-1.png" width="672" /></p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="central-tendency.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y, <span class="at">main =</span> <span class="cn">NULL</span>,<span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">110</span>),)</span>
+<span id="cb158-2"><a href="central-tendency.html#cb158-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb158-3"><a href="central-tendency.html#cb158-3" aria-hidden="true" tabindex="-1"></a><span class="co">#lets plot the mean</span></span>
+<span id="cb158-4"><a href="central-tendency.html#cb158-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MEAN, <span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="dv">6</span>) </span>
+<span id="cb158-5"><a href="central-tendency.html#cb158-5" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="at">x=</span>MEAN,<span class="at">y=</span><span class="dv">110</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">pos=</span><span class="dv">4</span>) </span>
+<span id="cb158-6"><a href="central-tendency.html#cb158-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb158-7"><a href="central-tendency.html#cb158-7" aria-hidden="true" tabindex="-1"></a><span class="co"># now the median</span></span>
+<span id="cb158-8"><a href="central-tendency.html#cb158-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MEDIAN, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">lwd=</span><span class="dv">4</span>, <span class="at">lty=</span><span class="dv">2</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span id="cb158-9"><a href="central-tendency.html#cb158-9" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Median&quot;</span>,<span class="at">x=</span>MEDIAN,<span class="at">y=</span><span class="dv">100</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">pos=</span><span class="dv">2</span>) </span>
+<span id="cb158-10"><a href="central-tendency.html#cb158-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb158-11"><a href="central-tendency.html#cb158-11" aria-hidden="true" tabindex="-1"></a><span class="co">#now let&#39;s plot the mode</span></span>
+<span id="cb158-12"><a href="central-tendency.html#cb158-12" aria-hidden="true" tabindex="-1"></a>MODE<span class="ot">=</span><span class="fu">getmode</span>(y)</span>
+<span id="cb158-13"><a href="central-tendency.html#cb158-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>MODE, <span class="at">col=</span><span class="st">&quot;orange&quot;</span>,<span class="at">lwd=</span><span class="dv">4</span>, <span class="at">lty=</span><span class="dv">3</span>) <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span id="cb158-14"><a href="central-tendency.html#cb158-14" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Mode&quot;</span>,<span class="at">x=</span>MODE,<span class="at">y=</span><span class="dv">90</span>, <span class="at">col=</span><span class="st">&quot;orange&quot;</span>, <span class="at">pos=</span><span class="dv">4</span>) </span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-166-1.png" width="672" /></p>
 <p>You should have noted that the mean, median and mode are almost the same in this case. That is because the data are normally distributed (follow a normal distribution).</p>
 <p>Let’s see what happens when the data are skew.</p>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-166-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-167-1.png" width="672" /></p>
 <p>k</p>
 <p>The reverse happens with a right or positive distribution:
-<img src="GEOG380_files/figure-html/unnamed-chunk-167-1.png" width="672" /></p>
+<img src="GEOG380_files/figure-html/unnamed-chunk-168-1.png" width="672" /></p>
 <p>If you see the two skewed distributions above, you will notice how the mean is pulled by the extreme values of the distribution. That is a critical consideration of the arithmetic mean, it is affected by extreme values or so-call <strong>outliers</strong>.</p>
 <p>So a basic rule of thumb is to look at the mean and the median. If they’re the same you can just use the mean, that’s more easy for the average reader to understand. If they differ significantly report them both, or just report the median</p>
 <p>With skew distributions is when it becomes important the distinction between the mean and the median. Lets check an example in which you can deceive a conclusion based on reporting only the mean.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-168"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-169"></span>
 <img src="images/USA%20Household%20Income.png" alt="Income distribution in the USA" width="100%" />
 <p class="caption">
 Figure 5.5: Income distribution in the USA
@@ -591,7 +591,7 @@ Figure 5.5: Income distribution in the USA
 <p>The figure above shows the household income of people in the USA. Clearly, the data follows a right distribution. In this distribution, the mean is larger than the median or the mode. So if you report the mean only, it may create an illusion that most people get paid well in the USA, when in reality most get paid much less.</p>
 <p>In this case, the mean increases primarily as a result of the wealthy becoming wealthier. If we are concerned about how the average American is doing, median is actually a better measure to understand their status.</p>
 <p>The figure below summarizes the central tendency metrics by the type of data distribution.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-169"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-170"></span>
 <img src="images/Distribution%20Skews.png" alt="Central tendendy metrics in skew distributions" width="100%" />
 <p class="caption">
 Figure 5.6: Central tendendy metrics in skew distributions

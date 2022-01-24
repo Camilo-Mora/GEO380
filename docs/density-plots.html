@@ -408,29 +408,29 @@ By Camilo Mora, Ph.D.
 <h2>Density plots</h2>
 <p>At times, when you use scatterplots with many data points, chances are that some points will overlap, and then create a misleading visual representation of the data as any overlapping data points will appear as a single point.</p>
 <p>A better representation of the data in this type of case is the use of density plots, in which the space of the entire plot is gridded into equal size cells, and the number of point overlapping on each cell counted and that is what is displayed. Let’s do an example.</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="density-plots.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets create a dummy dataset of many points</span></span>
-<span id="cb110-2"><a href="density-plots.html#cb110-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data</span></span>
-<span id="cb110-3"><a href="density-plots.html#cb110-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">mean=</span><span class="fl">1.5</span>, <span class="dv">5000</span>)</span>
-<span id="cb110-4"><a href="density-plots.html#cb110-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">mean=</span><span class="fl">1.6</span>, <span class="dv">5000</span>)</span>
-<span id="cb110-5"><a href="density-plots.html#cb110-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb110-6"><a href="density-plots.html#cb110-6" aria-hidden="true" tabindex="-1"></a><span class="co">#lets plot that data</span></span>
-<span id="cb110-7"><a href="density-plots.html#cb110-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(y<span class="sc">~</span>x)</span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-129-1.png" width="672" /></p>
-<p>From the figure above you can tell that it is hard to make sense of any pattern because many points overlap. One solution to this is to use a density plot. And there are different packages to do so. Here we will use the hexbin package.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="density-plots.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Packages</span></span>
-<span id="cb111-2"><a href="density-plots.html#cb111-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hexbin)</span>
-<span id="cb111-3"><a href="density-plots.html#cb111-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer) <span class="co">#This library allows you to create color scales, we will see this later.</span></span>
-<span id="cb111-4"><a href="density-plots.html#cb111-4" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb111-5"><a href="density-plots.html#cb111-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the plot</span></span>
-<span id="cb111-6"><a href="density-plots.html#cb111-6" aria-hidden="true" tabindex="-1"></a>bin<span class="ot">&lt;-</span><span class="fu">hexbin</span>(x, y, <span class="at">xbins=</span><span class="dv">40</span>) <span class="co">#hexbin is the function to grid the points in the plot. You can use different number of grids.</span></span>
-<span id="cb111-7"><a href="density-plots.html#cb111-7" aria-hidden="true" tabindex="-1"></a>my_colors<span class="ot">=</span><span class="fu">colorRampPalette</span>(<span class="fu">rev</span>(<span class="fu">brewer.pal</span>(<span class="dv">11</span>,<span class="st">&#39;Spectral&#39;</span>))) <span class="co">#this is the color scale</span></span>
-<span id="cb111-8"><a href="density-plots.html#cb111-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bin, <span class="at">main=</span><span class="st">&quot;&quot;</span> , <span class="at">colramp=</span>my_colors , <span class="at">legend=</span>F )  <span class="co">#now lets plot the hexbin/grid</span></span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="density-plots.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets create a dummy dataset of many points</span></span>
+<span id="cb111-2"><a href="density-plots.html#cb111-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data</span></span>
+<span id="cb111-3"><a href="density-plots.html#cb111-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">mean=</span><span class="fl">1.5</span>, <span class="dv">5000</span>)</span>
+<span id="cb111-4"><a href="density-plots.html#cb111-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">mean=</span><span class="fl">1.6</span>, <span class="dv">5000</span>)</span>
+<span id="cb111-5"><a href="density-plots.html#cb111-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-6"><a href="density-plots.html#cb111-6" aria-hidden="true" tabindex="-1"></a><span class="co">#lets plot that data</span></span>
+<span id="cb111-7"><a href="density-plots.html#cb111-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(y<span class="sc">~</span>x)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-130-1.png" width="672" /></p>
+<p>From the figure above you can tell that it is hard to make sense of any pattern because many points overlap. One solution to this is to use a density plot. And there are different packages to do so. Here we will use the hexbin package.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="density-plots.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Packages</span></span>
+<span id="cb112-2"><a href="density-plots.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hexbin)</span>
+<span id="cb112-3"><a href="density-plots.html#cb112-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer) <span class="co">#This library allows you to create color scales, we will see this later.</span></span>
+<span id="cb112-4"><a href="density-plots.html#cb112-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb112-5"><a href="density-plots.html#cb112-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the plot</span></span>
+<span id="cb112-6"><a href="density-plots.html#cb112-6" aria-hidden="true" tabindex="-1"></a>bin<span class="ot">&lt;-</span><span class="fu">hexbin</span>(x, y, <span class="at">xbins=</span><span class="dv">40</span>) <span class="co">#hexbin is the function to grid the points in the plot. You can use different number of grids.</span></span>
+<span id="cb112-7"><a href="density-plots.html#cb112-7" aria-hidden="true" tabindex="-1"></a>my_colors<span class="ot">=</span><span class="fu">colorRampPalette</span>(<span class="fu">rev</span>(<span class="fu">brewer.pal</span>(<span class="dv">11</span>,<span class="st">&#39;Spectral&#39;</span>))) <span class="co">#this is the color scale</span></span>
+<span id="cb112-8"><a href="density-plots.html#cb112-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bin, <span class="at">main=</span><span class="st">&quot;&quot;</span> , <span class="at">colramp=</span>my_colors , <span class="at">legend=</span>F )  <span class="co">#now lets plot the hexbin/grid</span></span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-131-1.png" width="672" /></p>
 <p>Now you can see the same data, but plotting the hexbin/grid. You can play with different settings of the hexbin package, by typing ?hexbin in the R console.</p>
 <p>You can also display both plots side by side using the par function.</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="density-plots.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))</span>
-<span id="cb112-2"><a href="density-plots.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bin,<span class="at">colramp=</span>my_colors)  <span class="co">#hexbin plot</span></span>
-<span id="cb112-3"><a href="density-plots.html#cb112-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(y<span class="sc">~</span>x)                    <span class="co">#Scatter plot</span></span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="density-plots.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))</span>
+<span id="cb113-2"><a href="density-plots.html#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bin,<span class="at">colramp=</span>my_colors)  <span class="co">#hexbin plot</span></span>
+<span id="cb113-3"><a href="density-plots.html#cb113-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(y<span class="sc">~</span>x)                    <span class="co">#Scatter plot</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/figures-side-1.png" width="50%" /><img src="GEOG380_files/figure-html/figures-side-2.png" width="50%" /></p>
 </div>
 <div id="disqus_thread"></div>

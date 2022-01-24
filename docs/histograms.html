@@ -408,10 +408,10 @@ By Camilo Mora, Ph.D.
 <h2>Histograms</h2>
 <p>Histograms are a very important type of plot as it lets you see the frequency in which certain values appear in your data. This type of plot is also call a frequency distribution. To create a histogram in R, you use the command hist(x), where x, is the vector of data you want to plot.</p>
 <p>Lets create a frequency distribution of the GDP (Gross Domestic Producto) of countries in the world, using the csv file we loaded earlier,</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="histograms.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets reload the data, just in case you have not loaded it</span></span>
-<span id="cb104-2"><a href="histograms.html#cb104-2" aria-hidden="true" tabindex="-1"></a>GDPData<span class="ot">=</span><span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_GDP.csv&quot;</span>)</span>
-<span id="cb104-3"><a href="histograms.html#cb104-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb104-4"><a href="histograms.html#cb104-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(GDPData)   <span class="co">#now lets check the data</span></span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="histograms.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets reload the data, just in case you have not loaded it</span></span>
+<span id="cb105-2"><a href="histograms.html#cb105-2" aria-hidden="true" tabindex="-1"></a>GDPData<span class="ot">=</span><span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_GDP.csv&quot;</span>)</span>
+<span id="cb105-3"><a href="histograms.html#cb105-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-4"><a href="histograms.html#cb105-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(GDPData)   <span class="co">#now lets check the data</span></span></code></pre></div>
 <pre><code>##       country continent year gdpPercap
 ## 1 Afghanistan      Asia 1952  779.4453
 ## 2 Afghanistan      Asia 1957  820.8530
@@ -419,18 +419,18 @@ By Camilo Mora, Ph.D.
 ## 4 Afghanistan      Asia 1967  836.1971
 ## 5 Afghanistan      Asia 1972  739.9811
 ## 6 Afghanistan      Asia 1977  786.1134</code></pre>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="histograms.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(GDPData<span class="sc">$</span>gdpPercap) <span class="co">#now lets create a frequency of number of countries by GDP</span></span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-125-1.png" width="672" /></p>
-<p>Just as with the scatterplot, you can improve the appearance of the figure. Lets start with the axis name.</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="histograms.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(GDPData<span class="sc">$</span>gdpPercap, <span class="at">xlab=</span><span class="st">&quot;GDP countries in USDollars&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="histograms.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(GDPData<span class="sc">$</span>gdpPercap) <span class="co">#now lets create a frequency of number of countries by GDP</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
-<p>What about that title?. Not pretty, ah?. That is a default in R. To remove it, we set the “main” parameter to NULL, like this:</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="histograms.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(GDPData<span class="sc">$</span>gdpPercap, <span class="at">xlab=</span><span class="st">&quot;GDP countries in USDollars&quot;</span>,<span class="at">main=</span><span class="cn">NULL</span>) </span></code></pre></div>
+<p>Just as with the scatterplot, you can improve the appearance of the figure. Lets start with the axis name.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="histograms.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(GDPData<span class="sc">$</span>gdpPercap, <span class="at">xlab=</span><span class="st">&quot;GDP countries in USDollars&quot;</span>)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
+<p>What about that title?. Not pretty, ah?. That is a default in R. To remove it, we set the “main” parameter to NULL, like this:</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="histograms.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(GDPData<span class="sc">$</span>gdpPercap, <span class="at">xlab=</span><span class="st">&quot;GDP countries in USDollars&quot;</span>,<span class="at">main=</span><span class="cn">NULL</span>) </span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-128-1.png" width="672" /></p>
 <p>Most journals do not allow you to put tittles in your plots.</p>
 <p>If you want to rather keep the tittle, but have a different tittle, you replace NULL with the title you want, like this:</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="histograms.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(GDPData<span class="sc">$</span>gdpPercap, <span class="at">xlab=</span><span class="st">&quot;GDP countries in USDollars&quot;</span>,<span class="at">main=</span><span class="st">&quot;Countries of the World&quot;</span>) </span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-128-1.png" width="672" /></p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="histograms.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(GDPData<span class="sc">$</span>gdpPercap, <span class="at">xlab=</span><span class="st">&quot;GDP countries in USDollars&quot;</span>,<span class="at">main=</span><span class="st">&quot;Countries of the World&quot;</span>) </span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-129-1.png" width="672" /></p>
 </div>
 <div id="disqus_thread"></div>
 <script>

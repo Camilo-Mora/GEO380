@@ -413,7 +413,7 @@ Y = mX + b
 <p>Isn’t it beauty?</p>
 <p>That equation describes, to the best possible, how Y relates to X. With the extra support of the Coefficient of Determination, <span class="math inline">\(r^2\)</span>, you can also know how strong the relationship is.</p>
 <p>And it just keep giving. With that relationship, you can now predict any value of Y, at any given value of X. All you have is to replace the X parameter in the equation above, for the value you like, run the calculation to get the expected value of Y.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-242"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-243"></span>
 <img src="images/Prediction.png" alt="Predictions with linear models" width="60%" />
 <p class="caption">
 Figure 7.7: Predictions with linear models
@@ -435,7 +435,7 @@ Y = 87.64
 <div id="interpolation-and-extrapolation" class="section level3 unnumbered">
 <h3>Interpolation and Extrapolation</h3>
 <p>Predictions based on a linear model can be separated between those that are within the data you have, in which case the prediction is called an “interpolation”. If the prediction is beyond the values of X that you have, then the prediction is call and extrapolation.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-243"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-244"></span>
 <img src="images/Extrapolation.png" alt="Interpolation and Extrapolation" width="60%" />
 <p class="caption">
 Figure 7.8: Interpolation and Extrapolation
@@ -452,17 +452,17 @@ Predicting Y values for X values that are beyond observed X values in the data s
 Becuase extrapolation predict values beyond what is known, uncertainty is much higher and at times forecasts can be unrealistic.
 </div>
 <p>In R, you can predict any value from a linear model, using the <em>predict</em> function, let’s try.</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="predict-interpolation-extrapolation.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="co">#take the data on grades and time studying</span></span>
-<span id="cb201-2"><a href="predict-interpolation-extrapolation.html#cb201-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>) <span class="co">#hours studying</span></span>
-<span id="cb201-3"><a href="predict-interpolation-extrapolation.html#cb201-3" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)       <span class="co">#grades</span></span>
-<span id="cb201-4"><a href="predict-interpolation-extrapolation.html#cb201-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb201-5"><a href="predict-interpolation-extrapolation.html#cb201-5" aria-hidden="true" tabindex="-1"></a><span class="co"># lets estimate the regression line using lm, and lets put that model in a variable</span></span>
-<span id="cb201-6"><a href="predict-interpolation-extrapolation.html#cb201-6" aria-hidden="true" tabindex="-1"></a>LM <span class="ot">=</span> <span class="fu">lm</span> (Y<span class="sc">~</span>X)   <span class="co">#this is the linear model between Grades~Hours_Studying</span></span>
-<span id="cb201-7"><a href="predict-interpolation-extrapolation.html#cb201-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb201-8"><a href="predict-interpolation-extrapolation.html#cb201-8" aria-hidden="true" tabindex="-1"></a><span class="co"># lets now predict, the expected grades for three students that studied 1 hour, 3 hours and 10 hours</span></span>
-<span id="cb201-9"><a href="predict-interpolation-extrapolation.html#cb201-9" aria-hidden="true" tabindex="-1"></a>PredictGradres<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">100</span>)) <span class="co">#here I create a data.frame with the times studied by the three students. You need to create a column, with the same name, as the model, so lm can know which one is  the X-variable</span></span>
-<span id="cb201-10"><a href="predict-interpolation-extrapolation.html#cb201-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb201-11"><a href="predict-interpolation-extrapolation.html#cb201-11" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(LM, PredictGradres)</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="predict-interpolation-extrapolation.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="co">#take the data on grades and time studying</span></span>
+<span id="cb202-2"><a href="predict-interpolation-extrapolation.html#cb202-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>) <span class="co">#hours studying</span></span>
+<span id="cb202-3"><a href="predict-interpolation-extrapolation.html#cb202-3" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)       <span class="co">#grades</span></span>
+<span id="cb202-4"><a href="predict-interpolation-extrapolation.html#cb202-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb202-5"><a href="predict-interpolation-extrapolation.html#cb202-5" aria-hidden="true" tabindex="-1"></a><span class="co"># lets estimate the regression line using lm, and lets put that model in a variable</span></span>
+<span id="cb202-6"><a href="predict-interpolation-extrapolation.html#cb202-6" aria-hidden="true" tabindex="-1"></a>LM <span class="ot">=</span> <span class="fu">lm</span> (Y<span class="sc">~</span>X)   <span class="co">#this is the linear model between Grades~Hours_Studying</span></span>
+<span id="cb202-7"><a href="predict-interpolation-extrapolation.html#cb202-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb202-8"><a href="predict-interpolation-extrapolation.html#cb202-8" aria-hidden="true" tabindex="-1"></a><span class="co"># lets now predict, the expected grades for three students that studied 1 hour, 3 hours and 10 hours</span></span>
+<span id="cb202-9"><a href="predict-interpolation-extrapolation.html#cb202-9" aria-hidden="true" tabindex="-1"></a>PredictGradres<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">100</span>)) <span class="co">#here I create a data.frame with the times studied by the three students. You need to create a column, with the same name, as the model, so lm can know which one is  the X-variable</span></span>
+<span id="cb202-10"><a href="predict-interpolation-extrapolation.html#cb202-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb202-11"><a href="predict-interpolation-extrapolation.html#cb202-11" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(LM, PredictGradres)</span></code></pre></div>
 <pre><code>##          1          2          3 
 ##   58.86272   78.03432 1007.85680</code></pre>
 <p>From the predictions above, you can see how the model wrongly predicts that a person that studies 100 hours a week, will get a 1000.7 grade in the class. Obviously, the most you can get is 100%. This helps to illustrate the caution needed when extrapolating a linear model beyond the limits of the data.</p>

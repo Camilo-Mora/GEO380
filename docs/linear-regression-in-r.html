@@ -408,14 +408,14 @@ By Camilo Mora, Ph.D.
 <h2>Linear regression in R</h2>
 <p>By now you know the equation of the linear regression model, the idea behind the least-squares approach, and how to calculate and interpret the different elements of the equation.</p>
 <p>R can calculate all those equations automatically for you using the <em>lm</em> function, which stands for <em>linear model</em>. The cool think is that you can now interpret the results from that function. Lets try using the data on grades and time studying.</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="linear-regression-in-r.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets start by bringing back the data </span></span>
-<span id="cb197-2"><a href="linear-regression-in-r.html#cb197-2" aria-hidden="true" tabindex="-1"></a>Hours_Studying<span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>)</span>
-<span id="cb197-3"><a href="linear-regression-in-r.html#cb197-3" aria-hidden="true" tabindex="-1"></a>Grade<span class="ot">=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)</span>
-<span id="cb197-4"><a href="linear-regression-in-r.html#cb197-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb197-5"><a href="linear-regression-in-r.html#cb197-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the function lm, requires you to simply set the model as y ~ x. In our case, grades are the dependent variable, so it goes on the Y-axis, and time studying is the independent variable, so it goes in the x-axis.</span></span>
-<span id="cb197-6"><a href="linear-regression-in-r.html#cb197-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span> (Grade<span class="sc">~</span>Hours_Studying)</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="linear-regression-in-r.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets start by bringing back the data </span></span>
+<span id="cb198-2"><a href="linear-regression-in-r.html#cb198-2" aria-hidden="true" tabindex="-1"></a>Hours_Studying<span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>)</span>
+<span id="cb198-3"><a href="linear-regression-in-r.html#cb198-3" aria-hidden="true" tabindex="-1"></a>Grade<span class="ot">=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)</span>
+<span id="cb198-4"><a href="linear-regression-in-r.html#cb198-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb198-5"><a href="linear-regression-in-r.html#cb198-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the function lm, requires you to simply set the model as y ~ x. In our case, grades are the dependent variable, so it goes on the Y-axis, and time studying is the independent variable, so it goes in the x-axis.</span></span>
+<span id="cb198-6"><a href="linear-regression-in-r.html#cb198-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span> (Grade<span class="sc">~</span>Hours_Studying)</span></code></pre></div>
 The results of the linear model, <em>lm</em>, in R are pretty straightforward, check the image below.
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-236"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-237"></span>
 <img src="images/lm%20in%20R.png" alt="Linear regression output in R" width="90%" />
 <p class="caption">
 Figure 7.3: Linear regression output in R

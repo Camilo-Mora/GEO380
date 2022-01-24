@@ -406,7 +406,20 @@ By Camilo Mora, Ph.D.
             <section class="normal" id="section-">
 <div id="exercise" class="section level2 unnumbered">
 <h2>Exercise</h2>
-<p>Please install R and Tinn-R in your computer. Then install and load the package “raster”. Run the first example for the function raster.</p>
+<p>Please install R and R-studio in your computer. Then install and load the package “raster”. Run the example below.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="exercise.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (raster)</span>
+<span id="cb5-2"><a href="exercise.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="exercise.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># check for help by simply typing the question mark followed by the function name (like: ?raster)</span></span>
+<span id="cb5-4"><a href="exercise.html#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="exercise.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#load a raster already saved in the raster package</span></span>
+<span id="cb5-6"><a href="exercise.html#cb5-6" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;external/test.grd&quot;</span>, <span class="at">package=</span><span class="st">&quot;raster&quot;</span>) <span class="co">#file direction</span></span>
+<span id="cb5-7"><a href="exercise.html#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="exercise.html#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#turn it into a raster</span></span>
+<span id="cb5-9"><a href="exercise.html#cb5-9" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">raster</span>(f)</span>
+<span id="cb5-10"><a href="exercise.html#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="exercise.html#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the raster</span></span>
+<span id="cb5-12"><a href="exercise.html#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r)</span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
 
 </div>
 <!-- </div> -->

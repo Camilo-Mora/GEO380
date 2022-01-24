@@ -145,6 +145,19 @@ One super nice thing about R's help is that it provides examples on how the func
 ## Exercise {-}
 
 
-Please install R and Tinn-R in your computer. Then install and load the package "raster". Run the first example for the function raster.
+Please install R and R-studio in your computer. Then install and load the package "raster". Run the example below.
 
+```{r, echo= TRUE, error=TRUE}
+library (raster)
 
+# check for help by simply typing the question mark followed by the function name (like: ?raster)
+
+#load a raster already saved in the raster package
+f <- system.file("external/test.grd", package="raster") #file direction
+
+#turn it into a raster
+r <- raster(f)
+
+#plot the raster
+plot(r)
+```

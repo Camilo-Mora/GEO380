@@ -407,7 +407,7 @@ By Camilo Mora, Ph.D.
 <div id="pivot-table" class="section level2 unnumbered">
 <h2>Pivot table</h2>
 <p>Pivottables are a functionality originally developed in Excel, which allows you to summarize data by attributes. Lets do an example to see how this work.</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="pivot-table.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(GDPData)             <span class="co">#lets look at the column head of the GDP data we loaded earlier.</span></span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="pivot-table.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(GDPData)             <span class="co">#lets look at the column head of the GDP data we loaded earlier.</span></span></code></pre></div>
 <pre><code>##       country continent year gdpPercap
 ## 1699 Zimbabwe    Africa 1982  788.8550
 ## 1700 Zimbabwe    Africa 1987  706.1573
@@ -416,10 +416,10 @@ By Camilo Mora, Ph.D.
 ## 1703 Zimbabwe    Africa 2002  672.0386
 ## 1704 Zimbabwe    Africa 2007  469.7093</code></pre>
 <p>If you look at the GDP database above, you will see that the data also includes the years of the GDPs. What if I want to summarize the data by country? Say for each country, I just want the average of all GDPs of the different years?. For that we use the function summarize from the dplr package. Like this:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="pivot-table.html#cb79-1" aria-hidden="true" tabindex="-1"></a>GDPData <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mean_GDP =</span> <span class="fu">mean</span>(gdpPercap))</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="pivot-table.html#cb80-1" aria-hidden="true" tabindex="-1"></a>GDPData <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mean_GDP =</span> <span class="fu">mean</span>(gdpPercap))</span></code></pre></div>
 <p>Ok, now let that code talk to you. Code is like reading a book; you read from the first word forward to start making a visual representation of that the sentence is saying.</p>
 <p>Coding is not different. Lets take the code above and read it from left to right, like in the image below. In the image below you can see what each part of the code is saying.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-100"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-101"></span>
 <img src="images/Pivot.png" alt="Filter function" width="100%" />
 <p class="caption">
 Figure 3.8: Filter function

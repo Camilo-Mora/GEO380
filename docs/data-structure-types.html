@@ -412,28 +412,28 @@ By Camilo Mora, Ph.D.
 <h3>Vectors</h3>
 <p>A vector is a collection of values. We call the individual values “elements” of the vector.</p>
 <p>We can make vectors with c( ). c means “combine”. Say you have three numbers 1,4,5 and you just do not want to type them every time. you can then put the numbers in a vector.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="data-structure-types.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>) <span class="co">#here I have a vector with three numbers</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="data-structure-types.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>) <span class="co">#here I have a vector with three numbers</span></span></code></pre></div>
 <pre><code>## [1] 1 4 5</code></pre>
 <p>You can also run operations in a vector. Lets use the example above, in which I want to multiply each value in that vector by 2.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="data-structure-types.html#cb41-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>) <span class="co">#here create a variable that contains my vector of three numbers</span></span>
-<span id="cb41-2"><a href="data-structure-types.html#cb41-2" aria-hidden="true" tabindex="-1"></a>a<span class="sc">*</span><span class="dv">2</span>        <span class="co">#here I multiply my variable (vector with three numbers)  by 2.</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-structure-types.html#cb42-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>) <span class="co">#here create a variable that contains my vector of three numbers</span></span>
+<span id="cb42-2"><a href="data-structure-types.html#cb42-2" aria-hidden="true" tabindex="-1"></a>a<span class="sc">*</span><span class="dv">2</span>        <span class="co">#here I multiply my variable (vector with three numbers)  by 2.</span></span></code></pre></div>
 <pre><code>## [1]  2  8 10</code></pre>
 </div>
 <div id="matrix" class="section level3 unnumbered">
 <h3>Matrix</h3>
 <p>You can merge multiple vectors to create a matrix. You can merge the vectors by columns using the function cbind or by rows using the function rbind. Lets do an example to clarify.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-structure-types.html#cb43-1" aria-hidden="true" tabindex="-1"></a>Vector1<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>)                          <span class="co">#here I have vector 1 with three numbers</span></span>
-<span id="cb43-2"><a href="data-structure-types.html#cb43-2" aria-hidden="true" tabindex="-1"></a>Vector2<span class="ot">=</span><span class="fu">c</span>(<span class="dv">56</span>,<span class="dv">42</span>,<span class="dv">93</span>)                       <span class="co">#here I have vector 2 with three numbers</span></span>
-<span id="cb43-3"><a href="data-structure-types.html#cb43-3" aria-hidden="true" tabindex="-1"></a>ColumnMergedVector<span class="ot">=</span><span class="fu">cbind</span>(Vector1,Vector2) <span class="co">#I use cbind to merge the vector by column</span></span>
-<span id="cb43-4"><a href="data-structure-types.html#cb43-4" aria-hidden="true" tabindex="-1"></a>ColumnMergedVector</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-structure-types.html#cb44-1" aria-hidden="true" tabindex="-1"></a>Vector1<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>)                          <span class="co">#here I have vector 1 with three numbers</span></span>
+<span id="cb44-2"><a href="data-structure-types.html#cb44-2" aria-hidden="true" tabindex="-1"></a>Vector2<span class="ot">=</span><span class="fu">c</span>(<span class="dv">56</span>,<span class="dv">42</span>,<span class="dv">93</span>)                       <span class="co">#here I have vector 2 with three numbers</span></span>
+<span id="cb44-3"><a href="data-structure-types.html#cb44-3" aria-hidden="true" tabindex="-1"></a>ColumnMergedVector<span class="ot">=</span><span class="fu">cbind</span>(Vector1,Vector2) <span class="co">#I use cbind to merge the vector by column</span></span>
+<span id="cb44-4"><a href="data-structure-types.html#cb44-4" aria-hidden="true" tabindex="-1"></a>ColumnMergedVector</span></code></pre></div>
 <pre><code>##      Vector1 Vector2
 ## [1,]       1      56
 ## [2,]       4      42
 ## [3,]       5      93</code></pre>
 <p>See in the result above, how each vector became a column.</p>
 <p>May be you prefer to merge them by rows</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-structure-types.html#cb45-1" aria-hidden="true" tabindex="-1"></a>RowMergedVector<span class="ot">=</span><span class="fu">rbind</span>(Vector1,Vector2) <span class="co">#I use rbind to merge the vector by rows</span></span>
-<span id="cb45-2"><a href="data-structure-types.html#cb45-2" aria-hidden="true" tabindex="-1"></a>RowMergedVector</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="data-structure-types.html#cb46-1" aria-hidden="true" tabindex="-1"></a>RowMergedVector<span class="ot">=</span><span class="fu">rbind</span>(Vector1,Vector2) <span class="co">#I use rbind to merge the vector by rows</span></span>
+<span id="cb46-2"><a href="data-structure-types.html#cb46-2" aria-hidden="true" tabindex="-1"></a>RowMergedVector</span></code></pre></div>
 <pre><code>##         [,1] [,2] [,3]
 ## Vector1    1    4    5
 ## Vector2   56   42   93</code></pre>
@@ -443,15 +443,15 @@ By Camilo Mora, Ph.D.
 <h3>DataFrames</h3>
 <p>Dataframes are the most common type of data structure in R. It is has similar topology to a matrix, but it is more diverse in the types of data it can use. Dataframes, are like the “Sheet” version in Excel. To create a dataframe you use the data.frame function. Lets do an example.</p>
 <p>s</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-structure-types.html#cb47-1" aria-hidden="true" tabindex="-1"></a>DataFrame<span class="ot">=</span><span class="fu">data.frame</span>(Vector1,Vector2) <span class="co">#I use data.frame to merge two vectros of data</span></span>
-<span id="cb47-2"><a href="data-structure-types.html#cb47-2" aria-hidden="true" tabindex="-1"></a>DataFrame</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-structure-types.html#cb48-1" aria-hidden="true" tabindex="-1"></a>DataFrame<span class="ot">=</span><span class="fu">data.frame</span>(Vector1,Vector2) <span class="co">#I use data.frame to merge two vectros of data</span></span>
+<span id="cb48-2"><a href="data-structure-types.html#cb48-2" aria-hidden="true" tabindex="-1"></a>DataFrame</span></code></pre></div>
 <pre><code>##   Vector1 Vector2
 ## 1       1      56
 ## 2       4      42
 ## 3       5      93</code></pre>
 <p>Dataframes also allow you to rename the column and row names, and there different ways to do that. Here is one,</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-structure-types.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(DataFrame)<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Height&quot;</span>,<span class="st">&quot;Width&quot;</span>) <span class="co">#Here I rename the two columsn in the dataframe, with the names used in a vector. </span></span>
-<span id="cb49-2"><a href="data-structure-types.html#cb49-2" aria-hidden="true" tabindex="-1"></a>DataFrame</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-structure-types.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(DataFrame)<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Height&quot;</span>,<span class="st">&quot;Width&quot;</span>) <span class="co">#Here I rename the two columsn in the dataframe, with the names used in a vector. </span></span>
+<span id="cb50-2"><a href="data-structure-types.html#cb50-2" aria-hidden="true" tabindex="-1"></a>DataFrame</span></code></pre></div>
 <pre><code>##   Height Width
 ## 1      1    56
 ## 2      4    42

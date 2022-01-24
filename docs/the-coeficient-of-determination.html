@@ -427,7 +427,7 @@ By Camilo Mora, Ph.D.
 <p>Let’s break that equation into its pieces to see what is doing.</p>
 <p><span class="math inline">\(SSmean\)</span>, stands for Sum of Squares of the Mean. That is the same term we have used before <span class="math inline">\(\sum(y - \bar y)^2\)</span>. Basically, how far from the mean is each point. If we were to divide that by the number of samples, you will get the variance that we studied earlier.</p>
 <p>Just to refresh, you take the mean of all values in Y (horizontal line, in image below), for each point measure the distance to that mean (dotted lines), then you square each value and add them together. If you did not square them, when summing them, the result will be zero.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-237"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-238"></span>
 <img src="images/SSMean.gif" alt="Sum of Squares from the Mean, SSmean" width="80%" />
 <p class="caption">
 Figure 7.4: Sum of Squares from the Mean, SSmean
@@ -436,7 +436,7 @@ Figure 7.4: Sum of Squares from the Mean, SSmean
 <p>You need to think of the Sum of Squares of the Mean, <span class="math inline">\(SSmean\)</span>, as the variability in Y.</p>
 <p><span class="math inline">\(SSfit\)</span>, stands for Sum of Squares around the Fit. Let’s see what this means.</p>
 <p>Take the data on grades and time studying, relate grades against times studying, and find the best line (Orange line in figure below). Then for each point measure the distance from the point to the line, or so-call <em>residuals</em> (red-dotted lines). Take each residual, square it, and then add them together. What you get is the Sum of Squares around the Fit, <span class="math inline">\(SSfit\)</span>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-238"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-239"></span>
 <img src="images/SSFit.gif" alt="Sum of Squares around the Fit, SSfit" width="80%" />
 <p class="caption">
 Figure 7.5: Sum of Squares around the Fit, SSfit
@@ -446,33 +446,33 @@ Figure 7.5: Sum of Squares around the Fit, SSfit
 <p>Remember, the regression line is the mathematical formulation of how Y relates to X, whatever is not accounted for by that line are the residuals, or the variation in Y, that remains to be accounted for.</p>
 <p>So, it you look at the formulation for <span class="math inline">\(r^2\)</span>, basically, you are trying to quantify the fraction of variability of Y that was accounted for by the relationship of Y to X. Easy right?</p>
 <p>Let’s calculate <span class="math inline">\(r^2\)</span>,</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="the-coeficient-of-determination.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="co">#take the data on grades and time studying</span></span>
-<span id="cb198-2"><a href="the-coeficient-of-determination.html#cb198-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>) <span class="co">#hours studying</span></span>
-<span id="cb198-3"><a href="the-coeficient-of-determination.html#cb198-3" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)       <span class="co">#grades</span></span>
-<span id="cb198-4"><a href="the-coeficient-of-determination.html#cb198-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb198-5"><a href="the-coeficient-of-determination.html#cb198-5" aria-hidden="true" tabindex="-1"></a><span class="co"># lets estimate the regression line using lm, and lets put that model in a variable</span></span>
-<span id="cb198-6"><a href="the-coeficient-of-determination.html#cb198-6" aria-hidden="true" tabindex="-1"></a>LM <span class="ot">=</span> <span class="fu">lm</span> (Y<span class="sc">~</span>X)   <span class="co">#this is the linear model between Grades~Hours_Studying</span></span>
-<span id="cb198-7"><a href="the-coeficient-of-determination.html#cb198-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb198-8"><a href="the-coeficient-of-determination.html#cb198-8" aria-hidden="true" tabindex="-1"></a><span class="co">#you can find out the residuals of that model using the R-Function residuals.</span></span>
-<span id="cb198-9"><a href="the-coeficient-of-determination.html#cb198-9" aria-hidden="true" tabindex="-1"></a>Residuals<span class="ot">=</span> <span class="fu">residuals</span> (LM)  <span class="co">#here we create a vector with the residuals from our model</span></span>
-<span id="cb198-10"><a href="the-coeficient-of-determination.html#cb198-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb198-11"><a href="the-coeficient-of-determination.html#cb198-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Estimate SSfit</span></span>
-<span id="cb198-12"><a href="the-coeficient-of-determination.html#cb198-12" aria-hidden="true" tabindex="-1"></a>SSFit<span class="ot">=</span> <span class="fu">sum</span> (Residuals<span class="sc">^</span><span class="dv">2</span>)  <span class="co"># here you are squaring each residual, then adding them</span></span>
-<span id="cb198-13"><a href="the-coeficient-of-determination.html#cb198-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb198-14"><a href="the-coeficient-of-determination.html#cb198-14" aria-hidden="true" tabindex="-1"></a><span class="co">#Lets now estimate SSMean</span></span>
-<span id="cb198-15"><a href="the-coeficient-of-determination.html#cb198-15" aria-hidden="true" tabindex="-1"></a>DeltaY<span class="ot">=</span>Y<span class="sc">-</span><span class="fu">mean</span>(Y)  <span class="co"># here you take each value in Y and subtract it to the mean of Y</span></span>
-<span id="cb198-16"><a href="the-coeficient-of-determination.html#cb198-16" aria-hidden="true" tabindex="-1"></a>SSMean<span class="ot">=</span> <span class="fu">sum</span>(DeltaY<span class="sc">^</span><span class="dv">2</span>) <span class="co">#here you square each score in the line above, sum them together</span></span>
-<span id="cb198-17"><a href="the-coeficient-of-determination.html#cb198-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb198-18"><a href="the-coeficient-of-determination.html#cb198-18" aria-hidden="true" tabindex="-1"></a><span class="co">#we have all we need for the calculation of the R2.</span></span>
-<span id="cb198-19"><a href="the-coeficient-of-determination.html#cb198-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb198-20"><a href="the-coeficient-of-determination.html#cb198-20" aria-hidden="true" tabindex="-1"></a>R2<span class="ot">=</span>(SSMean<span class="sc">-</span>SSFit)<span class="sc">/</span>SSMean</span>
-<span id="cb198-21"><a href="the-coeficient-of-determination.html#cb198-21" aria-hidden="true" tabindex="-1"></a>R2</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="the-coeficient-of-determination.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="co">#take the data on grades and time studying</span></span>
+<span id="cb199-2"><a href="the-coeficient-of-determination.html#cb199-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>) <span class="co">#hours studying</span></span>
+<span id="cb199-3"><a href="the-coeficient-of-determination.html#cb199-3" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)       <span class="co">#grades</span></span>
+<span id="cb199-4"><a href="the-coeficient-of-determination.html#cb199-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb199-5"><a href="the-coeficient-of-determination.html#cb199-5" aria-hidden="true" tabindex="-1"></a><span class="co"># lets estimate the regression line using lm, and lets put that model in a variable</span></span>
+<span id="cb199-6"><a href="the-coeficient-of-determination.html#cb199-6" aria-hidden="true" tabindex="-1"></a>LM <span class="ot">=</span> <span class="fu">lm</span> (Y<span class="sc">~</span>X)   <span class="co">#this is the linear model between Grades~Hours_Studying</span></span>
+<span id="cb199-7"><a href="the-coeficient-of-determination.html#cb199-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb199-8"><a href="the-coeficient-of-determination.html#cb199-8" aria-hidden="true" tabindex="-1"></a><span class="co">#you can find out the residuals of that model using the R-Function residuals.</span></span>
+<span id="cb199-9"><a href="the-coeficient-of-determination.html#cb199-9" aria-hidden="true" tabindex="-1"></a>Residuals<span class="ot">=</span> <span class="fu">residuals</span> (LM)  <span class="co">#here we create a vector with the residuals from our model</span></span>
+<span id="cb199-10"><a href="the-coeficient-of-determination.html#cb199-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb199-11"><a href="the-coeficient-of-determination.html#cb199-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Estimate SSfit</span></span>
+<span id="cb199-12"><a href="the-coeficient-of-determination.html#cb199-12" aria-hidden="true" tabindex="-1"></a>SSFit<span class="ot">=</span> <span class="fu">sum</span> (Residuals<span class="sc">^</span><span class="dv">2</span>)  <span class="co"># here you are squaring each residual, then adding them</span></span>
+<span id="cb199-13"><a href="the-coeficient-of-determination.html#cb199-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb199-14"><a href="the-coeficient-of-determination.html#cb199-14" aria-hidden="true" tabindex="-1"></a><span class="co">#Lets now estimate SSMean</span></span>
+<span id="cb199-15"><a href="the-coeficient-of-determination.html#cb199-15" aria-hidden="true" tabindex="-1"></a>DeltaY<span class="ot">=</span>Y<span class="sc">-</span><span class="fu">mean</span>(Y)  <span class="co"># here you take each value in Y and subtract it to the mean of Y</span></span>
+<span id="cb199-16"><a href="the-coeficient-of-determination.html#cb199-16" aria-hidden="true" tabindex="-1"></a>SSMean<span class="ot">=</span> <span class="fu">sum</span>(DeltaY<span class="sc">^</span><span class="dv">2</span>) <span class="co">#here you square each score in the line above, sum them together</span></span>
+<span id="cb199-17"><a href="the-coeficient-of-determination.html#cb199-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb199-18"><a href="the-coeficient-of-determination.html#cb199-18" aria-hidden="true" tabindex="-1"></a><span class="co">#we have all we need for the calculation of the R2.</span></span>
+<span id="cb199-19"><a href="the-coeficient-of-determination.html#cb199-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb199-20"><a href="the-coeficient-of-determination.html#cb199-20" aria-hidden="true" tabindex="-1"></a>R2<span class="ot">=</span>(SSMean<span class="sc">-</span>SSFit)<span class="sc">/</span>SSMean</span>
+<span id="cb199-21"><a href="the-coeficient-of-determination.html#cb199-21" aria-hidden="true" tabindex="-1"></a>R2</span></code></pre></div>
 <pre><code>## [1] 0.9637357</code></pre>
 <p>So, the <span class="math inline">\(r^2\)</span> of the relationship between grades and time studying is 0.96. That is the fraction of the variability in grades that is explained by the amount of time students study. You can also report the <span class="math inline">\(r^2\)</span> as a percentage by multiplying the fraction by 100.</p>
 <p>In R, the <span class="math inline">\(r^2\)</span> is outputted as part of the <em>lm</em> function in combination with the function <em>summary</em>, like this:</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="the-coeficient-of-determination.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span> (LM)   <span class="co">#summary results of the lm we created in the code above.  </span></span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="the-coeficient-of-determination.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span> (LM)   <span class="co">#summary results of the lm we created in the code above.  </span></span></code></pre></div>
 The image below indicates the different outputs, we have studied so far:
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-241"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-242"></span>
 <img src="images/R2.png" alt="lm outputs" width="80%" />
 <p class="caption">
 Figure 7.6: lm outputs

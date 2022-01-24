@@ -407,13 +407,13 @@ By Camilo Mora, Ph.D.
 <div id="filter-data" class="section level2 unnumbered">
 <h2>Filter data</h2>
 <p>A recurring task in data analytics is to filter data, this means to select specific subsets/chucks of your data. Filters can be used to create new variables, to apply new functions, to see specific data, etc. There are numerous ways to filter data in R, but here we wall use the function filter in the package “dplyr”.</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="filter-data.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)     #First, I install the package dplyr and tidyverse, since I have not installed it previously</span></span>
-<span id="cb72-2"><a href="filter-data.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyverse&quot;) </span></span>
-<span id="cb72-3"><a href="filter-data.html#cb72-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-4"><a href="filter-data.html#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co">#next I load the packages into the current section of R.</span></span>
-<span id="cb72-5"><a href="filter-data.html#cb72-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)            </span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="filter-data.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)     #First, I install the package dplyr and tidyverse, since I have not installed it previously</span></span>
+<span id="cb73-2"><a href="filter-data.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyverse&quot;) </span></span>
+<span id="cb73-3"><a href="filter-data.html#cb73-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-4"><a href="filter-data.html#cb73-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co">#next I load the packages into the current section of R.</span></span>
+<span id="cb73-5"><a href="filter-data.html#cb73-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)            </span></code></pre></div>
 <p>Now, lets check the first few rows in the GDP database we loaded earlier,</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="filter-data.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(GDPData)             <span class="co">#lets look at the column head of the GDP data we loaded earlier.</span></span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="filter-data.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(GDPData)             <span class="co">#lets look at the column head of the GDP data we loaded earlier.</span></span></code></pre></div>
 <pre><code>##       country continent year gdpPercap
 ## 1699 Zimbabwe    Africa 1982  788.8550
 ## 1700 Zimbabwe    Africa 1987  706.1573
@@ -423,7 +423,7 @@ By Camilo Mora, Ph.D.
 ## 1704 Zimbabwe    Africa 2007  469.7093</code></pre>
 <p>From the subset of the data above, you can see that the GDPData database has four columns, and from the “year” column, you can tell that the data of GDP (gdpPercap) is repeated for each year. Hmm, but what if I just want to see the data for countries in Asia?. For that we use the function filter.</p>
 <p>The syntax of the filter function reads like this:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-95"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-96"></span>
 <img src="images/Filter.png" alt="Filter function" width="100%" />
 <p class="caption">
 Figure 3.7: Filter function
@@ -434,7 +434,7 @@ Figure 3.7: Filter function
 Pipes, %&gt;%, are a powerful tool for doing sequential operations. Commonly it requires tthe tidyverse package. In the next section you will better see the use of pipes.
 </div>
 <p>Now that you know the syntax of the filter function from the dplr package, lets test it.</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="filter-data.html#cb75-1" aria-hidden="true" tabindex="-1"></a>GDPData <span class="sc">%&gt;%</span> <span class="fu">filter</span>(continent<span class="sc">==</span><span class="st">&quot;Asia&quot;</span>)       </span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="filter-data.html#cb76-1" aria-hidden="true" tabindex="-1"></a>GDPData <span class="sc">%&gt;%</span> <span class="fu">filter</span>(continent<span class="sc">==</span><span class="st">&quot;Asia&quot;</span>)       </span></code></pre></div>
 <pre><code>##                country continent year   gdpPercap
 ## 1          Afghanistan      Asia 1952    779.4453
 ## 2          Afghanistan      Asia 1957    820.8530

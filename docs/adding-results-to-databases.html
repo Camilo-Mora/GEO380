@@ -408,10 +408,10 @@ By Camilo Mora, Ph.D.
 <h2>Adding results to databases</h2>
 <p>Up to this point, we have simply manipulated the data other people collected. What if we now want to do our own analysis with such data? Piece of cake…</p>
 <p>…lets tray, for instance, a new index, in which I want to see how much does it cost a year of life in each country. Basically, all I have to do is to divide how much each person does in each country (i.e., GDP per capita) by the life expectancy of people in each country. Like this,</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="adding-results-to-databases.html#cb92-1" aria-hidden="true" tabindex="-1"></a>SelectedColumns<span class="sc">$</span>ValueofLife <span class="ot">=</span> SelectedColumns<span class="sc">$</span>gdpPercap <span class="sc">/</span> SelectedColumns<span class="sc">$</span>lifeExp </span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="adding-results-to-databases.html#cb93-1" aria-hidden="true" tabindex="-1"></a>SelectedColumns<span class="sc">$</span>ValueofLife <span class="ot">=</span> SelectedColumns<span class="sc">$</span>gdpPercap <span class="sc">/</span> SelectedColumns<span class="sc">$</span>lifeExp </span></code></pre></div>
 <p>WE cant translate the code above as, a a column called ValueofLife to the dataframe SelectedColumns, in which I divide gdpPercap by lifeExp.</p>
 <p>Lets check the results,</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="adding-results-to-databases.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(SelectedColumns)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="adding-results-to-databases.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(SelectedColumns)</span></code></pre></div>
 <pre><code>##       country year gdpPercap lifeExp ValueofLife
 ## 1 Afghanistan 1952  779.4453  28.801    27.06313
 ## 2 Afghanistan 1957  820.8530  30.332    27.06228
@@ -420,7 +420,7 @@ By Camilo Mora, Ph.D.
 ## 5 Afghanistan 1972  739.9811  36.088    20.50491
 ## 6 Afghanistan 1977  786.1134  38.438    20.45146</code></pre>
 <p>Lets do a quiick summary to see the average per country,</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="adding-results-to-databases.html#cb95-1" aria-hidden="true" tabindex="-1"></a>SelectedColumns <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mean_valueOfLife =</span> <span class="fu">mean</span>(ValueofLife))</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="adding-results-to-databases.html#cb96-1" aria-hidden="true" tabindex="-1"></a>SelectedColumns <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mean_valueOfLife =</span> <span class="fu">mean</span>(ValueofLife))</span></code></pre></div>
 <pre><code>## # A tibble: 142 x 2
 ##    country     mean_valueOfLife
 ##    &lt;chr&gt;                  &lt;dbl&gt;

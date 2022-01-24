@@ -410,16 +410,16 @@ By Camilo Mora, Ph.D.
 <div id="deleting-columns" class="section level3 unnumbered">
 <h3>Deleting columns</h3>
 <p>This is the simplest approach. Basically, I set the column I want to delete to NULL. Like this,</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="subsetting-columns.html#cb88-1" aria-hidden="true" tabindex="-1"></a>MergeData<span class="sc">$</span>X<span class="ot">=</span> <span class="cn">NULL</span>            <span class="co">#with this code I delete the column called X, which is probably an index number used by one of the data sources</span></span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="subsetting-columns.html#cb89-1" aria-hidden="true" tabindex="-1"></a>MergeData<span class="sc">$</span>X<span class="ot">=</span> <span class="cn">NULL</span>            <span class="co">#with this code I delete the column called X, which is probably an index number used by one of the data sources</span></span></code></pre></div>
 <p>Now, you try to delete the column “continent.x”.</p>
 </div>
 <div id="selecting-columns" class="section level3 unnumbered">
 <h3>Selecting columns</h3>
 <p>Obviously, if you have many columns that you do not need, deleting columns may take a while, as you have to type each column name you want to delete. Alternatively, you can simply select the columns you need. Like this,</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="subsetting-columns.html#cb89-1" aria-hidden="true" tabindex="-1"></a>SelectedColumns<span class="ot">=</span>MergeData[, <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>,<span class="st">&quot;year&quot;</span>,  <span class="st">&quot;gdpPercap&quot;</span>, <span class="st">&quot;lifeExp&quot;</span> ) ]</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="subsetting-columns.html#cb90-1" aria-hidden="true" tabindex="-1"></a>SelectedColumns<span class="ot">=</span>MergeData[, <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>,<span class="st">&quot;year&quot;</span>,  <span class="st">&quot;gdpPercap&quot;</span>, <span class="st">&quot;lifeExp&quot;</span> ) ]</span></code></pre></div>
 <p>This syntax should be familiar to you already. As it is the indexing function we used earlier [rows, columns].</p>
 <p>If you read the code above, basically….I created a new database called SelectedColumns, which takes the database MergeData and select all rows (because there is nothing to the left of the comma) and the four columns listed in the vector after the comma.</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="subsetting-columns.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(SelectedColumns)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="subsetting-columns.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(SelectedColumns)</span></code></pre></div>
 <pre><code>##       country year gdpPercap lifeExp
 ## 1 Afghanistan 1952  779.4453  28.801
 ## 2 Afghanistan 1957  820.8530  30.332

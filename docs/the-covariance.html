@@ -417,7 +417,7 @@ By Camilo Mora, Ph.D.
 Covariance = COV(XY) = \frac{\sum_{i=1}^n (x -\bar{x})*(y -\bar{y})}{n-1}
 \end{equation}\]</span></p>
 <p>Let’s try a simple example to estimate the Covariance. Let’s consider the relationship that exist between the time that you study for my class and the grade that you get.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-196"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-197"></span>
 <img src="images/TimeStudyingAndGrades.png" alt="Time stuying relates to test scores" width="100%" />
 <p class="caption">
 Figure 6.3: Time stuying relates to test scores
@@ -426,7 +426,7 @@ Figure 6.3: Time stuying relates to test scores
 <p>Say, I asked five students how long they studied each week and the grade they got in my prior classes. These were the data:</p>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-197">Table 6.1: </span>Grades and time studying Stats
+<span id="tab:unnamed-chunk-198">Table 6.1: </span>Grades and time studying Stats
 </caption>
 <thead>
 <tr>
@@ -500,33 +500,33 @@ Tom
 </tbody>
 </table>
 <p>As always, we start by plotting the data:</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="the-covariance.html#cb180-1" aria-hidden="true" tabindex="-1"></a>StudyingTimes<span class="ot">=</span> <span class="fu">data.frame</span>(</span>
-<span id="cb180-2"><a href="the-covariance.html#cb180-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Names=</span><span class="fu">c</span>(<span class="st">&quot;Peter&quot;</span>,<span class="st">&quot;Laura&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Chip&quot;</span>, <span class="st">&quot;Tom&quot;</span>), <span class="co">#lets create a data.frame with three columns</span></span>
-<span id="cb180-3"><a href="the-covariance.html#cb180-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Hours_Studying=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>),</span>
-<span id="cb180-4"><a href="the-covariance.html#cb180-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Score=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>))</span>
-<span id="cb180-5"><a href="the-covariance.html#cb180-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb180-6"><a href="the-covariance.html#cb180-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb180-7"><a href="the-covariance.html#cb180-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb180-8"><a href="the-covariance.html#cb180-8" aria-hidden="true" tabindex="-1"></a><span class="co">#now let&#39;s do the plot</span></span>
-<span id="cb180-9"><a href="the-covariance.html#cb180-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Score<span class="sc">~</span>Hours_Studying,<span class="at">data=</span>StudyingTimes,<span class="at">xlab=</span><span class="st">&quot;Hours a week studying&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Final class score (%)&quot;</span>)</span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-198-1.png" width="672" /></p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="the-covariance.html#cb181-1" aria-hidden="true" tabindex="-1"></a>StudyingTimes<span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb181-2"><a href="the-covariance.html#cb181-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Names=</span><span class="fu">c</span>(<span class="st">&quot;Peter&quot;</span>,<span class="st">&quot;Laura&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Chip&quot;</span>, <span class="st">&quot;Tom&quot;</span>), <span class="co">#lets create a data.frame with three columns</span></span>
+<span id="cb181-3"><a href="the-covariance.html#cb181-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Hours_Studying=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>),</span>
+<span id="cb181-4"><a href="the-covariance.html#cb181-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Score=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>))</span>
+<span id="cb181-5"><a href="the-covariance.html#cb181-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-6"><a href="the-covariance.html#cb181-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-7"><a href="the-covariance.html#cb181-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-8"><a href="the-covariance.html#cb181-8" aria-hidden="true" tabindex="-1"></a><span class="co">#now let&#39;s do the plot</span></span>
+<span id="cb181-9"><a href="the-covariance.html#cb181-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Score<span class="sc">~</span>Hours_Studying,<span class="at">data=</span>StudyingTimes,<span class="at">xlab=</span><span class="st">&quot;Hours a week studying&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Final class score (%)&quot;</span>)</span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-199-1.png" width="672" /></p>
 <p>Lets break the calculation of the covariance into its parts so we can better appreciate what it does.</p>
 <p>First, we calculate the mean of alll values in X and the difference from each value to that mean:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-199"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-200"></span>
 <img src="images/Covariance%20(Differences%20in%20X).png" alt="Differences in X" width="100%" />
 <p class="caption">
 Figure 6.4: Differences in X
 </p>
 </div>
 <p>Let’s do the same for the Y-axis:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-200"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-201"></span>
 <img src="images/Covariance%20(Differences%20in%20Y).png" alt="Difference in Y" width="100%" />
 <p class="caption">
 Figure 6.5: Difference in Y
 </p>
 </div>
 <p>Following the equation of the covariance, for the first point in the data (i.e., Peter), we place his difference to the mean in X (i.e, -2.1) and its difference to the mean in Y (-19.2), in the numerator. Like this:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-201"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-202"></span>
 <img src="images/Covariance%20(Differences%20in%20XYi).png" alt="Difference in X" width="100%" />
 <p class="caption">
 Figure 6.6: Difference in X
@@ -542,7 +542,7 @@ Covariance = COV(XY) =24.3 Hours*Test Score
 \end{equation}\]</span></p>
 <p>Hmm???, Right?…as mentioned earlier the score of the covariance by itself is hard to interpret, but it may still provide useful information about the trend of the data…in this case the covariance is positive, indicating that the differences in X trend in a positive direction as the differences in Y. Basically, as students study more they get higher grades…Please remember that!…and here it goes a token j</p>
 <p>In R, the covariance is calculated with the <em>cov</em> function:</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="the-covariance.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(StudyingTimes<span class="sc">$</span>Score,StudyingTimes<span class="sc">$</span>Hours_Studying, <span class="at">use =</span> <span class="st">&quot;everything&quot;</span>,  <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="the-covariance.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(StudyingTimes<span class="sc">$</span>Score,StudyingTimes<span class="sc">$</span>Hours_Studying, <span class="at">use =</span> <span class="st">&quot;everything&quot;</span>,  <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 24.3</code></pre>
 </div>
 <div id="disqus_thread"></div>

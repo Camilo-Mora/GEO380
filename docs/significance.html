@@ -420,7 +420,7 @@ Remember that the parameter <span class="math inline">\(n\)</span> is call <stro
 <div id="correlation-tables" class="section level3 unnumbered">
 <h3>correlation tables</h3>
 <p>For the case of the correlation, the significance of the correlation can be assessed quickly with a probability table, as the one shown below:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-212"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-213"></span>
 <img src="images/CorrelationCoeficientP.png" alt="Significance of correlations" width="50%" />
 <p class="caption">
 Figure 6.10: Significance of correlations
@@ -438,11 +438,11 @@ Figure 6.10: Significance of correlations
 <h3>Correlation p-values</h3>
 <p>At times, you want to be more specific about the likely error that the correlation you found can be caused by chance alone. In this case, we need to report an exact p-value. Later on we will be studying p-values in more detail.</p>
 <p>In R, the exact p-value of a correlation is calculated with the function <em>cor.test</em>.</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="significance.html#cb190-1" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">=</span>StudyingTimes<span class="sc">$</span>Score</span>
-<span id="cb190-2"><a href="significance.html#cb190-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span>StudyingTimes<span class="sc">$</span>Hours_Studying</span>
-<span id="cb190-3"><a href="significance.html#cb190-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb190-4"><a href="significance.html#cb190-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb190-5"><a href="significance.html#cb190-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span> (X,Y)</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="significance.html#cb191-1" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">=</span>StudyingTimes<span class="sc">$</span>Score</span>
+<span id="cb191-2"><a href="significance.html#cb191-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span>StudyingTimes<span class="sc">$</span>Hours_Studying</span>
+<span id="cb191-3"><a href="significance.html#cb191-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-4"><a href="significance.html#cb191-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-5"><a href="significance.html#cb191-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span> (X,Y)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
