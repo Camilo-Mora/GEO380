@@ -192,8 +192,12 @@ Three important terms for you to know in experimental design are the subject/ind
 Population refers to every individual of interest. The sample refers to only some of the individuals of interest. When you quantify a given variable in an entire population that is called a *census*. Any statistic based on an entire population is called "point stimate".
 
 Drag terms where you think they belong.
-<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=7" width="958" height="883" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
+<iframe src="https://cmora.h5p.com/content/1291859547780625548/embed" aria-label="Terms" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://cmora.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+
+<!-- 
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=7" width="958" height="883" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+ -->
 
 You need to appreciate that statistics from the samples can vary from sample to sample, whereas statistics from the population are fixed for the given population. For instance, in the figure above, yellow birds represent 1 out of ten birds (i.e., 10% of the sample) in the sample outlined with a solid line. Yet in another sample (outlined with a dotted purple line), out of ten individuals there are two yellow birds (i.e., 20%).
 
@@ -443,6 +447,7 @@ The scientific method<span style="color: orange;">d</span> process.
 
 Drag boxes on the right into the boxes on the left in the order you think a question should be answered using the scientific method.
 
+<iframe src="https://cmora.h5p.com/content/1291859538471632228/embed" aria-label="Experiment" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://cmora.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
 
 <iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=2" width="650" height="1073" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 

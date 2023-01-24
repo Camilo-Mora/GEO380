@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Central tendency | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.22.4 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Central tendency | GEOG380.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
@@ -31,8 +30,8 @@
   
 <link rel="prev" href="data-distributions.html"/>
 <link rel="next" href="dispersion.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,9 +47,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -166,8 +165,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a>
 <ul>
-<li><a href="the-hyphotesis.html#the-null-hypothesis-h0">The null hypothesis <em>H0</em></a></li>
-<li><a href="the-hyphotesis.html#the-alternate-hypothesis-h1">The alternate hypothesis <em>H1</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-null-hypothesis-h0"><i class="fa fa-check"></i>The null hypothesis <em>H0</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-alternate-hypothesis-h1"><i class="fa fa-check"></i>The alternate hypothesis <em>H1</em></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a>
 <ul>
@@ -404,8 +403,8 @@ By Camilo Mora, Ph.D.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="central-tendency" class="section level2 unnumbered">
-<h2>Central tendency</h2>
+<div id="central-tendency" class="section level2 unnumbered hasAnchor">
+<h2>Central tendency<a href="central-tendency.html#central-tendency" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Central tendency refers to metrics that attempt to describe what is in the middle of your data. The main metrics of central tendency are the mean (also called average), the median, and the mode.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-148"></span>
 <img src="images/Central%20Tendency%20Measures.png" alt="Measures of central tendency" width="100%" />
@@ -421,8 +420,8 @@ Figure 5.1: Measures of central tendency
 <span id="cb138-4"><a href="central-tendency.html#cb138-4" aria-hidden="true" tabindex="-1"></a><span class="co">#lets now plot that data using the hist function, you already know how to use:</span></span>
 <span id="cb138-5"><a href="central-tendency.html#cb138-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y, <span class="at">main =</span> <span class="st">&quot;Normal Distribution&quot;</span>,<span class="at">breaks =</span> <span class="dv">30</span>)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-149-1.png" width="672" /></p>
-<div id="the-arithmetic-mean" class="section level3 unnumbered">
-<h3>The arithmetic mean</h3>
+<div id="the-arithmetic-mean" class="section level3 unnumbered hasAnchor">
+<h3>The arithmetic mean<a href="central-tendency.html#the-arithmetic-mean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The arithmetic mean is the average of the numbers. It is easy to calculate: add up all the numbers, then divide by how many numbers there are.</p>
 <p>Mathematically, it is expressed as:</p>
 <p><span class="math display">\[\begin{equation}
@@ -464,8 +463,8 @@ In most R functions, it is important to include the command ‘na.rm = TRUE’, 
 <span id="cb145-5"><a href="central-tendency.html#cb145-5" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Mean&quot;</span>,<span class="at">x=</span>MEAN,<span class="at">y=</span><span class="dv">100</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>) <span class="co">#the text function places a label on your figure at the given x and y position you like...there are several other parameters you can control. You can also use the function *legend*, which allows you more controls, including background colors.</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-156-1.png" width="672" /></p>
 </div>
-<div id="the-trimmed-mean" class="section level3 unnumbered">
-<h3>The trimmed mean</h3>
+<div id="the-trimmed-mean" class="section level3 unnumbered hasAnchor">
+<h3>The trimmed mean<a href="central-tendency.html#the-trimmed-mean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are several variations to calculate the mean, for instance the trimmed mean. One of the problems with the arithmetic mean is that it can be strongly impacted by extreme values. In those cases, it is recommend to trim the extremes and calculate the mean on the resulting values.</p>
 <p>Commonly, a %5 trimmed mean should satisfy. As its name indicates, you remove the top and bottom 5% of the data, and calculate the mean on those values.</p>
 <p>Lets try a simple example. Say you measured the time it took 20 students to run 100m.</p>
@@ -486,24 +485,24 @@ In most R functions, it is important to include the command ‘na.rm = TRUE’, 
 <pre><code>## [1] 22.05556</code></pre>
 <p>The 5% trimmed mean is 22.06 compared to the arithmetic mean 26.35.</p>
 </div>
-<div id="the-weighted-average" class="section level3 unnumbered">
-<h3>The weighted average</h3>
+<div id="the-weighted-average" class="section level3 unnumbered hasAnchor">
+<h3>The weighted average<a href="central-tendency.html#the-weighted-average" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sometimes we wish to average numbers, but we want to assign more importance, or
 weight, to some of the numbers. For that we used the weighted average, which is calculated as:</p>
 <p><span class="math display">\[\begin{equation}
-Weighted \ average= \frac{\sum_{i=1}^n (X_i * w)}{\sum_{i=1}^n  w} 
+Weighted \ average= \frac{\sum_{i=1}^n (X_i * w)}{\sum_{i=1}^n  w}
 \end{equation}\]</span></p>
 <p>where <span class="math inline">\(Xi\)</span> is a data value and w is the weight assigned to that data value.</p>
 <p>Lets try an example.</p>
 <p>Suppose your professor tells you that your grade will be based on a midterm and a final exam, each of which is based on 100 possible points. However, the final exam will be worth 60% of the grade and the midterm only 40%. How could you determine an average score that would reflect these different weights? The average you need is the weighted average.</p>
 <p>If you scored 83 in your midterm and 95 in your final, what will be your final grade?.</p>
 <p><span class="math display">\[\begin{equation}
-Weighted \ average= \frac{(83*40)+(95*60)}{(40+60)} 
+Weighted \ average= \frac{(83*40)+(95*60)}{(40+60)}
 \end{equation}\]</span></p>
 <p>So your final grade will be 90.2. Your average is high enough to earn an A, which I hope you all get in my class!. And if you have been paying attention, here are two tokens: jj</p>
 </div>
-<div id="the-median" class="section level3 unnumbered">
-<h3>The median</h3>
+<div id="the-median" class="section level3 unnumbered hasAnchor">
+<h3>The median<a href="central-tendency.html#the-median" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The median (also referred to as the 50th percentile) is the middle value in a sample of ordered values. Half the values are above the median and half are below the median.</p>
 <p>To calculate the median, you start by sorting all values from lowest to highest, the <em>median</em> is the value in the middle.</p>
 <p>When your set of numbers is odd, the median is the single value in the middle of the sorted list. Below is a vector of values indicating the price of different candy.</p>
@@ -539,8 +538,8 @@ Figure 5.4: Median calculation for even number of values
 <span id="cb152-10"><a href="central-tendency.html#cb152-10" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Median&quot;</span>,<span class="at">x=</span>MEDIAN,<span class="at">y=</span><span class="dv">100</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">pos=</span><span class="dv">2</span>) </span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-162-1.png" width="672" /></p>
 </div>
-<div id="the-mode" class="section level3 unnumbered">
-<h3>The mode</h3>
+<div id="the-mode" class="section level3 unnumbered hasAnchor">
+<h3>The mode<a href="central-tendency.html#the-mode" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The mode is simply the most common value in all of your data.</p>
 <p>R does not have a standard in-built function to calculate mode. So we create a user function to calculate the mode of a dataset. This function takes a vector as input and gives the mode value as output.</p>
 <div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="central-tendency.html#cb153-1" aria-hidden="true" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(v) {   <span class="co"># the function will take a vector of values</span></span>
@@ -631,7 +630,6 @@ Figure 5.6: Central tendendy metrics in skew distributions
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -670,9 +668,9 @@ gitbook.start({
 "link": "https://github.com/Camilo-Mora/GEO380/blob/main/05-DescriptiveStatistics.Rmd",
 "text": null
 },
-"download": null,
+"download": ["GEOG380.pdf", "GEOG380.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

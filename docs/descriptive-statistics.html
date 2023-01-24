@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>5 Descriptive statistics | GEOG380.knit</title>
+<meta name="description" content="Ok, guys, by now you know how: to set a question, reformulate the question based on your literature review, set up an error proof experiment, enter and manipulate data in R and do some basic plots...">
+<meta name="generator" content="bookdown 0.26.3 with bs4_book()">
+<meta property="og:title" content="5 Descriptive statistics | GEOG380.knit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Ok, guys, by now you know how: to set a question, reformulate the question based on your literature review, set up an error proof experiment, enter and manipulate data in R and do some basic plots...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="5 Descriptive statistics | GEOG380.knit">
+<meta name="twitter:description" content="Ok, guys, by now you know how: to set a question, reformulate the question based on your literature review, set up an error proof experiment, enter and manipulate data in R and do some basic plots...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html">Introduction</a></li>
+<li><a class="" href="class-expectations.html">Class expectations</a></li>
+<li><a class="" href="the-scientific-method.html"><span class="header-section-number">1</span> The scientific method</a></li>
+<li><a class="" href="installing-programs.html"><span class="header-section-number">2</span> Installing programs</a></li>
+<li><a class="" href="basics-on-data-manipulation-in-r.html"><span class="header-section-number">3</span> Basics on data manipulation in R</a></li>
+<li><a class="" href="basic-plots.html"><span class="header-section-number">4</span> Basic plots</a></li>
+<li><a class="active" href="descriptive-statistics.html"><span class="header-section-number">5</span> Descriptive statistics</a></li>
+<li><a class="" href="correlation-1.html"><span class="header-section-number">6</span> Correlation</a></li>
+<li><a class="" href="regression-1.html"><span class="header-section-number">7</span> Regression</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">8</span> Hypothesis testing</a></li>
+<li><a class="" href="standard-hypothesis-tests.html"><span class="header-section-number">9</span> Standard hypothesis tests</a></li>
+<li><a class="" href="one-sample-tests.html"><span class="header-section-number">10</span> One sample tests</a></li>
+<li><a class="" href="two-sample-tests.html"><span class="header-section-number">11</span> Two sample tests</a></li>
+<li><a class="" href="multiple-sample-test.html"><span class="header-section-number">12</span> Multiple sample test</a></li>
+<li><a class="" href="final-project.html"><span class="header-section-number">13</span> Final project</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="descriptive-statistics" class="section level1" number="5">
+<h1>
+<span class="header-section-number">5</span> Descriptive statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics"><i class="fas fa-link"></i></a>
+</h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OLCReYns0dQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Ok, guys, by now you know how:</p>
+<ol style="list-style-type: decimal">
+<li>to set a question,</li>
+<li>reformulate the question based on your literature review,</li>
+<li>set up an error proof experiment,</li>
+<li>enter and manipulate data in R and</li>
+<li>do some basic plots in R.</li>
+</ol>
+<p>Nice, ah?.</p>
+<p>Now we move on to the analysis of any data you collect. That process is called <strong>inference</strong>; basically, drowning a conclusion based on the numbers and your interpretation of those numbers.</p>
+<p>iii</p>
+
+<div class="rmdnote">
+Inference is defined as the process of drawing conclusions based on evidence and reasoning.
+</div>
+<p>Once you finish an experiment and collect your data, there are a few things to do:</p>
+<p>First, you need visualize the data, using plots you learned how to do in the prior chapter.</p>
+<p>Second, you need to use a set of available metrics to describe your data in general. You need to get the big picture first. Those BIG picture metrics are called <strong>DESCRIPTIVE STATISTICS</strong>.</p>
+<p>Say you get hired to analyze the visiting times of costumers in a store. The manager wants to ensure his costumers are always being attended to so he wants to hire more people at pick hours.</p>
+<p>To tackled this problem, you probably want to record the time people walk into the store. Let’s say 100 people came in a day.</p>
+<p>If you want to report your findings to the manager, you cannot just go and tell him, the first costumer came at 7 am, the second at 7:10, the third at 8:20 am….(one hour later)…and the 100th costumer came in at 7:00pm.</p>
+<p>Very likely there is a pattern in that data, but the manager cannot really perceived it when the data are presented in raw form. So the manager cannot really make any decision to solve his problem based on what you did, so he may not have a reason to keep you.</p>
+<p>Really what you want to do is to describe that data for him, as to facilitate his decision.</p>
+<p>The metrics used to describe data overall are called <strong>descriptive statistics</strong>. Such metrics are commonly divided into those dealing with what is at the middle of your data (the so-call metrics of <strong>central tendency</strong>) and those dealing with how variable your data are (the so-call <strong>metrics of dispersion</strong>).</p>
+<div id="data-distributions" class="section level2 unnumbered">
+<h2>Data distributions<a class="anchor" aria-label="anchor" href="#data-distributions"><i class="fas fa-link"></i></a>
+</h2>
+<p>As mentioned several times in this class, the first thing to always do when analyzing data is to create a visual representation. You need to see what are the general tendencies in your data, and for that we commonly start with the frequency distribution.</p>
+<p>Lets image that the plot below is the number of seedlings (points) at each height in my nursery. Interesting, ahh?. That type of distribution is called bimodal (there are two peaks in the data). Clearly, there is something going on in my nursery, some seedlings are doing particularly better than others.</p>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-145-1.png" width="672"></div>
+<p>p</p>
+<p>The distribution below is called a <strong>uniform distribution</strong>, any number is just as likely.</p>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-146-1.png" width="672"></div>
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=9" width="958" height="311" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><p>o</p>
+<div class="inline-figure">The distribution below is called a left distribution. I know, it is weird how the data tend towards the right but it is called a left distribution. It is also called negative or asymmetrical distribution. Because it has only one peak, it can also be call unimodal distribution.
+<img src="GEOG380_files/figure-html/unnamed-chunk-147-1.png" width="672">
+</div>
+<p>In the figure below, you can explore different distributions,</p>
+<iframe src="https://mora.shinyapps.io/Distributions/" width="100%" height="600px">
+</iframe>
+</div>
+<div id="central-tendency" class="section level2 unnumbered">
+<h2>Central tendency<a class="anchor" aria-label="anchor" href="#central-tendency"><i class="fas fa-link"></i></a>
+</h2>
+<p>Central tendency refers to metrics that attempt to describe what is in the middle of your data. The main metrics of central tendency are the mean (also called average), the median, and the mode.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-148"></span>
+<img src="images/Central%20Tendency%20Measures.png" alt="Measures of central tendency" width="100%"><p class="caption">
+Figure 5.1: Measures of central tendency
+</p>
+</div>
+<p>l</p>
+<p>Let’s create some dummy data to see what these metrics are intended to show, how to interpret them and when to use them.</p>
+<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span> <span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span> <span class="co"># the function rnorm allows you to create a random set of numbers from a normal distribution</span></span>
+<span></span>
+<span><span class="co">#lets now plot that data using the hist function, you already know how to use:</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">y</span>, main <span class="op">=</span> <span class="st">"Normal Distribution"</span>,breaks <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-149-1.png" width="672"></div>
+<div id="the-arithmetic-mean" class="section level3 unnumbered">
+<h3>The arithmetic mean<a class="anchor" aria-label="anchor" href="#the-arithmetic-mean"><i class="fas fa-link"></i></a>
+</h3>
+<p>The arithmetic mean is the average of the numbers. It is easy to calculate: add up all the numbers, then divide by how many numbers there are.</p>
+<p>Mathematically, it is expressed as:</p>
+<p><span class="math display">\[\begin{equation}
+\bar{X} = \frac{\sum_{i=1}^n X_i}{n}
+\end{equation}\]</span></p>
+
+<div class="rmdimportant">
+<p>The mean of a sample is denoted wit the letter <span class="math inline">\(\bar{X}\)</span>; at times it does not include the horizontal bar above the letter.</p>
+The mean of a population is at times denoted with the lowercase letter <span class="math inline">\(u\)</span>, at times it is not cursive. They are both calculated the same way.
+</div>
+<p>The symbol that looks like a pacman, <span class="math inline">\(\sum_{}\)</span>, is call <strong>summation</strong>. The lower letter <span class="math inline">\(i\)</span> indicates that the summation starts from the first number (i.e., i=1), and the higher letter <em>n</em>, means the last number. <span class="math inline">\(Xi\)</span> means each value. In short, the numerator of the equation above says: sum all values starting from the first one until the last one. <span class="math inline">\(n\)</span> indicates the sample size or total number of values in your database (if it is was the average of a population, you will likely see capital letter <span class="math inline">\(N\)</span> instead of the lowercase <span class="math inline">\(n\)</span> ).</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-151"></span>
+<img src="images/Stupid%20mean.jpg" alt="The stupid mean" width="100%"><p class="caption">
+Figure 5.2: The stupid mean
+</p>
+</div>
+<p>y</p>
+<p>In R, the mean is calculated with the function mean.</p>
+<div class="sourceCode" id="cb139"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">MEAN</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span> <span class="op">(</span><span class="va">y</span>, na.rm <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>  <span class="co">#here I calculate the mean, and assign it to a variable.</span></span>
+<span><span class="va">MEAN</span>           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
+<pre><code>## [1] 0.01137474</code></pre>
+<p>You may have noted that I added ‘na.rm = TRUE’ in the mean function. This command is used as a caution to calculate the mean even if you have empty values. Lets check,</p>
+<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">VectorMissingAValue</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>,<span class="fl">7</span>,<span class="fl">3</span>,<span class="fl">4.2</span>,<span class="fl">18</span>,<span class="fl">2</span>,<span class="fl">54</span>,<span class="op">-</span><span class="fl">21</span>,<span class="fl">8</span>,<span class="op">-</span><span class="fl">5</span>,<span class="cn">NA</span><span class="op">)</span><span class="co">#here I created a vector of values, incluidng a missing value NA (NA in R stands for Not Available)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span> <span class="op">(</span><span class="va">VectorMissingAValue</span><span class="op">)</span>  <span class="co">#If I calculate the mean of a vector with missing values I get</span></span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>Now, if you include the command ‘na.rm = TRUE’, that will re-do the calculation excluding any missing value.</p>
+<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span> <span class="op">(</span><span class="va">VectorMissingAValue</span>,na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>  </span></code></pre></div>
+<pre><code>## [1] 8.22</code></pre>
+
+<div class="rmdcaution">
+In most R functions, it is important to include the command ‘na.rm = TRUE’, which means to exclude any missing value. If for any reason your data has empty cells or missing values, falling to include the ‘na.rm = TRUE’ command will result in an error….again this will be a problem only when you are missing data.
+</div>
+<p>Alright, lets keep going. You can visualize the mean in the histogram using the function <em>abline</em>, and put a name using the <em>text</em> function, like this:</p>
+<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">y</span>, main <span class="op">=</span> <span class="cn">NULL</span>,breaks <span class="op">=</span> <span class="fl">30</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">100</span><span class="op">)</span>,<span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">MEAN</span>, col<span class="op">=</span><span class="st">"red"</span>,lwd<span class="op">=</span><span class="fl">5</span><span class="op">)</span> <span class="co">#abline put a line in a figure...you use v for vertical and h for horizontal, the value that proceeds is where the line will be drawn.</span></span>
+<span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="st">"Mean"</span>,x<span class="op">=</span><span class="va">MEAN</span>,y<span class="op">=</span><span class="fl">100</span>, col<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span> <span class="co">#the text function places a label on your figure at the given x and y position you like...there are several other parameters you can control. You can also use the function *legend*, which allows you more controls, including background colors.</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-156-1.png" width="672"></div>
+</div>
+<div id="the-trimmed-mean" class="section level3 unnumbered">
+<h3>The trimmed mean<a class="anchor" aria-label="anchor" href="#the-trimmed-mean"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are several variations to calculate the mean, for instance the trimmed mean. One of the problems with the arithmetic mean is that it can be strongly impacted by extreme values. In those cases, it is recommend to trim the extremes and calculate the mean on the resulting values.</p>
+<p>Commonly, a %5 trimmed mean should satisfy. As its name indicates, you remove the top and bottom 5% of the data, and calculate the mean on those values.</p>
+<p>Lets try a simple example. Say you measured the time it took 20 students to run 100m.</p>
+<p>The individual values in seconds were 10, 20, 23, 23, 22, 20, 25, 22, 20, 25, 22, 20, 25, 20, 21, 21, 23, 21, 24, and 120.</p>
+<p>To calculate this in R, I put all values in a vector and calculate the mean,</p>
+<div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">vals</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">20</span>,<span class="fl">23</span>,<span class="fl">23</span>,<span class="fl">22</span>,<span class="fl">20</span>,<span class="fl">25</span>,<span class="fl">22</span>,<span class="fl">20</span>,<span class="fl">25</span>,<span class="fl">22</span>,<span class="fl">20</span>,<span class="fl">25</span>,<span class="fl">20</span>,<span class="fl">21</span>,<span class="fl">21</span>,<span class="fl">23</span>,<span class="fl">21</span>,<span class="fl">24</span>,<span class="fl">120</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">vals</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 26.35</code></pre>
+<p>But from the data, you can tell that one student was very fast (only took 10 secs) and another one was very slow (he took 120secs). Lets try a 5% trimmed mean,</p>
+<p>First, you sort the data from smallest to largest,</p>
+<p><span style="color: red;">10</span>,20,20,20,20,20,21,21,21,22,22,22,23,23,23,24,25,25,25,<span style="color: red;">120</span></p>
+<p>Now you remove the first and last (i.e, 5% of 20 is 1, so you delete the bottom and top one records, red numbers in the array).</p>
+<p>Now calculate the mean of the resulting data or the so-call 5% trimmed mean:</p>
+<div class="sourceCode" id="cb148"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Trimmedvals</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">20</span>,<span class="fl">23</span>,<span class="fl">23</span>,<span class="fl">22</span>,<span class="fl">20</span>,<span class="fl">25</span>,<span class="fl">22</span>,<span class="fl">20</span>,<span class="fl">25</span>,<span class="fl">22</span>,<span class="fl">20</span>,<span class="fl">25</span>,<span class="fl">20</span>,<span class="fl">21</span>,<span class="fl">21</span>,<span class="fl">23</span>,<span class="fl">21</span>,<span class="fl">24</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Trimmedvals</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 22.05556</code></pre>
+<p>The 5% trimmed mean is 22.06 compared to the arithmetic mean 26.35.</p>
+</div>
+<div id="the-weighted-average" class="section level3 unnumbered">
+<h3>The weighted average<a class="anchor" aria-label="anchor" href="#the-weighted-average"><i class="fas fa-link"></i></a>
+</h3>
+<p>Sometimes we wish to average numbers, but we want to assign more importance, or
+weight, to some of the numbers. For that we used the weighted average, which is calculated as:</p>
+<p><span class="math display">\[\begin{equation}
+Weighted \ average= \frac{\sum_{i=1}^n (X_i * w)}{\sum_{i=1}^n  w}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(Xi\)</span> is a data value and w is the weight assigned to that data value.</p>
+<p>Lets try an example.</p>
+<p>Suppose your professor tells you that your grade will be based on a midterm and a final exam, each of which is based on 100 possible points. However, the final exam will be worth 60% of the grade and the midterm only 40%. How could you determine an average score that would reflect these different weights? The average you need is the weighted average.</p>
+<p>If you scored 83 in your midterm and 95 in your final, what will be your final grade?.</p>
+<p><span class="math display">\[\begin{equation}
+Weighted \ average= \frac{(83*40)+(95*60)}{(40+60)}
+\end{equation}\]</span></p>
+<p>So your final grade will be 90.2. Your average is high enough to earn an A, which I hope you all get in my class!. And if you have been paying attention, here are two tokens: jj</p>
+</div>
+<div id="the-median" class="section level3 unnumbered">
+<h3>The median<a class="anchor" aria-label="anchor" href="#the-median"><i class="fas fa-link"></i></a>
+</h3>
+<p>The median (also referred to as the 50th percentile) is the middle value in a sample of ordered values. Half the values are above the median and half are below the median.</p>
+<p>To calculate the median, you start by sorting all values from lowest to highest, the <em>median</em> is the value in the middle.</p>
+<p>When your set of numbers is odd, the median is the single value in the middle of the sorted list. Below is a vector of values indicating the price of different candy.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-159"></span>
+<img src="images/Median%20odd%20Numbers.png" alt="Median calculation for odd number of values" width="100%"><p class="caption">
+Figure 5.3: Median calculation for odd number of values
+</p>
+</div>
+<p>When your set of numbers is even, you have a problem because there will be two numbers right in the middle of the sorted vector. In this case you report the arithmetic mean of the two values in the middle.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-160"></span>
+<img src="images/Median%20Even%20Numbers.png" alt="Median calculation for even number of values" width="100%"><p class="caption">
+Figure 5.4: Median calculation for even number of values
+</p>
+</div>
+<p>y</p>
+<p>In R, the median is calculated with the function median.</p>
+<div class="sourceCode" id="cb150"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">MEDIAN</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span> <span class="op">(</span><span class="va">y</span><span class="op">)</span>  <span class="co">#here I calculate the mean, and assign it to a variable.</span></span>
+<span><span class="va">MEDIAN</span>           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
+<pre><code>## [1] -0.003001333</code></pre>
+<p>p</p>
+<p>Let’s plot the median with the mean value to the histogram we were doing before.</p>
+<div class="sourceCode" id="cb152"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">y</span>, main <span class="op">=</span> <span class="cn">NULL</span>,breaks <span class="op">=</span> <span class="fl">30</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">110</span><span class="op">)</span>,<span class="op">)</span></span>
+<span></span>
+<span><span class="co">#lets plot the mean</span></span>
+<span><span class="va">MEAN</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">MEAN</span>, col<span class="op">=</span><span class="st">"red"</span>,lwd<span class="op">=</span><span class="fl">5</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="st">"Mean"</span>,x<span class="op">=</span><span class="va">MEAN</span>,y<span class="op">=</span><span class="fl">110</span>, col<span class="op">=</span><span class="st">"red"</span>,pos<span class="op">=</span><span class="fl">4</span><span class="op">)</span> <span class="co">#pos=4 means, to place the text to the right of the coordinates xy.</span></span>
+<span></span>
+<span><span class="co"># now the median</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">MEDIAN</span>, col<span class="op">=</span><span class="st">"blue"</span>,lwd<span class="op">=</span><span class="fl">3</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="st">"Median"</span>,x<span class="op">=</span><span class="va">MEDIAN</span>,y<span class="op">=</span><span class="fl">100</span>, col<span class="op">=</span><span class="st">"blue"</span>, pos<span class="op">=</span><span class="fl">2</span><span class="op">)</span> </span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-162-1.png" width="672"></div>
+</div>
+<div id="the-mode" class="section level3 unnumbered">
+<h3>The mode<a class="anchor" aria-label="anchor" href="#the-mode"><i class="fas fa-link"></i></a>
+</h3>
+<p>The mode is simply the most common value in all of your data.</p>
+<p>R does not have a standard in-built function to calculate mode. So we create a user function to calculate the mode of a dataset. This function takes a vector as input and gives the mode value as output.</p>
+<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">getmode</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">v</span><span class="op">)</span> <span class="op">{</span>   <span class="co"># the function will take a vector of values</span></span>
+<span>   <span class="va">uniqv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/unique.html">unique</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span>      <span class="co">#select all the unique values in the vector </span></span>
+<span>   <span class="va">uniqv</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/which.minmax.html">which.max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tabulate.html">tabulate</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/match.html">match</a></span><span class="op">(</span><span class="va">v</span>, <span class="va">uniqv</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">]</span> <span class="co">#stimate the number of times each value appears and return the largest</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>Now let’s use our new function</p>
+<div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">MODE</span><span class="op">=</span><span class="fu">getmode</span><span class="op">(</span><span class="va">y</span><span class="op">)</span>  <span class="co">#here I calculate the mode, and assign it to a variable.</span></span>
+<span><span class="va">MODE</span>           <span class="co">#to display the variable, simply type it, and click enter</span></span></code></pre></div>
+<pre><code>## [1] 0.01874617</code></pre>
+<p>Unlike the mean and the median, the mode can also be used with character data (i.e., words). For instance, you want to know what is the most common name in the USA?. For that you can use the mode.</p>
+<div class="sourceCode" id="cb156"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create the vector with characters.</span></span>
+<span><span class="va">NAMES</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Peter"</span>, <span class="st">"Carl"</span>, <span class="st">"Darrell"</span>, <span class="st">"John"</span>, <span class="st">"Peter"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">getmode</span><span class="op">(</span><span class="va">NAMES</span><span class="op">)</span>  <span class="co">#here I calculate the mode, and assign it to a variable.</span></span></code></pre></div>
+<pre><code>## [1] "Peter"</code></pre>
+<p>Let’s plot our mode in the histogram with the mean and the median we were working on before.</p>
+<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">y</span>, main <span class="op">=</span> <span class="cn">NULL</span>,breaks <span class="op">=</span> <span class="fl">30</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">110</span><span class="op">)</span>,<span class="op">)</span></span>
+<span></span>
+<span><span class="co">#lets plot the mean</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">MEAN</span>, col<span class="op">=</span><span class="st">"red"</span>,lwd<span class="op">=</span><span class="fl">6</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="st">"Mean"</span>,x<span class="op">=</span><span class="va">MEAN</span>,y<span class="op">=</span><span class="fl">110</span>, col<span class="op">=</span><span class="st">"red"</span>,pos<span class="op">=</span><span class="fl">4</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co"># now the median</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">MEDIAN</span>, col<span class="op">=</span><span class="st">"blue"</span>,lwd<span class="op">=</span><span class="fl">4</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="st">"Median"</span>,x<span class="op">=</span><span class="va">MEDIAN</span>,y<span class="op">=</span><span class="fl">100</span>, col<span class="op">=</span><span class="st">"blue"</span>, pos<span class="op">=</span><span class="fl">2</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co">#now let's plot the mode</span></span>
+<span><span class="va">MODE</span><span class="op">=</span><span class="fu">getmode</span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">MODE</span>, col<span class="op">=</span><span class="st">"orange"</span>,lwd<span class="op">=</span><span class="fl">4</span>, lty<span class="op">=</span><span class="fl">3</span><span class="op">)</span> <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="st">"Mode"</span>,x<span class="op">=</span><span class="va">MODE</span>,y<span class="op">=</span><span class="fl">90</span>, col<span class="op">=</span><span class="st">"orange"</span>, pos<span class="op">=</span><span class="fl">4</span><span class="op">)</span> </span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-166-1.png" width="672"></div>
+<p>You should have noted that the mean, median and mode are almost the same in this case. That is because the data are normally distributed (follow a normal distribution).</p>
+<p>Let’s see what happens when the data are skew.</p>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-167-1.png" width="672"></div>
+<p>k</p>
+<div class="inline-figure">The reverse happens with a right or positive distribution:
+<img src="GEOG380_files/figure-html/unnamed-chunk-168-1.png" width="672">
+</div>
+<p>If you see the two skewed distributions above, you will notice how the mean is pulled by the extreme values of the distribution. That is a critical consideration of the arithmetic mean, it is affected by extreme values or so-call <strong>outliers</strong>.</p>
+<p>So a basic rule of thumb is to look at the mean and the median. If they’re the same you can just use the mean, that’s more easy for the average reader to understand. If they differ significantly report them both, or just report the median</p>
+<p>With skew distributions is when it becomes important the distinction between the mean and the median. Lets check an example in which you can deceive a conclusion based on reporting only the mean.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-169"></span>
+<img src="images/USA%20Household%20Income.png" alt="Income distribution in the USA" width="100%"><p class="caption">
+Figure 5.5: Income distribution in the USA
+</p>
+</div>
+<p>The figure above shows the household income of people in the USA. Clearly, the data follows a right distribution. In this distribution, the mean is larger than the median or the mode. So if you report the mean only, it may create an illusion that most people get paid well in the USA, when in reality most get paid much less.</p>
+<p>In this case, the mean increases primarily as a result of the wealthy becoming wealthier. If we are concerned about how the average American is doing, median is actually a better measure to understand their status.</p>
+<p>The figure below summarizes the central tendency metrics by the type of data distribution.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-170"></span>
+<img src="images/Distribution%20Skews.png" alt="Central tendendy metrics in skew distributions" width="100%"><p class="caption">
+Figure 5.6: Central tendendy metrics in skew distributions
+</p>
+</div>
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=11" width="958" height="312" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+</div>
+</div>
+<div id="dispersion" class="section level2 unnumbered">
+<h2>Dispersion<a class="anchor" aria-label="anchor" href="#dispersion"><i class="fas fa-link"></i></a>
+</h2>
+<p>Dispersion refers to describing the spread of your data. And there are different metrics that may help you describe the variability in your data.</p>
+<div id="the-minimum-and-the-maximum" class="section level3 unnumbered">
+<h3>The minimum and the maximum<a class="anchor" aria-label="anchor" href="#the-minimum-and-the-maximum"><i class="fas fa-link"></i></a>
+</h3>
+<p>The most basic metrics of the data dispersion are the minimum and the maximum. As their names indicate they are the lowest and the highest values in your data.</p>
+<p>In R, the minimum and maximum are calculated with the function min and max, respectively.</p>
+<p>Let’s plot them:</p>
+<div class="sourceCode" id="cb159"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">y</span>, main <span class="op">=</span> <span class="cn">NULL</span>,breaks <span class="op">=</span> <span class="fl">30</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">110</span><span class="op">)</span>,<span class="op">)</span></span>
+<span></span>
+<span><span class="co">#lets plot the mean</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">MEAN</span>, col<span class="op">=</span><span class="st">"red"</span>,lwd<span class="op">=</span><span class="fl">6</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="st">"Mean"</span>,x<span class="op">=</span><span class="va">MEAN</span>,y<span class="op">=</span><span class="fl">110</span>, col<span class="op">=</span><span class="st">"red"</span>,pos<span class="op">=</span><span class="fl">4</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co"># now the median</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">MEDIAN</span>, col<span class="op">=</span><span class="st">"blue"</span>,lwd<span class="op">=</span><span class="fl">4</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="st">"Median"</span>,x<span class="op">=</span><span class="va">MEDIAN</span>,y<span class="op">=</span><span class="fl">100</span>, col<span class="op">=</span><span class="st">"blue"</span>, pos<span class="op">=</span><span class="fl">2</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co">#now let's plot the mode</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">MODE</span>, col<span class="op">=</span><span class="st">"orange"</span>,lwd<span class="op">=</span><span class="fl">4</span>, lty<span class="op">=</span><span class="fl">3</span><span class="op">)</span> <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="st">"Mode"</span>,x<span class="op">=</span><span class="va">MODE</span>,y<span class="op">=</span><span class="fl">90</span>, col<span class="op">=</span><span class="st">"orange"</span>, pos<span class="op">=</span><span class="fl">4</span><span class="op">)</span> </span>
+<span></span>
+<span></span>
+<span><span class="co">#now let's plot the minimum</span></span>
+<span><span class="va">MINIMUM</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">MINIMUM</span>, col<span class="op">=</span><span class="st">"dark grey"</span>,lwd<span class="op">=</span><span class="fl">4</span>, lty<span class="op">=</span><span class="fl">3</span><span class="op">)</span> <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="st">"Minimum"</span>,x<span class="op">=</span><span class="va">MINIMUM</span>,y<span class="op">=</span><span class="fl">90</span>, col<span class="op">=</span><span class="st">"dark grey"</span>, pos<span class="op">=</span><span class="fl">4</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co">#now let's plot the maximum</span></span>
+<span><span class="va">MAXIMUM</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">MAXIMUM</span>, col<span class="op">=</span><span class="st">"dark grey"</span>,lwd<span class="op">=</span><span class="fl">4</span>, lty<span class="op">=</span><span class="fl">3</span><span class="op">)</span> <span class="co">#I plot the median in blue to distinguish from the mean</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="st">"Maximum"</span>,x<span class="op">=</span><span class="va">MAXIMUM</span>,y<span class="op">=</span><span class="fl">90</span>, col<span class="op">=</span><span class="st">"dark grey"</span>, pos<span class="op">=</span><span class="fl">2</span><span class="op">)</span> </span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-171-1.png" width="672"></div>
+</div>
+<div id="the-range" class="section level3 unnumbered">
+<h3>The range<a class="anchor" aria-label="anchor" href="#the-range"><i class="fas fa-link"></i></a>
+</h3>
+<p>Another simple metric to describe the dispersion in your data is called the <strong>range</strong>.u The range is the difference between the smallest and the largest number in your data. Of course, within the range everything is possible, so while descriptive and useful in many situations, it is not always the best indicator of inference.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-172"></span>
+<img src="images/Inference.png" alt="The effect of the range" width="100%"><p class="caption">
+Figure 5.7: The effect of the range
+</p>
+</div>
+</div>
+<div id="the-percentile" class="section level3 unnumbered">
+<h3>The percentile<a class="anchor" aria-label="anchor" href="#the-percentile"><i class="fas fa-link"></i></a>
+</h3>
+<p>A percentile indicates the percentage of values that are smaller than the given value.</p>
+<p>For example, if you score 75 points on a test, and are ranked in the 85th percentile, it means that 85% of students that took that exam did worse than you. The way to report it is like this: “the 85th percentile was 75 points”.</p>
+<p>How is the percentile calculated?. Simple,</p>
+<ol style="list-style-type: decimal">
+<li><p>Rank the values in your database from smallest to largest, we called this the sorted vector.</p></li>
+<li><p>Multiply the number of values in your database by the given percentile you want to find as a fraction (If you want the 90th percentile, the fraction is 0.9), we call this resulting number the index or <span class="math inline">\(Xth\)</span> point</p></li>
+<li><p>Now go back to your sorted vector, starting from the first number in that vector move to the right until the value located at the Xth point. The value located at the Xth point is your given percentile.</p></li>
+</ol>
+<p>Lets do an example,</p>
+<p>Take my population of ten rabbits below, and say I want to know the 80th percentile height of my rabbits?</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-173"></span>
+<img src="images/Percentile%201.png" alt="My rabbit population" width="100%"><p class="caption">
+Figure 5.8: My rabbit population
+</p>
+</div>
+<p>Because I am interested in height, I measure their heights. Say they were 37, 15, 35, 36, 5, 40, 41, 68, 45, and 56cm (I am making these numbers up, so do not overthink the size of my rabbits).</p>
+<p>I sort my rabbits by height. Say their sorted heights are 5, 15, 35, 36, 37, 40, 41, 45, 56 and 68cm.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-174"></span>
+<img src="images/Percentile.png" alt="My rabbits sorted by height" width="100%"><p class="caption">
+Figure 5.9: My rabbits sorted by height
+</p>
+</div>
+<p>Next, I multiply the percentile of interest (80th) as a fraction (i.e., 0.8) by the number of rabbits (10). So the 80th percentile height is the height of whatever rabbit is sitting in 8th position. In this case the number is 45. So the 80th percentile of my rabbit population is 45cm.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-175"></span>
+<img src="images/Percentile%202.png" alt="The 80th percentile" width="100%"><p class="caption">
+Figure 5.10: The 80th percentile
+</p>
+</div>
+<p>In R, the percentile value in an vector of values is calculated with the function quantile. Basically, you need to enter the array of values, and the quantile you need (as a fraction).</p>
+<p>Lets take the height of my rabbits above.</p>
+<div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">MyRabbits</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">37</span>, <span class="fl">15</span>, <span class="fl">35</span>, <span class="fl">36</span>, <span class="fl">5</span>, <span class="fl">40</span>, <span class="fl">41</span>, <span class="fl">68</span>, <span class="fl">45</span>, <span class="fl">56</span><span class="op">)</span> <span class="co">#vector of rabbit height, it does no</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">MyRabbits</span>, <span class="fl">.8</span>,type <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>                  <span class="co"># the type parameter allows you to use different ways to approximate the value. check ?quantile  for more details</span></span></code></pre></div>
+<pre><code>## 80% 
+##  45</code></pre>
+</div>
+<div id="the-quantile" class="section level3 unnumbered">
+<h3>The quantile<a class="anchor" aria-label="anchor" href="#the-quantile"><i class="fas fa-link"></i></a>
+</h3>
+<p>The quantiles are specific percentiles that divide the data in equal amounts. Quantiles can take different names. For instance, quartiles break the data in four groups, deciles in ten groups, and percentiles in 100 groups.</p>
+<p>Lets take the quartile example. In this case, the data needs to be broken in four groups, so the breaking points will be 0.25, 0.5, and 0.75. Those break points will create four different categories in which I can group my data (0 to 0.25], (0.25 to 0.5], (0.5 to 0.75] and (0.75, 1]. They can also be called the 1st quartile, 2nd quartile, 3rd quartile and 4th quartile. You can see those indexes at times being called Q1, Q2, Q3, and Q4.</p>
+<p>Lets display the quartiles for a normal distribution.</p>
+<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span> <span class="op">(</span><span class="va">RColorBrewer</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org">scales</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>  </span>
+<span></span>
+<span></span>
+<span><span class="va">dt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">rbeta</a></span><span class="op">(</span><span class="fl">20000</span>,<span class="fl">100</span>,<span class="fl">100</span><span class="op">)</span><span class="op">*</span><span class="fl">20000</span><span class="op">)</span>             <span class="co">#Lets create some dummy normal data</span></span>
+<span><span class="va">dt</span><span class="op">$</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://scales.r-lib.org/reference/rescale.html">rescale</a></span><span class="op">(</span><span class="va">dt</span><span class="op">$</span><span class="va">x</span>,to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">100</span><span class="op">)</span>, from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">dt</span><span class="op">$</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>   <span class="co">#I rescale the data from 1 to 100 to better visualize the percentage results</span></span>
+<span></span>
+<span></span>
+<span><span class="va">dt</span><span class="op">=</span><span class="va">dt</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>                  <span class="co">#Sort values from smallest to largest</span></span>
+<span><span class="va">dt</span><span class="op">$</span><span class="va">Position</span><span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/ncell.html">nrow</a></span><span class="op">(</span><span class="va">dt</span><span class="op">)</span>                <span class="co">#Rank each value from smallest to largest</span></span>
+<span><span class="va">dt</span><span class="op">$</span><span class="va">y</span><span class="op">=</span><span class="op">(</span><span class="va">dt</span><span class="op">$</span><span class="va">Position</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/ncell.html">nrow</a></span><span class="op">(</span><span class="va">dt</span><span class="op">)</span><span class="op">)</span> <span class="op">*</span><span class="fl">100</span>      <span class="co">#Assign the percentile position of each value</span></span>
+<span></span>
+<span><span class="co">#Create colors to make the plot look nicer</span></span>
+<span><span class="va">ColSca</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html">brewer.pal</a></span><span class="op">(</span><span class="fl">9</span>, <span class="st">'YlOrRd'</span><span class="op">)</span>   <span class="co">#Create a vector of nice colors in the  YlOrRd color scale</span></span>
+<span><span class="va">ColSca</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/colorRamp.html">colorRampPalette</a></span><span class="op">(</span><span class="va">ColSca</span><span class="op">)</span>  <span class="co">#create a color ramp for the colors above</span></span>
+<span><span class="va">Colors</span><span class="op">=</span> <span class="fu">ColSca</span><span class="op">(</span><span class="fl">110</span><span class="op">)</span> <span class="co">#create list of 100 colors in the ramp above</span></span>
+<span></span>
+<span><span class="co">#create histogram</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">dt</span><span class="op">$</span><span class="va">x</span>, col<span class="op">=</span><span class="va">Colors</span>,main <span class="op">=</span> <span class="cn">NULL</span>,breaks <span class="op">=</span> <span class="fl">100</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">800</span><span class="op">)</span>,xlab<span class="op">=</span><span class="st">"Percent"</span>, ylab<span class="op">=</span><span class="st">"Frequency"</span><span class="op">)</span>  </span>
+<span></span>
+<span><span class="co">#calculate and add the quartiles and their names to the histogram.</span></span>
+<span><span class="va">Prob</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.25</span>,<span class="fl">0.5</span>,<span class="fl">0.75</span>,<span class="fl">1</span><span class="op">)</span>  <span class="co"># this is the list of values that define my four quartiles</span></span>
+<span><span class="va">Quartiles</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">dt</span><span class="op">$</span><span class="va">x</span>,<span class="va">Prob</span> ,type <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>  <span class="co">#calculate the quartiles of my data</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">Quartiles</span>, col<span class="op">=</span><span class="st">"grey"</span>,lwd<span class="op">=</span><span class="fl">4</span>, lty<span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="co">#I plot the quartiles</span></span>
+<span></span>
+<span><span class="co"># now lets put names </span></span>
+<span><span class="va">Names</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Q1"</span>, <span class="st">"Q2"</span>, <span class="st">"Q3"</span>, <span class="st">"Q4"</span><span class="op">)</span>   <span class="co">#vector of names for my quartiles</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="va">Names</span>,x<span class="op">=</span><span class="va">Quartiles</span>,y<span class="op">=</span><span class="fl">800</span>, col<span class="op">=</span><span class="st">"black"</span>, pos<span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="co">#place quartile names at y=800 and x= quartile values</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-177-1.png" width="672"></div>
+</div>
+<div id="the-variance" class="section level3 unnumbered">
+<h3>The variance<a class="anchor" aria-label="anchor" href="#the-variance"><i class="fas fa-link"></i></a>
+</h3>
+<p>The variance measures how far a set of numbers is spread out from their average value. Put in another way, the variance measures the average degree to which each number is different from the mean.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Zr73e_XEug0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>For a sample, the variance is calculated as:</p>
+<p><span class="math display">\[\begin{equation}
+Variance = s^2=\frac{\sum_{i=1}^n (X_i-\bar{X})^2}{n-1}
+\end{equation}\]</span></p>
+<p>For a population, the variance is calculated as:</p>
+<p><span class="math display">\[\begin{equation}
+Variance = σ^2=\frac{\sum_{i=1}^n (X_i-u)^2}{N}
+\end{equation}\]</span></p>
+
+<div class="rmdimportant">
+<p>The parameter <span class="math inline">\((X_i-\bar{X})^2\)</span> is called <em>sum of squares</em>. Becuase each value is compared to the mean, if you do not square it, the result will be zero because the negative values will cancel the positive values. Squaring the difference between <span class="math inline">\((X_i-\bar{X})\)</span> will make the quantity nonnegative.</p>
+</div>
+<p>A few things you may have notice about these two equationss.</p>
+<ol style="list-style-type: decimal">
+<li><p>The equations are almost identical to the arithmetic mean. Indeed, they are. The variance can be thought of as the average of the differences from each value to the mean.</p></li>
+<li><p>When calculating the variance of a population we use the capital letter N but lowercase letter n when it is a sample.</p></li>
+<li><p>The variance of a population is defined with the letter <span class="math inline">\(σ^2\)</span>; for a sample it is the lowercase <span class="math inline">\(s^2\)</span>.</p></li>
+<li><p>When calculating the variance of a sample, the denominator is n-1 but for a population is N. Since a random sample usually will not contain extreme data values (large or small), we divide by <span class="math inline">\(n-1\)</span> in the formula for s to make s a little larger than it would have been had we divided by n. It is called the unbiased estimate for s. If we have the population of all data values, then extreme data values are, of course, present, so we divide by N instead of <span class="math inline">\(n-1\)</span>.</p></li>
+</ol>
+<p>Let’s calculate the variance using a neat example, I took from <a href="https://www.mathsisfun.com/data/standard-deviation.html">Here</a>.</p>
+<p>Here a group of children measured the height of their dogs in mm.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-179"></span>
+<img src="images/Variance%201.gif" alt="Sample of dogs heights" width="100%"><p class="caption">
+Figure 5.11: Sample of dogs heights
+</p>
+</div>
+<p>The heights (at the shoulders) are: 600mm, 470mm, 170mm, 430mm and 300mm.</p>
+<p>Next, you calculate the sample mean height, which is 394 mm (green line in figure below).</p>
+<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">HeightOfDog</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">600</span>, <span class="fl">470</span>, <span class="fl">170</span>, <span class="fl">430</span> , <span class="fl">300</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">HeightOfDog</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 394</code></pre>
+<p>j</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-181"></span>
+<img src="images/Variance%202.gif" alt="Sample of dogs heights" width="100%"><p class="caption">
+Figure 5.12: Sample of dogs heights
+</p>
+</div>
+<p>Next, for each dog, you calculate the difference of its height to the mean (Basically, the height between the red and the green line below),</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-182"></span>
+<img src="images/Variance%202.gif" alt="Sample of dogs heights" width="100%"><p class="caption">
+Figure 5.13: Sample of dogs heights
+</p>
+</div>
+<p>Let’s isolate the individual differences:</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-183"></span>
+<img src="images/Variance%203.gif" alt="Sample of dogs heights" width="100%"><p class="caption">
+Figure 5.14: Sample of dogs heights
+</p>
+</div>
+<p>Following the equation of the variance for a sample, you square each difference, then add them and divide them by the sample size minus one.</p>
+<p><span class="math display">\[\begin{equation}
+Variance = s^2=\frac{206^2 + 76^2 + (−224)^2 + 36^2 + (−94)^2}{5-1}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+Variance = s^2=27130mm^2
+\end{equation}\]</span></p>
+<p>In R, the variance is calculate with the function var,</p>
+<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">HeightOfDog</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">600</span>, <span class="fl">470</span>, <span class="fl">170</span>, <span class="fl">430</span> , <span class="fl">300</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">HeightOfDog</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 27130</code></pre>
+<p>Hmm, right?. The simplest variance to understand is when variance = 0, which means all values are the same. In reality, however, variance results are normally large numbers that are hard to interpret intuitively. But the variance allows you to calculate the standard deviation, which is actually much easy to comprehend.</p>
+</div>
+<div id="the-standard-deviation" class="section level3 unnumbered">
+<h3>The standard deviation<a class="anchor" aria-label="anchor" href="#the-standard-deviation"><i class="fas fa-link"></i></a>
+</h3>
+<p>The standard deviation is calculated as the square root of the variance, and has the same units as the mean.</p>
+<p><span class="math display">\[\begin{equation}
+Standard \ deviation= S = \sqrt {s^2}
+\end{equation}\]</span></p>
+<p>In R, the standard deviation is calculated with the function sd,</p>
+<div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">HeightOfDog</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">600</span>, <span class="fl">470</span>, <span class="fl">170</span>, <span class="fl">430</span> , <span class="fl">300</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">HeightOfDog</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 164.7119</code></pre>
+<p>You can also try the square root of the variance,</p>
+<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">HeightOfDog</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 164.7119</code></pre>
+<p>Basically, SD= 164mm.</p>
+<p>Now lets interpret that number….</p>
+<p>In a normal distribution, 95% of the observations are within 2SD from the mean. So 95% of the dogs in the sample should between 394-(164mm x 2) and 394+(164mm x 2) or between 66mm and 722mm.</p>
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=10" width="958" height="371" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><p>In the example with the dogs, we have the problem of low sample size. If you recall an earlier chapter, the problem with low samples is that the variability increases as the sample size decreases and that is reflected in the standard deviation (SD).</p>
+<p>Lets try the standard deviation in a large sample size.</p>
+<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span> <span class="co"># the function rnorm allows you to create a random set of numbers from a normal distribution</span></span>
+<span></span>
+<span><span class="co">#lets now plot that data using the hist function, you already know how to use:</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">y</span>, main <span class="op">=</span> <span class="cn">NULL</span>,breaks <span class="op">=</span> <span class="fl">30</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">120</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">SD</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
+<span><span class="va">Mean</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#plot the mean</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="op">(</span><span class="va">Mean</span><span class="op">)</span>, col<span class="op">=</span><span class="st">"blue"</span>,lwd<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="st">"Mean"</span>,x<span class="op">=</span><span class="va">Mean</span>,y<span class="op">=</span><span class="fl">100</span>, col<span class="op">=</span><span class="st">"Blue"</span>, pos<span class="op">=</span><span class="fl">4</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co">#add two standard deviations </span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="op">(</span><span class="va">Mean</span><span class="op">+</span><span class="op">(</span><span class="va">SD</span><span class="op">*</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="st">"+2 SDs"</span>,x<span class="op">=</span><span class="op">(</span><span class="va">Mean</span><span class="op">+</span><span class="op">(</span><span class="va">SD</span><span class="op">*</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span>,y<span class="op">=</span><span class="fl">100</span>, col<span class="op">=</span><span class="st">"red"</span>, pos<span class="op">=</span><span class="fl">4</span><span class="op">)</span> </span>
+<span></span>
+<span></span>
+<span><span class="co">#minus two standard deviations </span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="op">(</span><span class="va">Mean</span><span class="op">-</span><span class="op">(</span><span class="va">SD</span><span class="op">*</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="st">"-2 SDs"</span>,x<span class="op">=</span><span class="op">(</span><span class="va">Mean</span><span class="op">-</span><span class="op">(</span><span class="va">SD</span><span class="op">*</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span>,y<span class="op">=</span><span class="fl">100</span>, col<span class="op">=</span><span class="st">"red"</span>, pos<span class="op">=</span><span class="fl">4</span><span class="op">)</span> </span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-187-1.png" width="672"></div>
+<p>In the figure above, ~95% of the data should be between those two red lines.</p>
+</div>
+<div id="the-coefience-of-variance" class="section level3 unnumbered">
+<h3>The coefience of variance<a class="anchor" aria-label="anchor" href="#the-coefience-of-variance"><i class="fas fa-link"></i></a>
+</h3>
+<p>The coefficient of variation (CV) is another metric of dispersion. It is the ratio of the standard deviation to the mean. It is commonly given as a percentage. Basically,</p>
+<p><span class="math display">\[\begin{equation}
+CV = \frac{Standard \ deviation}{\bar{X}} *100
+\end{equation}\]</span></p>
+<p>Higher values indicate that the standard deviation is relatively large compared to the mean.</p>
+<p>Lets try an example, a pizza restaurant measures its delivery time in minutes. The mean delivery time is 20 minutes and the standard deviation is 5 minutes.</p>
+<p>Thus, the coefficient of variation is 25% (some people may give it as a fraction, 0.25). This value tells you the relative size of the standard deviation compared to the mean. In this example, the standard deviation is 25% the size of the mean.</p>
+<p>If the value equals one or 100%, the standard deviation equals the mean. Values less than one indicate that the standard deviation is smaller than the mean (typical), while values greater than one occur when the S.D. is greater than the mean.</p>
+</div>
+</div>
+<div id="exercises" class="section level2 unnumbered">
+<h2>Exercises<a class="anchor" aria-label="anchor" href="#exercises"><i class="fas fa-link"></i></a>
+</h2>
+<p>Some of these questions may take a while to load depending on your internet connection.</p>
+Assign the names to each distribution.
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=5" width="958" height="928" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><p><span style="color: white;">o</span></p>
+<p>Take the following numbers (8 2 7 2 6), using the R console below estimate the mean, median, and mode, the standard deviation and 80th percentile.</p>
+<iframe width="100%" height="300" src="https://rdrr.io/snippets/embed/" frameborder="0">
+</iframe>
+Now lets check some equations:
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=12" width="959" height="647" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+</div>
+<div id="homework-2" class="section level2 unnumbered">
+<h2>Homework<a class="anchor" aria-label="anchor" href="#homework-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Using Tinn-R or R-Studio, write down a code that:</p>
+<ol style="list-style-type: decimal">
+<li><p>Creates a sample of 1000 points from a normal distribution, and place them in a data.frame, with one column named X.</p></li>
+<li><p>Estimate the mean, median and mode of variable X; have these individual values stored in their own variable names.</p></li>
+<li><p>Estimate the standard deviation and place it in its own variable name.</p></li>
+<li><p>Make a histogram of the data you created in numeral one. Adjust parameters of the figure to the guidelines for good figures.</p></li>
+<li><p>Place the mean, median, mode and 2SDs from the mean as vertical lines. Make the color lines distinctive.</p></li>
+<li><p>Name the vertical lines above. Work with the XY position of the ‘text’ so the labels look nice.</p></li>
+<li><p>Save the code and email it as a homework.</p></li>
+</ol>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="basic-plots.html"><span class="header-section-number">4</span> Basic plots</a></div>
+<div class="next"><a href="correlation-1.html"><span class="header-section-number">6</span> Correlation</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#descriptive-statistics"><span class="header-section-number">5</span> Descriptive statistics</a></li>
+<li><a class="nav-link" href="#data-distributions">Data distributions</a></li>
+<li>
+<a class="nav-link" href="#central-tendency">Central tendency</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#the-arithmetic-mean">The arithmetic mean</a></li>
+<li><a class="nav-link" href="#the-trimmed-mean">The trimmed mean</a></li>
+<li><a class="nav-link" href="#the-weighted-average">The weighted average</a></li>
+<li><a class="nav-link" href="#the-median">The median</a></li>
+<li><a class="nav-link" href="#the-mode">The mode</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#dispersion">Dispersion</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#the-minimum-and-the-maximum">The minimum and the maximum</a></li>
+<li><a class="nav-link" href="#the-range">The range</a></li>
+<li><a class="nav-link" href="#the-percentile">The percentile</a></li>
+<li><a class="nav-link" href="#the-quantile">The quantile</a></li>
+<li><a class="nav-link" href="#the-variance">The variance</a></li>
+<li><a class="nav-link" href="#the-standard-deviation">The standard deviation</a></li>
+<li><a class="nav-link" href="#the-coefience-of-variance">The coefience of variance</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#exercises">Exercises</a></li>
+<li><a class="nav-link" href="#homework-2">Homework</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></strong>" was written by . </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

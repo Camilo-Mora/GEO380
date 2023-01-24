@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>The Correlation Coefficient, r | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.22.4 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="The Correlation Coefficient, r | GEOG380.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
@@ -31,8 +30,8 @@
   
 <link rel="prev" href="the-covariance.html"/>
 <link rel="next" href="interpreting-r.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,9 +47,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -166,8 +165,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a>
 <ul>
-<li><a href="the-hyphotesis.html#the-null-hypothesis-h0">The null hypothesis <em>H0</em></a></li>
-<li><a href="the-hyphotesis.html#the-alternate-hypothesis-h1">The alternate hypothesis <em>H1</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-null-hypothesis-h0"><i class="fa fa-check"></i>The null hypothesis <em>H0</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-alternate-hypothesis-h1"><i class="fa fa-check"></i>The alternate hypothesis <em>H1</em></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a>
 <ul>
@@ -404,12 +403,12 @@ By Camilo Mora, Ph.D.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-correlation-coefficient-r" class="section level2 unnumbered">
-<h2>The Correlation Coefficient, r</h2>
+<div id="the-correlation-coefficient-r" class="section level2 unnumbered hasAnchor">
+<h2>The Correlation Coefficient, r<a href="the-correlation-coefficient-r.html#the-correlation-coefficient-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As indicated earlier, the strength of the linear association between two variables is mathematically measured with the so-call <strong>Correlation Coefficient</strong>. At times, it is also called the <strong>Pearson product-moment correlation coefficient</strong>, after Karl Pearson, who is credited with formulating r.</p>
 <p>Mathematically, the correlation coefficient, <span class="math inline">\(r\)</span>, is calculated with the following equation:</p>
 <p><span class="math display">\[\begin{equation}
-r = \frac{cov (XY)}{Sx * Sy} 
+r = \frac{cov (XY)}{Sx * Sy}
 \end{equation}\]</span></p>
 <p>Basically, the correlation coefficient, <span class="math inline">\(r\)</span>,is the Covariance divided by the multiplication of the standard deviation of the data in X and the standard deviation of the data in Y.</p>
 <p>If you think about this equation, the covariance is the product of the differences in X and Y. While the standard deviations are independently the differences in X and the differences in Y. So, in practical terms, the correlation coefficient is an standardized metric. It will never be smaller than -1 or larger than 1.</p>
@@ -425,8 +424,8 @@ r = \frac{cov (XY)}{Sx * Sy}
 <p>In R, the coefficient of correlation can be calculated directly with the function <em>cor</em>,</p>
 <div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="the-correlation-coefficient-r.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(StudyingTimes<span class="sc">$</span>Score,StudyingTimes<span class="sc">$</span>Hours_Studying, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 0.9817004</code></pre>
-<div id="alternative-formulation" class="section level3 unnumbered">
-<h3>Alternative formulation</h3>
+<div id="alternative-formulation" class="section level3 unnumbered hasAnchor">
+<h3>Alternative formulation<a href="the-correlation-coefficient-r.html#alternative-formulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>While looking into the correlation coefficient you will likely see alternative formulations of it that yield the same or very close approximations.</p>
 <p>For instance, you may find it formulated like this:</p>
 <p><span class="math display">\[\begin{equation}
@@ -512,7 +511,6 @@ r = 0.98
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -551,9 +549,9 @@ gitbook.start({
 "link": "https://github.com/Camilo-Mora/GEO380/blob/main/06-Correlation.Rmd",
 "text": null
 },
-"download": null,
+"download": ["GEOG380.pdf", "GEOG380.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

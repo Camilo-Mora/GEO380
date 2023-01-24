@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>12 Multiple sample test | GEOG380.knit</title>
+<meta name="description" content="This chapter describes the mathematical approach to check for differences among more than two independent groups, or so-call ANOVA, or Analysis of Variance. Although the name of the technique...">
+<meta name="generator" content="bookdown 0.26.3 with bs4_book()">
+<meta property="og:title" content="12 Multiple sample test | GEOG380.knit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="This chapter describes the mathematical approach to check for differences among more than two independent groups, or so-call ANOVA, or Analysis of Variance. Although the name of the technique...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="12 Multiple sample test | GEOG380.knit">
+<meta name="twitter:description" content="This chapter describes the mathematical approach to check for differences among more than two independent groups, or so-call ANOVA, or Analysis of Variance. Although the name of the technique...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html">Introduction</a></li>
+<li><a class="" href="class-expectations.html">Class expectations</a></li>
+<li><a class="" href="the-scientific-method.html"><span class="header-section-number">1</span> The scientific method</a></li>
+<li><a class="" href="installing-programs.html"><span class="header-section-number">2</span> Installing programs</a></li>
+<li><a class="" href="basics-on-data-manipulation-in-r.html"><span class="header-section-number">3</span> Basics on data manipulation in R</a></li>
+<li><a class="" href="basic-plots.html"><span class="header-section-number">4</span> Basic plots</a></li>
+<li><a class="" href="descriptive-statistics.html"><span class="header-section-number">5</span> Descriptive statistics</a></li>
+<li><a class="" href="correlation-1.html"><span class="header-section-number">6</span> Correlation</a></li>
+<li><a class="" href="regression-1.html"><span class="header-section-number">7</span> Regression</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">8</span> Hypothesis testing</a></li>
+<li><a class="" href="standard-hypothesis-tests.html"><span class="header-section-number">9</span> Standard hypothesis tests</a></li>
+<li><a class="" href="one-sample-tests.html"><span class="header-section-number">10</span> One sample tests</a></li>
+<li><a class="" href="two-sample-tests.html"><span class="header-section-number">11</span> Two sample tests</a></li>
+<li><a class="active" href="multiple-sample-test.html"><span class="header-section-number">12</span> Multiple sample test</a></li>
+<li><a class="" href="final-project.html"><span class="header-section-number">13</span> Final project</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="multiple-sample-test" class="section level1" number="12">
+<h1>
+<span class="header-section-number">12</span> Multiple sample test<a class="anchor" aria-label="anchor" href="#multiple-sample-test"><i class="fas fa-link"></i></a>
+</h1>
+<p>This chapter describes the mathematical approach to check for differences among more than two independent groups, or so-call ANOVA, or Analysis of Variance. Although the name of the technique refers to variances, the main goal of ANOVA is to investigate differences among means.</p>
+<p>There are numerous ways in which you can look for differences among groups, which will determine the type of ANOVA to use. Lets check some examples, to clarify the distinctions.</p>
+<p>Say the International Olympic Association wants to endorse an energy drink for its athletes and two different companies send samples of their products.</p>
+<p>A first order question could be if the drinks make any difference in the endurance of the athletes. And you can compare, say the times running 100m for groups of athletes given the two types of drinks and a control given water. In this case, you want to test, if at least one of the three groups is different, and in this case, you will use what is call a <strong>one-way ANOVA</strong>. You only have one factor, which is the drink type.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-317"></span>
+<img src="images/OneWayAnova.png" alt="One-Way ANOVA" width="50%"><p class="caption">
+Figure 12.1: One-Way ANOVA
+</p>
+</div>
+<p>Say, however, that you are also interested in knowing if such an effect varies between men and females. In this case, you have two factors and you will need to know the effect of the drink and the effect of gender. For this type of cases, you will use what is called a two-way ANOVA.You have two factors (drink type and gender).</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-318"></span>
+<img src="images/TwoWayAnova.png" alt="Two-Way ANOVA" width="70%"><p class="caption">
+Figure 12.2: Two-Way ANOVA
+</p>
+</div>
+<p>If now you want to check for the effect of the drinks among different types of sports, you will now have a third factor (sport type), and then you will use a three-way ANOVA, as you have three factors: drink type, gender, and sport type.</p>
+<p>In this course, we will study only one-way ANOVAS. You should also be aware that to run an ANOVA you need to test for different key assumptions, which we will study later in this chapter.</p>
+<ol style="list-style-type: decimal">
+<li><p>The data are normally distributed. As mentioned earlier, this assumption is key to all types of parametric tests. Basically, we need to know the data follows a bell shape, such that we can approximate the distribution of data.</p></li>
+<li><p>The variances among the different groups have to be homogeneous, or so-call homogeneity of variance. As we will learn soon, ANOVA is based on the ratio of the variance between groups and the variance within groups. So if variances are non homogeneous among groups this could bias the ANOVA test.</p></li>
+<li><p>The observations are independent.</p></li>
+<li><p>No outliers are present.</p></li>
+</ol>
+<p>At the end of this chapter, you are expected to:</p>
+<ol style="list-style-type: decimal">
+<li><p>Run an ANOVA in R, and interpret its results.</p></li>
+<li><p>Run a post-hoc test, identify differences among specific pairs of groups.</p></li>
+</ol>
+<div id="anova-reasoning" class="section level2 unnumbered">
+<h2>ANOVA reasoning<a class="anchor" aria-label="anchor" href="#anova-reasoning"><i class="fas fa-link"></i></a>
+</h2>
+<p>Take a moment to check this video explaining how to calculate an ANOVA by hand…</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TPBLhhpgBOU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Before we get to deep into mathematical equations, we should learn the overall idea of testing for significant differences among groups.</p>
+<p>When you are comparing different groups of observations, you can divide the variance in the data in three different ways:</p>
+
+<div class="rmdnote">
+If you recall from Chapter 5, the variance is simply the summation of the difference between each observation and the mean squared (Sum of Squares) divided by the number of observation minus one (Degrees of freedom). Basically, the variance is the Sum of Squares (SS) divided by the Degrees of freedom.
+</div>
+<p>To better visualize the approach, we will keep the sum of squares and the degrees of freedom separated for each component.</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Total variance</strong>: For the Total Sum of Squares (SSt), forget that the observations belong to any group, and simply add up the difference, from each observation to the <strong>grand mean</strong>, squared. The total degrees of freedom (DFt) is the total number of observations minus one.</li>
+</ol>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-320"></span>
+<img src="images/Anova_TotalVariance_Example.png" alt="Total Sum of Squares (SSt) and total degrees of freedom (DFt)" width="70%"><p class="caption">
+Figure 12.3: Total Sum of Squares (SSt) and total degrees of freedom (DFt)
+</p>
+</div>
+<p>That total variance can be now divided in the variance that occurs <em>between</em> and <em>among</em> groups:</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-321"></span>
+<img src="images/ANOVA.png" alt="Between and within group variance" width="70%"><p class="caption">
+Figure 12.4: Between and within group variance
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>
+<strong>Between groups variance</strong>: The Sum of Squares for between groups (SSb) is summation of the difference, between each group mean and the grand mean, squared and multiplied by the number of observations in each group (Formula below). The between group degrees of freedom (DFb) is the total number of groups minus one. In this case, we are only obtaining information from the groups.</li>
+</ol>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-322"></span>
+<img src="images/Anova_BetweenGroupVariance_Example.png" alt="Between group variance and degrees of freedom, DF" width="70%"><p class="caption">
+Figure 12.5: Between group variance and degrees of freedom, DF
+</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>
+<strong>Within groups variance</strong>: The Sum of Squares within groups (SSw) is the summation of the difference, between each observation in a group and the mean of that group, squared. The within group degrees of freedom (DFw) is the total number of observations (n) minus the total number of groups (k).</li>
+</ol>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-323"></span>
+<img src="images/Anova_WithinGroupVariance_Example.png" alt="Within group variance and degrees of freedom, DF" width="70%"><p class="caption">
+Figure 12.6: Within group variance and degrees of freedom, DF
+</p>
+</div>
+<p>If you take the within and between group variance and the within and between group degrees of freedom and add them up, you will get the total variance and total degrees of freedom.</p>
+<p>The idea behind the ANOVA is to estimate the ration of the variance between groups to the variance within groups, what is also called the F-statistics, after Sir Ronald A. Fisher, who came out with this idea back in the 1920s.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-324"></span>
+<img src="images/F-statistic.png" alt="F-statistics or ratio of between group variance to within group variance" width="70%"><p class="caption">
+Figure 12.7: F-statistics or ratio of between group variance to within group variance
+</p>
+</div>
+<p>If you divide the variance between groups by the variance within groups, and the resulting F-value is smaller than one, it indicates that there are no significant differences between the means of the samples being compared.</p>
+<p>However, a higher ratio implies that the variation among group means are greatly different from each other compared to the variation of the individual observations in each group. The variance between groups is larger than the variance within groups, so the means are likely different.</p>
+<p>I said likely different, because you still would have to get a F-critical value, which will indicate how extreme was the F-value you calcualted.</p>
+</div>
+<div id="anova-by-hand" class="section level2 unnumbered">
+<h2>ANOVA by hand<a class="anchor" aria-label="anchor" href="#anova-by-hand"><i class="fas fa-link"></i></a>
+</h2>
+<p>Lets run an ANOVA by hand.</p>
+<p>Say a farmer is interested in finding out if there are differences between three available varieties of tomatoes. These were the numbers of tomatoes by the three varieties:</p>
+<p>Variety A = 3, 2, 1</p>
+<p>Variety B = 5, 3, 4</p>
+<p>Variety C = 5, 6, 7</p>
+<div id="stating-hyphotheses" class="section level3 unnumbered">
+<h3>Stating Hyphotheses<a class="anchor" aria-label="anchor" href="#stating-hyphotheses"><i class="fas fa-link"></i></a>
+</h3>
+<p>We start by stating the hypotheses</p>
+<p>Ho: Mean Variety A = Mean Variety B = Mean Variety C</p>
+<p>Ha: Mean Variety A <span class="math inline">\(\neq\)</span> Mean Variety B <span class="math inline">\(\neq\)</span> Mean Variety C</p>
+<p>Lets test these hypotheses using a level of significance, <span class="math inline">\(\alpha\)</span>, of 0.05.</p>
+</div>
+<div id="total-variance" class="section level3 unnumbered">
+<h3>Total variance<a class="anchor" aria-label="anchor" href="#total-variance"><i class="fas fa-link"></i></a>
+</h3>
+<p>Next we calculate the total variance:</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-325"></span>
+<img src="images/Anova_TotalVariance.png" alt="Total variance and degrees of freedom, DF" width="70%"><p class="caption">
+Figure 12.8: Total variance and degrees of freedom, DF
+</p>
+</div>
+</div>
+<div id="between-group-variance" class="section level3 unnumbered">
+<h3>Between group variance<a class="anchor" aria-label="anchor" href="#between-group-variance"><i class="fas fa-link"></i></a>
+</h3>
+<p>Next we calculate the variance between groups. In other words, how each group mean differs from the grand mean:</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-326"></span>
+<img src="images/Anova_BetweenGroupVariance.png" alt="Between group variance and degrees of freedom, DF" width="70%"><p class="caption">
+Figure 12.9: Between group variance and degrees of freedom, DF
+</p>
+</div>
+</div>
+<div id="within-group-variance" class="section level3 unnumbered">
+<h3>Within group variance<a class="anchor" aria-label="anchor" href="#within-group-variance"><i class="fas fa-link"></i></a>
+</h3>
+<p>Next we calculate the within group variance. Basically, how each observation differs from the group mean.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-327"></span>
+<img src="images/Anova_WithinGroupVariance.png" alt="Within group variance and degrees of freedom, DF" width="70%"><p class="caption">
+Figure 12.10: Within group variance and degrees of freedom, DF
+</p>
+</div>
+</div>
+<div id="variance-partitioning" class="section level3 unnumbered">
+<h3>Variance partitioning<a class="anchor" aria-label="anchor" href="#variance-partitioning"><i class="fas fa-link"></i></a>
+</h3>
+<p>As indicated earlier, the within and between group variance and degrees of freedom should add up to the total variance and total degrees of freedom. Lets check this by putting the results above together:</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-328"></span>
+<img src="images/Anova_Variance_Fractitioning.png" alt="Within and between group Sums of Aquares and degrees of freedom, DF" width="70%"><p class="caption">
+Figure 12.11: Within and between group Sums of Aquares and degrees of freedom, DF
+</p>
+</div>
+</div>
+<div id="f-statistics" class="section level3 unnumbered">
+<h3>F-Statistics<a class="anchor" aria-label="anchor" href="#f-statistics"><i class="fas fa-link"></i></a>
+</h3>
+<p>The F-statistics is simply the ratio of the between group to the within group variance.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-329"></span>
+<img src="images/F-statistic_Example.png" alt="F-Statistic" width="70%"><p class="caption">
+Figure 12.12: F-Statistic
+</p>
+</div>
+<p>So, our F-statistic is 12. The fact that is larger than one provides good hints that this could be significant. But we still need to find out for the given degrees of freedoms, number of groups and level of significance (<span class="math inline">\(\alpha\)</span>), what is the critical F-Value.</p>
+<p>If our calculated F-value is larger, we reject the null hypothesis and conclude that indeed there are significant differences…same drill as we have done before.</p>
+</div>
+<div id="critical-f-value" class="section level3 unnumbered">
+<h3>Critical F-value<a class="anchor" aria-label="anchor" href="#critical-f-value"><i class="fas fa-link"></i></a>
+</h3>
+<p>The last step in the ANOVA is to find out the critical F-Value, which we get from a F-table for the given <span class="math inline">\(\alpha\)</span>. These tables are available on most statistics books or online (Example <a href="http://www.socr.ucla.edu/Applets.dir/F_Table.html">HERE</a>. )</p>
+<p>You need to select the specific table for the given (<span class="math inline">\(\alpha\)</span>), the columns will represent the between degrees of freedom, and the rows the within group degrees of freedom. In our case, the between degrees of freedom is 2, and our within group degrees of freedoms is 6.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-330"></span>
+<img src="images/F-statistic_Critical.png" alt="Within group variance and degrees of freedom, DF" width="70%"><p class="caption">
+Figure 12.13: Within group variance and degrees of freedom, DF
+</p>
+</div>
+<p>At the interception of column DF=2 and row DF= 6, is the cell 5.1433, which is our critical F-statistics.</p>
+<p>Just to remember, our calculated F-statistics was 12, which is much larger than the critical F-statistics at <span class="math inline">\(\alpha\)</span> 0.05, which is 5.1433.</p>
+<p>Thus, we reject the null hypothesis and conclude that indeed there are significant differences in the amount of tomatoes produced by the three varieties at a level of significance of 0.05.</p>
+</div>
+<div id="ploting-the-data" class="section level3 unnumbered">
+<h3>Ploting the data<a class="anchor" aria-label="anchor" href="#ploting-the-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>As it is always the case, we should visualize the data. In this case, a box plot could be an effective visualization tool.</p>
+<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/rstatix/">rstatix</a></span><span class="op">)</span> <span class="co"># we load this libraries, which we use to sumamrise the results</span></span>
+<span></span>
+<span><span class="co">#We start by putting the data in a dataframe, which two columns. one for the variety type, and the other for the number of tomatoes </span></span>
+<span><span class="va">Data</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Variety<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"VarA"</span>,<span class="fl">3</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"VarB"</span>,<span class="fl">3</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"VarC"</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span>, NumTomatoes<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>, <span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>, <span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html">ggboxplot</a></span><span class="op">(</span><span class="va">Data</span>, x <span class="op">=</span> <span class="st">"Variety"</span>, y <span class="op">=</span> <span class="st">"NumTomatoes"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-331-1.png" width="672"></div>
+<p>Boxplots allow you to visualize the mean and the standard deviations of each group. From the plot above, you can see clearly that not only the mean tomato production of the three varieties are different, but their variances do not overlap.</p>
+</div>
+</div>
+<div id="anova-in-r" class="section level2 unnumbered">
+<h2>ANOVA in R<a class="anchor" aria-label="anchor" href="#anova-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are numerous R-packages that allow you to run ANOVAs, lets try a couple:</p>
+<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/rstatix/">rstatix</a></span><span class="op">)</span> <span class="co"># we load this libraries, which we use to sumamrise the results</span></span>
+<span></span>
+<span><span class="co">#We start by putting the data in a dataframe, which two columns. one for the variety type, and the other for the number of tomatoes </span></span>
+<span><span class="va">Data</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Variety<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"VarA"</span>,<span class="fl">3</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"VarB"</span>,<span class="fl">3</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"VarC"</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span>, NumTomatoes<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>, <span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>, <span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#The ANOVA function is anova_test, which simply requires the response variable (number of tomatoes in our case) equal to the independent variable or factor (Variety of tomatoes in our case)</span></span>
+<span><span class="va">res.aov</span> <span class="op">&lt;-</span> <span class="va">Data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/anova_test.html">anova_test</a></span><span class="op">(</span><span class="va">NumTomatoes</span> <span class="op">~</span> <span class="va">Variety</span><span class="op">)</span></span></code></pre></div>
+The results are identical to our hand calculations:
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-333"></span>
+<img src="images/F-statistic_In_R.png" alt="Anova in R using anova_test" width="70%"><p class="caption">
+Figure 12.14: Anova in R using anova_test
+</p>
+</div>
+<p>We can also run an ANOVA in R using the aov function, which is part of the default functions in R.</p>
+<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Data</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Variety<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"VarA"</span>,<span class="fl">3</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"VarB"</span>,<span class="fl">3</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"VarC"</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span>, NumTomatoes<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>, <span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>, <span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">aovAnova</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">NumTomatoes</span> <span class="op">~</span> <span class="va">Variety</span>, data <span class="op">=</span> <span class="va">Data</span><span class="op">)</span></span></code></pre></div>
+The results are identical to our hand calculations:
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-335"></span>
+<img src="images/F-statistic_In_R_oav.png" alt="Anova in R using aov" width="70%"><p class="caption">
+Figure 12.15: Anova in R using aov
+</p>
+</div>
+<p>You can see a different set of results from the aov function, using the summary function.</p>
+<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Data</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Variety<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"VarA"</span>,<span class="fl">3</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"VarB"</span>,<span class="fl">3</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"VarC"</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span>, NumTomatoes<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>, <span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>, <span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">aovAnova</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">NumTomatoes</span> <span class="op">~</span> <span class="va">Variety</span>, data <span class="op">=</span> <span class="va">Data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">aovAnova</span><span class="op">)</span></span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-337"></span>
+<img src="images/F-statistic_In_R_oav_Sumamry.png" alt="Anova in R using aov" width="70%"><p class="caption">
+Figure 12.16: Anova in R using aov
+</p>
+</div>
+</div>
+<div id="post-hoc-test-in-r" class="section level2 unnumbered">
+<h2>Post-hoc test in R<a class="anchor" aria-label="anchor" href="#post-hoc-test-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>A significant one-way ANOVA means that at least one of the group means is different from the other ones. But which ones are different?.</p>
+<p>To find this out, you need to run what is called a post-hoc test, which basically compares all possible pair-wise comparisons to find out, which ones are different.</p>
+<p>In R, we can run a post-hoc test with the R function: tukey_hsd() [from the packgae rstatix].</p>
+<p>Lets try:</p>
+<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/rstatix/">rstatix</a></span><span class="op">)</span> <span class="co"># we load this libraries, which we use to sumamrise the results</span></span>
+<span></span>
+<span><span class="co">#We start by putting the data in a dataframe, which two columns. one for the variety type, and the other for the number of tomatoes </span></span>
+<span><span class="va">Data</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Variety<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"VarA"</span>,<span class="fl">3</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"VarB"</span>,<span class="fl">3</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"VarC"</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span>, NumTomatoes<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>, <span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>, <span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">pwc</span> <span class="op">&lt;-</span> <span class="va">Data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/tukey_hsd.html">tukey_hsd</a></span><span class="op">(</span><span class="va">NumTomatoes</span> <span class="op">~</span> <span class="va">Variety</span><span class="op">)</span> <span class="co">#PairWise Comparisons</span></span>
+<span><span class="va">pwc</span></span></code></pre></div>
+<pre><code>## # A tibble: 3 x 9
+##   term    group1 group2 null.value estimate conf.low conf.high   p.adj
+## * &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Variety VarA   VarB            0        2   -0.505      4.51 0.109  
+## 2 Variety VarA   VarC            0        4    1.49       6.51 0.00649
+## 3 Variety VarB   VarC            0        2   -0.505      4.51 0.109  
+## # ... with 1 more variable: p.adj.signif &lt;chr&gt;</code></pre>
+<p>From that comparison, you can tell that there are significant differences between Variety A and Variety C only. Cool, ah?.</p>
+<p>By looking at the plot, one could have concluded that they are all different. But if you look at the actual data, you will see that variety B, have data in common to varieties A and C, which given the small sample size, led to those pairs to be similar.</p>
+</div>
+<div id="checking-assumptions" class="section level2 unnumbered">
+<h2>Checking assumptions<a class="anchor" aria-label="anchor" href="#checking-assumptions"><i class="fas fa-link"></i></a>
+</h2>
+<p>Perhaps the first step in doing an ANOVA is to test the different assumptions. But I decided to leave that for last in this chapter, so we could get to understand what the ANOVA is meant to do first.</p>
+<div id="outliers-1" class="section level3 unnumbered">
+<h3>Outliers<a class="anchor" aria-label="anchor" href="#outliers-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Outliers can be easily identified using box plot method we used early but spotted mathematically with the R function identify_outliers() [from the rstatix package].</p>
+<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Variety</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/outliers.html">identify_outliers</a></span><span class="op">(</span><span class="va">NumTomatoes</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] Variety     NumTomatoes is.outlier  is.extreme 
+## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
+<p>The result of this function yields zero rows meaning that there were not outliers in our database. Should there be outlier, it is recommended to run the analysis with and without them, to see the level of the effect and for you to make a judgment call on whether to remove them or now, and justify any choice you make.</p>
+</div>
+<div id="normality" class="section level3 unnumbered">
+<h3>Normality<a class="anchor" aria-label="anchor" href="#normality"><i class="fas fa-link"></i></a>
+</h3>
+<p>The normality assumption can be checked by using one of the following two approaches:</p>
+<p>Analyzing the ANOVA model residuals to check the normality for all groups together. This approach is easier and it’s very handy when you have many groups or if there are few data points per group.</p>
+<p>To check normality with model residuals, we use QQ plot and Shapiro-Wilk test. QQ plot draws the correlation between a given data and the normal distribution.</p>
+<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Build the linear model</span></span>
+<span><span class="va">model</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">NumTomatoes</span> <span class="op">~</span> <span class="va">Variety</span>, data <span class="op">=</span> <span class="va">Data</span><span class="op">)</span></span>
+<span><span class="co"># Create a QQ plot of residuals</span></span>
+<span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html">ggqqplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-340-1.png" width="672"></div>
+<p>From the plot abive, you can see that all values are within the confidence limits expected under normality, but some deviations occurred. The data are perfectly normal, when each point falls along the normality line (black line in the plot above).</p>
+<p>The second method to check normality uses the Shapiro-Wilk test. This approach might be used when you have only a few groups and many data points per group.</p>
+<div class="sourceCode" id="cb251"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Build the linear model</span></span>
+<span><span class="va">model</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">NumTomatoes</span> <span class="op">~</span> <span class="va">Variety</span>, data <span class="op">=</span> <span class="va">Data</span><span class="op">)</span></span>
+<span><span class="co"># run the Shapiro test</span></span>
+<span><span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/shapiro_test.html">shapiro_test</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 1 x 3
+##   variable         statistic p.value
+##   &lt;chr&gt;                &lt;dbl&gt;   &lt;dbl&gt;
+## 1 residuals(model)     0.823  0.0373</code></pre>
+<p>This analysis reveals that the data we used is not-normally distributed. In this specific case, it is because we have such a small sample size. And this deviation should not affect our results significantly. Commonly, however, we should transform the data (e.g., applying a log function to each value) to normalize the data. Different data transformations are vailable, and they will need to be run, and tested for normality, before running an ANOVA.</p>
+</div>
+<div id="homogneity-of-variance" class="section level3 unnumbered">
+<h3>Homogneity of variance<a class="anchor" aria-label="anchor" href="#homogneity-of-variance"><i class="fas fa-link"></i></a>
+</h3>
+<p>The Homogeneity of variance can be checked by plotting the residuals versus fits valued.</p>
+<div class="sourceCode" id="cb253"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">model</span>, <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-342-1.png" width="672"></div>
+<p>In the plot above, there is no evident relationships between residuals and fitted values (the mean of each groups), which is good. So, we can assume the homogeneity of variances.</p>
+<p>One can also use the Levene’s test to check the homogeneity of variances:</p>
+<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rpkgs.datanovia.com/rstatix/reference/levene_test.html">levene_test</a></span><span class="op">(</span><span class="va">NumTomatoes</span> <span class="op">~</span> <span class="va">Variety</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 1 x 4
+##     df1   df2 statistic     p
+##   &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;
+## 1     2     6  4.62e-33     1</code></pre>
+<p>From the output above, we can see that the p-value is &gt; 0.05, which is not significant. This means that, there is not significant difference between variances across groups. Therefore, we can assume the homogeneity of variances in the different treatment groups.</p>
+</div>
+</div>
+<div id="homework-9" class="section level2 unnumbered">
+<h2>Homework<a class="anchor" aria-label="anchor" href="#homework-9"><i class="fas fa-link"></i></a>
+</h2>
+<p>For the problem below do:</p>
+<ol style="list-style-type: decimal">
+<li>State the null and alternative hypothesis.</li>
+<li>Indicate the type of test to use.</li>
+<li>Test for the assumptions of outliers, normality and homogeneity of variances.</li>
+<li>Run the ANOVA in R.</li>
+<li>Run the post-hoc test.</li>
+<li>Report your results on top of a publication quality plot.</li>
+<li>Describe your conclusion.</li>
+</ol>
+<p><strong>Problem:</strong>
+A researcher has grown plants under ambient CO2, and two CO2 treatments in which he increased CO2 by 50ppm (Treatment1) and 100ppm (Treatment2). The weight of the plants in grams were:</p>
+<p>Control = 4.81, 4.17, 4.41, 3.59, 5.87, 3.83, 6.03, 4.89, 4.32, 4.69</p>
+<p>Treatment1 = 4.17, 5.58, 5.18, 6.11, 4.5, 4.61, 5.17, 4.53, 5.33, 5.14</p>
+<p>Treatment2 = 6.31, 5.12, 5.54, 5.5, 5.37, 5.29, 4.92, 6.15, 5.8, 5.26</p>
+<p>Test for significant differences among those three groups using a significant level of 0.05.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="two-sample-tests.html"><span class="header-section-number">11</span> Two sample tests</a></div>
+<div class="next"><a href="final-project.html"><span class="header-section-number">13</span> Final project</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#multiple-sample-test"><span class="header-section-number">12</span> Multiple sample test</a></li>
+<li><a class="nav-link" href="#anova-reasoning">ANOVA reasoning</a></li>
+<li>
+<a class="nav-link" href="#anova-by-hand">ANOVA by hand</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#stating-hyphotheses">Stating Hyphotheses</a></li>
+<li><a class="nav-link" href="#total-variance">Total variance</a></li>
+<li><a class="nav-link" href="#between-group-variance">Between group variance</a></li>
+<li><a class="nav-link" href="#within-group-variance">Within group variance</a></li>
+<li><a class="nav-link" href="#variance-partitioning">Variance partitioning</a></li>
+<li><a class="nav-link" href="#f-statistics">F-Statistics</a></li>
+<li><a class="nav-link" href="#critical-f-value">Critical F-value</a></li>
+<li><a class="nav-link" href="#ploting-the-data">Ploting the data</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#anova-in-r">ANOVA in R</a></li>
+<li><a class="nav-link" href="#post-hoc-test-in-r">Post-hoc test in R</a></li>
+<li>
+<a class="nav-link" href="#checking-assumptions">Checking assumptions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#outliers-1">Outliers</a></li>
+<li><a class="nav-link" href="#normality">Normality</a></li>
+<li><a class="nav-link" href="#homogneity-of-variance">Homogneity of variance</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#homework-9">Homework</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></strong>" was written by . </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

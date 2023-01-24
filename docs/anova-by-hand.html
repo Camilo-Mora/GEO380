@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>ANOVA by hand | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.22.4 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="ANOVA by hand | GEOG380.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
@@ -31,8 +30,8 @@
   
 <link rel="prev" href="anova-reasoning.html"/>
 <link rel="next" href="anova-in-r.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,9 +47,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -166,8 +165,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a>
 <ul>
-<li><a href="the-hyphotesis.html#the-null-hypothesis-h0">The null hypothesis <em>H0</em></a></li>
-<li><a href="the-hyphotesis.html#the-alternate-hypothesis-h1">The alternate hypothesis <em>H1</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-null-hypothesis-h0"><i class="fa fa-check"></i>The null hypothesis <em>H0</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-alternate-hypothesis-h1"><i class="fa fa-check"></i>The alternate hypothesis <em>H1</em></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a>
 <ul>
@@ -404,22 +403,22 @@ By Camilo Mora, Ph.D.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="anova-by-hand" class="section level2 unnumbered">
-<h2>ANOVA by hand</h2>
+<div id="anova-by-hand" class="section level2 unnumbered hasAnchor">
+<h2>ANOVA by hand<a href="anova-by-hand.html#anova-by-hand" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Lets run an ANOVA by hand.</p>
 <p>Say a farmer is interested in finding out if there are differences between three available varieties of tomatoes. These were the numbers of tomatoes by the three varieties:</p>
 <p>Variety A = 3, 2, 1</p>
 <p>Variety B = 5, 3, 4</p>
 <p>Variety C = 5, 6, 7</p>
-<div id="stating-hyphotheses" class="section level3 unnumbered">
-<h3>Stating Hyphotheses</h3>
+<div id="stating-hyphotheses" class="section level3 unnumbered hasAnchor">
+<h3>Stating Hyphotheses<a href="anova-by-hand.html#stating-hyphotheses" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We start by stating the hypotheses</p>
 <p>Ho: Mean Variety A = Mean Variety B = Mean Variety C</p>
 <p>Ha: Mean Variety A <span class="math inline">\(\neq\)</span> Mean Variety B <span class="math inline">\(\neq\)</span> Mean Variety C</p>
 <p>Lets test these hypotheses using a level of significance, <span class="math inline">\(\alpha\)</span>, of 0.05.</p>
 </div>
-<div id="total-variance" class="section level3 unnumbered">
-<h3>Total variance</h3>
+<div id="total-variance" class="section level3 unnumbered hasAnchor">
+<h3>Total variance<a href="anova-by-hand.html#total-variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Next we calculate the total variance:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-325"></span>
 <img src="images/Anova_TotalVariance.png" alt="Total variance and degrees of freedom, DF" width="70%" />
@@ -428,8 +427,8 @@ Figure 12.8: Total variance and degrees of freedom, DF
 </p>
 </div>
 </div>
-<div id="between-group-variance" class="section level3 unnumbered">
-<h3>Between group variance</h3>
+<div id="between-group-variance" class="section level3 unnumbered hasAnchor">
+<h3>Between group variance<a href="anova-by-hand.html#between-group-variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Next we calculate the variance between groups. In other words, how each group mean differs from the grand mean:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-326"></span>
 <img src="images/Anova_BetweenGroupVariance.png" alt="Between group variance and degrees of freedom, DF" width="70%" />
@@ -438,8 +437,8 @@ Figure 12.9: Between group variance and degrees of freedom, DF
 </p>
 </div>
 </div>
-<div id="within-group-variance" class="section level3 unnumbered">
-<h3>Within group variance</h3>
+<div id="within-group-variance" class="section level3 unnumbered hasAnchor">
+<h3>Within group variance<a href="anova-by-hand.html#within-group-variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Next we calculate the within group variance. Basically, how each observation differs from the group mean.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-327"></span>
 <img src="images/Anova_WithinGroupVariance.png" alt="Within group variance and degrees of freedom, DF" width="70%" />
@@ -448,8 +447,8 @@ Figure 12.10: Within group variance and degrees of freedom, DF
 </p>
 </div>
 </div>
-<div id="variance-partitioning" class="section level3 unnumbered">
-<h3>Variance partitioning</h3>
+<div id="variance-partitioning" class="section level3 unnumbered hasAnchor">
+<h3>Variance partitioning<a href="anova-by-hand.html#variance-partitioning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As indicated earlier, the within and between group variance and degrees of freedom should add up to the total variance and total degrees of freedom. Lets check this by putting the results above together:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-328"></span>
 <img src="images/Anova_Variance_Fractitioning.png" alt="Within and between group Sums of Aquares and degrees of freedom, DF" width="70%" />
@@ -458,8 +457,8 @@ Figure 12.11: Within and between group Sums of Aquares and degrees of freedom, D
 </p>
 </div>
 </div>
-<div id="f-statistics" class="section level3 unnumbered">
-<h3>F-Statistics</h3>
+<div id="f-statistics" class="section level3 unnumbered hasAnchor">
+<h3>F-Statistics<a href="anova-by-hand.html#f-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The F-statistics is simply the ratio of the between group to the within group variance.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-329"></span>
 <img src="images/F-statistic_Example.png" alt="F-Statistic" width="70%" />
@@ -470,8 +469,8 @@ Figure 12.12: F-Statistic
 <p>So, our F-statistic is 12. The fact that is larger than one provides good hints that this could be significant. But we still need to find out for the given degrees of freedoms, number of groups and level of significance (<span class="math inline">\(\alpha\)</span>), what is the critical F-Value.</p>
 <p>If our calculated F-value is larger, we reject the null hypothesis and conclude that indeed there are significant differences…same drill as we have done before.</p>
 </div>
-<div id="critical-f-value" class="section level3 unnumbered">
-<h3>Critical F-value</h3>
+<div id="critical-f-value" class="section level3 unnumbered hasAnchor">
+<h3>Critical F-value<a href="anova-by-hand.html#critical-f-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The last step in the ANOVA is to find out the critical F-Value, which we get from a F-table for the given <span class="math inline">\(\alpha\)</span>. These tables are available on most statistics books or online (Example <a href="http://www.socr.ucla.edu/Applets.dir/F_Table.html">HERE</a>. )</p>
 <p>You need to select the specific table for the given (<span class="math inline">\(\alpha\)</span>), the columns will represent the between degrees of freedom, and the rows the within group degrees of freedom. In our case, the between degrees of freedom is 2, and our within group degrees of freedoms is 6.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-330"></span>
@@ -484,8 +483,8 @@ Figure 12.13: Within group variance and degrees of freedom, DF
 <p>Just to remember, our calculated F-statistics was 12, which is much larger than the critical F-statistics at <span class="math inline">\(\alpha\)</span> 0.05, which is 5.1433.</p>
 <p>Thus, we reject the null hypothesis and conclude that indeed there are significant differences in the amount of tomatoes produced by the three varieties at a level of significance of 0.05.</p>
 </div>
-<div id="ploting-the-data" class="section level3 unnumbered">
-<h3>Ploting the data</h3>
+<div id="ploting-the-data" class="section level3 unnumbered hasAnchor">
+<h3>Ploting the data<a href="anova-by-hand.html#ploting-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As it is always the case, we should visualize the data. In this case, a box plot could be an effective visualization tool.</p>
 <div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="anova-by-hand.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb242-2"><a href="anova-by-hand.html#cb242-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
@@ -528,7 +527,6 @@ Figure 12.13: Within group variance and degrees of freedom, DF
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -567,9 +565,9 @@ gitbook.start({
 "link": "https://github.com/Camilo-Mora/GEO380/blob/main/12-MultipleSampleTest.Rmd",
 "text": null
 },
-"download": null,
+"download": ["GEOG380.pdf", "GEOG380.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>11 Two sample tests | GEOG380.knit</title>
+<meta name="description" content="Two sample tests are for cases in which you want to compare two independent samples. Like: Are the students in school A yielding better math scores than students in School B?. Are apples heavier...">
+<meta name="generator" content="bookdown 0.26.3 with bs4_book()">
+<meta property="og:title" content="11 Two sample tests | GEOG380.knit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Two sample tests are for cases in which you want to compare two independent samples. Like: Are the students in school A yielding better math scores than students in School B?. Are apples heavier...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="11 Two sample tests | GEOG380.knit">
+<meta name="twitter:description" content="Two sample tests are for cases in which you want to compare two independent samples. Like: Are the students in school A yielding better math scores than students in School B?. Are apples heavier...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html">Introduction</a></li>
+<li><a class="" href="class-expectations.html">Class expectations</a></li>
+<li><a class="" href="the-scientific-method.html"><span class="header-section-number">1</span> The scientific method</a></li>
+<li><a class="" href="installing-programs.html"><span class="header-section-number">2</span> Installing programs</a></li>
+<li><a class="" href="basics-on-data-manipulation-in-r.html"><span class="header-section-number">3</span> Basics on data manipulation in R</a></li>
+<li><a class="" href="basic-plots.html"><span class="header-section-number">4</span> Basic plots</a></li>
+<li><a class="" href="descriptive-statistics.html"><span class="header-section-number">5</span> Descriptive statistics</a></li>
+<li><a class="" href="correlation-1.html"><span class="header-section-number">6</span> Correlation</a></li>
+<li><a class="" href="regression-1.html"><span class="header-section-number">7</span> Regression</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">8</span> Hypothesis testing</a></li>
+<li><a class="" href="standard-hypothesis-tests.html"><span class="header-section-number">9</span> Standard hypothesis tests</a></li>
+<li><a class="" href="one-sample-tests.html"><span class="header-section-number">10</span> One sample tests</a></li>
+<li><a class="active" href="two-sample-tests.html"><span class="header-section-number">11</span> Two sample tests</a></li>
+<li><a class="" href="multiple-sample-test.html"><span class="header-section-number">12</span> Multiple sample test</a></li>
+<li><a class="" href="final-project.html"><span class="header-section-number">13</span> Final project</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="two-sample-tests" class="section level1" number="11">
+<h1>
+<span class="header-section-number">11</span> Two sample tests<a class="anchor" aria-label="anchor" href="#two-sample-tests"><i class="fas fa-link"></i></a>
+</h1>
+<p>Two sample tests are for cases in which you want to compare two independent samples. Like:</p>
+<p>Are the students in school A yielding better math scores than students in School B?.</p>
+<p>Are apples heavier than oranges?.</p>
+<p>The premise is that the more similar the two samples, the less likely they are to be significantly different.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-304"></span>
+<img src="images/OverlapAndPvalue.gif" alt="Two populations with different means, n=5" width="70%"><p class="caption">
+Figure 11.1: Two populations with different means, n=5
+</p>
+</div>
+<p>These types of questions can be answered with either the Z-test or the T-Test, which we will introduce in this chapter. Both of these tests are suited for two-sample tests, but the Z-test is preferred to the t-test for large samples (n &gt; 30) or when the population variance is known.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-305"></span>
+<img src="images/SelectingOnSampleTest.png" alt="Z-test or T-test?" width="70%"><p class="caption">
+Figure 11.2: Z-test or T-test?
+</p>
+</div>
+<p>At the end of this chapter, you are expected to:</p>
+<ol style="list-style-type: decimal">
+<li><p>Run a two sample Z-test and interpret its results from R.</p></li>
+<li><p>Run a two sample T-test and interprets its results from R.</p></li>
+</ol>
+<div id="the-two-sample-z-test-by-hand" class="section level2 unnumbered">
+<h2>The two-sample Z-test by hand<a class="anchor" aria-label="anchor" href="#the-two-sample-z-test-by-hand"><i class="fas fa-link"></i></a>
+</h2>
+<p>The two-sample Z-test is used to compare the means of two different samples, when you know the population standard deviation and your sample size is larger than 30 individuals.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-306"></span>
+<img src="images/Z-Score%20two%20samples.png" alt="Z-test fucntion for two samples" width="70%"><p class="caption">
+Figure 11.3: Z-test fucntion for two samples
+</p>
+</div>
+<p>Lets try an example.</p>
+<p>A researcher wants to determine if a given drug is any different than a placebo at affecting physical endurance (i.e, the time it takes to do 20 push-ups).</p>
+<p>Nine hundred subjects are given the drug prior to testing, whereas 1000 other subjects receive a placebo.</p>
+<p>For the drug group, it took 9.78sec on average (S.D. = 4.05) to do 20 push-ups, whereas the placebo group took 15.10sec on average (S.D. = 4.28).</p>
+<p>Does this drug has any effect on physical performance? Let’s test this hypothesis at an <span class="math inline">\(\alpha\)</span> of 0.05,or 5%.</p>
+<p>Lets start by visualizing these data:</p>
+<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Drug_Mean</span><span class="op">=</span><span class="fl">9.78</span>   </span>
+<span><span class="va">Drug_SDSD</span><span class="op">=</span><span class="fl">4.05</span></span>
+<span></span>
+<span><span class="va">Placebo_Mean</span><span class="op">=</span><span class="fl">15.10</span></span>
+<span><span class="va">Placebo_SD</span><span class="op">=</span><span class="fl">4.28</span></span>
+<span></span>
+<span><span class="va">SimulatedDrug</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>,<span class="va">Drug_Mean</span>,<span class="va">Drug_SDSD</span><span class="op">)</span></span>
+<span><span class="va">SimulatedPlacebo</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>,<span class="va">Placebo_Mean</span>,<span class="va">Placebo_SD</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">breaks</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">20</span>,<span class="fl">40</span>, length.out <span class="op">=</span> <span class="fl">50</span><span class="op">)</span> <span class="co">#bins for the distribution</span></span>
+<span></span>
+<span><span class="co">#histogram for drug</span></span>
+<span><span class="va">Drug</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">SimulatedDrug</span>, xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">20</span>,<span class="fl">40</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">500</span><span class="op">)</span>,breaks <span class="op">=</span> <span class="va">breaks</span>,  plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#histogram for Placebo</span></span>
+<span><span class="va">Placebo</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">SimulatedPlacebo</span>, xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">20</span>,<span class="fl">40</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">500</span><span class="op">)</span>,breaks <span class="op">=</span> <span class="va">breaks</span>,  plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#because you are plotting two distributions, it will be nice to use different colors. and because they likely overlap, you should use semitransparent colors</span></span>
+<span><span class="va">LightBlue</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html">rgb</a></span><span class="op">(</span><span class="fl">173</span>,<span class="fl">216</span>,<span class="fl">230</span>,max <span class="op">=</span> <span class="fl">255</span>, alpha <span class="op">=</span> <span class="fl">100</span><span class="op">)</span> <span class="co">#the function rgb lets your select one color, and the alpha gives you how transparent</span></span>
+<span><span class="va">DarkRed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html">rgb</a></span><span class="op">(</span><span class="fl">255</span>,<span class="fl">192</span>,<span class="fl">203</span>, max <span class="op">=</span> <span class="fl">255</span>, alpha <span class="op">=</span> <span class="fl">95</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#lets plot the first distribution</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">Drug</span>, main<span class="op">=</span><span class="cn">NA</span>,xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">20</span>,<span class="fl">40</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1500</span><span class="op">)</span>,breaks <span class="op">=</span> <span class="va">breaks</span>, xlab <span class="op">=</span> <span class="st">"Time to do 20 push-up (Seconds)"</span>,ylab <span class="op">=</span> <span class="st">"Number of people"</span> ,col<span class="op">=</span><span class="va">LightBlue</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#now add the second distribution to the first plot, using the parameter add=TRUE, or add=T, theya re both the same</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">Placebo</span>, add<span class="op">=</span><span class="cn">T</span> ,col<span class="op">=</span><span class="va">DarkRed</span><span class="op">)</span>  <span class="co">#note how for the parameter col, you indicate the color you create as a variable above</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-307-1.png" width="672"></div>
+<p>Lets state the hypotheses:</p>
+<p>H0: Drug performance time = placebo time The null hypothesis is that the two groups take the same time.</p>
+<p>H1: Drug performance time <span class="math inline">\(\neq\)</span> placebo time The alternative hypothesis is that they are different.</p>
+<p>If you read carefully the question, you will see that the motivation of the researcher was to see if the drug was “any different”. I did that on purpose, so you can state the alternative hypothesis accordingly.</p>
+<p>Perhaps a better statement could be that the drug is better, in which case the null hypothesis would be greater than, in which case we would need a right-hand test, as oppose to a two-tail test when we asked is they are different. When it comes to statistics, and most things in life, you always do what is written, as that is your supporting evidence.</p>
+<p>So what test do we use?. Well, the sample size is larger than 30, so a Z-test seems appropriated.</p>
+<p>Lets calculate the Z-score for comparing two samples</p>
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Drug_Mean</span><span class="op">=</span><span class="fl">9.78</span>   </span>
+<span><span class="va">Drug_SDSD</span><span class="op">=</span><span class="fl">4.05</span></span>
+<span><span class="va">Drug_n</span> <span class="op">=</span><span class="fl">900</span>   <span class="co">#sample size for the drug treatment</span></span>
+<span></span>
+<span><span class="va">Placebo_Mean</span><span class="op">=</span><span class="fl">15.10</span></span>
+<span><span class="va">Placebo_SD</span><span class="op">=</span><span class="fl">4.28</span></span>
+<span><span class="va">Placebo_n</span><span class="op">=</span><span class="fl">1000</span> <span class="co">#sample size for the placebo treatment</span></span>
+<span></span>
+<span> </span>
+<span><span class="va">Z_Score_Numerator</span><span class="op">=</span> <span class="op">(</span><span class="va">Drug_Mean</span><span class="op">-</span><span class="va">Placebo_Mean</span><span class="op">)</span> <span class="op">-</span><span class="fl">0</span>  <span class="co">#because we assume that the two treatments have the same effect, we then have to assume that the difference between the population means is zero.</span></span>
+<span></span>
+<span><span class="va">Z_Score_denominator</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="op">(</span><span class="op">(</span><span class="va">Drug_SDSD</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">/</span><span class="va">Drug_n</span><span class="op">)</span><span class="op">+</span><span class="op">(</span><span class="op">(</span><span class="va">Placebo_SD</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">/</span><span class="va">Placebo_n</span><span class="op">)</span><span class="op">)</span></span>
+<span>                          </span>
+<span><span class="va">Z_score</span><span class="op">=</span><span class="va">Z_Score_Numerator</span><span class="op">/</span><span class="va">Z_Score_denominator</span></span>
+<span><span class="va">Z_score</span></span></code></pre></div>
+<pre><code>## [1] -27.82961</code></pre>
+<p>By now, we know well that two standard deviations from the mean include 95% of the observations in a normally distributed population. A value that is -27.82 standard deviations away from the mean does not even appear in traditional z-tables, so we can certainly reject the null hypothesis and conclude that this drug is indeed different than a placebo.</p>
+</div>
+<div id="the-two-sample-z-test-in-r" class="section level2 unnumbered">
+<h2>The two-sample Z-test in R<a class="anchor" aria-label="anchor" href="#the-two-sample-z-test-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>We can run such a test in R, using the package BSDA, and its function z.test. Lets try it.</p>
+<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("BSDA")   #first install the library, if you have not this library installed....simply remove the # sign and run this line</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span> <span class="op">(</span><span class="st"><a href="https://github.com/alanarnholt/BSDA">"BSDA"</a></span><span class="op">)</span>           <span class="co">#load the library</span></span>
+<span></span>
+<span><span class="va">Drug_Mean</span><span class="op">=</span><span class="fl">9.78</span>   </span>
+<span><span class="va">Drug_SDSD</span><span class="op">=</span><span class="fl">4.05</span></span>
+<span><span class="va">Drug_n</span> <span class="op">=</span><span class="fl">900</span>   <span class="co">#sample size for the drug treatment</span></span>
+<span></span>
+<span><span class="va">Placebo_Mean</span><span class="op">=</span><span class="fl">15.10</span></span>
+<span><span class="va">Placebo_SD</span><span class="op">=</span><span class="fl">4.28</span></span>
+<span><span class="va">Placebo_n</span><span class="op">=</span><span class="fl">1000</span> <span class="co">#sample size for the placebo treatment</span></span>
+<span></span>
+<span><span class="fu"><a href="https://alanarnholt.github.io/BSDA/reference/zsum.test.html">zsum.test</a></span><span class="op">(</span>mean.x<span class="op">=</span><span class="va">Drug_Mean</span>, sigma.x <span class="op">=</span> <span class="va">Drug_SDSD</span>, n.x <span class="op">=</span> <span class="va">Drug_n</span>,</span>
+<span>          mean.y <span class="op">=</span> <span class="va">Placebo_Mean</span>, sigma.y <span class="op">=</span> <span class="va">Placebo_SD</span>, n.y <span class="op">=</span> <span class="va">Placebo_n</span>, </span>
+<span>          alternative <span class="op">=</span> <span class="st">"two.sided"</span>, mu <span class="op">=</span> <span class="fl">0</span>,conf.level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#the parameters needed to run a Z-test are self-explanatory, similar to the one-sample test. x would indicate the data for the drug and y the data for the placebo. In this case, we are testing a two-tail hypothesis.</span></span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-310"></span>
+<img src="images/Z-test%20results%20two%20samples.png" alt="Z-test results for two samples from R" width="70%"><p class="caption">
+Figure 11.4: Z-test results for two samples from R
+</p>
+</div>
+</div>
+<div id="the-two-sample-t-test-by-hand" class="section level2 unnumbered">
+<h2>The two-sample T-test by hand<a class="anchor" aria-label="anchor" href="#the-two-sample-t-test-by-hand"><i class="fas fa-link"></i></a>
+</h2>
+<p>We perform a Two-Sample t-test when we want to compare the mean of two samples, and our sample sizes are smaller than 30.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-311"></span>
+<img src="images/T-Score%20two%20samples.png" alt="T-test fucntion for two samples" width="70%"><p class="caption">
+Figure 11.5: T-test fucntion for two samples
+</p>
+</div>
+<p>Lets try an example.</p>
+<p>Historically, males have scored 15 points more than girls in a given exam. No standard deviations exists. To test if this is true today, a researcher performed such a test in 10 males and 10 females and found that males scored 630.1 on average (+/- 13.42SD) and females 606.8 (+/- 13.14 SD). He wants to test the significance of this conclusion with a <span class="math inline">\(\alpha\)</span> value (significance level) of 0.05.</p>
+<p>Let’s start by stating the hypotheses:</p>
+<p>H0: Men scores -(minus) Female scores &lt;= 15, The null hypothesis is the complement of the alternative hypothesis, so set that one first</p>
+<p>H1: Men scores-Female scores &gt; 15 The question of interest is that males get 15 points more than females. So the difference between male and female scores is larger than 15 points.</p>
+<p>What test to use?. Well the sample size is smaller than 30, so we need to use a T-Test.</p>
+<p>And before we do any calculations, lets start by visualizing these data:</p>
+<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Males_Mean</span><span class="op">=</span><span class="fl">630.1</span>  </span>
+<span><span class="va">Males_SDSD</span><span class="op">=</span><span class="fl">13.42</span></span>
+<span></span>
+<span><span class="va">Females_Mean</span><span class="op">=</span><span class="fl">606.8</span></span>
+<span><span class="va">Females_SD</span><span class="op">=</span><span class="fl">13.14</span></span>
+<span></span>
+<span><span class="va">SimulatedMales</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>,<span class="va">Males_Mean</span>,<span class="va">Males_SDSD</span><span class="op">)</span></span>
+<span><span class="va">SimulatedFemales</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>,<span class="va">Females_Mean</span>,<span class="va">Females_SD</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">breaks</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">500</span>,<span class="fl">700</span>, length.out <span class="op">=</span> <span class="fl">50</span><span class="op">)</span> <span class="co">#bins for the distribution</span></span>
+<span></span>
+<span><span class="co">#histogram for drug</span></span>
+<span><span class="va">Males</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">SimulatedMales</span>,breaks <span class="op">=</span> <span class="va">breaks</span>,  plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#histogram for Placebo</span></span>
+<span><span class="va">Females</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">SimulatedFemales</span>, breaks <span class="op">=</span> <span class="va">breaks</span>,  plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#because you are plotting two distributions, it will be nice to use different colors. and because they likely overlap, you should use semitransparent colors</span></span>
+<span><span class="va">LightBlue</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html">rgb</a></span><span class="op">(</span><span class="fl">173</span>,<span class="fl">216</span>,<span class="fl">230</span>,max <span class="op">=</span> <span class="fl">255</span>, alpha <span class="op">=</span> <span class="fl">100</span><span class="op">)</span> <span class="co">#the function rgb lets your select one color, and the alpha gives you how tranparent</span></span>
+<span><span class="va">DarkRed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html">rgb</a></span><span class="op">(</span><span class="fl">255</span>,<span class="fl">192</span>,<span class="fl">203</span>, max <span class="op">=</span> <span class="fl">255</span>, alpha <span class="op">=</span> <span class="fl">95</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#lets plot the first distribution</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">Males</span>, main<span class="op">=</span><span class="cn">NA</span>,xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">500</span>,<span class="fl">700</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1500</span><span class="op">)</span>,breaks <span class="op">=</span> <span class="va">breaks</span>, xlab <span class="op">=</span> <span class="st">"Score test"</span>,ylab <span class="op">=</span> <span class="st">"Number of people"</span> ,col<span class="op">=</span><span class="va">LightBlue</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#now add the second distribution to the first plot, using the parameter add=TRUE, or add=T, they are both the same</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">Females</span>, add<span class="op">=</span><span class="cn">T</span> ,col<span class="op">=</span><span class="va">DarkRed</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-312-1.png" width="672"></div>
+<p>Lets calculate the T-score for comparing two samples:</p>
+<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Males_Mean</span><span class="op">=</span><span class="fl">630.1</span>  </span>
+<span><span class="va">Males_SDSD</span><span class="op">=</span><span class="fl">13.42</span></span>
+<span></span>
+<span><span class="va">Females_Mean</span><span class="op">=</span><span class="fl">606.8</span></span>
+<span><span class="va">Females_SD</span><span class="op">=</span><span class="fl">13.14</span></span>
+<span></span>
+<span><span class="va">SampleSize</span><span class="op">=</span> <span class="fl">10</span>  <span class="co">#we can use this variable for both males and females, since in both cases 10 people were analyzed</span></span>
+<span></span>
+<span> </span>
+<span><span class="va">T_Score_Numerator</span><span class="op">=</span> <span class="op">(</span><span class="va">Males_Mean</span><span class="op">-</span><span class="va">Females_Mean</span><span class="op">)</span> <span class="op">-</span><span class="fl">15</span>  <span class="co">#because we assume that males score 15 point more, we need to assume that the difference between the population means is 15 points</span></span>
+<span></span>
+<span><span class="va">T_Score_denominator</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="op">(</span><span class="op">(</span><span class="va">Males_SDSD</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">/</span><span class="va">SampleSize</span><span class="op">)</span><span class="op">+</span><span class="op">(</span><span class="op">(</span><span class="va">Females_SD</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">/</span><span class="va">SampleSize</span><span class="op">)</span><span class="op">)</span></span>
+<span>                          </span>
+<span><span class="va">T_score</span><span class="op">=</span><span class="va">T_Score_Numerator</span><span class="op">/</span><span class="va">T_Score_denominator</span></span>
+<span><span class="va">T_score</span></span></code></pre></div>
+<pre><code>## [1] 1.397465</code></pre>
+<p>Next, look for the t-critical value in the t-table for 18 degrees of freedom. In the case of a two sample t-test, degrees of freedoms are equal to the sample size one plus sample size two minus two) and a level of significance <span class="math inline">\(\alpha\)</span> of 0.05 (Here we are looking at one tail test, as the alternative hypothesis states that one mean is larger than the other).</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-314"></span>
+<img src="images/TTable.jpg" alt="R-results for a one-sample z-test" width="100%"><p class="caption">
+Figure 11.6: R-results for a one-sample z-test
+</p>
+</div>
+<p>So the critical t-Score is 1.734.</p>
+<p>Since our calculated t-value (i.e., 1.397465) was smaller than the critical t-value (1.734), we <strong>fail to reject the null hypothesis</strong>. Males doe not get 15 points higher than females in this exam as it has been historically.</p>
+</div>
+<div id="the-two-sample-t-test-in-r" class="section level2 unnumbered">
+<h2>The two-sample T-test in R<a class="anchor" aria-label="anchor" href="#the-two-sample-t-test-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>We can run a T-test in R, using the package BSDA, and its function tsum.test. Lets try it.</p>
+<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span> <span class="op">(</span><span class="st"><a href="https://github.com/alanarnholt/BSDA">"BSDA"</a></span><span class="op">)</span>           <span class="co">#load the library</span></span>
+<span><span class="va">Males_Mean</span><span class="op">=</span><span class="fl">630.1</span>  </span>
+<span><span class="va">Males_SDSD</span><span class="op">=</span><span class="fl">13.42</span></span>
+<span></span>
+<span><span class="va">Females_Mean</span><span class="op">=</span><span class="fl">606.8</span></span>
+<span><span class="va">Females_SD</span><span class="op">=</span><span class="fl">13.14</span></span>
+<span></span>
+<span><span class="va">SampleSize</span><span class="op">=</span> <span class="fl">10</span></span>
+<span></span>
+<span><span class="fu"><a href="https://alanarnholt.github.io/BSDA/reference/tsum.test.html">tsum.test</a></span><span class="op">(</span>mean.x<span class="op">=</span><span class="va">Males_Mean</span>, s.x <span class="op">=</span> <span class="va">Males_SDSD</span>, n.x <span class="op">=</span> <span class="va">SampleSize</span>,</span>
+<span>          mean.y<span class="op">=</span><span class="va">Females_Mean</span>, s.y <span class="op">=</span> <span class="va">Females_SD</span>, n.y <span class="op">=</span> <span class="va">SampleSize</span>,</span>
+<span>          alternative <span class="op">=</span> <span class="st">"greater"</span>, mu <span class="op">=</span> <span class="fl">15</span>, conf.level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#the parameters needed to run a T-test are self-explanatory. x parameters would be for males and y parameters for females, mu is the expected difference between the population means, which we know from the example is 15 score points</span></span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-316"></span>
+<img src="images/T%20Two%20SampleTestResultsR.png" alt="R-results for a two-sample T-test" width="100%"><p class="caption">
+Figure 11.7: R-results for a two-sample T-test
+</p>
+</div>
+</div>
+<div id="homework-8" class="section level2 unnumbered">
+<h2>Homework<a class="anchor" aria-label="anchor" href="#homework-8"><i class="fas fa-link"></i></a>
+</h2>
+<p>For each of the problems below do:</p>
+<ol style="list-style-type: decimal">
+<li>State the null and alternative hypothesis.</li>
+<li>will this be a one tail or two-tail test?.</li>
+<li>Indicate the type of test to use (Z-test or T-test).</li>
+<li>Run the given test in R.</li>
+<li>Report your results on top of a publication quality plot.</li>
+<li>Describe your conclusion.</li>
+</ol>
+<p><strong>Problem 1:</strong>
+Two competing headache remedies claim to give fast-acting relief. An experiment was performed to compare the mean lengths of time required for bodily absorption of brand A and brand B headache remedies. The lengths of time in minutes for the drugs to reach a specified level in the blood were recorded. Results were are follow:</p>
+<p>Brand A: Mean time= 21.8 min; sd= 8.7 min; n=500.</p>
+<p>Brand B: Mean time= 18.9 min; sd= 7.5 min; n=350.</p>
+<p>Are the two drugs different?. Test this at a significance level of 0.05</p>
+<p><strong>Problem 2:</strong>
+A consumer group is testing two camp stoves. To test the heating capacity of a stove, it measures the time required to bring 2 quarts of water from 50°F to boiling (at sea level). The following results are obtained:</p>
+<p>Model 1: Mean time = 11.4 min; sd= 2.5 min; n= 10 stoves.</p>
+<p>Model 2: Mean time = 9.9 min; s2=3.0 min; n=12 stoves.</p>
+<p>Assume that the time required to bring water to a boil is normally distributed for each stove. Is there any difference between the performances of these two models? Use a 5% level of significance.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="one-sample-tests.html"><span class="header-section-number">10</span> One sample tests</a></div>
+<div class="next"><a href="multiple-sample-test.html"><span class="header-section-number">12</span> Multiple sample test</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#two-sample-tests"><span class="header-section-number">11</span> Two sample tests</a></li>
+<li><a class="nav-link" href="#the-two-sample-z-test-by-hand">The two-sample Z-test by hand</a></li>
+<li><a class="nav-link" href="#the-two-sample-z-test-in-r">The two-sample Z-test in R</a></li>
+<li><a class="nav-link" href="#the-two-sample-t-test-by-hand">The two-sample T-test by hand</a></li>
+<li><a class="nav-link" href="#the-two-sample-t-test-in-r">The two-sample T-test in R</a></li>
+<li><a class="nav-link" href="#homework-8">Homework</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></strong>" was written by . </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

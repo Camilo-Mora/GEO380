@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>6 Correlation | GEOG380.knit</title>
+<meta name="description" content="One of the core goals in statistics is to calculate the strength of the relationship between two variables. That goal can be applied to a broad diversity of research questions. Say you did an...">
+<meta name="generator" content="bookdown 0.26.3 with bs4_book()">
+<meta property="og:title" content="6 Correlation | GEOG380.knit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="One of the core goals in statistics is to calculate the strength of the relationship between two variables. That goal can be applied to a broad diversity of research questions. Say you did an...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="6 Correlation | GEOG380.knit">
+<meta name="twitter:description" content="One of the core goals in statistics is to calculate the strength of the relationship between two variables. That goal can be applied to a broad diversity of research questions. Say you did an...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html">Introduction</a></li>
+<li><a class="" href="class-expectations.html">Class expectations</a></li>
+<li><a class="" href="the-scientific-method.html"><span class="header-section-number">1</span> The scientific method</a></li>
+<li><a class="" href="installing-programs.html"><span class="header-section-number">2</span> Installing programs</a></li>
+<li><a class="" href="basics-on-data-manipulation-in-r.html"><span class="header-section-number">3</span> Basics on data manipulation in R</a></li>
+<li><a class="" href="basic-plots.html"><span class="header-section-number">4</span> Basic plots</a></li>
+<li><a class="" href="descriptive-statistics.html"><span class="header-section-number">5</span> Descriptive statistics</a></li>
+<li><a class="active" href="correlation-1.html"><span class="header-section-number">6</span> Correlation</a></li>
+<li><a class="" href="regression-1.html"><span class="header-section-number">7</span> Regression</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">8</span> Hypothesis testing</a></li>
+<li><a class="" href="standard-hypothesis-tests.html"><span class="header-section-number">9</span> Standard hypothesis tests</a></li>
+<li><a class="" href="one-sample-tests.html"><span class="header-section-number">10</span> One sample tests</a></li>
+<li><a class="" href="two-sample-tests.html"><span class="header-section-number">11</span> Two sample tests</a></li>
+<li><a class="" href="multiple-sample-test.html"><span class="header-section-number">12</span> Multiple sample test</a></li>
+<li><a class="" href="final-project.html"><span class="header-section-number">13</span> Final project</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="correlation-1" class="section level1" number="6">
+<h1>
+<span class="header-section-number">6</span> Correlation<a class="anchor" aria-label="anchor" href="#correlation-1"><i class="fas fa-link"></i></a>
+</h1>
+<p>One of the core goals in statistics is to calculate the strength of the relationship between two variables. That goal can be applied to a broad diversity of research questions.</p>
+<p>Say you did an experiment to test the effect of temperature on plants and say you have plantss growing at different temperatures. In this case, you probably would like to relate temperature to a dependent variable like say plant size.</p>
+<p>Instead, you may be interested to see how rain affects the common cold, in which case you may wish to relate the amount of daily rainfall and the daily number of hospitalizations by cold….</p>
+<p>The possibilities are endless…but at the end of the day…all of them come down to simply assessing the strength of the relationship between two variables. For this specific purpose, we use the correlation and/or the regression analysis.</p>
+<p>.</p>
+<p><strong>Expectation for this chapter</strong></p>
+<p>At the end of this chapter, it is expected that you:</p>
+<ol style="list-style-type: decimal">
+<li><p>Can create a publication quality R scatterplot to visualize the relationship between two variables.</p></li>
+<li><p>Define the type of relationship between two variables (e.g., positive, negative, non-linear, non-existent).</p></li>
+<li><p>Calculate the coefficient of correlation between two variables and understand what it tells you about the relationship between the two variables.</p></li>
+</ol>
+<p>Alright, a lot to cover, so let’s get started.</p>
+<div id="visualization-of-relationships" class="section level2 unnumbered">
+<h2>Visualization of relationships<a class="anchor" aria-label="anchor" href="#visualization-of-relationships"><i class="fas fa-link"></i></a>
+</h2>
+<p>When looking into correlations and relationships the main display tool is the scatterplot.</p>
+<p>You already know how to use the scatterplot from Chapter 4. From that chapter, you should also already know the criteria for a plot to meet the standards required for publication.</p>
+<p>For the purpose of displaying a correlation and/or regression between two variables, the key consideration is if you assume one variable influences the other.</p>
+<p>From Chapter 1, the section on Experiments, you learned that the variable that influences another variable is called <strong>the independent variable</strong>. The one variable that is affected is called the <strong>dependent variable</strong>.</p>
+<p>If the purpose of your study does not involve assessing if one variable influences the other, then it does not matter what variable you use for the X- or Y-axis.</p>
+<p>However, if your study assumes that one variable influences another one, the independent variable is located in the X-axis, while the dependent variable should be located in the Y-axis.</p>
+<p>Let’s get to work in R. Let’s work on an interesting relationship I sow in the New York Times, between the people that voted for Donald Trump by State and the degree of higher education at those States.</p>
+<p>First, download the two databases from <a href="https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/TrumpVoters.csv">Here</a> and <a href="https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/US-Pop-HigherEducation.csv">Here</a>.</p>
+<p>Next, load the data into R (remember Chapter 3, section about loading your own data).</p>
+<div class="sourceCode" id="cb172"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">TrumpVoters_by_State</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"D:/GEO380/Datasets/TrumpVoters.csv"</span><span class="op">)</span> <span class="co">#Fraction of people by State that voted for Trump</span></span>
+<span><span class="va">HigherEducation_by_State</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"D:/GEO380/Datasets/US-Pop-HigherEducation.csv"</span><span class="op">)</span> <span class="co">#Fraction of people by State that have higher education degrees</span></span></code></pre></div>
+<p>Next check the data were loaded correctly and review the structure of the data:</p>
+<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span> <span class="op">(</span><span class="va">TrumpVoters_by_State</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##        State TRUMPVoteAsFraction
+## 1    Alabama              0.6208
+## 2     Alaska              0.5128
+## 3    Arizona              0.4867
+## 4   Arkansas              0.6057
+## 5 California              0.3162
+## 6   Colorado              0.4325</code></pre>
+<p>Review the same for the second database:</p>
+<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span> <span class="op">(</span><span class="va">HigherEducation_by_State</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##        State BachelorDegreePerStateAsFraction
+## 1    Alabama                            0.087
+## 2     Alaska                            0.101
+## 3    Arizona                            0.102
+## 4   Arkansas                            0.075
+## 5 California                            0.116
+## 6   Colorado                            0.140</code></pre>
+<p>The data appear to have loaded correctly. But I have the data I want in two different data.frames, so I have to merge them. In this case, I have one variable in common to the two data.frames that I can use to merge them by; that is the variable State. So, let’s merge our two data.frames by State.</p>
+<p>p
+i</p>
+<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Data</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/sp/man/merge.html">merge</a></span><span class="op">(</span><span class="va">TrumpVoters_by_State</span>,<span class="va">HigherEducation_by_State</span>,by<span class="op">=</span><span class="st">"State"</span><span class="op">)</span></span></code></pre></div>
+
+<div class="rmdimportant">
+<p>When merging databases, things can get tricky as you need to have at least one column in common to merge by. You need to ensure that in both databases, each field uses the same names for the data.</p>
+<p>For instance, say you have a common column call <em>state</em>, but in one database the data are shown by full names but in the other by abbreviate name.</p>
+<p>In this case, the merge function will return an empty database, because the two databases do not have variables that can be matched.</p>
+In such cases, you need to modify the original databases to ensure the two data.frames share a common variable, with similary named data.
+</div>
+<p>Let’s review the new merged database:
+u</p>
+<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span> <span class="op">(</span><span class="va">Data</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##        State TRUMPVoteAsFraction BachelorDegreePerStateAsFraction
+## 1    Alabama              0.6208                            0.087
+## 2     Alaska              0.5128                            0.101
+## 3    Arizona              0.4867                            0.102
+## 4   Arkansas              0.6057                            0.075
+## 5 California              0.3162                            0.116
+## 6   Colorado              0.4325                            0.140</code></pre>
+<p>Ok, now lets plot the data. In this case, I think the fraction of people that voted for Trump could be function of how educated they were, not the other way around; that would be like saying that Trump affected the degree of education of each State….hmm…when I say like that is does not sound that unlikely, ah?.</p>
+<p>This distinction is important because you need to determine which variable goes in the Y axis, and which one on the X-axis.</p>
+<p>If I think, the votes for Trump were influenced by the level of their education, them level of education will be the independent variable and then it will be located in the X-Axis. In this reasoning, The percent of the State’s population that voted for trump will be the dependent variable, and so, it should be located on the Y-axis. Lets do that plot:</p>
+<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">Data</span><span class="op">$</span><span class="va">TRUMPVoteAsFraction</span><span class="op">~</span><span class="va">Data</span><span class="op">$</span><span class="va">BachelorDegreePerStateAsFraction</span>, ylab<span class="op">=</span><span class="st">"Trump voters by State (Fraction)"</span>,xlab<span class="op">=</span><span class="st">"High degree education (Fraction of population)"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-194-1.png" width="672"></div>
+<p>Hmm, from this visualization alone you can tell something is cooking here…the least educated states voted for Trump more so than States with more educated populations. Let’s explore this relationship in more detail, as a case example.</p>
+</div>
+<div id="linear-relationships" class="section level2 unnumbered">
+<h2>Linear relationships<a class="anchor" aria-label="anchor" href="#linear-relationships"><i class="fas fa-link"></i></a>
+</h2>
+<p>Generally speaking two variables can related in three difference “fashions”: linear, non-linear, or non-related. There are different mathematical approaches to tackle each type of relationship. Here we will cover only linear relationships, but I want you to learn to at least identify the other types.</p>
+<p>Let’s start with the linear relationships. Linear relationships, as the name sort of indicates are better described by a straight line. This type of relationships can be further separated between <strong>positive</strong> relationships, in which Y-increases as X-increases and <strong>negative</strong> relationships, in which Y-decreases as X-increases.</p>
+<p>Obviously, you also have the option that the two variables do not relate to each other (see figure below)</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-195"></span>
+<img src="images/Relationships.png" alt="Types of relationships" width="100%"><p class="caption">
+Figure 6.1: Types of relationships
+</p>
+</div>
+</div>
+<div id="non-linear-relationships" class="section level2 unnumbered">
+<h2>Non-linear relationships<a class="anchor" aria-label="anchor" href="#non-linear-relationships"><i class="fas fa-link"></i></a>
+</h2>
+<p>Relationships that cannot be well described with a linear model, are called non-linear relationships. Non-linear relationships can take all sorts of shapes, names and mathematical approaches to define them. They will not be covered as part of this class, but you should be aware they exist.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-196"></span>
+<img src="images/Non-Linear%20Relationships.png" alt="Types of relationships" width="100%"><p class="caption">
+Figure 6.2: Types of relationships
+</p>
+</div>
+</div>
+<div id="the-covariance" class="section level2 unnumbered">
+<h2>The Covariance<a class="anchor" aria-label="anchor" href="#the-covariance"><i class="fas fa-link"></i></a>
+</h2>
+<p>The strength of the linear association between two variables is mathematically measured with the so-call <strong>Correlation Coefficient</strong>. The Correlation Coefficient is abbreviated with the lowercase letter <span class="math inline">\(r\)</span> (that is not a token). However, to estimate the Correlation Coefficient, you need to first estimate the so-call <strong>Covariance</strong>.</p>
+<p>Check a brief explanation of the covariance in the following video:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/F4oRgSYEssU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>The covariance is an extension of the <em>variance</em> calculation we did earlier to measure the spread of the data in a variable, but in the covariance we analyze two variables. In fact, if you were to assess the relationship between a variable and itself, the covariance will be identical to the variance.</p>
+<p>In a nutshell, the covariance tells you if the differences in two variables are trending on the same direction.</p>
+<p>Mathematically, the covariance is calculated with the following equation:</p>
+<p><span class="math display">\[\begin{equation}
+Covariance = COV(XY) = \frac{\sum_{i=1}^n (x -\bar{x})*(y -\bar{y})}{n-1}
+\end{equation}\]</span></p>
+<p>Let’s try a simple example to estimate the Covariance. Let’s consider the relationship that exist between the time that you study for my class and the grade that you get.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-197"></span>
+<img src="images/TimeStudyingAndGrades.png" alt="Time stuying relates to test scores" width="100%"><p class="caption">
+Figure 6.3: Time stuying relates to test scores
+</p>
+</div>
+<p>Say, I asked five students how long they studied each week and the grade they got in my prior classes. These were the data:</p>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:unnamed-chunk-198">Table 6.1: </span>Grades and time studying Stats
+</caption>
+<thead><tr>
+<th style="text-align:left;">
+Names
+</th>
+<th style="text-align:right;">
+Hours_Studying
+</th>
+<th style="text-align:right;">
+Grade
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Peter
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+<td style="text-align:right;">
+55
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Laura
+</td>
+<td style="text-align:right;">
+1.8
+</td>
+<td style="text-align:right;">
+64
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+John
+</td>
+<td style="text-align:right;">
+2.4
+</td>
+<td style="text-align:right;">
+75
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chip
+</td>
+<td style="text-align:right;">
+3.8
+</td>
+<td style="text-align:right;">
+82
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tom
+</td>
+<td style="text-align:right;">
+4.5
+</td>
+<td style="text-align:right;">
+95
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>As always, we start by plotting the data:</p>
+<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">StudyingTimes</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  Names<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Peter"</span>,<span class="st">"Laura"</span>, <span class="st">"John"</span>, <span class="st">"Chip"</span>, <span class="st">"Tom"</span><span class="op">)</span>, <span class="co">#lets create a data.frame with three columns</span></span>
+<span>  Hours_Studying<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span><span class="op">)</span>,</span>
+<span>  Score<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">55</span>, <span class="fl">64</span>, <span class="fl">75</span>, <span class="fl">82</span>,<span class="fl">95</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class="co">#now let's do the plot</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">Score</span><span class="op">~</span><span class="va">Hours_Studying</span>,data<span class="op">=</span><span class="va">StudyingTimes</span>,xlab<span class="op">=</span><span class="st">"Hours a week studying"</span>, ylab<span class="op">=</span><span class="st">"Final class score (%)"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-199-1.png" width="672"></div>
+<p>Lets break the calculation of the covariance into its parts so we can better appreciate what it does.</p>
+<p>First, we calculate the mean of alll values in X and the difference from each value to that mean:</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-200"></span>
+<img src="images/Covariance%20(Differences%20in%20X).png" alt="Differences in X" width="100%"><p class="caption">
+Figure 6.4: Differences in X
+</p>
+</div>
+<p>Let’s do the same for the Y-axis:</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-201"></span>
+<img src="images/Covariance%20(Differences%20in%20Y).png" alt="Difference in Y" width="100%"><p class="caption">
+Figure 6.5: Difference in Y
+</p>
+</div>
+<p>Following the equation of the covariance, for the first point in the data (i.e., Peter), we place his difference to the mean in X (i.e, -2.1) and its difference to the mean in Y (-19.2), in the numerator. Like this:</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-202"></span>
+<img src="images/Covariance%20(Differences%20in%20XYi).png" alt="Difference in X" width="100%"><p class="caption">
+Figure 6.6: Difference in X
+</p>
+</div>
+<p>We can do that for all data points and obtain:</p>
+<p><span class="math display">\[\begin{equation}
+Covariance = COV(XY) =\frac{\sum_{} (-2.1)(-19.2) + (-0.8)(-10.2) + (-0.2)(0.8) + (1.2)(7.8) + (1.9)(20.8)}{5-1}
+\end{equation}\]</span>
+.
+<span class="math display">\[\begin{equation}
+Covariance = COV(XY) =24.3 Hours*Test Score
+\end{equation}\]</span></p>
+<p>Hmm???, Right?…as mentioned earlier the score of the covariance by itself is hard to interpret, but it may still provide useful information about the trend of the data…in this case the covariance is positive, indicating that the differences in X trend in a positive direction as the differences in Y. Basically, as students study more they get higher grades…Please remember that!…and here it goes a token j</p>
+<p>In R, the covariance is calculated with the <em>cov</em> function:</p>
+<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cov</a></span><span class="op">(</span><span class="va">StudyingTimes</span><span class="op">$</span><span class="va">Score</span>,<span class="va">StudyingTimes</span><span class="op">$</span><span class="va">Hours_Studying</span>, use <span class="op">=</span> <span class="st">"everything"</span>,  method <span class="op">=</span> <span class="st">"pearson"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 24.3</code></pre>
+</div>
+<div id="the-correlation-coefficient-r" class="section level2 unnumbered">
+<h2>The Correlation Coefficient, r<a class="anchor" aria-label="anchor" href="#the-correlation-coefficient-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>As indicated earlier, the strength of the linear association between two variables is mathematically measured with the so-call <strong>Correlation Coefficient</strong>. At times, it is also called the <strong>Pearson product-moment correlation coefficient</strong>, after Karl Pearson, who is credited with formulating r.</p>
+<p>Mathematically, the correlation coefficient, <span class="math inline">\(r\)</span>, is calculated with the following equation:</p>
+<p><span class="math display">\[\begin{equation}
+r = \frac{cov (XY)}{Sx * Sy}
+\end{equation}\]</span></p>
+<p>Basically, the correlation coefficient, <span class="math inline">\(r\)</span>,is the Covariance divided by the multiplication of the standard deviation of the data in X and the standard deviation of the data in Y.</p>
+<p>If you think about this equation, the covariance is the product of the differences in X and Y. While the standard deviations are independently the differences in X and the differences in Y. So, in practical terms, the correlation coefficient is an standardized metric. It will never be smaller than -1 or larger than 1.</p>
+<p>That is why the correlation coefficient is such a nice term to access the tendency between two variables. If it is closer to -1 then you know the data probably follow a strong and negative trend. If it is close to 1, then the data follow a positive and strong trend. If it is closer to zero, then the data are all over the place (there is not correlation). Towards the end of the chapter, we will learn more about how to interpret the correlation coefficient.</p>
+<p>Lets calculate it,</p>
+<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">COVXY</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cov</a></span><span class="op">(</span><span class="va">StudyingTimes</span><span class="op">$</span><span class="va">Score</span>,<span class="va">StudyingTimes</span><span class="op">$</span><span class="va">Hours_Studying</span>, use <span class="op">=</span> <span class="st">"everything"</span>,  method <span class="op">=</span> <span class="st">"pearson"</span><span class="op">)</span> <span class="co">#Covariance</span></span>
+<span><span class="va">SDX</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">StudyingTimes</span><span class="op">$</span><span class="va">Hours_Studying</span><span class="op">)</span>            <span class="co">#Standard deviation for X</span></span>
+<span><span class="va">SDY</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">StudyingTimes</span><span class="op">$</span><span class="va">Score</span><span class="op">)</span>                     <span class="co">#Standard deviation for Y</span></span>
+<span><span class="va">r</span><span class="op">=</span><span class="va">COVXY</span><span class="op">/</span><span class="op">(</span><span class="va">SDX</span><span class="op">*</span><span class="va">SDY</span><span class="op">)</span></span>
+<span><span class="va">r</span></span></code></pre></div>
+<pre><code>## [1] 0.9817004</code></pre>
+<p>So the coefficient of correlation between the time that you study and the score in my class is 0.98. That means the more time you study the higher your grade…nice, ah???</p>
+<p>In R, the coefficient of correlation can be calculated directly with the function <em>cor</em>,</p>
+<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">StudyingTimes</span><span class="op">$</span><span class="va">Score</span>,<span class="va">StudyingTimes</span><span class="op">$</span><span class="va">Hours_Studying</span>, method <span class="op">=</span> <span class="st">"pearson"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 0.9817004</code></pre>
+<div id="alternative-formulation" class="section level3 unnumbered">
+<h3>Alternative formulation<a class="anchor" aria-label="anchor" href="#alternative-formulation"><i class="fas fa-link"></i></a>
+</h3>
+<p>While looking into the correlation coefficient you will likely see alternative formulations of it that yield the same or very close approximations.</p>
+<p>For instance, you may find it formulated like this:</p>
+<p><span class="math display">\[\begin{equation}
+r = \frac{1}{n-1} \sum_{}\frac{x-\bar{x}}{Sx}\frac{y-\bar{y}}{Sy}
+\end{equation}\]</span></p>
+<p>This equation above, is pretty much the same we used earlier, but reorganizing the parts.</p>
+<p>At times, you can also defined as:</p>
+<p><span class="math display">\[\begin{equation}
+r = \frac{n * \sum_{} xy- (\sum_{} x)*(\sum_{} y)}{\sqrt {n * \sum_{} x^2- (\sum_{} x)^2 } * \sqrt {n * \sum_{} y^2- (\sum_{} y)^2 }}
+\end{equation}\]</span></p>
+<p>Which will yield a very close approximation to the equation we used earlier.</p>
+
+<div class="rmdnote">
+Be careful! The notation <span class="math inline">\(\sum_{}x^2\)</span> means first square <span class="math inline">\(x\)</span> and then calculate the sum,
+whereas <span class="math inline">\((\sum_{}x)^2\)</span> means first sum the x values and then square the result.
+</div>
+<p>For the equation above, all we have to compute is <span class="math inline">\(\sum_{}x\)</span>, <span class="math inline">\(\sum_{}y\)</span>, <span class="math inline">\(\sum_{}x^2\)</span>, <span class="math inline">\(\sum_{}y^2\)</span>, and <span class="math inline">\(\sum_{}x*y\)</span>. Let try, for the sake of being sure and for you to use some tools from R.</p>
+<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Y</span><span class="op">=</span><span class="va">StudyingTimes</span><span class="op">$</span><span class="va">Score</span></span>
+<span><span class="va">X</span><span class="op">=</span><span class="va">StudyingTimes</span><span class="op">$</span><span class="va">Hours_Studying</span></span>
+<span></span>
+<span></span>
+<span><span class="va">SumX</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span> <span class="co">#sum all values of x</span></span>
+<span><span class="va">SumY</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">Y</span><span class="op">)</span>              <span class="co">#sum all values of y</span></span>
+<span><span class="va">SumX2</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span> <span class="op">(</span><span class="va">X</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span> <span class="co">#sum all values of x^2..</span></span>
+<span><span class="va">SumY2</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span> <span class="op">(</span><span class="va">Y</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span>      <span class="co">#   sprintf("%.0f",sum (Y **2))    </span></span>
+<span><span class="va">SumXY</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span> <span class="op">(</span><span class="va">X</span><span class="op">*</span><span class="va">Y</span><span class="op">)</span>  <span class="co">#sum all value of x * y</span></span>
+<span><span class="va">n</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">Y</span><span class="op">)</span> <span class="co"># the number of observations is basically the number of rows in the database</span></span></code></pre></div>
+<p>The results are:</p>
+<p><span class="math inline">\(\sum_{}x\)</span> = 13</p>
+<p><span class="math inline">\(\sum_{}y\)</span> = 371</p>
+<p><span class="math inline">\(\sum_{}x^2\)</span> = 43.94</p>
+<p><span class="math inline">\(\sum_{}y^2\)</span> = 28495</p>
+<p><span class="math inline">\(\sum_{}x*y\)</span> = 1061.8</p>
+<p>n = 5</p>
+<p>Now we plug those values into the coefficient of correlation, r, equation:</p>
+<p><span class="math display">\[\\[.0005in]\]</span></p>
+<p><span class="math display">\[\begin{equation}
+r = \frac{n * \sum_{} xy- (\sum_{} x)*(\sum_{} y)}{\sqrt {n * \sum_{} x^2- (\sum_{} x)^2 } * \sqrt {n * \sum_{} y^2- (\sum_{} y)^2 }}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\\[.0005in]\]</span></p>
+<p><span class="math display">\[\begin{equation}
+r = \frac{5 * 1061.8- (13)*(371)}{\sqrt {5 * 43.94- (13)^2 } * \sqrt {5 * 28495- (371)^2 }}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\\[.0005in]\]</span></p>
+<p>In R, it is basically:</p>
+<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">r</span><span class="op">=</span><span class="op">(</span><span class="va">n</span><span class="op">*</span><span class="va">SumXY</span><span class="op">-</span><span class="op">(</span><span class="va">SumX</span><span class="op">*</span><span class="va">SumY</span><span class="op">)</span><span class="op">)</span>   <span class="op">/</span>  <span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n</span><span class="op">*</span><span class="va">SumX2</span> <span class="op">-</span><span class="va">SumX</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span>  <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">n</span><span class="op">*</span><span class="va">SumY2</span> <span class="op">-</span><span class="va">SumY</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span>   <span class="op">)</span></span>
+<span></span>
+<span><span class="va">r</span></span></code></pre></div>
+<pre><code>## [1] 0.9817004</code></pre>
+<p><span class="math display">\[\begin{equation}
+r = 0.98
+\end{equation}\]</span></p>
+<p><span class="math display">\[\\[.0005in]\]</span></p>
+<p>Hmm, what do you think is causing the difference to the original calculation?</p>
+</div>
+</div>
+<div id="interpreting-r" class="section level2 unnumbered">
+<h2>Interpreting r<a class="anchor" aria-label="anchor" href="#interpreting-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>The correlation coefficient, <span class="math inline">\(r\)</span>, is unitless…by dividing by the standard deviations the products of the differences in x and y, the result loose its units. This means the value can be compared among studies for any set of x and y variables but can also be interpreted between a set of standard values (i.e., -1 to 1).</p>
+<p>In short, the correlation coefficient, <span class="math inline">\(r\)</span>, can range from -1 (perfectly negative correlation) to 1 (perfectly positive correlation). Like in the images below.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-209"></span>
+<img src="images/Scatter-Plots-and-Correlation-Examples.png" alt="Examples of correlation coefficients" width="100%"><p class="caption">
+Figure 6.7: Examples of correlation coefficients
+</p>
+</div>
+</div>
+<div id="causation" class="section level2 unnumbered">
+<h2>Causation<a class="anchor" aria-label="anchor" href="#causation"><i class="fas fa-link"></i></a>
+</h2>
+<p>The correlation coefficient measures the strength of a linear relationship between two variables. Thus, it makes no implication about cause or effect. The fact that two variables tend to increase or decrease together does not mean that a change in one is causing a change in the other.</p>
+<p>At times, two variables may be strongly correlated because they are equally correlated to a third (either known or unknown) variable. Such variables are called <strong>lurking variables</strong>. Lets take the following example:</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-210"></span>
+<img src="images/Causation.png" alt="Examples of lurking variables" width="100%"><p class="caption">
+Figure 6.8: Examples of lurking variables
+</p>
+</div>
+<p>In the figure above, the dashed lines show an association. The solid red arrows show a cause-and-effect link. The variable x is explanatory, y is a response variable, and z is a lurking variable.</p>
+<p>Basically, in example <strong>B</strong>, you will find a strong correlation between x and y, not because they are causality related, but because they are both strongly affected by a variable you did not measure (i.e., Z in the case example above) or a so-call lurking variable. The effect is that you can make a spurious conclusion if you interpret the coefficient correlation as a cause and effect.</p>
+<p>For instance, you know that in tropical countries there is a strong correlation between the consumption of ice cream and shark attacks?. One could conclude that sharks like sweet people?. Hmm…think about this correlation….is there a lurking variable here?. what could it be?</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-211"></span>
+<img src="images/Sharks%20eat%20icecream%20people.png" alt="Example of a lurking variable" width="100%"><p class="caption">
+Figure 6.9: Example of a lurking variable
+</p>
+</div>
+</div>
+<div id="significance" class="section level2 unnumbered">
+<h2>Significance<a class="anchor" aria-label="anchor" href="#significance"><i class="fas fa-link"></i></a>
+</h2>
+<p>If you were to take any two random variables and correlate them together, you will still get a correlation value.</p>
+<p>You may think that if the two variables are random, then the correlation will be close to zero…well, you are wrong.</p>
+<p>It turns out that even by random chance alone, two variables may still be correlated. The chances of getting a higher correlation increase the lower the sample size.</p>
+<p>Just think about it, if you were to correlate any two data points, almost certainly your correlation will be 1 or -1.</p>
+<p>To address this potential caveat, we need to assess the “Significance” of the correlation. Basically, can the correlation you found emerge by chance alone?</p>
+<p>That word “significance or significant” is tricky because it implies a level or threshold of error you are willing to take. That threshold is called <strong>critical value</strong>, commonly identified with the letter alpha, <span class="math inline">\(\alpha\)</span>. Again it is the margin of error you are willing to accept as error.</p>
+<p>In biology, we normally give ourselves a 5% chance of being wrong (p&lt;0.05). But at times, it is preferable to be more certain and we take only a 1% chance (p&lt;0.01). At times rather, you just provide the exact probability of the correlation being random, in which case we provide the exact p-value.</p>
+
+<div class="rmdnote">
+Remember that the parameter <span class="math inline">\(n\)</span> is call <strong>sample size</strong>.
+</div>
+<div id="correlation-tables" class="section level3 unnumbered">
+<h3>correlation tables<a class="anchor" aria-label="anchor" href="#correlation-tables"><i class="fas fa-link"></i></a>
+</h3>
+<p>For the case of the correlation, the significance of the correlation can be assessed quickly with a probability table, as the one shown below:</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-213"></span>
+<img src="images/CorrelationCoeficientP.png" alt="Significance of correlations" width="50%"><p class="caption">
+Figure 6.10: Significance of correlations
+</p>
+</div>
+<p>Lets use the example we have been working on about the relationship between the time students study and their grades. In that case, <span class="math inline">\(r\)</span>=0.98 and the sample size <span class="math inline">\(n\)</span> was 5 students.</p>
+<p>Is that coefficient of correlation significant?. Can I obtain a similarly high correlation, ifor any similar set of random variables?.</p>
+<p>To find out, you first select your critical value, <span class="math inline">\(\alpha\)</span>, lets choose 0.05. In this case, the second column in the table above will be the one we are interested on.</p>
+<p>Next, you scroll-down column one until the sample size in the table matches ours (that is 5).</p>
+<p>At that row, if you look over the value in the second column, that is the coefficient of correlation of any two random variables with five points. In our case, that value is 0.88.</p>
+<p>Our correlation coefficients was larger, <span class="math inline">\(r\)</span>=0.98, meaning that it is unlikely our correlation could occur by chance alone.</p>
+<p>There you have it: the more time you study the better grades you get, now demonstrated mathematically. Take a couple tokens, gh, so you do not forget that conclusion!</p>
+</div>
+<div id="correlation-p-values" class="section level3 unnumbered">
+<h3>Correlation p-values<a class="anchor" aria-label="anchor" href="#correlation-p-values"><i class="fas fa-link"></i></a>
+</h3>
+<p>At times, you want to be more specific about the likely error that the correlation you found can be caused by chance alone. In this case, we need to report an exact p-value. Later on we will be studying p-values in more detail.</p>
+<p>In R, the exact p-value of a correlation is calculated with the function <em>cor.test</em>.</p>
+<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Y</span><span class="op">=</span><span class="va">StudyingTimes</span><span class="op">$</span><span class="va">Score</span></span>
+<span><span class="va">X</span><span class="op">=</span><span class="va">StudyingTimes</span><span class="op">$</span><span class="va">Hours_Studying</span></span>
+<span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span> <span class="op">(</span><span class="va">X</span>,<span class="va">Y</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+##  Pearson's product-moment correlation
+## 
+## data:  X and Y
+## t = 8.9289, df = 3, p-value = 0.002963
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.7427169 0.9988455
+## sample estimates:
+##       cor 
+## 0.9817004</code></pre>
+<p>There are several things to the output of that R-function, <em>cor.test</em>, but for now, you just need to focus on the p-value number, which in our case, for the correlation between time studying and grades, is p-value=0.002963.</p>
+<p>Basically, given our sample size, there is a 0.3%, less than 1% chance, that our correlation can emerge by chance alone.
+In conclusion, if you want a good grade in my class you really need to take good time to study. Mathematics tells you that there is no way around it; we are nearly 99.9% that is a legit correlation!.</p>
+</div>
+</div>
+<div id="exercises-1" class="section level2 unnumbered">
+<h2>Exercises<a class="anchor" aria-label="anchor" href="#exercises-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Some of these questions may take a while to load depending on your internet connection.</p>
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=13" width="958" height="790" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=14" width="958" height="312" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=15" width="958" height="1051" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=16" width="958" height="449" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=17" width="958" height="671" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+</div>
+<div id="homework-3" class="section level2 unnumbered">
+<h2>Homework<a class="anchor" aria-label="anchor" href="#homework-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>When studying crime levels among universities around the country, a scientists found the following data</p>
+<p>x= 12.5, 30.0, 24.5, 14.3, 7.5, 27.7, 16.2, 20.1</p>
+<p>y= 26, 73, 39, 23, 15, 30, 15, 25</p>
+<p>Let x be students enroll (in thousands), and y the number of burglaries at the given university campus.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Make a scatter diagram, adjust aesthetics so the figure follows publication guidelines.</p></li>
+<li><p>Display in the plot the correlation coefficient.</p></li>
+<li><p>Would you say the correlation is low, moderate, or high? positive or negative?</p></li>
+<li><p>Was it significant?</p></li>
+</ol>
+<p>Place the figure and your responses in a Word document and email it as a homework. Send a nice looking document.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="descriptive-statistics.html"><span class="header-section-number">5</span> Descriptive statistics</a></div>
+<div class="next"><a href="regression-1.html"><span class="header-section-number">7</span> Regression</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#correlation-1"><span class="header-section-number">6</span> Correlation</a></li>
+<li><a class="nav-link" href="#visualization-of-relationships">Visualization of relationships</a></li>
+<li><a class="nav-link" href="#linear-relationships">Linear relationships</a></li>
+<li><a class="nav-link" href="#non-linear-relationships">Non-linear relationships</a></li>
+<li><a class="nav-link" href="#the-covariance">The Covariance</a></li>
+<li>
+<a class="nav-link" href="#the-correlation-coefficient-r">The Correlation Coefficient, r</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#alternative-formulation">Alternative formulation</a></li></ul>
+</li>
+<li><a class="nav-link" href="#interpreting-r">Interpreting r</a></li>
+<li><a class="nav-link" href="#causation">Causation</a></li>
+<li>
+<a class="nav-link" href="#significance">Significance</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#correlation-tables">correlation tables</a></li>
+<li><a class="nav-link" href="#correlation-p-values">Correlation p-values</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#exercises-1">Exercises</a></li>
+<li><a class="nav-link" href="#homework-3">Homework</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></strong>" was written by . </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

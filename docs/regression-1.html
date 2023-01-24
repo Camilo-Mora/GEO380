@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>7 Regression | GEOG380.knit</title>
+<meta name="description" content="While the goal of correlation is to give you a metric of the strength of the relationship between two variables; the goal of regression is to give you a numerical representation of the tendency in...">
+<meta name="generator" content="bookdown 0.26.3 with bs4_book()">
+<meta property="og:title" content="7 Regression | GEOG380.knit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="While the goal of correlation is to give you a metric of the strength of the relationship between two variables; the goal of regression is to give you a numerical representation of the tendency in...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="7 Regression | GEOG380.knit">
+<meta name="twitter:description" content="While the goal of correlation is to give you a metric of the strength of the relationship between two variables; the goal of regression is to give you a numerical representation of the tendency in...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html">Introduction</a></li>
+<li><a class="" href="class-expectations.html">Class expectations</a></li>
+<li><a class="" href="the-scientific-method.html"><span class="header-section-number">1</span> The scientific method</a></li>
+<li><a class="" href="installing-programs.html"><span class="header-section-number">2</span> Installing programs</a></li>
+<li><a class="" href="basics-on-data-manipulation-in-r.html"><span class="header-section-number">3</span> Basics on data manipulation in R</a></li>
+<li><a class="" href="basic-plots.html"><span class="header-section-number">4</span> Basic plots</a></li>
+<li><a class="" href="descriptive-statistics.html"><span class="header-section-number">5</span> Descriptive statistics</a></li>
+<li><a class="" href="correlation-1.html"><span class="header-section-number">6</span> Correlation</a></li>
+<li><a class="active" href="regression-1.html"><span class="header-section-number">7</span> Regression</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">8</span> Hypothesis testing</a></li>
+<li><a class="" href="standard-hypothesis-tests.html"><span class="header-section-number">9</span> Standard hypothesis tests</a></li>
+<li><a class="" href="one-sample-tests.html"><span class="header-section-number">10</span> One sample tests</a></li>
+<li><a class="" href="two-sample-tests.html"><span class="header-section-number">11</span> Two sample tests</a></li>
+<li><a class="" href="multiple-sample-test.html"><span class="header-section-number">12</span> Multiple sample test</a></li>
+<li><a class="" href="final-project.html"><span class="header-section-number">13</span> Final project</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="regression-1" class="section level1" number="7">
+<h1>
+<span class="header-section-number">7</span> Regression<a class="anchor" aria-label="anchor" href="#regression-1"><i class="fas fa-link"></i></a>
+</h1>
+<p>While the goal of correlation is to give you a metric of the strength of the relationship between two variables; the goal of regression is to give you a numerical representation of the tendency in your data. That numerical representation is called a <strong>model</strong> that describes a line that best represent the tendency in your two variables. At times, that line can also be called a <strong>regression line</strong> or a <strong>trend</strong> line.</p>
+<p>Here we will be working on linear regression models…this means to find an straight line to best represent the relationship between two variables.</p>
+<p>For instance, the blue line below appears to represent well the tendency that exist between variables Y and X. The goal of this chapter is to use a mathematical procedure (linear regression) that allows you to identify that line.</p>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-215-1.png" width="672"></div>
+<p>As indicated in the prior chapter, all relationships do not have to be linear, there are also those so-call non-linear relationships. For now, we will cover only linear relationships, or straight lines that best summarize the relationship between two variables.</p>
+<p>There are a few cool benefits to having a single line describing the data:</p>
+<ol style="list-style-type: decimal">
+<li><p>It allows you to mathematically define how two variables are related. Like if I increase X by 2 then Y increases by how much?.</p></li>
+<li><p>It will allow you to make predictions over areas in which you have no data. Like if X is 52.3 then Y is?</p></li>
+<li><p>You do not need to carry/display the data every time you want to work with the database.</p></li>
+</ol>
+<p>To define that best-fitting line, we will use what is called the <strong>least squares</strong> method; sounds scary, but it is actually very simple.</p>
+<p><span class="math display">\[\\[.0005in]\]</span></p>
+<p><strong>Expectation for this chapter</strong></p>
+<p>At the end of this chapter, it is expected that you:</p>
+<ol style="list-style-type: decimal">
+<li><p>Can estimate a linear regression model that defines the linear relationship between two variables using the least-squares criterion.</p></li>
+<li><p>Be able to interpret the results from a linear model.</p></li>
+<li><p>Use the equation of the regression model to predict Y-values (interpolation and extrapolation).</p></li>
+<li><p>Calculate the coefficient of determination and understand what it tells you about the relationship between two variables.</p></li>
+</ol>
+<p>Alright, let’s get to it.</p>
+<div id="parts-of-a-line" class="section level2 unnumbered">
+<h2>Parts of a line<a class="anchor" aria-label="anchor" href="#parts-of-a-line"><i class="fas fa-link"></i></a>
+</h2>
+<p>Before we get into the needy-greedy of linear regression models, we should start by knowing how a line can be constructed.</p>
+<p>In practical terms, an specific straight line, in a XY space, can be drawn by knowing just two parameters: the <strong>intercept</strong> and the <strong>slope</strong>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-216"></span>
+<img src="images/SlopeAndIntercept.png" alt="The slope and the intercept" width="50%"><p class="caption">
+Figure 7.1: The slope and the intercept
+</p>
+</div>
+<p>The intercept is basically the position in the Y-axis where the regression line crosses, or the value of Y when X=0.</p>
+<p>The slope is the inclination of that line, or the change in Y divided by X. It also indicates the mount by which Y changes for unit of change in X; more on this later.</p>
+<p>With the slope and the intercept you can draw any line you like.</p>
+
+<div class="rmdimportant">
+At times, you will see the intercept being referred with the lowercase letter <span class="math inline">\(a\)</span> or <span class="math inline">\(b\)</span> or <span class="math inline">\(b1\)</span>, whereas the slope is at times named with the lowercase <span class="math inline">\(m\)</span> or <span class="math inline">\(b2\)</span> (those are not tokens).
+</div>
+<p>Let’s check what the intercept and the slope do to a line.</p>
+<p>For plotting a line in R, we use the <em>abline</em> function, which we used before for drawing horizontal or vertical lines. You can also use that R-function to draw lines with specific slopes and intercepts. Let’s try.</p>
+<p>Lets plot three lines with different slopes, but the same intercept.</p>
+<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#play around with the lines of code below to see how they work</span></span>
+<span></span>
+<span><span class="co">#First lets create an empty plot and make the x and y axis nicer.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>,xlab<span class="op">=</span><span class="st">"X"</span>,ylab<span class="op">=</span><span class="st">"Y"</span>,  xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4</span>,<span class="fl">4</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4</span>,<span class="fl">4.5</span><span class="op">)</span>,col<span class="op">=</span><span class="st">"grey"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span>,lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"grey"</span>,lty<span class="op">=</span><span class="fl">1</span><span class="op">)</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="fl">0</span>,lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"grey"</span>,lty<span class="op">=</span><span class="fl">1</span><span class="op">)</span> </span>
+<span>  </span>
+<span><span class="co"># lets draw a first line with an intercept of 1, and a slope of 0.5. </span></span>
+<span><span class="co"># In abline, the first number will be the intercept and the second will be the slope.</span></span>
+<span>  </span>
+<span><span class="va">Intercept</span><span class="op">=</span><span class="fl">1</span>  <span class="co">#lets create a variable for the intercept, which i choose to call intercept and make that variable = 1</span></span>
+<span><span class="va">Slope</span><span class="op">=</span><span class="fl">0.5</span>    <span class="co">#lets create a variable for the slope, which i choose to call slope and make that variable = 0.5</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">Intercept</span>, <span class="va">Slope</span>, col<span class="op">=</span><span class="st">"orange"</span><span class="op">)</span> <span class="co">#lets plot the line, with my slope and intercept and make it orange to differentiate it</span></span>
+<span></span>
+<span><span class="co"># now, draw another line keeping the intercept the same and increase the slope to 1.5</span></span>
+<span><span class="va">Slope</span><span class="op">=</span><span class="fl">1.5</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">Intercept</span>, <span class="va">Slope</span>, col<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span> <span class="co">#lets make it blue to differentiate it</span></span>
+<span></span>
+<span><span class="co"># try keeping the intercept the same and increase the slope to 2.5</span></span>
+<span><span class="va">Slope</span><span class="op">=</span><span class="fl">2.5</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">Intercept</span>, <span class="va">Slope</span>, col<span class="op">=</span><span class="st">"green"</span><span class="op">)</span> <span class="co">#lets make it green to differentiate it</span></span>
+<span></span>
+<span><span class="co">#We can verify the intercept, by plotting the point in Y, where the line intercept.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/points.html">points</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">Intercept</span>, pch<span class="op">=</span><span class="st">"*"</span>,cex<span class="op">=</span><span class="fl">3</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span> <span class="co">#remember the intercept is when x=0.</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-218-1.png" width="672"></div>
+<p>Lets now change the intercept, but keep the slope the same</p>
+<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#play around with the parameters in the code below to see how they work</span></span>
+<span></span>
+<span><span class="co">#plot first</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>,xlab<span class="op">=</span><span class="st">"X"</span>,ylab<span class="op">=</span><span class="st">"Y"</span>,  xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4</span>,<span class="fl">4</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4</span>,<span class="fl">4.5</span><span class="op">)</span>,col<span class="op">=</span><span class="st">"grey"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span>,lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"grey"</span>,lty<span class="op">=</span><span class="fl">1</span><span class="op">)</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="fl">0</span>,lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"grey"</span>,lty<span class="op">=</span><span class="fl">1</span><span class="op">)</span> </span>
+<span>  </span>
+<span><span class="co"># now try a combination of difference intercepts but the same slope.</span></span>
+<span>  </span>
+<span><span class="va">Intercept</span><span class="op">=</span><span class="fl">1</span>  </span>
+<span><span class="va">Slope</span><span class="op">=</span><span class="fl">0.5</span>   </span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">Intercept</span>, <span class="va">Slope</span>, col<span class="op">=</span><span class="st">"orange"</span><span class="op">)</span> <span class="co">#lets plot the line, and make it orange to differentiate it</span></span>
+<span></span>
+<span><span class="co"># keep the slope the same and increase the Intercept to 2</span></span>
+<span><span class="va">Intercept</span><span class="op">=</span><span class="fl">2</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">Intercept</span>, <span class="va">Slope</span>, col<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span> <span class="co">#lets make it blue to differentiate it</span></span>
+<span></span>
+<span><span class="co"># keep the slope the same and increase the Intercept to 3</span></span>
+<span><span class="va">Intercept</span><span class="op">=</span><span class="fl">3</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">Intercept</span>, <span class="va">Slope</span>, col<span class="op">=</span><span class="st">"green"</span><span class="op">)</span> <span class="co">#lets make it green to differentiate it</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-219-1.png" width="672"></div>
+<div id="how-to-interpret-the-slope" class="section level3 unnumbered">
+<h3>How to interpret the slope<a class="anchor" aria-label="anchor" href="#how-to-interpret-the-slope"><i class="fas fa-link"></i></a>
+</h3>
+<p>The slope should be interpreted as the amount of change in Y for a single unit of change in X.</p>
+<p>Let’s say, you are told that a given relationship between total rainfall (in litters) and the amount of time (in hours) is 500. From that slope alone, we can tell now that for each extra hour, there will be 500 litters of water falling.</p>
+
+<div class="rmdimportant">
+The units of the slope are the units of the variable in Y divided by the units of the varaibles in X. Say the units of Y are in litters and the units of X are in hours, so the slope will be in litters/hours.
+</div>
+<p>To contextualize the slope graphically, you can take any point along the trendline, and move horizontally one unit; the difference between the Y-point at the first X and the Y-point at X+1, is your slope…Lets check.</p>
+<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#plot first</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>,xlab<span class="op">=</span><span class="st">"X"</span>,ylab<span class="op">=</span><span class="st">"Y"</span>,  xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">10</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">5000</span><span class="op">)</span>,col<span class="op">=</span><span class="st">"grey"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span>,lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"grey"</span>,lty<span class="op">=</span><span class="fl">1</span><span class="op">)</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="fl">0</span>,lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"grey"</span>,lty<span class="op">=</span><span class="fl">1</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co">#lets draw a trend line with a slope of 500, that intercepts the origin.</span></span>
+<span><span class="va">Intercept</span><span class="op">=</span><span class="fl">0</span>  </span>
+<span><span class="va">Slope</span><span class="op">=</span><span class="fl">500</span>  </span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">Intercept</span>, <span class="va">Slope</span>, col<span class="op">=</span><span class="st">"orange"</span><span class="op">)</span> <span class="co">#lets plot the trend line, and make it orange to differentiate it</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#lets move one unit along X, starting at zero</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/segments.html">segments</a></span> <span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">0</span>, col<span class="op">=</span><span class="st">"red"</span>,lwd<span class="op">=</span><span class="fl">3</span><span class="op">)</span> <span class="co">#lets make that segment red</span></span>
+<span></span>
+<span><span class="co">#from that point, X+1, lets move up 500 units, if the calculation is correct, then that segment of 500 units in Y should finish at the interception with the trend line...lets see</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/segments.html">segments</a></span> <span class="op">(</span><span class="fl">1</span>,<span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">500</span>, col<span class="op">=</span><span class="st">"blue"</span>,lwd<span class="op">=</span><span class="fl">3</span><span class="op">)</span> <span class="co">#here I draw a segment starting a x=1, y=0...until x=1, y=500</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-221-1.png" width="672"></div>
+
+<div class="rmdimportant">
+The slope represents the inclination of the regression line and reflects the amount of change in Y for a single unit of change in X.
+</div>
+</div>
+<div id="how-to-interpret-the-intercept" class="section level3 unnumbered">
+<h3>How to interpret the intercept<a class="anchor" aria-label="anchor" href="#how-to-interpret-the-intercept"><i class="fas fa-link"></i></a>
+</h3>
+<p>The intercept is the expected value of Y when X=0.</p>
+<p>Say that among children there is a relationship between age (in years) and size (in centimeters), and the Y-intercept is 35cm. What does that tell you?.</p>
+<p>So since the Y-intercept is the value at which X=0, then a Y-intercept of 35cm means the size of a child when he is zero years of age. Basically, children on average are born at 35cm of size.</p>
+
+<div class="rmdimportant">
+The intercept represents the value of Y, when X= 0. The units of the intercept are the same units of the varaible in Y.
+</div>
+</div>
+</div>
+<div id="purpuse-of-the-regression-line" class="section level2 unnumbered">
+<h2>Purpuse of the regression line<a class="anchor" aria-label="anchor" href="#purpuse-of-the-regression-line"><i class="fas fa-link"></i></a>
+</h2>
+<p>As indicated earlier, a common name for the intercept is the lowercase letter <span class="math inline">\(b\)</span> and a common name for the slope is the lowercase letter <span class="math inline">\(m\)</span>, in the regression model they come together as:</p>
+<p><span class="math display">\[\begin{equation}
+Y = mX + b
+\end{equation}\]</span></p>
+<p>The beauty of the regression model above is that by knowing <span class="math inline">\(m\)</span>, and <span class="math inline">\(b\)</span>, you can predict any value of Y, if you know X.</p>
+<p>Say there is a relationship between years of higher education and salary, which is well defined with a regression equation with an intercept of $25,000 and a slope of $10,000 dollars/year. Given the units given, you should predict that salary is in the Y-axis and years of education in the X-axis. I can turn that into the equation, like:</p>
+<p><span class="math display">\[\begin{equation}
+Salary = 10,000 * \text{(Years Of Education)} + 25,000
+\end{equation}\]</span></p>
+<p>I can also display, that line in an XY plot, using the abline function:</p>
+<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#plot first</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>,xlab<span class="op">=</span><span class="st">"Years of education"</span>,ylab<span class="op">=</span><span class="st">"Salary (in US dollars)"</span>,  xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">10</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">150000</span><span class="op">)</span>,col<span class="op">=</span><span class="st">"grey"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>h<span class="op">=</span><span class="fl">0</span>,lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"grey"</span>,lty<span class="op">=</span><span class="fl">1</span><span class="op">)</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="fl">0</span>,lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"grey"</span>,lty<span class="op">=</span><span class="fl">1</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co">#lets draw a trend line with the given parameters</span></span>
+<span><span class="va">Intercept</span><span class="op">=</span><span class="fl">25000</span>  </span>
+<span><span class="va">Slope</span><span class="op">=</span><span class="fl">10000</span>  </span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">Intercept</span>, <span class="va">Slope</span>, col<span class="op">=</span><span class="st">"orange"</span><span class="op">)</span> <span class="co">#lets plot the trend line, and make it orange to differentiate it</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-224-1.png" width="672"></div>
+<p>You can also ask questions, like what will be an average salary for a person that studies 4 years of higher education?..You simply replace the <span class="math inline">\(x\)</span> variable in the equation with the number 4 and do the mathematical calculation to get the average expected salary.</p>
+<p><span class="math display">\[\begin{equation}
+Salary = 10,000 * 4 + 25,000
+\end{equation}\]</span></p>
+<p>So the expected salary of a person that studies four years of higher education is $65.000.</p>
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=18" width="958" height="329" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><p>Ok, at this moment you know the basics of a linear regression model. In a nutshell, a linear regression model is a mathematical equation that includes a slope and an intercept which allows you to draw a line, from which you can also predict any value of Y given values of X.</p>
+</div>
+<div id="the-least-squares-line" class="section level2 unnumbered">
+<h2>The least-squares line<a class="anchor" aria-label="anchor" href="#the-least-squares-line"><i class="fas fa-link"></i></a>
+</h2>
+<p>By now, you know the formulation (i.e., <span class="math inline">\(Y= mX + b\)</span>) and the general purpose (i.e., to predict Y, given values of X) of a linear regression model. The next task in this chapter is to figure out how to get the best line that can be drawn through two variables that we want to relate.</p>
+<p>Obviously, you can draw an infinite number of straight lines trhough a set of datapoints; then a key question is which line best describe the data?. That is the goal of the linear regression model: to draw a <strong>best-fit line</strong> through the datapoints.</p>
+<p>The best fitting line will be a line that minimizes the distance from each point to that line. In mathematical terms, that line is called the <strong>least-squares regression line</strong>. In a moment, you will see how that name (least-squares regression line) speaks by itself; I hope in a moment you will see how the term is self-explanatory.</p>
+<div id="understanding-the-least-squares-line" class="section level3 unnumbered">
+<h3>Understanding the least-squares line<a class="anchor" aria-label="anchor" href="#understanding-the-least-squares-line"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let’s use an analogy, and imagine the best fitting line as a knife that cut a cake.</p>
+<p>Take the figure below as an example. That blue line would be the knife and the red dotted lines the pieces of cake for each person. Will this be a good cut? Will that be the best-fitting line?</p>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-225-1.png" width="672"></div>
+<p>Not quite s. I can imagine Laura not being happy about getting a smaller piece of cake. She may complain but there are four guys that will not support her, as they are likely very happy getting bigger shares of that cake. So in this case, this line is not the best describing the data.</p>
+<p>What about the line below?. Will that be a good-fitting line to the data?</p>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-226-1.png" width="672"></div>
+<p>Well, may be…you may think the complains by Laura and Peter getting smaller pieces could be balanced out by the extra happiness of Chip and John getting larger shares of the cake.</p>
+<p>However, there are some justified complains that can be avoided if we better cut that cake; a cut in which we can reduce the complains by every body. That can only be done drawing a line that minimizes the distance from each point to the line, and that is the so-called “least-square regression line”.</p>
+<div class="inline-figure">Like in the image below:
+<img src="GEOG380_files/figure-html/unnamed-chunk-227-1.png" width="672">
+</div>
+</div>
+<div id="deciphering-the-least-squares-line" class="section level3 unnumbered">
+<h3>Deciphering the least-squares line<a class="anchor" aria-label="anchor" href="#deciphering-the-least-squares-line"><i class="fas fa-link"></i></a>
+</h3>
+<p>But of all lines that we can draw through a set of data points, how can we know what is the best-fit line?, the one in which everybody is happy using the cake analogy?. There are actually different ways to get to that line…let’s start by using brutal force, which may actually help us understand the idea behind the “least-squares”.</p>
+<p>We know for a fact that the ‘best-fitting line’ has to pass by the XY coordinates defined by the mean of all values in X and the mean value of all values in Y. At that inflection point, all data in X and all data in Y are evenly separated, so the best fitting-line has to pass by that given point.</p>
+<p>Let’s plot the mean value of X and the mean value of Y (Dashed grey-lines in the image below) and at the interception of those lines let’s we plot the mean of X and the mean of Y (red dot in image below).</p>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-228-1.png" width="672"></div>
+<p>Next, we draw a very inclined line passing trough that inflection point defined by the coordinates Mean-X and Mean-Y. Like in the image below.</p>
+<p>Next, we measure the distance from each point to that line (red-dashed lines), which I indicate with the red numbers in the image below.</p>
+<p>(Remember, the best line will be one with the smallest distance between each point and the given line)</p>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-229-1.png" width="672"></div>
+<p>That difference between each point and the best-fitting line (red-dashed lines and red-numbers) are called <strong>residuals</strong>. It may also be named <strong>residual errors</strong>.</p>
+<p>Why call the residual also an error?. well, in the case of the linear regression, we want a model that best describes the data. Unfortunately, the best-line does not pass by every single one of the points, so that difference between the each point and the line is the error in the model.</p>
+<p>Next, we add up all residual errors. Remember, the best fitting line will be that one with the least residual error:</p>
+<p><span class="math inline">\((2.124)\)</span> + <span class="math inline">\((-0.036)\)</span> + <span class="math inline">\((0.614)\)</span> + <span class="math inline">\((-0.276)\)</span> + <span class="math inline">\((-2.426)\)</span> = <span class="math inline">\(0\)</span></p>
+<p>Hmm, that does no make sense, the sum is 0; yet we know that for Laura alone, the residual error is <span class="math inline">\((2.124)\)</span>.</p>
+<p>So how can you add up positive and negative errors, so they do not cancel each other out?. You should know….</p>
+<p>I hope you say by “squaring” pr elevating the given number to the power of 2. If you recall from the last chapter, the approach of squaring any value allows to convert all values positive or negative to non-negative values…lets try.</p>
+<p><span class="math inline">\((2.124)^2\)</span> + <span class="math inline">\((-0.036)^2\)</span> + <span class="math inline">\((0.614)^2\)</span> + <span class="math inline">\((-0.276)^2\)</span> + <span class="math inline">\((-2.426)^2\)</span> =<span class="math inline">\(10.8513\)</span></p>
+<p>Ok, that is more like it. That value that we just calculated is call the <strong>Sum of Square Errors</strong> or SSE. The best fitting line, will be that one in which SSE is the smallest. There why the approach to finding out the best finding line is called the “least squares”.</p>
+<p>Lets finish the exercise by brutal force, drawing lines with different inclinations and estimating their SSE. Like the figure below.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-230"></span>
+<img src="images/test.gif" alt="Finiding the line with the least-squares error" width="100%"><p class="caption">
+Figure 7.2: Finiding the line with the least-squares error
+</p>
+</div>
+<p>We can compare the sum of squares errors, SSE, of each line to find out the one with the least, like this:</p>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-231-1.png" width="672"></div>
+<p>And it seems we have a winner, our line number 30 was the one with the lowest sum of squares, which I separate below:</p>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-232-1.png" width="672"></div>
+<p>Ok, I hope is clear then what it is the least squares approach to find the best fitting line. Next, we will learn how to estimate the parameters for the intercept, <span class="math inline">\(b\)</span>, and the slope, <span class="math inline">\(m\)</span>, that define the line in the linear regression model, the smart and easy way.</p>
+</div>
+</div>
+<div id="estimating-the-least-squares-line" class="section level2 unnumbered">
+<h2>Estimating the least-squares line<a class="anchor" aria-label="anchor" href="#estimating-the-least-squares-line"><i class="fas fa-link"></i></a>
+</h2>
+<p>The ultimate goal of a linear regression model is to identify the parameters for the intercept, <span class="math inline">\(b\)</span>, and the slope, <span class="math inline">\(m\)</span>, of the line that minimize<span style="color: blue;">s</span> the sum of square errors also called least-square errors.</p>
+
+<div class="rmdnote">
+The linear regression line is expresed as <span class="math inline">\(Y = mX + b\)</span>
+</div>
+<div id="refreshing-the-slope" class="section level3 unnumbered">
+<h3>Refreshing the Slope<a class="anchor" aria-label="anchor" href="#refreshing-the-slope"><i class="fas fa-link"></i></a>
+</h3>
+<p>Before we get into the mathematical equation to describe the slope of the linear regression model, lets review your 4th grade geometry about how to calculate the slope between two points.</p>
+<p>If you recall Ms. Smith, your Match teacher in 4th grade, she told you that the slope between two points can be calculated as:</p>
+<p><span class="math display">\[\begin{equation}
+Slope = m = \frac{\Delta y}{\Delta x}= \frac{y_{2}-y_{1}}{x_{2}-x_{1}}
+\end{equation}\]</span></p>
+<p>Basically, the change in Y divided by the change in X. Put another way, if I change X by 1 unit, how much will Y change?</p>
+<p>Lets check the math, using a line for which we know the slope, using the R-function <em>abline</em>, as we did earlier.</p>
+<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Slope</span><span class="op">=</span> <span class="fl">2</span>  <span class="co">#lets set a line with a slope of 2</span></span>
+<span><span class="va">Intercept</span><span class="op">=</span><span class="fl">1</span> <span class="co"># We do not need the intercept but lets use a value of 1 as an example</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,xlab<span class="op">=</span><span class="st">"X"</span>,ylab<span class="op">=</span><span class="st">"Y"</span>, col<span class="op">=</span><span class="st">"blue"</span>,pch<span class="op">=</span><span class="st">"."</span>, cex<span class="op">=</span><span class="fl">2</span>, xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0</span>,<span class="fl">4</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">8</span><span class="op">)</span>, yaxs<span class="op">=</span><span class="st">"i"</span>, xaxs<span class="op">=</span><span class="st">"i"</span><span class="op">)</span> <span class="co">#lets create an empty plot</span></span>
+<span></span>
+<span><span class="co">#Next we draw the line with the known slope:</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="va">Intercept</span>, <span class="va">Slope</span> ,col<span class="op">=</span><span class="st">"blue"</span>,lwd<span class="op">=</span><span class="fl">1</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co">#Now place two points along that line...say a point at the coordinates (1,3) and another point at the coordinates (3,8).</span></span>
+<span><span class="co">#If you recall, the coordinates of a point are x and y given between parenthesis.</span></span>
+<span></span>
+<span><span class="co"># draw Point 1 in the plot and put a label to it.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/points.html">points</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,pch<span class="op">=</span><span class="fl">21</span>, col<span class="op">=</span><span class="st">"black"</span>,bg<span class="op">=</span><span class="st">"yellow"</span>,cex<span class="op">=</span><span class="fl">2</span>,lwd<span class="op">=</span><span class="fl">.1</span><span class="op">)</span> <span class="co">#First point</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>, labels<span class="op">=</span><span class="st">"(1,3)"</span>,pos<span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="co">#lets create a label</span></span>
+<span></span>
+<span><span class="co"># do the same for Point 2</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/points.html">points</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">7</span>,pch<span class="op">=</span><span class="fl">21</span>, col<span class="op">=</span><span class="st">"black"</span>,bg<span class="op">=</span><span class="st">"yellow"</span>,cex<span class="op">=</span><span class="fl">2</span>,lwd<span class="op">=</span><span class="fl">.1</span><span class="op">)</span> <span class="co">#second point</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">7</span>, labels<span class="op">=</span><span class="st">"(3,7)"</span>,pos<span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="co">#lets create a label  </span></span>
+<span></span>
+<span><span class="co">#lets draw a segment for the change X: is x0=1, and x1=3, then the difference is 2.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/segments.html">segments</a></span><span class="op">(</span>x0<span class="op">=</span><span class="fl">1</span>,y0<span class="op">=</span><span class="fl">3</span>,x<span class="op">=</span><span class="fl">3</span>,y<span class="op">=</span><span class="fl">3</span>, col<span class="op">=</span><span class="st">"red"</span>, lty<span class="op">=</span><span class="fl">2</span>,cex<span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="co">#lets draw the segment for the difference in x between the two points, and make it red</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span>, labels<span class="op">=</span><span class="st">"2"</span>,col<span class="op">=</span><span class="st">"red"</span>,pos<span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="co">#lets create a label for that segment</span></span>
+<span></span>
+<span><span class="co">#lets draw the difference in Y, which basically y0=3, and y=7, so the difference, delta, is 4.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/segments.html">segments</a></span><span class="op">(</span>x0<span class="op">=</span><span class="fl">3</span>,y0<span class="op">=</span><span class="fl">3</span>,x<span class="op">=</span><span class="fl">3</span>,y<span class="op">=</span><span class="fl">7</span>, col<span class="op">=</span><span class="st">"blue"</span>, lty<span class="op">=</span><span class="fl">2</span>,cex<span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="co">#lets draw the segment for the difference in y between the two points</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">5</span>, labels<span class="op">=</span><span class="st">"4"</span>,col<span class="op">=</span><span class="st">"blue"</span>,pos<span class="op">=</span><span class="fl">4</span><span class="op">)</span> <span class="co">#lets create a label  </span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-234-1.png" width="672"></div>
+<p>Continuing with the example above, the change in Y, also called <span class="math inline">\(\Delta y\)</span>, was 4. The change in X, also called <span class="math inline">\(\Delta x\)</span>, was 2. So, the slope can be calculated as:</p>
+<p><span class="math display">\[\begin{equation}
+m = \frac{\Delta y}{\Delta x}= \frac{4}{2}=2
+\end{equation}\]</span></p>
+<p>That is exactly, the slope we set in abline, which serve the purpose to illustrate that the slope of a line is simply the change in Y divided by the change in X.</p>
+<p>With that in mind lets now calculate the slope of the regression line</p>
+</div>
+</div>
+<div id="the-slope" class="section level2 unnumbered">
+<h2>The slope<a class="anchor" aria-label="anchor" href="#the-slope"><i class="fas fa-link"></i></a>
+</h2>
+<p>Why not to use Ms. Smith way to calculate the slope for the regression model?. Well, we use the same principle, difference in Y divided difference in X, but we cannot use the same formula because in the case of a regression model we have more than two points.</p>
+<p>There are numerous ways to calculate the slope, <span class="math inline">\(m\)</span>, of a linear regression model. However, the simplest is:</p>
+<p><span class="math display">\[\begin{equation}
+Slope = m = \frac{\sum(x-\bar{x})*(y-\bar{y})}{\sum(x-\bar{x})^2}
+\end{equation}\]</span></p>
+<p>We have seen those terms before. The numerator was included in the covariance (i.e., how two variables trend together) and the denominator was included in the variance (i.e., how disperse are the data in one variable).</p>
+<p>If you think about it…that equation speaks by itself.</p>
+<p>As we mentioned earlier, the slope of any line can be described as the change in Y divided by the change in X.</p>
+<p>From Chapter 5, the Section on Dispersion, you may recall that the best indicator of the variability in a variable was the variance, which has as term <span class="math inline">\(\sum(x-\bar{x})^2\)</span>. From chapter 6, you may recall that the best indicator of the tendency between two variables was the covariance <span class="math inline">\(\sum(x-\bar{x})*(y-\bar{y})\)</span>.</p>
+<p>As such, we if want the slope among a set of points that follows their central tendency, then the change in X will be <span class="math inline">\(\sum(x-\bar{x})^2\)</span>, and the change in Y will be how Y varies with X, which mathematically is <span class="math inline">\(\sum(x-\bar{x})*(y-\bar{y})\)</span>.</p>
+<p>You can phrase the equation for the slope in the regression line in a different way, if X changes by the variance of X, then Y will change by the covariance of Y and X.</p>
+<p>Ok, now that the equation for the slope is clear, lets calculate it.</p>
+<p>Let’s use the data we have been using on the time studying and grades,</p>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:unnamed-chunk-235">Table 7.1: </span>Grades and time studying Stats
+</caption>
+<thead><tr>
+<th style="text-align:right;">
+Names
+</th>
+<th style="text-align:center;">
+Hours Studying
+</th>
+<th style="text-align:center;">
+Grade
+</th>
+<th style="text-align:center;">
+<span class="math display">\[(x-\bar{x})\]</span>
+</th>
+<th style="text-align:center;">
+<span class="math display">\[(y-\bar{y})\]</span>
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+Peter
+</td>
+<td style="text-align:center;">
+0.5
+</td>
+<td style="text-align:center;">
+55
+</td>
+<td style="text-align:center;">
+-2.1
+</td>
+<td style="text-align:center;">
+-19.2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Laura
+</td>
+<td style="text-align:center;">
+1.8
+</td>
+<td style="text-align:center;">
+64
+</td>
+<td style="text-align:center;">
+-0.8
+</td>
+<td style="text-align:center;">
+-10.2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+John
+</td>
+<td style="text-align:center;">
+2.4
+</td>
+<td style="text-align:center;">
+75
+</td>
+<td style="text-align:center;">
+-0.2
+</td>
+<td style="text-align:center;">
+0.8
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Chip
+</td>
+<td style="text-align:center;">
+3.8
+</td>
+<td style="text-align:center;">
+82
+</td>
+<td style="text-align:center;">
+1.2
+</td>
+<td style="text-align:center;">
+7.8
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+Tom
+</td>
+<td style="text-align:center;">
+4.5
+</td>
+<td style="text-align:center;">
+95
+</td>
+<td style="text-align:center;">
+1.9
+</td>
+<td style="text-align:center;">
+20.8
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><span style="color: white;">a</span>
+<span style="color: white;">a</span></p>
+<p>So, all we have to do is to replace the differences in X and the difference in Y in the slope formula:</p>
+<p><span class="math display">\[\begin{equation}
+slope = m = \frac{(-2.1*-19.2) + (-0.8*-10.2) + (-0.2*0.8) + (1.2*7.8) +(1.9*20.8)}   { (-2.1)^2 + (-0.8)^2 + (-0.2)^2 + (1.2)^2 +(1.9)^2}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+slope = m = 9.6
+\end{equation}\]</span></p>
+<p>So the slope, m, is equal to 9.59. The units will be the units in Y (i.e., grade), divided by the units of x (i.e., hours studying). So if the unit of change in X in one hour then the unit of change in Y will be 9.59 points higher in grade.</p>
+<p>Put another way, for each extra hour that you study a week, you can expect a 9.59 points higher in your grade, neat or what?.</p>
+<p>I should mention that there as several other ways to calculate the slope of the linear regression model, but I find them a bit more complicated and difficult understand. I prefer to use the simple formula above, but be aware there are a few other ways to get to the slope of the least-squares line.</p>
+</div>
+<div id="the-intercept" class="section level2 unnumbered">
+<h2>The intercept<a class="anchor" aria-label="anchor" href="#the-intercept"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are numerous combulated equations to calculate the intercept of the linear regression model. Here I want us to use a procedure that you probably learned in 6th grade.</p>
+<p>If you look at the linear regression model equation,</p>
+<p><span class="math display">\[\begin{equation}
+Y = mX + b
+\end{equation}\]</span></p>
+<p>You could isolate the intercept, <span class="math inline">\(b\)</span>, as:</p>
+<p><span class="math display">\[\begin{equation}
+b = Y - mX
+\end{equation}\]</span></p>
+<p>If you recall, the line of the least-squares regression line has to pass by the coordinates defined by the mean value of X and the mean value of X. So to estimate the intercept all you have to do is to replace the <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> parameters of the linear regression equation by the mean of X, <span class="math inline">\(\bar{x}\)</span>, and the mean of Y, <span class="math inline">\(\bar{y}\)</span>. Like this:</p>
+<p><span class="math display">\[\begin{equation}
+b = \bar{y} - m\bar{x}
+\end{equation}\]</span></p>
+<p>Because you also know the slope from the prior section. Then you have all parameters of the equation above to stimate the intercept.</p>
+<p>Let’s estimate the intercept for the relationship between time studying and grades. From that data, the mean of X, <span class="math inline">\(\bar{x}\)</span>, was 2.6, and the mean of Y, <span class="math inline">\(\bar{y}\)</span>, was 74.2. So, the intercept for that linear regression is:</p>
+<p><span class="math display">\[\begin{equation}
+Intercept = b =74.2 - 2.6*9.586
+
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+Intercept = b =49.277
+
+\end{equation}\]</span></p>
+<p>So the Y-Intercept of the least-square line for the relationship between grades and time studying is
+49.28. You can interpret that value as the grade that you can expect in my class if you do not study a single hour of the week. Hmm, not good.</p>
+</div>
+<div id="linear-regression-in-r" class="section level2 unnumbered">
+<h2>Linear regression in R<a class="anchor" aria-label="anchor" href="#linear-regression-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>By now you know the equation of the linear regression model, the idea behind the least-squares approach, and how to calculate and interpret the different elements of the equation.</p>
+<p>R can calculate all those equations automatically for you using the <em>lm</em> function, which stands for <em>linear model</em>. The cool think is that you can now interpret the results from that function. Lets try using the data on grades and time studying.</p>
+<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#lets start by bringing back the data </span></span>
+<span><span class="va">Hours_Studying</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span><span class="op">)</span></span>
+<span><span class="va">Grade</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">55</span>, <span class="fl">64</span>, <span class="fl">75</span>, <span class="fl">82</span>,<span class="fl">95</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># the function lm, requires you to simply set the model as y ~ x. In our case, grades are the dependent variable, so it goes on the Y-axis, and time studying is the independent variable, so it goes in the x-axis.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span> <span class="op">(</span><span class="va">Grade</span><span class="op">~</span><span class="va">Hours_Studying</span><span class="op">)</span></span></code></pre></div>
+The results of the linear model, <em>lm</em>, in R are pretty straightforward, check the image below.
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-237"></span>
+<img src="images/lm%20in%20R.png" alt="Linear regression output in R" width="90%"><p class="caption">
+Figure 7.3: Linear regression output in R
+</p>
+</div>
+</div>
+<div id="the-coeficient-of-determination" class="section level2 unnumbered">
+<h2>The coeficient of determination<a class="anchor" aria-label="anchor" href="#the-coeficient-of-determination"><i class="fas fa-link"></i></a>
+</h2>
+<p>There is one final cool thing about the linear regression model: it allows you to quantify a neat parameter called the coefficient of determination, <span class="math inline">\(r^2\)</span>.</p>
+<p>That parameter is useful for two main reasons:</p>
+<ol style="list-style-type: decimal">
+<li><p>It tells you how good is the relationship between the two variables, although you sort of know this from the correlation coefficient, <span class="math inline">\(r\)</span>, that you estimated earlier.</p></li>
+<li><p>It tells you the percent of variance of Y that is explained by X.</p></li>
+</ol>
+<p>Say you found a relationship between plant size and nutrient input with an <span class="math inline">\(r^2\)</span> of 85%. This tells you that 85% of the variability you have among your plants can be explained by the input of nutrients.</p>
+<p>In other words, if the relationship was positive, then plants that grew a lot had lots of nutrients, while plants that did not grow well was because they did not have nutrients. So given the high <span class="math inline">\(r^2\)</span>, it will probably be good idea to add nutrients to the plants.</p>
+<p>Say that in the opposite you found an <span class="math inline">\(r^2\)</span> of 5%. Then only 5% of the variability in plant size can be explained by nutrient input. In this case, it may be wasteful to add nutrients to the plants, since they affect so little how plants will grow. This may be the case if you have some good soil, so, no need for nutrients.</p>
+<p>In this example about nutrients and plants, you can see how <span class="math inline">\(r^2\)</span> let you make inferences about the strength of the relationships.</p>
+<p>One bad thing about <span class="math inline">\(r^2\)</span>, as oppose to the correlation coefficient, <span class="math inline">\(r\)</span>, is that you cannot know the direction of the relation (i.e., whether it is positive or negative). So you may still have to relay on the correlation coefficient, <span class="math inline">\(r\)</span>, to know in which direction are the two variables related.</p>
+<p>Before we get into the mathematics of the <span class="math inline">\(r^2\)</span>, check out this brief explanation:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wHvxTZWV-sE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>The coefficient of determination, <span class="math inline">\(r^2\)</span>, is mathematically calculated as:</p>
+<p><span class="math display">\[\begin{equation}
+\text{Coefficient of Determination} = r^2 = \frac{SSmean - SSfit}{SSmean}
+\end{equation}\]</span></p>
+<p>Let’s break that equation into its pieces to see what is doing.</p>
+<p><span class="math inline">\(SSmean\)</span>, stands for Sum of Squares of the Mean. That is the same term we have used before <span class="math inline">\(\sum(y - \bar y)^2\)</span>. Basically, how far from the mean is each point. If we were to divide that by the number of samples, you will get the variance that we studied earlier.</p>
+<p>Just to refresh, you take the mean of all values in Y (horizontal line, in image below), for each point measure the distance to that mean (dotted lines), then you square each value and add them together. If you did not square them, when summing them, the result will be zero.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-238"></span>
+<img src="images/SSMean.gif" alt="Sum of Squares from the Mean, SSmean" width="80%"><p class="caption">
+Figure 7.4: Sum of Squares from the Mean, SSmean
+</p>
+</div>
+<p>You need to think of the Sum of Squares of the Mean, <span class="math inline">\(SSmean\)</span>, as the variability in Y.</p>
+<p><span class="math inline">\(SSfit\)</span>, stands for Sum of Squares around the Fit. Let’s see what this means.</p>
+<p>Take the data on grades and time studying, relate grades against times studying, and find the best line (Orange line in figure below). Then for each point measure the distance from the point to the line, or so-call <em>residuals</em> (red-dotted lines). Take each residual, square it, and then add them together. What you get is the Sum of Squares around the Fit, <span class="math inline">\(SSfit\)</span>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-239"></span>
+<img src="images/SSFit.gif" alt="Sum of Squares around the Fit, SSfit" width="80%"><p class="caption">
+Figure 7.5: Sum of Squares around the Fit, SSfit
+</p>
+</div>
+<p>You need to think of the Sum of Squares around the Fit, <span class="math inline">\(SSfit\)</span>, as the variability in Y that was not explained by X.</p>
+<p>Remember, the regression line is the mathematical formulation of how Y relates to X, whatever is not accounted for by that line are the residuals, or the variation in Y, that remains to be accounted for.</p>
+<p>So, it you look at the formulation for <span class="math inline">\(r^2\)</span>, basically, you are trying to quantify the fraction of variability of Y that was accounted for by the relationship of Y to X. Easy right?</p>
+<p>Let’s calculate <span class="math inline">\(r^2\)</span>,</p>
+<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#take the data on grades and time studying</span></span>
+<span><span class="va">X</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span><span class="op">)</span> <span class="co">#hours studying</span></span>
+<span><span class="va">Y</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">55</span>, <span class="fl">64</span>, <span class="fl">75</span>, <span class="fl">82</span>,<span class="fl">95</span><span class="op">)</span>       <span class="co">#grades</span></span>
+<span></span>
+<span><span class="co"># lets estimate the regression line using lm, and lets put that model in a variable</span></span>
+<span><span class="va">LM</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span> <span class="op">(</span><span class="va">Y</span><span class="op">~</span><span class="va">X</span><span class="op">)</span>   <span class="co">#this is the linear model between Grades~Hours_Studying</span></span>
+<span></span>
+<span><span class="co">#you can find out the residuals of that model using the R-Function residuals.</span></span>
+<span><span class="va">Residuals</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span> <span class="op">(</span><span class="va">LM</span><span class="op">)</span>  <span class="co">#here we create a vector with the residuals from our model</span></span>
+<span></span>
+<span><span class="co">#Estimate SSfit</span></span>
+<span><span class="va">SSFit</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span> <span class="op">(</span><span class="va">Residuals</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span>  <span class="co"># here you are squaring each residual, then adding them</span></span>
+<span></span>
+<span><span class="co">#Lets now estimate SSMean</span></span>
+<span><span class="va">DeltaY</span><span class="op">=</span><span class="va">Y</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Y</span><span class="op">)</span>  <span class="co"># here you take each value in Y and subtract it to the mean of Y</span></span>
+<span><span class="va">SSMean</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">DeltaY</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span> <span class="co">#here you square each score in the line above, sum them together</span></span>
+<span></span>
+<span><span class="co">#we have all we need for the calculation of the R2.</span></span>
+<span></span>
+<span><span class="va">R2</span><span class="op">=</span><span class="op">(</span><span class="va">SSMean</span><span class="op">-</span><span class="va">SSFit</span><span class="op">)</span><span class="op">/</span><span class="va">SSMean</span></span>
+<span><span class="va">R2</span></span></code></pre></div>
+<pre><code>## [1] 0.9637357</code></pre>
+<p>So, the <span class="math inline">\(r^2\)</span> of the relationship between grades and time studying is 0.96. That is the fraction of the variability in grades that is explained by the amount of time students study. You can also report the <span class="math inline">\(r^2\)</span> as a percentage by multiplying the fraction by 100.</p>
+<p>In R, the <span class="math inline">\(r^2\)</span> is outputted as part of the <em>lm</em> function in combination with the function <em>summary</em>, like this:</p>
+<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span> <span class="op">(</span><span class="va">LM</span><span class="op">)</span>   <span class="co">#summary results of the lm we created in the code above.  </span></span></code></pre></div>
+The image below indicates the different outputs, we have studied so far:
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-242"></span>
+<img src="images/R2.png" alt="lm outputs" width="80%"><p class="caption">
+Figure 7.6: lm outputs
+</p>
+</div>
+</div>
+<div id="predict-interpolation-extrapolation" class="section level2 unnumbered">
+<h2>Predict: Interpolation, Extrapolation<a class="anchor" aria-label="anchor" href="#predict-interpolation-extrapolation"><i class="fas fa-link"></i></a>
+</h2>
+<p>Ok, now we know how to build a linear regression model of the form:</p>
+<p><span class="math display">\[\begin{equation}
+Y = mX + b
+\end{equation}\]</span></p>
+<p>Isn’t it beauty?</p>
+<p>That equation describes, to the best possible, how Y relates to X. With the extra support of the Coefficient of Determination, <span class="math inline">\(r^2\)</span>, you can also know how strong the relationship is.</p>
+<p>And it just keep giving. With that relationship, you can now predict any value of Y, at any given value of X. All you have is to replace the X parameter in the equation above, for the value you like, run the calculation to get the expected value of Y.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-243"></span>
+<img src="images/Prediction.png" alt="Predictions with linear models" width="60%"><p class="caption">
+Figure 7.7: Predictions with linear models
+</p>
+</div>
+<p>Let’s try. From the relationship between grades and time studying, we already know that the intercept, <span class="math inline">\(b\)</span>, was
+49.28, and that the slope, <span class="math inline">\(m\)</span>, was 9.59. So, the linear model can be formulated as:</p>
+<p><span class="math display">\[\begin{equation}
+Y = 9.59X + 49.28
+\end{equation}\]</span></p>
+<p>So, given that model, what would be the expected grade of a person studying 4 hours a week?. Simple, replace X for 4, run calculation and done,</p>
+<p><span class="math display">\[\begin{equation}
+Y = 9.59* 4 + 49.28
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+Y = 87.64
+\end{equation}\]</span></p>
+<p>For a person that studies four hours a week the expected grade will be 87.64.</p>
+<div id="interpolation-and-extrapolation" class="section level3 unnumbered">
+<h3>Interpolation and Extrapolation<a class="anchor" aria-label="anchor" href="#interpolation-and-extrapolation"><i class="fas fa-link"></i></a>
+</h3>
+<p>Predictions based on a linear model can be separated between those that are within the data you have, in which case the prediction is called an “interpolation”. If the prediction is beyond the values of X that you have, then the prediction is call and extrapolation.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-244"></span>
+<img src="images/Extrapolation.png" alt="Interpolation and Extrapolation" width="60%"><p class="caption">
+Figure 7.8: Interpolation and Extrapolation
+</p>
+</div>
+<p>Needless to say, that when you extrapolate, there is always a risk that the forecast is wrong. The model you created only modeled the relationship between Y and X, for the data you have. Pass that set of data, the relationship may be different, so It is always important to be careful with extrapolations.</p>
+
+<div class="rmdnote">
+<p>Predicting Y values for X values that are between observed X values in the data set is called interpolation.</p>
+Predicting Y values for X values that are beyond observed X values in the data set is called extrapolation or forecasts.
+</div>
+
+<div class="rmdcaution">
+Becuase extrapolation predict values beyond what is known, uncertainty is much higher and at times forecasts can be unrealistic.
+</div>
+<p>In R, you can predict any value from a linear model, using the <em>predict</em> function, let’s try.</p>
+<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#take the data on grades and time studying</span></span>
+<span><span class="va">X</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span><span class="op">)</span> <span class="co">#hours studying</span></span>
+<span><span class="va">Y</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">55</span>, <span class="fl">64</span>, <span class="fl">75</span>, <span class="fl">82</span>,<span class="fl">95</span><span class="op">)</span>       <span class="co">#grades</span></span>
+<span></span>
+<span><span class="co"># lets estimate the regression line using lm, and lets put that model in a variable</span></span>
+<span><span class="va">LM</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span> <span class="op">(</span><span class="va">Y</span><span class="op">~</span><span class="va">X</span><span class="op">)</span>   <span class="co">#this is the linear model between Grades~Hours_Studying</span></span>
+<span></span>
+<span><span class="co"># lets now predict, the expected grades for three students that studied 1 hour, 3 hours and 10 hours</span></span>
+<span><span class="va">PredictGradres</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>X <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">100</span><span class="op">)</span><span class="op">)</span> <span class="co">#here I create a data.frame with the times studied by the three students. You need to create a column, with the same name, as the model, so lm can know which one is  the X-variable</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">LM</span>, <span class="va">PredictGradres</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##          1          2          3 
+##   58.86272   78.03432 1007.85680</code></pre>
+<p>From the predictions above, you can see how the model wrongly predicts that a person that studies 100 hours a week, will get a 1000.7 grade in the class. Obviously, the most you can get is 100%. This helps to illustrate the caution needed when extrapolating a linear model beyond the limits of the data.</p>
+
+<div class="rmdnote">
+<p>Two statisticians were traveling in an airplane from LA to New York.</p>
+<p>About an hour into the flight, the pilot announced that they had lost an engine. “Don’t worry”, says the pilot, “there are three left; but, instead of 5 hours it would take 7 hours to get to New York”.</p>
+<p>A little later, the pilot announced that a second engine failed. “Don’t worry”, says the pilot, “there are two left; but, instead of 5 hours it would take 10 hours to get to New York”.</p>
+<p>Somewhat later, the pilot came on the intercom again and announced that a third engine had died. “Never fear”, he announced, “the plane can fly on a single engine. However, it would now take 18 hours to get to NewYork”, the pilot added.</p>
+At this point, one statistician turned to the other and said, “Gee, I hope we don’t lose that last engine, or we’ll be up here forever!”
+</div>
+</div>
+</div>
+<div id="outliers" class="section level2 unnumbered">
+<h2>Outliers<a class="anchor" aria-label="anchor" href="#outliers"><i class="fas fa-link"></i></a>
+</h2>
+<p>One of the critical issues with regression models, is that they can be influenced by extreme points. Those extreme points that clearly do not follow the main pattern are called <strong>outliers</strong>.</p>
+<p>Sometimes, those outliers could be measurement errors, but at times could also indicate the influence of variables that you did not measure. It is always good to visualize the data in an scatterplot to see if such cases examples of outliers exist on your data.</p>
+<p>Outliers can also be tested mathematically, by re-running the linear model without them, and check for the effect of removing them on the linear model.</p>
+<p>There are several approaches to test if such an effect of removing the outlier is significant or not in the linear model, which we will not cover here. But you need to know.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-249"></span>
+<img src="images/Outlier.png" alt="The outlier" width="50%"><p class="caption">
+Figure 7.9: The outlier
+</p>
+</div>
+</div>
+<div id="the-significance" class="section level2 unnumbered">
+<h2>The significance<a class="anchor" aria-label="anchor" href="#the-significance"><i class="fas fa-link"></i></a>
+</h2>
+<p>Several times in this book, we have mentioned how there is always a chance that any result can arise by chance alone.
+The linear regression model is not different. There may still be a chance that you find an <span class="math inline">\(r^2\)</span> similar to the one you found if you did not use any independent variable at all.</p>
+<p>To rule out that possibility, we use what is called an F-test. We will review the F-statistics in more detail later in the Chapter about hypothesis testing.</p>
+<p>Basically, some people have taken the time to run millions of simulations of “fake” “random” datasets, created linear models with them with varying sample sizes and number of parameters, and estimated the fitness of those models. Then, they put the results of those “random” models in <strong>F-tables</strong>, which you can find at the end of most books on stats.</p>
+<p>The beauty of those tables is that you can compare your model, given the number of samples and the number of variables, to find out the fraction of models similar to yours that could have happened by chance.</p>
+<p>To compare your model to theirs, you need:</p>
+<ol style="list-style-type: decimal">
+<li>the F-value from your model, which we will get into in a sec.</li>
+<li>the number of variables in your model (for the purpose of comparison to the their tables, we will call this value <span class="math inline">\(v1\)</span>)</li>
+<li>A parameter, we will call <span class="math inline">\(v2\)</span>, which is the number of datapoints in the model minus the number of predictors in the model plus one.</li>
+</ol>
+<p><span class="math inline">\(v1\)</span> and <span class="math inline">\(v2\)</span> are just parameters needed to compare to random models of similar parameters.</p>
+<p>If your model is similar to theirs, then, your results could have emerged by simple chance. If your results were different, then the relationship you found is legit. We will work more on this later on.</p>
+<p>Ok, but we need to estimate the F-Value of our model. There is an specific equation to calculate the F-value or F-statistics of a linear regression model. However, it can also be predicted using the <span class="math inline">\(r^2\)</span>, which we will use here for simplicity, using the following equation:</p>
+<p><span class="math display">\[\begin{equation}
+F_{statistics} = \frac{r^2}{1-r^2} *\frac{v2}{v1}
+\end{equation}\]</span></p>
+<p>Where <span class="math inline">\(r^2\)</span>, is the coefficient of determination; <span class="math inline">\(v1\)</span> is number of predictors in the model; <span class="math inline">\(v2\)</span> is the number of datapoints minus the number of predictors in the model plus one.</p>
+<p>If you think about that formula above, you are estimating an standard metric of the variance explained, <span class="math inline">\(r^2\)</span>, to the variance not explained, <span class="math inline">\(1-r^2\)</span>, for a model of certain characteristics of sample size and variables used.</p>
+<p>Because the most variance you can explain in any case is always just 100%, this metric could be assumed standard among any model random or not. And that is how then, we can compare our results on legit data to fake data, and see if any result of ours is different from random.</p>
+<p>With all parameters at hand for our model, we need to look into an <em>F-table</em> to estimate the <em>critical F-value</em>. A <em>critical F-value</em> is the expected F-value at which certain fraction of random models occur. Let’s take a moment to understand this.</p>
+<p>Image a statistician runs one million regressions with random data using certain number of samples and independent variables and for each model he estimates the F-value above. He then creates a frequency distribution of the number of models at each F-value, like the figure below.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-250"></span>
+<img src="images/F-distributionA.png" alt="F-distribution" width="80%"><p class="caption">
+Figure 7.10: F-distribution
+</p>
+</div>
+<p>From that distribution, you can now find out the F-value at which say 90% of the random models occur; that value is the <em>critical F-value</em>, like in the image below.</p>
+<p>If say our model has an F-value larger than that critical F-value then we are 90% sure our model cannot have emerge by chance.</p>
+<p>Alternatively, you could say our model is significant at p&gt;0.1, which is the complement of 90% or 0.9 if you look at it as fractions. That p-value is also called the <em>critical p-value</em> or at times also named alpha, <span class="math inline">\(\alpha\)</span>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-251"></span>
+<img src="images/F-distribution.png" alt="Critical f-Value at 90% or p=0.1" width="80%"><p class="caption">
+Figure 7.11: Critical f-Value at 90% or p=0.1
+</p>
+</div>
+<p>Lets estimate the F-value for our regression model between grades and time studying, for which we know the <span class="math inline">\(r^2\)</span> was <span class="math inline">\(0.96\)</span>. <span class="math inline">\(v1\)</span>, the number of predictors in the model would be 1, as we only have one independent variable (i.e., time studying) and, <span class="math inline">\(v2\)</span> is 3; If you recall <span class="math inline">\(v2\)</span> is the number of datapoints (five student) minus the number of predictors (one in our case) plus one. So</p>
+<p><span class="math display">\[\begin{equation}
+F_{statistics} = \frac{0.96}{1-0.96} *\frac{3}{1}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+F_{statistics} = 79.7259164
+\end{equation}\]</span></p>
+<p>So the F-value for our model was <span class="math inline">\(79.73\)</span>. Now we need to find out the <em>critical F-value</em>, and lets take a <span class="math inline">\(\alpha =0.05\)</span>. For this we use an F-table, like the one below, which you can find on most books on stats.</p>
+<p>Because <span class="math inline">\(v1\)</span> = 1 in our case, you have to select the first column, then scroll down until <span class="math inline">\(v2\)</span> in the gray column is equal to 3, at the interception is the <strong>F-critical</strong>. Or the F-value at which 95% of the random models occurred. There are similar tables like this for each <span class="math inline">\(\alpha\)</span>.</p>
+<p>So for a model like ours, 95% of the random models should have an critical F-value smaller than 10.13. However, our model had an F-value = 79.7259164. So our model is very different from the random expectation, or also-called significantly different at p&gt;0.05.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-252"></span>
+<img src="images/Ftable.png" alt="lm outputs" width="80%"><p class="caption">
+Figure 7.12: lm outputs
+</p>
+</div>
+<p>In R, the F-value is produced automatically with the <span class="math inline">\(lm\)</span> function and the <span class="math inline">\(summary\)</span> function. The outputs from the linear model, lm, also include the exact probability at which our model could be random, see image below.</p>
+<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span> <span class="op">(</span><span class="va">LM</span><span class="op">)</span>   <span class="co">#Here LM is the linear model, lm, we create in the code just above.  </span></span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-254"></span>
+<img src="images/Fvalue.png" alt="lm outputs" width="80%"><p class="caption">
+Figure 7.13: lm outputs
+</p>
+</div>
+<p>In conclusion, there is a significantly strong relations (<span class="math inline">\(r^2 = 0.96\)</span>) at p&lt;0.05 between studying for my class and getting a nice grade. There you go, keep studying.</p>
+</div>
+<div id="multiple-regression" class="section level2 unnumbered">
+<h2>Multiple regression<a class="anchor" aria-label="anchor" href="#multiple-regression"><i class="fas fa-link"></i></a>
+</h2>
+<p>Up to now, we have used the linear regression model to predict Y in terms of only one variable, X. However, as you may have noted in the examples above, it is rare for a model with a single independent variable to predict fully the dependent variable…those residuals that are left tell you there is something else that may influence the dependent variable.</p>
+<p>Linear regression further allows you to check for the effect of additional variables, using the same principle.</p>
+<p>Think about it this way…you run a linear regression model with one independent variable and some residuals are left.</p>
+<p>Take those residuals as independent variable in a second linear model, relate those residuals to another variable, and see how much the unexplained variation by the first independent variable is explained by the second independent variable.</p>
+<p>You can keep going at it, until you could potentially find all the set of variables that explain your response variable.</p>
+<p>The example above is an oversimplification of how multiple regression works, as there are some collinearities among independent variables that you have to handle. But for now I just want you to know that linear regression allows you to test additional variables by trying to explain the unexplained variation in Y with additional variables. The so-call <strong>multiple regression</strong> analysis.</p>
+<p>Let’s take the data we have been using, and say, we also got data on the amount of debt of each student…this variable may indicate the level of stress of the student, a likelihood that they have a job that prevents them of working fully and well, etc…how does this second variable influences the grades of students in my class?.</p>
+<p>Let’s check..</p>
+<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#lets start by bringing back the data on time studying and grades</span></span>
+<span><span class="va">Names</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Peter"</span>,<span class="st">"Laura"</span>, <span class="st">"John"</span>, <span class="st">"Chip"</span>, <span class="st">"Tom"</span><span class="op">)</span></span>
+<span><span class="va">Hours_Studying</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span><span class="op">)</span></span>
+<span><span class="va">Grade</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">55</span>, <span class="fl">64</span>, <span class="fl">75</span>, <span class="fl">82</span>,<span class="fl">95</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#here is the data for the second independent variable for the same students</span></span>
+<span><span class="va">Debt</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">80</span>, <span class="fl">60</span>, <span class="fl">55</span>, <span class="fl">15</span>, <span class="fl">5</span><span class="op">)</span> <span class="co">#debt of students in thousands of dollars</span></span>
+<span></span>
+<span><span class="co"># we use the same lm function we used before and add debt as independent variable, like this:</span></span>
+<span><span class="va">MultipleRegression</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span> <span class="op">(</span><span class="va">Grade</span> <span class="op">~</span> <span class="va">Hours_Studying</span> <span class="op">+</span> <span class="va">Debt</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#next we check the results</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">MultipleRegression</span><span class="op">)</span></span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-256"></span>
+<img src="images/Mutiple%20regression%20in%20R.png" alt="R multiple regression results" width="80%"><p class="caption">
+Figure 7.14: R multiple regression results
+</p>
+</div>
+<p>The outputs are the same as we sow before. You have a unique intercept, but now you have a slope for each variable. You also need to pay attention to a second result, which is the p-values for the individual variables, which I indicate in the image above. Plus, the p-value for the full model.</p>
+<p>In this case, while the full model was significant, the individual variables were not.</p>
+<p>In this specific case, this is happening because our sample size is too small, which bring me to the caution that you need to have when running multiple regression analysis: adding more variables, while it will increase the predictive power of the model, also will increase your chances that the results may happen by chance.</p>
+</div>
+<div id="non-linear-regression" class="section level2 unnumbered">
+<h2>Non-linear regression<a class="anchor" aria-label="anchor" href="#non-linear-regression"><i class="fas fa-link"></i></a>
+</h2>
+<p>There will be numerous instances in which a variable Y does not relate linearly to a variable X. Think the growth of people, for instance.</p>
+<p>Early in life a person will grow fast, but over time this growth will reduce, eventually leveling off. These types of relationships are not well described with linear models; and there is where non-linear models come in.</p>
+<p>In R, non-linear regression models are handled with an specific function call <span class="math inline">\(nlm\)</span>, but you can also linearize the variable and use the linear model you used before.</p>
+<p>Take the example below, showing the relationship between age and height of a random person. Let’s start by fitting a linear model to it.</p>
+<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#let's create a variable for height (dependent variable) and other for age (independent variable)</span></span>
+<span><span class="va">Age</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">4</span>,<span class="fl">6</span>,<span class="fl">8</span>,<span class="fl">10</span>,<span class="fl">12</span>,<span class="fl">14</span>,<span class="fl">16</span>,<span class="fl">18</span>,<span class="fl">20</span>,<span class="fl">22</span>,<span class="fl">24</span>,<span class="fl">26</span>,<span class="fl">28</span>,<span class="fl">30</span><span class="op">)</span></span>
+<span><span class="va">Height</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">50</span>, <span class="fl">65</span>,<span class="fl">85</span>, <span class="fl">95</span>, <span class="fl">110</span>, <span class="fl">120</span>,<span class="fl">130</span>,<span class="fl">140</span>,<span class="fl">145</span>, <span class="fl">152</span>, <span class="fl">158</span>, <span class="fl">169</span>, <span class="fl">170</span>, <span class="fl">171</span>, <span class="fl">171.2</span><span class="op">)</span></span>
+<span></span>
+<span>  </span>
+<span><span class="va">LM</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">Height</span><span class="op">~</span><span class="va">Age</span><span class="op">)</span> <span class="co">#here is the linear model</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">Height</span><span class="op">~</span><span class="va">Age</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>coef <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">LM</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-257-1.png" width="672"></div>
+<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">LM</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Height ~ Age)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -18.257  -5.947   3.235   7.426  11.253 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  59.3638     5.6038   10.59 9.18e-08 ***
+## Age           4.3364     0.3082   14.07 3.03e-09 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 10.31 on 13 degrees of freedom
+## Multiple R-squared:  0.9384, Adjusted R-squared:  0.9337 
+## F-statistic:   198 on 1 and 13 DF,  p-value: 3.028e-09</code></pre>
+<p>The <span class="math inline">\(R^2\)</span> is pretty good, <span class="math inline">\(r^2\)</span>=0.9383925.</p>
+<p>You can try a non-linear model, by transforming the data…there are numerous types of transformations possible, and many will give you different types of fit using linear models. Here is where an approach called model selection comes in, which is to find which of all models to fit to the data is the best. That is quite an endeavor that we will not cover in this basic stats class, but you should know that selecting among different types of models is non-trivial.</p>
+<p>For for the sake of seeing how a non-linear model is done, let’s try a logarithmic transformation of the data used above for height and age.</p>
+<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Age</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">4</span>,<span class="fl">6</span>,<span class="fl">8</span>,<span class="fl">10</span>,<span class="fl">12</span>,<span class="fl">14</span>,<span class="fl">16</span>,<span class="fl">18</span>,<span class="fl">20</span>,<span class="fl">22</span>,<span class="fl">24</span>,<span class="fl">26</span>,<span class="fl">28</span>,<span class="fl">30</span><span class="op">)</span></span>
+<span><span class="va">Height</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">50</span>, <span class="fl">65</span>,<span class="fl">85</span>, <span class="fl">95</span>, <span class="fl">110</span>, <span class="fl">120</span>,<span class="fl">130</span>,<span class="fl">140</span>,<span class="fl">145</span>, <span class="fl">152</span>, <span class="fl">158</span>, <span class="fl">169</span>, <span class="fl">170</span>, <span class="fl">171</span>, <span class="fl">171.2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#to log transform simply use the log function:</span></span>
+<span><span class="va">LogHeight</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Height</span><span class="op">)</span> <span class="co">#log transforming the variable Y</span></span>
+<span><span class="va">LogAge</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Age</span><span class="op">)</span>       <span class="co">#log transforming the variable X</span></span>
+<span></span>
+<span><span class="va">LogLM</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">LogHeight</span><span class="op">~</span><span class="va">LogAge</span><span class="op">)</span> <span class="co">#now we re-run the model, but with the transformed variables</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">LogHeight</span><span class="op">~</span><span class="va">LogAge</span>, ylab<span class="op">=</span><span class="op">(</span><span class="st">"Log height (cm)"</span><span class="op">)</span>, xlab<span class="op">=</span><span class="op">(</span><span class="st">"Log age (years)"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>coef <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">LogLM</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-258-1.png" width="672"></div>
+<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">LogLM</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = LogHeight ~ LogAge)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.06615 -0.01057  0.01062  0.02135  0.03612 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  3.56706    0.02982   119.6  &lt; 2e-16 ***
+## LogAge       0.48275    0.01120    43.1 2.04e-15 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.03277 on 13 degrees of freedom
+## Multiple R-squared:  0.9931, Adjusted R-squared:  0.9925 
+## F-statistic:  1858 on 1 and 13 DF,  p-value: 2.043e-15</code></pre>
+<p>You can now see how this non-linear modeling of the variables gives you an even better <span class="math inline">\(r^2\)</span>=0.9930516.</p>
+<p>There are numerous complexities to the use of non-linear models, that will not be addressed here…the main goal at this introductory level is to know that regression modeling can be done in non-linear relationships.</p>
+</div>
+<div id="exercises-2" class="section level2 unnumbered">
+<h2>Exercises<a class="anchor" aria-label="anchor" href="#exercises-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Some of these questions may take a while to load depending on your internet connection.</p>
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=20" width="958" height="396" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=19" width="958" height="779" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=22" width="958" height="311" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=23" width="958" height="788" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=24" width="958" height="645" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=25" width="958" height="688" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=26" width="958" height="687" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=27" width="958" height="705" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+</div>
+<div id="homework-4" class="section level2 unnumbered">
+<h2>Homework<a class="anchor" aria-label="anchor" href="#homework-4"><i class="fas fa-link"></i></a>
+</h2>
+<p>A biologist has been monitoring the population of wolfs and caribou for several years in Denali National Park, Alaska.</p>
+<p>Let x represents the caribou population (in hundreds) and y the wolf population in the park.</p>
+<p>x = 30 34 27 25 17 23 20
+y = 66 79 70 60 48 55 60</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Make a scatter plot of the data, adjust aesthetics so the figure follows publication guidelines.</p></li>
+<li><p>What is the equation that defines the linear relationship between wolfs and caribou.</p></li>
+<li><p>What is the wolf population when there are not caribou.</p></li>
+<li><p>What is the increase wolf population for each hundred caribou.</p></li>
+<li><p>What will be the expected wolf population, at say 1000 caribou?. any caution on this prediction?</p></li>
+<li><p>Is that a strong relationship?. what evidence can you provide?</p></li>
+<li><p>Was it significant, what evidence can you provide?. also what does is mean significant?</p></li>
+</ol>
+<p>Place the figure and your responses in a Word document and email it as a homework. Send a nice looking document.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="correlation-1.html"><span class="header-section-number">6</span> Correlation</a></div>
+<div class="next"><a href="hypothesis-testing.html"><span class="header-section-number">8</span> Hypothesis testing</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#regression-1"><span class="header-section-number">7</span> Regression</a></li>
+<li>
+<a class="nav-link" href="#parts-of-a-line">Parts of a line</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#how-to-interpret-the-slope">How to interpret the slope</a></li>
+<li><a class="nav-link" href="#how-to-interpret-the-intercept">How to interpret the intercept</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#purpuse-of-the-regression-line">Purpuse of the regression line</a></li>
+<li>
+<a class="nav-link" href="#the-least-squares-line">The least-squares line</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#understanding-the-least-squares-line">Understanding the least-squares line</a></li>
+<li><a class="nav-link" href="#deciphering-the-least-squares-line">Deciphering the least-squares line</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#estimating-the-least-squares-line">Estimating the least-squares line</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#refreshing-the-slope">Refreshing the Slope</a></li></ul>
+</li>
+<li><a class="nav-link" href="#the-slope">The slope</a></li>
+<li><a class="nav-link" href="#the-intercept">The intercept</a></li>
+<li><a class="nav-link" href="#linear-regression-in-r">Linear regression in R</a></li>
+<li><a class="nav-link" href="#the-coeficient-of-determination">The coeficient of determination</a></li>
+<li>
+<a class="nav-link" href="#predict-interpolation-extrapolation">Predict: Interpolation, Extrapolation</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#interpolation-and-extrapolation">Interpolation and Extrapolation</a></li></ul>
+</li>
+<li><a class="nav-link" href="#outliers">Outliers</a></li>
+<li><a class="nav-link" href="#the-significance">The significance</a></li>
+<li><a class="nav-link" href="#multiple-regression">Multiple regression</a></li>
+<li><a class="nav-link" href="#non-linear-regression">Non-linear regression</a></li>
+<li><a class="nav-link" href="#exercises-2">Exercises</a></li>
+<li><a class="nav-link" href="#homework-4">Homework</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></strong>" was written by . </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>8 Hypothesis testing | GEOG380.knit</title>
+<meta name="description" content="In the prior chapters, we have been dealing with three of the core goals of statistics: visualization of data (i.e., scatterplots, histograms, etc.), description of the data (i.e., mean, mode, SD,...">
+<meta name="generator" content="bookdown 0.26.3 with bs4_book()">
+<meta property="og:title" content="8 Hypothesis testing | GEOG380.knit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="In the prior chapters, we have been dealing with three of the core goals of statistics: visualization of data (i.e., scatterplots, histograms, etc.), description of the data (i.e., mean, mode, SD,...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="8 Hypothesis testing | GEOG380.knit">
+<meta name="twitter:description" content="In the prior chapters, we have been dealing with three of the core goals of statistics: visualization of data (i.e., scatterplots, histograms, etc.), description of the data (i.e., mean, mode, SD,...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html">Introduction</a></li>
+<li><a class="" href="class-expectations.html">Class expectations</a></li>
+<li><a class="" href="the-scientific-method.html"><span class="header-section-number">1</span> The scientific method</a></li>
+<li><a class="" href="installing-programs.html"><span class="header-section-number">2</span> Installing programs</a></li>
+<li><a class="" href="basics-on-data-manipulation-in-r.html"><span class="header-section-number">3</span> Basics on data manipulation in R</a></li>
+<li><a class="" href="basic-plots.html"><span class="header-section-number">4</span> Basic plots</a></li>
+<li><a class="" href="descriptive-statistics.html"><span class="header-section-number">5</span> Descriptive statistics</a></li>
+<li><a class="" href="correlation-1.html"><span class="header-section-number">6</span> Correlation</a></li>
+<li><a class="" href="regression-1.html"><span class="header-section-number">7</span> Regression</a></li>
+<li><a class="active" href="hypothesis-testing.html"><span class="header-section-number">8</span> Hypothesis testing</a></li>
+<li><a class="" href="standard-hypothesis-tests.html"><span class="header-section-number">9</span> Standard hypothesis tests</a></li>
+<li><a class="" href="one-sample-tests.html"><span class="header-section-number">10</span> One sample tests</a></li>
+<li><a class="" href="two-sample-tests.html"><span class="header-section-number">11</span> Two sample tests</a></li>
+<li><a class="" href="multiple-sample-test.html"><span class="header-section-number">12</span> Multiple sample test</a></li>
+<li><a class="" href="final-project.html"><span class="header-section-number">13</span> Final project</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="hypothesis-testing" class="section level1" number="8">
+<h1>
+<span class="header-section-number">8</span> Hypothesis testing<a class="anchor" aria-label="anchor" href="#hypothesis-testing"><i class="fas fa-link"></i></a>
+</h1>
+<p>In the prior chapters, we have been dealing with three of the core goals of statistics: visualization of data (i.e., scatterplots, histograms, etc.), description of the data (i.e., mean, mode, SD, etc), and relationships among variables (e.g., correlation, regression). In this chapter, we will deal with a fourth main goal of statistics: to tell if something (one thing) or somethings (many things) are different.</p>
+<p>There is an amazing level of complexity to that single question, of whether a thing or set of things are different. In this chapter, I want to break that complexity into its peaces, so you can better comprehend the results of any test aimed at testing for significant differences.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-259"></span>
+<img src="images/NastyReject.png" alt="Rejecting the extremes or special" width="70%"><p class="caption">
+Figure 8.1: Rejecting the extremes or special
+</p>
+</div>
+<p><strong>Expectation for this chapter</strong></p>
+<p>At the end of this chapter, it is expected that you:</p>
+<ol style="list-style-type: decimal">
+<li><p>Can state a null hypothesis and alternative hypothesis.</p></li>
+<li><p>Can interpret the level of significance and the critical values.</p></li>
+<li><p>Can interpret the p-value.</p></li>
+<li><p>Can interpret the different types of errors when making a conclusion on a hypothesis.</p></li>
+</ol>
+<p>Alright, let’s get to it.</p>
+<div id="background-info" class="section level2 unnumbered">
+<h2>Background info<a class="anchor" aria-label="anchor" href="#background-info"><i class="fas fa-link"></i></a>
+</h2>
+<p>If the question is asked if something is different, how do we know that a thing is different? It is rare the case when two things are identical, so is everything different?. In statistic, we commonly use the term <strong>significantly different</strong> to indicate more precisely the level at which something is different. We will get to this in a moment.</p>
+<p>When the question is formulated of whether something is significantly different; inherently we assume a couple things:</p>
+<ol style="list-style-type: decimal">
+<li>There is a reference point to which we are comparing to. That reference is most commonly, almost always, a metric we obtained from the population. So it is compared to the data from the population that will know if something is different.</li>
+</ol>
+<div class="rmdnote">
+A population is a whole, it’s every member of a group. A sample is a fraction of the population.
+</div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-261"></span>
+<img src="images/population.png" alt="Population, sample, individual" width="70%"><p class="caption">
+Figure 8.2: Population, sample, individual
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>The second thing implied is that there is a threshold beyond which we will assume something is different. Who determines the level at which something is different?. That will be the so-call <strong>level of significance</strong>, which at times will appear named as alpha, <span class="math inline">\(\alpha\)</span>.</li>
+</ol>
+<p>As mentioned earlier, in biology and most sciences, we generally accept an <span class="math inline">\(\alpha\)</span> smaller than 0.05. Basically, we assume something is <strong>significantly different</strong>, if it is larger or smaller than the top or bottom 5% of all individuals in that population.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-262"></span>
+<img src="images/P05feelslike.png" alt="How p&lt;0.05 feels like" width="80%"><p class="caption">
+Figure 8.3: How p&lt;0.05 feels like
+</p>
+</div>
+<p>Of course, you can use different levels of significance, and it all cases it means the same: the threshold beyond which you assume something is different.</p>
+<p>The particular value in a distribution where the given <span class="math inline">\(\alpha\)</span> occurs is call the <strong>critical value</strong>. Say you want to test a hypothesis that a given rabbit is significantly larger than the common rabbit and you want to test this hypothesis with a level of significance of 0.1. In this case, you need to know the size at which 10% of the common rabbit occurs.</p>
+<p>In the example below, 10% of the rabbits are larger than 7in. In this case, the critical value for a level of significance of 0.1 is 7in.</p>
+<p>It is called critical value, because that is the cut off that will determine if your sample is significantly different or not.</p>
+<p>In the example below, the rabbit I want to compare is 6.8in tall, so at a <em>significance level</em>=0.01, this rabbit is not significantly large.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-263"></span>
+<img src="images/IsDifferent.png" alt="Critical value" width="80%"><p class="caption">
+Figure 8.4: Critical value
+</p>
+</div>
+<p>By the way, 1 - <span class="math inline">\(\alpha\)</span> is what is call <strong>level of confidence</strong>. Think about it, if I conclude that something is significantly different at <span class="math inline">\(\alpha\)</span>=0.05, then my confidence has to be the complement of that, which will be 0.95 or 95%.</p>
+
+<div class="rmdimportant">
+The threshold beyond which we reject a null hyphothesis is called the <strong>level of significance</strong> or alpha, <span class="math inline">\(\alpha\)</span>. The value in a population at which <span class="math inline">\(alpha\)</span> falls is called the <strong>critical value</strong>. The complement to the level of significance, 1- <span class="math inline">\(\alpha\)</span>, is call the <strong>level of confidence </strong>.
+</div>
+<p>Let’s put together the data on the population and the level of significance for you to better know how then we make a call on whether something is different.</p>
+<div id="p-value-and-alpha" class="section level3 unnumbered">
+<h3>p-value and alpha<a class="anchor" aria-label="anchor" href="#p-value-and-alpha"><i class="fas fa-link"></i></a>
+</h3>
+<p>Early on, we studied how a population can be characterized based on the mean value of its individuals and the variability of those individuals, the so-call standard deviation. With those two parameters alone you can know how the entire population looks like.</p>
+<p>Lets look at an example. In the USA, the average men is 177.8cm in height with an standard deviation of 7.62cm. Lets plot this population.</p>
+<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Mean_Height</span><span class="op">=</span><span class="fl">177.8</span>   <span class="co"># height of average male in the USA</span></span>
+<span><span class="va">SD_Heigh</span><span class="op">=</span><span class="fl">7.62</span>       <span class="co"># Standard deviation of male population in the USA</span></span>
+<span></span>
+<span><span class="va">MenUSPop</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">164000000</span>,<span class="va">Mean_Height</span>,<span class="va">SD_Heigh</span><span class="op">)</span> <span class="co">#we select from a population with that mean and SD, the 164 million men in the use. This will be the entire population....this line may take a while, dependenting how good your computer is...you are taking over 160 million values...you can click scape if it take to long and use rather take a still large sample of 1.6 million men, for contnuing with the execersize.</span></span>
+<span></span>
+<span><span class="va">breaks</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">240</span>, length.out <span class="op">=</span> <span class="fl">80</span><span class="op">)</span> <span class="co">#I create a set of bins for the x-axis of the distribution</span></span>
+<span></span>
+<span><span class="co">#next I plot the data for the size of the entire population of men in the USA</span></span>
+<span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">MenUSPop</span>, main<span class="op">=</span><span class="cn">NA</span>,xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">240</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">20000000</span><span class="op">)</span>,breaks <span class="op">=</span> <span class="va">breaks</span>, xlab <span class="op">=</span> <span class="st">"US men heigth (cm)"</span>,ylab <span class="op">=</span> <span class="st">"Number of people"</span><span class="op">)</span></span>
+<span> </span>
+<span> </span>
+<span><span class="co">#plot the mean height of men</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">Mean_Height</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"blue"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co">#lets add a label to mean label</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="va">Mean_Height</span>,<span class="fl">20000000</span>,labels<span class="op">=</span><span class="st">"Mean"</span>,pos<span class="op">=</span><span class="fl">4</span>, col<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span> </span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-265-1.png" width="672"></div>
+<p>From the figure above, you can see that while most men are on average 177.8 cm tall, some men can get very tall and others are very short. And just so you know, on the distribution above, the tallest men was <span class="math inline">\(225.48\)</span> cm while the shortest was <span class="math inline">\(134.96\)</span> cm.</p>
+<p>One cool property of the population data, specially data that are normally distributed, is that you can tell relatively well the fraction of individuals away from the mean by knowing the standard deviation.</p>
+<p>If you recall Chapter 5, we mentioned that 95% of the individuals on any normally distributed population are within two-standard deviations from the mean. Lets check that out.</p>
+<p>In the figure below, I illustrate random samples of males taken from the US men height population. If I were to count the fraction of men two standard deviations below or above the mean height (percentage red numbers shown in the figure) on each sample, you would see that on any sample there are cumulatively almost always 5%, or about 2.5% on each tail of the distribution. Cool ah?</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-266"></span>
+<img src="images/AnimatedDistribution.gif" alt="Fraction of population beyond 2SD l" width="80%"><p class="caption">
+Figure 8.5: Fraction of population beyond 2SD l
+</p>
+</div>
+<p>And it gets even better, you can know very precisely, then the fraction of individuals in a population that are above or below a given standard deviation.</p>
+<p>Let’s say I found a men that is 193.04cm tall. What fraction of men can be taller than him?</p>
+<p>In this case, this guy is 2SD (Standard deviations) above the mean. The average height was <span class="math inline">\(177.8\)</span> and one standard deviation, SD, was <span class="math inline">\(7.62\)</span>. So, <span class="math inline">\(177.8\)</span> + (2 *<span class="math inline">\(7.62)\)</span> = <span class="math inline">\(193.04\)</span>.</p>
+<p>So you know that below the mean there are 50% of men, and two standard deviations above the mean are 47.5%. So 97.5% of the men are shorter than that guy. This guys is as tall as the tallest 2.5% of the men in th USA. If we assume a <strong>level of significance</strong> of 5%, then you can claim this one guy is significantly tall.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-267"></span>
+<img src="images/TallShort.jpg" alt="How do you like me?" width="50%"><p class="caption">
+Figure 8.6: How do you like me?
+</p>
+</div>
+<p>This mathematic property of a normal population also works in reverse. Let’s say I found a men that is <span class="math inline">\(162.56\)</span>cm tall?. What fraction can be shorter than him?</p>
+<p>In this case, this guy is 2SD (Standard deviations) below the mean. The average height was <span class="math inline">\(177.8\)</span> and one standard deviation, SD, was <span class="math inline">\(7.62\)</span>. So <span class="math inline">\(177.8\)</span> - (2 *<span class="math inline">\(7.62)\)</span> = <span class="math inline">\(162.56\)</span>.</p>
+<p>We know that above the mean there are 50% of men, and two standard deviations below the mean are 47.5%. So 97.5% of the men are taller than that guy. This guy is as short as the shortest 2.5% of the men in th USA. If we assume a level of significance of 5%, then you can claim this one guy is significantly short.</p>
+<p>In statistics, the fraction of individuals, members, data points, etc. that are above or below the given sample value in a population is called the <strong>p-value</strong>.</p>
+<p>So in the example above, our conclusion that this one guy was significantly shorter has a p-value = 0.025 or 2.5%.</p>
+<p>If we assume a level of significance, <span class="math inline">\(\alpha\)</span>, of 0.05, then we are assuming that something is significantly smaller or taller, if it is as short or as tall to the shortest or tallest 5% of the population.</p>
+<p>In R, we can find out the critical value in a distribution of data at any given significance level using the <span class="math inline">\(qnorm\)</span> function, which we used earlier. Worth nothing that this function assumes that the population is normally distributed. We will use this fucntion briefly.</p>
+<p>In the example just above, the short guy was <span class="math inline">\(162.56\)</span>cm tall, which was as short as the shortest 2.5% of the population. So this person is significantly small at an <span class="math inline">\(\alpha\)</span> of 0.05. In fact, we can be more confident than that as our conclusion has a p-value of 0.025; We know that over 97.5% of the US population is taller than him.</p>
+<p>Multiple academic discussions have taken place around the need to report the <strong>level of significance</strong> when the <strong>p-value</strong> is more accurate. At least now you know what they both mean.</p>
+<p>From the example above, we can see that the overall approach to test if something is significantly different is relatively straightforward.</p>
+<p>All you need to know is how many standard deviations from the mean a given individual or sample is. From this you can know the fraction of individuals that are above or below that given number (the p-value). You can then compare that p-value to the level of significance, <span class="math inline">\(\alpha\)</span>, you want to use. If the p-value is smaller than the level of significance then you conclude that the one thing is significantly different at the given <span class="math inline">\(\alpha\)</span>.</p>
+
+<div class="rmdimportant">
+P-VALUE is the fraction of individuals in a population as extreme as or more extreme than an observed sample
+It is also refered as a probability.
+</div>
+<p>Lets finish this section by looking at the fraction of individuals in a population at increasing larger standard deviation. In short the fractions at each tail of a distributiona re very predictable if you know the standard deviation from a population.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-269"></span>
+<img src="images/CummulativeNormalDistribution.gif" alt="Significance level" width="80%"><p class="caption">
+Figure 8.7: Significance level
+</p>
+</div>
+</div>
+</div>
+<div id="approach-to-testing-a-hyphothesis" class="section level2 unnumbered">
+<h2>Approach to testing a hyphothesis<a class="anchor" aria-label="anchor" href="#approach-to-testing-a-hyphothesis"><i class="fas fa-link"></i></a>
+</h2>
+<p>In the prior section, you sow how to test if something is significantly different or not. While overtime you can get to it right away, you should know that there is a ritual/approach to how to test a hypothesis. It goes like this:</p>
+<ol style="list-style-type: decimal">
+<li><p>State the null and alternative hypothesis.</p></li>
+<li><p>Chose the level of significance.</p></li>
+<li><p>Find the critical values.</p></li>
+<li><p>Compare the sample value to the critical value.</p></li>
+<li><p>Draw a conclusion.</p></li>
+</ol>
+</div>
+<div id="stating-hyphotheses-and-tails" class="section level2 unnumbered">
+<h2>Stating hyphotheses and tails<a class="anchor" aria-label="anchor" href="#stating-hyphotheses-and-tails"><i class="fas fa-link"></i></a>
+</h2>
+<p>The statistical approach to hypothesis testing is to reduce all likely options to a binary choice between the <strong>null hypothesis</strong> or the <strong>alternative hypothesis</strong>.</p>
+<p>The <strong>null hypothesis</strong> is denoted with the letters <span class="math inline">\(Ho\)</span>. The <strong>alternative hypothesis</strong> is denoted with the letters <span class="math inline">\(H1\)</span>.</p>
+<p>The <strong>null hypothesis</strong> is always making reference to how things should commonly be, it can also make references to the option of no-difference or that something is equal to a given value. The <strong>alternative hypothesis</strong> is all what the <strong>null hypothesis</strong> is not.</p>
+<p>Check the following video, about how to state hypothesis.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8NKaocZectc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<p>In statistics, you can only <strong>reject the null hypothesis</strong> or <strong>fail to reject the null hypothesis</strong> (this is synonym for accept the null hypothesis, but this term is not accepted because we are never certain). Along the same lines, when you reject the null hypothesis, we you do not accept the alternative hypothesis.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-270"></span>
+<img src="images/FailedToReject.png" alt="Painfull rejection narrative" width="80%"><p class="caption">
+Figure 8.8: Painfull rejection narrative
+</p>
+</div>
+<p>There are several ways to state hypotheses. Let’s try a few examples to clarify:</p>
+<p>Say a burger company claims that their Combo #1 has 1,800 calories, with a variability (Standard deviation, SD) of 50 calories. To test if this is true you can set your hypotheses different ways, like:</p>
+<p>Null hypothesis, Ho: Combo1 = 1,800 calories.</p>
+<p>Alternative hypothesis, H1: Combo1 <span class="math inline">\(\neq\)</span> 1,800 calories.</p>
+<p>In this form, I am asking if the burger is equal to 1,800 calories. In this case, the alternative has to be that the burger is different than 1,800cal. To be different, a burger could be much smaller than 1,800cal but it can also be much larger than 1,800 calories.</p>
+<p>If I take several of their burgers, and measure their caloric content, I can reject the null hypothesis if the sample I took had much higher or lower number of calories that the <strong>critical value</strong> at which the <strong>significance level</strong>, <span class="math inline">\(\alpha\)</span>, I chosen falls.</p>
+<p>This is what is call a <strong>two-tail</strong> test. Basically, you have to divide the level of significance in two as you will be testing if the sample is much smaller or much larger. If my sample falls in the red areas, in the image below, then I reject the null hypothesis, as it means that my one sample is much larger than the upper 97.5% or much lower 2.5%, or an <span class="math inline">\(\alpha\)</span>=0.05. Let’s visualize this in R,</p>
+<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mean</span><span class="op">=</span><span class="fl">1800</span> <span class="co"># this is the mean number of calories in their burger. We can think of this as the population mean</span></span>
+<span><span class="va">sd</span><span class="op">=</span><span class="fl">50</span>     <span class="co">#this is the variability in calories</span></span>
+<span></span>
+<span><span class="co"># create a normal distribution of burgers with the given mean and SD</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4</span>,<span class="fl">4</span>,length<span class="op">=</span><span class="fl">100</span><span class="op">)</span><span class="op">*</span><span class="va">sd</span> <span class="op">+</span> <span class="va">mean</span>  <span class="co"># This w</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">mean</span>,<span class="va">sd</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, type<span class="op">=</span><span class="st">"l"</span>, xlab<span class="op">=</span><span class="st">"Calories per burger"</span>, ylab<span class="op">=</span> <span class="st">"Fraction of burgers"</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.009</span><span class="op">)</span>,main<span class="op">=</span><span class="st">"Ho: Combo1 = 1,800 calories"</span><span class="op">)</span> <span class="co"># this is how the calories of the population of burgers should look like</span></span>
+<span></span>
+<span><span class="co">#because this is a two tail distribution, I mean something will be different if it is much larger or much smaller, then you have to look for the critical value at alpha divided by 2. </span></span>
+<span></span>
+<span><span class="va">LowerCriticalVal</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.025</span>,<span class="va">mean</span>,<span class="va">sd</span><span class="op">)</span> <span class="co"># we need to find the critical value at 2.5% and the upper 97.5%...that is a significance level of 5%</span></span>
+<span><span class="va">UpperCriticalVal</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.975</span>,<span class="va">mean</span>,<span class="va">sd</span><span class="op">)</span> <span class="co"># upper critical value, or value above which 97.5% of the population occurs.</span></span>
+<span>  </span>
+<span><span class="co">#plot the critical thresholds set by alpha</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">UpperCriticalVal</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">LowerCriticalVal</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co">#Lets plot the critical areas</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/polygon.html">polygon</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="va">x</span><span class="op">&gt;=</span><span class="va">UpperCriticalVal</span><span class="op">]</span>, <span class="va">UpperCriticalVal</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">y</span><span class="op">[</span><span class="va">x</span><span class="op">&gt;=</span><span class="va">UpperCriticalVal</span><span class="op">]</span>, <span class="va">y</span><span class="op">[</span><span class="va">x</span><span class="op">==</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span> <span class="co">#right hand tail</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/polygon.html">polygon</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="va">x</span><span class="op">&lt;=</span><span class="va">LowerCriticalVal</span><span class="op">]</span>, <span class="va">LowerCriticalVal</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">y</span><span class="op">[</span><span class="va">x</span><span class="op">&lt;=</span><span class="va">LowerCriticalVal</span><span class="op">]</span>, <span class="va">y</span><span class="op">[</span><span class="va">x</span><span class="op">==</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span> <span class="co">#right hand tail</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#let's make this fancier and put arrows to indicate rejection areas. We will use the package shape for this</span></span>
+<span><span class="co">#install.packages("shape")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">shape</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shape/man/Arrows.html">Arrows</a></span><span class="op">(</span><span class="va">LowerCriticalVal</span>,<span class="fl">0.006</span>,<span class="va">LowerCriticalVal</span><span class="op">-</span><span class="fl">50</span>,<span class="fl">0.006</span>,lwd<span class="op">=</span><span class="fl">2</span>, arr.type<span class="op">=</span><span class="st">"triangle"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="va">LowerCriticalVal</span>,<span class="fl">0.0065</span>,<span class="st">"Reject"</span>,pos<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#we can do add the same arrow for the upper tail of rejection zone</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shape/man/Arrows.html">Arrows</a></span><span class="op">(</span><span class="va">UpperCriticalVal</span>,<span class="fl">0.006</span>,<span class="va">UpperCriticalVal</span><span class="op">+</span><span class="fl">50</span>,<span class="fl">0.006</span>,lwd<span class="op">=</span><span class="fl">2</span>, arr.type<span class="op">=</span><span class="st">"triangle"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="va">UpperCriticalVal</span>,<span class="fl">0.0065</span>,<span class="st">"Reject"</span>,pos<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#while we are at it, lets indicate the zone of the level of confidence</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shape/man/Arrows.html">Arrows</a></span><span class="op">(</span><span class="va">LowerCriticalVal</span>,<span class="fl">0.0085</span>,<span class="va">UpperCriticalVal</span>,<span class="fl">0.0085</span>,lwd<span class="op">=</span><span class="fl">2</span>, arr.type<span class="op">=</span><span class="st">"curved"</span>,code<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="va">mean</span>,<span class="fl">0.0085</span>,<span class="st">"Level of confidence "</span>,pos<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-271-1.png" width="672"></div>
+<p>The hypotheses could also be stated as:</p>
+<p>Null hypothesis, Ho: Combo1 &lt;= 1,800 calories.</p>
+<p>Alternative hypothesis, H1: Combo1 &gt; 1,800 calories.</p>
+<p>In the example above, I am being more specific, testing the null hypothesis that the average burger has less than 1,800 caloriess; the alternative hypothesis has ti be that the burger has more than 1,800 calories.</p>
+<p>If I take several of their burgers, and measure their caloric content, I can reject the null hypothesis only if the sample I took had much higher number of calories than the <strong>critical value</strong> at which the <strong>significance level</strong>, <span class="math inline">\(\alpha\)</span>, I chosen falls. This is what is call a <strong>right-tail</strong> test. Lets visualize this in R,</p>
+<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mean</span><span class="op">=</span><span class="fl">1800</span> <span class="co"># this is the mean number of calories in their burger. We can think of this as the population mean</span></span>
+<span><span class="va">sd</span><span class="op">=</span><span class="fl">50</span>     <span class="co">#this is the variability in calories</span></span>
+<span></span>
+<span><span class="co"># create a normal distribution of burgers with the given mean and SD</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4</span>,<span class="fl">4</span>,length<span class="op">=</span><span class="fl">100</span><span class="op">)</span><span class="op">*</span><span class="va">sd</span> <span class="op">+</span> <span class="va">mean</span>  </span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">mean</span>,<span class="va">sd</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, type<span class="op">=</span><span class="st">"l"</span>, xlab<span class="op">=</span><span class="st">"Calories per burger"</span>, ylab<span class="op">=</span> <span class="st">"Fraction of burgers"</span>,main<span class="op">=</span><span class="st">"Ho: Combo1 &lt;= 1,800 calories"</span><span class="op">)</span> <span class="co"># this is how the calories of the population of burgers should look like</span></span>
+<span></span>
+<span><span class="va">UpperCriticalVal</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.95</span>,<span class="va">mean</span>,<span class="va">sd</span><span class="op">)</span> <span class="co">#in this case I am looking for the upper 5% of the individuals..or the threshold at which 95% of the population occurs</span></span>
+<span></span>
+<span><span class="co">#plot the critical thresholds set by alpha</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">UpperCriticalVal</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co">#Lets plot the one critical area</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/polygon.html">polygon</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="va">x</span><span class="op">&gt;=</span><span class="va">UpperCriticalVal</span><span class="op">]</span>, <span class="va">UpperCriticalVal</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">y</span><span class="op">[</span><span class="va">x</span><span class="op">&gt;=</span><span class="va">UpperCriticalVal</span><span class="op">]</span>, <span class="va">y</span><span class="op">[</span><span class="va">x</span><span class="op">==</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span> <span class="co">#right hand tail</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-272-1.png" width="672"></div>
+<p>The hypotheses could also be set like this:</p>
+<p>Null hypothesis, Ho: Combo1 &gt;= 1,800 calories.</p>
+<p>Alternative hypothesis, H1: Combo1 &lt; 1,800 calories.</p>
+<p>In the example above, I am testing if the burgers have more calories than what the company claims. The alternative hypothesis, then has to be that the burgers have less than 1,800 calories.</p>
+<p>If I take several of their burgers, and measure their caloric content, I can reject the null hypothesis only if the sample I took had much fewer number of calories than the <strong>critical value</strong> at which the significance level I chosen falls. This is what is call a <strong>left-tail</strong> test. Lets visualize this in R,</p>
+<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mean</span><span class="op">=</span><span class="fl">1800</span> <span class="co"># this is the mean number of calories in their burger. We can think of this as the population mean</span></span>
+<span><span class="va">sd</span><span class="op">=</span><span class="fl">50</span>     <span class="co">#this is the variability in calories</span></span>
+<span></span>
+<span><span class="co"># create a normal distribution of burgers with the given mean and SD</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4</span>,<span class="fl">4</span>,length<span class="op">=</span><span class="fl">100</span><span class="op">)</span><span class="op">*</span><span class="va">sd</span> <span class="op">+</span> <span class="va">mean</span>  <span class="co"># This w</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">mean</span>,<span class="va">sd</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, type<span class="op">=</span><span class="st">"l"</span>, xlab<span class="op">=</span><span class="st">"Calories per burger"</span>, ylab<span class="op">=</span> <span class="st">"Fraction of burgers"</span>,main<span class="op">=</span><span class="st">"Ho: Combo1 &gt;= 1,800 calories"</span><span class="op">)</span> <span class="co"># this is how the calories of the population of burgers should look like</span></span>
+<span></span>
+<span></span>
+<span><span class="va">UpperCriticalVal</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.05</span>,<span class="va">mean</span>,<span class="va">sd</span><span class="op">)</span> <span class="co">#in this case I am looking for the lower 5% of the individuals..or the threshold at which 5% of the population occurs</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class="co">#Lets plot the one critical area</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/polygon.html">polygon</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="va">x</span><span class="op">&lt;=</span><span class="va">UpperCriticalVal</span><span class="op">]</span>, <span class="va">UpperCriticalVal</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">y</span><span class="op">[</span><span class="va">x</span><span class="op">&lt;=</span><span class="va">UpperCriticalVal</span><span class="op">]</span>, <span class="va">y</span><span class="op">[</span><span class="va">x</span><span class="op">==</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span> <span class="co">#right hand tail</span></span>
+<span></span>
+<span><span class="co">#plot the critical thresholds set by alpha</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">UpperCriticalVal</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> </span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-273-1.png" width="672"></div>
+</div>
+<div id="accepting-or-rejecting-the-null-hypothesis" class="section level2 unnumbered">
+<h2>Accepting or rejecting the null hypothesis<a class="anchor" aria-label="anchor" href="#accepting-or-rejecting-the-null-hypothesis"><i class="fas fa-link"></i></a>
+</h2>
+<p>In a nutshell, the idea of testing a hypothesis is to see if a given individual or sample is larger or smaller than the population cutoff set by the level of significance, <span class="math inline">\(\alpha\)</span>.</p>
+<p>In a two tail test, the null hypothesis is rejected if the sample value is larger or smaller than the critical value. On the contrary, if your sample value is within the range outlined by your critical value, then you conclude that you failed to reject the null-hypothesis. Please remember that in statistics you only “fail to reject” or “reject” the null hypothesis but you never prove the alternative hypothesis when you reject the null hypothesis.</p>
+<p>In a right tail test, the null hypothesis is rejected if the sample value is larger than the critical value.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-274"></span>
+<img src="images/TestTypes.png" alt="Types of tests" width="80%"><p class="caption">
+Figure 8.9: Types of tests
+</p>
+</div>
+<p>In a left tail test, the null hypothesis is rejected if the sample value is smaller than the critical value.</p>
+<p>Hypotheses can also be tested by simply comparing your chosen level of significance, <span class="math inline">\(\alpha\)</span>, to your p-value. Every time your p-value is smaller than the <span class="math inline">\(\alpha\)</span> you reject the null hypothesis.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-275"></span>
+<img src="images/PHO.jpg" alt="If the P is low, the Ho must go" width="80%"><p class="caption">
+Figure 8.10: If the P is low, the Ho must go
+</p>
+</div>
+<p>Think about this for a moment.</p>
+<p>Let’s say I am testing if the heart rate of a person is significantly larger that the average population using a <strong>level of significance</strong> at 0.05.</p>
+<p>In this case, I am assuming a heart rate will be significantly larger for any heart rate faster than the top 5% of all hearth rates in the human population.</p>
+<p>Let’s say I measured the hearth rate of a person and estimated that it has a p-value of 0.02.</p>
+<p>This means that the heart rate of this one person is as fast as the top 2% fastest hearth rates in the population.</p>
+<p>In this case, the p-value is smaller than <span class="math inline">\(\alpha\)</span>, so I reject the null hypothesis, and conclude that indeed the hearth rate of the given individual is significantly larger than expected from the average human population.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-276"></span>
+<img src="images/P05.png" alt="The P-value" width="70%"><p class="caption">
+Figure 8.11: The P-value
+</p>
+</div>
+</div>
+<div id="testing-a-hypothesis-by-brutal-force" class="section level2 unnumbered">
+<h2>Testing a hypothesis by brutal force<a class="anchor" aria-label="anchor" href="#testing-a-hypothesis-by-brutal-force"><i class="fas fa-link"></i></a>
+</h2>
+<p>In the following chapters, we will introduce standardized ways to test hypotheses comparing sample values to critical values; I want to finish this chapter by illustrating the ultimate idea behind testing a hypothesis by running a brief simulation. This simulation will aim to show the general approach of hypothesis testing.</p>
+<p>Lets say that you work for the FDA, and you have been commissioned to provide evidence for a lawsuit case involving the calories in MacDonals burgers (this is a fictitious example).</p>
+<p>The pending lawsuit refers to a person who suffered a heart attack after his cholesterol levels increased considerably. Prior to the heart attack, the doctor of this person recommended him that he kept a daily diet of no more than 2000 calories a day, so he satisfied his weakness for burgers eating a new type of MacDonals burger that claimed to have less than 1,500 calories (Standard deviation, SD= 50).</p>
+<p>Let say that you collected a random sample of ten burgers and found that they have on average 1600 calories. So the question is, do the claim by this individual hold any right?</p>
+<p>Let’s start by stating the hypotheses:</p>
+<p>Null hypothesis, Ho: burger &lt;= 1,500 calories.</p>
+<p>Alternative hypothesis, H1: burger &gt; 1,500 calories.</p>
+<p>In this case, I specifically want to know if these burgers have less than 1500 calories as claimed by the company.</p>
+<p>We want to test this hypothesis at an <span class="math inline">\(\alpha\)</span>, level of significance, of 0.05 or 5%.</p>
+<p>Alright, lets start our simulation.</p>
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">MeanCal</span> <span class="op">=</span> <span class="fl">1600</span> <span class="co">#calories in the sample of burgers</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="fl">1</span>, type<span class="op">=</span><span class="st">"n"</span>, xlab<span class="op">=</span><span class="st">"Total calories in MacDonal's bugers"</span>, ylab<span class="op">=</span><span class="st">"Percent of burgers"</span>, xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">2000</span><span class="op">)</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="co"># lets create an empty plot</span></span>
+<span></span>
+<span><span class="co">#plot the sample value</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">MeanCal</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"blue"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co">#lets name the mean sample value</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="va">MeanCal</span>,<span class="fl">10</span>,labels<span class="op">=</span><span class="st">"Sample value"</span>,pos<span class="op">=</span><span class="fl">4</span>, col<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-277-1.png" width="672"></div>
+<p>Next, you can plot the <strong>critical value</strong> for an alpha of 0.05 in a population with a mean of 1500 and an standard deviation of 50.</p>
+<p>In this case, the critical value at <span class="math inline">\(\alpha\)</span>=0.05, is simply the cutoff at which 95% of the calories in the MacDonals burgers occurs. If we are assuming the population data is normal and has a mean of 1500 and a Standard deviation, SD, of 50, we can find out that critical value using the <span class="math inline">\(qnorm\)</span> function in R.</p>
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">CriticalVal</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.95</span>,<span class="fl">1500</span>,<span class="fl">50</span><span class="op">)</span> <span class="co"># here we want to know the cutoff at which 95% of the observations occur in a population with a mean of 1500 and an SD of 50</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="fl">1</span>, type<span class="op">=</span><span class="st">"n"</span>, xlab<span class="op">=</span><span class="st">"Total calories in MacDonal's bugers"</span>, ylab<span class="op">=</span><span class="st">"Percent of burgers"</span>, xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">2000</span><span class="op">)</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="co"># lets create an empty plot</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#plot the sample value</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">MeanCal</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"blue"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> </span>
+<span>  <span class="co">#lets name the mean sample value</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="va">MeanCal</span>,<span class="fl">10</span>,labels<span class="op">=</span><span class="st">"Sample value"</span>,pos<span class="op">=</span><span class="fl">4</span>, col<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#plot the critical value</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">CriticalVal</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> </span>
+<span>  <span class="co">#lets name the statistical critical value</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="va">CriticalVal</span>,<span class="fl">10</span>,labels<span class="op">=</span><span class="st">"Statistical critical value"</span>,pos<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-278-1.png" width="672"></div>
+<p>For the comparison between the critical value and the sample value, we can already observe that the sample burgers in reality have more calories than claimed by MacDonals at a significance level, <span class="math inline">\(\alpha\)</span>, of 0.05.</p>
+<p>Lets try the same test but building an actual population of expected burgers. For this, we take one random sample from a normal population with a mean of 1500 and an standard deviation, SD, of 50. In R, you can take any number of individuals randomly from any normally distributed population using the function <span class="math inline">\(rnorm\)</span>.</p>
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">MeanPopulation</span><span class="op">=</span><span class="fl">1500</span></span>
+<span><span class="va">SDPopulation</span><span class="op">=</span><span class="fl">50</span></span>
+<span><span class="va">RandomSample1</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1</span>,<span class="va">MeanPopulation</span>,<span class="va">SDPopulation</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="va">RandomSample1</span></span></code></pre></div>
+<pre><code>## [1] 1508.21</code></pre>
+<p>So one sample burger from a population with a mean of 1500 and a standard deviation, SD, of 50 is <span class="math inline">\(1508.21\)</span>.</p>
+<p>Hmm, ok, but we only have one random sample. To be robust, we probably should take 100,000 random samples and from all of those see if the top 5% of the random samples, our critical threshold, is larger or smaller than our observed sample value.</p>
+<p>To run such a simulation, we can use the <em>for</em> loop function in R. Lets try. Let me explain that function with the example.</p>
+<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">population</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span>  <span class="co">#we create an empty vector where we will store the random averages of our 1000 random samples of ten burgers</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">sampleI</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100000</span><span class="op">)</span> <span class="op">{</span> <span class="co"># here I set a variable called sampleI that will loop from 1 to 1000</span></span>
+<span>  </span>
+<span><span class="va">meanRandomSampleI</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1</span>,<span class="va">MeanPopulation</span>,<span class="va">SDPopulation</span><span class="op">)</span> <span class="co">#take a random value</span></span>
+<span></span>
+<span><span class="co">#lets place the value for that sample in the vector</span></span>
+<span><span class="va">population</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">population</span>, <span class="va">meanRandomSampleI</span> <span class="op">)</span> <span class="co">#basically I am appending the value of every sample in every loop to the vector</span></span>
+<span><span class="op">}</span></span>
+<span><span class="co"># the code between {} will run for 100,000 times. to test lest count the number of entries in the vector</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## [1] 100000</code></pre>
+<p>Ok, we just created a population of 100,000 random samples from a normal population with a mean of 1500 and an standard deviation, SD, of 50. Let’s do a histogram of that database</p>
+<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">breaks</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1200</span>, <span class="fl">1800</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span> <span class="co">#lets create a set of bins</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">population</span>,main<span class="op">=</span><span class="cn">NA</span>,xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1200</span>, <span class="fl">1800</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">5000</span><span class="op">)</span>,breaks <span class="op">=</span> <span class="va">breaks</span>, xlab <span class="op">=</span> <span class="st">"Total calories in MacDonal's bugers"</span>,ylab <span class="op">=</span> <span class="st">"Number of ramdon samples"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-281-1.png" width="672"></div>
+<p>Looking good….lets draw a line for the 5% level of significance for the expected distribution. We will use the R function <span class="math inline">\(quantile\)</span>, which we used earlier, to find out the value located at the 95% percentile, which will outline the position to the right where 5% of the cases occur. Let’s call this the modeled critical value, to differentiate it from the statistical critical value we calculated earlier.</p>
+<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ModelledCriticalValue</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">population</span>,<span class="fl">0.95</span>,type<span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="co">#quantile finds the value in the population of calories located at the top 5% percentile</span></span>
+<span><span class="va">ModelledCriticalValue</span></span></code></pre></div>
+<pre><code>##      95% 
+## 1582.898</code></pre>
+<p>Now we can compare the average calorimetric content in our actual sample of 10 burgers (sample value) to the value located at the 5% mark (i.e., the level of significance).</p>
+<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">population</span>,main<span class="op">=</span><span class="cn">NA</span>,xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1200</span>, <span class="fl">1800</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">6000</span><span class="op">)</span>,breaks <span class="op">=</span> <span class="va">breaks</span>, xlab <span class="op">=</span> <span class="st">"Caloric content of burgers"</span>,ylab <span class="op">=</span> <span class="st">"Number of ramdon samples"</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#plot the sample value</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">MeanCal</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"blue"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> </span>
+<span>    <span class="co">#lets use a label for it</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="va">MeanCal</span>,<span class="fl">6000</span>,labels<span class="op">=</span><span class="st">"Sample value"</span>,pos<span class="op">=</span><span class="fl">4</span>, col<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#plot the 5% modeled critical value </span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">ModelledCriticalValue</span>, lwd<span class="op">=</span><span class="fl">4</span>, col<span class="op">=</span><span class="st">"orange"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> </span>
+<span><span class="co">#lets name the critical value</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="va">ModelledCriticalValue</span>,<span class="fl">6000</span>,labels<span class="op">=</span><span class="st">"Modeled critical value"</span>,pos<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"orange"</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class="co">#plot the 5% statistical critical value</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">CriticalVal</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> </span>
+<span>  <span class="co">#lets name the mean sample value</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="va">CriticalVal</span>,<span class="fl">5500</span>,labels<span class="op">=</span><span class="st">"Statistical critical value"</span>,pos<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-283-1.png" width="672"></div>
+<p>Pretty neat, ah?. the modeled and statistical critical value were identical. And they both were below the sample value. In short, the sample of ten burgers (Blue line in figure above) was much larger than the critical value at 5% (red lines), we then reject the null hypothesis that these burgers have less than 1,500 calories, and would have to embrace the alternative hypothesis that the burgers have more than 1500 calories. You can surmise in your report to the judge that the one guy lawsuiting MacDonals was deceived. A potential case of false advertisement.</p>
+</div>
+<div id="error-types" class="section level2 unnumbered">
+<h2>Error types<a class="anchor" aria-label="anchor" href="#error-types"><i class="fas fa-link"></i></a>
+</h2>
+<p>You probably noted the level of caution used while testing hypotheses. That is because we work on probabilities, so we are never certain.</p>
+<p>In hypothesis testing, we deal primarily with those things we could never know for sure; there is always a chance that we are wrong when making a conclusion. That chance of being wrong can be separated into two different types of errors called <strong>Type I</strong> and <strong>Type II</strong> errors.</p>
+<p>I found a couple neat examples online you should check for further clarification on the Type-I and Type-II errors <a href="http://experimentaltheology.blogspot.com/2010/09/theology-of-type-1-type-2-errors.html">here</a> and <a href="https://www.analyticsvidhya.com/blog/2020/06/statistics-analytics-hypothesis-testing-z-test-t-test/">here</a></p>
+<p>Lets try the one example about going to hell or to heaven depending on your threshold of what qualifies as a good or a bad thing…the example goes like this:</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-284"></span>
+<img src="images/Divine%20alpha.png" alt="Errors that send you to hell" width="90%"><p class="caption">
+Figure 8.12: Errors that send you to hell
+</p>
+</div>
+<p>There is a God, we have never met in person, that holds the <strong>ultimate threshold</strong> of the actions that qualify to go to heaven or not. Because we do not know the guy, and we do not have fully clear guidelines, there may be an speculation on that threshold. The point here is that there is an <strong>ultimate threshold</strong>, the <strong>ultimate truth</strong>, which we do not know for certain.</p>
+<p>On the other side of this problem is our judgment of what God would mean such threshold is. The ten commitments were a nice start, but what about when you are mean to your teacher?. The Bible says do not do to others what you do not want others to do to you. Would being mean to another person take points out my score to go to heaven?. If I were you I would play it save and be nice to everyone, including your teacher, but we are uncertain if being mean reduces the score of the going-to-heaven ticket.</p>
+<p>The point above is that there is an ultimate threshold that defines the truth, a threshold that we do not know for certain, but that we can approximate. This approximation threshold is what we called <span class="math inline">\(\alpha\)</span> earlier: the chance we are giving ourselves to be wrong in our decisions.</p>
+<p>When our human <span class="math inline">\(\alpha\)</span> threshold matches the divine threshold, then we got lucky, and we were right every time we did something in life. No errors here. I did all right things knowingly knowing I will end up in heaven or I did all wrong things knowingly knowing I would end up in hell.</p>
+<p>However, if my threshold was too low and I did a lot of mean things, that turned out to be bad and reduced my going-to-heaven-score, then my threshold did have an error that let me to conclude that doing certain things were ok, when in truth they were not. If you think about this type of error, you accepted the hypothesis that certain things were ok, but turned out to be they were not fine. This is what is call a <strong>false negative</strong>, or a <strong>Type II</strong> error.</p>
+<p>Say that in the opposite my threshold to define what was right or not was too high. While it may help me minimize my Type II error, such a very high threshold means that I am probably not doing things that could be ok, things that may make life nicer. A very high threshold will lead to what is call a <strong>false positive</strong> or a <strong>Type I error</strong>. Rejecting things that turned out were ok.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-285"></span>
+<img src="images/TypesOfError.png" alt="Type I and Type II errors" width="80%"><p class="caption">
+Figure 8.13: Type I and Type II errors
+</p>
+</div>
+
+<div class="rmdimportant">
+<p>A false positive, also call Type I error, is to reject the null hypothesis when it is, in fact, true.</p>
+A false negative, also call Type II error, is to accept the null hypothesis when it is, in fact, false.
+</div>
+</div>
+<div id="exercises-3" class="section level2 unnumbered">
+<h2>Exercises<a class="anchor" aria-label="anchor" href="#exercises-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>Some of these questions may take a while to load depending on your internet connection.</p>
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=28" width="1000" height="344" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=29" width="1000" height="572" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=30" width="1000" height="530" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=36" width="1000" height="531" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=31" width="1000" height="311" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=32" width="1000" height="311" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=33" width="1000" height="311" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=34" width="1000" height="311" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script><iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=35" width="1000" height="312" frameborder="0" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+</div>
+<div id="homework-5" class="section level2 unnumbered">
+<h2>Homework<a class="anchor" aria-label="anchor" href="#homework-5"><i class="fas fa-link"></i></a>
+</h2>
+<p>The annual migration of a bird through a watershed in Florida has remained stable for several years at an average of 1,2 million birds and a standard deviation of 100,000 birds. In the last year, the number of birds was 700,000. There have been numerous concerns that a development project may be damaging the habitats of the bird. As a first order of inquiry, we need to know if this year’s number was significantly lower than in prior years. Please test this hypothesis at a 5% level of confidence?</p>
+<p>In this exercise, please:</p>
+<ol style="list-style-type: decimal">
+<li><p>Write down the null and the alternative hypothesis.</p></li>
+<li><p>Please run an R-simulation to test this hypothesis.</p></li>
+<li><p>Create a frequency distribution plot indicating the expected distribution of the birds and mark with a line the observed value for the last year. Also mark on the figure the 5% boundary of the expected distribution.</p></li>
+</ol>
+<p>In a Word document write down your answers, the figure and the code.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="regression-1.html"><span class="header-section-number">7</span> Regression</a></div>
+<div class="next"><a href="standard-hypothesis-tests.html"><span class="header-section-number">9</span> Standard hypothesis tests</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#hypothesis-testing"><span class="header-section-number">8</span> Hypothesis testing</a></li>
+<li>
+<a class="nav-link" href="#background-info">Background info</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#p-value-and-alpha">p-value and alpha</a></li></ul>
+</li>
+<li><a class="nav-link" href="#approach-to-testing-a-hyphothesis">Approach to testing a hyphothesis</a></li>
+<li><a class="nav-link" href="#stating-hyphotheses-and-tails">Stating hyphotheses and tails</a></li>
+<li><a class="nav-link" href="#accepting-or-rejecting-the-null-hypothesis">Accepting or rejecting the null hypothesis</a></li>
+<li><a class="nav-link" href="#testing-a-hypothesis-by-brutal-force">Testing a hypothesis by brutal force</a></li>
+<li><a class="nav-link" href="#error-types">Error types</a></li>
+<li><a class="nav-link" href="#exercises-3">Exercises</a></li>
+<li><a class="nav-link" href="#homework-5">Homework</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></strong>" was written by . </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Alternative types of tests | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.22.4 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Alternative types of tests | GEOG380.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
@@ -31,8 +30,8 @@
   
 <link rel="prev" href="9-standard-hypothesis-tests.html"/>
 <link rel="next" href="selecting-the-right-test.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,9 +47,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -166,8 +165,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a>
 <ul>
-<li><a href="the-hyphotesis.html#the-null-hypothesis-h0">The null hypothesis <em>H0</em></a></li>
-<li><a href="the-hyphotesis.html#the-alternate-hypothesis-h1">The alternate hypothesis <em>H1</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-null-hypothesis-h0"><i class="fa fa-check"></i>The null hypothesis <em>H0</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-alternate-hypothesis-h1"><i class="fa fa-check"></i>The alternate hypothesis <em>H1</em></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a>
 <ul>
@@ -404,11 +403,11 @@ By Camilo Mora, Ph.D.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="alternative-types-of-tests" class="section level2 unnumbered">
-<h2>Alternative types of tests</h2>
+<div id="alternative-types-of-tests" class="section level2 unnumbered hasAnchor">
+<h2>Alternative types of tests<a href="alternative-types-of-tests.html#alternative-types-of-tests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When comparing samples, in broad terms, there are three likely options:</p>
-<div id="one-sample-test-1" class="section level3 unnumbered">
-<h3>One sample test</h3>
+<div id="one-sample-test-1" class="section level3 unnumbered hasAnchor">
+<h3>One sample test<a href="alternative-types-of-tests.html#one-sample-test-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This type of case relates to situations in which you have a sample parameter and you want to compare it a population.</p>
 <p>Say you are disappointed by how much smaller the candy bars in a store look like. Say you take a few samples of candy bars and found they are on average 180g. The label says they are on average 200g +/-10g. This would be a case of a <em>one-sample test</em>. Basically, you have one sample and you want to find out if it is different to the expected value from a population.</p>
 <p>Let’s visualize this:</p>
@@ -431,8 +430,8 @@ By Camilo Mora, Ph.D.
 <span id="cb226-17"><a href="alternative-types-of-tests.html#cb226-17" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(SampleWeight,<span class="dv">700</span>,<span class="at">labels=</span><span class="st">&quot;Sample&quot;</span>,<span class="at">pos=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>) </span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-288-1.png" width="672" /></p>
 </div>
-<div id="two-sample-test-1" class="section level3 unnumbered">
-<h3>Two sample test</h3>
+<div id="two-sample-test-1" class="section level3 unnumbered hasAnchor">
+<h3>Two sample test<a href="alternative-types-of-tests.html#two-sample-test-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>These are cases when you want to compare samples from two different populations.</p>
 <p>Say you have noted that when you fuel-up your car at a gas station A, you can take on average one more trip to work than when you fuel-up your car at gas station B. You are suspecting gas station B is giving less gas than it is suppose to.</p>
 <p>You can report this to a consumer group, and a likely test will be to take samples of one gallon from both gas stations and measure the actual volume they dispense. Say a sample of 50 trials yields volumes of 1.1 gal +/-.05gal in Gas station A and 1.01 gal +/-.02gal in Gas station B.</p>
@@ -470,8 +469,8 @@ By Camilo Mora, Ph.D.
 <span id="cb227-30"><a href="alternative-types-of-tests.html#cb227-30" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(GasB, <span class="at">add=</span>T ,<span class="at">col=</span>DarkRed)  <span class="co">#note how for the parameter col, you indicate the color you create as a variable above</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-289-1.png" width="672" /></p>
 </div>
-<div id="more-than-two-sample-test-1" class="section level3 unnumbered">
-<h3>More than two sample test</h3>
+<div id="more-than-two-sample-test-1" class="section level3 unnumbered hasAnchor">
+<h3>More than two sample test<a href="alternative-types-of-tests.html#more-than-two-sample-test-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>These are cases when you want to compare samples from more than two different populations.</p>
 <p>Say you have visited three countries and noticed that men were very different in height. You are use to the men in the USA, which we already established have an average height of 177.8cm +/-SD 7.62 cm. In France, they were 172.8cm +/-SD 5.62 cm and in North Korea they were 155.5 cm +/- 8.5cm.</p>
 <p>This is a case of a three samples, at times called multiple samples.</p>
@@ -548,7 +547,6 @@ By Camilo Mora, Ph.D.
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -587,9 +585,9 @@ gitbook.start({
 "link": "https://github.com/Camilo-Mora/GEO380/blob/main/09-SelectingTests.Rmd",
 "text": null
 },
-"download": null,
+"download": ["GEOG380.pdf", "GEOG380.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>4 Basic plots | GEOG380.knit</title>
+<meta name="description" content="Making good quality plots is fundamental to the successful delivery of a scientific finding. The best story is the one that can be told with figures o. Not surprising, making good figures is a...">
+<meta name="generator" content="bookdown 0.26.3 with bs4_book()">
+<meta property="og:title" content="4 Basic plots | GEOG380.knit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Making good quality plots is fundamental to the successful delivery of a scientific finding. The best story is the one that can be told with figures o. Not surprising, making good figures is a...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="4 Basic plots | GEOG380.knit">
+<meta name="twitter:description" content="Making good quality plots is fundamental to the successful delivery of a scientific finding. The best story is the one that can be told with figures o. Not surprising, making good figures is a...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html">Introduction</a></li>
+<li><a class="" href="class-expectations.html">Class expectations</a></li>
+<li><a class="" href="the-scientific-method.html"><span class="header-section-number">1</span> The scientific method</a></li>
+<li><a class="" href="installing-programs.html"><span class="header-section-number">2</span> Installing programs</a></li>
+<li><a class="" href="basics-on-data-manipulation-in-r.html"><span class="header-section-number">3</span> Basics on data manipulation in R</a></li>
+<li><a class="active" href="basic-plots.html"><span class="header-section-number">4</span> Basic plots</a></li>
+<li><a class="" href="descriptive-statistics.html"><span class="header-section-number">5</span> Descriptive statistics</a></li>
+<li><a class="" href="correlation-1.html"><span class="header-section-number">6</span> Correlation</a></li>
+<li><a class="" href="regression-1.html"><span class="header-section-number">7</span> Regression</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">8</span> Hypothesis testing</a></li>
+<li><a class="" href="standard-hypothesis-tests.html"><span class="header-section-number">9</span> Standard hypothesis tests</a></li>
+<li><a class="" href="one-sample-tests.html"><span class="header-section-number">10</span> One sample tests</a></li>
+<li><a class="" href="two-sample-tests.html"><span class="header-section-number">11</span> Two sample tests</a></li>
+<li><a class="" href="multiple-sample-test.html"><span class="header-section-number">12</span> Multiple sample test</a></li>
+<li><a class="" href="final-project.html"><span class="header-section-number">13</span> Final project</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="basic-plots" class="section level1" number="4">
+<h1>
+<span class="header-section-number">4</span> Basic plots<a class="anchor" aria-label="anchor" href="#basic-plots"><i class="fas fa-link"></i></a>
+</h1>
+<p>Making good quality plots is fundamental to the successful delivery of a scientific finding. The best story is the one that can be told with figures o.</p>
+<p>Not surprising, making good figures is a demanding endeavor of the scientific process, and there are at least two steps to it.</p>
+<p>First, you need to decide on which type of figure best illustrates the point that you what to make. It is not about deceiving the reader, but rather use the most convincing available figure. Of course, each problem will have different needs, so you just need to be familiar about the different types of figures available, to better know which is the best figure for your own case problem.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-115"></span>
+<img src="images/RFigures.png" alt="R plots" width="100%"><p class="caption">
+Figure 4.1: R plots
+</p>
+</div>
+<p>R has several built-in functions to do all sorts of plots. You can even create your own types of plots. Some packages even allow you to create plots online, where people can interact with the data. Others let you animate the data.</p>
+<p>You can check a gallery of R plots <a href="https://www.r-graph-gallery.com/all-graphs.html">here</a>.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-116"></span>
+<img src="images/AnimatedPlot.gif" alt="Animated R plot" width="100%"><p class="caption">
+Figure 4.2: Animated R plot
+</p>
+</div>
+<p>Second, it is the issue of the standards of the figure. This relates to the editorial guidelines you need to follow to deliver your figure.</p>
+<p>Each scientific journal has different guidelines for figures.</p>
+<p>Some journals allow you to place multiple figures together, others like the letters to be of a given size and font type, other journals only like black and white, others want the figures on certain dimensions, etc.</p>
+<p>So you need to know the guidelines that are specific to the journal you want to publish on to ensure your figures are up to standard.</p>
+<p>If you are not publishing a paper, it will still be good for you to follow the guidelines of figure formatting for any journal, so you know your figures are up to the most professional standards required in the field.</p>
+<p>Regardless of the guidelines for the specific journal, it is important that your figure is clear enough to be understood. Here are some key conditions for any figure:</p>
+<ol style="list-style-type: decimal">
+<li><p>Ensure that the axes have names. e.g. Human population.</p></li>
+<li><p>Ensure that between brackets the axes have units. e.g. Human population (Number of people)</p></li>
+<li><p>Ensure that your axes have tickmarks.</p></li>
+<li><p>Ensure all data are displayed. If you constraint the values shown in your axes, be sure you do not remove data by accident.</p></li>
+<li><p>Ensure the lines of the axes are black color. At times the axes colors are grey. The problem with this setting is that when printed, such axes may not appear, depending on how good your printer is.</p></li>
+<li><p>Ensure the thickness of the axes is at least 1 point. At times the lines are thin, and this creates problems with printing as well.</p></li>
+<li><p>When possible use black and white for your figures. While color is very common, many people take photocopies of papers or reports and they are very common in black and white. So in those cases any color figure will have troubles.</p></li>
+</ol>
+<p>p</p>
+<p>Lets check how to do some of the most common types of plots in R.</p>
+<div id="scatterplots" class="section level2 unnumbered">
+<h2>Scatterplots<a class="anchor" aria-label="anchor" href="#scatterplots"><i class="fas fa-link"></i></a>
+</h2>
+<p>Scatterplots allow you to see patterns of variation between two variables. To create a plot in R, simply type plot(y~x). Lets say I want to plot the second and third column in a dataframe.</p>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#Lets create some dummy data</span></span>
+<span><span class="va">DataFrame</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span> x1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">250</span><span class="op">)</span><span class="op">)</span>,     <span class="co"># in Column 1 I repeat the number 1 for 250 times</span></span>
+<span>                        x2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">250</span><span class="op">)</span>, <span class="co">#Column 2 I create a sequence of numbers from 1 to 250</span></span>
+<span>                        x3 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">1000</span><span class="op">)</span>,<span class="fl">250</span><span class="op">)</span><span class="op">)</span> <span class="co"># select 250 random numbers between 1 and 10000</span></span>
+<span><span class="co">#Now lets plot columns 2 and 3 of that data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">DataFrame</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">~</span><span class="va">DataFrame</span><span class="op">[</span>,<span class="fl">3</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-117-1.png" width="672"></div>
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#You can also plot by column name using the $ sign as indicated earlier to call a column</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">DataFrame</span><span class="op">$</span><span class="va">x2</span><span class="op">~</span><span class="va">DataFrame</span><span class="op">$</span><span class="va">x3</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-118-1.png" width="672"></div>
+<p>Now it comes the different settings needed to format the figure. Almost any attribute of a figure in R can be formatted.</p>
+<p>Next, I will show you how to format a few parameters. Once you know how to format a given parameter of a figure, you should be able to format any other parameter. Obviously a figure has tens of parameters you can modify, so you should not expect to know them all by memory, but you should be able to know how to find the given parameter, which by now you know it is by asking your friend Google.</p>
+<p>Let’s modify a few parameters from the figure above.</p>
+<p>For instance, what about the axis names? You can add axis names using the command xlab or ylab inside the plot command, like this:</p>
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">DataFrame</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">~</span><span class="va">DataFrame</span><span class="op">[</span>,<span class="fl">3</span><span class="op">]</span>,xlab<span class="op">=</span><span class="st">"Years"</span>, ylab<span class="op">=</span><span class="st">"Precipitation"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-119-1.png" width="672"></div>
+<p>What about the different type of symbols?</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-120"></span>
+<img src="images/RPlotSymbols.png" alt="R plot symbols" width="100%"><p class="caption">
+Figure 4.3: R plot symbols
+</p>
+</div>
+<p>R offers 25 different symbol types (Figure above), which you can call using the parameter pch, like this:</p>
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">DataFrame</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">~</span><span class="va">DataFrame</span><span class="op">[</span>,<span class="fl">3</span><span class="op">]</span>,xlab<span class="op">=</span><span class="st">"Years"</span>, ylab<span class="op">=</span><span class="st">"Precipitation"</span>, pch<span class="op">=</span><span class="fl">22</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-121-1.png" width="672"></div>
+
+<div class="rmdnote">
+Other characters can be used to specify pch including “+”, “*“,”-“,”.“,”#, “%”, “o”. Or simply any character you put between the quotations (“”) in the pch parameter.
+</div>
+<p>What about colors for those points?. That is controlled using the col parameter. Like this,</p>
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">DataFrame</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">~</span><span class="va">DataFrame</span><span class="op">[</span>,<span class="fl">3</span><span class="op">]</span>,xlab<span class="op">=</span><span class="st">"Years"</span>, ylab<span class="op">=</span><span class="st">"Precipitation"</span>, pch<span class="op">=</span><span class="fl">22</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-123-1.png" width="672"></div>
+<p>For some symbols you can also control the filling color, using the bg parameter. Like this,</p>
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">DataFrame</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">~</span><span class="va">DataFrame</span><span class="op">[</span>,<span class="fl">3</span><span class="op">]</span>,xlab<span class="op">=</span><span class="st">"Years"</span>, ylab<span class="op">=</span><span class="st">"Precipitation"</span>, pch<span class="op">=</span><span class="fl">22</span>, col<span class="op">=</span><span class="st">"red"</span>, bg<span class="op">=</span><span class="st">"blue"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-124-1.png" width="672"></div>
+<p>You can also control the size of the symbols using the cex parameter. Like this,</p>
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">DataFrame</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">~</span><span class="va">DataFrame</span><span class="op">[</span>,<span class="fl">3</span><span class="op">]</span>,xlab<span class="op">=</span><span class="st">"Years"</span>, ylab<span class="op">=</span><span class="st">"Precipitation"</span>, pch<span class="op">=</span><span class="fl">22</span>, col<span class="op">=</span><span class="st">"red"</span>, cex<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-125-1.png" width="672"></div>
+<p>Remember, there are tens of parameters you can modify in a plot. So you need to know exactly the standards required in the journal you want to publish to ensure you deliver the best figures required.</p>
+</div>
+<div id="histograms" class="section level2 unnumbered">
+<h2>Histograms<a class="anchor" aria-label="anchor" href="#histograms"><i class="fas fa-link"></i></a>
+</h2>
+<p>Histograms are a very important type of plot as it lets you see the frequency in which certain values appear in your data. This type of plot is also call a frequency distribution. To create a histogram in R, you use the command hist(x), where x, is the vector of data you want to plot.</p>
+<p>Lets create a frequency distribution of the GDP (Gross Domestic Producto) of countries in the world, using the csv file we loaded earlier,</p>
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#lets reload the data, just in case you have not loaded it</span></span>
+<span><span class="va">GDPData</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_GDP.csv"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">GDPData</span><span class="op">)</span>   <span class="co">#now lets check the data</span></span></code></pre></div>
+<pre><code>##       country continent year gdpPercap
+## 1 Afghanistan      Asia 1952  779.4453
+## 2 Afghanistan      Asia 1957  820.8530
+## 3 Afghanistan      Asia 1962  853.1007
+## 4 Afghanistan      Asia 1967  836.1971
+## 5 Afghanistan      Asia 1972  739.9811
+## 6 Afghanistan      Asia 1977  786.1134</code></pre>
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">GDPData</span><span class="op">$</span><span class="va">gdpPercap</span><span class="op">)</span> <span class="co">#now lets create a frequency of number of countries by GDP</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-126-1.png" width="672"></div>
+<p>Just as with the scatterplot, you can improve the appearance of the figure. Lets start with the axis name.</p>
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">GDPData</span><span class="op">$</span><span class="va">gdpPercap</span>, xlab<span class="op">=</span><span class="st">"GDP countries in USDollars"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-127-1.png" width="672"></div>
+<p>What about that title?. Not pretty, ah?. That is a default in R. To remove it, we set the “main” parameter to NULL, like this:</p>
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">GDPData</span><span class="op">$</span><span class="va">gdpPercap</span>, xlab<span class="op">=</span><span class="st">"GDP countries in USDollars"</span>,main<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span> </span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-128-1.png" width="672"></div>
+<p>Most journals do not allow you to put tittles in your plots.</p>
+<p>If you want to rather keep the tittle, but have a different tittle, you replace NULL with the title you want, like this:</p>
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">GDPData</span><span class="op">$</span><span class="va">gdpPercap</span>, xlab<span class="op">=</span><span class="st">"GDP countries in USDollars"</span>,main<span class="op">=</span><span class="st">"Countries of the World"</span><span class="op">)</span> </span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-129-1.png" width="672"></div>
+</div>
+<div id="density-plots" class="section level2 unnumbered">
+<h2>Density plots<a class="anchor" aria-label="anchor" href="#density-plots"><i class="fas fa-link"></i></a>
+</h2>
+<p>At times, when you use scatterplots with many data points, chances are that some points will overlap, and then create a misleading visual representation of the data as any overlapping data points will appear as a single point.</p>
+<p>A better representation of the data in this type of case is the use of density plots, in which the space of the entire plot is gridded into equal size cells, and the number of point overlapping on each cell counted and that is what is displayed. Let’s do an example.</p>
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#lets create a dummy dataset of many points</span></span>
+<span><span class="co"># Create data</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>mean<span class="op">=</span><span class="fl">1.5</span>, <span class="fl">5000</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>mean<span class="op">=</span><span class="fl">1.6</span>, <span class="fl">5000</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#lets plot that data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-130-1.png" width="672"></div>
+<p>From the figure above you can tell that it is hard to make sense of any pattern because many points overlap. One solution to this is to use a density plot. And there are different packages to do so. Here we will use the hexbin package.</p>
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/edzer/hexbin">hexbin</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">RColorBrewer</span><span class="op">)</span> <span class="co">#This library allows you to create color scales, we will see this later.</span></span>
+<span> </span>
+<span><span class="co"># Make the plot</span></span>
+<span><span class="va">bin</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/hexbin/man/hexbin.html">hexbin</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, xbins<span class="op">=</span><span class="fl">40</span><span class="op">)</span> <span class="co">#hexbin is the function to grid the points in the plot. You can use different number of grids.</span></span>
+<span><span class="va">my_colors</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/grDevices/colorRamp.html">colorRampPalette</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html">brewer.pal</a></span><span class="op">(</span><span class="fl">11</span>,<span class="st">'Spectral'</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co">#this is the color scale</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">bin</span>, main<span class="op">=</span><span class="st">""</span> , colramp<span class="op">=</span><span class="va">my_colors</span> , legend<span class="op">=</span><span class="cn">F</span> <span class="op">)</span>  <span class="co">#now lets plot the hexbin/grid</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-131-1.png" width="672"></div>
+<p>Now you can see the same data, but plotting the hexbin/grid. You can play with different settings of the hexbin package, by typing ?hexbin in the R console.</p>
+<p>You can also display both plots side by side using the par function.</p>
+<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">4</span>, <span class="fl">.1</span>, <span class="fl">.1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">bin</span>,colramp<span class="op">=</span><span class="va">my_colors</span><span class="op">)</span>  <span class="co">#hexbin plot</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="va">x</span><span class="op">)</span>                    <span class="co">#Scatter plot</span></span></code></pre></div>
+<p><img src="GEOG380_files/figure-html/figures-side-1.png" width="50%"><img src="GEOG380_files/figure-html/figures-side-2.png" width="50%"></p>
+</div>
+<div id="plotting-maps" class="section level2 unnumbered">
+<h2>Plotting maps<a class="anchor" aria-label="anchor" href="#plotting-maps"><i class="fas fa-link"></i></a>
+</h2>
+<p>R also provides powerful tools to analyze geographical data. Pretty much anything you can do in ARCgis, you can do in R; the key difference is that in R is free!.</p>
+<p>Let’s see how to plot a map in R. Lets start by getting some spatial data.</p>
+<p>I collected the global data on human population from <a href="https://sedac.ciesin.columbia.edu/data/set/gpw-v4-population-count-rev11/data-download#">here</a>. That page is full of other types of global scale data you may find interesting.</p>
+<p>Here we will use the package raster for the purpose of loading and plotting the map.</p>
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span> <span class="op">(</span><span class="va"><a href="https://rspatial.org/raster">raster</a></span><span class="op">)</span></span>
+<span><span class="va">GlobalPopulation</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/raster.html">raster</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/GlobalHumanPopulation2020.tif"</span><span class="op">)</span> <span class="co">#load the raster.</span></span></code></pre></div>
+<p>In the code above, I create a variable called GlobalPopulation that has the global data on human population.</p>
+<p>Note that to load the data of the raster, you use the same method you used before to load the .csv file. That is, using the path to the file, preceded by the command that reads the file.</p>
+<p>In this case, you use the command raster to read the file rather than read.csv. as the data you want to load is a raster and not a csv file.</p>
+<p>To plot the raster, all you have to do is to plot that variable, like this:</p>
+<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span> <span class="op">(</span><span class="va">GlobalPopulation</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/PloRraster-1.png" width="672"></div>
+<p>You can use a different color scale using the RColorBrewer library. Lets try,</p>
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">RColorBrewer</span><span class="op">)</span>  <span class="co">#this library allows you to create your own scales</span></span>
+<span><span class="co">#Lets create a color scale between yellow and red colors</span></span>
+<span><span class="va">ColorScale</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/colorRamp.html">colorRampPalette</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"yellow"</span>,<span class="st">"red"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">GlobalPopulation</span>,col <span class="op">=</span><span class="fu">ColorScale</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span> <span class="co">#plot human population with 100 color in my scale</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/ColorScaleraster-1.png" width="672"></div>
+<p>There are also premade color blind friendly scales. The most commonly used is called viridis. Here are the different options of scales it has to offer:</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-132"></span>
+<img src="images/Viridis.png" alt="Viridis color scales" width="100%"><p class="caption">
+Figure 4.4: Viridis color scales
+</p>
+</div>
+<p>Lets now plot our map, using the magma scale</p>
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://sjmgarnier.github.io/viridis/">viridis</a></span><span class="op">)</span></span></code></pre></div>
+<pre><code>## Loading required package: viridisLite</code></pre>
+<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">GlobalPopulation</span>,col <span class="op">=</span><span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html">magma</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span><span class="op">)</span> <span class="co">#plot human population with 100 color in my scale</span></span></code></pre></div>
+<div class="inline-figure">
+<img src="GEOG380_files/figure-html/VirtidisRaster-1.png" width="672">
+Hmm, not to pretty ah?. why do you think the map does not look that good?</div>
+<p>Well, the reason is that there are some places in the world with soo many people that makes the rest of the world look by comparison like if the world was empty. Here the problem is the scale of comparison.</p>
+<p>In cases where the extremes of the data are to far a part, it is recommended to log transform your data, which brings some of those extremes closer. Let’s see what log-transforming does,</p>
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">GlobalPopulation</span><span class="op">)</span>,col <span class="op">=</span><span class="fu"><a href="https://sjmgarnier.github.io/viridisLite/reference/viridis.html">magma</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span><span class="op">)</span> <span class="co">#log transform human population</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/LogRaster-1.png" width="672"></div>
+<p>Now you can better appreciate the patterns of variation, but you need to be mindful that the data are logarithmic.</p>
+<p>R also allows to reproject the data into different projection types. You should be aware that there are many issues with displaying maps in different projections, that is topic for another course.</p>
+<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Raster</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/projectRaster.html">projectRaster</a></span><span class="op">(</span><span class="va">GlobalPopulation</span>, crs<span class="op">=</span><span class="st">'+proj=moll'</span>, over<span class="op">=</span><span class="cn">T</span><span class="op">)</span> <span class="co">#reproject raster to mollweide projection</span></span></code></pre></div>
+<pre><code>## Warning in rgdal::rawTransform(projto_int, projfrom, nrow(xy), xy[, 1], : 55946
+## projected point(s) not finite</code></pre>
+<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">Raster</span><span class="op">)</span>         </span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/ProjectingRaster-1.png" width="672"></div>
+<p>Hmm that raster of the world’s population is missing an outline of the world. For that, there is a package called maps. Let’s try.</p>
+<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">maps</span><span class="op">)</span> <span class="co"># this library offers several choices for background maps</span></span></code></pre></div>
+<pre><code>## 
+## Attaching package: 'maps'</code></pre>
+<pre><code>## The following object is masked from 'package:viridis':
+## 
+##     unemp</code></pre>
+<pre><code>## The following object is masked from 'package:purrr':
+## 
+##     map</code></pre>
+<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">worldmap</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/maps/man/map.html">map</a></span><span class="op">(</span><span class="st">"world"</span>, plot<span class="op">=</span><span class="cn">F</span>,interior <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>   <span class="co">#create map of the world</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">worldmap</span><span class="op">)</span> <span class="co">#check the map</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-133-1.png" width="672"></div>
+<p>Hmm that packages provides the outline of the world as points. But really we want lines. Ok, we can use the maptools to convert points to lines</p>
+<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://maptools.r-forge.r-project.org/">maptools</a></span><span class="op">)</span>    <span class="co">#library to convert points to lines</span></span></code></pre></div>
+<pre><code>## Checking rgeos availability: TRUE</code></pre>
+<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">worldmapLines</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://maptools.r-forge.r-project.org/reference/map2SpatialPolygons.html">map2SpatialLines</a></span><span class="op">(</span><span class="va">worldmap</span>, proj4string<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/sp/man/CRS-class.html">CRS</a></span><span class="op">(</span><span class="st">"+proj=longlat +datum=WGS84"</span><span class="op">)</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span> <span class="va">worldmapLines</span><span class="op">)</span>     <span class="co">#check the map</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/PointToLines-1.png" width="672"></div>
+<p>Great, now you have a raster of the world’s human population and an outline of the world. Let’s put them together</p>
+<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span> <span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">GlobalPopulation</span><span class="op">)</span>      <span class="co">#first plot your raster</span></span>
+<span> <span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">worldmapLines</span>,add<span class="op">=</span><span class="cn">T</span><span class="op">)</span>   <span class="co">#then add the outline of the world on top.</span></span></code></pre></div>
+<img src="GEOG380_files/figure-html/unnamed-chunk-134-1.png" width="672"><div class="rmdexercise">
+Find out the command to remove the color scale shown in the map above. Tip: type “How to remove color scale of plot raster in r”
+</div>
+</div>
+<div id="animated-plots" class="section level2 unnumbered">
+<h2>Animated plots<a class="anchor" aria-label="anchor" href="#animated-plots"><i class="fas fa-link"></i></a>
+</h2>
+<p>What about animated plots?. If you recall the database on socio-economic data from countries in the world, you will notice that each variable was collected at different years. What year to display?. Well you can display them all and see how any pattern will change over time using an animated plot that displays each year sequentially. For animated plots, we will use the ggplot2 and the gganimate libraries/packages. i</p>
+<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#first lets bring the data.</span></span>
+<span><span class="va">ExpectancyData</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_LifeExpectancy.csv"</span><span class="op">)</span></span>
+<span><span class="va">GDPData</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_GDP.csv"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#lets merge those two databases, using the dplyr packaged that we used earlier.</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>  <span class="co">#load package to merge database</span></span>
+<span></span>
+<span><span class="co">#merge the databases</span></span>
+<span><span class="va">MergeData</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">GDPData</span>, <span class="va">ExpectancyData</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"country"</span>,<span class="st">"year"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>As it is customary, lets check the data were loaded and display correctly.</p>
+<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span> <span class="op">(</span><span class="va">MergeData</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##       country continent.x year gdpPercap    X continent.y lifeExp
+## 1699 Zimbabwe      Africa 1982  788.8550 1699      Africa  60.363
+## 1700 Zimbabwe      Africa 1987  706.1573 1700      Africa  62.351
+## 1701 Zimbabwe      Africa 1992  693.4208 1701      Africa  60.377
+## 1702 Zimbabwe      Africa 1997  792.4500 1702      Africa  46.809
+## 1703 Zimbabwe      Africa 2002  672.0386 1703      Africa  39.989
+## 1704 Zimbabwe      Africa 2007  469.7093 1704      Africa  43.487</code></pre>
+<p>It seems data were loaded fine. The three variables of interest here are gdpPercap (GDP per capita), lifeExp (life expectancy), year and continent. (note that continent is double, because that column was on each of the dataset we merged, and we did not specific to do the merging by continent as well).</p>
+<p>Lets create an animated plot of that data. Since the code needed will require several lines, it is recommended that you create the code in Tinn-R firts. Once it is done, copy and paste in the R console.</p>
+<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># for the figures we will need </span></span>
+<span>    <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>      <span class="co">#this package is to do all sorts of plots</span></span>
+<span>    <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gganimate.com">gganimate</a></span><span class="op">)</span>    <span class="co">#this package does the animation</span></span>
+<span> </span>
+<span><span class="co"># Make a ggplot, but add frame=year: one image per year</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">MergeData</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">gdpPercap</span>, <span class="va">lifeExp</span>, color <span class="op">=</span> <span class="va">continent.x</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_log10</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="co"># gganimate specific bits:</span></span>
+<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">'Year: {frame_time}'</span>, x <span class="op">=</span> <span class="st">'GDP per capita'</span>, y <span class="op">=</span> <span class="st">'life expectancy'</span><span class="op">)</span> <span class="op">+</span></span>
+<span>      <span class="fu">transition_time</span><span class="op">(</span><span class="va">year</span><span class="op">)</span> <span class="op">+</span></span>
+<span>      <span class="fu">ease_aes</span><span class="op">(</span><span class="st">'linear'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Save at gif:</span></span>
+<span>    <span class="fu">anim_save</span><span class="op">(</span><span class="st">"AnimatedPlot.gif"</span><span class="op">)</span></span></code></pre></div>
+<p>The code above generate the plot below, which should now appear in your working folder.</p>
+
+<div class="rmdnote">
+<p>You can find out your working directory by typing getwd() in your R console.</p>
+<p>You can also set the working folder to a different path using the setwd(); in between brakets you put the path to the folder you want R to deposit any result from your codes.</p>
+For instance, setwd(“D:/GEOG380”), sets my working directory to a folder called GEOG380 in my D harddrive.
+</div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-140"></span>
+<img src="images/AnimatedPlot.gif" alt="Animated R plot" width="100%"><p class="caption">
+Figure 4.5: Animated R plot
+</p>
+</div>
+</div>
+<div id="saving-plots" class="section level2 unnumbered">
+<h2>Saving plots<a class="anchor" aria-label="anchor" href="#saving-plots"><i class="fas fa-link"></i></a>
+</h2>
+<p>Of course, if you do a plot in R is because you want to use it somewhere else. The quick and very dirty way to get a figure from R is to use the simple PrintScreen in your keyboard, which will create a figure of whatever you have in your screen at the moment.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-141"></span>
+<img src="images/PrintScreen.jpg" alt="Pixelation effect of figure format" width="100%"><p class="caption">
+Figure 4.6: Pixelation effect of figure format
+</p>
+</div>
+<p>After clicking on Print screen, then open any software, like Paint, Word, PowerPoint, etc., then right click on a new document and click Paste to display the figure.</p>
+<p>Of course, R offers many formats to save plots. Here we will save a figure as a PDF using the function “pdf”.</p>
+<p>Basically, the function pdf requires you to write the name you want for your file (e.g. “RPlot.pdf”), how big you want the plot, the size of the letters, and few other options. Type ?pdf to see additional settings.</p>
+<p>The way to save any figure in R is like this: Firsts, you write the line of code indicating the type of file you want to save as. That creates a clean sheet, where you can place your plot or plots. Once done with your figure or figures, you need a line of code called dev.off(); that closes the sheet and save the file. Lets try,</p>
+<div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/pdf.html">pdf</a></span><span class="op">(</span><span class="st">"RPlot.pdf"</span>, width <span class="op">=</span> <span class="fl">3</span>, height <span class="op">=</span> <span class="fl">3</span>,pointsize<span class="op">=</span><span class="fl">8</span>,paper<span class="op">=</span><span class="st">"letter"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">bin</span>,colramp<span class="op">=</span><span class="va">my_colors</span><span class="op">)</span>  <span class="co">#hexbin plot</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>If you now check your working folder, there should be a file called RPlot.pdf, which has the figure you just created. Of course, you can edit the figure as you like, as we showed in the Scatterplot section.</p>
+<p>The benefit of l saving files as PDF is that the resolution is never affected. You can zoom in into a PDF file and the resolution is always the same. In turn, other types of figures like jpeg, gif, png, etc. you need to define the resolution in advance, and if you zoom in into those type of figure formats you will notice the pixelation.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-143"></span>
+<img src="images/PDFvsPNG.png" alt="Pixelation effect of figure format" width="100%"><p class="caption">
+Figure 4.7: Pixelation effect of figure format
+</p>
+</div>
+</div>
+<div id="excersise" class="section level2 unnumbered">
+<h2>Excersise<a class="anchor" aria-label="anchor" href="#excersise"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now that you know how to manipulate data and do some basic figures. For this chapter’s exercise, please find the guidelines for figures in the journal Nature and do a plot according to the standards required for that journal.</p>
+<p>Plot the relationship between GDP and population size, using the databases that have been provided to you already, and include of the basic criteria for figures mentioned at the start of this chapter.</p>
+<p>Place that plot in a Word document and submitting as the homework for this chapter.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="basics-on-data-manipulation-in-r.html"><span class="header-section-number">3</span> Basics on data manipulation in R</a></div>
+<div class="next"><a href="descriptive-statistics.html"><span class="header-section-number">5</span> Descriptive statistics</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#basic-plots"><span class="header-section-number">4</span> Basic plots</a></li>
+<li><a class="nav-link" href="#scatterplots">Scatterplots</a></li>
+<li><a class="nav-link" href="#histograms">Histograms</a></li>
+<li><a class="nav-link" href="#density-plots">Density plots</a></li>
+<li><a class="nav-link" href="#plotting-maps">Plotting maps</a></li>
+<li><a class="nav-link" href="#animated-plots">Animated plots</a></li>
+<li><a class="nav-link" href="#saving-plots">Saving plots</a></li>
+<li><a class="nav-link" href="#excersise">Excersise</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></strong>" was written by . </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

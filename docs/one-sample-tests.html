@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>10 One sample tests | GEOG380.knit</title>
+<meta name="description" content="One sample tests are for cases in which you have one sample, and what to determine if it belongs to a certain population. Like: is it the gas in Hawaii significantly more expensive than the rest...">
+<meta name="generator" content="bookdown 0.26.3 with bs4_book()">
+<meta property="og:title" content="10 One sample tests | GEOG380.knit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="One sample tests are for cases in which you have one sample, and what to determine if it belongs to a certain population. Like: is it the gas in Hawaii significantly more expensive than the rest...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="10 One sample tests | GEOG380.knit">
+<meta name="twitter:description" content="One sample tests are for cases in which you have one sample, and what to determine if it belongs to a certain population. Like: is it the gas in Hawaii significantly more expensive than the rest...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html">Introduction</a></li>
+<li><a class="" href="class-expectations.html">Class expectations</a></li>
+<li><a class="" href="the-scientific-method.html"><span class="header-section-number">1</span> The scientific method</a></li>
+<li><a class="" href="installing-programs.html"><span class="header-section-number">2</span> Installing programs</a></li>
+<li><a class="" href="basics-on-data-manipulation-in-r.html"><span class="header-section-number">3</span> Basics on data manipulation in R</a></li>
+<li><a class="" href="basic-plots.html"><span class="header-section-number">4</span> Basic plots</a></li>
+<li><a class="" href="descriptive-statistics.html"><span class="header-section-number">5</span> Descriptive statistics</a></li>
+<li><a class="" href="correlation-1.html"><span class="header-section-number">6</span> Correlation</a></li>
+<li><a class="" href="regression-1.html"><span class="header-section-number">7</span> Regression</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">8</span> Hypothesis testing</a></li>
+<li><a class="" href="standard-hypothesis-tests.html"><span class="header-section-number">9</span> Standard hypothesis tests</a></li>
+<li><a class="active" href="one-sample-tests.html"><span class="header-section-number">10</span> One sample tests</a></li>
+<li><a class="" href="two-sample-tests.html"><span class="header-section-number">11</span> Two sample tests</a></li>
+<li><a class="" href="multiple-sample-test.html"><span class="header-section-number">12</span> Multiple sample test</a></li>
+<li><a class="" href="final-project.html"><span class="header-section-number">13</span> Final project</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="one-sample-tests" class="section level1" number="10">
+<h1>
+<span class="header-section-number">10</span> One sample tests<a class="anchor" aria-label="anchor" href="#one-sample-tests"><i class="fas fa-link"></i></a>
+</h1>
+<p>One sample tests are for cases in which you have one sample, and what to determine if it belongs to a certain population. Like:</p>
+<p>is it the gas in Hawaii significantly more expensive than the rest of the USA?.</p>
+<p>is a 10 year old girl taller than expected?</p>
+<p>These types of questions can be answered with either the Z-test or the T-Test, which we will introduce in this chapter. Both of these tests are suited for one-sample test, but the Z-test is used for cases in which you know the population standard deviation (SD) and your sample size is larger than 30 observations. If on the contrary, you do not know your population SD or your sample size is smaller than 30 observations, then you used the T-Test.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-292"></span>
+<img src="images/SelectingOnSampleTest.png" alt="Z-score fucntion" width="70%"><p class="caption">
+Figure 10.1: Z-score fucntion
+</p>
+</div>
+<p>At the end of this chapter, you are expected to:</p>
+<ol style="list-style-type: decimal">
+<li><p>Run a one sample Z-test and interpret its results from R.</p></li>
+<li><p>Run a one sample T-test and interprets its results from R.</p></li>
+</ol>
+<div id="the-one-sample-z-test-by-hand" class="section level2 unnumbered">
+<h2>The one-sample Z-test by hand<a class="anchor" aria-label="anchor" href="#the-one-sample-z-test-by-hand"><i class="fas fa-link"></i></a>
+</h2>
+<p>As mentioned earlier, the Z-test is used in cases when you want to run a one-sample test, you know the population standard deviation and your sample size is larger than 30 individuals. (grabs this token L).</p>
+<p>The principle of the Z-score is very straightforward. Basically, this score allows you to know how many Standard deviations from the mean a given sample is.</p>
+<p>As it has been indicated several times in this book, it is relatively easy to know the proportion of individuals in a population at certain standard deviations from the mean (when the data are normally distributed, of course).</p>
+<p>As an example, plus or minus two standard deviations from the mean includes about 95% of the individuals in that population (assuming the population is normally distributed).</p>
+<p>Given this principle then you can easily know the fraction of individuals at certain standard deviations from the mean.</p>
+<p>The z-cores is basically an index that allows you to convert/standardize any value to a given number of standard deviations from the mean.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-293"></span>
+<img src="images/Z-Score.png" alt="Z-test fucntion" width="70%"><p class="caption">
+Figure 10.2: Z-test fucntion
+</p>
+</div>
+<p>Lets try an example.</p>
+<p>Say you want to know if the USA female team run particularly faster the 100m race than other teams.</p>
+<p>You studeid 31 girls and their times runing 100m in seconds were:</p>
+<p>9.7, 9.7, 8.9, 9.2, 9.4, 9.1, 9.5, 9.6, 8.9, 9.1, 9.5, 9.2, 9.5, 9.4, 9.6, 9.2, 9.9, 10, 9.3, 9.6, 9.1, 9.5, 9.2, 9.5, 9.4, 9.6, 9.2, 9.9, 10, 9.3, 9.6.</p>
+<p>In turn, the historical time running that race is 9.5sec +/-0.2sec.</p>
+<p>From the example, it looks like we have one sample that we want to compare to a population. We have the standard deviation, SD, of the population and our sample size is larger than 30, so the best test here is a Z-test.</p>
+<p>As it is customary, we start by stating the hypothesis:</p>
+<p>H0: Time USA team = 9.5 sec The null hypothesis is how things are suppose to be…that means, the historical time of 9.5sec</p>
+<p>H1: Time USA team &lt; 9.5 sec The alternative hypothesis is what we are interested on, or claiming…that the USA team is faster than 9.5sec</p>
+<p>Let’s calculate the z-score:</p>
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Sample</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">9.7</span>, <span class="fl">9.7</span>, <span class="fl">8.9</span>, <span class="fl">9.2</span>, <span class="fl">9.4</span>, <span class="fl">9.1</span>, <span class="fl">9.5</span>, <span class="fl">9.6</span>, <span class="fl">8.9</span>, <span class="fl">9.1</span>, <span class="fl">9.5</span>, <span class="fl">9.2</span>, <span class="fl">9.5</span>, <span class="fl">9.4</span>, <span class="fl">9.6</span>, <span class="fl">9.2</span>, <span class="fl">9.9</span>, <span class="fl">10</span>, <span class="fl">9.3</span>, <span class="fl">9.6</span>, <span class="fl">9.1</span>, <span class="fl">9.5</span>, <span class="fl">9.2</span>, <span class="fl">9.5</span>, <span class="fl">9.4</span>, <span class="fl">9.6</span>, <span class="fl">9.2</span>, <span class="fl">9.9</span>, <span class="fl">10</span>, <span class="fl">9.3</span>, <span class="fl">9.6</span><span class="op">)</span> <span class="co">#lets put the values in a vector</span></span>
+<span></span>
+<span><span class="va">SampleMean</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Sample</span><span class="op">)</span> <span class="co">#mean time racing for the girls sampled</span></span>
+<span><span class="va">SampleSize</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">Sample</span><span class="op">)</span>  <span class="co"># this is the sample size or number of girls measured</span></span>
+<span></span>
+<span><span class="va">PopulationMean</span><span class="op">=</span> <span class="fl">9.5</span> <span class="co">#this is the population mean...or the historical time it has taken people to run 100m</span></span>
+<span><span class="va">PopulationSD</span><span class="op">=</span><span class="fl">0.2</span> <span class="co">#this is the population standard deviation</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#let's now estimate the z-score using the equation above.</span></span>
+<span></span>
+<span><span class="va">ZTest</span><span class="op">=</span><span class="op">(</span><span class="va">SampleMean</span><span class="op">-</span><span class="va">PopulationMean</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">PopulationSD</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">SampleSize</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">ZTest</span></span></code></pre></div>
+<pre><code>## [1] -1.70625</code></pre>
+<p>Now you need to recall chapter 8 to find out if this is a left-, right- or two tail test. If you have forgotten, check the video as a refreshers:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8NKaocZectc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Because, our alternative hypothesis is stating that the sample is smaller than, then we have to use a left-sided test.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-295"></span>
+<img src="images/TestTypes.png" alt="Types of tests" width="80%"><p class="caption">
+Figure 10.3: Types of tests
+</p>
+</div>
+<p>And with that you should look for the significance level (<span class="math inline">\(\alpha\)</span>) in a Z-table of a left-sided test, like this one below (These tables are in the back of each stats book and online).</p>
+<p>The Z-table would give you the p-value for a given Z-value…in other words, what fraction of the population is beyond the given z-score.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-296"></span>
+<img src="images/NegativeZtable.jpg" alt="Left-sided Z-table" width="80%"><p class="caption">
+Figure 10.4: Left-sided Z-table
+</p>
+</div>
+<p>To find out the p-value for a given Z-score in the left-sided Z-table, scroll down the first column looking for the first decimal point in your calculated z-score. In our case that will be -1.9.</p>
+<p>Once on that row, go back to the first row, and move horizontally until the column with the second decimal point in your calculated Z-score, which in our case is 0.</p>
+<p>Basically, you are looking for the value at the interception between the first decimal point in your calculated z-score indicated in the first column, and the second decimal of your z-score indicated in the first row of the Z-table.</p>
+<p>In our case, the p-value for a Z-score of -1.90 is 0.0287.</p>
+<p>What that tells you is that the girls in the USA team are as fast as the top 2.87% of all teams.</p>
+<p>If we compare our <strong>significance level</strong>, <span class="math inline">\(\alpha\)</span>, of 0.05, to our calculated p-value of 0.0287, you can observed that the p-value is smaller than the <span class="math inline">\(\alpha\)</span>, so the Ho (null hypothesis) must go.</p>
+<p>Basically, we reject the null hypothesis that the 100m run time of this team is 9.5sec or higher and conclude that these girls indeed run faster than the historical average.</p>
+</div>
+<div id="the-one-sample-z-test-in-r" class="section level2 unnumbered">
+<h2>The one-sample Z-test in R<a class="anchor" aria-label="anchor" href="#the-one-sample-z-test-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>We can run such a test in R, using the package BSDA, and its function z.test. Lets try it.</p>
+<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("BSDA")   #first install the library, if you have not this library installed....simply remove the # sign and run this line</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span> <span class="op">(</span><span class="st"><a href="https://github.com/alanarnholt/BSDA">"BSDA"</a></span><span class="op">)</span>           <span class="co">#load the library</span></span>
+<span><span class="va">Sample</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">9.7</span>, <span class="fl">9.7</span>, <span class="fl">8.9</span>, <span class="fl">9.2</span>, <span class="fl">9.4</span>, <span class="fl">9.1</span>, <span class="fl">9.5</span>, <span class="fl">9.6</span>, <span class="fl">8.9</span>, <span class="fl">9.1</span>, <span class="fl">9.5</span>, <span class="fl">9.2</span>, <span class="fl">9.5</span>, <span class="fl">9.4</span>, <span class="fl">9.6</span>, <span class="fl">9.2</span>, <span class="fl">9.9</span>, <span class="fl">10</span>, <span class="fl">9.3</span>, <span class="fl">9.6</span><span class="op">)</span> <span class="co">#lets put the values in a vector</span></span>
+<span><span class="va">PopulationMean</span><span class="op">=</span> <span class="fl">9.5</span> <span class="co">#this is the population mean...or the historical time it has taken people to run 100m</span></span>
+<span><span class="va">PopulationSD</span><span class="op">=</span><span class="fl">0.2</span> <span class="co">#this is the population standard deviation</span></span>
+<span></span>
+<span><span class="fu"><a href="https://alanarnholt.github.io/BSDA/reference/z.test.html">z.test</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">Sample</span>, alternative <span class="op">=</span> <span class="st">"less"</span>, mu <span class="op">=</span> <span class="va">PopulationMean</span>, sigma.x <span class="op">=</span> <span class="va">PopulationSD</span>, conf.level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#the parameters needed to run a Z-test are self-explanatory. x is the array with your sample data. alternative is the type of test to run, in this case we want to check is the sample is less than the population mean. mu is the population mean, and sigma.x is the standard deviation of the population. This function ask for the confidence level, which as we indicated before is the complement to the level of significance we use, in our case our significance level is 0.05, so the confidence level will be 0.95</span></span></code></pre></div>
+<p>The results will look like the image below, which are nearly identical to our hand calculation. a</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-298"></span>
+<img src="images/ZoneSampleTestResultsR.png" alt="R-results for a one-sample z-test" width="80%"><p class="caption">
+Figure 10.5: R-results for a one-sample z-test
+</p>
+</div>
+</div>
+<div id="the-one-sample-t-test-by-hand" class="section level2 unnumbered">
+<h2>The one-sample T-test by hand<a class="anchor" aria-label="anchor" href="#the-one-sample-t-test-by-hand"><i class="fas fa-link"></i></a>
+</h2>
+<p>We perform a <em>one-Sample t-test</em> when we want to compare a sample mean with the population mean and we do not know the population standard deviation or our sample size is small, n &lt; 30. The difference from the Z Test is that we do not have the information on Population Variance here. We use the sample standard deviation instead of population standard deviation in this case.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-299"></span>
+<img src="images/T-test.png" alt="R-results for a one-sample z-test" width="80%"><p class="caption">
+Figure 10.6: R-results for a one-sample z-test
+</p>
+</div>
+<p>Lets try an example.</p>
+<p>Let’s say we want to determine if on average girls score more than 600 points in a given exam. We do not have the information related to variance (or standard deviation) for girls’ scores, so we take randomly the scores of 10 girls. We choose our <span class="math inline">\(\alpha\)</span> value (significance level) to be 0.05.</p>
+<p>The scores for the ten girl were:</p>
+<p>587, 602, 627, 610, 619, 622, 605, 608, 596, 592.</p>
+<p>Lets’ set the hypothesis</p>
+<p>H0: <span class="math inline">\(\mu\)</span> =&lt; 600 the true or expected value</p>
+<p>H1: <span class="math inline">\(\mu\)</span> &gt; 600 the question of interest, which in this case is to know if the girsl scored higher</p>
+<p>In this case, we have a one-sample comparison, we do not know the population variance, and our sample size is only 10 individuals, so a T-test is best suited here.</p>
+<p>Let’s do one by hand,</p>
+<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Sample</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">587</span>, <span class="fl">602</span>, <span class="fl">627</span>, <span class="fl">610</span>, <span class="fl">619</span>, <span class="fl">622</span>, <span class="fl">605</span>, <span class="fl">608</span>, <span class="fl">596</span>, <span class="fl">592</span><span class="op">)</span> <span class="co">#lets put the values in a vector</span></span>
+<span></span>
+<span><span class="va">SampleMean</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Sample</span><span class="op">)</span> <span class="co">#mean score of the girls sampled</span></span>
+<span><span class="va">SampleSD</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Sample</span><span class="op">)</span> <span class="co">#this is the sample standard deviation</span></span>
+<span><span class="va">SampleSize</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">Sample</span><span class="op">)</span>  <span class="co"># this is the sample size </span></span>
+<span></span>
+<span><span class="va">PopulationMean</span><span class="op">=</span> <span class="fl">600</span> <span class="co">#this is the true, expected value, think of it as the population mean...</span></span>
+<span></span>
+<span><span class="co">#let's now estimate the T-score using the equation above.</span></span>
+<span></span>
+<span><span class="va">TTest</span><span class="op">=</span><span class="op">(</span><span class="va">SampleMean</span><span class="op">-</span><span class="va">PopulationMean</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">SampleSD</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">SampleSize</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">TTest</span></span></code></pre></div>
+<p>So our estimated T-value is 1.64.</p>
+<p>Now, we need to find out the critical t-value at the 0.05 significance level. For this, we need to estimate something call <strong>Degrees of freedom</strong>, which in this case is simply our sample size minus one. In our case, the degrees of freedom, then, are 9.</p>
+<p>With the information of the <span class="math inline">\(\alpha\)</span> value (i.e., 0.05 in our case) and the degrees of freedom, <strong>DF</strong> (i.e, 9 in our case), we can look for the critical T-value in a table, like the one below.</p>
+<p>Basically, scroll down the first column looking for 9 DF, then move horizontally to the column displaying the 0.05 level of significance, where they intercept that is our critical t-value. In our case that number is 1.8331.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-301"></span>
+<img src="images/TTable.jpg" alt="R-results for a one-sample z-test" width="100%"><p class="caption">
+Figure 10.7: R-results for a one-sample z-test
+</p>
+</div>
+<p>Our critical t-value for 9DF and <span class="math inline">\(\alpha\)</span>=0.05 is 1.8331. This means 5% of the given population are above a T-value of 1.8331.</p>
+<p>In our case, the calculated t-value was 1.64, which is smaller than the critical value, so we <em>fail to reject the null hypothesis</em> and don’t have enough evidence to support the hypothesis that on average, girls score more than 600 in the exam.</p>
+<p>There is only one T-table for cases of left-, right-, or two-tail test. When in need of a left-side score, simply remove the sign and look for the critical t-value in the table above. This is because the T-distribution is symmetric from the mean: it is the same right or left.</p>
+<p>When in need of a two-tail test, divide the significance level by 2, and look for that value in the T-table. Say, you are using a significance level of 0.05 testing an alternative hypothesis of something being different, then you will be running a two-tail test, meaning you will be looking to see if your sample value is on either tail of the population distribution. In this case, you need to divide the significance level (<span class="math inline">\(\alpha\)</span>) by 2 to account for the fact that you are checking the two-tails of the distribution.</p>
+</div>
+<div id="the-one-sample-t-test-in-r" class="section level2 unnumbered">
+<h2>The one-sample T-test in R<a class="anchor" aria-label="anchor" href="#the-one-sample-t-test-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>We can run a T-test in R, using the package BSDA, and its function tsum.test. Lets try it.</p>
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span> <span class="op">(</span><span class="st"><a href="https://github.com/alanarnholt/BSDA">"BSDA"</a></span><span class="op">)</span>           <span class="co">#load the library</span></span>
+<span><span class="va">Sample</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">587</span>, <span class="fl">602</span>, <span class="fl">627</span>, <span class="fl">610</span>, <span class="fl">619</span>, <span class="fl">622</span>, <span class="fl">605</span>, <span class="fl">608</span>, <span class="fl">596</span>, <span class="fl">592</span><span class="op">)</span> <span class="co">#lets put the values in a vector</span></span>
+<span></span>
+<span><span class="va">SampleMean</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Sample</span><span class="op">)</span> <span class="co">#this is the sample mean</span></span>
+<span><span class="va">SampleSD</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Sample</span><span class="op">)</span>    <span class="co">#this is the sample standard deviation</span></span>
+<span><span class="va">SampleSize</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">Sample</span><span class="op">)</span>  <span class="co">#sample size</span></span>
+<span></span>
+<span><span class="va">PopulationMean</span><span class="op">=</span> <span class="fl">600</span> <span class="co">#this is the population mean...or the expected score, which is assumed to be 600 points</span></span>
+<span></span>
+<span><span class="fu"><a href="https://alanarnholt.github.io/BSDA/reference/tsum.test.html">tsum.test</a></span><span class="op">(</span>mean.x<span class="op">=</span><span class="va">SampleMean</span>, s.x <span class="op">=</span> <span class="va">SampleSD</span>, n.x <span class="op">=</span> <span class="va">SampleSize</span>, alternative <span class="op">=</span> <span class="st">"greater"</span>, mu <span class="op">=</span> <span class="va">PopulationMean</span>, conf.level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#the parameters needed to run a T-test are self-explanatory. mean.x is the mean of your sample data. alternative is the type of test to run, in this case we want to check is the sample is greater than the population mean. mu is the population mean, and s.x is the standard deviation of the sample. This function ask for the confidence level, which as we indicated before is the complement to the level of significance to use, in our case our significance level is 0.05, so the confidence level will be 0.95</span></span></code></pre></div>
+<p>The results will look like the image below, which are nearly identical to our hand calculation.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-303"></span>
+<img src="images/ToneSampleTestResultsR.png" alt="R-results for a one-sample z-test" width="80%"><p class="caption">
+Figure 10.8: R-results for a one-sample z-test
+</p>
+</div>
+</div>
+<div id="homework-7" class="section level2 unnumbered">
+<h2>Homework<a class="anchor" aria-label="anchor" href="#homework-7"><i class="fas fa-link"></i></a>
+</h2>
+<p>For each of the problems below do:</p>
+<ol style="list-style-type: decimal">
+<li>State the null and alternative hypothesis.</li>
+<li>will this be a one tail or two-tail test?.</li>
+<li>Indicate the type of test to use (Z-test or T-test).</li>
+<li>Run the given test in R, or by hand, which ever is easier.</li>
+<li>Report your results on top of a publication quality plot.</li>
+<li>Describe your conclusion.</li>
+</ol>
+<p><strong>Problem 1:</strong>
+Public safety standards indicate that CO2 emissions of gasoline cars should be 8.89kilogram +/-.2 kg for each gallon of gasoline used.A car company is being sued by costumers who claim these cars produce much more carbon emissions. A sample of 500 cars of this given company were used to measure carbon emissions and the results indicated that on average the cars produced 9.2 CO2kg/gallon of gas. Do the data support the claim of these costumers?</p>
+<p><strong>Problem 2:</strong>
+An energy drink company recently purchased a bottling machine for their 250ml trade-mark product. Before releasing any product, the factory manager wants to confirm the right volume of liquid is being dispensed by this machine. He measured the volume of liquid in several samples, which were 245.5, 249.2, 251.2, 251.1, 252ml. Given these data, what will be your recommendation about starting to pack the product with his machine?</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="standard-hypothesis-tests.html"><span class="header-section-number">9</span> Standard hypothesis tests</a></div>
+<div class="next"><a href="two-sample-tests.html"><span class="header-section-number">11</span> Two sample tests</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#one-sample-tests"><span class="header-section-number">10</span> One sample tests</a></li>
+<li><a class="nav-link" href="#the-one-sample-z-test-by-hand">The one-sample Z-test by hand</a></li>
+<li><a class="nav-link" href="#the-one-sample-z-test-in-r">The one-sample Z-test in R</a></li>
+<li><a class="nav-link" href="#the-one-sample-t-test-by-hand">The one-sample T-test by hand</a></li>
+<li><a class="nav-link" href="#the-one-sample-t-test-in-r">The one-sample T-test in R</a></li>
+<li><a class="nav-link" href="#homework-7">Homework</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></strong>" was written by . </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

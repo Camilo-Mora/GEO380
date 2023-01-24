@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Parts of a line | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.22.4 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Parts of a line | GEOG380.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
@@ -31,8 +30,8 @@
   
 <link rel="prev" href="7-regression-1.html"/>
 <link rel="next" href="purpuse-of-the-regression-line.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,9 +47,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -166,8 +165,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a>
 <ul>
-<li><a href="the-hyphotesis.html#the-null-hypothesis-h0">The null hypothesis <em>H0</em></a></li>
-<li><a href="the-hyphotesis.html#the-alternate-hypothesis-h1">The alternate hypothesis <em>H1</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-null-hypothesis-h0"><i class="fa fa-check"></i>The null hypothesis <em>H0</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-alternate-hypothesis-h1"><i class="fa fa-check"></i>The alternate hypothesis <em>H1</em></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a>
 <ul>
@@ -404,8 +403,8 @@ By Camilo Mora, Ph.D.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="parts-of-a-line" class="section level2 unnumbered">
-<h2>Parts of a line</h2>
+<div id="parts-of-a-line" class="section level2 unnumbered hasAnchor">
+<h2>Parts of a line<a href="parts-of-a-line.html#parts-of-a-line" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Before we get into the needy-greedy of linear regression models, we should start by knowing how a line can be constructed.</p>
 <p>In practical terms, an specific straight line, in a XY space, can be drawn by knowing just two parameters: the <strong>intercept</strong> and the <strong>slope</strong>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-216"></span>
@@ -473,8 +472,8 @@ At times, you will see the intercept being referred with the lowercase letter <s
 <span id="cb194-20"><a href="parts-of-a-line.html#cb194-20" aria-hidden="true" tabindex="-1"></a>Intercept<span class="ot">=</span><span class="dv">3</span></span>
 <span id="cb194-21"><a href="parts-of-a-line.html#cb194-21" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope, <span class="at">col=</span><span class="st">&quot;green&quot;</span>) <span class="co">#lets make it green to differentiate it</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-219-1.png" width="672" /></p>
-<div id="how-to-interpret-the-slope" class="section level3 unnumbered">
-<h3>How to interpret the slope</h3>
+<div id="how-to-interpret-the-slope" class="section level3 unnumbered hasAnchor">
+<h3>How to interpret the slope<a href="parts-of-a-line.html#how-to-interpret-the-slope" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The slope should be interpreted as the amount of change in Y for a single unit of change in X.</p>
 <p>Let’s say, you are told that a given relationship between total rainfall (in litters) and the amount of time (in hours) is 500. From that slope alone, we can tell now that for each extra hour, there will be 500 litters of water falling.</p>
 
@@ -506,8 +505,8 @@ The units of the slope are the units of the variable in Y divided by the units o
 The slope represents the inclination of the regression line and reflects the amount of change in Y for a single unit of change in X.
 </div>
 </div>
-<div id="how-to-interpret-the-intercept" class="section level3 unnumbered">
-<h3>How to interpret the intercept</h3>
+<div id="how-to-interpret-the-intercept" class="section level3 unnumbered hasAnchor">
+<h3>How to interpret the intercept<a href="parts-of-a-line.html#how-to-interpret-the-intercept" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The intercept is the expected value of Y when X=0.</p>
 <p>Say that among children there is a relationship between age (in years) and size (in centimeters), and the Y-intercept is 35cm. What does that tell you?.</p>
 <p>So since the Y-intercept is the value at which X=0, then a Y-intercept of 35cm means the size of a child when he is zero years of age. Basically, children on average are born at 35cm of size.</p>
@@ -546,7 +545,6 @@ The intercept represents the value of Y, when X= 0. The units of the intercept a
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -585,9 +583,9 @@ gitbook.start({
 "link": "https://github.com/Camilo-Mora/GEO380/blob/main/07-Regression.Rmd",
 "text": null
 },
-"download": null,
+"download": ["GEOG380.pdf", "GEOG380.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

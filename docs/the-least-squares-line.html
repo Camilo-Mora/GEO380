@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>The least-squares line | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.22.4 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="The least-squares line | GEOG380.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
@@ -31,8 +30,8 @@
   
 <link rel="prev" href="purpuse-of-the-regression-line.html"/>
 <link rel="next" href="estimating-the-least-squares-line.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,9 +47,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -166,8 +165,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a>
 <ul>
-<li><a href="the-hyphotesis.html#the-null-hypothesis-h0">The null hypothesis <em>H0</em></a></li>
-<li><a href="the-hyphotesis.html#the-alternate-hypothesis-h1">The alternate hypothesis <em>H1</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-null-hypothesis-h0"><i class="fa fa-check"></i>The null hypothesis <em>H0</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-alternate-hypothesis-h1"><i class="fa fa-check"></i>The alternate hypothesis <em>H1</em></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a>
 <ul>
@@ -404,13 +403,13 @@ By Camilo Mora, Ph.D.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-least-squares-line" class="section level2 unnumbered">
-<h2>The least-squares line</h2>
+<div id="the-least-squares-line" class="section level2 unnumbered hasAnchor">
+<h2>The least-squares line<a href="the-least-squares-line.html#the-least-squares-line" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>By now, you know the formulation (i.e., <span class="math inline">\(Y= mX + b\)</span>) and the general purpose (i.e., to predict Y, given values of X) of a linear regression model. The next task in this chapter is to figure out how to get the best line that can be drawn through two variables that we want to relate.</p>
 <p>Obviously, you can draw an infinite number of straight lines trhough a set of datapoints; then a key question is which line best describe the data?. That is the goal of the linear regression model: to draw a <strong>best-fit line</strong> through the datapoints.</p>
 <p>The best fitting line will be a line that minimizes the distance from each point to that line. In mathematical terms, that line is called the <strong>least-squares regression line</strong>. In a moment, you will see how that name (least-squares regression line) speaks by itself; I hope in a moment you will see how the term is self-explanatory.</p>
-<div id="understanding-the-least-squares-line" class="section level3 unnumbered">
-<h3>Understanding the least-squares line</h3>
+<div id="understanding-the-least-squares-line" class="section level3 unnumbered hasAnchor">
+<h3>Understanding the least-squares line<a href="the-least-squares-line.html#understanding-the-least-squares-line" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s use an analogy, and imagine the best fitting line as a knife that cut a cake.</p>
 <p>Take the figure below as an example. That blue line would be the knife and the red dotted lines the pieces of cake for each person. Will this be a good cut? Will that be the best-fitting line?</p>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-225-1.png" width="672" /></p>
@@ -422,8 +421,8 @@ By Camilo Mora, Ph.D.
 <p>Like in the image below:
 <img src="GEOG380_files/figure-html/unnamed-chunk-227-1.png" width="672" /></p>
 </div>
-<div id="deciphering-the-least-squares-line" class="section level3 unnumbered">
-<h3>Deciphering the least-squares line</h3>
+<div id="deciphering-the-least-squares-line" class="section level3 unnumbered hasAnchor">
+<h3>Deciphering the least-squares line<a href="the-least-squares-line.html#deciphering-the-least-squares-line" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>But of all lines that we can draw through a set of data points, how can we know what is the best-fit line?, the one in which everybody is happy using the cake analogy?. There are actually different ways to get to that line…let’s start by using brutal force, which may actually help us understand the idea behind the “least-squares”.</p>
 <p>We know for a fact that the ‘best-fitting line’ has to pass by the XY coordinates defined by the mean of all values in X and the mean value of all values in Y. At that inflection point, all data in X and all data in Y are evenly separated, so the best fitting-line has to pass by that given point.</p>
 <p>Let’s plot the mean value of X and the mean value of Y (Dashed grey-lines in the image below) and at the interception of those lines let’s we plot the mean of X and the mean of Y (red dot in image below).</p>
@@ -484,7 +483,6 @@ Figure 7.2: Finiding the line with the least-squares error
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -523,9 +521,9 @@ gitbook.start({
 "link": "https://github.com/Camilo-Mora/GEO380/blob/main/07-Regression.Rmd",
 "text": null
 },
-"download": null,
+"download": ["GEOG380.pdf", "GEOG380.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

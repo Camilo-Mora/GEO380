@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>The experiment | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.22.4 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="The experiment | GEOG380.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
@@ -31,8 +30,8 @@
   
 <link rel="prev" href="the-hyphotesis.html"/>
 <link rel="next" href="data-collection.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,9 +47,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -166,8 +165,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a>
 <ul>
-<li><a href="the-hyphotesis.html#the-null-hypothesis-h0">The null hypothesis <em>H0</em></a></li>
-<li><a href="the-hyphotesis.html#the-alternate-hypothesis-h1">The alternate hypothesis <em>H1</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-null-hypothesis-h0"><i class="fa fa-check"></i>The null hypothesis <em>H0</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-alternate-hypothesis-h1"><i class="fa fa-check"></i>The alternate hypothesis <em>H1</em></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a>
 <ul>
@@ -404,25 +403,29 @@ By Camilo Mora, Ph.D.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-experiment" class="section level2 unnumbered">
-<h2>The experiment</h2>
+<div id="the-experiment" class="section level2 unnumbered hasAnchor">
+<h2>The experiment<a href="the-experiment.html#the-experiment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The process of developing an experiment to answer a question or test a hypothesis is called “Experimental Design”, and it is full of nuances (commonly called “demonic intrusions”) that could render your entire work meaningless, so designing a good experiment is critical to obtain robust data.</p>
 <p>Before we design an experiment, it is important to know several terms.</p>
 <p>k</p>
-<div id="population-sample-subject" class="section level3 unnumbered">
-<h3>Population, sample, subject</h3>
+<div id="population-sample-subject" class="section level3 unnumbered hasAnchor">
+<h3>Population, sample, subject<a href="the-experiment.html#population-sample-subject" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Three important terms for you to know in experimental design are the subject/individual, the sample and the population.</p>
 <p>Population refers to every individual of interest. The sample refers to only some of the individuals of interest. When you quantify a given variable in an entire population that is called a <em>census</em>. Any statistic based on an entire population is called “point stimate”.</p>
-Drag terms where you think they belong.
-<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=7" width="958" height="883" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-<script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<p>Drag terms where you think they belong.</p>
+<iframe src="https://cmora.h5p.com/content/1291859547780625548/embed" aria-label="Terms" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *">
+</iframe>
+<script src="https://cmora.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+<!-- 
+<iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=7" width="958" height="883" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://www.impactsofclimatechange.info/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+ -->
 <p>You need to appreciate that statistics from the samples can vary from sample to sample, whereas statistics from the population are fixed for the given population. For instance, in the figure above, yellow birds represent 1 out of ten birds (i.e., 10% of the sample) in the sample outlined with a solid line. Yet in another sample (outlined with a dotted purple line), out of ten individuals there are two yellow birds (i.e., 20%).</p>
 <p>It is important that you appreciate the differences between the sample and the population, because at times those differences is exactly what you want to measure and test. Say you know that the average heart rate of people is 80 beats per minute but yours is 90 beats per minute. Is your rate significantly higher that it is expected?
 In this case, you can compare your hearths rate to that of the average population.
 Later on we will study how to test this mathematically.</p>
 </div>
-<div id="variables" class="section level3 unnumbered">
-<h3>Variables</h3>
+<div id="variables" class="section level3 unnumbered hasAnchor">
+<h3>Variables<a href="the-experiment.html#variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In experimental design, the word “Variables” can mean several things, so it is important to be specific.</p>
 <p><strong>The dependent variable</strong>
 The dependent variable, for instance, is a characteristic of the individual to be measured or observed. This is also called the “response variable”. In other words, the dependent variable is the attribute of the system you will expect to change, and which you plan to measure. In the case of the restoration hypothesis, it will be the “body size” of the plants.</p>
@@ -433,8 +436,8 @@ Variables are also used when referring to the type of data you collect. If what 
 <p><strong>Qualitative variable</strong>
 A qualitative variable describes an individual by placing the individual into a category or group (for instance, male or female).</p>
 </div>
-<div id="the-control-and-treatment" class="section level3 unnumbered">
-<h3>The control and treatment</h3>
+<div id="the-control-and-treatment" class="section level3 unnumbered hasAnchor">
+<h3>The control and treatment<a href="the-experiment.html#the-control-and-treatment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-20"></span>
 <img src="images/Control.jpg" alt="The population" width="80%" />
 <p class="caption">
@@ -448,8 +451,8 @@ Figure 1.11: The population
 <p>From this comparison, you can see that the treatment created a 20% increase in weight.</p>
 <p>Of course, not all individuals will have exactly the same weight (the so-call variability), and later on, we will see how to use that variability with statistical methods to determine if such a different is statistically significant or not.</p>
 </div>
-<div id="replication" class="section level3 unnumbered">
-<h3>Replication</h3>
+<div id="replication" class="section level3 unnumbered hasAnchor">
+<h3>Replication<a href="the-experiment.html#replication" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In experimental design, replication refers to the number of independent individuals in a control or treatment upon which you test your hypothesis. Replication is a critical element in experimental design because it determines the robustness of your conclusion.</p>
 <p>Drag terms where you think they belong.</p>
 <iframe src="https://www.impactsofclimatechange.info/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=8" width="958" height="740" frameborder="0" allowfullscreen="allowfullscreen">
@@ -464,7 +467,7 @@ Figure 1.11: The population
 <p>From the example above, you can see how reduced replication can lead to variation in the conclusions.</p>
 <p>Let’s review the effect of replication mathematically in an exercise, in which I measured the weight of all 1000 seedlings in my nursery. In this case, I have done a census as I measured every single individual. I plotted the number of seedlings at each weight, obtaining the following figure:</p>
 <p><img src="GEOG380_files/figure-html/chunk-label-1.png" width="672" /></p>
-<p>The average weight of individuals in my population was 100.11</p>
+<p>The average weight of individuals in my population was 100.34</p>
 <p>Now let’s see what will happen when I take samples of different sizes from that population.</p>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <p>In the figure above, each point is the average of a sample with the number of individuals shown in the x-axis. The red line is the true average of the population.</p>
@@ -478,8 +481,8 @@ Figure 1.11: The population
 <p>However, if your experiment requires to take multiple samples, each sample with a given number of individuals, then each sample should be treated as independent measures, and in this case, each sample is a replicate.</p>
 <p>Remember, a replicate needs to be independent from each other.</p>
 </div>
-<div id="pseudo-replication" class="section level3 unnumbered">
-<h3>Pseudo-Replication</h3>
+<div id="pseudo-replication" class="section level3 unnumbered hasAnchor">
+<h3>Pseudo-Replication<a href="the-experiment.html#pseudo-replication" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One important assumption when you use statistics is that your replicates have to be independent (i.e., one replicate should not depend on another), and this can be tricky at times.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-23"></span>
 <img src="images/PseudoReplication.png" alt="Pseudo Replication" width="100%" />
@@ -502,8 +505,8 @@ Figure 1.13: likely confusions to emerge due to Pseudo Replication
 </p>
 </div>
 </div>
-<div id="randomness" class="section level3 unnumbered">
-<h3>Randomness</h3>
+<div id="randomness" class="section level3 unnumbered hasAnchor">
+<h3>Randomness<a href="the-experiment.html#randomness" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Another issue to be mindful of when doing experiments is to ensure that any other variable that you cannot test is applied randomly to the individuals in your experiment.</p>
 <p>The effect of variables that you cannot control or that you do not even know are called “demonic intrusions”. Basically, these variables can introduce evil effects to your response variable, but this can be controlled by ensuring you do everything randomly.</p>
 <p>Let’s use an example to clarify this.</p>
@@ -514,8 +517,8 @@ Figure 1.13: likely confusions to emerge due to Pseudo Replication
 <p>Time to feed could be another non-control variable.. Could fish feed in the morning be less stress than fish feed in the afternoon?.</p>
 <p>The list of potential artifacts is long, but any likely effect can be avoided by ensuring that any aspect setting up the experiment is done randomly. For instance, locating the aquariums randomly in the laboratory.</p>
 </div>
-<div id="design-experiment" class="section level3 unnumbered">
-<h3>Design experiment</h3>
+<div id="design-experiment" class="section level3 unnumbered hasAnchor">
+<h3>Design experiment<a href="the-experiment.html#design-experiment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>With all considerations above, here are eight rules you need to enforce as you design your experiment (<a href="https://peerj.com/preprints/2455v1/">From PeerJ</a>)</p>
 <p>1.Begin by identifying a hypothesis for the topic you are interested in. Testable predictions generated will allow you to formulate a hypothesis. The hypothesis is an explanation of how you think a system works based on observation. The hypothesis will be either accepted or rejected based on the data collected.</p>
 <p>2.Define parameters for the experiment by being clear and concise in your wording. By clearly defining terms, you can focus in on experimental methods and avoid ambiguity. This ensures that the results will be more accurate and there will be less flexibility in the experimental design, again increasing accuracy (Hurlbert, 1984).</p>
@@ -557,7 +560,6 @@ Figure 1.13: likely confusions to emerge due to Pseudo Replication
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -596,9 +598,9 @@ gitbook.start({
 "link": "https://github.com/Camilo-Mora/GEO380/blob/main/01-ScientificMethod.Rmd",
 "text": null
 },
-"download": null,
+"download": ["GEOG380.pdf", "GEOG380.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

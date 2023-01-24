@@ -10,5 +10,5 @@ bookdown::gitbook:
         <li><a>GEOG380 Basic Stats with R</a></li>
       after: |
         <li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
-
+    download: ["pdf", "epub"]
 

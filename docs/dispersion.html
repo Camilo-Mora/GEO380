@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Dispersion | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.22.4 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Dispersion | GEOG380.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
@@ -31,8 +30,8 @@
   
 <link rel="prev" href="central-tendency.html"/>
 <link rel="next" href="exercises.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,9 +47,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -166,8 +165,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a>
 <ul>
-<li><a href="the-hyphotesis.html#the-null-hypothesis-h0">The null hypothesis <em>H0</em></a></li>
-<li><a href="the-hyphotesis.html#the-alternate-hypothesis-h1">The alternate hypothesis <em>H1</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-null-hypothesis-h0"><i class="fa fa-check"></i>The null hypothesis <em>H0</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-alternate-hypothesis-h1"><i class="fa fa-check"></i>The alternate hypothesis <em>H1</em></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a>
 <ul>
@@ -404,11 +403,11 @@ By Camilo Mora, Ph.D.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="dispersion" class="section level2 unnumbered">
-<h2>Dispersion</h2>
+<div id="dispersion" class="section level2 unnumbered hasAnchor">
+<h2>Dispersion<a href="dispersion.html#dispersion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Dispersion refers to describing the spread of your data. And there are different metrics that may help you describe the variability in your data.</p>
-<div id="the-minimum-and-the-maximum" class="section level3 unnumbered">
-<h3>The minimum and the maximum</h3>
+<div id="the-minimum-and-the-maximum" class="section level3 unnumbered hasAnchor">
+<h3>The minimum and the maximum<a href="dispersion.html#the-minimum-and-the-maximum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The most basic metrics of the data dispersion are the minimum and the maximum. As their names indicate they are the lowest and the highest values in your data.</p>
 <p>In R, the minimum and maximum are calculated with the function min and max, respectively.</p>
 <p>Let’s plot them:</p>
@@ -438,8 +437,8 @@ By Camilo Mora, Ph.D.
 <span id="cb159-24"><a href="dispersion.html#cb159-24" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="st">&quot;Maximum&quot;</span>,<span class="at">x=</span>MAXIMUM,<span class="at">y=</span><span class="dv">90</span>, <span class="at">col=</span><span class="st">&quot;dark grey&quot;</span>, <span class="at">pos=</span><span class="dv">2</span>) </span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-171-1.png" width="672" /></p>
 </div>
-<div id="the-range" class="section level3 unnumbered">
-<h3>The range</h3>
+<div id="the-range" class="section level3 unnumbered hasAnchor">
+<h3>The range<a href="dispersion.html#the-range" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Another simple metric to describe the dispersion in your data is called the <strong>range</strong>.u The range is the difference between the smallest and the largest number in your data. Of course, within the range everything is possible, so while descriptive and useful in many situations, it is not always the best indicator of inference.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-172"></span>
 <img src="images/Inference.png" alt="The effect of the range" width="100%" />
@@ -448,8 +447,8 @@ Figure 5.7: The effect of the range
 </p>
 </div>
 </div>
-<div id="the-percentile" class="section level3 unnumbered">
-<h3>The percentile</h3>
+<div id="the-percentile" class="section level3 unnumbered hasAnchor">
+<h3>The percentile<a href="dispersion.html#the-percentile" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A percentile indicates the percentage of values that are smaller than the given value.</p>
 <p>For example, if you score 75 points on a test, and are ranked in the 85th percentile, it means that 85% of students that took that exam did worse than you. The way to report it is like this: “the 85th percentile was 75 points”.</p>
 <p>How is the percentile calculated?. Simple,</p>
@@ -489,8 +488,8 @@ Figure 5.10: The 80th percentile
 <pre><code>## 80% 
 ##  45</code></pre>
 </div>
-<div id="the-quantile" class="section level3 unnumbered">
-<h3>The quantile</h3>
+<div id="the-quantile" class="section level3 unnumbered hasAnchor">
+<h3>The quantile<a href="dispersion.html#the-quantile" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The quantiles are specific percentiles that divide the data in equal amounts. Quantiles can take different names. For instance, quartiles break the data in four groups, deciles in ten groups, and percentiles in 100 groups.</p>
 <p>Lets take the quartile example. In this case, the data needs to be broken in four groups, so the breaking points will be 0.25, 0.5, and 0.75. Those break points will create four different categories in which I can group my data (0 to 0.25], (0.25 to 0.5], (0.5 to 0.75] and (0.75, 1]. They can also be called the 1st quartile, 2nd quartile, 3rd quartile and 4th quartile. You can see those indexes at times being called Q1, Q2, Q3, and Q4.</p>
 <p>Lets display the quartiles for a normal distribution.</p>
@@ -527,8 +526,8 @@ Figure 5.10: The 80th percentile
 <span id="cb162-31"><a href="dispersion.html#cb162-31" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(Names,<span class="at">x=</span>Quartiles,<span class="at">y=</span><span class="dv">800</span>, <span class="at">col=</span><span class="st">&quot;black&quot;</span>, <span class="at">pos=</span><span class="dv">2</span>) <span class="co">#place quartile names at y=800 and x= quartile values</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-177-1.png" width="672" /></p>
 </div>
-<div id="the-variance" class="section level3 unnumbered">
-<h3>The variance</h3>
+<div id="the-variance" class="section level3 unnumbered hasAnchor">
+<h3>The variance<a href="dispersion.html#the-variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The variance measures how far a set of numbers is spread out from their average value. Put in another way, the variance measures the average degree to which each number is different from the mean.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Zr73e_XEug0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
@@ -600,8 +599,8 @@ Variance = s^2=27130mm^2
 <pre><code>## [1] 27130</code></pre>
 <p>Hmm, right?. The simplest variance to understand is when variance = 0, which means all values are the same. In reality, however, variance results are normally large numbers that are hard to interpret intuitively. But the variance allows you to calculate the standard deviation, which is actually much easy to comprehend.</p>
 </div>
-<div id="the-standard-deviation" class="section level3 unnumbered">
-<h3>The standard deviation</h3>
+<div id="the-standard-deviation" class="section level3 unnumbered hasAnchor">
+<h3>The standard deviation<a href="dispersion.html#the-standard-deviation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The standard deviation is calculated as the square root of the variance, and has the same units as the mean.</p>
 <p><span class="math display">\[\begin{equation}
 Standard \ deviation= S = \sqrt {s^2}
@@ -645,8 +644,8 @@ Standard \ deviation= S = \sqrt {s^2}
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-187-1.png" width="672" /></p>
 <p>In the figure above, ~95% of the data should be between those two red lines.</p>
 </div>
-<div id="the-coefience-of-variance" class="section level3 unnumbered">
-<h3>The coefience of variance</h3>
+<div id="the-coefience-of-variance" class="section level3 unnumbered hasAnchor">
+<h3>The coefience of variance<a href="dispersion.html#the-coefience-of-variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The coefficient of variation (CV) is another metric of dispersion. It is the ratio of the standard deviation to the mean. It is commonly given as a percentage. Basically,</p>
 <p><span class="math display">\[\begin{equation}
 CV = \frac{Standard \ deviation}{\bar{X}} *100
@@ -686,7 +685,6 @@ CV = \frac{Standard \ deviation}{\bar{X}} *100
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -725,9 +723,9 @@ gitbook.start({
 "link": "https://github.com/Camilo-Mora/GEO380/blob/main/05-DescriptiveStatistics.Rmd",
 "text": null
 },
-"download": null,
+"download": ["GEOG380.pdf", "GEOG380.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

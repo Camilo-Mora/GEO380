@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>9 Standard hypothesis tests | GEOG380.knit</title>
+<meta name="description" content="In the prior chapter, we learned that the basic principle of hypothesis testing was to find out if a given value (from a sample) was on the extremes of a population. The threshold for what we mean...">
+<meta name="generator" content="bookdown 0.26.3 with bs4_book()">
+<meta property="og:title" content="9 Standard hypothesis tests | GEOG380.knit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="In the prior chapter, we learned that the basic principle of hypothesis testing was to find out if a given value (from a sample) was on the extremes of a population. The threshold for what we mean...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="9 Standard hypothesis tests | GEOG380.knit">
+<meta name="twitter:description" content="In the prior chapter, we learned that the basic principle of hypothesis testing was to find out if a given value (from a sample) was on the extremes of a population. The threshold for what we mean...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html">Introduction</a></li>
+<li><a class="" href="class-expectations.html">Class expectations</a></li>
+<li><a class="" href="the-scientific-method.html"><span class="header-section-number">1</span> The scientific method</a></li>
+<li><a class="" href="installing-programs.html"><span class="header-section-number">2</span> Installing programs</a></li>
+<li><a class="" href="basics-on-data-manipulation-in-r.html"><span class="header-section-number">3</span> Basics on data manipulation in R</a></li>
+<li><a class="" href="basic-plots.html"><span class="header-section-number">4</span> Basic plots</a></li>
+<li><a class="" href="descriptive-statistics.html"><span class="header-section-number">5</span> Descriptive statistics</a></li>
+<li><a class="" href="correlation-1.html"><span class="header-section-number">6</span> Correlation</a></li>
+<li><a class="" href="regression-1.html"><span class="header-section-number">7</span> Regression</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">8</span> Hypothesis testing</a></li>
+<li><a class="active" href="standard-hypothesis-tests.html"><span class="header-section-number">9</span> Standard hypothesis tests</a></li>
+<li><a class="" href="one-sample-tests.html"><span class="header-section-number">10</span> One sample tests</a></li>
+<li><a class="" href="two-sample-tests.html"><span class="header-section-number">11</span> Two sample tests</a></li>
+<li><a class="" href="multiple-sample-test.html"><span class="header-section-number">12</span> Multiple sample test</a></li>
+<li><a class="" href="final-project.html"><span class="header-section-number">13</span> Final project</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="standard-hypothesis-tests" class="section level1" number="9">
+<h1>
+<span class="header-section-number">9</span> Standard hypothesis tests<a class="anchor" aria-label="anchor" href="#standard-hypothesis-tests"><i class="fas fa-link"></i></a>
+</h1>
+<p>In the prior chapter, we learned that the basic principle of hypothesis testing was to find out if a given value (from a sample) was on the extremes of a population. The threshold for what we mean by extreme is determined by the <span class="math inline">\(\alpha\)</span> value. We can test a hypothesis by brutal force running a simulation, but we can also run a set of available tests that will tell you the position of your sample in relation to the population.</p>
+<p>There are a diversity of statistical tests available for testing hypotheses, but here we will deal only with those tests intended to test if one thing, two things or more than two things are different.</p>
+<p>By the way, the suitability of available tests depends on whether your data are normally distributed or not (please recall from chapter 3 that normally distributed data looks like a bell-shape curve).</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-287"></span>
+<img src="images/Distribution%20Skews.png" alt="Data distribution" width="70%"><p class="caption">
+Figure 9.1: Data distribution
+</p>
+</div>
+<p>Tests for normally distributed data are call <strong>parametric tests</strong>. In cases, where your data are not normal (e.g., it is biased, or homogeneous) requires a different set of tests called non-parametric tests. We will not cover non-parametric here but you need to be aware of this distinction.</p>
+<p><strong>Expectation for this chapter</strong></p>
+<p>At the end of this chapter, it is expected that you can identify the case you want to test (i.e., one, two or more sample tests), and select the proper statistical method to test for significant differences for each case.</p>
+<div id="alternative-types-of-tests" class="section level2 unnumbered">
+<h2>Alternative types of tests<a class="anchor" aria-label="anchor" href="#alternative-types-of-tests"><i class="fas fa-link"></i></a>
+</h2>
+<p>When comparing samples, in broad terms, there are three likely options:</p>
+<div id="one-sample-test-1" class="section level3 unnumbered">
+<h3>One sample test<a class="anchor" aria-label="anchor" href="#one-sample-test-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>This type of case relates to situations in which you have a sample parameter and you want to compare it a population.</p>
+<p>Say you are disappointed by how much smaller the candy bars in a store look like. Say you take a few samples of candy bars and found they are on average 180g. The label says they are on average 200g +/-10g. This would be a case of a <em>one-sample test</em>. Basically, you have one sample and you want to find out if it is different to the expected value from a population.</p>
+<p>Let’s visualize this:</p>
+<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">SampleWeight</span><span class="op">=</span><span class="fl">180</span>  <span class="co"># this is the average weight of the samples you took</span></span>
+<span><span class="va">PopulationWeight</span><span class="op">=</span><span class="fl">200</span>   <span class="co"># Average weight reported in the lable of the candy bar. This of this as the population mean.</span></span>
+<span><span class="va">SD</span><span class="op">=</span><span class="fl">10</span>       <span class="co"># reported Standard deviation for the candy bars. Think if this as the population standard deviation</span></span>
+<span></span>
+<span><span class="va">SimulatedPopulation</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>,<span class="va">PopulationWeight</span>,<span class="va">SD</span><span class="op">)</span> <span class="co">#lets simulate a population of 10000 candy bars.</span></span>
+<span></span>
+<span><span class="va">breaks</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">150</span>, <span class="fl">250</span>, length.out <span class="op">=</span> <span class="fl">80</span><span class="op">)</span> <span class="co">#I create a set of bins for the x-axis of the distribution, this will determine how many bis you have</span></span>
+<span></span>
+<span><span class="co">#next I plot the data</span></span>
+<span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">SimulatedPopulation</span>, main<span class="op">=</span><span class="cn">NA</span>,xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">150</span>, <span class="fl">250</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">800</span><span class="op">)</span>,breaks <span class="op">=</span> <span class="va">breaks</span>, xlab <span class="op">=</span> <span class="st">"Candy bar weight (g)"</span>,ylab <span class="op">=</span> <span class="st">"Number of candies"</span><span class="op">)</span></span>
+<span> </span>
+<span> </span>
+<span><span class="co">#plot the sample mean</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="va">SampleWeight</span>, lwd<span class="op">=</span><span class="fl">2</span>, col<span class="op">=</span><span class="st">"red"</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co">#lets add a label to mean label</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="va">SampleWeight</span>,<span class="fl">700</span>,labels<span class="op">=</span><span class="st">"Sample"</span>,pos<span class="op">=</span><span class="fl">4</span>, col<span class="op">=</span><span class="st">"red"</span><span class="op">)</span> </span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-288-1.png" width="672"></div>
+</div>
+<div id="two-sample-test-1" class="section level3 unnumbered">
+<h3>Two sample test<a class="anchor" aria-label="anchor" href="#two-sample-test-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>These are cases when you want to compare samples from two different populations.</p>
+<p>Say you have noted that when you fuel-up your car at a gas station A, you can take on average one more trip to work than when you fuel-up your car at gas station B. You are suspecting gas station B is giving less gas than it is suppose to.</p>
+<p>You can report this to a consumer group, and a likely test will be to take samples of one gallon from both gas stations and measure the actual volume they dispense. Say a sample of 50 trials yields volumes of 1.1 gal +/-.05gal in Gas station A and 1.01 gal +/-.02gal in Gas station B.</p>
+<p>This is a case of a two-sample test. In this case, you can treat both samples as independent, and assume they come from independent populations that should be similar.</p>
+<p>Lets visualize this:</p>
+<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">MeanGasA</span><span class="op">=</span><span class="fl">1.1</span>  <span class="co"># average gas volume for a suspected 1 gallon dispensing at gas station A</span></span>
+<span><span class="va">SDGasA</span><span class="op">=</span><span class="fl">0.05</span>   <span class="co"># SD for sample from gas station A</span></span>
+<span></span>
+<span><span class="va">MeanGasB</span><span class="op">=</span><span class="fl">1.01</span>  <span class="co"># average gas volume for a suspected 1 gallon dispensing at gas station B</span></span>
+<span><span class="va">SDGasB</span><span class="op">=</span><span class="fl">0.02</span>   <span class="co"># SD for sample from gas station B</span></span>
+<span></span>
+<span></span>
+<span><span class="va">SimulatedGasA</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>,<span class="va">MeanGasA</span>,<span class="va">SDGasA</span><span class="op">)</span> <span class="co">#lets simulate a population for gas station A.</span></span>
+<span><span class="va">SimulatedGasB</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>,<span class="va">MeanGasB</span>,<span class="va">SDGasB</span><span class="op">)</span> <span class="co">#lets simulate a population for gas station B.</span></span>
+<span></span>
+<span></span>
+<span><span class="va">breaks</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">1.4</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span> <span class="co">#I create a set of bins for the x-axis of the distribution, this will determine how many bis you have</span></span>
+<span></span>
+<span><span class="co">#next I plot the data. because we want to plot two distributions on top of each other. we need to create each distribution independently and then add them to a  single plot</span></span>
+<span></span>
+<span><span class="co">#histogram for gas station A.</span></span>
+<span><span class="va">GasA</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">SimulatedGasA</span>, xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">1.4</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">500</span><span class="op">)</span>,breaks <span class="op">=</span> <span class="va">breaks</span>,  plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#histogram for gas station B.</span></span>
+<span><span class="va">GasB</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">SimulatedGasB</span>, xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">1.4</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">500</span><span class="op">)</span>,breaks <span class="op">=</span> <span class="va">breaks</span>,  plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#because you are plotting two distributions, it will be nice to use different colors. and because they likely overlap, you should use semitransparent colors</span></span>
+<span><span class="va">LightBlue</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html">rgb</a></span><span class="op">(</span><span class="fl">173</span>,<span class="fl">216</span>,<span class="fl">230</span>,max <span class="op">=</span> <span class="fl">255</span>, alpha <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="co">#the function rgb lets you select one color, and the alpha gives you how transparent</span></span>
+<span><span class="va">DarkRed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html">rgb</a></span><span class="op">(</span><span class="fl">255</span>,<span class="fl">192</span>,<span class="fl">203</span>, max <span class="op">=</span> <span class="fl">255</span>, alpha <span class="op">=</span> <span class="fl">95</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#lets plot the first distribution</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">GasA</span>, main<span class="op">=</span><span class="cn">NA</span>,xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">1.4</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1500</span><span class="op">)</span>,breaks <span class="op">=</span> <span class="va">breaks</span>, xlab <span class="op">=</span> <span class="st">"Dispensed gas volume for a reported 1 gallon (in gallons)"</span>,ylab <span class="op">=</span> <span class="st">"Number of trials"</span> ,col<span class="op">=</span><span class="va">LightBlue</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">GasB</span>, add<span class="op">=</span><span class="cn">T</span> ,col<span class="op">=</span><span class="va">DarkRed</span><span class="op">)</span>  <span class="co">#note how for the parameter col, you indicate the color you create as a variable above</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-289-1.png" width="672"></div>
+</div>
+<div id="more-than-two-sample-test-1" class="section level3 unnumbered">
+<h3>More than two sample test<a class="anchor" aria-label="anchor" href="#more-than-two-sample-test-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>These are cases when you want to compare samples from more than two different populations.</p>
+<p>Say you have visited three countries and noticed that men were very different in height. You are use to the men in the USA, which we already established have an average height of 177.8cm +/-SD 7.62 cm. In France, they were 172.8cm +/-SD 5.62 cm and in North Korea they were 155.5 cm +/- 8.5cm.</p>
+<p>This is a case of a three samples, at times called multiple samples.</p>
+<p>Lets visualize this:</p>
+<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">USA_Height</span><span class="op">=</span><span class="fl">177.8</span>   <span class="co"># height of average male in the USA</span></span>
+<span><span class="va">USA_SD</span><span class="op">=</span><span class="fl">7.62</span>       <span class="co"># Standard deviation of male population in the USA</span></span>
+<span></span>
+<span><span class="va">France_Height</span><span class="op">=</span><span class="fl">172.8</span>   <span class="co"># France data</span></span>
+<span><span class="va">France_SD</span><span class="op">=</span><span class="fl">5.62</span>       <span class="co"># SD for france</span></span>
+<span></span>
+<span><span class="va">NKorea_Height</span><span class="op">=</span><span class="fl">155.5</span>   <span class="co"># North Korea data</span></span>
+<span><span class="va">NKorea_SD</span><span class="op">=</span><span class="fl">8.5</span>       <span class="co"># SD for North Korea</span></span>
+<span></span>
+<span></span>
+<span><span class="va">SimulatedUSA</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>,<span class="va">USA_Height</span>,<span class="va">USA_SD</span><span class="op">)</span> <span class="co">#lets simulate a population for USA</span></span>
+<span><span class="va">SimulatedFrance</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>,<span class="va">France_Height</span>,<span class="va">France_SD</span><span class="op">)</span> <span class="co">#lets simulate a population for France</span></span>
+<span><span class="va">SimulatedNKorea</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>,<span class="va">NKorea_Height</span>,<span class="va">NKorea_SD</span><span class="op">)</span> <span class="co">#lets simulate a population for NKorea</span></span>
+<span></span>
+<span></span>
+<span><span class="va">breaks</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">120</span>, <span class="fl">220</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span> <span class="co">#bins for the distribution</span></span>
+<span></span>
+<span><span class="co">#histogram for USA</span></span>
+<span><span class="va">USA</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">SimulatedUSA</span>, xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">120</span>,<span class="fl">220</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">500</span><span class="op">)</span>,breaks <span class="op">=</span> <span class="va">breaks</span>,  plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#histogram for FCrance</span></span>
+<span><span class="va">France</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">SimulatedFrance</span>, xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">120</span>,<span class="fl">220</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">500</span><span class="op">)</span>,breaks <span class="op">=</span> <span class="va">breaks</span>,  plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#histogram for USA</span></span>
+<span><span class="va">NKorea</span><span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">SimulatedNKorea</span>, xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">120</span>,<span class="fl">220</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">500</span><span class="op">)</span>,breaks <span class="op">=</span> <span class="va">breaks</span>,  plot <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class="co">#because you are plotting three distributions, it will be nice to use different colors. and because they likely overlap, you should use semitransparent colors</span></span>
+<span><span class="va">LightBlue</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html">rgb</a></span><span class="op">(</span><span class="fl">173</span>,<span class="fl">216</span>,<span class="fl">230</span>,max <span class="op">=</span> <span class="fl">255</span>, alpha <span class="op">=</span> <span class="fl">100</span><span class="op">)</span> <span class="co">#the fucntion rgb lets your select one color, and the alpha gives you how tranparent</span></span>
+<span><span class="va">DarkRed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html">rgb</a></span><span class="op">(</span><span class="fl">255</span>,<span class="fl">192</span>,<span class="fl">203</span>, max <span class="op">=</span> <span class="fl">255</span>, alpha <span class="op">=</span> <span class="fl">95</span><span class="op">)</span></span>
+<span><span class="va">MiddleOrange</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html">rgb</a></span><span class="op">(</span><span class="fl">255</span>,<span class="fl">69</span>,<span class="fl">0</span>, max <span class="op">=</span> <span class="fl">255</span>, alpha <span class="op">=</span> <span class="fl">95</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#lets plot the first distribution</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">USA</span>, main<span class="op">=</span><span class="cn">NA</span>,xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">120</span>, <span class="fl">220</span><span class="op">)</span>,ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">800</span><span class="op">)</span>,breaks <span class="op">=</span> <span class="va">breaks</span>, xlab <span class="op">=</span> <span class="st">"Men size (cm)"</span>,ylab <span class="op">=</span> <span class="st">"Number of people"</span> ,col<span class="op">=</span><span class="va">LightBlue</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#now add the second distribution to the first plot, using the parameter add=TRUE, or add=T, theya re both the same</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">France</span>, add<span class="op">=</span><span class="cn">T</span> ,col<span class="op">=</span><span class="va">DarkRed</span><span class="op">)</span>  <span class="co">#note how for the parameter col, you indicate the color you create as a variable above</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">NKorea</span>, add<span class="op">=</span><span class="cn">T</span> ,col<span class="op">=</span><span class="va">MiddleOrange</span><span class="op">)</span>  <span class="co">#note how for the parameter col, you indicate the color you create as a variable above</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-290-1.png" width="672"></div>
+</div>
+</div>
+<div id="selecting-the-right-test" class="section level2 unnumbered">
+<h2>Selecting the right test<a class="anchor" aria-label="anchor" href="#selecting-the-right-test"><i class="fas fa-link"></i></a>
+</h2>
+<p>At this moment you should be able to identify cases involving comparisons between one, two or more samples.</p>
+<p>When you are interested for testing for significant differences in the cases above you have have to select among tests called Z-test, T-test or the ANOVA (also so-called analysis if variances).</p>
+<p>Which test you should use is based primarily on the number of samples you have, whether you know the variance of your population and whether the sample size is larger than 30 individuals or not.</p>
+<p>You need to use the following chart to select the proper test. Please remember that these are parametric tests, meaning they are only useful for cases in which data are normally distributed.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-291"></span>
+<img src="images/SelectingTest.png" alt="Selecting statistical test" width="90%"><p class="caption">
+Figure 9.2: Selecting statistical test
+</p>
+</div>
+<p>Also take a moment to review how hypotheses are stated, as that will be important in a moment to select the right type of test.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8NKaocZectc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="homework-6" class="section level2 unnumbered">
+<h2>Homework<a class="anchor" aria-label="anchor" href="#homework-6"><i class="fas fa-link"></i></a>
+</h2>
+<p>Create a publication quality plot for each of these case examples. For each plot, indicate inside the plot if that is a case of one, two or more samples:</p>
+<ol style="list-style-type: decimal">
+<li><p>Chevrolet and Honda are strongly competing to produce hybrid cars as an option to electrical cars. The Honda model drives 50mpg (miles per gallon) +/-5mpg and the Chevrolet model drives 55mpg (miles per gallon) +/-7mpg.</p></li>
+<li><p>Students at a school got on average GPA of 3.8, and are being considered for an award if they are among the best at the national level, in which the average GPA was 3.5 +/-0.12.</p></li>
+<li><p>China is currently looking to optimize food production within its borders and run an experiment on biomass production for wheat, rice and corn. The annual yields were 55500 tns +/-500tns for wheat, 45500 tns +/-200tns for rice, and 35500 tns +/-255tns for corn.</p></li>
+</ol>
+<p>Generate only the quality plots, no need to have the code in your report.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="hypothesis-testing.html"><span class="header-section-number">8</span> Hypothesis testing</a></div>
+<div class="next"><a href="one-sample-tests.html"><span class="header-section-number">10</span> One sample tests</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#standard-hypothesis-tests"><span class="header-section-number">9</span> Standard hypothesis tests</a></li>
+<li>
+<a class="nav-link" href="#alternative-types-of-tests">Alternative types of tests</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#one-sample-test-1">One sample test</a></li>
+<li><a class="nav-link" href="#two-sample-test-1">Two sample test</a></li>
+<li><a class="nav-link" href="#more-than-two-sample-test-1">More than two sample test</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#selecting-the-right-test">Selecting the right test</a></li>
+<li><a class="nav-link" href="#homework-6">Homework</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></strong>" was written by . </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

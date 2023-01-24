@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>2 Installing programs | GEOG380.knit</title>
+<meta name="description" content="We are going to take a break of stats for the following two chapters to install and learn some basics about R.   Installing R As mentioned earlier, R is free and it can be downloaded from Here....">
+<meta name="generator" content="bookdown 0.26.3 with bs4_book()">
+<meta property="og:title" content="2 Installing programs | GEOG380.knit">
+<meta property="og:type" content="book">
+<meta property="og:description" content="We are going to take a break of stats for the following two chapters to install and learn some basics about R.   Installing R As mentioned earlier, R is free and it can be downloaded from Here....">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2 Installing programs | GEOG380.knit">
+<meta name="twitter:description" content="We are going to take a break of stats for the following two chapters to install and learn some basics about R.   Installing R As mentioned earlier, R is free and it can be downloaded from Here....">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="introduction.html">Introduction</a></li>
+<li><a class="" href="class-expectations.html">Class expectations</a></li>
+<li><a class="" href="the-scientific-method.html"><span class="header-section-number">1</span> The scientific method</a></li>
+<li><a class="active" href="installing-programs.html"><span class="header-section-number">2</span> Installing programs</a></li>
+<li><a class="" href="basics-on-data-manipulation-in-r.html"><span class="header-section-number">3</span> Basics on data manipulation in R</a></li>
+<li><a class="" href="basic-plots.html"><span class="header-section-number">4</span> Basic plots</a></li>
+<li><a class="" href="descriptive-statistics.html"><span class="header-section-number">5</span> Descriptive statistics</a></li>
+<li><a class="" href="correlation-1.html"><span class="header-section-number">6</span> Correlation</a></li>
+<li><a class="" href="regression-1.html"><span class="header-section-number">7</span> Regression</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">8</span> Hypothesis testing</a></li>
+<li><a class="" href="standard-hypothesis-tests.html"><span class="header-section-number">9</span> Standard hypothesis tests</a></li>
+<li><a class="" href="one-sample-tests.html"><span class="header-section-number">10</span> One sample tests</a></li>
+<li><a class="" href="two-sample-tests.html"><span class="header-section-number">11</span> Two sample tests</a></li>
+<li><a class="" href="multiple-sample-test.html"><span class="header-section-number">12</span> Multiple sample test</a></li>
+<li><a class="" href="final-project.html"><span class="header-section-number">13</span> Final project</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="installing-programs" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> Installing programs<a class="anchor" aria-label="anchor" href="#installing-programs"><i class="fas fa-link"></i></a>
+</h1>
+<p>We are going to take a break of stats for the following two chapters to install and learn some basics about R.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zFFonOicjeo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</center>
+<div id="installing-r" class="section level2 unnumbered">
+<h2>Installing R<a class="anchor" aria-label="anchor" href="#installing-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>As mentioned earlier, R is free and it can be downloaded from <a href="https://www.r-project.org/">Here</a>.</p>
+<p>Once in that page click on CRAN (see red arrow in the figure below).</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-28"></span>
+<img src="images/RProject.png" alt="RProject Webpage" width="80%"><p class="caption">
+Figure 2.1: RProject Webpage
+</p>
+</div>
+<p>Next select the mirror. Mirrors are servers around the world that maintain copies of R and all the packages. You can click on the “0-Cloud”, but any mirror will be fine (see image below)</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-29"></span>
+<img src="images/Mirror.png" alt="Installing R" width="80%"><p class="caption">
+Figure 2.2: Installing R
+</p>
+</div>
+<p>Next,select the system of your computer. I recommend you use Windows. There are only small differences between systems, and it should work the same in any system. But if you have Apple, you are on your own. There are several perks in Apple, not a big deal, but be aware that due to compatibility and settings, issues may emerge.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-30"></span>
+<img src="images/System.png" alt="Installing R" width="80%"><p class="caption">
+Figure 2.3: Installing R
+</p>
+</div>
+<p>Next, download the executable file of R, which is indicated in the read arrow in the figure below.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-31"></span>
+<img src="images/ExeFile.png" alt="Installing R" width="80%"><p class="caption">
+Figure 2.4: Installing R
+</p>
+</div>
+<p>Once downloaded, the file should be in the “Downloads” folder. Double click on it and accept all the default settings. The R icon should now appear at the bottom your tab or Windows menu (See arrows in image below).</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-32"></span>
+<img src="images/RTab.png" alt="Installing R" width="80%"><p class="caption">
+Figure 2.5: Installing R
+</p>
+</div>
+<p>Click on the icon, and welcome to R. Crazy how that screen does not look like much but it is a portal to a world of opportunities.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-33"></span>
+<img src="images/RGUI.png" alt="Installing R" width="80%"><p class="caption">
+Figure 2.6: Installing R
+</p>
+</div>
+</div>
+<div id="tinn-r" class="section level2 unnumbered">
+<h2>Tinn-R<a class="anchor" aria-label="anchor" href="#tinn-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>Once you run a line of code in R, it cannot be un-done. So very commonly, you have to re-run lines of code.</p>
+<p>For this reason, it is better if you write your code in a text editor program, and then running it R.
+You can save the text file, and next time, simply copy and paste.</p>
+<p>You can save your R code in any word processor. Notepad from Windows is just fine. You can also use Microsoft Word, but be mindful that that software commonly capitalizes the first letter in each new line. R is case sensitive, so Word is not worth the trouble.</p>
+<p>I personally use Tinn-R. It allows you to save your codes in a single file, gives you hints into your code, etc.</p>
+<p>Please install Tinn-R from <a href="https://sourceforge.net/projects/tinn-r/">here</a>.</p>
+
+<div class="rmdwarning">
+<strong>R</strong> is case sensitive. “A” is different from “a” in R!
+This simple rule is at the core of most bugs in R!
+</div>
+<p>To create a file in Tinn-R, click on the Tinn-R icon (see arrow in image below). Once there, click on “File”, then on “New”. This will create a clean sheet for you to start writing your codes. You will use this type of sheets to save your codes, as you move along.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-35"></span>
+<img src="images/TinnR.png" alt="Installing Tinn-R" width="80%"><p class="caption">
+Figure 2.7: Installing Tinn-R
+</p>
+</div>
+</div>
+<div id="r-studio" class="section level2 unnumbered">
+<h2>R-Studio<a class="anchor" aria-label="anchor" href="#r-studio"><i class="fas fa-link"></i></a>
+</h2>
+<p>There is also a very popular GUI (Graphical User Interface) called R-Studio, which allows you to run R while having the functionality of Tinn-R.</p>
+<p>Please know that R is not R studio. In R-Studio, R is almost hidden in the background, so it is important that you still know how to run R without R-Studio.</p>
+<p>With that said, R-studio facilitates considerably the learning of R, the downside is to think that R-studio is R.</p>
+<p>You can download R-studio from <a href="https://rstudio.com/products/rstudio/download/">here</a>; use the free version. Follow the instructions of the page to install the software.</p>
+<p>After installation R-Studio should appear as the icon in the image below.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-36"></span>
+<img src="images/RStudio.png" alt="R-Studio" width="80%"><p class="caption">
+Figure 2.8: R-Studio
+</p>
+</div>
+<p>The next video show you for how to use R-Studio.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ghhIu98Sxc4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</center>
+</div>
+<div id="installing-packages" class="section level2 unnumbered">
+<h2>Installing packages<a class="anchor" aria-label="anchor" href="#installing-packages"><i class="fas fa-link"></i></a>
+</h2>
+<p>Part of the power of R is that tools developed by users around the world can be integrated into the R’s general functionality. Such tools are integrated into containers called packages, and deposited into the R repository for anyone to use. There are so many tools already developed that chances are there is a packages for anything you may need.</p>
+
+<div class="rmdwarning">
+The directory of available R-packages is available <a href="https://www.rdocumentation.org/taskviews">here</a>. You can click on any available package to learn more about it, including instructions on how to use them.
+</div>
+<p>The primary way to install a package is using the command:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("raster")</span></span></code></pre></div>
+<p>Between brackets should be the name of the package you want to install. You will be prompted to select a mirror. If this is the first time installing a package, you will also be asked to select a folder where to install the packages. I suggest you accept the default suggestions that are provided.</p>
+<p>Once installed in your local harddrive, you need to load the packages into your console every time you want to use it. To do so, you use the command:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://rspatial.org/raster">"raster"</a></span><span class="op">)</span></span></code></pre></div>
+<pre><code>## Loading required package: sp</code></pre>
+<p>Between quotations is the name of the raster. Rlease remember that R is case sensitive.</p>
+</div>
+<div id="asking-for-help" class="section level2 unnumbered">
+<h2>Asking for help<a class="anchor" aria-label="anchor" href="#asking-for-help"><i class="fas fa-link"></i></a>
+</h2>
+<p>You can access help on any specific R function using the question mark sign, followed by the name of the function. For instance, to ask for help on the mean, you type:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># ?mean</span></span></code></pre></div>
+<p>A window with available help on the function will pop-up (like the one in the image below).</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-41"></span>
+<img src="images/Help.png" alt="Asking for help in R" width="80%"><p class="caption">
+Figure 2.9: Asking for help in R
+</p>
+</div>
+<p>One super nice thing about R’s help is that it provides examples on how the function should be used. See, for instance, the image above, an example (indicated with the red arrow) on how to use the mean function in R. You can simply copy those lines of commands and paste them in your console. This becomes very useful, as you can simply adjust that given code to your given data.</p>
+</div>
+<div id="exercise" class="section level2 unnumbered">
+<h2>Exercise<a class="anchor" aria-label="anchor" href="#exercise"><i class="fas fa-link"></i></a>
+</h2>
+<p>Please install R and R-studio in your computer. Then install and load the package “raster”. Run the example below.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span> <span class="op">(</span><span class="va"><a href="https://rspatial.org/raster">raster</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># check for help by simply typing the question mark followed by the function name (like: ?raster)</span></span>
+<span></span>
+<span><span class="co">#load a raster already saved in the raster package</span></span>
+<span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"external/test.grd"</span>, package<span class="op">=</span><span class="st">"raster"</span><span class="op">)</span> <span class="co">#file direction</span></span>
+<span></span>
+<span><span class="co">#turn it into a raster</span></span>
+<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/raster/man/raster.html">raster</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#plot the raster</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="GEOG380_files/figure-html/unnamed-chunk-42-1.png" width="672"></div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="the-scientific-method.html"><span class="header-section-number">1</span> The scientific method</a></div>
+<div class="next"><a href="basics-on-data-manipulation-in-r.html"><span class="header-section-number">3</span> Basics on data manipulation in R</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#installing-programs"><span class="header-section-number">2</span> Installing programs</a></li>
+<li><a class="nav-link" href="#installing-r">Installing R</a></li>
+<li><a class="nav-link" href="#tinn-r">Tinn-R</a></li>
+<li><a class="nav-link" href="#r-studio">R-Studio</a></li>
+<li><a class="nav-link" href="#installing-packages">Installing packages</a></li>
+<li><a class="nav-link" href="#asking-for-help">Asking for help</a></li>
+<li><a class="nav-link" href="#exercise">Exercise</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong><h1 style="font-size:17px">
+By Camilo Mora, Ph.D.
+</h1></strong>" was written by . </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

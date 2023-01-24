@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Background info | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.22.4 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Background info | GEOG380.knit" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
@@ -31,8 +30,8 @@
   
 <link rel="prev" href="8-hypothesis-testing.html"/>
 <link rel="next" href="approach-to-testing-a-hyphothesis.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,9 +47,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -166,8 +165,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html"><i class="fa fa-check"></i>The hyphotesis</a>
 <ul>
-<li><a href="the-hyphotesis.html#the-null-hypothesis-h0">The null hypothesis <em>H0</em></a></li>
-<li><a href="the-hyphotesis.html#the-alternate-hypothesis-h1">The alternate hypothesis <em>H1</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-null-hypothesis-h0"><i class="fa fa-check"></i>The null hypothesis <em>H0</em></a></li>
+<li class="chapter" data-level="" data-path="the-hyphotesis.html"><a href="the-hyphotesis.html#the-alternate-hypothesis-h1"><i class="fa fa-check"></i>The alternate hypothesis <em>H1</em></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="the-experiment.html"><a href="the-experiment.html"><i class="fa fa-check"></i>The experiment</a>
 <ul>
@@ -404,8 +403,8 @@ By Camilo Mora, Ph.D.
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="background-info" class="section level2 unnumbered">
-<h2>Background info</h2>
+<div id="background-info" class="section level2 unnumbered hasAnchor">
+<h2>Background info<a href="background-info.html#background-info" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If the question is asked if something is different, how do we know that a thing is different? It is rare the case when two things are identical, so is everything different?. In statistic, we commonly use the term <strong>significantly different</strong> to indicate more precisely the level at which something is different. We will get to this in a moment.</p>
 <p>When the question is formulated of whether something is significantly different; inherently we assume a couple things:</p>
 <ol style="list-style-type: decimal">
@@ -448,8 +447,8 @@ Figure 8.4: Critical value
 The threshold beyond which we reject a null hyphothesis is called the <strong>level of significance</strong> or alpha, <span class="math inline">\(\alpha\)</span>. The value in a population at which <span class="math inline">\(alpha\)</span> falls is called the <strong>critical value</strong>. The complement to the level of significance, 1- <span class="math inline">\(\alpha\)</span>, is call the <strong>level of confidence </strong>.
 </div>
 <p>Let’s put together the data on the population and the level of significance for you to better know how then we make a call on whether something is different.</p>
-<div id="p-value-and-alpha" class="section level3 unnumbered">
-<h3>p-value and alpha</h3>
+<div id="p-value-and-alpha" class="section level3 unnumbered hasAnchor">
+<h3>p-value and alpha<a href="background-info.html#p-value-and-alpha" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Early on, we studied how a population can be characterized based on the mean value of its individuals and the variability of those individuals, the so-call standard deviation. With those two parameters alone you can know how the entire population looks like.</p>
 <p>Lets look at an example. In the USA, the average men is 177.8cm in height with an standard deviation of 7.62cm. Lets plot this population.</p>
 <div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="background-info.html#cb212-1" aria-hidden="true" tabindex="-1"></a>Mean_Height<span class="ot">=</span><span class="fl">177.8</span>   <span class="co"># height of average male in the USA</span></span>
@@ -543,7 +542,6 @@ Figure 8.7: Significance level
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -582,9 +580,9 @@ gitbook.start({
 "link": "https://github.com/Camilo-Mora/GEO380/blob/main/08-HypothesisTesting.Rmd",
 "text": null
 },
-"download": null,
+"download": ["GEOG380.pdf", "GEOG380.epub"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
