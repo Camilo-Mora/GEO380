@@ -388,7 +388,7 @@ knitr::include_graphics("images/Keyboard.png")
 So the path to the file should be change from this:
 
 ```{r}
-# "D:/GEO380/Datasets/"
+# "D:\GEO380\Datasets\"
 ```
 
 
