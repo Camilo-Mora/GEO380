@@ -444,17 +444,18 @@ In conclusion, if you want a good grade in my class you really need to take good
 
 Some of these questions may take a while to load depending on your internet connection.
 
-<iframe src="https://cmora.h5p.com/content/1291859703772276278/embed" aria-label="13. By eye alone, pair the r with the most likely scatterplot" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://cmora.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=14" width="760" height="656" frameborder="0" allowfullscreen="allowfullscreen" title="13: By eye alone, pair the r with the most likely scatterplot"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 
-<iframe src="https://cmora.h5p.com/content/1291859704015746858/embed" aria-label="14. Correlation units" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://cmora.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=15" width="760" height="310" frameborder="0" allowfullscreen="allowfullscreen" title="14: Correlation units"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 
-<iframe src="https://cmora.h5p.com/content/1291859705935436878/embed" aria-label="15. Name the elements in the plot" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://cmora.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=16" width="760" height="863" frameborder="0" allowfullscreen="allowfullscreen" title="15: Name the elements in the plot"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
-<iframe src="https://cmora.h5p.com/content/1291859706491913428/embed" aria-label="16. Name the relationship types" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://cmora.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
 
-<iframe src="https://cmora.h5p.com/content/1291859706214196208/embed" aria-label="17. Name the equations" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://cmora.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=17" width="760" height="386" frameborder="0" allowfullscreen="allowfullscreen" title="16: Name the relationship types"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=18" width="760" height="562" frameborder="0" allowfullscreen="allowfullscreen" title="17: Name the equations"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 ## Homework {-}
 

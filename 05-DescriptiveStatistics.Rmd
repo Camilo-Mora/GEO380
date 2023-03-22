@@ -77,8 +77,7 @@ hist(DATA, xlim=c(-1,1) ,ylim=c(0, 200),main = NULL)
 
 ```
 
-<iframe src="https://cmora.h5p.com/content/1291859658914550888/embed" aria-label="9. Randon distribution" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://cmora.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
-
+<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=10" width="760" height="310" frameborder="0" allowfullscreen="allowfullscreen" title="09: Randon distribution"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 o
 
@@ -447,7 +446,7 @@ knitr::include_graphics("images/Distribution Skews.png")
 ```
 
 
-<iframe src="https://cmora.h5p.com/content/1291859672197108718/embed" aria-label="11. Symbol sample mean" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://cmora.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=12" width="760" height="310" frameborder="0" allowfullscreen="allowfullscreen" title="11: Symbol sample mean"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 ## Dispersion {-}
 
@@ -741,8 +740,7 @@ Now lets interpret that number....
 In a normal distribution, 95% of the observations are within 2SD from the mean. So 95% of the dogs in the sample should between 394-(164mm x 2) and 394+(164mm x 2) or between 66mm and 722mm. 
 
 
-<iframe src="https://cmora.h5p.com/content/1291859671689652408/embed" aria-label="10 Standard deviation" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://cmora.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
-
+<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=11" width="760" height="328" frameborder="0" allowfullscreen="allowfullscreen" title="10: Standard deviation"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 In the example with the dogs, we have the problem of low sample size. If you recall an earlier chapter, the problem with low samples is that the variability increases as the sample size decreases and that is reflected in the standard deviation (SD).
 
@@ -794,8 +792,12 @@ If the value equals one or 100%, the standard deviation equals the mean. Values 
 
 Some of these questions may take a while to load depending on your internet connection.
 
-Assign the names to each distribution.
-<iframe src="https://cmora.h5p.com/content/1291859668702561478/embed" aria-label="5. Distribution Shapes" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://cmora.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+Match the term to the definition:
+<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=7" width="760" height="949" frameborder="0" allowfullscreen="allowfullscreen" title="06: Glossary (Part II)"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+
+Assign the names to each distribution:
+<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=6" width="760" height="758" frameborder="0" allowfullscreen="allowfullscreen" title="05: Distribution Shapes"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 
 <span style="color: white;">o</span>
@@ -807,7 +809,11 @@ Take the following numbers (8 2 7 2 6), using the R console below estimate the m
 
 
 Now lets check some equations:
-<iframe src="https://cmora.h5p.com/content/1291859667339391198/embed" aria-label="12. Drag the names to the correct equations for central tendency and dispersion" width="1088" height="637" frameborder="0" allowfullscreen="allowfullscreen" allow="autoplay *; geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe><script src="https://cmora.h5p.com/js/h5p-resizer.js" charset="UTF-8"></script>
+<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=13" width="760" height="543" frameborder="0" allowfullscreen="allowfullscreen" title="12: Drag the names to the correct equations for central tendency and dispersion"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+
+Match to correct part:
+<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=8" width="760" height="698" frameborder="0" allowfullscreen="allowfullscreen" title="07: Terms"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
 
 
 ## Homework {-}
