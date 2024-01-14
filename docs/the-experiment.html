@@ -413,9 +413,7 @@ By Camilo Mora, Ph.D.
 <p>Three important terms for you to know in experimental design are the subject/individual, the sample and the population.</p>
 <p>Population refers to every individual of interest. The sample refers to only some of the individuals of interest. When you quantify a given variable in an entire population that is called a <em>census</em>. Any statistic based on an entire population is called “point stimate”.</p>
 <p>Drag terms where you think they belong.</p>
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=8" width="760" height="698" frameborder="0" allowfullscreen="allowfullscreen" title="09:Terms">
-</iframe>
-<script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<div id='h5p-container-8'></div>
 <p>You need to appreciate that statistics from the samples can vary from sample to sample, whereas statistics from the population are fixed for the given population. For instance, in the figure above, yellow birds represent 1 out of ten birds (i.e., 10% of the sample) in the sample outlined with a solid line. Yet in another sample (outlined with a dotted purple line), out of ten individuals there are two yellow birds (i.e., 20%).</p>
 <p>It is important that you appreciate the differences between the sample and the population, because at times those differences is exactly what you want to measure and test. Say you know that the average heart rate of people is 80 beats per minute but yours is 90 beats per minute. Is your rate significantly higher that it is expected?
 In this case, you can compare your hearths rate to that of the average population.
@@ -452,10 +450,7 @@ Figure 1.11: The population
 <h3>Replication<a href="the-experiment.html#replication" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In experimental design, replication refers to the number of independent individuals in a control or treatment upon which you test your hypothesis. Replication is a critical element in experimental design because it determines the robustness of your conclusion.</p>
 <p>Drag terms where you think they belong.</p>
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=9" width="760" height="585" frameborder="0" allowfullscreen="allowfullscreen" title="08: Experiment">
-</iframe>
-<script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
-<p>h</p>
+<div id='h5p-container-9'></div>
 <p>In almost any experiment there will be random variation in the response. Thus, an observed difference between the control and treatments could be mistakenly attributed to a cause-and-effect relationship when the source of the difference may just be random variation. In short, the difference may simply be due to the noise rather than the signal. This type of error is affected considerably by the amount of replication you have.</p>
 <p>Let’s use an example. If nothing is wrong with a coin, you know that the probably of head or tail is the same at 50%. However, if you test this hypothesis with one replicate, let’s say it landed in tails, then you will conclude that tails occur 100% of the times.</p>
 <p>If you try for a second time, and lands on tails again, your conclusion remains the same. If it is heads, now you have to change your conclusion as now either side has a 50% change.</p>
@@ -622,6 +617,26 @@ gitbook.start({
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
+
+<script type="text/javascript" src="libs/h5p/main.bundle.js"></script>
+<script>
+  const h5pContainer8 = document.getElementById('h5p-container-8');
+  const options8 = {
+    h5pJsonPath:  '../H5P/08_experiment-8',
+    frameJs: 'libs/h5p/frame.bundle.js',
+    frameCss: 'libs/h5p/styles/h5p.css',
+  }
+  new H5PStandalone.H5P(h5pContainer8, options8);
+
+  const h5pContainer9 = document.getElementById('h5p-container-9');
+  const options9 = {
+    h5pJsonPath:  '../H5P/09_qustion-9',
+    frameJs: 'libs/h5p/frame.bundle.js',
+    frameCss: 'libs/h5p/styles/h5p.css',
+  }
+  new H5PStandalone.H5P(h5pContainer9, options9);
+</script>
+
 </body>
 
 </html>
