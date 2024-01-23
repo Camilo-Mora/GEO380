@@ -417,16 +417,61 @@ Depending on your Internet connection, exercises may be slow to load. There are 
 <h3>Exercise 1<a href="excercises.html#exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The scientific method<span style="color: orange;">d</span> process.</p>
 <p>Drag boxes on the right into the boxes on the left in the order you think a question should be answered using the scientific method.</p>
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=3" width="760" height="873" frameborder="0" allowfullscreen="allowfullscreen" title="03: What process will you follow to anwser a question with the scientific method?">
-</iframe>
-<script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<p>What process will you follow to answer a question with the scientific method?</p>
+<div id="h5p-container-2">
+
+</div>
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-2"); // div tag ID
+    let h5pJsonPath = 'H5P_Unzip/02_itns-01-steps-research-process-2'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
 </div>
 <div id="exercise-2" class="section level3 unnumbered hasAnchor">
 <h3>Exercise 2<a href="excercises.html#exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Key terms in statistics</p>
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=5" width="760" height="921" frameborder="0" allowfullscreen="allowfullscreen" title="04: Glossary">
-</iframe>
-<script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<div id="h5p-container-4">
+
+</div>
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-4"); // div tag ID
+    let h5pJsonPath = 'H5P_Unzip/04_itns-01-glossary-4'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
 </div>
 </div>
 <div id="disqus_thread"></div>

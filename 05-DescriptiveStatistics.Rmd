@@ -77,7 +77,30 @@ hist(DATA, xlim=c(-1,1) ,ylim=c(0, 200),main = NULL)
 
 ```
 
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=10" width="760" height="310" frameborder="0" allowfullscreen="allowfullscreen" title="09: Randon distribution"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+<div id="h5p-container-9"></div> 
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-9"); // div tag ID
+    let h5pJsonPath = 'H5P_Unzip/09_qustion-9'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
 
 o
 
@@ -446,7 +469,31 @@ knitr::include_graphics("images/Distribution Skews.png")
 ```
 
 
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=12" width="760" height="310" frameborder="0" allowfullscreen="allowfullscreen" title="11: Symbol sample mean"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<div id="h5p-container-11"></div> 
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-11"); // div tag ID
+    let h5pJsonPath = 'H5P_Unzip/11_symbol-sample-mean-11'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
+
+
 
 ## Dispersion {-}
 
@@ -740,7 +787,30 @@ Now lets interpret that number....
 In a normal distribution, 95% of the observations are within 2SD from the mean. So 95% of the dogs in the sample should between 394-(164mm x 2) and 394+(164mm x 2) or between 66mm and 722mm. 
 
 
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=11" width="760" height="328" frameborder="0" allowfullscreen="allowfullscreen" title="10: Standard deviation"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<div id="h5p-container-10"></div> 
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-10"); // div tag ID
+    let h5pJsonPath = 'H5P_Unzip/10_standard-deviation-10'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
+
 
 In the example with the dogs, we have the problem of low sample size. If you recall an earlier chapter, the problem with low samples is that the variability increases as the sample size decreases and that is reflected in the standard deviation (SD).
 
@@ -793,11 +863,60 @@ If the value equals one or 100%, the standard deviation equals the mean. Values 
 Some of these questions may take a while to load depending on your internet connection.
 
 Match the term to the definition:
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=7" width="760" height="949" frameborder="0" allowfullscreen="allowfullscreen" title="06: Glossary (Part II)"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+<div id="h5p-container-6"></div> 
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-6"); // div tag ID
+    let h5pJsonPath = 'H5P_Unzip/06_itns-03-glossary-part-ii-6'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
+
+
 
 
 Assign the names to each distribution:
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=6" width="760" height="758" frameborder="0" allowfullscreen="allowfullscreen" title="05: Distribution Shapes"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+<div id="h5p-container-5"></div> 
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-5"); // div tag ID
+    let h5pJsonPath = 'H5P_Unzip/05_itns-03-distribution-shapes-5'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
+
 
 
 <span style="color: white;">o</span>
@@ -808,12 +927,60 @@ Take the following numbers (8 2 7 2 6), using the R console below estimate the m
 <iframe width='100%' height='300' src='https://rdrr.io/snippets/embed/' frameborder='0'></iframe>
 
 
-Now lets check some equations:
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=13" width="760" height="543" frameborder="0" allowfullscreen="allowfullscreen" title="12: Drag the names to the correct equations for central tendency and dispersion"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+Now lets check some equations. Drag the names to the correct equations for central tendency and dispersion
+
+<div id="h5p-container-12"></div> 
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-12"); // div tag ID
+    let h5pJsonPath = 'H5P_Unzip/12_equations-central-tendency-and-dispersion-12'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
+
 
 
 Match to correct part:
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=8" width="760" height="698" frameborder="0" allowfullscreen="allowfullscreen" title="07: Terms"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+<div id="h5p-container-7"></div> 
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-7"); // div tag ID
+    let h5pJsonPath = 'H5P_Unzip/07_terms-7'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
+
 
 
 ## Homework {-}

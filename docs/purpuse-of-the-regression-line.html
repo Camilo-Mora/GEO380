@@ -435,9 +435,31 @@ Salary = 10,000 * \text{(Years Of Education)} + 25,000
 Salary = 10,000 * 4 + 25,000
 \end{equation}\]</span></p>
 <p>So the expected salary of a person that studies four years of higher education is $65.000.</p>
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=19" width="760" height="328" frameborder="0" allowfullscreen="allowfullscreen" title="18: Intercept">
-</iframe>
-<script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<div id="h5p-container-18">
+
+</div>
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-18"); // div tag ID
+    let h5pJsonPath = 'H5P_Unzip/18_intercept-18'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
 <p>Ok, at this moment you know the basics of a linear regression model. In a nutshell, a linear regression model is a mathematical equation that includes a slope and an intercept which allows you to draw a line, from which you can also predict any value of Y given values of X.</p>
 </div>
 <div id="disqus_thread"></div>

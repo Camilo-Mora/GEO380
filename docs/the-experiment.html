@@ -417,13 +417,13 @@ By Camilo Mora, Ph.D.
 <p>Three important terms for you to know in experimental design are the subject/individual, the sample and the population.</p>
 <p>Population refers to every individual of interest. The sample refers to only some of the individuals of interest. When you quantify a given variable in an entire population that is called a <em>census</em>. Any statistic based on an entire population is called “point stimate”.</p>
 <p>Drag terms where you think they belong.</p>
-<div id="h5p-container-8">
+<div id="h5p-container-7">
 
 </div>
 <script>
   (function() {
-    let h5pContainer = document.getElementById("h5p-container-8"); // div tag ID
-    let h5pJsonPath = 'H5P_Unzip/08_experiment-8'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+    let h5pContainer = document.getElementById("h5p-container-7"); 
+    let h5pJsonPath = 'H5P_Unzip/07_terms-7'; 
 
     if (!document.getElementById('h5p-bundle-js')) {
       let script = document.createElement('script');
@@ -478,9 +478,31 @@ Figure 1.11: The population
 <h3>Replication<a href="the-experiment.html#replication" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In experimental design, replication refers to the number of independent individuals in a control or treatment upon which you test your hypothesis. Replication is a critical element in experimental design because it determines the robustness of your conclusion.</p>
 <p>Drag terms where you think they belong.</p>
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=9" width="760" height="585" frameborder="0" allowfullscreen="allowfullscreen" title="08: Experiment">
-</iframe>
-<script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<div id="h5p-container-8">
+
+</div>
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-8"); // div tag ID
+    let h5pJsonPath = 'H5P_Unzip/08_experiment-8'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
 <p>h</p>
 <p>In almost any experiment there will be random variation in the response. Thus, an observed difference between the control and treatments could be mistakenly attributed to a cause-and-effect relationship when the source of the difference may just be random variation. In short, the difference may simply be due to the noise rather than the signal. This type of error is affected considerably by the amount of replication you have.</p>
 <p>Let’s use an example. If nothing is wrong with a coin, you know that the probably of head or tail is the same at 50%. However, if you test this hypothesis with one replicate, let’s say it landed in tails, then you will conclude that tails occur 100% of the times.</p>
@@ -490,7 +512,7 @@ Figure 1.11: The population
 <p>From the example above, you can see how reduced replication can lead to variation in the conclusions.</p>
 <p>Let’s review the effect of replication mathematically in an exercise, in which I measured the weight of all 1000 seedlings in my nursery. In this case, I have done a census as I measured every single individual. I plotted the number of seedlings at each weight, obtaining the following figure:</p>
 <p><img src="GEOG380_files/figure-html/chunk-label-1.png" width="672" /></p>
-<p>The average weight of individuals in my population was 100.34</p>
+<p>The average weight of individuals in my population was 100.09</p>
 <p>Now let’s see what will happen when I take samples of different sizes from that population.</p>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <p>In the figure above, each point is the average of a sample with the number of individuals shown in the x-axis. The red line is the true average of the population.</p>
@@ -514,9 +536,31 @@ Figure 1.12: Pseudo Replication
 </p>
 </div>
 <p>Let’s assume that you want to do an experiment with fishes to see if certain diet is better than other. You already identified that the optimum sample size was 1,000 fish. So, you put 1000 fishes in one aquarium and 1000 fishes in another aquarium, you feed the fish with the different diets, and later on, you measure how heavy the fishes are.</p>
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=4" width="760" height="310" frameborder="0" allowfullscreen="allowfullscreen" title="03: Replicates">
-</iframe>
-<script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<div id="h5p-container-3">
+
+</div>
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-3"); 
+    let h5pJsonPath = 'H5P_Unzip/03_replicates-3'; 
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
 <p>The example above is a typical example of pseudo-replication. You may think you have 1,000 replicates, but in reality you only have one, which is each aquarium with fish.</p>
 <p>In this case, the response you find on each fish is not independent as all fishes in one aquarium are equally affected by whatever happens in the aquarium.</p>
 <p>Why do you only have one true replicate?. Why data from this experiment be reliable?</p>

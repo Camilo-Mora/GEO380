@@ -193,12 +193,11 @@ Population refers to every individual of interest. The sample refers to only som
 
 Drag terms where you think they belong.
 
-
-<div id="h5p-container-8"></div> 
+<div id="h5p-container-7"></div> 
 <script>
   (function() {
-    let h5pContainer = document.getElementById("h5p-container-8"); // div tag ID
-    let h5pJsonPath = 'H5P_Unzip/08_experiment-8'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+    let h5pContainer = document.getElementById("h5p-container-7"); 
+    let h5pJsonPath = 'H5P_Unzip/07_terms-7'; 
 
     if (!document.getElementById('h5p-bundle-js')) {
       let script = document.createElement('script');
@@ -217,6 +216,9 @@ Drag terms where you think they belong.
     });
   }) ();
 </script>
+
+
+
 
 
 
@@ -274,7 +276,31 @@ In experimental design, replication refers to the number of independent individu
 
 Drag terms where you think they belong.
 
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=9" width="760" height="585" frameborder="0" allowfullscreen="allowfullscreen" title="08: Experiment"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+<div id="h5p-container-8"></div> 
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-8"); // div tag ID
+    let h5pJsonPath = 'H5P_Unzip/08_experiment-8'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
+
 
 h
 
@@ -370,7 +396,29 @@ knitr::include_graphics("images/PseudoReplication.png")
 
 Let's assume that you want to do an experiment with fishes to see if certain diet is better than other. You already identified that the optimum sample size was 1,000 fish. So, you put 1000 fishes in one aquarium and 1000 fishes in another aquarium, you feed the fish with the different diets, and later on, you measure how heavy the fishes are.
 
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=4" width="760" height="310" frameborder="0" allowfullscreen="allowfullscreen" title="03: Replicates"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<div id="h5p-container-3"></div> 
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-3"); 
+    let h5pJsonPath = 'H5P_Unzip/03_replicates-3'; 
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
 
 
 The example above is a typical example of pseudo-replication. You may think you have 1,000 replicates, but in reality you only have one, which is each aquarium with fish. 
@@ -470,13 +518,62 @@ The scientific method<span style="color: orange;">d</span> process.
 Drag boxes on the right into the boxes on the left in the order you think a question should be answered using the scientific method.
 
 
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=3" width="760" height="873" frameborder="0" allowfullscreen="allowfullscreen" title="03: What process will you follow to anwser a question with the scientific method?"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+What process will you follow to answer a question with the scientific method?
+
+
+<div id="h5p-container-2"></div> 
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-2"); // div tag ID
+    let h5pJsonPath = 'H5P_Unzip/02_itns-01-steps-research-process-2'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
 
 
 ### Exercise 2 {-}
 Key terms in statistics
 
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=5" width="760" height="921" frameborder="0" allowfullscreen="allowfullscreen" title="04: Glossary"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+<div id="h5p-container-4"></div> 
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-4"); // div tag ID
+    let h5pJsonPath = 'H5P_Unzip/04_itns-01-glossary-4'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
+
 
 
 ## Homework {-}

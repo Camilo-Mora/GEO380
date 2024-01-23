@@ -415,9 +415,31 @@ By Camilo Mora, Ph.D.
 <p>p</p>
 <p>The distribution below is called a <strong>uniform distribution</strong>, any number is just as likely.</p>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-146-1.png" width="672" /></p>
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=10" width="760" height="310" frameborder="0" allowfullscreen="allowfullscreen" title="09: Randon distribution">
-</iframe>
-<script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<div id="h5p-container-9">
+
+</div>
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-9"); // div tag ID
+    let h5pJsonPath = 'H5P_Unzip/09_qustion-9'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
 <p>o</p>
 <p>The distribution below is called a left distribution. I know, it is weird how the data tend towards the right but it is called a left distribution. It is also called negative or asymmetrical distribution. Because it has only one peak, it can also be call unimodal distribution.
 <img src="GEOG380_files/figure-html/unnamed-chunk-147-1.png" width="672" /></p>
