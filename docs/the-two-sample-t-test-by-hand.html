@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>The two-sample T-test by hand | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="The two-sample T-test by hand | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -419,51 +423,51 @@ Figure 11.5: T-test fucntion for two samples
 <p>H1: Men scores-Female scores &gt; 15 The question of interest is that males get 15 points more than females. So the difference between male and female scores is larger than 15 points.</p>
 <p>What test to use?. Well the sample size is smaller than 30, so we need to use a T-Test.</p>
 <p>And before we do any calculations, lets start by visualizing these data:</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="the-two-sample-t-test-by-hand.html#cb238-1" aria-hidden="true" tabindex="-1"></a>Males_Mean<span class="ot">=</span><span class="fl">630.1</span>  </span>
-<span id="cb238-2"><a href="the-two-sample-t-test-by-hand.html#cb238-2" aria-hidden="true" tabindex="-1"></a>Males_SDSD<span class="ot">=</span><span class="fl">13.42</span></span>
-<span id="cb238-3"><a href="the-two-sample-t-test-by-hand.html#cb238-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb238-4"><a href="the-two-sample-t-test-by-hand.html#cb238-4" aria-hidden="true" tabindex="-1"></a>Females_Mean<span class="ot">=</span><span class="fl">606.8</span></span>
-<span id="cb238-5"><a href="the-two-sample-t-test-by-hand.html#cb238-5" aria-hidden="true" tabindex="-1"></a>Females_SD<span class="ot">=</span><span class="fl">13.14</span></span>
-<span id="cb238-6"><a href="the-two-sample-t-test-by-hand.html#cb238-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb238-7"><a href="the-two-sample-t-test-by-hand.html#cb238-7" aria-hidden="true" tabindex="-1"></a>SimulatedMales<span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>,Males_Mean,Males_SDSD)</span>
-<span id="cb238-8"><a href="the-two-sample-t-test-by-hand.html#cb238-8" aria-hidden="true" tabindex="-1"></a>SimulatedFemales<span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>,Females_Mean,Females_SD)</span>
-<span id="cb238-9"><a href="the-two-sample-t-test-by-hand.html#cb238-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb238-10"><a href="the-two-sample-t-test-by-hand.html#cb238-10" aria-hidden="true" tabindex="-1"></a>breaks <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">500</span>,<span class="dv">700</span>, <span class="at">length.out =</span> <span class="dv">50</span>) <span class="co">#bins for the distribution</span></span>
-<span id="cb238-11"><a href="the-two-sample-t-test-by-hand.html#cb238-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb238-12"><a href="the-two-sample-t-test-by-hand.html#cb238-12" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram for drug</span></span>
-<span id="cb238-13"><a href="the-two-sample-t-test-by-hand.html#cb238-13" aria-hidden="true" tabindex="-1"></a>Males<span class="ot">=</span> <span class="fu">hist</span>(SimulatedMales,<span class="at">breaks =</span> breaks,  <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb238-14"><a href="the-two-sample-t-test-by-hand.html#cb238-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb238-15"><a href="the-two-sample-t-test-by-hand.html#cb238-15" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram for Placebo</span></span>
-<span id="cb238-16"><a href="the-two-sample-t-test-by-hand.html#cb238-16" aria-hidden="true" tabindex="-1"></a>Females<span class="ot">=</span> <span class="fu">hist</span>(SimulatedFemales, <span class="at">breaks =</span> breaks,  <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb238-17"><a href="the-two-sample-t-test-by-hand.html#cb238-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb238-18"><a href="the-two-sample-t-test-by-hand.html#cb238-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb238-19"><a href="the-two-sample-t-test-by-hand.html#cb238-19" aria-hidden="true" tabindex="-1"></a><span class="co">#because you are plotting two distributions, it will be nice to use different colors. and because they likely overlap, you should use semitransparent colors</span></span>
-<span id="cb238-20"><a href="the-two-sample-t-test-by-hand.html#cb238-20" aria-hidden="true" tabindex="-1"></a>LightBlue <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="dv">173</span>,<span class="dv">216</span>,<span class="dv">230</span>,<span class="at">max =</span> <span class="dv">255</span>, <span class="at">alpha =</span> <span class="dv">100</span>) <span class="co">#the function rgb lets your select one color, and the alpha gives you how tranparent</span></span>
-<span id="cb238-21"><a href="the-two-sample-t-test-by-hand.html#cb238-21" aria-hidden="true" tabindex="-1"></a>DarkRed <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="dv">255</span>,<span class="dv">192</span>,<span class="dv">203</span>, <span class="at">max =</span> <span class="dv">255</span>, <span class="at">alpha =</span> <span class="dv">95</span>)</span>
-<span id="cb238-22"><a href="the-two-sample-t-test-by-hand.html#cb238-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb238-23"><a href="the-two-sample-t-test-by-hand.html#cb238-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb238-24"><a href="the-two-sample-t-test-by-hand.html#cb238-24" aria-hidden="true" tabindex="-1"></a><span class="co">#lets plot the first distribution</span></span>
-<span id="cb238-25"><a href="the-two-sample-t-test-by-hand.html#cb238-25" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Males, <span class="at">main=</span><span class="cn">NA</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">500</span>,<span class="dv">700</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1500</span>),<span class="at">breaks =</span> breaks, <span class="at">xlab =</span> <span class="st">&quot;Score test&quot;</span>,<span class="at">ylab =</span> <span class="st">&quot;Number of people&quot;</span> ,<span class="at">col=</span>LightBlue)</span>
-<span id="cb238-26"><a href="the-two-sample-t-test-by-hand.html#cb238-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb238-27"><a href="the-two-sample-t-test-by-hand.html#cb238-27" aria-hidden="true" tabindex="-1"></a><span class="co">#now add the second distribution to the first plot, using the parameter add=TRUE, or add=T, they are both the same</span></span>
-<span id="cb238-28"><a href="the-two-sample-t-test-by-hand.html#cb238-28" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Females, <span class="at">add=</span>T ,<span class="at">col=</span>DarkRed)</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="the-two-sample-t-test-by-hand.html#cb249-1" aria-hidden="true" tabindex="-1"></a>Males_Mean<span class="ot">=</span><span class="fl">630.1</span>  </span>
+<span id="cb249-2"><a href="the-two-sample-t-test-by-hand.html#cb249-2" aria-hidden="true" tabindex="-1"></a>Males_SDSD<span class="ot">=</span><span class="fl">13.42</span></span>
+<span id="cb249-3"><a href="the-two-sample-t-test-by-hand.html#cb249-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-4"><a href="the-two-sample-t-test-by-hand.html#cb249-4" aria-hidden="true" tabindex="-1"></a>Females_Mean<span class="ot">=</span><span class="fl">606.8</span></span>
+<span id="cb249-5"><a href="the-two-sample-t-test-by-hand.html#cb249-5" aria-hidden="true" tabindex="-1"></a>Females_SD<span class="ot">=</span><span class="fl">13.14</span></span>
+<span id="cb249-6"><a href="the-two-sample-t-test-by-hand.html#cb249-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-7"><a href="the-two-sample-t-test-by-hand.html#cb249-7" aria-hidden="true" tabindex="-1"></a>SimulatedMales<span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>,Males_Mean,Males_SDSD)</span>
+<span id="cb249-8"><a href="the-two-sample-t-test-by-hand.html#cb249-8" aria-hidden="true" tabindex="-1"></a>SimulatedFemales<span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>,Females_Mean,Females_SD)</span>
+<span id="cb249-9"><a href="the-two-sample-t-test-by-hand.html#cb249-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-10"><a href="the-two-sample-t-test-by-hand.html#cb249-10" aria-hidden="true" tabindex="-1"></a>breaks <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">500</span>,<span class="dv">700</span>, <span class="at">length.out =</span> <span class="dv">50</span>) <span class="co">#bins for the distribution</span></span>
+<span id="cb249-11"><a href="the-two-sample-t-test-by-hand.html#cb249-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-12"><a href="the-two-sample-t-test-by-hand.html#cb249-12" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram for drug</span></span>
+<span id="cb249-13"><a href="the-two-sample-t-test-by-hand.html#cb249-13" aria-hidden="true" tabindex="-1"></a>Males<span class="ot">=</span> <span class="fu">hist</span>(SimulatedMales,<span class="at">breaks =</span> breaks,  <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb249-14"><a href="the-two-sample-t-test-by-hand.html#cb249-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-15"><a href="the-two-sample-t-test-by-hand.html#cb249-15" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram for Placebo</span></span>
+<span id="cb249-16"><a href="the-two-sample-t-test-by-hand.html#cb249-16" aria-hidden="true" tabindex="-1"></a>Females<span class="ot">=</span> <span class="fu">hist</span>(SimulatedFemales, <span class="at">breaks =</span> breaks,  <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb249-17"><a href="the-two-sample-t-test-by-hand.html#cb249-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-18"><a href="the-two-sample-t-test-by-hand.html#cb249-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-19"><a href="the-two-sample-t-test-by-hand.html#cb249-19" aria-hidden="true" tabindex="-1"></a><span class="co">#because you are plotting two distributions, it will be nice to use different colors. and because they likely overlap, you should use semitransparent colors</span></span>
+<span id="cb249-20"><a href="the-two-sample-t-test-by-hand.html#cb249-20" aria-hidden="true" tabindex="-1"></a>LightBlue <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="dv">173</span>,<span class="dv">216</span>,<span class="dv">230</span>,<span class="at">max =</span> <span class="dv">255</span>, <span class="at">alpha =</span> <span class="dv">100</span>) <span class="co">#the function rgb lets your select one color, and the alpha gives you how tranparent</span></span>
+<span id="cb249-21"><a href="the-two-sample-t-test-by-hand.html#cb249-21" aria-hidden="true" tabindex="-1"></a>DarkRed <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="dv">255</span>,<span class="dv">192</span>,<span class="dv">203</span>, <span class="at">max =</span> <span class="dv">255</span>, <span class="at">alpha =</span> <span class="dv">95</span>)</span>
+<span id="cb249-22"><a href="the-two-sample-t-test-by-hand.html#cb249-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-23"><a href="the-two-sample-t-test-by-hand.html#cb249-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-24"><a href="the-two-sample-t-test-by-hand.html#cb249-24" aria-hidden="true" tabindex="-1"></a><span class="co">#lets plot the first distribution</span></span>
+<span id="cb249-25"><a href="the-two-sample-t-test-by-hand.html#cb249-25" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Males, <span class="at">main=</span><span class="cn">NA</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">500</span>,<span class="dv">700</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1500</span>),<span class="at">breaks =</span> breaks, <span class="at">xlab =</span> <span class="st">&quot;Score test&quot;</span>,<span class="at">ylab =</span> <span class="st">&quot;Number of people&quot;</span> ,<span class="at">col=</span>LightBlue)</span>
+<span id="cb249-26"><a href="the-two-sample-t-test-by-hand.html#cb249-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-27"><a href="the-two-sample-t-test-by-hand.html#cb249-27" aria-hidden="true" tabindex="-1"></a><span class="co">#now add the second distribution to the first plot, using the parameter add=TRUE, or add=T, they are both the same</span></span>
+<span id="cb249-28"><a href="the-two-sample-t-test-by-hand.html#cb249-28" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Females, <span class="at">add=</span>T ,<span class="at">col=</span>DarkRed)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-312-1.png" width="672" /></p>
 <p>Lets calculate the T-score for comparing two samples:</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="the-two-sample-t-test-by-hand.html#cb239-1" aria-hidden="true" tabindex="-1"></a>Males_Mean<span class="ot">=</span><span class="fl">630.1</span>  </span>
-<span id="cb239-2"><a href="the-two-sample-t-test-by-hand.html#cb239-2" aria-hidden="true" tabindex="-1"></a>Males_SDSD<span class="ot">=</span><span class="fl">13.42</span></span>
-<span id="cb239-3"><a href="the-two-sample-t-test-by-hand.html#cb239-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb239-4"><a href="the-two-sample-t-test-by-hand.html#cb239-4" aria-hidden="true" tabindex="-1"></a>Females_Mean<span class="ot">=</span><span class="fl">606.8</span></span>
-<span id="cb239-5"><a href="the-two-sample-t-test-by-hand.html#cb239-5" aria-hidden="true" tabindex="-1"></a>Females_SD<span class="ot">=</span><span class="fl">13.14</span></span>
-<span id="cb239-6"><a href="the-two-sample-t-test-by-hand.html#cb239-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb239-7"><a href="the-two-sample-t-test-by-hand.html#cb239-7" aria-hidden="true" tabindex="-1"></a>SampleSize<span class="ot">=</span> <span class="dv">10</span>  <span class="co">#we can use this variable for both males and females, since in both cases 10 people were analyzed</span></span>
-<span id="cb239-8"><a href="the-two-sample-t-test-by-hand.html#cb239-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb239-9"><a href="the-two-sample-t-test-by-hand.html#cb239-9" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb239-10"><a href="the-two-sample-t-test-by-hand.html#cb239-10" aria-hidden="true" tabindex="-1"></a>T_Score_Numerator<span class="ot">=</span> (Males_Mean<span class="sc">-</span>Females_Mean) <span class="sc">-</span><span class="dv">15</span>  <span class="co">#because we assume that males score 15 point more, we need to assume that the difference between the population means is 15 points</span></span>
-<span id="cb239-11"><a href="the-two-sample-t-test-by-hand.html#cb239-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb239-12"><a href="the-two-sample-t-test-by-hand.html#cb239-12" aria-hidden="true" tabindex="-1"></a>T_Score_denominator<span class="ot">=</span> <span class="fu">sqrt</span>(((Males_SDSD<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>SampleSize)<span class="sc">+</span>((Females_SD<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>SampleSize))</span>
-<span id="cb239-13"><a href="the-two-sample-t-test-by-hand.html#cb239-13" aria-hidden="true" tabindex="-1"></a>                          </span>
-<span id="cb239-14"><a href="the-two-sample-t-test-by-hand.html#cb239-14" aria-hidden="true" tabindex="-1"></a>T_score<span class="ot">=</span>T_Score_Numerator<span class="sc">/</span>T_Score_denominator</span>
-<span id="cb239-15"><a href="the-two-sample-t-test-by-hand.html#cb239-15" aria-hidden="true" tabindex="-1"></a>T_score</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="the-two-sample-t-test-by-hand.html#cb250-1" aria-hidden="true" tabindex="-1"></a>Males_Mean<span class="ot">=</span><span class="fl">630.1</span>  </span>
+<span id="cb250-2"><a href="the-two-sample-t-test-by-hand.html#cb250-2" aria-hidden="true" tabindex="-1"></a>Males_SDSD<span class="ot">=</span><span class="fl">13.42</span></span>
+<span id="cb250-3"><a href="the-two-sample-t-test-by-hand.html#cb250-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb250-4"><a href="the-two-sample-t-test-by-hand.html#cb250-4" aria-hidden="true" tabindex="-1"></a>Females_Mean<span class="ot">=</span><span class="fl">606.8</span></span>
+<span id="cb250-5"><a href="the-two-sample-t-test-by-hand.html#cb250-5" aria-hidden="true" tabindex="-1"></a>Females_SD<span class="ot">=</span><span class="fl">13.14</span></span>
+<span id="cb250-6"><a href="the-two-sample-t-test-by-hand.html#cb250-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb250-7"><a href="the-two-sample-t-test-by-hand.html#cb250-7" aria-hidden="true" tabindex="-1"></a>SampleSize<span class="ot">=</span> <span class="dv">10</span>  <span class="co">#we can use this variable for both males and females, since in both cases 10 people were analyzed</span></span>
+<span id="cb250-8"><a href="the-two-sample-t-test-by-hand.html#cb250-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb250-9"><a href="the-two-sample-t-test-by-hand.html#cb250-9" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb250-10"><a href="the-two-sample-t-test-by-hand.html#cb250-10" aria-hidden="true" tabindex="-1"></a>T_Score_Numerator<span class="ot">=</span> (Males_Mean<span class="sc">-</span>Females_Mean) <span class="sc">-</span><span class="dv">15</span>  <span class="co">#because we assume that males score 15 point more, we need to assume that the difference between the population means is 15 points</span></span>
+<span id="cb250-11"><a href="the-two-sample-t-test-by-hand.html#cb250-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb250-12"><a href="the-two-sample-t-test-by-hand.html#cb250-12" aria-hidden="true" tabindex="-1"></a>T_Score_denominator<span class="ot">=</span> <span class="fu">sqrt</span>(((Males_SDSD<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>SampleSize)<span class="sc">+</span>((Females_SD<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>SampleSize))</span>
+<span id="cb250-13"><a href="the-two-sample-t-test-by-hand.html#cb250-13" aria-hidden="true" tabindex="-1"></a>                          </span>
+<span id="cb250-14"><a href="the-two-sample-t-test-by-hand.html#cb250-14" aria-hidden="true" tabindex="-1"></a>T_score<span class="ot">=</span>T_Score_Numerator<span class="sc">/</span>T_Score_denominator</span>
+<span id="cb250-15"><a href="the-two-sample-t-test-by-hand.html#cb250-15" aria-hidden="true" tabindex="-1"></a>T_score</span></code></pre></div>
 <pre><code>## [1] 1.397465</code></pre>
 <p>Next, look for the t-critical value in the t-table for 18 degrees of freedom. In the case of a two sample t-test, degrees of freedoms are equal to the sample size one plus sample size two minus two) and a level of significance <span class="math inline">\(\alpha\)</span> of 0.05 (Here we are looking at one tail test, as the alternative hypothesis states that one mean is larger than the other).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-314"></span>
@@ -561,7 +565,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

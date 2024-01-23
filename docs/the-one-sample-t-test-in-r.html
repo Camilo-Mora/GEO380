@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>The one-sample T-test in R | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="The one-sample T-test in R | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -406,19 +410,19 @@ By Camilo Mora, Ph.D.
 <div id="the-one-sample-t-test-in-r" class="section level2 unnumbered hasAnchor">
 <h2>The one-sample T-test in R<a href="the-one-sample-t-test-in-r.html#the-one-sample-t-test-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can run a T-test in R, using the package BSDA, and its function tsum.test. Lets try it.</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="the-one-sample-t-test-in-r.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (<span class="st">&quot;BSDA&quot;</span>)           <span class="co">#load the library</span></span>
-<span id="cb233-2"><a href="the-one-sample-t-test-in-r.html#cb233-2" aria-hidden="true" tabindex="-1"></a>Sample<span class="ot">=</span><span class="fu">c</span>(<span class="dv">587</span>, <span class="dv">602</span>, <span class="dv">627</span>, <span class="dv">610</span>, <span class="dv">619</span>, <span class="dv">622</span>, <span class="dv">605</span>, <span class="dv">608</span>, <span class="dv">596</span>, <span class="dv">592</span>) <span class="co">#lets put the values in a vector</span></span>
-<span id="cb233-3"><a href="the-one-sample-t-test-in-r.html#cb233-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb233-4"><a href="the-one-sample-t-test-in-r.html#cb233-4" aria-hidden="true" tabindex="-1"></a>SampleMean<span class="ot">=</span><span class="fu">mean</span>(Sample) <span class="co">#this is the sample mean</span></span>
-<span id="cb233-5"><a href="the-one-sample-t-test-in-r.html#cb233-5" aria-hidden="true" tabindex="-1"></a>SampleSD<span class="ot">=</span> <span class="fu">sd</span>(Sample)    <span class="co">#this is the sample standard deviation</span></span>
-<span id="cb233-6"><a href="the-one-sample-t-test-in-r.html#cb233-6" aria-hidden="true" tabindex="-1"></a>SampleSize<span class="ot">=</span><span class="fu">length</span>(Sample)  <span class="co">#sample size</span></span>
-<span id="cb233-7"><a href="the-one-sample-t-test-in-r.html#cb233-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb233-8"><a href="the-one-sample-t-test-in-r.html#cb233-8" aria-hidden="true" tabindex="-1"></a>PopulationMean<span class="ot">=</span> <span class="dv">600</span> <span class="co">#this is the population mean...or the expected score, which is assumed to be 600 points</span></span>
-<span id="cb233-9"><a href="the-one-sample-t-test-in-r.html#cb233-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb233-10"><a href="the-one-sample-t-test-in-r.html#cb233-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tsum.test</span>(<span class="at">mean.x=</span>SampleMean, <span class="at">s.x =</span> SampleSD, <span class="at">n.x =</span> SampleSize, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>, <span class="at">mu =</span> PopulationMean, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb233-11"><a href="the-one-sample-t-test-in-r.html#cb233-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb233-12"><a href="the-one-sample-t-test-in-r.html#cb233-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb233-13"><a href="the-one-sample-t-test-in-r.html#cb233-13" aria-hidden="true" tabindex="-1"></a><span class="co">#the parameters needed to run a T-test are self-explanatory. mean.x is the mean of your sample data. alternative is the type of test to run, in this case we want to check is the sample is greater than the population mean. mu is the population mean, and s.x is the standard deviation of the sample. This function ask for the confidence level, which as we indicated before is the complement to the level of significance to use, in our case our significance level is 0.05, so the confidence level will be 0.95</span></span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="the-one-sample-t-test-in-r.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (<span class="st">&quot;BSDA&quot;</span>)           <span class="co">#load the library</span></span>
+<span id="cb244-2"><a href="the-one-sample-t-test-in-r.html#cb244-2" aria-hidden="true" tabindex="-1"></a>Sample<span class="ot">=</span><span class="fu">c</span>(<span class="dv">587</span>, <span class="dv">602</span>, <span class="dv">627</span>, <span class="dv">610</span>, <span class="dv">619</span>, <span class="dv">622</span>, <span class="dv">605</span>, <span class="dv">608</span>, <span class="dv">596</span>, <span class="dv">592</span>) <span class="co">#lets put the values in a vector</span></span>
+<span id="cb244-3"><a href="the-one-sample-t-test-in-r.html#cb244-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-4"><a href="the-one-sample-t-test-in-r.html#cb244-4" aria-hidden="true" tabindex="-1"></a>SampleMean<span class="ot">=</span><span class="fu">mean</span>(Sample) <span class="co">#this is the sample mean</span></span>
+<span id="cb244-5"><a href="the-one-sample-t-test-in-r.html#cb244-5" aria-hidden="true" tabindex="-1"></a>SampleSD<span class="ot">=</span> <span class="fu">sd</span>(Sample)    <span class="co">#this is the sample standard deviation</span></span>
+<span id="cb244-6"><a href="the-one-sample-t-test-in-r.html#cb244-6" aria-hidden="true" tabindex="-1"></a>SampleSize<span class="ot">=</span><span class="fu">length</span>(Sample)  <span class="co">#sample size</span></span>
+<span id="cb244-7"><a href="the-one-sample-t-test-in-r.html#cb244-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-8"><a href="the-one-sample-t-test-in-r.html#cb244-8" aria-hidden="true" tabindex="-1"></a>PopulationMean<span class="ot">=</span> <span class="dv">600</span> <span class="co">#this is the population mean...or the expected score, which is assumed to be 600 points</span></span>
+<span id="cb244-9"><a href="the-one-sample-t-test-in-r.html#cb244-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-10"><a href="the-one-sample-t-test-in-r.html#cb244-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tsum.test</span>(<span class="at">mean.x=</span>SampleMean, <span class="at">s.x =</span> SampleSD, <span class="at">n.x =</span> SampleSize, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>, <span class="at">mu =</span> PopulationMean, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb244-11"><a href="the-one-sample-t-test-in-r.html#cb244-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-12"><a href="the-one-sample-t-test-in-r.html#cb244-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-13"><a href="the-one-sample-t-test-in-r.html#cb244-13" aria-hidden="true" tabindex="-1"></a><span class="co">#the parameters needed to run a T-test are self-explanatory. mean.x is the mean of your sample data. alternative is the type of test to run, in this case we want to check is the sample is greater than the population mean. mu is the population mean, and s.x is the standard deviation of the sample. This function ask for the confidence level, which as we indicated before is the complement to the level of significance to use, in our case our significance level is 0.05, so the confidence level will be 0.95</span></span></code></pre></div>
 <p>The results will look like the image below, which are nearly identical to our hand calculation.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-303"></span>
 <img src="images/ToneSampleTestResultsR.png" alt="R-results for a one-sample z-test" width="80%" />
@@ -513,7 +517,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

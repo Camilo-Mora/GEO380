@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>The coeficient of determination | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="The coeficient of determination | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -445,31 +449,31 @@ Figure 7.5: Sum of Squares around the Fit, SSfit
 <p>Remember, the regression line is the mathematical formulation of how Y relates to X, whatever is not accounted for by that line are the residuals, or the variation in Y, that remains to be accounted for.</p>
 <p>So, it you look at the formulation for <span class="math inline">\(r^2\)</span>, basically, you are trying to quantify the fraction of variability of Y that was accounted for by the relationship of Y to X. Easy right?</p>
 <p>Let’s calculate <span class="math inline">\(r^2\)</span>,</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="the-coeficient-of-determination.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="co">#take the data on grades and time studying</span></span>
-<span id="cb199-2"><a href="the-coeficient-of-determination.html#cb199-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>) <span class="co">#hours studying</span></span>
-<span id="cb199-3"><a href="the-coeficient-of-determination.html#cb199-3" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)       <span class="co">#grades</span></span>
-<span id="cb199-4"><a href="the-coeficient-of-determination.html#cb199-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb199-5"><a href="the-coeficient-of-determination.html#cb199-5" aria-hidden="true" tabindex="-1"></a><span class="co"># lets estimate the regression line using lm, and lets put that model in a variable</span></span>
-<span id="cb199-6"><a href="the-coeficient-of-determination.html#cb199-6" aria-hidden="true" tabindex="-1"></a>LM <span class="ot">=</span> <span class="fu">lm</span> (Y<span class="sc">~</span>X)   <span class="co">#this is the linear model between Grades~Hours_Studying</span></span>
-<span id="cb199-7"><a href="the-coeficient-of-determination.html#cb199-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb199-8"><a href="the-coeficient-of-determination.html#cb199-8" aria-hidden="true" tabindex="-1"></a><span class="co">#you can find out the residuals of that model using the R-Function residuals.</span></span>
-<span id="cb199-9"><a href="the-coeficient-of-determination.html#cb199-9" aria-hidden="true" tabindex="-1"></a>Residuals<span class="ot">=</span> <span class="fu">residuals</span> (LM)  <span class="co">#here we create a vector with the residuals from our model</span></span>
-<span id="cb199-10"><a href="the-coeficient-of-determination.html#cb199-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb199-11"><a href="the-coeficient-of-determination.html#cb199-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Estimate SSfit</span></span>
-<span id="cb199-12"><a href="the-coeficient-of-determination.html#cb199-12" aria-hidden="true" tabindex="-1"></a>SSFit<span class="ot">=</span> <span class="fu">sum</span> (Residuals<span class="sc">^</span><span class="dv">2</span>)  <span class="co"># here you are squaring each residual, then adding them</span></span>
-<span id="cb199-13"><a href="the-coeficient-of-determination.html#cb199-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb199-14"><a href="the-coeficient-of-determination.html#cb199-14" aria-hidden="true" tabindex="-1"></a><span class="co">#Lets now estimate SSMean</span></span>
-<span id="cb199-15"><a href="the-coeficient-of-determination.html#cb199-15" aria-hidden="true" tabindex="-1"></a>DeltaY<span class="ot">=</span>Y<span class="sc">-</span><span class="fu">mean</span>(Y)  <span class="co"># here you take each value in Y and subtract it to the mean of Y</span></span>
-<span id="cb199-16"><a href="the-coeficient-of-determination.html#cb199-16" aria-hidden="true" tabindex="-1"></a>SSMean<span class="ot">=</span> <span class="fu">sum</span>(DeltaY<span class="sc">^</span><span class="dv">2</span>) <span class="co">#here you square each score in the line above, sum them together</span></span>
-<span id="cb199-17"><a href="the-coeficient-of-determination.html#cb199-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb199-18"><a href="the-coeficient-of-determination.html#cb199-18" aria-hidden="true" tabindex="-1"></a><span class="co">#we have all we need for the calculation of the R2.</span></span>
-<span id="cb199-19"><a href="the-coeficient-of-determination.html#cb199-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb199-20"><a href="the-coeficient-of-determination.html#cb199-20" aria-hidden="true" tabindex="-1"></a>R2<span class="ot">=</span>(SSMean<span class="sc">-</span>SSFit)<span class="sc">/</span>SSMean</span>
-<span id="cb199-21"><a href="the-coeficient-of-determination.html#cb199-21" aria-hidden="true" tabindex="-1"></a>R2</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="the-coeficient-of-determination.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="co">#take the data on grades and time studying</span></span>
+<span id="cb210-2"><a href="the-coeficient-of-determination.html#cb210-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>) <span class="co">#hours studying</span></span>
+<span id="cb210-3"><a href="the-coeficient-of-determination.html#cb210-3" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)       <span class="co">#grades</span></span>
+<span id="cb210-4"><a href="the-coeficient-of-determination.html#cb210-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb210-5"><a href="the-coeficient-of-determination.html#cb210-5" aria-hidden="true" tabindex="-1"></a><span class="co"># lets estimate the regression line using lm, and lets put that model in a variable</span></span>
+<span id="cb210-6"><a href="the-coeficient-of-determination.html#cb210-6" aria-hidden="true" tabindex="-1"></a>LM <span class="ot">=</span> <span class="fu">lm</span> (Y<span class="sc">~</span>X)   <span class="co">#this is the linear model between Grades~Hours_Studying</span></span>
+<span id="cb210-7"><a href="the-coeficient-of-determination.html#cb210-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb210-8"><a href="the-coeficient-of-determination.html#cb210-8" aria-hidden="true" tabindex="-1"></a><span class="co">#you can find out the residuals of that model using the R-Function residuals.</span></span>
+<span id="cb210-9"><a href="the-coeficient-of-determination.html#cb210-9" aria-hidden="true" tabindex="-1"></a>Residuals<span class="ot">=</span> <span class="fu">residuals</span> (LM)  <span class="co">#here we create a vector with the residuals from our model</span></span>
+<span id="cb210-10"><a href="the-coeficient-of-determination.html#cb210-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb210-11"><a href="the-coeficient-of-determination.html#cb210-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Estimate SSfit</span></span>
+<span id="cb210-12"><a href="the-coeficient-of-determination.html#cb210-12" aria-hidden="true" tabindex="-1"></a>SSFit<span class="ot">=</span> <span class="fu">sum</span> (Residuals<span class="sc">^</span><span class="dv">2</span>)  <span class="co"># here you are squaring each residual, then adding them</span></span>
+<span id="cb210-13"><a href="the-coeficient-of-determination.html#cb210-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb210-14"><a href="the-coeficient-of-determination.html#cb210-14" aria-hidden="true" tabindex="-1"></a><span class="co">#Lets now estimate SSMean</span></span>
+<span id="cb210-15"><a href="the-coeficient-of-determination.html#cb210-15" aria-hidden="true" tabindex="-1"></a>DeltaY<span class="ot">=</span>Y<span class="sc">-</span><span class="fu">mean</span>(Y)  <span class="co"># here you take each value in Y and subtract it to the mean of Y</span></span>
+<span id="cb210-16"><a href="the-coeficient-of-determination.html#cb210-16" aria-hidden="true" tabindex="-1"></a>SSMean<span class="ot">=</span> <span class="fu">sum</span>(DeltaY<span class="sc">^</span><span class="dv">2</span>) <span class="co">#here you square each score in the line above, sum them together</span></span>
+<span id="cb210-17"><a href="the-coeficient-of-determination.html#cb210-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb210-18"><a href="the-coeficient-of-determination.html#cb210-18" aria-hidden="true" tabindex="-1"></a><span class="co">#we have all we need for the calculation of the R2.</span></span>
+<span id="cb210-19"><a href="the-coeficient-of-determination.html#cb210-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb210-20"><a href="the-coeficient-of-determination.html#cb210-20" aria-hidden="true" tabindex="-1"></a>R2<span class="ot">=</span>(SSMean<span class="sc">-</span>SSFit)<span class="sc">/</span>SSMean</span>
+<span id="cb210-21"><a href="the-coeficient-of-determination.html#cb210-21" aria-hidden="true" tabindex="-1"></a>R2</span></code></pre></div>
 <pre><code>## [1] 0.9637357</code></pre>
 <p>So, the <span class="math inline">\(r^2\)</span> of the relationship between grades and time studying is 0.96. That is the fraction of the variability in grades that is explained by the amount of time students study. You can also report the <span class="math inline">\(r^2\)</span> as a percentage by multiplying the fraction by 100.</p>
 <p>In R, the <span class="math inline">\(r^2\)</span> is outputted as part of the <em>lm</em> function in combination with the function <em>summary</em>, like this:</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="the-coeficient-of-determination.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span> (LM)   <span class="co">#summary results of the lm we created in the code above.  </span></span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="the-coeficient-of-determination.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span> (LM)   <span class="co">#summary results of the lm we created in the code above.  </span></span></code></pre></div>
 The image below indicates the different outputs, we have studied so far:
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-242"></span>
 <img src="images/R2.png" alt="lm outputs" width="80%" />
@@ -564,7 +568,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

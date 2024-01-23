@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>The Covariance | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="The Covariance | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -499,15 +503,15 @@ Tom
 </tbody>
 </table>
 <p>As always, we start by plotting the data:</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="the-covariance.html#cb181-1" aria-hidden="true" tabindex="-1"></a>StudyingTimes<span class="ot">=</span> <span class="fu">data.frame</span>(</span>
-<span id="cb181-2"><a href="the-covariance.html#cb181-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Names=</span><span class="fu">c</span>(<span class="st">&quot;Peter&quot;</span>,<span class="st">&quot;Laura&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Chip&quot;</span>, <span class="st">&quot;Tom&quot;</span>), <span class="co">#lets create a data.frame with three columns</span></span>
-<span id="cb181-3"><a href="the-covariance.html#cb181-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Hours_Studying=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>),</span>
-<span id="cb181-4"><a href="the-covariance.html#cb181-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Score=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>))</span>
-<span id="cb181-5"><a href="the-covariance.html#cb181-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb181-6"><a href="the-covariance.html#cb181-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb181-7"><a href="the-covariance.html#cb181-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb181-8"><a href="the-covariance.html#cb181-8" aria-hidden="true" tabindex="-1"></a><span class="co">#now let&#39;s do the plot</span></span>
-<span id="cb181-9"><a href="the-covariance.html#cb181-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Score<span class="sc">~</span>Hours_Studying,<span class="at">data=</span>StudyingTimes,<span class="at">xlab=</span><span class="st">&quot;Hours a week studying&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Final class score (%)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="the-covariance.html#cb192-1" aria-hidden="true" tabindex="-1"></a>StudyingTimes<span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb192-2"><a href="the-covariance.html#cb192-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Names=</span><span class="fu">c</span>(<span class="st">&quot;Peter&quot;</span>,<span class="st">&quot;Laura&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Chip&quot;</span>, <span class="st">&quot;Tom&quot;</span>), <span class="co">#lets create a data.frame with three columns</span></span>
+<span id="cb192-3"><a href="the-covariance.html#cb192-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Hours_Studying=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>),</span>
+<span id="cb192-4"><a href="the-covariance.html#cb192-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Score=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>))</span>
+<span id="cb192-5"><a href="the-covariance.html#cb192-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-6"><a href="the-covariance.html#cb192-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-7"><a href="the-covariance.html#cb192-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-8"><a href="the-covariance.html#cb192-8" aria-hidden="true" tabindex="-1"></a><span class="co">#now let&#39;s do the plot</span></span>
+<span id="cb192-9"><a href="the-covariance.html#cb192-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Score<span class="sc">~</span>Hours_Studying,<span class="at">data=</span>StudyingTimes,<span class="at">xlab=</span><span class="st">&quot;Hours a week studying&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Final class score (%)&quot;</span>)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-199-1.png" width="672" /></p>
 <p>Lets break the calculation of the covariance into its parts so we can better appreciate what it does.</p>
 <p>First, we calculate the mean of alll values in X and the difference from each value to that mean:</p>
@@ -541,7 +545,7 @@ Covariance = COV(XY) =24.3 Hours*Test Score
 \end{equation}\]</span></p>
 <p>Hmm???, Right?…as mentioned earlier the score of the covariance by itself is hard to interpret, but it may still provide useful information about the trend of the data…in this case the covariance is positive, indicating that the differences in X trend in a positive direction as the differences in Y. Basically, as students study more they get higher grades…Please remember that!…and here it goes a token j</p>
 <p>In R, the covariance is calculated with the <em>cov</em> function:</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="the-covariance.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(StudyingTimes<span class="sc">$</span>Score,StudyingTimes<span class="sc">$</span>Hours_Studying, <span class="at">use =</span> <span class="st">&quot;everything&quot;</span>,  <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="the-covariance.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(StudyingTimes<span class="sc">$</span>Score,StudyingTimes<span class="sc">$</span>Hours_Studying, <span class="at">use =</span> <span class="st">&quot;everything&quot;</span>,  <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 24.3</code></pre>
 </div>
 <div id="disqus_thread"></div>
@@ -630,7 +634,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

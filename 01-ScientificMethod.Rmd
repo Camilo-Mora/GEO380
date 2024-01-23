@@ -193,7 +193,32 @@ Population refers to every individual of interest. The sample refers to only som
 
 Drag terms where you think they belong.
 
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&id=8" width="760" height="698" frameborder="0" allowfullscreen="allowfullscreen" title="09:Terms"></iframe><script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+
+<div id="h5p-container-8"></div> 
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-8"); // div tag ID
+    let h5pJsonPath = 'H5P_Unzip/08_experiment-8'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
+
+
 
 
 You need to appreciate that statistics from the samples can vary from sample to sample, whereas statistics from the population are fixed for the given population. For instance, in the figure above, yellow birds represent 1 out of ten birds (i.e., 10% of the sample) in the sample outlined with a solid line. Yet in another sample (outlined with a dotted purple line), out of ten individuals there are two yellow birds (i.e., 20%).

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Custom made functions | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Custom made functions | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -415,36 +419,36 @@ By Camilo Mora, Ph.D.
 <li>Outline what you want to output from your function</li>
 </ol>
 <p>Let’s have an example. Say, I have two numbers (12.78454 and 1.34893439), which I want to first multiple, then divide the result by 2, then estimate the cosine, then multiple by pi, then estimate the ceiling; and I want to do this four times with different starting numbers. So lets start coding this,</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="custom-made-functions.html#cb29-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="fl">12.78454</span>              <span class="co">#I place  first number in a variable, so I do not have to retype all numbers</span></span>
-<span id="cb29-2"><a href="custom-made-functions.html#cb29-2" aria-hidden="true" tabindex="-1"></a>b<span class="ot">=</span><span class="fl">1.34893439</span>            <span class="co">#same for second number</span></span>
-<span id="cb29-3"><a href="custom-made-functions.html#cb29-3" aria-hidden="true" tabindex="-1"></a>Multiple_AB<span class="ot">=</span>a<span class="sc">*</span>b         <span class="co">#first command I have to do. Create new varaible multiplying a and b</span></span>
-<span id="cb29-4"><a href="custom-made-functions.html#cb29-4" aria-hidden="true" tabindex="-1"></a>Divide<span class="ot">=</span> Multiple_AB<span class="sc">/</span><span class="dv">2</span>   <span class="co">#second command is to divide the output by 2</span></span>
-<span id="cb29-5"><a href="custom-made-functions.html#cb29-5" aria-hidden="true" tabindex="-1"></a>Cosine<span class="ot">=</span> <span class="fu">cos</span>(Divide)     <span class="co">#third command is to estimate the cosine in the results</span></span>
-<span id="cb29-6"><a href="custom-made-functions.html#cb29-6" aria-hidden="true" tabindex="-1"></a>PI<span class="ot">=</span>Cosine<span class="sc">*</span>pi            <span class="co">#four command is to multiply result by pi</span></span>
-<span id="cb29-7"><a href="custom-made-functions.html#cb29-7" aria-hidden="true" tabindex="-1"></a>Cealing<span class="ot">=</span><span class="fu">ceiling</span>(PI)     <span class="co">#finally, estimate the largest integer</span></span>
-<span id="cb29-8"><a href="custom-made-functions.html#cb29-8" aria-hidden="true" tabindex="-1"></a>Cealing                 <span class="co">#here is the result of that operation above</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="custom-made-functions.html#cb31-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="fl">12.78454</span>              <span class="co">#I place  first number in a variable, so I do not have to retype all numbers</span></span>
+<span id="cb31-2"><a href="custom-made-functions.html#cb31-2" aria-hidden="true" tabindex="-1"></a>b<span class="ot">=</span><span class="fl">1.34893439</span>            <span class="co">#same for second number</span></span>
+<span id="cb31-3"><a href="custom-made-functions.html#cb31-3" aria-hidden="true" tabindex="-1"></a>Multiple_AB<span class="ot">=</span>a<span class="sc">*</span>b         <span class="co">#first command I have to do. Create new varaible multiplying a and b</span></span>
+<span id="cb31-4"><a href="custom-made-functions.html#cb31-4" aria-hidden="true" tabindex="-1"></a>Divide<span class="ot">=</span> Multiple_AB<span class="sc">/</span><span class="dv">2</span>   <span class="co">#second command is to divide the output by 2</span></span>
+<span id="cb31-5"><a href="custom-made-functions.html#cb31-5" aria-hidden="true" tabindex="-1"></a>Cosine<span class="ot">=</span> <span class="fu">cos</span>(Divide)     <span class="co">#third command is to estimate the cosine in the results</span></span>
+<span id="cb31-6"><a href="custom-made-functions.html#cb31-6" aria-hidden="true" tabindex="-1"></a>PI<span class="ot">=</span>Cosine<span class="sc">*</span>pi            <span class="co">#four command is to multiply result by pi</span></span>
+<span id="cb31-7"><a href="custom-made-functions.html#cb31-7" aria-hidden="true" tabindex="-1"></a>Cealing<span class="ot">=</span><span class="fu">ceiling</span>(PI)     <span class="co">#finally, estimate the largest integer</span></span>
+<span id="cb31-8"><a href="custom-made-functions.html#cb31-8" aria-hidden="true" tabindex="-1"></a>Cealing                 <span class="co">#here is the result of that operation above</span></span></code></pre></div>
 <pre><code>## [1] -2</code></pre>
 <p>If you see the code above, I wrote 8 lines of code to get the result for the first two set of numbers. If I want to do the same for say three other set of numbers, I will have to write 24 lines of code, not to mention the chance for error.</p>
 <p>Since the general operation is same for all cases, you can simply create a function, which will reduce the lenght of the code, while ensuring you use exactly the same procedure for all numbers. Let’s do it,</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="custom-made-functions.html#cb31-1" aria-hidden="true" tabindex="-1"></a>CamilosFunction <span class="ot">&lt;-</span> <span class="cf">function</span>(argument1, argument2) { <span class="co">#Argument 1 and 2, are the two numbers I have to run in my function</span></span>
-<span id="cb31-2"><a href="custom-made-functions.html#cb31-2" aria-hidden="true" tabindex="-1"></a>Multiple_AB<span class="ot">=</span>argument1<span class="sc">*</span>argument2         <span class="co">#first command I have to do</span></span>
-<span id="cb31-3"><a href="custom-made-functions.html#cb31-3" aria-hidden="true" tabindex="-1"></a>Divide<span class="ot">=</span> Multiple_AB<span class="sc">/</span><span class="dv">2</span>                   <span class="co">#second command is to divide the output by 2</span></span>
-<span id="cb31-4"><a href="custom-made-functions.html#cb31-4" aria-hidden="true" tabindex="-1"></a>Cosine<span class="ot">=</span> <span class="fu">cos</span>(Divide)                     <span class="co">#third command is to estimate the cosine in the results</span></span>
-<span id="cb31-5"><a href="custom-made-functions.html#cb31-5" aria-hidden="true" tabindex="-1"></a>PI<span class="ot">=</span>Cosine<span class="sc">*</span>pi                            <span class="co">#four command is to multiply result by pi</span></span>
-<span id="cb31-6"><a href="custom-made-functions.html#cb31-6" aria-hidden="true" tabindex="-1"></a>Cealing<span class="ot">=</span><span class="fu">ceiling</span>(PI)                     <span class="co">#finally, estimate the largest integer</span></span>
-<span id="cb31-7"><a href="custom-made-functions.html#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span> (Cealing)                        <span class="co">#here is the result of that operation above</span></span>
-<span id="cb31-8"><a href="custom-made-functions.html#cb31-8" aria-hidden="true" tabindex="-1"></a>}                 </span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="custom-made-functions.html#cb33-1" aria-hidden="true" tabindex="-1"></a>CamilosFunction <span class="ot">&lt;-</span> <span class="cf">function</span>(argument1, argument2) { <span class="co">#Argument 1 and 2, are the two numbers I have to run in my function</span></span>
+<span id="cb33-2"><a href="custom-made-functions.html#cb33-2" aria-hidden="true" tabindex="-1"></a>Multiple_AB<span class="ot">=</span>argument1<span class="sc">*</span>argument2         <span class="co">#first command I have to do</span></span>
+<span id="cb33-3"><a href="custom-made-functions.html#cb33-3" aria-hidden="true" tabindex="-1"></a>Divide<span class="ot">=</span> Multiple_AB<span class="sc">/</span><span class="dv">2</span>                   <span class="co">#second command is to divide the output by 2</span></span>
+<span id="cb33-4"><a href="custom-made-functions.html#cb33-4" aria-hidden="true" tabindex="-1"></a>Cosine<span class="ot">=</span> <span class="fu">cos</span>(Divide)                     <span class="co">#third command is to estimate the cosine in the results</span></span>
+<span id="cb33-5"><a href="custom-made-functions.html#cb33-5" aria-hidden="true" tabindex="-1"></a>PI<span class="ot">=</span>Cosine<span class="sc">*</span>pi                            <span class="co">#four command is to multiply result by pi</span></span>
+<span id="cb33-6"><a href="custom-made-functions.html#cb33-6" aria-hidden="true" tabindex="-1"></a>Cealing<span class="ot">=</span><span class="fu">ceiling</span>(PI)                     <span class="co">#finally, estimate the largest integer</span></span>
+<span id="cb33-7"><a href="custom-made-functions.html#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span> (Cealing)                        <span class="co">#here is the result of that operation above</span></span>
+<span id="cb33-8"><a href="custom-made-functions.html#cb33-8" aria-hidden="true" tabindex="-1"></a>}                 </span></code></pre></div>
 <p>If you see, all I did was to copy my entire process from the first set of values, and replace a and b, for the arguments in my function, add the {} and name my function. I just created a function, called CamilosFunction, that requires two values, to do the process indicated above, and return the result. Lets see,</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="custom-made-functions.html#cb32-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="fl">12.78454</span></span>
-<span id="cb32-2"><a href="custom-made-functions.html#cb32-2" aria-hidden="true" tabindex="-1"></a>b<span class="ot">=</span><span class="fl">1.34893439</span></span>
-<span id="cb32-3"><a href="custom-made-functions.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">CamilosFunction</span> (a, b) <span class="co">#here is my function, which run many commands and give me a single result.</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="custom-made-functions.html#cb34-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="fl">12.78454</span></span>
+<span id="cb34-2"><a href="custom-made-functions.html#cb34-2" aria-hidden="true" tabindex="-1"></a>b<span class="ot">=</span><span class="fl">1.34893439</span></span>
+<span id="cb34-3"><a href="custom-made-functions.html#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">CamilosFunction</span> (a, b) <span class="co">#here is my function, which run many commands and give me a single result.</span></span></code></pre></div>
 <pre><code>## [1] -2</code></pre>
 <p>You can now reuse your function with different numbers, each time requiring only one line of code.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="custom-made-functions.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CamilosFunction</span> (<span class="fl">12.78454</span>,<span class="fl">10002.78454</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="custom-made-functions.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CamilosFunction</span> (<span class="fl">12.78454</span>,<span class="fl">10002.78454</span>) </span></code></pre></div>
 <pre><code>## [1] -2</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="custom-made-functions.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CamilosFunction</span> (<span class="fl">120.78454</span>,<span class="fl">102.78454</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="custom-made-functions.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CamilosFunction</span> (<span class="fl">120.78454</span>,<span class="fl">102.78454</span>) </span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="custom-made-functions.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CamilosFunction</span> (<span class="fl">912.74</span>,<span class="fl">10002.78454</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="custom-made-functions.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CamilosFunction</span> (<span class="fl">912.74</span>,<span class="fl">10002.78454</span>) </span></code></pre></div>
 <pre><code>## [1] -1</code></pre>
 <p>Create your own function now. In which you take three numbers (4,2,3), calculate their average, then multiple the result by 4, then estimate the sin, and finally calculate the square.</p>
 </div>
@@ -534,7 +538,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

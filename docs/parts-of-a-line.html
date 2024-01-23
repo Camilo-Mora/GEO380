@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Parts of a line | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Parts of a line | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -423,54 +427,54 @@ At times, you will see the intercept being referred with the lowercase letter <s
 <p>Let’s check what the intercept and the slope do to a line.</p>
 <p>For plotting a line in R, we use the <em>abline</em> function, which we used before for drawing horizontal or vertical lines. You can also use that R-function to draw lines with specific slopes and intercepts. Let’s try.</p>
 <p>Lets plot three lines with different slopes, but the same intercept.</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="parts-of-a-line.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="co">#play around with the lines of code below to see how they work</span></span>
-<span id="cb193-2"><a href="parts-of-a-line.html#cb193-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb193-3"><a href="parts-of-a-line.html#cb193-3" aria-hidden="true" tabindex="-1"></a><span class="co">#First lets create an empty plot and make the x and y axis nicer.</span></span>
-<span id="cb193-4"><a href="parts-of-a-line.html#cb193-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">0</span>, <span class="dv">0</span>,<span class="at">xlab=</span><span class="st">&quot;X&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Y&quot;</span>,  <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="fl">4.5</span>),<span class="at">col=</span><span class="st">&quot;grey&quot;</span>)</span>
-<span id="cb193-5"><a href="parts-of-a-line.html#cb193-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>) </span>
-<span id="cb193-6"><a href="parts-of-a-line.html#cb193-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>) </span>
-<span id="cb193-7"><a href="parts-of-a-line.html#cb193-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb193-8"><a href="parts-of-a-line.html#cb193-8" aria-hidden="true" tabindex="-1"></a><span class="co"># lets draw a first line with an intercept of 1, and a slope of 0.5. </span></span>
-<span id="cb193-9"><a href="parts-of-a-line.html#cb193-9" aria-hidden="true" tabindex="-1"></a><span class="co"># In abline, the first number will be the intercept and the second will be the slope.</span></span>
-<span id="cb193-10"><a href="parts-of-a-line.html#cb193-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb193-11"><a href="parts-of-a-line.html#cb193-11" aria-hidden="true" tabindex="-1"></a>Intercept<span class="ot">=</span><span class="dv">1</span>  <span class="co">#lets create a variable for the intercept, which i choose to call intercept and make that variable = 1</span></span>
-<span id="cb193-12"><a href="parts-of-a-line.html#cb193-12" aria-hidden="true" tabindex="-1"></a>Slope<span class="ot">=</span><span class="fl">0.5</span>    <span class="co">#lets create a variable for the slope, which i choose to call slope and make that variable = 0.5</span></span>
-<span id="cb193-13"><a href="parts-of-a-line.html#cb193-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb193-14"><a href="parts-of-a-line.html#cb193-14" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope, <span class="at">col=</span><span class="st">&quot;orange&quot;</span>) <span class="co">#lets plot the line, with my slope and intercept and make it orange to differentiate it</span></span>
-<span id="cb193-15"><a href="parts-of-a-line.html#cb193-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb193-16"><a href="parts-of-a-line.html#cb193-16" aria-hidden="true" tabindex="-1"></a><span class="co"># now, draw another line keeping the intercept the same and increase the slope to 1.5</span></span>
-<span id="cb193-17"><a href="parts-of-a-line.html#cb193-17" aria-hidden="true" tabindex="-1"></a>Slope<span class="ot">=</span><span class="fl">1.5</span></span>
-<span id="cb193-18"><a href="parts-of-a-line.html#cb193-18" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>) <span class="co">#lets make it blue to differentiate it</span></span>
-<span id="cb193-19"><a href="parts-of-a-line.html#cb193-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb193-20"><a href="parts-of-a-line.html#cb193-20" aria-hidden="true" tabindex="-1"></a><span class="co"># try keeping the intercept the same and increase the slope to 2.5</span></span>
-<span id="cb193-21"><a href="parts-of-a-line.html#cb193-21" aria-hidden="true" tabindex="-1"></a>Slope<span class="ot">=</span><span class="fl">2.5</span></span>
-<span id="cb193-22"><a href="parts-of-a-line.html#cb193-22" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope, <span class="at">col=</span><span class="st">&quot;green&quot;</span>) <span class="co">#lets make it green to differentiate it</span></span>
-<span id="cb193-23"><a href="parts-of-a-line.html#cb193-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb193-24"><a href="parts-of-a-line.html#cb193-24" aria-hidden="true" tabindex="-1"></a><span class="co">#We can verify the intercept, by plotting the point in Y, where the line intercept.</span></span>
-<span id="cb193-25"><a href="parts-of-a-line.html#cb193-25" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">0</span>,Intercept, <span class="at">pch=</span><span class="st">&quot;*&quot;</span>,<span class="at">cex=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>) <span class="co">#remember the intercept is when x=0.</span></span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="parts-of-a-line.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="co">#play around with the lines of code below to see how they work</span></span>
+<span id="cb204-2"><a href="parts-of-a-line.html#cb204-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb204-3"><a href="parts-of-a-line.html#cb204-3" aria-hidden="true" tabindex="-1"></a><span class="co">#First lets create an empty plot and make the x and y axis nicer.</span></span>
+<span id="cb204-4"><a href="parts-of-a-line.html#cb204-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">0</span>, <span class="dv">0</span>,<span class="at">xlab=</span><span class="st">&quot;X&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Y&quot;</span>,  <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="fl">4.5</span>),<span class="at">col=</span><span class="st">&quot;grey&quot;</span>)</span>
+<span id="cb204-5"><a href="parts-of-a-line.html#cb204-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>) </span>
+<span id="cb204-6"><a href="parts-of-a-line.html#cb204-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>) </span>
+<span id="cb204-7"><a href="parts-of-a-line.html#cb204-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb204-8"><a href="parts-of-a-line.html#cb204-8" aria-hidden="true" tabindex="-1"></a><span class="co"># lets draw a first line with an intercept of 1, and a slope of 0.5. </span></span>
+<span id="cb204-9"><a href="parts-of-a-line.html#cb204-9" aria-hidden="true" tabindex="-1"></a><span class="co"># In abline, the first number will be the intercept and the second will be the slope.</span></span>
+<span id="cb204-10"><a href="parts-of-a-line.html#cb204-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb204-11"><a href="parts-of-a-line.html#cb204-11" aria-hidden="true" tabindex="-1"></a>Intercept<span class="ot">=</span><span class="dv">1</span>  <span class="co">#lets create a variable for the intercept, which i choose to call intercept and make that variable = 1</span></span>
+<span id="cb204-12"><a href="parts-of-a-line.html#cb204-12" aria-hidden="true" tabindex="-1"></a>Slope<span class="ot">=</span><span class="fl">0.5</span>    <span class="co">#lets create a variable for the slope, which i choose to call slope and make that variable = 0.5</span></span>
+<span id="cb204-13"><a href="parts-of-a-line.html#cb204-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb204-14"><a href="parts-of-a-line.html#cb204-14" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope, <span class="at">col=</span><span class="st">&quot;orange&quot;</span>) <span class="co">#lets plot the line, with my slope and intercept and make it orange to differentiate it</span></span>
+<span id="cb204-15"><a href="parts-of-a-line.html#cb204-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb204-16"><a href="parts-of-a-line.html#cb204-16" aria-hidden="true" tabindex="-1"></a><span class="co"># now, draw another line keeping the intercept the same and increase the slope to 1.5</span></span>
+<span id="cb204-17"><a href="parts-of-a-line.html#cb204-17" aria-hidden="true" tabindex="-1"></a>Slope<span class="ot">=</span><span class="fl">1.5</span></span>
+<span id="cb204-18"><a href="parts-of-a-line.html#cb204-18" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>) <span class="co">#lets make it blue to differentiate it</span></span>
+<span id="cb204-19"><a href="parts-of-a-line.html#cb204-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb204-20"><a href="parts-of-a-line.html#cb204-20" aria-hidden="true" tabindex="-1"></a><span class="co"># try keeping the intercept the same and increase the slope to 2.5</span></span>
+<span id="cb204-21"><a href="parts-of-a-line.html#cb204-21" aria-hidden="true" tabindex="-1"></a>Slope<span class="ot">=</span><span class="fl">2.5</span></span>
+<span id="cb204-22"><a href="parts-of-a-line.html#cb204-22" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope, <span class="at">col=</span><span class="st">&quot;green&quot;</span>) <span class="co">#lets make it green to differentiate it</span></span>
+<span id="cb204-23"><a href="parts-of-a-line.html#cb204-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb204-24"><a href="parts-of-a-line.html#cb204-24" aria-hidden="true" tabindex="-1"></a><span class="co">#We can verify the intercept, by plotting the point in Y, where the line intercept.</span></span>
+<span id="cb204-25"><a href="parts-of-a-line.html#cb204-25" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">0</span>,Intercept, <span class="at">pch=</span><span class="st">&quot;*&quot;</span>,<span class="at">cex=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>) <span class="co">#remember the intercept is when x=0.</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-218-1.png" width="672" /></p>
 <p>Lets now change the intercept, but keep the slope the same</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="parts-of-a-line.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co">#play around with the parameters in the code below to see how they work</span></span>
-<span id="cb194-2"><a href="parts-of-a-line.html#cb194-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb194-3"><a href="parts-of-a-line.html#cb194-3" aria-hidden="true" tabindex="-1"></a><span class="co">#plot first</span></span>
-<span id="cb194-4"><a href="parts-of-a-line.html#cb194-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">0</span>, <span class="dv">0</span>,<span class="at">xlab=</span><span class="st">&quot;X&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Y&quot;</span>,  <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="fl">4.5</span>),<span class="at">col=</span><span class="st">&quot;grey&quot;</span>)</span>
-<span id="cb194-5"><a href="parts-of-a-line.html#cb194-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>) </span>
-<span id="cb194-6"><a href="parts-of-a-line.html#cb194-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>) </span>
-<span id="cb194-7"><a href="parts-of-a-line.html#cb194-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb194-8"><a href="parts-of-a-line.html#cb194-8" aria-hidden="true" tabindex="-1"></a><span class="co"># now try a combination of difference intercepts but the same slope.</span></span>
-<span id="cb194-9"><a href="parts-of-a-line.html#cb194-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb194-10"><a href="parts-of-a-line.html#cb194-10" aria-hidden="true" tabindex="-1"></a>Intercept<span class="ot">=</span><span class="dv">1</span>  </span>
-<span id="cb194-11"><a href="parts-of-a-line.html#cb194-11" aria-hidden="true" tabindex="-1"></a>Slope<span class="ot">=</span><span class="fl">0.5</span>   </span>
-<span id="cb194-12"><a href="parts-of-a-line.html#cb194-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb194-13"><a href="parts-of-a-line.html#cb194-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope, <span class="at">col=</span><span class="st">&quot;orange&quot;</span>) <span class="co">#lets plot the line, and make it orange to differentiate it</span></span>
-<span id="cb194-14"><a href="parts-of-a-line.html#cb194-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb194-15"><a href="parts-of-a-line.html#cb194-15" aria-hidden="true" tabindex="-1"></a><span class="co"># keep the slope the same and increase the Intercept to 2</span></span>
-<span id="cb194-16"><a href="parts-of-a-line.html#cb194-16" aria-hidden="true" tabindex="-1"></a>Intercept<span class="ot">=</span><span class="dv">2</span></span>
-<span id="cb194-17"><a href="parts-of-a-line.html#cb194-17" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>) <span class="co">#lets make it blue to differentiate it</span></span>
-<span id="cb194-18"><a href="parts-of-a-line.html#cb194-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb194-19"><a href="parts-of-a-line.html#cb194-19" aria-hidden="true" tabindex="-1"></a><span class="co"># keep the slope the same and increase the Intercept to 3</span></span>
-<span id="cb194-20"><a href="parts-of-a-line.html#cb194-20" aria-hidden="true" tabindex="-1"></a>Intercept<span class="ot">=</span><span class="dv">3</span></span>
-<span id="cb194-21"><a href="parts-of-a-line.html#cb194-21" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope, <span class="at">col=</span><span class="st">&quot;green&quot;</span>) <span class="co">#lets make it green to differentiate it</span></span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="parts-of-a-line.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="co">#play around with the parameters in the code below to see how they work</span></span>
+<span id="cb205-2"><a href="parts-of-a-line.html#cb205-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb205-3"><a href="parts-of-a-line.html#cb205-3" aria-hidden="true" tabindex="-1"></a><span class="co">#plot first</span></span>
+<span id="cb205-4"><a href="parts-of-a-line.html#cb205-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">0</span>, <span class="dv">0</span>,<span class="at">xlab=</span><span class="st">&quot;X&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Y&quot;</span>,  <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="fl">4.5</span>),<span class="at">col=</span><span class="st">&quot;grey&quot;</span>)</span>
+<span id="cb205-5"><a href="parts-of-a-line.html#cb205-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>) </span>
+<span id="cb205-6"><a href="parts-of-a-line.html#cb205-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>) </span>
+<span id="cb205-7"><a href="parts-of-a-line.html#cb205-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb205-8"><a href="parts-of-a-line.html#cb205-8" aria-hidden="true" tabindex="-1"></a><span class="co"># now try a combination of difference intercepts but the same slope.</span></span>
+<span id="cb205-9"><a href="parts-of-a-line.html#cb205-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb205-10"><a href="parts-of-a-line.html#cb205-10" aria-hidden="true" tabindex="-1"></a>Intercept<span class="ot">=</span><span class="dv">1</span>  </span>
+<span id="cb205-11"><a href="parts-of-a-line.html#cb205-11" aria-hidden="true" tabindex="-1"></a>Slope<span class="ot">=</span><span class="fl">0.5</span>   </span>
+<span id="cb205-12"><a href="parts-of-a-line.html#cb205-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb205-13"><a href="parts-of-a-line.html#cb205-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope, <span class="at">col=</span><span class="st">&quot;orange&quot;</span>) <span class="co">#lets plot the line, and make it orange to differentiate it</span></span>
+<span id="cb205-14"><a href="parts-of-a-line.html#cb205-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb205-15"><a href="parts-of-a-line.html#cb205-15" aria-hidden="true" tabindex="-1"></a><span class="co"># keep the slope the same and increase the Intercept to 2</span></span>
+<span id="cb205-16"><a href="parts-of-a-line.html#cb205-16" aria-hidden="true" tabindex="-1"></a>Intercept<span class="ot">=</span><span class="dv">2</span></span>
+<span id="cb205-17"><a href="parts-of-a-line.html#cb205-17" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>) <span class="co">#lets make it blue to differentiate it</span></span>
+<span id="cb205-18"><a href="parts-of-a-line.html#cb205-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb205-19"><a href="parts-of-a-line.html#cb205-19" aria-hidden="true" tabindex="-1"></a><span class="co"># keep the slope the same and increase the Intercept to 3</span></span>
+<span id="cb205-20"><a href="parts-of-a-line.html#cb205-20" aria-hidden="true" tabindex="-1"></a>Intercept<span class="ot">=</span><span class="dv">3</span></span>
+<span id="cb205-21"><a href="parts-of-a-line.html#cb205-21" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope, <span class="at">col=</span><span class="st">&quot;green&quot;</span>) <span class="co">#lets make it green to differentiate it</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-219-1.png" width="672" /></p>
 <div id="how-to-interpret-the-slope" class="section level3 unnumbered hasAnchor">
 <h3>How to interpret the slope<a href="parts-of-a-line.html#how-to-interpret-the-slope" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -481,24 +485,24 @@ At times, you will see the intercept being referred with the lowercase letter <s
 The units of the slope are the units of the variable in Y divided by the units of the varaibles in X. Say the units of Y are in litters and the units of X are in hours, so the slope will be in litters/hours.
 </div>
 <p>To contextualize the slope graphically, you can take any point along the trendline, and move horizontally one unit; the difference between the Y-point at the first X and the Y-point at X+1, is your slope…Lets check.</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="parts-of-a-line.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot first</span></span>
-<span id="cb195-2"><a href="parts-of-a-line.html#cb195-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">0</span>, <span class="dv">0</span>,<span class="at">xlab=</span><span class="st">&quot;X&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Y&quot;</span>,  <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">5000</span>),<span class="at">col=</span><span class="st">&quot;grey&quot;</span>)</span>
-<span id="cb195-3"><a href="parts-of-a-line.html#cb195-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>) </span>
-<span id="cb195-4"><a href="parts-of-a-line.html#cb195-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>) </span>
-<span id="cb195-5"><a href="parts-of-a-line.html#cb195-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-6"><a href="parts-of-a-line.html#cb195-6" aria-hidden="true" tabindex="-1"></a><span class="co">#lets draw a trend line with a slope of 500, that intercepts the origin.</span></span>
-<span id="cb195-7"><a href="parts-of-a-line.html#cb195-7" aria-hidden="true" tabindex="-1"></a>Intercept<span class="ot">=</span><span class="dv">0</span>  </span>
-<span id="cb195-8"><a href="parts-of-a-line.html#cb195-8" aria-hidden="true" tabindex="-1"></a>Slope<span class="ot">=</span><span class="dv">500</span>  </span>
-<span id="cb195-9"><a href="parts-of-a-line.html#cb195-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-10"><a href="parts-of-a-line.html#cb195-10" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope, <span class="at">col=</span><span class="st">&quot;orange&quot;</span>) <span class="co">#lets plot the trend line, and make it orange to differentiate it</span></span>
-<span id="cb195-11"><a href="parts-of-a-line.html#cb195-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-12"><a href="parts-of-a-line.html#cb195-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-13"><a href="parts-of-a-line.html#cb195-13" aria-hidden="true" tabindex="-1"></a><span class="co">#lets move one unit along X, starting at zero</span></span>
-<span id="cb195-14"><a href="parts-of-a-line.html#cb195-14" aria-hidden="true" tabindex="-1"></a><span class="fu">segments</span> (<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="dv">3</span>) <span class="co">#lets make that segment red</span></span>
-<span id="cb195-15"><a href="parts-of-a-line.html#cb195-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-16"><a href="parts-of-a-line.html#cb195-16" aria-hidden="true" tabindex="-1"></a><span class="co">#from that point, X+1, lets move up 500 units, if the calculation is correct, then that segment of 500 units in Y should finish at the interception with the trend line...lets see</span></span>
-<span id="cb195-17"><a href="parts-of-a-line.html#cb195-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-18"><a href="parts-of-a-line.html#cb195-18" aria-hidden="true" tabindex="-1"></a><span class="fu">segments</span> (<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">500</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">lwd=</span><span class="dv">3</span>) <span class="co">#here I draw a segment starting a x=1, y=0...until x=1, y=500</span></span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="parts-of-a-line.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot first</span></span>
+<span id="cb206-2"><a href="parts-of-a-line.html#cb206-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">0</span>, <span class="dv">0</span>,<span class="at">xlab=</span><span class="st">&quot;X&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Y&quot;</span>,  <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">5000</span>),<span class="at">col=</span><span class="st">&quot;grey&quot;</span>)</span>
+<span id="cb206-3"><a href="parts-of-a-line.html#cb206-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>) </span>
+<span id="cb206-4"><a href="parts-of-a-line.html#cb206-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>) </span>
+<span id="cb206-5"><a href="parts-of-a-line.html#cb206-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb206-6"><a href="parts-of-a-line.html#cb206-6" aria-hidden="true" tabindex="-1"></a><span class="co">#lets draw a trend line with a slope of 500, that intercepts the origin.</span></span>
+<span id="cb206-7"><a href="parts-of-a-line.html#cb206-7" aria-hidden="true" tabindex="-1"></a>Intercept<span class="ot">=</span><span class="dv">0</span>  </span>
+<span id="cb206-8"><a href="parts-of-a-line.html#cb206-8" aria-hidden="true" tabindex="-1"></a>Slope<span class="ot">=</span><span class="dv">500</span>  </span>
+<span id="cb206-9"><a href="parts-of-a-line.html#cb206-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb206-10"><a href="parts-of-a-line.html#cb206-10" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope, <span class="at">col=</span><span class="st">&quot;orange&quot;</span>) <span class="co">#lets plot the trend line, and make it orange to differentiate it</span></span>
+<span id="cb206-11"><a href="parts-of-a-line.html#cb206-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb206-12"><a href="parts-of-a-line.html#cb206-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb206-13"><a href="parts-of-a-line.html#cb206-13" aria-hidden="true" tabindex="-1"></a><span class="co">#lets move one unit along X, starting at zero</span></span>
+<span id="cb206-14"><a href="parts-of-a-line.html#cb206-14" aria-hidden="true" tabindex="-1"></a><span class="fu">segments</span> (<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="dv">3</span>) <span class="co">#lets make that segment red</span></span>
+<span id="cb206-15"><a href="parts-of-a-line.html#cb206-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb206-16"><a href="parts-of-a-line.html#cb206-16" aria-hidden="true" tabindex="-1"></a><span class="co">#from that point, X+1, lets move up 500 units, if the calculation is correct, then that segment of 500 units in Y should finish at the interception with the trend line...lets see</span></span>
+<span id="cb206-17"><a href="parts-of-a-line.html#cb206-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb206-18"><a href="parts-of-a-line.html#cb206-18" aria-hidden="true" tabindex="-1"></a><span class="fu">segments</span> (<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">500</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">lwd=</span><span class="dv">3</span>) <span class="co">#here I draw a segment starting a x=1, y=0...until x=1, y=500</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-221-1.png" width="672" /></p>
 
 <div class="rmdimportant">
@@ -602,7 +606,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

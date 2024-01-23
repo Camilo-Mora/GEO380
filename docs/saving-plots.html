@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Saving plots | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Saving plots | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -416,9 +420,9 @@ Figure 4.6: Pixelation effect of figure format
 <p>Of course, R offers many formats to save plots. Here we will save a figure as a PDF using the function “pdf”.</p>
 <p>Basically, the function pdf requires you to write the name you want for your file (e.g. “RPlot.pdf”), how big you want the plot, the size of the letters, and few other options. Type ?pdf to see additional settings.</p>
 <p>The way to save any figure in R is like this: Firsts, you write the line of code indicating the type of file you want to save as. That creates a clean sheet, where you can place your plot or plots. Once done with your figure or figures, you need a line of code called dev.off(); that closes the sheet and save the file. Lets try,</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="saving-plots.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;RPlot.pdf&quot;</span>, <span class="at">width =</span> <span class="dv">3</span>, <span class="at">height =</span> <span class="dv">3</span>,<span class="at">pointsize=</span><span class="dv">8</span>,<span class="at">paper=</span><span class="st">&quot;letter&quot;</span>)</span>
-<span id="cb137-2"><a href="saving-plots.html#cb137-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bin,<span class="at">colramp=</span>my_colors)  <span class="co">#hexbin plot</span></span>
-<span id="cb137-3"><a href="saving-plots.html#cb137-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="saving-plots.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;RPlot.pdf&quot;</span>, <span class="at">width =</span> <span class="dv">3</span>, <span class="at">height =</span> <span class="dv">3</span>,<span class="at">pointsize=</span><span class="dv">8</span>,<span class="at">paper=</span><span class="st">&quot;letter&quot;</span>)</span>
+<span id="cb148-2"><a href="saving-plots.html#cb148-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bin,<span class="at">colramp=</span>my_colors)  <span class="co">#hexbin plot</span></span>
+<span id="cb148-3"><a href="saving-plots.html#cb148-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
 <p>If you now check your working folder, there should be a file called RPlot.pdf, which has the figure you just created. Of course, you can edit the figure as you like, as we showed in the Scatterplot section.</p>
 <p>The benefit of l saving files as PDF is that the resolution is never affected. You can zoom in into a PDF file and the resolution is always the same. In turn, other types of figures like jpeg, gif, png, etc. you need to define the resolution in advance, and if you zoom in into those type of figure formats you will notice the pixelation.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-143"></span>
@@ -514,7 +518,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

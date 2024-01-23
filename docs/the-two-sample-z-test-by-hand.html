@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>The two-sample Z-test by hand | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="The two-sample Z-test by hand | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -418,34 +422,34 @@ Figure 11.3: Z-test fucntion for two samples
 <p>For the drug group, it took 9.78sec on average (S.D. = 4.05) to do 20 push-ups, whereas the placebo group took 15.10sec on average (S.D. = 4.28).</p>
 <p>Does this drug has any effect on physical performance? Let’s test this hypothesis at an <span class="math inline">\(\alpha\)</span> of 0.05,or 5%.</p>
 <p>Lets start by visualizing these data:</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="the-two-sample-z-test-by-hand.html#cb234-1" aria-hidden="true" tabindex="-1"></a>Drug_Mean<span class="ot">=</span><span class="fl">9.78</span>   </span>
-<span id="cb234-2"><a href="the-two-sample-z-test-by-hand.html#cb234-2" aria-hidden="true" tabindex="-1"></a>Drug_SDSD<span class="ot">=</span><span class="fl">4.05</span></span>
-<span id="cb234-3"><a href="the-two-sample-z-test-by-hand.html#cb234-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-4"><a href="the-two-sample-z-test-by-hand.html#cb234-4" aria-hidden="true" tabindex="-1"></a>Placebo_Mean<span class="ot">=</span><span class="fl">15.10</span></span>
-<span id="cb234-5"><a href="the-two-sample-z-test-by-hand.html#cb234-5" aria-hidden="true" tabindex="-1"></a>Placebo_SD<span class="ot">=</span><span class="fl">4.28</span></span>
-<span id="cb234-6"><a href="the-two-sample-z-test-by-hand.html#cb234-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-7"><a href="the-two-sample-z-test-by-hand.html#cb234-7" aria-hidden="true" tabindex="-1"></a>SimulatedDrug<span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>,Drug_Mean,Drug_SDSD)</span>
-<span id="cb234-8"><a href="the-two-sample-z-test-by-hand.html#cb234-8" aria-hidden="true" tabindex="-1"></a>SimulatedPlacebo<span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>,Placebo_Mean,Placebo_SD)</span>
-<span id="cb234-9"><a href="the-two-sample-z-test-by-hand.html#cb234-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-10"><a href="the-two-sample-z-test-by-hand.html#cb234-10" aria-hidden="true" tabindex="-1"></a>breaks <span class="ot">=</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">20</span>,<span class="dv">40</span>, <span class="at">length.out =</span> <span class="dv">50</span>) <span class="co">#bins for the distribution</span></span>
-<span id="cb234-11"><a href="the-two-sample-z-test-by-hand.html#cb234-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-12"><a href="the-two-sample-z-test-by-hand.html#cb234-12" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram for drug</span></span>
-<span id="cb234-13"><a href="the-two-sample-z-test-by-hand.html#cb234-13" aria-hidden="true" tabindex="-1"></a>Drug<span class="ot">=</span> <span class="fu">hist</span>(SimulatedDrug, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">20</span>,<span class="dv">40</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">500</span>),<span class="at">breaks =</span> breaks,  <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb234-14"><a href="the-two-sample-z-test-by-hand.html#cb234-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-15"><a href="the-two-sample-z-test-by-hand.html#cb234-15" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram for Placebo</span></span>
-<span id="cb234-16"><a href="the-two-sample-z-test-by-hand.html#cb234-16" aria-hidden="true" tabindex="-1"></a>Placebo<span class="ot">=</span> <span class="fu">hist</span>(SimulatedPlacebo, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">20</span>,<span class="dv">40</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">500</span>),<span class="at">breaks =</span> breaks,  <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb234-17"><a href="the-two-sample-z-test-by-hand.html#cb234-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-18"><a href="the-two-sample-z-test-by-hand.html#cb234-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-19"><a href="the-two-sample-z-test-by-hand.html#cb234-19" aria-hidden="true" tabindex="-1"></a><span class="co">#because you are plotting two distributions, it will be nice to use different colors. and because they likely overlap, you should use semitransparent colors</span></span>
-<span id="cb234-20"><a href="the-two-sample-z-test-by-hand.html#cb234-20" aria-hidden="true" tabindex="-1"></a>LightBlue <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="dv">173</span>,<span class="dv">216</span>,<span class="dv">230</span>,<span class="at">max =</span> <span class="dv">255</span>, <span class="at">alpha =</span> <span class="dv">100</span>) <span class="co">#the function rgb lets your select one color, and the alpha gives you how transparent</span></span>
-<span id="cb234-21"><a href="the-two-sample-z-test-by-hand.html#cb234-21" aria-hidden="true" tabindex="-1"></a>DarkRed <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="dv">255</span>,<span class="dv">192</span>,<span class="dv">203</span>, <span class="at">max =</span> <span class="dv">255</span>, <span class="at">alpha =</span> <span class="dv">95</span>)</span>
-<span id="cb234-22"><a href="the-two-sample-z-test-by-hand.html#cb234-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-23"><a href="the-two-sample-z-test-by-hand.html#cb234-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-24"><a href="the-two-sample-z-test-by-hand.html#cb234-24" aria-hidden="true" tabindex="-1"></a><span class="co">#lets plot the first distribution</span></span>
-<span id="cb234-25"><a href="the-two-sample-z-test-by-hand.html#cb234-25" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Drug, <span class="at">main=</span><span class="cn">NA</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">20</span>,<span class="dv">40</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1500</span>),<span class="at">breaks =</span> breaks, <span class="at">xlab =</span> <span class="st">&quot;Time to do 20 push-up (Seconds)&quot;</span>,<span class="at">ylab =</span> <span class="st">&quot;Number of people&quot;</span> ,<span class="at">col=</span>LightBlue)</span>
-<span id="cb234-26"><a href="the-two-sample-z-test-by-hand.html#cb234-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb234-27"><a href="the-two-sample-z-test-by-hand.html#cb234-27" aria-hidden="true" tabindex="-1"></a><span class="co">#now add the second distribution to the first plot, using the parameter add=TRUE, or add=T, theya re both the same</span></span>
-<span id="cb234-28"><a href="the-two-sample-z-test-by-hand.html#cb234-28" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Placebo, <span class="at">add=</span>T ,<span class="at">col=</span>DarkRed)  <span class="co">#note how for the parameter col, you indicate the color you create as a variable above</span></span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="the-two-sample-z-test-by-hand.html#cb245-1" aria-hidden="true" tabindex="-1"></a>Drug_Mean<span class="ot">=</span><span class="fl">9.78</span>   </span>
+<span id="cb245-2"><a href="the-two-sample-z-test-by-hand.html#cb245-2" aria-hidden="true" tabindex="-1"></a>Drug_SDSD<span class="ot">=</span><span class="fl">4.05</span></span>
+<span id="cb245-3"><a href="the-two-sample-z-test-by-hand.html#cb245-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-4"><a href="the-two-sample-z-test-by-hand.html#cb245-4" aria-hidden="true" tabindex="-1"></a>Placebo_Mean<span class="ot">=</span><span class="fl">15.10</span></span>
+<span id="cb245-5"><a href="the-two-sample-z-test-by-hand.html#cb245-5" aria-hidden="true" tabindex="-1"></a>Placebo_SD<span class="ot">=</span><span class="fl">4.28</span></span>
+<span id="cb245-6"><a href="the-two-sample-z-test-by-hand.html#cb245-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-7"><a href="the-two-sample-z-test-by-hand.html#cb245-7" aria-hidden="true" tabindex="-1"></a>SimulatedDrug<span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>,Drug_Mean,Drug_SDSD)</span>
+<span id="cb245-8"><a href="the-two-sample-z-test-by-hand.html#cb245-8" aria-hidden="true" tabindex="-1"></a>SimulatedPlacebo<span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>,Placebo_Mean,Placebo_SD)</span>
+<span id="cb245-9"><a href="the-two-sample-z-test-by-hand.html#cb245-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-10"><a href="the-two-sample-z-test-by-hand.html#cb245-10" aria-hidden="true" tabindex="-1"></a>breaks <span class="ot">=</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">20</span>,<span class="dv">40</span>, <span class="at">length.out =</span> <span class="dv">50</span>) <span class="co">#bins for the distribution</span></span>
+<span id="cb245-11"><a href="the-two-sample-z-test-by-hand.html#cb245-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-12"><a href="the-two-sample-z-test-by-hand.html#cb245-12" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram for drug</span></span>
+<span id="cb245-13"><a href="the-two-sample-z-test-by-hand.html#cb245-13" aria-hidden="true" tabindex="-1"></a>Drug<span class="ot">=</span> <span class="fu">hist</span>(SimulatedDrug, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">20</span>,<span class="dv">40</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">500</span>),<span class="at">breaks =</span> breaks,  <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb245-14"><a href="the-two-sample-z-test-by-hand.html#cb245-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-15"><a href="the-two-sample-z-test-by-hand.html#cb245-15" aria-hidden="true" tabindex="-1"></a><span class="co">#histogram for Placebo</span></span>
+<span id="cb245-16"><a href="the-two-sample-z-test-by-hand.html#cb245-16" aria-hidden="true" tabindex="-1"></a>Placebo<span class="ot">=</span> <span class="fu">hist</span>(SimulatedPlacebo, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">20</span>,<span class="dv">40</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">500</span>),<span class="at">breaks =</span> breaks,  <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb245-17"><a href="the-two-sample-z-test-by-hand.html#cb245-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-18"><a href="the-two-sample-z-test-by-hand.html#cb245-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-19"><a href="the-two-sample-z-test-by-hand.html#cb245-19" aria-hidden="true" tabindex="-1"></a><span class="co">#because you are plotting two distributions, it will be nice to use different colors. and because they likely overlap, you should use semitransparent colors</span></span>
+<span id="cb245-20"><a href="the-two-sample-z-test-by-hand.html#cb245-20" aria-hidden="true" tabindex="-1"></a>LightBlue <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="dv">173</span>,<span class="dv">216</span>,<span class="dv">230</span>,<span class="at">max =</span> <span class="dv">255</span>, <span class="at">alpha =</span> <span class="dv">100</span>) <span class="co">#the function rgb lets your select one color, and the alpha gives you how transparent</span></span>
+<span id="cb245-21"><a href="the-two-sample-z-test-by-hand.html#cb245-21" aria-hidden="true" tabindex="-1"></a>DarkRed <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="dv">255</span>,<span class="dv">192</span>,<span class="dv">203</span>, <span class="at">max =</span> <span class="dv">255</span>, <span class="at">alpha =</span> <span class="dv">95</span>)</span>
+<span id="cb245-22"><a href="the-two-sample-z-test-by-hand.html#cb245-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-23"><a href="the-two-sample-z-test-by-hand.html#cb245-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-24"><a href="the-two-sample-z-test-by-hand.html#cb245-24" aria-hidden="true" tabindex="-1"></a><span class="co">#lets plot the first distribution</span></span>
+<span id="cb245-25"><a href="the-two-sample-z-test-by-hand.html#cb245-25" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Drug, <span class="at">main=</span><span class="cn">NA</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">20</span>,<span class="dv">40</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1500</span>),<span class="at">breaks =</span> breaks, <span class="at">xlab =</span> <span class="st">&quot;Time to do 20 push-up (Seconds)&quot;</span>,<span class="at">ylab =</span> <span class="st">&quot;Number of people&quot;</span> ,<span class="at">col=</span>LightBlue)</span>
+<span id="cb245-26"><a href="the-two-sample-z-test-by-hand.html#cb245-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-27"><a href="the-two-sample-z-test-by-hand.html#cb245-27" aria-hidden="true" tabindex="-1"></a><span class="co">#now add the second distribution to the first plot, using the parameter add=TRUE, or add=T, theya re both the same</span></span>
+<span id="cb245-28"><a href="the-two-sample-z-test-by-hand.html#cb245-28" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Placebo, <span class="at">add=</span>T ,<span class="at">col=</span>DarkRed)  <span class="co">#note how for the parameter col, you indicate the color you create as a variable above</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-307-1.png" width="672" /></p>
 <p>Lets state the hypotheses:</p>
 <p>H0: Drug performance time = placebo time The null hypothesis is that the two groups take the same time.</p>
@@ -454,21 +458,21 @@ Figure 11.3: Z-test fucntion for two samples
 <p>Perhaps a better statement could be that the drug is better, in which case the null hypothesis would be greater than, in which case we would need a right-hand test, as oppose to a two-tail test when we asked is they are different. When it comes to statistics, and most things in life, you always do what is written, as that is your supporting evidence.</p>
 <p>So what test do we use?. Well, the sample size is larger than 30, so a Z-test seems appropriated.</p>
 <p>Lets calculate the Z-score for comparing two samples</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="the-two-sample-z-test-by-hand.html#cb235-1" aria-hidden="true" tabindex="-1"></a>Drug_Mean<span class="ot">=</span><span class="fl">9.78</span>   </span>
-<span id="cb235-2"><a href="the-two-sample-z-test-by-hand.html#cb235-2" aria-hidden="true" tabindex="-1"></a>Drug_SDSD<span class="ot">=</span><span class="fl">4.05</span></span>
-<span id="cb235-3"><a href="the-two-sample-z-test-by-hand.html#cb235-3" aria-hidden="true" tabindex="-1"></a>Drug_n <span class="ot">=</span><span class="dv">900</span>   <span class="co">#sample size for the drug treatment</span></span>
-<span id="cb235-4"><a href="the-two-sample-z-test-by-hand.html#cb235-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb235-5"><a href="the-two-sample-z-test-by-hand.html#cb235-5" aria-hidden="true" tabindex="-1"></a>Placebo_Mean<span class="ot">=</span><span class="fl">15.10</span></span>
-<span id="cb235-6"><a href="the-two-sample-z-test-by-hand.html#cb235-6" aria-hidden="true" tabindex="-1"></a>Placebo_SD<span class="ot">=</span><span class="fl">4.28</span></span>
-<span id="cb235-7"><a href="the-two-sample-z-test-by-hand.html#cb235-7" aria-hidden="true" tabindex="-1"></a>Placebo_n<span class="ot">=</span><span class="dv">1000</span> <span class="co">#sample size for the placebo treatment</span></span>
-<span id="cb235-8"><a href="the-two-sample-z-test-by-hand.html#cb235-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb235-9"><a href="the-two-sample-z-test-by-hand.html#cb235-9" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb235-10"><a href="the-two-sample-z-test-by-hand.html#cb235-10" aria-hidden="true" tabindex="-1"></a>Z_Score_Numerator<span class="ot">=</span> (Drug_Mean<span class="sc">-</span>Placebo_Mean) <span class="sc">-</span><span class="dv">0</span>  <span class="co">#because we assume that the two treatments have the same effect, we then have to assume that the difference between the population means is zero.</span></span>
-<span id="cb235-11"><a href="the-two-sample-z-test-by-hand.html#cb235-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb235-12"><a href="the-two-sample-z-test-by-hand.html#cb235-12" aria-hidden="true" tabindex="-1"></a>Z_Score_denominator<span class="ot">=</span> <span class="fu">sqrt</span>(((Drug_SDSD<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>Drug_n)<span class="sc">+</span>((Placebo_SD<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>Placebo_n))</span>
-<span id="cb235-13"><a href="the-two-sample-z-test-by-hand.html#cb235-13" aria-hidden="true" tabindex="-1"></a>                          </span>
-<span id="cb235-14"><a href="the-two-sample-z-test-by-hand.html#cb235-14" aria-hidden="true" tabindex="-1"></a>Z_score<span class="ot">=</span>Z_Score_Numerator<span class="sc">/</span>Z_Score_denominator</span>
-<span id="cb235-15"><a href="the-two-sample-z-test-by-hand.html#cb235-15" aria-hidden="true" tabindex="-1"></a>Z_score</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="the-two-sample-z-test-by-hand.html#cb246-1" aria-hidden="true" tabindex="-1"></a>Drug_Mean<span class="ot">=</span><span class="fl">9.78</span>   </span>
+<span id="cb246-2"><a href="the-two-sample-z-test-by-hand.html#cb246-2" aria-hidden="true" tabindex="-1"></a>Drug_SDSD<span class="ot">=</span><span class="fl">4.05</span></span>
+<span id="cb246-3"><a href="the-two-sample-z-test-by-hand.html#cb246-3" aria-hidden="true" tabindex="-1"></a>Drug_n <span class="ot">=</span><span class="dv">900</span>   <span class="co">#sample size for the drug treatment</span></span>
+<span id="cb246-4"><a href="the-two-sample-z-test-by-hand.html#cb246-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb246-5"><a href="the-two-sample-z-test-by-hand.html#cb246-5" aria-hidden="true" tabindex="-1"></a>Placebo_Mean<span class="ot">=</span><span class="fl">15.10</span></span>
+<span id="cb246-6"><a href="the-two-sample-z-test-by-hand.html#cb246-6" aria-hidden="true" tabindex="-1"></a>Placebo_SD<span class="ot">=</span><span class="fl">4.28</span></span>
+<span id="cb246-7"><a href="the-two-sample-z-test-by-hand.html#cb246-7" aria-hidden="true" tabindex="-1"></a>Placebo_n<span class="ot">=</span><span class="dv">1000</span> <span class="co">#sample size for the placebo treatment</span></span>
+<span id="cb246-8"><a href="the-two-sample-z-test-by-hand.html#cb246-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb246-9"><a href="the-two-sample-z-test-by-hand.html#cb246-9" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb246-10"><a href="the-two-sample-z-test-by-hand.html#cb246-10" aria-hidden="true" tabindex="-1"></a>Z_Score_Numerator<span class="ot">=</span> (Drug_Mean<span class="sc">-</span>Placebo_Mean) <span class="sc">-</span><span class="dv">0</span>  <span class="co">#because we assume that the two treatments have the same effect, we then have to assume that the difference between the population means is zero.</span></span>
+<span id="cb246-11"><a href="the-two-sample-z-test-by-hand.html#cb246-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb246-12"><a href="the-two-sample-z-test-by-hand.html#cb246-12" aria-hidden="true" tabindex="-1"></a>Z_Score_denominator<span class="ot">=</span> <span class="fu">sqrt</span>(((Drug_SDSD<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>Drug_n)<span class="sc">+</span>((Placebo_SD<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>Placebo_n))</span>
+<span id="cb246-13"><a href="the-two-sample-z-test-by-hand.html#cb246-13" aria-hidden="true" tabindex="-1"></a>                          </span>
+<span id="cb246-14"><a href="the-two-sample-z-test-by-hand.html#cb246-14" aria-hidden="true" tabindex="-1"></a>Z_score<span class="ot">=</span>Z_Score_Numerator<span class="sc">/</span>Z_Score_denominator</span>
+<span id="cb246-15"><a href="the-two-sample-z-test-by-hand.html#cb246-15" aria-hidden="true" tabindex="-1"></a>Z_score</span></code></pre></div>
 <pre><code>## [1] -27.82961</code></pre>
 <p>By now, we know well that two standard deviations from the mean include 95% of the observations in a normally distributed population. A value that is -27.82 standard deviations away from the mean does not even appear in traditional z-tables, so we can certainly reject the null hypothesis and conclude that this drug is indeed different than a placebo.</p>
 </div>
@@ -558,7 +562,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

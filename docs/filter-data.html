@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Filter data | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Filter data | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -406,13 +410,13 @@ By Camilo Mora, Ph.D.
 <div id="filter-data" class="section level2 unnumbered hasAnchor">
 <h2>Filter data<a href="filter-data.html#filter-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A recurring task in data analytics is to filter data, this means to select specific subsets/chucks of your data. Filters can be used to create new variables, to apply new functions, to see specific data, etc. There are numerous ways to filter data in R, but here we wall use the function filter in the package “dplyr”.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="filter-data.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)     #First, I install the package dplyr and tidyverse, since I have not installed it previously</span></span>
-<span id="cb73-2"><a href="filter-data.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyverse&quot;) </span></span>
-<span id="cb73-3"><a href="filter-data.html#cb73-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb73-4"><a href="filter-data.html#cb73-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co">#next I load the packages into the current section of R.</span></span>
-<span id="cb73-5"><a href="filter-data.html#cb73-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)            </span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="filter-data.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)     #First, I install the package dplyr and tidyverse, since I have not installed it previously</span></span>
+<span id="cb75-2"><a href="filter-data.html#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyverse&quot;) </span></span>
+<span id="cb75-3"><a href="filter-data.html#cb75-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-4"><a href="filter-data.html#cb75-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co">#next I load the packages into the current section of R.</span></span>
+<span id="cb75-5"><a href="filter-data.html#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)            </span></code></pre></div>
 <p>Now, lets check the first few rows in the GDP database we loaded earlier,</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="filter-data.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(GDPData)             <span class="co">#lets look at the column head of the GDP data we loaded earlier.</span></span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="filter-data.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(GDPData)             <span class="co">#lets look at the column head of the GDP data we loaded earlier.</span></span></code></pre></div>
 <pre><code>##       country continent year gdpPercap
 ## 1699 Zimbabwe    Africa 1982  788.8550
 ## 1700 Zimbabwe    Africa 1987  706.1573
@@ -433,7 +437,7 @@ Figure 3.7: Filter function
 Pipes, %&gt;%, are a powerful tool for doing sequential operations. Commonly it requires tthe tidyverse package. In the next section you will better see the use of pipes.
 </div>
 <p>Now that you know the syntax of the filter function from the dplr package, lets test it.</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="filter-data.html#cb76-1" aria-hidden="true" tabindex="-1"></a>GDPData <span class="sc">%&gt;%</span> <span class="fu">filter</span>(continent<span class="sc">==</span><span class="st">&quot;Asia&quot;</span>)       </span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="filter-data.html#cb78-1" aria-hidden="true" tabindex="-1"></a>GDPData <span class="sc">%&gt;%</span> <span class="fu">filter</span>(continent<span class="sc">==</span><span class="st">&quot;Asia&quot;</span>)       </span></code></pre></div>
 <pre><code>##                country continent year   gdpPercap
 ## 1          Afghanistan      Asia 1952    779.4453
 ## 2          Afghanistan      Asia 1957    820.8530
@@ -919,7 +923,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

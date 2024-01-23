@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Predict: Interpolation, Extrapolation | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Predict: Interpolation, Extrapolation | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -451,17 +455,17 @@ Predicting Y values for X values that are beyond observed X values in the data s
 Becuase extrapolation predict values beyond what is known, uncertainty is much higher and at times forecasts can be unrealistic.
 </div>
 <p>In R, you can predict any value from a linear model, using the <em>predict</em> function, let’s try.</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="predict-interpolation-extrapolation.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="co">#take the data on grades and time studying</span></span>
-<span id="cb202-2"><a href="predict-interpolation-extrapolation.html#cb202-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>) <span class="co">#hours studying</span></span>
-<span id="cb202-3"><a href="predict-interpolation-extrapolation.html#cb202-3" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)       <span class="co">#grades</span></span>
-<span id="cb202-4"><a href="predict-interpolation-extrapolation.html#cb202-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb202-5"><a href="predict-interpolation-extrapolation.html#cb202-5" aria-hidden="true" tabindex="-1"></a><span class="co"># lets estimate the regression line using lm, and lets put that model in a variable</span></span>
-<span id="cb202-6"><a href="predict-interpolation-extrapolation.html#cb202-6" aria-hidden="true" tabindex="-1"></a>LM <span class="ot">=</span> <span class="fu">lm</span> (Y<span class="sc">~</span>X)   <span class="co">#this is the linear model between Grades~Hours_Studying</span></span>
-<span id="cb202-7"><a href="predict-interpolation-extrapolation.html#cb202-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb202-8"><a href="predict-interpolation-extrapolation.html#cb202-8" aria-hidden="true" tabindex="-1"></a><span class="co"># lets now predict, the expected grades for three students that studied 1 hour, 3 hours and 10 hours</span></span>
-<span id="cb202-9"><a href="predict-interpolation-extrapolation.html#cb202-9" aria-hidden="true" tabindex="-1"></a>PredictGradres<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">100</span>)) <span class="co">#here I create a data.frame with the times studied by the three students. You need to create a column, with the same name, as the model, so lm can know which one is  the X-variable</span></span>
-<span id="cb202-10"><a href="predict-interpolation-extrapolation.html#cb202-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb202-11"><a href="predict-interpolation-extrapolation.html#cb202-11" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(LM, PredictGradres)</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="predict-interpolation-extrapolation.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="co">#take the data on grades and time studying</span></span>
+<span id="cb213-2"><a href="predict-interpolation-extrapolation.html#cb213-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>) <span class="co">#hours studying</span></span>
+<span id="cb213-3"><a href="predict-interpolation-extrapolation.html#cb213-3" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)       <span class="co">#grades</span></span>
+<span id="cb213-4"><a href="predict-interpolation-extrapolation.html#cb213-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-5"><a href="predict-interpolation-extrapolation.html#cb213-5" aria-hidden="true" tabindex="-1"></a><span class="co"># lets estimate the regression line using lm, and lets put that model in a variable</span></span>
+<span id="cb213-6"><a href="predict-interpolation-extrapolation.html#cb213-6" aria-hidden="true" tabindex="-1"></a>LM <span class="ot">=</span> <span class="fu">lm</span> (Y<span class="sc">~</span>X)   <span class="co">#this is the linear model between Grades~Hours_Studying</span></span>
+<span id="cb213-7"><a href="predict-interpolation-extrapolation.html#cb213-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-8"><a href="predict-interpolation-extrapolation.html#cb213-8" aria-hidden="true" tabindex="-1"></a><span class="co"># lets now predict, the expected grades for three students that studied 1 hour, 3 hours and 10 hours</span></span>
+<span id="cb213-9"><a href="predict-interpolation-extrapolation.html#cb213-9" aria-hidden="true" tabindex="-1"></a>PredictGradres<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">100</span>)) <span class="co">#here I create a data.frame with the times studied by the three students. You need to create a column, with the same name, as the model, so lm can know which one is  the X-variable</span></span>
+<span id="cb213-10"><a href="predict-interpolation-extrapolation.html#cb213-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-11"><a href="predict-interpolation-extrapolation.html#cb213-11" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(LM, PredictGradres)</span></code></pre></div>
 <pre><code>##          1          2          3 
 ##   58.86272   78.03432 1007.85680</code></pre>
 <p>From the predictions above, you can see how the model wrongly predicts that a person that studies 100 hours a week, will get a 1000.7 grade in the class. Obviously, the most you can get is 100%. This helps to illustrate the caution needed when extrapolating a linear model beyond the limits of the data.</p>
@@ -561,7 +565,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>The experiment | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="The experiment | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -413,9 +417,31 @@ By Camilo Mora, Ph.D.
 <p>Three important terms for you to know in experimental design are the subject/individual, the sample and the population.</p>
 <p>Population refers to every individual of interest. The sample refers to only some of the individuals of interest. When you quantify a given variable in an entire population that is called a <em>census</em>. Any statistic based on an entire population is called “point stimate”.</p>
 <p>Drag terms where you think they belong.</p>
-<iframe src="https://impact.gocarbonneutral.org/H5P/wp-admin/admin-ajax.php?action=h5p_embed&amp;id=8" width="760" height="698" frameborder="0" allowfullscreen="allowfullscreen" title="09:Terms">
-</iframe>
-<script src="https://impact.gocarbonneutral.org/H5P/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
+<div id="h5p-container-8">
+
+</div>
+<script>
+  (function() {
+    let h5pContainer = document.getElementById("h5p-container-8"); // div tag ID
+    let h5pJsonPath = 'H5P_Unzip/08_experiment-8'; // YOUR H5P FILE (THIS IS A FOLDER PATH)
+
+    if (!document.getElementById('h5p-bundle-js')) {
+      let script = document.createElement('script');
+      script.id = 'h5p-bundle-js';
+      script.src = 'libs/h5p/main.bundle.js';
+      h5pContainer.parentNode.insertBefore(script, h5pContainer.nextSibling);
+    }
+
+    window.addEventListener("load", function() {
+      const options = {
+        h5pJsonPath: h5pJsonPath,
+        frameJs: 'libs/h5p/frame.bundle.js',
+        frameCss: 'libs/h5p/styles/h5p.css',
+      }
+      new H5PStandalone.H5P(h5pContainer, options);
+    });
+  }) ();
+</script>
 <p>You need to appreciate that statistics from the samples can vary from sample to sample, whereas statistics from the population are fixed for the given population. For instance, in the figure above, yellow birds represent 1 out of ten birds (i.e., 10% of the sample) in the sample outlined with a solid line. Yet in another sample (outlined with a dotted purple line), out of ten individuals there are two yellow birds (i.e., 20%).</p>
 <p>It is important that you appreciate the differences between the sample and the population, because at times those differences is exactly what you want to measure and test. Say you know that the average heart rate of people is 80 beats per minute but yours is 90 beats per minute. Is your rate significantly higher that it is expected?
 In this case, you can compare your hearths rate to that of the average population.
@@ -614,7 +640,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

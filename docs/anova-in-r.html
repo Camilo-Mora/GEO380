@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>ANOVA in R | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="ANOVA in R | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -406,15 +410,15 @@ By Camilo Mora, Ph.D.
 <div id="anova-in-r" class="section level2 unnumbered hasAnchor">
 <h2>ANOVA in R<a href="anova-in-r.html#anova-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are numerous R-packages that allow you to run ANOVAs, lets try a couple:</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="anova-in-r.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb243-2"><a href="anova-in-r.html#cb243-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
-<span id="cb243-3"><a href="anova-in-r.html#cb243-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix) <span class="co"># we load this libraries, which we use to sumamrise the results</span></span>
-<span id="cb243-4"><a href="anova-in-r.html#cb243-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb243-5"><a href="anova-in-r.html#cb243-5" aria-hidden="true" tabindex="-1"></a><span class="co">#We start by putting the data in a dataframe, which two columns. one for the variety type, and the other for the number of tomatoes </span></span>
-<span id="cb243-6"><a href="anova-in-r.html#cb243-6" aria-hidden="true" tabindex="-1"></a>Data<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">Variety=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;VarA&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarB&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarC&quot;</span>,<span class="dv">3</span>)), <span class="at">NumTomatoes=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>, <span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>, <span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>))</span>
-<span id="cb243-7"><a href="anova-in-r.html#cb243-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb243-8"><a href="anova-in-r.html#cb243-8" aria-hidden="true" tabindex="-1"></a><span class="co">#The ANOVA function is anova_test, which simply requires the response variable (number of tomatoes in our case) equal to the independent variable or factor (Variety of tomatoes in our case)</span></span>
-<span id="cb243-9"><a href="anova-in-r.html#cb243-9" aria-hidden="true" tabindex="-1"></a>res.aov <span class="ot">&lt;-</span> Data <span class="sc">%&gt;%</span> <span class="fu">anova_test</span>(NumTomatoes <span class="sc">~</span> Variety)</span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="anova-in-r.html#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb254-2"><a href="anova-in-r.html#cb254-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb254-3"><a href="anova-in-r.html#cb254-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix) <span class="co"># we load this libraries, which we use to sumamrise the results</span></span>
+<span id="cb254-4"><a href="anova-in-r.html#cb254-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb254-5"><a href="anova-in-r.html#cb254-5" aria-hidden="true" tabindex="-1"></a><span class="co">#We start by putting the data in a dataframe, which two columns. one for the variety type, and the other for the number of tomatoes </span></span>
+<span id="cb254-6"><a href="anova-in-r.html#cb254-6" aria-hidden="true" tabindex="-1"></a>Data<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">Variety=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;VarA&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarB&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarC&quot;</span>,<span class="dv">3</span>)), <span class="at">NumTomatoes=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>, <span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>, <span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>))</span>
+<span id="cb254-7"><a href="anova-in-r.html#cb254-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb254-8"><a href="anova-in-r.html#cb254-8" aria-hidden="true" tabindex="-1"></a><span class="co">#The ANOVA function is anova_test, which simply requires the response variable (number of tomatoes in our case) equal to the independent variable or factor (Variety of tomatoes in our case)</span></span>
+<span id="cb254-9"><a href="anova-in-r.html#cb254-9" aria-hidden="true" tabindex="-1"></a>res.aov <span class="ot">&lt;-</span> Data <span class="sc">%&gt;%</span> <span class="fu">anova_test</span>(NumTomatoes <span class="sc">~</span> Variety)</span></code></pre></div>
 The results are identical to our hand calculations:
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-333"></span>
 <img src="images/F-statistic_In_R.png" alt="Anova in R using anova_test" width="70%" />
@@ -423,9 +427,9 @@ Figure 12.14: Anova in R using anova_test
 </p>
 </div>
 <p>We can also run an ANOVA in R using the aov function, which is part of the default functions in R.</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="anova-in-r.html#cb244-1" aria-hidden="true" tabindex="-1"></a>Data<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">Variety=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;VarA&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarB&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarC&quot;</span>,<span class="dv">3</span>)), <span class="at">NumTomatoes=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>, <span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>, <span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>))</span>
-<span id="cb244-2"><a href="anova-in-r.html#cb244-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb244-3"><a href="anova-in-r.html#cb244-3" aria-hidden="true" tabindex="-1"></a>aovAnova <span class="ot">&lt;-</span> <span class="fu">aov</span>(NumTomatoes <span class="sc">~</span> Variety, <span class="at">data =</span> Data)</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="anova-in-r.html#cb255-1" aria-hidden="true" tabindex="-1"></a>Data<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">Variety=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;VarA&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarB&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarC&quot;</span>,<span class="dv">3</span>)), <span class="at">NumTomatoes=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>, <span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>, <span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>))</span>
+<span id="cb255-2"><a href="anova-in-r.html#cb255-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb255-3"><a href="anova-in-r.html#cb255-3" aria-hidden="true" tabindex="-1"></a>aovAnova <span class="ot">&lt;-</span> <span class="fu">aov</span>(NumTomatoes <span class="sc">~</span> Variety, <span class="at">data =</span> Data)</span></code></pre></div>
 The results are identical to our hand calculations:
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-335"></span>
 <img src="images/F-statistic_In_R_oav.png" alt="Anova in R using aov" width="70%" />
@@ -434,10 +438,10 @@ Figure 12.15: Anova in R using aov
 </p>
 </div>
 <p>You can see a different set of results from the aov function, using the summary function.</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="anova-in-r.html#cb245-1" aria-hidden="true" tabindex="-1"></a>Data<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">Variety=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;VarA&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarB&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarC&quot;</span>,<span class="dv">3</span>)), <span class="at">NumTomatoes=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>, <span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>, <span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>))</span>
-<span id="cb245-2"><a href="anova-in-r.html#cb245-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb245-3"><a href="anova-in-r.html#cb245-3" aria-hidden="true" tabindex="-1"></a>aovAnova <span class="ot">&lt;-</span> <span class="fu">aov</span>(NumTomatoes <span class="sc">~</span> Variety, <span class="at">data =</span> Data)</span>
-<span id="cb245-4"><a href="anova-in-r.html#cb245-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(aovAnova)</span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="anova-in-r.html#cb256-1" aria-hidden="true" tabindex="-1"></a>Data<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">Variety=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;VarA&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarB&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarC&quot;</span>,<span class="dv">3</span>)), <span class="at">NumTomatoes=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>, <span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>, <span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>))</span>
+<span id="cb256-2"><a href="anova-in-r.html#cb256-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb256-3"><a href="anova-in-r.html#cb256-3" aria-hidden="true" tabindex="-1"></a>aovAnova <span class="ot">&lt;-</span> <span class="fu">aov</span>(NumTomatoes <span class="sc">~</span> Variety, <span class="at">data =</span> Data)</span>
+<span id="cb256-4"><a href="anova-in-r.html#cb256-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(aovAnova)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-337"></span>
 <img src="images/F-statistic_In_R_oav_Sumamry.png" alt="Anova in R using aov" width="70%" />
 <p class="caption">
@@ -531,7 +535,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

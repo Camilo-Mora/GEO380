@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Loading your own data into R | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Loading your own data into R | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -447,18 +451,18 @@ Figure 3.6: Slash keys in keyboard
 </p>
 </div>
 <p>So the path to the file should be change from this:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="loading-your-own-data-into-r.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;D:\GEO380\Datasets\&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="loading-your-own-data-into-r.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;D:\GEO380\Datasets\&quot;</span></span></code></pre></div>
 <p>to this:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="loading-your-own-data-into-r.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;D:/GEO380/Datasets/&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="loading-your-own-data-into-r.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;D:/GEO380/Datasets/&quot;</span></span></code></pre></div>
 <p>Now, to the path of the folder in which you have the file, you need to add the file name, like this:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="loading-your-own-data-into-r.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;D:/GEO380/Datasets/Countries_GDP.csv&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="loading-your-own-data-into-r.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;D:/GEO380/Datasets/Countries_GDP.csv&quot;</span></span></code></pre></div>
 <p>I have to tell you that when I got started in R. A colleague sent me a file and told me to open his file in R. It sounded simple at the time, but it took me two days to figure out all these tiny things about setting the file correctly. Back in those days the internet was not so full of useful tutorials about how to do this. Ok, let’s keep going.</p>
 <p>Now add to your path the R function that is used read csv files, which is “read.csv()”, like this:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="loading-your-own-data-into-r.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read.csv(&quot;D:/GEO380/Datasets/Countries_GDP.csv&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="loading-your-own-data-into-r.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read.csv(&quot;D:/GEO380/Datasets/Countries_GDP.csv&quot;)</span></span></code></pre></div>
 <p>I suggest you attach this file to a variable name, so you can call it later.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="loading-your-own-data-into-r.html#cb56-1" aria-hidden="true" tabindex="-1"></a>GDPData<span class="ot">=</span><span class="fu">read.csv</span>(<span class="st">&quot;D:/GEO380/Datasets/Countries_GDP.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="loading-your-own-data-into-r.html#cb58-1" aria-hidden="true" tabindex="-1"></a>GDPData<span class="ot">=</span><span class="fu">read.csv</span>(<span class="st">&quot;D:/GEO380/Datasets/Countries_GDP.csv&quot;</span>)</span></code></pre></div>
 <p>That is it, now you have loaded your data into R. Check it out by looking at the top part of the database</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="loading-your-own-data-into-r.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> (GDPData)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="loading-your-own-data-into-r.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> (GDPData)</span></code></pre></div>
 <pre><code>##       country continent year gdpPercap
 ## 1 Afghanistan      Asia 1952  779.4453
 ## 2 Afghanistan      Asia 1957  820.8530
@@ -467,7 +471,7 @@ Figure 3.6: Slash keys in keyboard
 ## 5 Afghanistan      Asia 1972  739.9811
 ## 6 Afghanistan      Asia 1977  786.1134</code></pre>
 <p>By the way, if you know that the csv file in the web will not be deleted or moved, you can read the data from the web directly using the URL to the file, instead of the path. Like this,</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="loading-your-own-data-into-r.html#cb59-1" aria-hidden="true" tabindex="-1"></a>GDPData<span class="ot">=</span><span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_GDP.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="loading-your-own-data-into-r.html#cb61-1" aria-hidden="true" tabindex="-1"></a>GDPData<span class="ot">=</span><span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_GDP.csv&quot;</span>)</span></code></pre></div>
 </div>
 <div id="disqus_thread"></div>
 <script>
@@ -555,7 +559,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

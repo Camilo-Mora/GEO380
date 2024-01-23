@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Comments | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Comments | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -413,9 +417,9 @@ Comments are text you use to describe your code. They have to be preeceded with 
 <p>I cannot tell you the number of times, I have gone back to my old codes and ask myself, what was the purpose of this line. What was I thinking at that time?</p>
 <p>To ensure codes can be easy understood later on, we use comments. R comments are text added to your code, which R does not process.</p>
 <p>Any comment in R has to be preceded with the number sign (#). For instance:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="comments.html#cb16-1" aria-hidden="true" tabindex="-1"></a>A<span class="ot">=</span><span class="dv">10</span> <span class="co"># Here I used R to show how to create a variable</span></span>
-<span id="cb16-2"><a href="comments.html#cb16-2" aria-hidden="true" tabindex="-1"></a>B<span class="ot">=</span><span class="dv">20</span> <span class="co"># In this case, i wanted my variable B to be 2</span></span>
-<span id="cb16-3"><a href="comments.html#cb16-3" aria-hidden="true" tabindex="-1"></a>A<span class="sc">+</span>B</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="comments.html#cb18-1" aria-hidden="true" tabindex="-1"></a>A<span class="ot">=</span><span class="dv">10</span> <span class="co"># Here I used R to show how to create a variable</span></span>
+<span id="cb18-2"><a href="comments.html#cb18-2" aria-hidden="true" tabindex="-1"></a>B<span class="ot">=</span><span class="dv">20</span> <span class="co"># In this case, i wanted my variable B to be 2</span></span>
+<span id="cb18-3"><a href="comments.html#cb18-3" aria-hidden="true" tabindex="-1"></a>A<span class="sc">+</span>B</span></code></pre></div>
 <pre><code>## [1] 30</code></pre>
 <p>w</p>
 </div>
@@ -505,7 +509,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

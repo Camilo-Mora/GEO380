@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Significance | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Significance | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -437,11 +441,11 @@ Figure 6.10: Significance of correlations
 <h3>Correlation p-values<a href="significance.html#correlation-p-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>At times, you want to be more specific about the likely error that the correlation you found can be caused by chance alone. In this case, we need to report an exact p-value. Later on we will be studying p-values in more detail.</p>
 <p>In R, the exact p-value of a correlation is calculated with the function <em>cor.test</em>.</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="significance.html#cb191-1" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">=</span>StudyingTimes<span class="sc">$</span>Score</span>
-<span id="cb191-2"><a href="significance.html#cb191-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span>StudyingTimes<span class="sc">$</span>Hours_Studying</span>
-<span id="cb191-3"><a href="significance.html#cb191-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb191-4"><a href="significance.html#cb191-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb191-5"><a href="significance.html#cb191-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span> (X,Y)</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="significance.html#cb202-1" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">=</span>StudyingTimes<span class="sc">$</span>Score</span>
+<span id="cb202-2"><a href="significance.html#cb202-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span>StudyingTimes<span class="sc">$</span>Hours_Studying</span>
+<span id="cb202-3"><a href="significance.html#cb202-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb202-4"><a href="significance.html#cb202-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb202-5"><a href="significance.html#cb202-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span> (X,Y)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -544,7 +548,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

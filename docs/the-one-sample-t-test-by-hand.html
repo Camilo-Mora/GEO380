@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>The one-sample T-test by hand | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="The one-sample T-test by hand | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -421,18 +425,18 @@ Figure 10.6: R-results for a one-sample z-test
 <p>H1: <span class="math inline">\(\mu\)</span> &gt; 600 the question of interest, which in this case is to know if the girsl scored higher</p>
 <p>In this case, we have a one-sample comparison, we do not know the population variance, and our sample size is only 10 individuals, so a T-test is best suited here.</p>
 <p>Let’s do one by hand,</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="the-one-sample-t-test-by-hand.html#cb232-1" aria-hidden="true" tabindex="-1"></a>Sample<span class="ot">=</span><span class="fu">c</span>(<span class="dv">587</span>, <span class="dv">602</span>, <span class="dv">627</span>, <span class="dv">610</span>, <span class="dv">619</span>, <span class="dv">622</span>, <span class="dv">605</span>, <span class="dv">608</span>, <span class="dv">596</span>, <span class="dv">592</span>) <span class="co">#lets put the values in a vector</span></span>
-<span id="cb232-2"><a href="the-one-sample-t-test-by-hand.html#cb232-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb232-3"><a href="the-one-sample-t-test-by-hand.html#cb232-3" aria-hidden="true" tabindex="-1"></a>SampleMean<span class="ot">=</span><span class="fu">mean</span>(Sample) <span class="co">#mean score of the girls sampled</span></span>
-<span id="cb232-4"><a href="the-one-sample-t-test-by-hand.html#cb232-4" aria-hidden="true" tabindex="-1"></a>SampleSD<span class="ot">=</span><span class="fu">sd</span>(Sample) <span class="co">#this is the sample standard deviation</span></span>
-<span id="cb232-5"><a href="the-one-sample-t-test-by-hand.html#cb232-5" aria-hidden="true" tabindex="-1"></a>SampleSize<span class="ot">=</span> <span class="fu">length</span>(Sample)  <span class="co"># this is the sample size </span></span>
-<span id="cb232-6"><a href="the-one-sample-t-test-by-hand.html#cb232-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb232-7"><a href="the-one-sample-t-test-by-hand.html#cb232-7" aria-hidden="true" tabindex="-1"></a>PopulationMean<span class="ot">=</span> <span class="dv">600</span> <span class="co">#this is the true, expected value, think of it as the population mean...</span></span>
-<span id="cb232-8"><a href="the-one-sample-t-test-by-hand.html#cb232-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb232-9"><a href="the-one-sample-t-test-by-hand.html#cb232-9" aria-hidden="true" tabindex="-1"></a><span class="co">#let&#39;s now estimate the T-score using the equation above.</span></span>
-<span id="cb232-10"><a href="the-one-sample-t-test-by-hand.html#cb232-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb232-11"><a href="the-one-sample-t-test-by-hand.html#cb232-11" aria-hidden="true" tabindex="-1"></a>TTest<span class="ot">=</span>(SampleMean<span class="sc">-</span>PopulationMean)<span class="sc">/</span>(SampleSD<span class="sc">/</span><span class="fu">sqrt</span>(SampleSize))</span>
-<span id="cb232-12"><a href="the-one-sample-t-test-by-hand.html#cb232-12" aria-hidden="true" tabindex="-1"></a>TTest</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="the-one-sample-t-test-by-hand.html#cb243-1" aria-hidden="true" tabindex="-1"></a>Sample<span class="ot">=</span><span class="fu">c</span>(<span class="dv">587</span>, <span class="dv">602</span>, <span class="dv">627</span>, <span class="dv">610</span>, <span class="dv">619</span>, <span class="dv">622</span>, <span class="dv">605</span>, <span class="dv">608</span>, <span class="dv">596</span>, <span class="dv">592</span>) <span class="co">#lets put the values in a vector</span></span>
+<span id="cb243-2"><a href="the-one-sample-t-test-by-hand.html#cb243-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb243-3"><a href="the-one-sample-t-test-by-hand.html#cb243-3" aria-hidden="true" tabindex="-1"></a>SampleMean<span class="ot">=</span><span class="fu">mean</span>(Sample) <span class="co">#mean score of the girls sampled</span></span>
+<span id="cb243-4"><a href="the-one-sample-t-test-by-hand.html#cb243-4" aria-hidden="true" tabindex="-1"></a>SampleSD<span class="ot">=</span><span class="fu">sd</span>(Sample) <span class="co">#this is the sample standard deviation</span></span>
+<span id="cb243-5"><a href="the-one-sample-t-test-by-hand.html#cb243-5" aria-hidden="true" tabindex="-1"></a>SampleSize<span class="ot">=</span> <span class="fu">length</span>(Sample)  <span class="co"># this is the sample size </span></span>
+<span id="cb243-6"><a href="the-one-sample-t-test-by-hand.html#cb243-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb243-7"><a href="the-one-sample-t-test-by-hand.html#cb243-7" aria-hidden="true" tabindex="-1"></a>PopulationMean<span class="ot">=</span> <span class="dv">600</span> <span class="co">#this is the true, expected value, think of it as the population mean...</span></span>
+<span id="cb243-8"><a href="the-one-sample-t-test-by-hand.html#cb243-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb243-9"><a href="the-one-sample-t-test-by-hand.html#cb243-9" aria-hidden="true" tabindex="-1"></a><span class="co">#let&#39;s now estimate the T-score using the equation above.</span></span>
+<span id="cb243-10"><a href="the-one-sample-t-test-by-hand.html#cb243-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb243-11"><a href="the-one-sample-t-test-by-hand.html#cb243-11" aria-hidden="true" tabindex="-1"></a>TTest<span class="ot">=</span>(SampleMean<span class="sc">-</span>PopulationMean)<span class="sc">/</span>(SampleSD<span class="sc">/</span><span class="fu">sqrt</span>(SampleSize))</span>
+<span id="cb243-12"><a href="the-one-sample-t-test-by-hand.html#cb243-12" aria-hidden="true" tabindex="-1"></a>TTest</span></code></pre></div>
 <p>So our estimated T-value is 1.64.</p>
 <p>Now, we need to find out the critical t-value at the 0.05 significance level. For this, we need to estimate something call <strong>Degrees of freedom</strong>, which in this case is simply our sample size minus one. In our case, the degrees of freedom, then, are 9.</p>
 <p>With the information of the <span class="math inline">\(\alpha\)</span> value (i.e., 0.05 in our case) and the degrees of freedom, <strong>DF</strong> (i.e, 9 in our case), we can look for the critical T-value in a table, like the one below.</p>
@@ -534,7 +538,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

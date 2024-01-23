@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Purpuse of the regression line | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Purpuse of the regression line | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -415,16 +419,16 @@ Y = mX + b
 Salary = 10,000 * \text{(Years Of Education)} + 25,000
 \end{equation}\]</span></p>
 <p>I can also display, that line in an XY plot, using the abline function:</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="purpuse-of-the-regression-line.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot first</span></span>
-<span id="cb196-2"><a href="purpuse-of-the-regression-line.html#cb196-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">0</span>, <span class="dv">0</span>,<span class="at">xlab=</span><span class="st">&quot;Years of education&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Salary (in US dollars)&quot;</span>,  <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">150000</span>),<span class="at">col=</span><span class="st">&quot;grey&quot;</span>)</span>
-<span id="cb196-3"><a href="purpuse-of-the-regression-line.html#cb196-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>) </span>
-<span id="cb196-4"><a href="purpuse-of-the-regression-line.html#cb196-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>) </span>
-<span id="cb196-5"><a href="purpuse-of-the-regression-line.html#cb196-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb196-6"><a href="purpuse-of-the-regression-line.html#cb196-6" aria-hidden="true" tabindex="-1"></a><span class="co">#lets draw a trend line with the given parameters</span></span>
-<span id="cb196-7"><a href="purpuse-of-the-regression-line.html#cb196-7" aria-hidden="true" tabindex="-1"></a>Intercept<span class="ot">=</span><span class="dv">25000</span>  </span>
-<span id="cb196-8"><a href="purpuse-of-the-regression-line.html#cb196-8" aria-hidden="true" tabindex="-1"></a>Slope<span class="ot">=</span><span class="dv">10000</span>  </span>
-<span id="cb196-9"><a href="purpuse-of-the-regression-line.html#cb196-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb196-10"><a href="purpuse-of-the-regression-line.html#cb196-10" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope, <span class="at">col=</span><span class="st">&quot;orange&quot;</span>) <span class="co">#lets plot the trend line, and make it orange to differentiate it</span></span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="purpuse-of-the-regression-line.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot first</span></span>
+<span id="cb207-2"><a href="purpuse-of-the-regression-line.html#cb207-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">0</span>, <span class="dv">0</span>,<span class="at">xlab=</span><span class="st">&quot;Years of education&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Salary (in US dollars)&quot;</span>,  <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">150000</span>),<span class="at">col=</span><span class="st">&quot;grey&quot;</span>)</span>
+<span id="cb207-3"><a href="purpuse-of-the-regression-line.html#cb207-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>) </span>
+<span id="cb207-4"><a href="purpuse-of-the-regression-line.html#cb207-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">lty=</span><span class="dv">1</span>) </span>
+<span id="cb207-5"><a href="purpuse-of-the-regression-line.html#cb207-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb207-6"><a href="purpuse-of-the-regression-line.html#cb207-6" aria-hidden="true" tabindex="-1"></a><span class="co">#lets draw a trend line with the given parameters</span></span>
+<span id="cb207-7"><a href="purpuse-of-the-regression-line.html#cb207-7" aria-hidden="true" tabindex="-1"></a>Intercept<span class="ot">=</span><span class="dv">25000</span>  </span>
+<span id="cb207-8"><a href="purpuse-of-the-regression-line.html#cb207-8" aria-hidden="true" tabindex="-1"></a>Slope<span class="ot">=</span><span class="dv">10000</span>  </span>
+<span id="cb207-9"><a href="purpuse-of-the-regression-line.html#cb207-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb207-10"><a href="purpuse-of-the-regression-line.html#cb207-10" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope, <span class="at">col=</span><span class="st">&quot;orange&quot;</span>) <span class="co">#lets plot the trend line, and make it orange to differentiate it</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-224-1.png" width="672" /></p>
 <p>You can also ask questions, like what will be an average salary for a person that studies 4 years of higher education?..You simply replace the <span class="math inline">\(x\)</span> variable in the equation with the number 4 and do the mathematical calculation to get the average expected salary.</p>
 <p><span class="math display">\[\begin{equation}
@@ -522,7 +526,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

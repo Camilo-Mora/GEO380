@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Adding results to databases | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Adding results to databases | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -407,10 +411,10 @@ By Camilo Mora, Ph.D.
 <h2>Adding results to databases<a href="adding-results-to-databases.html#adding-results-to-databases" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Up to this point, we have simply manipulated the data other people collected. What if we now want to do our own analysis with such data? Piece of cake…</p>
 <p>…lets tray, for instance, a new index, in which I want to see how much does it cost a year of life in each country. Basically, all I have to do is to divide how much each person does in each country (i.e., GDP per capita) by the life expectancy of people in each country. Like this,</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="adding-results-to-databases.html#cb93-1" aria-hidden="true" tabindex="-1"></a>SelectedColumns<span class="sc">$</span>ValueofLife <span class="ot">=</span> SelectedColumns<span class="sc">$</span>gdpPercap <span class="sc">/</span> SelectedColumns<span class="sc">$</span>lifeExp </span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="adding-results-to-databases.html#cb95-1" aria-hidden="true" tabindex="-1"></a>SelectedColumns<span class="sc">$</span>ValueofLife <span class="ot">=</span> SelectedColumns<span class="sc">$</span>gdpPercap <span class="sc">/</span> SelectedColumns<span class="sc">$</span>lifeExp </span></code></pre></div>
 <p>WE cant translate the code above as, a a column called ValueofLife to the dataframe SelectedColumns, in which I divide gdpPercap by lifeExp.</p>
 <p>Lets check the results,</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="adding-results-to-databases.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(SelectedColumns)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="adding-results-to-databases.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(SelectedColumns)</span></code></pre></div>
 <pre><code>##       country year gdpPercap lifeExp ValueofLife
 ## 1 Afghanistan 1952  779.4453  28.801    27.06313
 ## 2 Afghanistan 1957  820.8530  30.332    27.06228
@@ -419,8 +423,8 @@ By Camilo Mora, Ph.D.
 ## 5 Afghanistan 1972  739.9811  36.088    20.50491
 ## 6 Afghanistan 1977  786.1134  38.438    20.45146</code></pre>
 <p>Lets do a quiick summary to see the average per country,</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="adding-results-to-databases.html#cb96-1" aria-hidden="true" tabindex="-1"></a>SelectedColumns <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mean_valueOfLife =</span> <span class="fu">mean</span>(ValueofLife))</span></code></pre></div>
-<pre><code>## # A tibble: 142 x 2
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="adding-results-to-databases.html#cb98-1" aria-hidden="true" tabindex="-1"></a>SelectedColumns <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mean_valueOfLife =</span> <span class="fu">mean</span>(ValueofLife))</span></code></pre></div>
+<pre><code>## # A tibble: 142 × 2
 ##    country     mean_valueOfLife
 ##    &lt;chr&gt;                  &lt;dbl&gt;
 ##  1 Afghanistan             21.8
@@ -433,7 +437,7 @@ By Camilo Mora, Ph.D.
 ##  8 Bahrain                271. 
 ##  9 Bangladesh              16.3
 ## 10 Belgium                266. 
-## # ... with 132 more rows</code></pre>
+## # ℹ 132 more rows</code></pre>
 <p>Have a look at the result above. Isn’t it fascinating how in Afghanistan we could increase the life expectancy by one year by simply having people making $21.8 dollars more!</p>
 </div>
 <div id="disqus_thread"></div>
@@ -522,7 +526,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Subsetting columns | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Subsetting columns | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -409,16 +413,16 @@ By Camilo Mora, Ph.D.
 <div id="deleting-columns" class="section level3 unnumbered hasAnchor">
 <h3>Deleting columns<a href="subsetting-columns.html#deleting-columns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is the simplest approach. Basically, I set the column I want to delete to NULL. Like this,</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="subsetting-columns.html#cb89-1" aria-hidden="true" tabindex="-1"></a>MergeData<span class="sc">$</span>X<span class="ot">=</span> <span class="cn">NULL</span>            <span class="co">#with this code I delete the column called X, which is probably an index number used by one of the data sources</span></span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="subsetting-columns.html#cb91-1" aria-hidden="true" tabindex="-1"></a>MergeData<span class="sc">$</span>X<span class="ot">=</span> <span class="cn">NULL</span>            <span class="co">#with this code I delete the column called X, which is probably an index number used by one of the data sources</span></span></code></pre></div>
 <p>Now, you try to delete the column “continent.x”.</p>
 </div>
 <div id="selecting-columns" class="section level3 unnumbered hasAnchor">
 <h3>Selecting columns<a href="subsetting-columns.html#selecting-columns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Obviously, if you have many columns that you do not need, deleting columns may take a while, as you have to type each column name you want to delete. Alternatively, you can simply select the columns you need. Like this,</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="subsetting-columns.html#cb90-1" aria-hidden="true" tabindex="-1"></a>SelectedColumns<span class="ot">=</span>MergeData[, <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>,<span class="st">&quot;year&quot;</span>,  <span class="st">&quot;gdpPercap&quot;</span>, <span class="st">&quot;lifeExp&quot;</span> ) ]</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="subsetting-columns.html#cb92-1" aria-hidden="true" tabindex="-1"></a>SelectedColumns<span class="ot">=</span>MergeData[, <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>,<span class="st">&quot;year&quot;</span>,  <span class="st">&quot;gdpPercap&quot;</span>, <span class="st">&quot;lifeExp&quot;</span> ) ]</span></code></pre></div>
 <p>This syntax should be familiar to you already. As it is the indexing function we used earlier [rows, columns].</p>
 <p>If you read the code above, basically….I created a new database called SelectedColumns, which takes the database MergeData and select all rows (because there is nothing to the left of the comma) and the four columns listed in the vector after the comma.</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="subsetting-columns.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(SelectedColumns)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="subsetting-columns.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(SelectedColumns)</span></code></pre></div>
 <pre><code>##       country year gdpPercap lifeExp
 ## 1 Afghanistan 1952  779.4453  28.801
 ## 2 Afghanistan 1957  820.8530  30.332
@@ -515,7 +519,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

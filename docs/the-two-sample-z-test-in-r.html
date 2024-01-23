@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>The two-sample Z-test in R | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="The two-sample Z-test in R | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -406,23 +410,23 @@ By Camilo Mora, Ph.D.
 <div id="the-two-sample-z-test-in-r" class="section level2 unnumbered hasAnchor">
 <h2>The two-sample Z-test in R<a href="the-two-sample-z-test-in-r.html#the-two-sample-z-test-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can run such a test in R, using the package BSDA, and its function z.test. Lets try it.</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="the-two-sample-z-test-in-r.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;BSDA&quot;)   #first install the library, if you have not this library installed....simply remove the # sign and run this line</span></span>
-<span id="cb237-2"><a href="the-two-sample-z-test-in-r.html#cb237-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (<span class="st">&quot;BSDA&quot;</span>)           <span class="co">#load the library</span></span>
-<span id="cb237-3"><a href="the-two-sample-z-test-in-r.html#cb237-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb237-4"><a href="the-two-sample-z-test-in-r.html#cb237-4" aria-hidden="true" tabindex="-1"></a>Drug_Mean<span class="ot">=</span><span class="fl">9.78</span>   </span>
-<span id="cb237-5"><a href="the-two-sample-z-test-in-r.html#cb237-5" aria-hidden="true" tabindex="-1"></a>Drug_SDSD<span class="ot">=</span><span class="fl">4.05</span></span>
-<span id="cb237-6"><a href="the-two-sample-z-test-in-r.html#cb237-6" aria-hidden="true" tabindex="-1"></a>Drug_n <span class="ot">=</span><span class="dv">900</span>   <span class="co">#sample size for the drug treatment</span></span>
-<span id="cb237-7"><a href="the-two-sample-z-test-in-r.html#cb237-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb237-8"><a href="the-two-sample-z-test-in-r.html#cb237-8" aria-hidden="true" tabindex="-1"></a>Placebo_Mean<span class="ot">=</span><span class="fl">15.10</span></span>
-<span id="cb237-9"><a href="the-two-sample-z-test-in-r.html#cb237-9" aria-hidden="true" tabindex="-1"></a>Placebo_SD<span class="ot">=</span><span class="fl">4.28</span></span>
-<span id="cb237-10"><a href="the-two-sample-z-test-in-r.html#cb237-10" aria-hidden="true" tabindex="-1"></a>Placebo_n<span class="ot">=</span><span class="dv">1000</span> <span class="co">#sample size for the placebo treatment</span></span>
-<span id="cb237-11"><a href="the-two-sample-z-test-in-r.html#cb237-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb237-12"><a href="the-two-sample-z-test-in-r.html#cb237-12" aria-hidden="true" tabindex="-1"></a><span class="fu">zsum.test</span>(<span class="at">mean.x=</span>Drug_Mean, <span class="at">sigma.x =</span> Drug_SDSD, <span class="at">n.x =</span> Drug_n,</span>
-<span id="cb237-13"><a href="the-two-sample-z-test-in-r.html#cb237-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">mean.y =</span> Placebo_Mean, <span class="at">sigma.y =</span> Placebo_SD, <span class="at">n.y =</span> Placebo_n, </span>
-<span id="cb237-14"><a href="the-two-sample-z-test-in-r.html#cb237-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">mu =</span> <span class="dv">0</span>,<span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb237-15"><a href="the-two-sample-z-test-in-r.html#cb237-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb237-16"><a href="the-two-sample-z-test-in-r.html#cb237-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb237-17"><a href="the-two-sample-z-test-in-r.html#cb237-17" aria-hidden="true" tabindex="-1"></a><span class="co">#the parameters needed to run a Z-test are self-explanatory, similar to the one-sample test. x would indicate the data for the drug and y the data for the placebo. In this case, we are testing a two-tail hypothesis.</span></span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="the-two-sample-z-test-in-r.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;BSDA&quot;)   #first install the library, if you have not this library installed....simply remove the # sign and run this line</span></span>
+<span id="cb248-2"><a href="the-two-sample-z-test-in-r.html#cb248-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (<span class="st">&quot;BSDA&quot;</span>)           <span class="co">#load the library</span></span>
+<span id="cb248-3"><a href="the-two-sample-z-test-in-r.html#cb248-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb248-4"><a href="the-two-sample-z-test-in-r.html#cb248-4" aria-hidden="true" tabindex="-1"></a>Drug_Mean<span class="ot">=</span><span class="fl">9.78</span>   </span>
+<span id="cb248-5"><a href="the-two-sample-z-test-in-r.html#cb248-5" aria-hidden="true" tabindex="-1"></a>Drug_SDSD<span class="ot">=</span><span class="fl">4.05</span></span>
+<span id="cb248-6"><a href="the-two-sample-z-test-in-r.html#cb248-6" aria-hidden="true" tabindex="-1"></a>Drug_n <span class="ot">=</span><span class="dv">900</span>   <span class="co">#sample size for the drug treatment</span></span>
+<span id="cb248-7"><a href="the-two-sample-z-test-in-r.html#cb248-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb248-8"><a href="the-two-sample-z-test-in-r.html#cb248-8" aria-hidden="true" tabindex="-1"></a>Placebo_Mean<span class="ot">=</span><span class="fl">15.10</span></span>
+<span id="cb248-9"><a href="the-two-sample-z-test-in-r.html#cb248-9" aria-hidden="true" tabindex="-1"></a>Placebo_SD<span class="ot">=</span><span class="fl">4.28</span></span>
+<span id="cb248-10"><a href="the-two-sample-z-test-in-r.html#cb248-10" aria-hidden="true" tabindex="-1"></a>Placebo_n<span class="ot">=</span><span class="dv">1000</span> <span class="co">#sample size for the placebo treatment</span></span>
+<span id="cb248-11"><a href="the-two-sample-z-test-in-r.html#cb248-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb248-12"><a href="the-two-sample-z-test-in-r.html#cb248-12" aria-hidden="true" tabindex="-1"></a><span class="fu">zsum.test</span>(<span class="at">mean.x=</span>Drug_Mean, <span class="at">sigma.x =</span> Drug_SDSD, <span class="at">n.x =</span> Drug_n,</span>
+<span id="cb248-13"><a href="the-two-sample-z-test-in-r.html#cb248-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">mean.y =</span> Placebo_Mean, <span class="at">sigma.y =</span> Placebo_SD, <span class="at">n.y =</span> Placebo_n, </span>
+<span id="cb248-14"><a href="the-two-sample-z-test-in-r.html#cb248-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">mu =</span> <span class="dv">0</span>,<span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb248-15"><a href="the-two-sample-z-test-in-r.html#cb248-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb248-16"><a href="the-two-sample-z-test-in-r.html#cb248-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb248-17"><a href="the-two-sample-z-test-in-r.html#cb248-17" aria-hidden="true" tabindex="-1"></a><span class="co">#the parameters needed to run a Z-test are self-explanatory, similar to the one-sample test. x would indicate the data for the drug and y the data for the placebo. In this case, we are testing a two-tail hypothesis.</span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-310"></span>
 <img src="images/Z-test%20results%20two%20samples.png" alt="Z-test results for two samples from R" width="70%" />
 <p class="caption">
@@ -516,7 +520,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Checking assumptions | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Checking assumptions | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -409,7 +413,7 @@ By Camilo Mora, Ph.D.
 <div id="outliers-1" class="section level3 unnumbered hasAnchor">
 <h3>Outliers<a href="checking-assumptions.html#outliers-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Outliers can be easily identified using box plot method we used early but spotted mathematically with the R function identify_outliers() [from the rstatix package].</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="checking-assumptions.html#cb248-1" aria-hidden="true" tabindex="-1"></a>Data <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(Variety) <span class="sc">%&gt;%</span> <span class="fu">identify_outliers</span>(NumTomatoes)</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="checking-assumptions.html#cb259-1" aria-hidden="true" tabindex="-1"></a>Data <span class="sc">%&gt;%</span>  <span class="fu">group_by</span>(Variety) <span class="sc">%&gt;%</span> <span class="fu">identify_outliers</span>(NumTomatoes)</span></code></pre></div>
 <pre><code>## [1] Variety     NumTomatoes is.outlier  is.extreme 
 ## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
 <p>The result of this function yields zero rows meaning that there were not outliers in our database. Should there be outlier, it is recommended to run the analysis with and without them, to see the level of the effect and for you to make a judgment call on whether to remove them or now, and justify any choice you make.</p>
@@ -419,18 +423,18 @@ By Camilo Mora, Ph.D.
 <p>The normality assumption can be checked by using one of the following two approaches:</p>
 <p>Analyzing the ANOVA model residuals to check the normality for all groups together. This approach is easier and it’s very handy when you have many groups or if there are few data points per group.</p>
 <p>To check normality with model residuals, we use QQ plot and Shapiro-Wilk test. QQ plot draws the correlation between a given data and the normal distribution.</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="checking-assumptions.html#cb250-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the linear model</span></span>
-<span id="cb250-2"><a href="checking-assumptions.html#cb250-2" aria-hidden="true" tabindex="-1"></a>model  <span class="ot">&lt;-</span> <span class="fu">lm</span>(NumTomatoes <span class="sc">~</span> Variety, <span class="at">data =</span> Data)</span>
-<span id="cb250-3"><a href="checking-assumptions.html#cb250-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a QQ plot of residuals</span></span>
-<span id="cb250-4"><a href="checking-assumptions.html#cb250-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(<span class="fu">residuals</span>(model))</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="checking-assumptions.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the linear model</span></span>
+<span id="cb261-2"><a href="checking-assumptions.html#cb261-2" aria-hidden="true" tabindex="-1"></a>model  <span class="ot">&lt;-</span> <span class="fu">lm</span>(NumTomatoes <span class="sc">~</span> Variety, <span class="at">data =</span> Data)</span>
+<span id="cb261-3"><a href="checking-assumptions.html#cb261-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a QQ plot of residuals</span></span>
+<span id="cb261-4"><a href="checking-assumptions.html#cb261-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggqqplot</span>(<span class="fu">residuals</span>(model))</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-340-1.png" width="672" /></p>
 <p>From the plot abive, you can see that all values are within the confidence limits expected under normality, but some deviations occurred. The data are perfectly normal, when each point falls along the normality line (black line in the plot above).</p>
 <p>The second method to check normality uses the Shapiro-Wilk test. This approach might be used when you have only a few groups and many data points per group.</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="checking-assumptions.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the linear model</span></span>
-<span id="cb251-2"><a href="checking-assumptions.html#cb251-2" aria-hidden="true" tabindex="-1"></a>model  <span class="ot">&lt;-</span> <span class="fu">lm</span>(NumTomatoes <span class="sc">~</span> Variety, <span class="at">data =</span> Data)</span>
-<span id="cb251-3"><a href="checking-assumptions.html#cb251-3" aria-hidden="true" tabindex="-1"></a><span class="co"># run the Shapiro test</span></span>
-<span id="cb251-4"><a href="checking-assumptions.html#cb251-4" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro_test</span>(<span class="fu">residuals</span>(model))</span></code></pre></div>
-<pre><code>## # A tibble: 1 x 3
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="checking-assumptions.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the linear model</span></span>
+<span id="cb262-2"><a href="checking-assumptions.html#cb262-2" aria-hidden="true" tabindex="-1"></a>model  <span class="ot">&lt;-</span> <span class="fu">lm</span>(NumTomatoes <span class="sc">~</span> Variety, <span class="at">data =</span> Data)</span>
+<span id="cb262-3"><a href="checking-assumptions.html#cb262-3" aria-hidden="true" tabindex="-1"></a><span class="co"># run the Shapiro test</span></span>
+<span id="cb262-4"><a href="checking-assumptions.html#cb262-4" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro_test</span>(<span class="fu">residuals</span>(model))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
 ##   variable         statistic p.value
 ##   &lt;chr&gt;                &lt;dbl&gt;   &lt;dbl&gt;
 ## 1 residuals(model)     0.823  0.0373</code></pre>
@@ -439,12 +443,12 @@ By Camilo Mora, Ph.D.
 <div id="homogneity-of-variance" class="section level3 unnumbered hasAnchor">
 <h3>Homogneity of variance<a href="checking-assumptions.html#homogneity-of-variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The Homogeneity of variance can be checked by plotting the residuals versus fits valued.</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="checking-assumptions.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model, <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="checking-assumptions.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model, <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-342-1.png" width="672" /></p>
 <p>In the plot above, there is no evident relationships between residuals and fitted values (the mean of each groups), which is good. So, we can assume the homogeneity of variances.</p>
 <p>One can also use the Levene’s test to check the homogeneity of variances:</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="checking-assumptions.html#cb254-1" aria-hidden="true" tabindex="-1"></a>Data <span class="sc">%&gt;%</span> <span class="fu">levene_test</span>(NumTomatoes <span class="sc">~</span> Variety)</span></code></pre></div>
-<pre><code>## # A tibble: 1 x 4
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="checking-assumptions.html#cb265-1" aria-hidden="true" tabindex="-1"></a>Data <span class="sc">%&gt;%</span> <span class="fu">levene_test</span>(NumTomatoes <span class="sc">~</span> Variety)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 4
 ##     df1   df2 statistic     p
 ##   &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;
 ## 1     2     6  4.62e-33     1</code></pre>
@@ -537,7 +541,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

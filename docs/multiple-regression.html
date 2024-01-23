@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Multiple regression | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Multiple regression | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -413,19 +417,19 @@ By Camilo Mora, Ph.D.
 <p>The example above is an oversimplification of how multiple regression works, as there are some collinearities among independent variables that you have to handle. But for now I just want you to know that linear regression allows you to test additional variables by trying to explain the unexplained variation in Y with additional variables. The so-call <strong>multiple regression</strong> analysis.</p>
 <p>Let’s take the data we have been using, and say, we also got data on the amount of debt of each student…this variable may indicate the level of stress of the student, a likelihood that they have a job that prevents them of working fully and well, etc…how does this second variable influences the grades of students in my class?.</p>
 <p>Let’s check..</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="multiple-regression.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets start by bringing back the data on time studying and grades</span></span>
-<span id="cb205-2"><a href="multiple-regression.html#cb205-2" aria-hidden="true" tabindex="-1"></a>Names<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Peter&quot;</span>,<span class="st">&quot;Laura&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Chip&quot;</span>, <span class="st">&quot;Tom&quot;</span>)</span>
-<span id="cb205-3"><a href="multiple-regression.html#cb205-3" aria-hidden="true" tabindex="-1"></a>Hours_Studying<span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>)</span>
-<span id="cb205-4"><a href="multiple-regression.html#cb205-4" aria-hidden="true" tabindex="-1"></a>Grade<span class="ot">=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)</span>
-<span id="cb205-5"><a href="multiple-regression.html#cb205-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb205-6"><a href="multiple-regression.html#cb205-6" aria-hidden="true" tabindex="-1"></a><span class="co">#here is the data for the second independent variable for the same students</span></span>
-<span id="cb205-7"><a href="multiple-regression.html#cb205-7" aria-hidden="true" tabindex="-1"></a>Debt<span class="ot">=</span><span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">60</span>, <span class="dv">55</span>, <span class="dv">15</span>, <span class="dv">5</span>) <span class="co">#debt of students in thousands of dollars</span></span>
-<span id="cb205-8"><a href="multiple-regression.html#cb205-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb205-9"><a href="multiple-regression.html#cb205-9" aria-hidden="true" tabindex="-1"></a><span class="co"># we use the same lm function we used before and add debt as independent variable, like this:</span></span>
-<span id="cb205-10"><a href="multiple-regression.html#cb205-10" aria-hidden="true" tabindex="-1"></a>MultipleRegression<span class="ot">=</span><span class="fu">lm</span> (Grade <span class="sc">~</span> Hours_Studying <span class="sc">+</span> Debt)</span>
-<span id="cb205-11"><a href="multiple-regression.html#cb205-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb205-12"><a href="multiple-regression.html#cb205-12" aria-hidden="true" tabindex="-1"></a><span class="co">#next we check the results</span></span>
-<span id="cb205-13"><a href="multiple-regression.html#cb205-13" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(MultipleRegression)</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="multiple-regression.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets start by bringing back the data on time studying and grades</span></span>
+<span id="cb216-2"><a href="multiple-regression.html#cb216-2" aria-hidden="true" tabindex="-1"></a>Names<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Peter&quot;</span>,<span class="st">&quot;Laura&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Chip&quot;</span>, <span class="st">&quot;Tom&quot;</span>)</span>
+<span id="cb216-3"><a href="multiple-regression.html#cb216-3" aria-hidden="true" tabindex="-1"></a>Hours_Studying<span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>)</span>
+<span id="cb216-4"><a href="multiple-regression.html#cb216-4" aria-hidden="true" tabindex="-1"></a>Grade<span class="ot">=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)</span>
+<span id="cb216-5"><a href="multiple-regression.html#cb216-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-6"><a href="multiple-regression.html#cb216-6" aria-hidden="true" tabindex="-1"></a><span class="co">#here is the data for the second independent variable for the same students</span></span>
+<span id="cb216-7"><a href="multiple-regression.html#cb216-7" aria-hidden="true" tabindex="-1"></a>Debt<span class="ot">=</span><span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">60</span>, <span class="dv">55</span>, <span class="dv">15</span>, <span class="dv">5</span>) <span class="co">#debt of students in thousands of dollars</span></span>
+<span id="cb216-8"><a href="multiple-regression.html#cb216-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-9"><a href="multiple-regression.html#cb216-9" aria-hidden="true" tabindex="-1"></a><span class="co"># we use the same lm function we used before and add debt as independent variable, like this:</span></span>
+<span id="cb216-10"><a href="multiple-regression.html#cb216-10" aria-hidden="true" tabindex="-1"></a>MultipleRegression<span class="ot">=</span><span class="fu">lm</span> (Grade <span class="sc">~</span> Hours_Studying <span class="sc">+</span> Debt)</span>
+<span id="cb216-11"><a href="multiple-regression.html#cb216-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-12"><a href="multiple-regression.html#cb216-12" aria-hidden="true" tabindex="-1"></a><span class="co">#next we check the results</span></span>
+<span id="cb216-13"><a href="multiple-regression.html#cb216-13" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(MultipleRegression)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-256"></span>
 <img src="images/Mutiple%20regression%20in%20R.png" alt="R multiple regression results" width="80%" />
 <p class="caption">
@@ -522,7 +526,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

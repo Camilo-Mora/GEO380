@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Calling elements in a data frame | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Calling elements in a data frame | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -406,307 +410,307 @@ By Camilo Mora, Ph.D.
 <div id="calling-elements-in-a-data-frame" class="section level2 unnumbered hasAnchor">
 <h2>Calling elements in a data frame<a href="calling-elements-in-a-data-frame.html#calling-elements-in-a-data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Ok, now that you know how to store data in R. We need to learn how to see the data. To see a given data container, you can simply typeb its name and click enter. For instance,</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="calling-elements-in-a-data-frame.html#cb60-1" aria-hidden="true" tabindex="-1"></a>DataFrame</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="calling-elements-in-a-data-frame.html#cb62-1" aria-hidden="true" tabindex="-1"></a>DataFrame</span></code></pre></div>
 <pre><code>##   Height Width
 ## 1      1    56
 ## 2      4    42
 ## 3      5    93</code></pre>
 <p>This is an ok way to see your data if the data container is not too big. However, if you have lots of data this command will fill up your screen. Instead, you can use the function head or tail, which will let you see the top five or the bottom five rows in a dataframe. Lets see.</p>
 <p>Let me first create a medium size dataframe:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="calling-elements-in-a-data-frame.html#cb62-1" aria-hidden="true" tabindex="-1"></a>DataFrame<span class="ot">&lt;-</span> <span class="fu">data.frame</span>( <span class="at">x1 =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">250</span>)),     <span class="co"># in Column 1 I repeat the number 1 for 25 times</span></span>
-<span id="cb62-2"><a href="calling-elements-in-a-data-frame.html#cb62-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">x2 =</span> <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">250</span>), <span class="co">#Column 2 I create a sequence of numbers from 1 to 25</span></span>
-<span id="cb62-3"><a href="calling-elements-in-a-data-frame.html#cb62-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">x3 =</span> <span class="fu">sample</span>(<span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>),<span class="dv">250</span>)) <span class="co"># select 25 random numbers between 1 and 10000</span></span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="calling-elements-in-a-data-frame.html#cb64-1" aria-hidden="true" tabindex="-1"></a>DataFrame<span class="ot">&lt;-</span> <span class="fu">data.frame</span>( <span class="at">x1 =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">250</span>)),     <span class="co"># in Column 1 I repeat the number 1 for 25 times</span></span>
+<span id="cb64-2"><a href="calling-elements-in-a-data-frame.html#cb64-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">x2 =</span> <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">250</span>), <span class="co">#Column 2 I create a sequence of numbers from 1 to 25</span></span>
+<span id="cb64-3"><a href="calling-elements-in-a-data-frame.html#cb64-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">x3 =</span> <span class="fu">sample</span>(<span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>),<span class="dv">250</span>)) <span class="co"># select 25 random numbers between 1 and 10000</span></span></code></pre></div>
 <p>In the code above, I just create a dummy dataframe with three columns and 250 rows using functions we already described in the chapter on arithmetic operators.</p>
 <p>If I try to see the full database, I just type the name of the dataframe and click enter. However, as you will notice calling the full dataframe will use a lot of your screen space because it will attempt to display all the data.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="calling-elements-in-a-data-frame.html#cb63-1" aria-hidden="true" tabindex="-1"></a>DataFrame</span></code></pre></div>
-<pre><code>##     x1  x2   x3
-## 1    1   1  897
-## 2    1   2  379
-## 3    1   3  537
-## 4    1   4  552
-## 5    1   5  292
-## 6    1   6   89
-## 7    1   7  380
-## 8    1   8  340
-## 9    1   9  599
-## 10   1  10  979
-## 11   1  11  910
-## 12   1  12   26
-## 13   1  13  523
-## 14   1  14  320
-## 15   1  15  825
-## 16   1  16   24
-## 17   1  17  630
-## 18   1  18  611
-## 19   1  19   99
-## 20   1  20  983
-## 21   1  21  145
-## 22   1  22  290
-## 23   1  23  151
-## 24   1  24  609
-## 25   1  25  467
-## 26   1  26  364
-## 27   1  27  435
-## 28   1  28   86
-## 29   1  29  274
-## 30   1  30  238
-## 31   1  31  620
-## 32   1  32  604
-## 33   1  33  482
-## 34   1  34  997
-## 35   1  35  138
-## 36   1  36  155
-## 37   1  37  957
-## 38   1  38  970
-## 39   1  39  480
-## 40   1  40  809
-## 41   1  41   91
-## 42   1  42  635
-## 43   1  43  104
-## 44   1  44  936
-## 45   1  45  582
-## 46   1  46  669
-## 47   1  47  556
-## 48   1  48  738
-## 49   1  49  755
-## 50   1  50  228
-## 51   1  51   63
-## 52   1  52  211
-## 53   1  53  935
-## 54   1  54  691
-## 55   1  55  911
-## 56   1  56   62
-## 57   1  57  272
-## 58   1  58  889
-## 59   1  59  742
-## 60   1  60  710
-## 61   1  61  815
-## 62   1  62  705
-## 63   1  63   53
-## 64   1  64  199
-## 65   1  65  642
-## 66   1  66   45
-## 67   1  67  420
-## 68   1  68  921
-## 69   1  69  372
-## 70   1  70   11
-## 71   1  71  937
-## 72   1  72  520
-## 73   1  73  280
-## 74   1  74  661
-## 75   1  75  197
-## 76   1  76  303
-## 77   1  77  849
-## 78   1  78  792
-## 79   1  79  204
-## 80   1  80  999
-## 81   1  81  147
-## 82   1  82  161
-## 83   1  83  804
-## 84   1  84  708
-## 85   1  85  791
-## 86   1  86  377
-## 87   1  87  415
-## 88   1  88  294
-## 89   1  89  448
-## 90   1  90   49
-## 91   1  91  683
-## 92   1  92  202
-## 93   1  93  416
-## 94   1  94  301
-## 95   1  95  368
-## 96   1  96  659
-## 97   1  97  795
-## 98   1  98  456
-## 99   1  99   47
-## 100  1 100  617
-## 101  1 101  882
-## 102  1 102    4
-## 103  1 103  214
-## 104  1 104  468
-## 105  1 105  518
-## 106  1 106  100
-## 107  1 107  899
-## 108  1 108  704
-## 109  1 109   71
-## 110  1 110  981
-## 111  1 111  215
-## 112  1 112  703
-## 113  1 113  847
-## 114  1 114  173
-## 115  1 115  321
-## 116  1 116  134
-## 117  1 117  723
-## 118  1 118  101
-## 119  1 119  268
-## 120  1 120  331
-## 121  1 121  770
-## 122  1 122  540
-## 123  1 123  779
-## 124  1 124  143
-## 125  1 125   73
-## 126  1 126  281
-## 127  1 127  257
-## 128  1 128  596
-## 129  1 129  542
-## 130  1 130  896
-## 131  1 131  413
-## 132  1 132  568
-## 133  1 133  732
-## 134  1 134  953
-## 135  1 135  843
-## 136  1 136  975
-## 137  1 137  457
-## 138  1 138  122
-## 139  1 139 1000
-## 140  1 140  382
-## 141  1 141  593
-## 142  1 142  333
-## 143  1 143  612
-## 144  1 144  310
-## 145  1 145  636
-## 146  1 146  973
-## 147  1 147  715
-## 148  1 148  317
-## 149  1 149  988
-## 150  1 150  233
-## 151  1 151  461
-## 152  1 152  464
-## 153  1 153  783
-## 154  1 154  651
-## 155  1 155  938
-## 156  1 156  588
-## 157  1 157  510
-## 158  1 158  489
-## 159  1 159  505
-## 160  1 160   12
-## 161  1 161  653
-## 162  1 162  316
-## 163  1 163   50
-## 164  1 164  767
-## 165  1 165   96
-## 166  1 166  971
-## 167  1 167  688
-## 168  1 168  450
-## 169  1 169  869
-## 170  1 170  574
-## 171  1 171  431
-## 172  1 172  797
-## 173  1 173   52
-## 174  1 174   92
-## 175  1 175  492
-## 176  1 176  524
-## 177  1 177  690
-## 178  1 178  920
-## 179  1 179  780
-## 180  1 180  305
-## 181  1 181  154
-## 182  1 182  674
-## 183  1 183  624
-## 184  1 184  944
-## 185  1 185  224
-## 186  1 186  731
-## 187  1 187  282
-## 188  1 188  686
-## 189  1 189  927
-## 190  1 190  816
-## 191  1 191  771
-## 192  1 192  113
-## 193  1 193  513
-## 194  1 194  994
-## 195  1 195  590
-## 196  1 196  306
-## 197  1 197  980
-## 198  1 198  402
-## 199  1 199  108
-## 200  1 200  647
-## 201  1 201  677
-## 202  1 202  241
-## 203  1 203  389
-## 204  1 204  315
-## 205  1 205  818
-## 206  1 206  309
-## 207  1 207  430
-## 208  1 208  343
-## 209  1 209  692
-## 210  1 210  747
-## 211  1 211  503
-## 212  1 212  508
-## 213  1 213  465
-## 214  1 214  311
-## 215  1 215  724
-## 216  1 216  410
-## 217  1 217  965
-## 218  1 218  414
-## 219  1 219  365
-## 220  1 220  687
-## 221  1 221  363
-## 222  1 222  262
-## 223  1 223  744
-## 224  1 224  444
-## 225  1 225  693
-## 226  1 226   28
-## 227  1 227  319
-## 228  1 228    1
-## 229  1 229    2
-## 230  1 230  353
-## 231  1 231  735
-## 232  1 232  381
-## 233  1 233  109
-## 234  1 234   33
-## 235  1 235   64
-## 236  1 236  778
-## 237  1 237  403
-## 238  1 238  529
-## 239  1 239  625
-## 240  1 240  758
-## 241  1 241   20
-## 242  1 242  950
-## 243  1 243   22
-## 244  1 244  917
-## 245  1 245  127
-## 246  1 246   59
-## 247  1 247  509
-## 248  1 248  491
-## 249  1 249  352
-## 250  1 250  426</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="calling-elements-in-a-data-frame.html#cb65-1" aria-hidden="true" tabindex="-1"></a>DataFrame</span></code></pre></div>
+<pre><code>##     x1  x2  x3
+## 1    1   1 153
+## 2    1   2 175
+## 3    1   3 184
+## 4    1   4 596
+## 5    1   5 550
+## 6    1   6 916
+## 7    1   7 227
+## 8    1   8 980
+## 9    1   9 280
+## 10   1  10  80
+## 11   1  11 463
+## 12   1  12 963
+## 13   1  13   4
+## 14   1  14 251
+## 15   1  15 909
+## 16   1  16 452
+## 17   1  17 249
+## 18   1  18 161
+## 19   1  19 705
+## 20   1  20 805
+## 21   1  21 774
+## 22   1  22 757
+## 23   1  23 842
+## 24   1  24  67
+## 25   1  25  44
+## 26   1  26 759
+## 27   1  27 887
+## 28   1  28 158
+## 29   1  29  13
+## 30   1  30 991
+## 31   1  31  64
+## 32   1  32  99
+## 33   1  33 574
+## 34   1  34 358
+## 35   1  35 282
+## 36   1  36 482
+## 37   1  37 486
+## 38   1  38 405
+## 39   1  39 397
+## 40   1  40 921
+## 41   1  41  38
+## 42   1  42 396
+## 43   1  43 843
+## 44   1  44 940
+## 45   1  45 456
+## 46   1  46 366
+## 47   1  47 271
+## 48   1  48   8
+## 49   1  49 148
+## 50   1  50 751
+## 51   1  51 301
+## 52   1  52 202
+## 53   1  53 892
+## 54   1  54  34
+## 55   1  55 353
+## 56   1  56 428
+## 57   1  57 667
+## 58   1  58 448
+## 59   1  59 201
+## 60   1  60 171
+## 61   1  61 367
+## 62   1  62 897
+## 63   1  63 601
+## 64   1  64 968
+## 65   1  65 732
+## 66   1  66 661
+## 67   1  67 347
+## 68   1  68 433
+## 69   1  69 681
+## 70   1  70 333
+## 71   1  71 635
+## 72   1  72 236
+## 73   1  73  71
+## 74   1  74 324
+## 75   1  75 846
+## 76   1  76 674
+## 77   1  77 624
+## 78   1  78 534
+## 79   1  79 139
+## 80   1  80 864
+## 81   1  81 983
+## 82   1  82 862
+## 83   1  83 844
+## 84   1  84 543
+## 85   1  85 888
+## 86   1  86 137
+## 87   1  87 231
+## 88   1  88 404
+## 89   1  89  62
+## 90   1  90 723
+## 91   1  91 464
+## 92   1  92 263
+## 93   1  93 418
+## 94   1  94 724
+## 95   1  95 379
+## 96   1  96 603
+## 97   1  97 850
+## 98   1  98 633
+## 99   1  99 488
+## 100  1 100  50
+## 101  1 101 747
+## 102  1 102 660
+## 103  1 103 445
+## 104  1 104 296
+## 105  1 105  69
+## 106  1 106 338
+## 107  1 107 893
+## 108  1 108 438
+## 109  1 109 168
+## 110  1 110 854
+## 111  1 111 535
+## 112  1 112 364
+## 113  1 113 936
+## 114  1 114 935
+## 115  1 115 860
+## 116  1 116 938
+## 117  1 117 268
+## 118  1 118 417
+## 119  1 119 446
+## 120  1 120 503
+## 121  1 121 948
+## 122  1 122 346
+## 123  1 123 716
+## 124  1 124 670
+## 125  1 125 350
+## 126  1 126  84
+## 127  1 127 874
+## 128  1 128 937
+## 129  1 129 838
+## 130  1 130  98
+## 131  1 131 575
+## 132  1 132 658
+## 133  1 133 985
+## 134  1 134 453
+## 135  1 135 733
+## 136  1 136  60
+## 137  1 137 856
+## 138  1 138 762
+## 139  1 139 521
+## 140  1 140 416
+## 141  1 141 407
+## 142  1 142 327
+## 143  1 143 269
+## 144  1 144 836
+## 145  1 145 769
+## 146  1 146 961
+## 147  1 147 568
+## 148  1 148 563
+## 149  1 149 898
+## 150  1 150 652
+## 151  1 151 884
+## 152  1 152 435
+## 153  1 153 971
+## 154  1 154 570
+## 155  1 155 719
+## 156  1 156 858
+## 157  1 157 890
+## 158  1 158  28
+## 159  1 159 640
+## 160  1 160 923
+## 161  1 161 474
+## 162  1 162 711
+## 163  1 163 199
+## 164  1 164 734
+## 165  1 165 811
+## 166  1 166 910
+## 167  1 167 242
+## 168  1 168 598
+## 169  1 169 833
+## 170  1 170 406
+## 171  1 171 589
+## 172  1 172 740
+## 173  1 173 594
+## 174  1 174 641
+## 175  1 175 549
+## 176  1 176 510
+## 177  1 177 573
+## 178  1 178  56
+## 179  1 179 729
+## 180  1 180  65
+## 181  1 181 501
+## 182  1 182 332
+## 183  1 183 837
+## 184  1 184 663
+## 185  1 185 159
+## 186  1 186 800
+## 187  1 187 306
+## 188  1 188 551
+## 189  1 189 380
+## 190  1 190 165
+## 191  1 191 693
+## 192  1 192 904
+## 193  1 193 132
+## 194  1 194 362
+## 195  1 195 920
+## 196  1 196  63
+## 197  1 197  66
+## 198  1 198 401
+## 199  1 199 203
+## 200  1 200 119
+## 201  1 201 315
+## 202  1 202  58
+## 203  1 203 323
+## 204  1 204 602
+## 205  1 205 377
+## 206  1 206 259
+## 207  1 207 128
+## 208  1 208 247
+## 209  1 209 349
+## 210  1 210 974
+## 211  1 211 336
+## 212  1 212  39
+## 213  1 213 533
+## 214  1 214 880
+## 215  1 215 987
+## 216  1 216 830
+## 217  1 217 170
+## 218  1 218 785
+## 219  1 219 749
+## 220  1 220 270
+## 221  1 221  49
+## 222  1 222 697
+## 223  1 223 659
+## 224  1 224 552
+## 225  1 225 610
+## 226  1 226 889
+## 227  1 227 584
+## 228  1 228 387
+## 229  1 229 465
+## 230  1 230 895
+## 231  1 231 219
+## 232  1 232 360
+## 233  1 233 773
+## 234  1 234 414
+## 235  1 235 873
+## 236  1 236  16
+## 237  1 237 197
+## 238  1 238 264
+## 239  1 239 672
+## 240  1 240 478
+## 241  1 241 680
+## 242  1 242 665
+## 243  1 243 728
+## 244  1 244  88
+## 245  1 245 518
+## 246  1 246 853
+## 247  1 247  89
+## 248  1 248 702
+## 249  1 249 990
+## 250  1 250 402</code></pre>
 <div id="head" class="section level4 unnumbered hasAnchor">
 <h4>Head<a href="calling-elements-in-a-data-frame.html#head" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Alternatively, you can just check the top rows using the head function. Like this:</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="calling-elements-in-a-data-frame.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(DataFrame)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="calling-elements-in-a-data-frame.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(DataFrame)</span></code></pre></div>
 <pre><code>##   x1 x2  x3
-## 1  1  1 897
-## 2  1  2 379
-## 3  1  3 537
-## 4  1  4 552
-## 5  1  5 292
-## 6  1  6  89</code></pre>
+## 1  1  1 153
+## 2  1  2 175
+## 3  1  3 184
+## 4  1  4 596
+## 5  1  5 550
+## 6  1  6 916</code></pre>
 </div>
 <div id="tail" class="section level4 unnumbered hasAnchor">
 <h4>Tail<a href="calling-elements-in-a-data-frame.html#tail" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Or the bottom rows using the tail function. Like this:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="calling-elements-in-a-data-frame.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(DataFrame)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="calling-elements-in-a-data-frame.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(DataFrame)</span></code></pre></div>
 <pre><code>##     x1  x2  x3
-## 245  1 245 127
-## 246  1 246  59
-## 247  1 247 509
-## 248  1 248 491
-## 249  1 249 352
-## 250  1 250 426</code></pre>
+## 245  1 245 518
+## 246  1 246 853
+## 247  1 247  89
+## 248  1 248 702
+## 249  1 249 990
+## 250  1 250 402</code></pre>
 </div>
 <div id="index" class="section level4 unnumbered hasAnchor">
 <h4>Index<a href="calling-elements-in-a-data-frame.html#index" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>You can also check specific elements of the dataframe using the index function, which in R is indicated with the square brackets [row,column]. The number to the left of the comma will be the row number, and the number to the right the column number. If you do not add a number, it will display all columns or all rows. For instance, check what number is in column 3 in the 2th row?</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="calling-elements-in-a-data-frame.html#cb69-1" aria-hidden="true" tabindex="-1"></a>DataFrame[<span class="dv">2</span>,<span class="dv">3</span>]</span></code></pre></div>
-<pre><code>## [1] 379</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="calling-elements-in-a-data-frame.html#cb71-1" aria-hidden="true" tabindex="-1"></a>DataFrame[<span class="dv">2</span>,<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 175</code></pre>
 <iframe src="https://mora.shinyapps.io/QuestionsChapter3/" width="100%" height="400px">
 </iframe>
 </div>
 <div id="calling-columns-by-name" class="section level4 unnumbered hasAnchor">
 <h4>Calling columns by name<a href="calling-elements-in-a-data-frame.html#calling-columns-by-name" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>To call a column by name in a dataframe, you use the dollar sign $ to merge the name of the dataframe with the name of the column, like this,</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="calling-elements-in-a-data-frame.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(DataFrame<span class="sc">$</span>x3) <span class="co">#here I only display the top values of the column Country_Name</span></span></code></pre></div>
-<pre><code>## [1] 897 379 537 552 292  89</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="calling-elements-in-a-data-frame.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(DataFrame<span class="sc">$</span>x3) <span class="co">#here I only display the top values of the column Country_Name</span></span></code></pre></div>
+<pre><code>## [1] 153 175 184 596 550 916</code></pre>
 </div>
 </div>
 <div id="disqus_thread"></div>
@@ -795,7 +799,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

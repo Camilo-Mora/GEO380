@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Operators | GEOG380.knit</title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Operators | GEOG380.knit" />
   <meta property="og:type" content="book" />
@@ -117,6 +117,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -408,10 +412,10 @@ By Camilo Mora, Ph.D.
 <div id="assignment-operators" class="section level3 unnumbered hasAnchor">
 <h3>Assignment operators<a href="operators.html#assignment-operators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As you noted in my previous page, I used the equal sign (=) to assign a value to a letter variable; that is called an assignment operator. Another more broadly recommended assignment operator is &gt;-, which is used like this:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="operators.html#cb18-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span><span class="dv">10</span> <span class="co"># in this case I used &lt;- as the assigment operators</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="operators.html#cb20-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span><span class="dv">10</span> <span class="co"># in this case I used &lt;- as the assigment operators</span></span></code></pre></div>
 <p>Note that in the code above I use &gt;- instead of =</p>
 <p>I can verify this, by typing a in the R console and then hitting enter.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="operators.html#cb19-1" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="operators.html#cb21-1" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 </div>
 <div id="arithmetic-operators" class="section level3 unnumbered hasAnchor">
@@ -488,9 +492,9 @@ By Camilo Mora, Ph.D.
 </tbody>
 </table>
 <p>Lets say I have a variable a=145.677, but I one to stimate the largest integer of that number, then</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="operators.html#cb21-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="fl">145.677</span></span>
-<span id="cb21-2"><a href="operators.html#cb21-2" aria-hidden="true" tabindex="-1"></a>b<span class="ot">=</span><span class="fu">ceiling</span>(a)</span>
-<span id="cb21-3"><a href="operators.html#cb21-3" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="operators.html#cb23-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="fl">145.677</span></span>
+<span id="cb23-2"><a href="operators.html#cb23-2" aria-hidden="true" tabindex="-1"></a>b<span class="ot">=</span><span class="fu">ceiling</span>(a)</span>
+<span id="cb23-3"><a href="operators.html#cb23-3" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
 <pre><code>## [1] 146</code></pre>
 <p>Give a try to some of these operators, yourself.</p>
 <iframe src="https://mora.shinyapps.io/Console/?showcase=0" width="100%" height="300px">
@@ -531,9 +535,9 @@ By Camilo Mora, Ph.D.
 </tbody>
 </table>
 <p>Lets try a few examples:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="operators.html#cb23-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="st">&quot;camilo1989&quot;</span> <span class="co">#here I have a character variable, but want to remove that number, so</span></span>
-<span id="cb23-2"><a href="operators.html#cb23-2" aria-hidden="true" tabindex="-1"></a>b<span class="ot">=</span><span class="fu">gsub</span>(<span class="st">&quot;1989&quot;</span>, <span class="st">&quot;&quot;</span>, a) <span class="co">#here I replace the value indicated in between the first quotations, for what is in between the second quotations, in this case nothing.</span></span>
-<span id="cb23-3"><a href="operators.html#cb23-3" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="operators.html#cb25-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="st">&quot;camilo1989&quot;</span> <span class="co">#here I have a character variable, but want to remove that number, so</span></span>
+<span id="cb25-2"><a href="operators.html#cb25-2" aria-hidden="true" tabindex="-1"></a>b<span class="ot">=</span><span class="fu">gsub</span>(<span class="st">&quot;1989&quot;</span>, <span class="st">&quot;&quot;</span>, a) <span class="co">#here I replace the value indicated in between the first quotations, for what is in between the second quotations, in this case nothing.</span></span>
+<span id="cb25-3"><a href="operators.html#cb25-3" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div>
 <pre><code>## [1] &quot;camilo&quot;</code></pre>
 
 <div class="rmdwarning">
@@ -541,14 +545,14 @@ Characters are always between quotations and this is done to differentiate from 
 Say I have a variable I called data but I also have a word I want to use called data as well. In this case data by ilfset will be the database, but “data” will be recongnized as chracaters. Later on we will get to this.
 </div>
 <p>The function paste is another function that you will use a lot.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="operators.html#cb25-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="st">&quot;camilo&quot;</span> <span class="co">#here I have a character variable, that I want to concatenate with another one. </span></span>
-<span id="cb25-2"><a href="operators.html#cb25-2" aria-hidden="true" tabindex="-1"></a>b<span class="ot">=</span><span class="st">&quot;1989&quot;</span> <span class="co">#second variable.</span></span>
-<span id="cb25-3"><a href="operators.html#cb25-3" aria-hidden="true" tabindex="-1"></a>c<span class="ot">=</span><span class="fu">paste</span>(a,b,<span class="at">sep=</span><span class="st">&quot;_&quot;</span>) <span class="co">#here I merge a and b, and separate them with an underscore</span></span>
-<span id="cb25-4"><a href="operators.html#cb25-4" aria-hidden="true" tabindex="-1"></a>c</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="operators.html#cb27-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="st">&quot;camilo&quot;</span> <span class="co">#here I have a character variable, that I want to concatenate with another one. </span></span>
+<span id="cb27-2"><a href="operators.html#cb27-2" aria-hidden="true" tabindex="-1"></a>b<span class="ot">=</span><span class="st">&quot;1989&quot;</span> <span class="co">#second variable.</span></span>
+<span id="cb27-3"><a href="operators.html#cb27-3" aria-hidden="true" tabindex="-1"></a>c<span class="ot">=</span><span class="fu">paste</span>(a,b,<span class="at">sep=</span><span class="st">&quot;_&quot;</span>) <span class="co">#here I merge a and b, and separate them with an underscore</span></span>
+<span id="cb27-4"><a href="operators.html#cb27-4" aria-hidden="true" tabindex="-1"></a>c</span></code></pre></div>
 <pre><code>## [1] &quot;camilo_1989&quot;</code></pre>
 <p>If you want nothing to separate the words, put nothing between the brackets in sep, like this</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="operators.html#cb27-1" aria-hidden="true" tabindex="-1"></a>c<span class="ot">=</span><span class="fu">paste</span>(a,b,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb27-2"><a href="operators.html#cb27-2" aria-hidden="true" tabindex="-1"></a>c</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="operators.html#cb29-1" aria-hidden="true" tabindex="-1"></a>c<span class="ot">=</span><span class="fu">paste</span>(a,b,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb29-2"><a href="operators.html#cb29-2" aria-hidden="true" tabindex="-1"></a>c</span></code></pre></div>
 <pre><code>## [1] &quot;camilo1989&quot;</code></pre>
 </div>
 </div>
@@ -638,7 +642,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
