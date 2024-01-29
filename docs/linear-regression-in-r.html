@@ -386,7 +386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13" data-path="13-final-project.html"><a href="13-final-project.html"><i class="fa fa-check"></i><b>13</b> Final project</a></li>
 <li class="divider"></li>
-<li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
+<li><a href="https://camilo-mora.github.io/MoraLab/"><img src="images/MoraLab.png" width="270"></a></li>
 
 </ul>
 
@@ -411,12 +411,12 @@ By Camilo Mora, Ph.D.
 <h2>Linear regression in R<a href="linear-regression-in-r.html#linear-regression-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>By now you know the equation of the linear regression model, the idea behind the least-squares approach, and how to calculate and interpret the different elements of the equation.</p>
 <p>R can calculate all those equations automatically for you using the <em>lm</em> function, which stands for <em>linear model</em>. The cool think is that you can now interpret the results from that function. Lets try using the data on grades and time studying.</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="linear-regression-in-r.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets start by bringing back the data </span></span>
-<span id="cb209-2"><a href="linear-regression-in-r.html#cb209-2" aria-hidden="true" tabindex="-1"></a>Hours_Studying<span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>)</span>
-<span id="cb209-3"><a href="linear-regression-in-r.html#cb209-3" aria-hidden="true" tabindex="-1"></a>Grade<span class="ot">=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)</span>
-<span id="cb209-4"><a href="linear-regression-in-r.html#cb209-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb209-5"><a href="linear-regression-in-r.html#cb209-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the function lm, requires you to simply set the model as y ~ x. In our case, grades are the dependent variable, so it goes on the Y-axis, and time studying is the independent variable, so it goes in the x-axis.</span></span>
-<span id="cb209-6"><a href="linear-regression-in-r.html#cb209-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span> (Grade<span class="sc">~</span>Hours_Studying)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="linear-regression-in-r.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets start by bringing back the data </span></span>
+<span id="cb196-2"><a href="linear-regression-in-r.html#cb196-2" aria-hidden="true" tabindex="-1"></a>Hours_Studying<span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>)</span>
+<span id="cb196-3"><a href="linear-regression-in-r.html#cb196-3" aria-hidden="true" tabindex="-1"></a>Grade<span class="ot">=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)</span>
+<span id="cb196-4"><a href="linear-regression-in-r.html#cb196-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-5"><a href="linear-regression-in-r.html#cb196-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the function lm, requires you to simply set the model as y ~ x. In our case, grades are the dependent variable, so it goes on the Y-axis, and time studying is the independent variable, so it goes in the x-axis.</span></span>
+<span id="cb196-6"><a href="linear-regression-in-r.html#cb196-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span> (Grade<span class="sc">~</span>Hours_Studying)</span></code></pre></div>
 The results of the linear model, <em>lm</em>, in R are pretty straightforward, check the image below.
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-237"></span>
 <img src="images/lm%20in%20R.png" alt="Linear regression output in R" width="90%" />

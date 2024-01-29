@@ -386,7 +386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13" data-path="13-final-project.html"><a href="13-final-project.html"><i class="fa fa-check"></i><b>13</b> Final project</a></li>
 <li class="divider"></li>
-<li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
+<li><a href="https://camilo-mora.github.io/MoraLab/"><img src="images/MoraLab.png" width="270"></a></li>
 
 </ul>
 
@@ -420,9 +420,9 @@ Figure 4.6: Pixelation effect of figure format
 <p>Of course, R offers many formats to save plots. Here we will save a figure as a PDF using the function “pdf”.</p>
 <p>Basically, the function pdf requires you to write the name you want for your file (e.g. “RPlot.pdf”), how big you want the plot, the size of the letters, and few other options. Type ?pdf to see additional settings.</p>
 <p>The way to save any figure in R is like this: Firsts, you write the line of code indicating the type of file you want to save as. That creates a clean sheet, where you can place your plot or plots. Once done with your figure or figures, you need a line of code called dev.off(); that closes the sheet and save the file. Lets try,</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="saving-plots.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;RPlot.pdf&quot;</span>, <span class="at">width =</span> <span class="dv">3</span>, <span class="at">height =</span> <span class="dv">3</span>,<span class="at">pointsize=</span><span class="dv">8</span>,<span class="at">paper=</span><span class="st">&quot;letter&quot;</span>)</span>
-<span id="cb148-2"><a href="saving-plots.html#cb148-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bin,<span class="at">colramp=</span>my_colors)  <span class="co">#hexbin plot</span></span>
-<span id="cb148-3"><a href="saving-plots.html#cb148-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="saving-plots.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;RPlot.pdf&quot;</span>, <span class="at">width =</span> <span class="dv">3</span>, <span class="at">height =</span> <span class="dv">3</span>,<span class="at">pointsize=</span><span class="dv">8</span>,<span class="at">paper=</span><span class="st">&quot;letter&quot;</span>)</span>
+<span id="cb135-2"><a href="saving-plots.html#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bin,<span class="at">colramp=</span>my_colors)  <span class="co">#hexbin plot</span></span>
+<span id="cb135-3"><a href="saving-plots.html#cb135-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
 <p>If you now check your working folder, there should be a file called RPlot.pdf, which has the figure you just created. Of course, you can edit the figure as you like, as we showed in the Scatterplot section.</p>
 <p>The benefit of l saving files as PDF is that the resolution is never affected. You can zoom in into a PDF file and the resolution is always the same. In turn, other types of figures like jpeg, gif, png, etc. you need to define the resolution in advance, and if you zoom in into those type of figure formats you will notice the pixelation.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-143"></span>

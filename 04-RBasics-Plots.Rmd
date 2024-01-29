@@ -261,7 +261,7 @@ knitr::include_graphics("images/Viridis.png")
 
 Lets now plot our map, using the magma scale
 
-```{r,VirtidisRaster}
+```{r,VirtidisRaster, message=FALSE, warning=FALSE}
 library(viridis)
 plot(GlobalPopulation,col =magma(1000)) #plot human population with 100 color in my scale
 ```
@@ -283,7 +283,7 @@ Now you can better appreciate the patterns of variation, but you need to be mind
 
 R also allows to reproject the data into different projection types. You should be aware that there are many issues with displaying maps in different projections, that is topic for another course.
 
-```{r,ProjectingRaster}
+```{r,ProjectingRaster, message=FALSE, warning=FALSE}
 
 Raster <- projectRaster(GlobalPopulation, crs='+proj=moll', over=T) #reproject raster to mollweide projection
  
@@ -294,7 +294,7 @@ plot(Raster)
 Hmm that raster of the world's population is missing an outline of the world. For that, there is a package called maps. Let's try.
 
 
-```{r}
+```{r,message=FALSE, warning=FALSE}
 library(maps) # this library offers several choices for background maps
 
 worldmap <- map("world", plot=F,interior = F)   #create map of the world
@@ -312,7 +312,7 @@ plot( worldmapLines)     #check the map
 
 Great, now you have a raster of the world's human population and an outline of the world. Let's put them together          
           
-```{r}
+```{r, message=FALSE}
  plot(GlobalPopulation)      #first plot your raster
  plot(worldmapLines,add=T)   #then add the outline of the world on top.
 ```         

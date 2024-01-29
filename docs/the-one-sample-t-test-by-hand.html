@@ -386,7 +386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13" data-path="13-final-project.html"><a href="13-final-project.html"><i class="fa fa-check"></i><b>13</b> Final project</a></li>
 <li class="divider"></li>
-<li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
+<li><a href="https://camilo-mora.github.io/MoraLab/"><img src="images/MoraLab.png" width="270"></a></li>
 
 </ul>
 
@@ -425,18 +425,18 @@ Figure 10.6: R-results for a one-sample z-test
 <p>H1: <span class="math inline">\(\mu\)</span> &gt; 600 the question of interest, which in this case is to know if the girsl scored higher</p>
 <p>In this case, we have a one-sample comparison, we do not know the population variance, and our sample size is only 10 individuals, so a T-test is best suited here.</p>
 <p>Let’s do one by hand,</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="the-one-sample-t-test-by-hand.html#cb243-1" aria-hidden="true" tabindex="-1"></a>Sample<span class="ot">=</span><span class="fu">c</span>(<span class="dv">587</span>, <span class="dv">602</span>, <span class="dv">627</span>, <span class="dv">610</span>, <span class="dv">619</span>, <span class="dv">622</span>, <span class="dv">605</span>, <span class="dv">608</span>, <span class="dv">596</span>, <span class="dv">592</span>) <span class="co">#lets put the values in a vector</span></span>
-<span id="cb243-2"><a href="the-one-sample-t-test-by-hand.html#cb243-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb243-3"><a href="the-one-sample-t-test-by-hand.html#cb243-3" aria-hidden="true" tabindex="-1"></a>SampleMean<span class="ot">=</span><span class="fu">mean</span>(Sample) <span class="co">#mean score of the girls sampled</span></span>
-<span id="cb243-4"><a href="the-one-sample-t-test-by-hand.html#cb243-4" aria-hidden="true" tabindex="-1"></a>SampleSD<span class="ot">=</span><span class="fu">sd</span>(Sample) <span class="co">#this is the sample standard deviation</span></span>
-<span id="cb243-5"><a href="the-one-sample-t-test-by-hand.html#cb243-5" aria-hidden="true" tabindex="-1"></a>SampleSize<span class="ot">=</span> <span class="fu">length</span>(Sample)  <span class="co"># this is the sample size </span></span>
-<span id="cb243-6"><a href="the-one-sample-t-test-by-hand.html#cb243-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb243-7"><a href="the-one-sample-t-test-by-hand.html#cb243-7" aria-hidden="true" tabindex="-1"></a>PopulationMean<span class="ot">=</span> <span class="dv">600</span> <span class="co">#this is the true, expected value, think of it as the population mean...</span></span>
-<span id="cb243-8"><a href="the-one-sample-t-test-by-hand.html#cb243-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb243-9"><a href="the-one-sample-t-test-by-hand.html#cb243-9" aria-hidden="true" tabindex="-1"></a><span class="co">#let&#39;s now estimate the T-score using the equation above.</span></span>
-<span id="cb243-10"><a href="the-one-sample-t-test-by-hand.html#cb243-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb243-11"><a href="the-one-sample-t-test-by-hand.html#cb243-11" aria-hidden="true" tabindex="-1"></a>TTest<span class="ot">=</span>(SampleMean<span class="sc">-</span>PopulationMean)<span class="sc">/</span>(SampleSD<span class="sc">/</span><span class="fu">sqrt</span>(SampleSize))</span>
-<span id="cb243-12"><a href="the-one-sample-t-test-by-hand.html#cb243-12" aria-hidden="true" tabindex="-1"></a>TTest</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="the-one-sample-t-test-by-hand.html#cb230-1" aria-hidden="true" tabindex="-1"></a>Sample<span class="ot">=</span><span class="fu">c</span>(<span class="dv">587</span>, <span class="dv">602</span>, <span class="dv">627</span>, <span class="dv">610</span>, <span class="dv">619</span>, <span class="dv">622</span>, <span class="dv">605</span>, <span class="dv">608</span>, <span class="dv">596</span>, <span class="dv">592</span>) <span class="co">#lets put the values in a vector</span></span>
+<span id="cb230-2"><a href="the-one-sample-t-test-by-hand.html#cb230-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb230-3"><a href="the-one-sample-t-test-by-hand.html#cb230-3" aria-hidden="true" tabindex="-1"></a>SampleMean<span class="ot">=</span><span class="fu">mean</span>(Sample) <span class="co">#mean score of the girls sampled</span></span>
+<span id="cb230-4"><a href="the-one-sample-t-test-by-hand.html#cb230-4" aria-hidden="true" tabindex="-1"></a>SampleSD<span class="ot">=</span><span class="fu">sd</span>(Sample) <span class="co">#this is the sample standard deviation</span></span>
+<span id="cb230-5"><a href="the-one-sample-t-test-by-hand.html#cb230-5" aria-hidden="true" tabindex="-1"></a>SampleSize<span class="ot">=</span> <span class="fu">length</span>(Sample)  <span class="co"># this is the sample size </span></span>
+<span id="cb230-6"><a href="the-one-sample-t-test-by-hand.html#cb230-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb230-7"><a href="the-one-sample-t-test-by-hand.html#cb230-7" aria-hidden="true" tabindex="-1"></a>PopulationMean<span class="ot">=</span> <span class="dv">600</span> <span class="co">#this is the true, expected value, think of it as the population mean...</span></span>
+<span id="cb230-8"><a href="the-one-sample-t-test-by-hand.html#cb230-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb230-9"><a href="the-one-sample-t-test-by-hand.html#cb230-9" aria-hidden="true" tabindex="-1"></a><span class="co">#let&#39;s now estimate the T-score using the equation above.</span></span>
+<span id="cb230-10"><a href="the-one-sample-t-test-by-hand.html#cb230-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb230-11"><a href="the-one-sample-t-test-by-hand.html#cb230-11" aria-hidden="true" tabindex="-1"></a>TTest<span class="ot">=</span>(SampleMean<span class="sc">-</span>PopulationMean)<span class="sc">/</span>(SampleSD<span class="sc">/</span><span class="fu">sqrt</span>(SampleSize))</span>
+<span id="cb230-12"><a href="the-one-sample-t-test-by-hand.html#cb230-12" aria-hidden="true" tabindex="-1"></a>TTest</span></code></pre></div>
 <p>So our estimated T-value is 1.64.</p>
 <p>Now, we need to find out the critical t-value at the 0.05 significance level. For this, we need to estimate something call <strong>Degrees of freedom</strong>, which in this case is simply our sample size minus one. In our case, the degrees of freedom, then, are 9.</p>
 <p>With the information of the <span class="math inline">\(\alpha\)</span> value (i.e., 0.05 in our case) and the degrees of freedom, <strong>DF</strong> (i.e, 9 in our case), we can look for the critical T-value in a table, like the one below.</p>

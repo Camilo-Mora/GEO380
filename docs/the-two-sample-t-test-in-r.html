@@ -386,7 +386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13" data-path="13-final-project.html"><a href="13-final-project.html"><i class="fa fa-check"></i><b>13</b> Final project</a></li>
 <li class="divider"></li>
-<li><a href="http://www.soc.hawaii.edu/mora/index.html"><img src="images/MoraLab.png" width="270"></a></li>
+<li><a href="https://camilo-mora.github.io/MoraLab/"><img src="images/MoraLab.png" width="270"></a></li>
 
 </ul>
 
@@ -410,21 +410,21 @@ By Camilo Mora, Ph.D.
 <div id="the-two-sample-t-test-in-r" class="section level2 unnumbered hasAnchor">
 <h2>The two-sample T-test in R<a href="the-two-sample-t-test-in-r.html#the-two-sample-t-test-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can run a T-test in R, using the package BSDA, and its function tsum.test. Lets try it.</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="the-two-sample-t-test-in-r.html#cb252-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (<span class="st">&quot;BSDA&quot;</span>)           <span class="co">#load the library</span></span>
-<span id="cb252-2"><a href="the-two-sample-t-test-in-r.html#cb252-2" aria-hidden="true" tabindex="-1"></a>Males_Mean<span class="ot">=</span><span class="fl">630.1</span>  </span>
-<span id="cb252-3"><a href="the-two-sample-t-test-in-r.html#cb252-3" aria-hidden="true" tabindex="-1"></a>Males_SDSD<span class="ot">=</span><span class="fl">13.42</span></span>
-<span id="cb252-4"><a href="the-two-sample-t-test-in-r.html#cb252-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb252-5"><a href="the-two-sample-t-test-in-r.html#cb252-5" aria-hidden="true" tabindex="-1"></a>Females_Mean<span class="ot">=</span><span class="fl">606.8</span></span>
-<span id="cb252-6"><a href="the-two-sample-t-test-in-r.html#cb252-6" aria-hidden="true" tabindex="-1"></a>Females_SD<span class="ot">=</span><span class="fl">13.14</span></span>
-<span id="cb252-7"><a href="the-two-sample-t-test-in-r.html#cb252-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb252-8"><a href="the-two-sample-t-test-in-r.html#cb252-8" aria-hidden="true" tabindex="-1"></a>SampleSize<span class="ot">=</span> <span class="dv">10</span></span>
-<span id="cb252-9"><a href="the-two-sample-t-test-in-r.html#cb252-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb252-10"><a href="the-two-sample-t-test-in-r.html#cb252-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tsum.test</span>(<span class="at">mean.x=</span>Males_Mean, <span class="at">s.x =</span> Males_SDSD, <span class="at">n.x =</span> SampleSize,</span>
-<span id="cb252-11"><a href="the-two-sample-t-test-in-r.html#cb252-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">mean.y=</span>Females_Mean, <span class="at">s.y =</span> Females_SD, <span class="at">n.y =</span> SampleSize,</span>
-<span id="cb252-12"><a href="the-two-sample-t-test-in-r.html#cb252-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>, <span class="at">mu =</span> <span class="dv">15</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb252-13"><a href="the-two-sample-t-test-in-r.html#cb252-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb252-14"><a href="the-two-sample-t-test-in-r.html#cb252-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb252-15"><a href="the-two-sample-t-test-in-r.html#cb252-15" aria-hidden="true" tabindex="-1"></a><span class="co">#the parameters needed to run a T-test are self-explanatory. x parameters would be for males and y parameters for females, mu is the expected difference between the population means, which we know from the example is 15 score points</span></span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="the-two-sample-t-test-in-r.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (<span class="st">&quot;BSDA&quot;</span>)           <span class="co">#load the library</span></span>
+<span id="cb239-2"><a href="the-two-sample-t-test-in-r.html#cb239-2" aria-hidden="true" tabindex="-1"></a>Males_Mean<span class="ot">=</span><span class="fl">630.1</span>  </span>
+<span id="cb239-3"><a href="the-two-sample-t-test-in-r.html#cb239-3" aria-hidden="true" tabindex="-1"></a>Males_SDSD<span class="ot">=</span><span class="fl">13.42</span></span>
+<span id="cb239-4"><a href="the-two-sample-t-test-in-r.html#cb239-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb239-5"><a href="the-two-sample-t-test-in-r.html#cb239-5" aria-hidden="true" tabindex="-1"></a>Females_Mean<span class="ot">=</span><span class="fl">606.8</span></span>
+<span id="cb239-6"><a href="the-two-sample-t-test-in-r.html#cb239-6" aria-hidden="true" tabindex="-1"></a>Females_SD<span class="ot">=</span><span class="fl">13.14</span></span>
+<span id="cb239-7"><a href="the-two-sample-t-test-in-r.html#cb239-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb239-8"><a href="the-two-sample-t-test-in-r.html#cb239-8" aria-hidden="true" tabindex="-1"></a>SampleSize<span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb239-9"><a href="the-two-sample-t-test-in-r.html#cb239-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb239-10"><a href="the-two-sample-t-test-in-r.html#cb239-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tsum.test</span>(<span class="at">mean.x=</span>Males_Mean, <span class="at">s.x =</span> Males_SDSD, <span class="at">n.x =</span> SampleSize,</span>
+<span id="cb239-11"><a href="the-two-sample-t-test-in-r.html#cb239-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">mean.y=</span>Females_Mean, <span class="at">s.y =</span> Females_SD, <span class="at">n.y =</span> SampleSize,</span>
+<span id="cb239-12"><a href="the-two-sample-t-test-in-r.html#cb239-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>, <span class="at">mu =</span> <span class="dv">15</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb239-13"><a href="the-two-sample-t-test-in-r.html#cb239-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb239-14"><a href="the-two-sample-t-test-in-r.html#cb239-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb239-15"><a href="the-two-sample-t-test-in-r.html#cb239-15" aria-hidden="true" tabindex="-1"></a><span class="co">#the parameters needed to run a T-test are self-explanatory. x parameters would be for males and y parameters for females, mu is the expected difference between the population means, which we know from the example is 15 score points</span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-316"></span>
 <img src="images/T%20Two%20SampleTestResultsR.png" alt="R-results for a two-sample T-test" width="100%" />
 <p class="caption">
