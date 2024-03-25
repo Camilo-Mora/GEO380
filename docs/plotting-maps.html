@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Plotting maps | GEOG380.knit</title>
+  <title>Plotting maps |  By Camilo Mora, Ph.D. </title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Plotting maps | GEOG380.knit" />
+  <meta property="og:title" content="Plotting maps |  By Camilo Mora, Ph.D. " />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Plotting maps | GEOG380.knit" />
+  <meta name="twitter:title" content="Plotting maps |  By Camilo Mora, Ph.D. " />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -90,7 +90,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -103,7 +103,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -397,8 +397,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px">
-By Camilo Mora, Ph.D.
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px"><br />
+By Camilo Mora, Ph.D.<br />
 </h1></a>
           </h1>
         </div>
@@ -413,19 +413,19 @@ By Camilo Mora, Ph.D.
 <p>Let’s see how to plot a map in R. Lets start by getting some spatial data.</p>
 <p>I collected the global data on human population from <a href="https://sedac.ciesin.columbia.edu/data/set/gpw-v4-population-count-rev11/data-download#">here</a>. That page is full of other types of global scale data you may find interesting.</p>
 <p>Here we will use the package raster for the purpose of loading and plotting the map.</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="plotting-maps.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (raster)</span>
-<span id="cb118-2"><a href="plotting-maps.html#cb118-2" aria-hidden="true" tabindex="-1"></a>GlobalPopulation<span class="ot">=</span><span class="fu">raster</span>(<span class="st">&quot;https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/GlobalHumanPopulation2020.tif&quot;</span>) <span class="co">#load the raster.</span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="plotting-maps.html#cb117-1" tabindex="-1"></a><span class="fu">library</span> (raster)</span>
+<span id="cb117-2"><a href="plotting-maps.html#cb117-2" tabindex="-1"></a>GlobalPopulation<span class="ot">=</span><span class="fu">raster</span>(<span class="st">&quot;https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/GlobalHumanPopulation2020.tif&quot;</span>) <span class="co">#load the raster.</span></span></code></pre></div>
 <p>In the code above, I create a variable called GlobalPopulation that has the global data on human population.</p>
 <p>Note that to load the data of the raster, you use the same method you used before to load the .csv file. That is, using the path to the file, preceded by the command that reads the file.</p>
 <p>In this case, you use the command raster to read the file rather than read.csv. as the data you want to load is a raster and not a csv file.</p>
 <p>To plot the raster, all you have to do is to plot that variable, like this:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="plotting-maps.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span> (GlobalPopulation)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="plotting-maps.html#cb118-1" tabindex="-1"></a><span class="fu">plot</span> (GlobalPopulation)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/PloRraster-1.png" width="672" /></p>
 <p>You can use a different color scale using the RColorBrewer library. Lets try,</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="plotting-maps.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)  <span class="co">#this library allows you to create your own scales</span></span>
-<span id="cb120-2"><a href="plotting-maps.html#cb120-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Lets create a color scale between yellow and red colors</span></span>
-<span id="cb120-3"><a href="plotting-maps.html#cb120-3" aria-hidden="true" tabindex="-1"></a>ColorScale <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;red&quot;</span>))</span>
-<span id="cb120-4"><a href="plotting-maps.html#cb120-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(GlobalPopulation,<span class="at">col =</span><span class="fu">ColorScale</span>(<span class="dv">100</span>)) <span class="co">#plot human population with 100 color in my scale</span></span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="plotting-maps.html#cb119-1" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)  <span class="co">#this library allows you to create your own scales</span></span>
+<span id="cb119-2"><a href="plotting-maps.html#cb119-2" tabindex="-1"></a><span class="co">#Lets create a color scale between yellow and red colors</span></span>
+<span id="cb119-3"><a href="plotting-maps.html#cb119-3" tabindex="-1"></a>ColorScale <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;red&quot;</span>))</span>
+<span id="cb119-4"><a href="plotting-maps.html#cb119-4" tabindex="-1"></a><span class="fu">plot</span>(GlobalPopulation,<span class="at">col =</span><span class="fu">ColorScale</span>(<span class="dv">100</span>)) <span class="co">#plot human population with 100 color in my scale</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/ColorScaleraster-1.png" width="672" /></p>
 <p>There are also premade color blind friendly scales. The most commonly used is called viridis. Here are the different options of scales it has to offer:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-132"></span>
@@ -435,44 +435,46 @@ Figure 4.4: Viridis color scales
 </p>
 </div>
 <p>Lets now plot our map, using the magma scale</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="plotting-maps.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
-<span id="cb121-2"><a href="plotting-maps.html#cb121-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(GlobalPopulation,<span class="at">col =</span><span class="fu">magma</span>(<span class="dv">1000</span>)) <span class="co">#plot human population with 100 color in my scale</span></span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="plotting-maps.html#cb120-1" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb120-2"><a href="plotting-maps.html#cb120-2" tabindex="-1"></a><span class="fu">plot</span>(GlobalPopulation,<span class="at">col =</span><span class="fu">magma</span>(<span class="dv">1000</span>)) <span class="co">#plot human population with 100 color in my scale</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/VirtidisRaster-1.png" width="672" />
 Hmm, not to pretty ah?. why do you think the map does not look that good?</p>
 <p>Well, the reason is that there are some places in the world with soo many people that makes the rest of the world look by comparison like if the world was empty. Here the problem is the scale of comparison.</p>
 <p>In cases where the extremes of the data are to far a part, it is recommended to log transform your data, which brings some of those extremes closer. Let’s see what log-transforming does,</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="plotting-maps.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log</span>(GlobalPopulation),<span class="at">col =</span><span class="fu">magma</span>(<span class="dv">1000</span>)) <span class="co">#log transform human population</span></span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="plotting-maps.html#cb121-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log</span>(GlobalPopulation),<span class="at">col =</span><span class="fu">magma</span>(<span class="dv">1000</span>)) <span class="co">#log transform human population</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/LogRaster-1.png" width="672" /></p>
 <p>Now you can better appreciate the patterns of variation, but you need to be mindful that the data are logarithmic.</p>
 <p>R also allows to reproject the data into different projection types. You should be aware that there are many issues with displaying maps in different projections, that is topic for another course.</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="plotting-maps.html#cb123-1" aria-hidden="true" tabindex="-1"></a>Raster <span class="ot">&lt;-</span> <span class="fu">projectRaster</span>(GlobalPopulation, <span class="at">crs=</span><span class="st">&#39;+proj=moll&#39;</span>, <span class="at">over=</span>T) <span class="co">#reproject raster to mollweide projection</span></span>
-<span id="cb123-2"><a href="plotting-maps.html#cb123-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb123-3"><a href="plotting-maps.html#cb123-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Raster)         </span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="plotting-maps.html#cb122-1" tabindex="-1"></a>Raster <span class="ot">&lt;-</span> <span class="fu">projectRaster</span>(GlobalPopulation, <span class="at">crs=</span><span class="st">&#39;+proj=moll&#39;</span>, <span class="at">over=</span>T) <span class="co">#reproject raster to mollweide projection</span></span>
+<span id="cb122-2"><a href="plotting-maps.html#cb122-2" tabindex="-1"></a> </span>
+<span id="cb122-3"><a href="plotting-maps.html#cb122-3" tabindex="-1"></a><span class="fu">plot</span>(Raster)         </span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/ProjectingRaster-1.png" width="672" /></p>
 <p>Hmm that raster of the world’s population is missing an outline of the world. For that, there is a package called maps. Let’s try.</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="plotting-maps.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maps) <span class="co"># this library offers several choices for background maps</span></span>
-<span id="cb124-2"><a href="plotting-maps.html#cb124-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-3"><a href="plotting-maps.html#cb124-3" aria-hidden="true" tabindex="-1"></a>worldmap <span class="ot">&lt;-</span> <span class="fu">map</span>(<span class="st">&quot;world&quot;</span>, <span class="at">plot=</span>F,<span class="at">interior =</span> F)   <span class="co">#create map of the world</span></span>
-<span id="cb124-4"><a href="plotting-maps.html#cb124-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(worldmap) <span class="co">#check the map</span></span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="plotting-maps.html#cb123-1" tabindex="-1"></a><span class="fu">library</span>(maps) <span class="co"># this library offers several choices for background maps</span></span>
+<span id="cb123-2"><a href="plotting-maps.html#cb123-2" tabindex="-1"></a></span>
+<span id="cb123-3"><a href="plotting-maps.html#cb123-3" tabindex="-1"></a>worldmap <span class="ot">&lt;-</span> <span class="fu">map</span>(<span class="st">&quot;world&quot;</span>, <span class="at">plot=</span>F,<span class="at">interior =</span> F)   <span class="co">#create map of the world</span></span>
+<span id="cb123-4"><a href="plotting-maps.html#cb123-4" tabindex="-1"></a><span class="fu">plot</span>(worldmap) <span class="co">#check the map</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-133-1.png" width="672" /></p>
 <p>Hmm that packages provides the outline of the world as points. But really we want lines. Ok, we can use the maptools to convert points to lines</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="plotting-maps.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maptools)    <span class="co">#library to convert points to lines</span></span></code></pre></div>
-<pre><code>## Please note that &#39;maptools&#39; will be retired during October 2023,
-## plan transition at your earliest convenience (see
-## https://r-spatial.org/r/2023/05/15/evolution4.html and earlier blogs
-## for guidance);some functionality will be moved to &#39;sp&#39;.
-##  Checking rgeos availability: FALSE</code></pre>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="plotting-maps.html#cb124-1" tabindex="-1"></a><span class="fu">library</span>(maptools)    <span class="co">#library to convert points to lines</span></span></code></pre></div>
+<pre><code>## Checking rgeos availability: FALSE
+## Please note that &#39;maptools&#39; will be retired by the end of 2023,
+## plan transition at your earliest convenience;
+## some functionality will be moved to &#39;sp&#39;.
+##      Note: when rgeos is not available, polygon geometry     computations in maptools depend on gpclib,
+##      which has a restricted licence. It is disabled by default;
+##      to enable gpclib, type gpclibPermit()</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;maptools&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:sp&#39;:
 ## 
 ##     sp2Mondrian</code></pre>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="plotting-maps.html#cb129-1" aria-hidden="true" tabindex="-1"></a>worldmapLines <span class="ot">&lt;-</span> <span class="fu">map2SpatialLines</span>(worldmap, <span class="at">proj4string=</span><span class="fu">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>)) </span>
-<span id="cb129-2"><a href="plotting-maps.html#cb129-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>( worldmapLines)     <span class="co">#check the map</span></span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="plotting-maps.html#cb128-1" tabindex="-1"></a>worldmapLines <span class="ot">&lt;-</span> <span class="fu">map2SpatialLines</span>(worldmap, <span class="at">proj4string=</span><span class="fu">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>)) </span>
+<span id="cb128-2"><a href="plotting-maps.html#cb128-2" tabindex="-1"></a><span class="fu">plot</span>( worldmapLines)     <span class="co">#check the map</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/PointToLines-1.png" width="672" /></p>
 <p>Great, now you have a raster of the world’s human population and an outline of the world. Let’s put them together</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="plotting-maps.html#cb130-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">plot</span>(GlobalPopulation)      <span class="co">#first plot your raster</span></span>
-<span id="cb130-2"><a href="plotting-maps.html#cb130-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">plot</span>(worldmapLines,<span class="at">add=</span>T)   <span class="co">#then add the outline of the world on top.</span></span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="plotting-maps.html#cb129-1" tabindex="-1"></a> <span class="fu">plot</span>(GlobalPopulation)      <span class="co">#first plot your raster</span></span>
+<span id="cb129-2"><a href="plotting-maps.html#cb129-2" tabindex="-1"></a> <span class="fu">plot</span>(worldmapLines,<span class="at">add=</span>T)   <span class="co">#then add the outline of the world on top.</span></span></code></pre></div>
 <img src="GEOG380_files/figure-html/unnamed-chunk-134-1.png" width="672" />
 
 <div class="rmdexercise">

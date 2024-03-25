@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Visualization of relationships | GEOG380.knit</title>
+  <title>Visualization of relationships |  By Camilo Mora, Ph.D. </title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Visualization of relationships | GEOG380.knit" />
+  <meta property="og:title" content="Visualization of relationships |  By Camilo Mora, Ph.D. " />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Visualization of relationships | GEOG380.knit" />
+  <meta name="twitter:title" content="Visualization of relationships |  By Camilo Mora, Ph.D. " />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -90,7 +90,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -103,7 +103,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -397,8 +397,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px">
-By Camilo Mora, Ph.D.
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px"><br />
+By Camilo Mora, Ph.D.<br />
 </h1></a>
           </h1>
         </div>
@@ -418,10 +418,10 @@ By Camilo Mora, Ph.D.
 <p>Let’s get to work in R. Let’s work on an interesting relationship I sow in the New York Times, between the people that voted for Donald Trump by State and the degree of higher education at those States.</p>
 <p>First, download the two databases from <a href="https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/TrumpVoters.csv">Here</a> and <a href="https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/US-Pop-HigherEducation.csv">Here</a>.</p>
 <p>Next, load the data into R (remember Chapter 3, section about loading your own data).</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="visualization-of-relationships.html#cb170-1" aria-hidden="true" tabindex="-1"></a>TrumpVoters_by_State <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;D:/GEO380/Datasets/TrumpVoters.csv&quot;</span>) <span class="co">#Fraction of people by State that voted for Trump</span></span>
-<span id="cb170-2"><a href="visualization-of-relationships.html#cb170-2" aria-hidden="true" tabindex="-1"></a>HigherEducation_by_State <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;D:/GEO380/Datasets/US-Pop-HigherEducation.csv&quot;</span>) <span class="co">#Fraction of people by State that have higher education degrees</span></span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="visualization-of-relationships.html#cb169-1" tabindex="-1"></a>TrumpVoters_by_State <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;D:/GEO380/Datasets/TrumpVoters.csv&quot;</span>) <span class="co">#Fraction of people by State that voted for Trump</span></span>
+<span id="cb169-2"><a href="visualization-of-relationships.html#cb169-2" tabindex="-1"></a>HigherEducation_by_State <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;D:/GEO380/Datasets/US-Pop-HigherEducation.csv&quot;</span>) <span class="co">#Fraction of people by State that have higher education degrees</span></span></code></pre></div>
 <p>Next check the data were loaded correctly and review the structure of the data:</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="visualization-of-relationships.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> (TrumpVoters_by_State)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="visualization-of-relationships.html#cb170-1" tabindex="-1"></a><span class="fu">head</span> (TrumpVoters_by_State)</span></code></pre></div>
 <pre><code>##        State TRUMPVoteAsFraction
 ## 1    Alabama              0.6208
 ## 2     Alaska              0.5128
@@ -430,7 +430,7 @@ By Camilo Mora, Ph.D.
 ## 5 California              0.3162
 ## 6   Colorado              0.4325</code></pre>
 <p>Review the same for the second database:</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="visualization-of-relationships.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> (HigherEducation_by_State)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="visualization-of-relationships.html#cb172-1" tabindex="-1"></a><span class="fu">head</span> (HigherEducation_by_State)</span></code></pre></div>
 <pre><code>##        State BachelorDegreePerStateAsFraction
 ## 1    Alabama                            0.087
 ## 2     Alaska                            0.101
@@ -441,7 +441,7 @@ By Camilo Mora, Ph.D.
 <p>The data appear to have loaded correctly. But I have the data I want in two different data.frames, so I have to merge them. In this case, I have one variable in common to the two data.frames that I can use to merge them by; that is the variable State. So, let’s merge our two data.frames by State.</p>
 <p>p
 i</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="visualization-of-relationships.html#cb175-1" aria-hidden="true" tabindex="-1"></a>Data<span class="ot">=</span><span class="fu">merge</span>(TrumpVoters_by_State,HigherEducation_by_State,<span class="at">by=</span><span class="st">&quot;State&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="visualization-of-relationships.html#cb174-1" tabindex="-1"></a>Data<span class="ot">=</span><span class="fu">merge</span>(TrumpVoters_by_State,HigherEducation_by_State,<span class="at">by=</span><span class="st">&quot;State&quot;</span>)</span></code></pre></div>
 
 <div class="rmdimportant">
 <p>When merging databases, things can get tricky as you need to have at least one column in common to merge by. You need to ensure that in both databases, each field uses the same names for the data.</p>
@@ -451,7 +451,7 @@ In such cases, you need to modify the original databases to ensure the two data.
 </div>
 <p>Let’s review the new merged database:
 u</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="visualization-of-relationships.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> (Data)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="visualization-of-relationships.html#cb175-1" tabindex="-1"></a><span class="fu">head</span> (Data)</span></code></pre></div>
 <pre><code>##        State TRUMPVoteAsFraction BachelorDegreePerStateAsFraction
 ## 1    Alabama              0.6208                            0.087
 ## 2     Alaska              0.5128                            0.101
@@ -462,7 +462,7 @@ u</p>
 <p>Ok, now lets plot the data. In this case, I think the fraction of people that voted for Trump could be function of how educated they were, not the other way around; that would be like saying that Trump affected the degree of education of each State….hmm…when I say like that is does not sound that unlikely, ah?.</p>
 <p>This distinction is important because you need to determine which variable goes in the Y axis, and which one on the X-axis.</p>
 <p>If I think, the votes for Trump were influenced by the level of their education, them level of education will be the independent variable and then it will be located in the X-Axis. In this reasoning, The percent of the State’s population that voted for trump will be the dependent variable, and so, it should be located on the Y-axis. Lets do that plot:</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="visualization-of-relationships.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Data<span class="sc">$</span>TRUMPVoteAsFraction<span class="sc">~</span>Data<span class="sc">$</span>BachelorDegreePerStateAsFraction, <span class="at">ylab=</span><span class="st">&quot;Trump voters by State (Fraction)&quot;</span>,<span class="at">xlab=</span><span class="st">&quot;High degree education (Fraction of population)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="visualization-of-relationships.html#cb177-1" tabindex="-1"></a><span class="fu">plot</span>(Data<span class="sc">$</span>TRUMPVoteAsFraction<span class="sc">~</span>Data<span class="sc">$</span>BachelorDegreePerStateAsFraction, <span class="at">ylab=</span><span class="st">&quot;Trump voters by State (Fraction)&quot;</span>,<span class="at">xlab=</span><span class="st">&quot;High degree education (Fraction of population)&quot;</span>)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-194-1.png" width="672" /></p>
 <p>Hmm, from this visualization alone you can tell something is cooking here…the least educated states voted for Trump more so than States with more educated populations. Let’s explore this relationship in more detail, as a case example.</p>
 </div>

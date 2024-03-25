@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Subsetting columns | GEOG380.knit</title>
+  <title>Subsetting columns |  By Camilo Mora, Ph.D. </title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Subsetting columns | GEOG380.knit" />
+  <meta property="og:title" content="Subsetting columns |  By Camilo Mora, Ph.D. " />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Subsetting columns | GEOG380.knit" />
+  <meta name="twitter:title" content="Subsetting columns |  By Camilo Mora, Ph.D. " />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -90,7 +90,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -103,7 +103,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -397,8 +397,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px">
-By Camilo Mora, Ph.D.
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px"><br />
+By Camilo Mora, Ph.D.<br />
 </h1></a>
           </h1>
         </div>
@@ -413,16 +413,16 @@ By Camilo Mora, Ph.D.
 <div id="deleting-columns" class="section level3 unnumbered hasAnchor">
 <h3>Deleting columns<a href="subsetting-columns.html#deleting-columns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is the simplest approach. Basically, I set the column I want to delete to NULL. Like this,</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="subsetting-columns.html#cb91-1" aria-hidden="true" tabindex="-1"></a>MergeData<span class="sc">$</span>X<span class="ot">=</span> <span class="cn">NULL</span>            <span class="co">#with this code I delete the column called X, which is probably an index number used by one of the data sources</span></span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="subsetting-columns.html#cb90-1" tabindex="-1"></a>MergeData<span class="sc">$</span>X<span class="ot">=</span> <span class="cn">NULL</span>            <span class="co">#with this code I delete the column called X, which is probably an index number used by one of the data sources</span></span></code></pre></div>
 <p>Now, you try to delete the column “continent.x”.</p>
 </div>
 <div id="selecting-columns" class="section level3 unnumbered hasAnchor">
 <h3>Selecting columns<a href="subsetting-columns.html#selecting-columns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Obviously, if you have many columns that you do not need, deleting columns may take a while, as you have to type each column name you want to delete. Alternatively, you can simply select the columns you need. Like this,</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="subsetting-columns.html#cb92-1" aria-hidden="true" tabindex="-1"></a>SelectedColumns<span class="ot">=</span>MergeData[, <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>,<span class="st">&quot;year&quot;</span>,  <span class="st">&quot;gdpPercap&quot;</span>, <span class="st">&quot;lifeExp&quot;</span> ) ]</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="subsetting-columns.html#cb91-1" tabindex="-1"></a>SelectedColumns<span class="ot">=</span>MergeData[, <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>,<span class="st">&quot;year&quot;</span>,  <span class="st">&quot;gdpPercap&quot;</span>, <span class="st">&quot;lifeExp&quot;</span> ) ]</span></code></pre></div>
 <p>This syntax should be familiar to you already. As it is the indexing function we used earlier [rows, columns].</p>
 <p>If you read the code above, basically….I created a new database called SelectedColumns, which takes the database MergeData and select all rows (because there is nothing to the left of the comma) and the four columns listed in the vector after the comma.</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="subsetting-columns.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(SelectedColumns)</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="subsetting-columns.html#cb92-1" tabindex="-1"></a><span class="fu">head</span>(SelectedColumns)</span></code></pre></div>
 <pre><code>##       country year gdpPercap lifeExp
 ## 1 Afghanistan 1952  779.4453  28.801
 ## 2 Afghanistan 1957  820.8530  30.332

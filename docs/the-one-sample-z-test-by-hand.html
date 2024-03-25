@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>The one-sample Z-test by hand | GEOG380.knit</title>
+  <title>The one-sample Z-test by hand |  By Camilo Mora, Ph.D. </title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="The one-sample Z-test by hand | GEOG380.knit" />
+  <meta property="og:title" content="The one-sample Z-test by hand |  By Camilo Mora, Ph.D. " />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The one-sample Z-test by hand | GEOG380.knit" />
+  <meta name="twitter:title" content="The one-sample Z-test by hand |  By Camilo Mora, Ph.D. " />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -90,7 +90,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -103,7 +103,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -397,8 +397,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px">
-By Camilo Mora, Ph.D.
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px"><br />
+By Camilo Mora, Ph.D.<br />
 </h1></a>
           </h1>
         </div>
@@ -416,34 +416,37 @@ By Camilo Mora, Ph.D.
 <p>Given this principle then you can easily know the fraction of individuals at certain standard deviations from the mean.</p>
 <p>The z-cores is basically an index that allows you to convert/standardize any value to a given number of standard deviations from the mean.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-293"></span>
-<img src="images/Z-Score.png" alt="Z-test fucntion" width="70%" />
+<img src="images/Z-score.png" alt="Z-test fucntion" width="70%" />
 <p class="caption">
 Figure 10.2: Z-test fucntion
 </p>
 </div>
 <p>Lets try an example.</p>
-<p>Say you want to know if the USA female team run particularly faster the 100m race than other teams.</p>
-<p>You studeid 31 girls and their times runing 100m in seconds were:</p>
+<p>Say you want to know if the USA female team run particularly slower the 100m race than prior teams.</p>
+<p>You studied 31 girls of the current team and their times runing 100m in seconds were:</p>
 <p>9.7, 9.7, 8.9, 9.2, 9.4, 9.1, 9.5, 9.6, 8.9, 9.1, 9.5, 9.2, 9.5, 9.4, 9.6, 9.2, 9.9, 10, 9.3, 9.6, 9.1, 9.5, 9.2, 9.5, 9.4, 9.6, 9.2, 9.9, 10, 9.3, 9.6.</p>
 <p>In turn, the historical time running that race is 9.5sec +/-0.2sec.</p>
 <p>From the example, it looks like we have one sample that we want to compare to a population. We have the standard deviation, SD, of the population and our sample size is larger than 30, so the best test here is a Z-test.</p>
 <p>As it is customary, we start by stating the hypothesis:</p>
-<p>H0: Time USA team = 9.5 sec The null hypothesis is how things are suppose to be…that means, the historical time of 9.5sec</p>
-<p>H1: Time USA team &lt; 9.5 sec The alternative hypothesis is what we are interested on, or claiming…that the USA team is faster than 9.5sec</p>
+<p>H0: Time USA team &gt;= 9.5 sec The null hypothesis is how things are suppose to be or everything that the alternative hypothesis is not …that means, the historical time of 9.5sec or larger</p>
+<p>H1: Time USA team &lt; 9.5 sec The alternative hypothesis is what we are interested on, or claiming…that the USA team is slower than 9.5sec</p>
 <p>Let’s calculate the z-score:</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="the-one-sample-z-test-by-hand.html#cb227-1" aria-hidden="true" tabindex="-1"></a>Sample<span class="ot">=</span><span class="fu">c</span>(<span class="fl">9.7</span>, <span class="fl">9.7</span>, <span class="fl">8.9</span>, <span class="fl">9.2</span>, <span class="fl">9.4</span>, <span class="fl">9.1</span>, <span class="fl">9.5</span>, <span class="fl">9.6</span>, <span class="fl">8.9</span>, <span class="fl">9.1</span>, <span class="fl">9.5</span>, <span class="fl">9.2</span>, <span class="fl">9.5</span>, <span class="fl">9.4</span>, <span class="fl">9.6</span>, <span class="fl">9.2</span>, <span class="fl">9.9</span>, <span class="dv">10</span>, <span class="fl">9.3</span>, <span class="fl">9.6</span>, <span class="fl">9.1</span>, <span class="fl">9.5</span>, <span class="fl">9.2</span>, <span class="fl">9.5</span>, <span class="fl">9.4</span>, <span class="fl">9.6</span>, <span class="fl">9.2</span>, <span class="fl">9.9</span>, <span class="dv">10</span>, <span class="fl">9.3</span>, <span class="fl">9.6</span>) <span class="co">#lets put the values in a vector</span></span>
-<span id="cb227-2"><a href="the-one-sample-z-test-by-hand.html#cb227-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-3"><a href="the-one-sample-z-test-by-hand.html#cb227-3" aria-hidden="true" tabindex="-1"></a>SampleMean<span class="ot">=</span><span class="fu">mean</span>(Sample) <span class="co">#mean time racing for the girls sampled</span></span>
-<span id="cb227-4"><a href="the-one-sample-z-test-by-hand.html#cb227-4" aria-hidden="true" tabindex="-1"></a>SampleSize<span class="ot">=</span> <span class="fu">length</span>(Sample)  <span class="co"># this is the sample size or number of girls measured</span></span>
-<span id="cb227-5"><a href="the-one-sample-z-test-by-hand.html#cb227-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-6"><a href="the-one-sample-z-test-by-hand.html#cb227-6" aria-hidden="true" tabindex="-1"></a>PopulationMean<span class="ot">=</span> <span class="fl">9.5</span> <span class="co">#this is the population mean...or the historical time it has taken people to run 100m</span></span>
-<span id="cb227-7"><a href="the-one-sample-z-test-by-hand.html#cb227-7" aria-hidden="true" tabindex="-1"></a>PopulationSD<span class="ot">=</span><span class="fl">0.2</span> <span class="co">#this is the population standard deviation</span></span>
-<span id="cb227-8"><a href="the-one-sample-z-test-by-hand.html#cb227-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-9"><a href="the-one-sample-z-test-by-hand.html#cb227-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-10"><a href="the-one-sample-z-test-by-hand.html#cb227-10" aria-hidden="true" tabindex="-1"></a><span class="co">#let&#39;s now estimate the z-score using the equation above.</span></span>
-<span id="cb227-11"><a href="the-one-sample-z-test-by-hand.html#cb227-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-12"><a href="the-one-sample-z-test-by-hand.html#cb227-12" aria-hidden="true" tabindex="-1"></a>ZTest<span class="ot">=</span>(SampleMean<span class="sc">-</span>PopulationMean)<span class="sc">/</span>(PopulationSD<span class="sc">/</span><span class="fu">sqrt</span>(SampleSize))</span>
-<span id="cb227-13"><a href="the-one-sample-z-test-by-hand.html#cb227-13" aria-hidden="true" tabindex="-1"></a>ZTest</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="the-one-sample-z-test-by-hand.html#cb226-1" tabindex="-1"></a>Sample<span class="ot">=</span><span class="fu">c</span>(<span class="fl">9.7</span>, <span class="fl">9.7</span>, <span class="fl">8.9</span>, <span class="fl">9.2</span>, <span class="fl">9.4</span>, <span class="fl">9.1</span>, <span class="fl">9.5</span>, <span class="fl">9.6</span>, <span class="fl">8.9</span>, <span class="fl">9.1</span>, <span class="fl">9.5</span>, <span class="fl">9.2</span>, <span class="fl">9.5</span>, <span class="fl">9.4</span>, <span class="fl">9.6</span>, <span class="fl">9.2</span>, <span class="fl">9.9</span>, <span class="dv">10</span>, <span class="fl">9.3</span>, <span class="fl">9.6</span>, <span class="fl">9.1</span>, <span class="fl">9.5</span>, <span class="fl">9.2</span>, <span class="fl">9.5</span>, <span class="fl">9.4</span>, <span class="fl">9.6</span>, <span class="fl">9.2</span>, <span class="fl">9.9</span>, <span class="dv">10</span>, <span class="fl">9.3</span>, <span class="fl">9.6</span>) <span class="co">#lets put the values in a vector</span></span>
+<span id="cb226-2"><a href="the-one-sample-z-test-by-hand.html#cb226-2" tabindex="-1"></a></span>
+<span id="cb226-3"><a href="the-one-sample-z-test-by-hand.html#cb226-3" tabindex="-1"></a>SampleMean<span class="ot">=</span><span class="fu">mean</span>(Sample) <span class="co">#mean time racing for the girls sampled</span></span>
+<span id="cb226-4"><a href="the-one-sample-z-test-by-hand.html#cb226-4" tabindex="-1"></a>SampleSize<span class="ot">=</span> <span class="fu">length</span>(Sample)  <span class="co"># this is the sample size or number of girls measured</span></span>
+<span id="cb226-5"><a href="the-one-sample-z-test-by-hand.html#cb226-5" tabindex="-1"></a></span>
+<span id="cb226-6"><a href="the-one-sample-z-test-by-hand.html#cb226-6" tabindex="-1"></a><span class="co">#from the mean alone, we can see that this girls are slower than historical times...so a hint that someting may be right about our hyphothesis</span></span>
+<span id="cb226-7"><a href="the-one-sample-z-test-by-hand.html#cb226-7" tabindex="-1"></a>SampleMean   </span></code></pre></div>
+<pre><code>## [1] 9.43871</code></pre>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="the-one-sample-z-test-by-hand.html#cb228-1" tabindex="-1"></a>PopulationMean<span class="ot">=</span> <span class="fl">9.5</span> <span class="co">#this is the population mean...or the historical time it has taken people to run 100m</span></span>
+<span id="cb228-2"><a href="the-one-sample-z-test-by-hand.html#cb228-2" tabindex="-1"></a>PopulationSD<span class="ot">=</span><span class="fl">0.2</span> <span class="co">#this is the population standard deviation</span></span>
+<span id="cb228-3"><a href="the-one-sample-z-test-by-hand.html#cb228-3" tabindex="-1"></a></span>
+<span id="cb228-4"><a href="the-one-sample-z-test-by-hand.html#cb228-4" tabindex="-1"></a></span>
+<span id="cb228-5"><a href="the-one-sample-z-test-by-hand.html#cb228-5" tabindex="-1"></a><span class="co">#let&#39;s now estimate the z-score using the equation above.</span></span>
+<span id="cb228-6"><a href="the-one-sample-z-test-by-hand.html#cb228-6" tabindex="-1"></a></span>
+<span id="cb228-7"><a href="the-one-sample-z-test-by-hand.html#cb228-7" tabindex="-1"></a>ZTest<span class="ot">=</span>(SampleMean<span class="sc">-</span>PopulationMean)<span class="sc">/</span>(PopulationSD<span class="sc">/</span><span class="fu">sqrt</span>(SampleSize))</span>
+<span id="cb228-8"><a href="the-one-sample-z-test-by-hand.html#cb228-8" tabindex="-1"></a>ZTest</span></code></pre></div>
 <pre><code>## [1] -1.70625</code></pre>
 <p>Now you need to recall chapter 8 to find out if this is a left-, right- or two tail test. If you have forgotten, check the video as a refreshers:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8NKaocZectc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
@@ -467,9 +470,9 @@ Figure 10.4: Left-sided Z-table
 <p>Once on that row, go back to the first row, and move horizontally until the column with the second decimal point in your calculated Z-score, which in our case is 0.</p>
 <p>Basically, you are looking for the value at the interception between the first decimal point in your calculated z-score indicated in the first column, and the second decimal of your z-score indicated in the first row of the Z-table.</p>
 <p>In our case, the p-value for a Z-score of -1.90 is 0.0287.</p>
-<p>What that tells you is that the girls in the USA team are as fast as the top 2.87% of all teams.</p>
+<p>What that tells you is that the girls in the USA team are as slow as the bottom 2.87% of all historical teams.</p>
 <p>If we compare our <strong>significance level</strong>, <span class="math inline">\(\alpha\)</span>, of 0.05, to our calculated p-value of 0.0287, you can observed that the p-value is smaller than the <span class="math inline">\(\alpha\)</span>, so the Ho (null hypothesis) must go.</p>
-<p>Basically, we reject the null hypothesis that the 100m run time of this team is 9.5sec or higher and conclude that these girls indeed run faster than the historical average.</p>
+<p>Basically, we reject the null hypothesis that the 100m run time of this team is 9.5sec or higher and conclude that these girls indeed run slower than the historical average.</p>
 </div>
 <div id="disqus_thread"></div>
 <script>

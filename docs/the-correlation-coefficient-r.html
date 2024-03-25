@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>The Correlation Coefficient, r | GEOG380.knit</title>
+  <title>The Correlation Coefficient, r |  By Camilo Mora, Ph.D. </title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="The Correlation Coefficient, r | GEOG380.knit" />
+  <meta property="og:title" content="The Correlation Coefficient, r |  By Camilo Mora, Ph.D. " />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The Correlation Coefficient, r | GEOG380.knit" />
+  <meta name="twitter:title" content="The Correlation Coefficient, r |  By Camilo Mora, Ph.D. " />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -90,7 +90,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -103,7 +103,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -397,8 +397,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px">
-By Camilo Mora, Ph.D.
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px"><br />
+By Camilo Mora, Ph.D.<br />
 </h1></a>
           </h1>
         </div>
@@ -418,15 +418,15 @@ r = \frac{cov (XY)}{Sx * Sy}
 <p>If you think about this equation, the covariance is the product of the differences in X and Y. While the standard deviations are independently the differences in X and the differences in Y. So, in practical terms, the correlation coefficient is an standardized metric. It will never be smaller than -1 or larger than 1.</p>
 <p>That is why the correlation coefficient is such a nice term to access the tendency between two variables. If it is closer to -1 then you know the data probably follow a strong and negative trend. If it is close to 1, then the data follow a positive and strong trend. If it is closer to zero, then the data are all over the place (there is not correlation). Towards the end of the chapter, we will learn more about how to interpret the correlation coefficient.</p>
 <p>Lets calculate it,</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="the-correlation-coefficient-r.html#cb182-1" aria-hidden="true" tabindex="-1"></a>COVXY<span class="ot">=</span> <span class="fu">cov</span>(StudyingTimes<span class="sc">$</span>Score,StudyingTimes<span class="sc">$</span>Hours_Studying, <span class="at">use =</span> <span class="st">&quot;everything&quot;</span>,  <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>) <span class="co">#Covariance</span></span>
-<span id="cb182-2"><a href="the-correlation-coefficient-r.html#cb182-2" aria-hidden="true" tabindex="-1"></a>SDX<span class="ot">=</span> <span class="fu">sd</span>(StudyingTimes<span class="sc">$</span>Hours_Studying)            <span class="co">#Standard deviation for X</span></span>
-<span id="cb182-3"><a href="the-correlation-coefficient-r.html#cb182-3" aria-hidden="true" tabindex="-1"></a>SDY<span class="ot">=</span> <span class="fu">sd</span>(StudyingTimes<span class="sc">$</span>Score)                     <span class="co">#Standard deviation for Y</span></span>
-<span id="cb182-4"><a href="the-correlation-coefficient-r.html#cb182-4" aria-hidden="true" tabindex="-1"></a>r<span class="ot">=</span>COVXY<span class="sc">/</span>(SDX<span class="sc">*</span>SDY)</span>
-<span id="cb182-5"><a href="the-correlation-coefficient-r.html#cb182-5" aria-hidden="true" tabindex="-1"></a>r</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="the-correlation-coefficient-r.html#cb181-1" tabindex="-1"></a>COVXY<span class="ot">=</span> <span class="fu">cov</span>(StudyingTimes<span class="sc">$</span>Score,StudyingTimes<span class="sc">$</span>Hours_Studying, <span class="at">use =</span> <span class="st">&quot;everything&quot;</span>,  <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>) <span class="co">#Covariance</span></span>
+<span id="cb181-2"><a href="the-correlation-coefficient-r.html#cb181-2" tabindex="-1"></a>SDX<span class="ot">=</span> <span class="fu">sd</span>(StudyingTimes<span class="sc">$</span>Hours_Studying)            <span class="co">#Standard deviation for X</span></span>
+<span id="cb181-3"><a href="the-correlation-coefficient-r.html#cb181-3" tabindex="-1"></a>SDY<span class="ot">=</span> <span class="fu">sd</span>(StudyingTimes<span class="sc">$</span>Score)                     <span class="co">#Standard deviation for Y</span></span>
+<span id="cb181-4"><a href="the-correlation-coefficient-r.html#cb181-4" tabindex="-1"></a>r<span class="ot">=</span>COVXY<span class="sc">/</span>(SDX<span class="sc">*</span>SDY)</span>
+<span id="cb181-5"><a href="the-correlation-coefficient-r.html#cb181-5" tabindex="-1"></a>r</span></code></pre></div>
 <pre><code>## [1] 0.9817004</code></pre>
 <p>So the coefficient of correlation between the time that you study and the score in my class is 0.98. That means the more time you study the higher your grade…nice, ah???</p>
 <p>In R, the coefficient of correlation can be calculated directly with the function <em>cor</em>,</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="the-correlation-coefficient-r.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(StudyingTimes<span class="sc">$</span>Score,StudyingTimes<span class="sc">$</span>Hours_Studying, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="the-correlation-coefficient-r.html#cb183-1" tabindex="-1"></a><span class="fu">cor</span>(StudyingTimes<span class="sc">$</span>Score,StudyingTimes<span class="sc">$</span>Hours_Studying, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 0.9817004</code></pre>
 <div id="alternative-formulation" class="section level3 unnumbered hasAnchor">
 <h3>Alternative formulation<a href="the-correlation-coefficient-r.html#alternative-formulation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -447,16 +447,16 @@ Be careful! The notation <span class="math inline">\(\sum_{}x^2\)</span> means f
 whereas <span class="math inline">\((\sum_{}x)^2\)</span> means first sum the x values and then square the result.
 </div>
 <p>For the equation above, all we have to compute is <span class="math inline">\(\sum_{}x\)</span>, <span class="math inline">\(\sum_{}y\)</span>, <span class="math inline">\(\sum_{}x^2\)</span>, <span class="math inline">\(\sum_{}y^2\)</span>, and <span class="math inline">\(\sum_{}x*y\)</span>. Let try, for the sake of being sure and for you to use some tools from R.</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="the-correlation-coefficient-r.html#cb186-1" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">=</span>StudyingTimes<span class="sc">$</span>Score</span>
-<span id="cb186-2"><a href="the-correlation-coefficient-r.html#cb186-2" aria-hidden="true" tabindex="-1"></a>X<span class="ot">=</span>StudyingTimes<span class="sc">$</span>Hours_Studying</span>
-<span id="cb186-3"><a href="the-correlation-coefficient-r.html#cb186-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb186-4"><a href="the-correlation-coefficient-r.html#cb186-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb186-5"><a href="the-correlation-coefficient-r.html#cb186-5" aria-hidden="true" tabindex="-1"></a>SumX<span class="ot">=</span> <span class="fu">sum</span>(X) <span class="co">#sum all values of x</span></span>
-<span id="cb186-6"><a href="the-correlation-coefficient-r.html#cb186-6" aria-hidden="true" tabindex="-1"></a>SumY<span class="ot">=</span> <span class="fu">sum</span>(Y)              <span class="co">#sum all values of y</span></span>
-<span id="cb186-7"><a href="the-correlation-coefficient-r.html#cb186-7" aria-hidden="true" tabindex="-1"></a>SumX2<span class="ot">=</span><span class="fu">sum</span> (X<span class="sc">^</span><span class="dv">2</span>) <span class="co">#sum all values of x^2..</span></span>
-<span id="cb186-8"><a href="the-correlation-coefficient-r.html#cb186-8" aria-hidden="true" tabindex="-1"></a>SumY2<span class="ot">=</span><span class="fu">sum</span> (Y<span class="sc">^</span><span class="dv">2</span>)      <span class="co">#   sprintf(&quot;%.0f&quot;,sum (Y **2))    </span></span>
-<span id="cb186-9"><a href="the-correlation-coefficient-r.html#cb186-9" aria-hidden="true" tabindex="-1"></a>SumXY<span class="ot">=</span><span class="fu">sum</span> (X<span class="sc">*</span>Y)  <span class="co">#sum all value of x * y</span></span>
-<span id="cb186-10"><a href="the-correlation-coefficient-r.html#cb186-10" aria-hidden="true" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">length</span>(Y) <span class="co"># the number of observations is basically the number of rows in the database</span></span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="the-correlation-coefficient-r.html#cb185-1" tabindex="-1"></a>Y<span class="ot">=</span>StudyingTimes<span class="sc">$</span>Score</span>
+<span id="cb185-2"><a href="the-correlation-coefficient-r.html#cb185-2" tabindex="-1"></a>X<span class="ot">=</span>StudyingTimes<span class="sc">$</span>Hours_Studying</span>
+<span id="cb185-3"><a href="the-correlation-coefficient-r.html#cb185-3" tabindex="-1"></a></span>
+<span id="cb185-4"><a href="the-correlation-coefficient-r.html#cb185-4" tabindex="-1"></a></span>
+<span id="cb185-5"><a href="the-correlation-coefficient-r.html#cb185-5" tabindex="-1"></a>SumX<span class="ot">=</span> <span class="fu">sum</span>(X) <span class="co">#sum all values of x</span></span>
+<span id="cb185-6"><a href="the-correlation-coefficient-r.html#cb185-6" tabindex="-1"></a>SumY<span class="ot">=</span> <span class="fu">sum</span>(Y)              <span class="co">#sum all values of y</span></span>
+<span id="cb185-7"><a href="the-correlation-coefficient-r.html#cb185-7" tabindex="-1"></a>SumX2<span class="ot">=</span><span class="fu">sum</span> (X<span class="sc">^</span><span class="dv">2</span>) <span class="co">#sum all values of x^2..</span></span>
+<span id="cb185-8"><a href="the-correlation-coefficient-r.html#cb185-8" tabindex="-1"></a>SumY2<span class="ot">=</span><span class="fu">sum</span> (Y<span class="sc">^</span><span class="dv">2</span>)      <span class="co">#   sprintf(&quot;%.0f&quot;,sum (Y **2))    </span></span>
+<span id="cb185-9"><a href="the-correlation-coefficient-r.html#cb185-9" tabindex="-1"></a>SumXY<span class="ot">=</span><span class="fu">sum</span> (X<span class="sc">*</span>Y)  <span class="co">#sum all value of x * y</span></span>
+<span id="cb185-10"><a href="the-correlation-coefficient-r.html#cb185-10" tabindex="-1"></a>n<span class="ot">=</span><span class="fu">length</span>(Y) <span class="co"># the number of observations is basically the number of rows in the database</span></span></code></pre></div>
 <p>The results are:</p>
 <p><span class="math inline">\(\sum_{}x\)</span> = 13</p>
 <p><span class="math inline">\(\sum_{}y\)</span> = 371</p>
@@ -475,9 +475,9 @@ r = \frac{5 * 1061.8- (13)*(371)}{\sqrt {5 * 43.94- (13)^2 } * \sqrt {5 * 28495-
 \end{equation}\]</span></p>
 <p><span class="math display">\[\\[.0005in]\]</span></p>
 <p>In R, it is basically:</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="the-correlation-coefficient-r.html#cb187-1" aria-hidden="true" tabindex="-1"></a>r<span class="ot">=</span>(n<span class="sc">*</span>SumXY<span class="sc">-</span>(SumX<span class="sc">*</span>SumY))   <span class="sc">/</span>  ( <span class="fu">sqrt</span>(n<span class="sc">*</span>SumX2 <span class="sc">-</span>SumX<span class="sc">^</span><span class="dv">2</span>)  <span class="sc">*</span> <span class="fu">sqrt</span>(n<span class="sc">*</span>SumY2 <span class="sc">-</span>SumY<span class="sc">^</span><span class="dv">2</span>)   )</span>
-<span id="cb187-2"><a href="the-correlation-coefficient-r.html#cb187-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb187-3"><a href="the-correlation-coefficient-r.html#cb187-3" aria-hidden="true" tabindex="-1"></a>r</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="the-correlation-coefficient-r.html#cb186-1" tabindex="-1"></a>r<span class="ot">=</span>(n<span class="sc">*</span>SumXY<span class="sc">-</span>(SumX<span class="sc">*</span>SumY))   <span class="sc">/</span>  ( <span class="fu">sqrt</span>(n<span class="sc">*</span>SumX2 <span class="sc">-</span>SumX<span class="sc">^</span><span class="dv">2</span>)  <span class="sc">*</span> <span class="fu">sqrt</span>(n<span class="sc">*</span>SumY2 <span class="sc">-</span>SumY<span class="sc">^</span><span class="dv">2</span>)   )</span>
+<span id="cb186-2"><a href="the-correlation-coefficient-r.html#cb186-2" tabindex="-1"></a></span>
+<span id="cb186-3"><a href="the-correlation-coefficient-r.html#cb186-3" tabindex="-1"></a>r</span></code></pre></div>
 <pre><code>## [1] 0.9817004</code></pre>
 <p><span class="math display">\[\begin{equation}
 r = 0.98

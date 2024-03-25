@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Data structure types | GEOG380.knit</title>
+  <title>Data structure types |  By Camilo Mora, Ph.D. </title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Data structure types | GEOG380.knit" />
+  <meta property="og:title" content="Data structure types |  By Camilo Mora, Ph.D. " />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data structure types | GEOG380.knit" />
+  <meta name="twitter:title" content="Data structure types |  By Camilo Mora, Ph.D. " />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -90,7 +90,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -103,7 +103,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -397,8 +397,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px">
-By Camilo Mora, Ph.D.
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px"><br />
+By Camilo Mora, Ph.D.<br />
 </h1></a>
           </h1>
         </div>
@@ -415,28 +415,28 @@ By Camilo Mora, Ph.D.
 <h3>Vectors<a href="data-structure-types.html#vectors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A vector is a collection of values. We call the individual values “elements” of the vector.</p>
 <p>We can make vectors with c( ). c means “combine”. Say you have three numbers 1,4,5 and you just do not want to type them every time. you can then put the numbers in a vector.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-structure-types.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>) <span class="co">#here I have a vector with three numbers</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="data-structure-types.html#cb41-1" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>) <span class="co">#here I have a vector with three numbers</span></span></code></pre></div>
 <pre><code>## [1] 1 4 5</code></pre>
 <p>You can also run operations in a vector. Lets use the example above, in which I want to multiply each value in that vector by 2.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-structure-types.html#cb44-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>) <span class="co">#here create a variable that contains my vector of three numbers</span></span>
-<span id="cb44-2"><a href="data-structure-types.html#cb44-2" aria-hidden="true" tabindex="-1"></a>a<span class="sc">*</span><span class="dv">2</span>        <span class="co">#here I multiply my variable (vector with three numbers)  by 2.</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-structure-types.html#cb43-1" tabindex="-1"></a>a<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>) <span class="co">#here create a variable that contains my vector of three numbers</span></span>
+<span id="cb43-2"><a href="data-structure-types.html#cb43-2" tabindex="-1"></a>a<span class="sc">*</span><span class="dv">2</span>        <span class="co">#here I multiply my variable (vector with three numbers)  by 2.</span></span></code></pre></div>
 <pre><code>## [1]  2  8 10</code></pre>
 </div>
 <div id="matrix" class="section level3 unnumbered hasAnchor">
 <h3>Matrix<a href="data-structure-types.html#matrix" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You can merge multiple vectors to create a matrix. You can merge the vectors by columns using the function cbind or by rows using the function rbind. Lets do an example to clarify.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="data-structure-types.html#cb46-1" aria-hidden="true" tabindex="-1"></a>Vector1<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>)                          <span class="co">#here I have vector 1 with three numbers</span></span>
-<span id="cb46-2"><a href="data-structure-types.html#cb46-2" aria-hidden="true" tabindex="-1"></a>Vector2<span class="ot">=</span><span class="fu">c</span>(<span class="dv">56</span>,<span class="dv">42</span>,<span class="dv">93</span>)                       <span class="co">#here I have vector 2 with three numbers</span></span>
-<span id="cb46-3"><a href="data-structure-types.html#cb46-3" aria-hidden="true" tabindex="-1"></a>ColumnMergedVector<span class="ot">=</span><span class="fu">cbind</span>(Vector1,Vector2) <span class="co">#I use cbind to merge the vector by column</span></span>
-<span id="cb46-4"><a href="data-structure-types.html#cb46-4" aria-hidden="true" tabindex="-1"></a>ColumnMergedVector</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-structure-types.html#cb45-1" tabindex="-1"></a>Vector1<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>)                          <span class="co">#here I have vector 1 with three numbers</span></span>
+<span id="cb45-2"><a href="data-structure-types.html#cb45-2" tabindex="-1"></a>Vector2<span class="ot">=</span><span class="fu">c</span>(<span class="dv">56</span>,<span class="dv">42</span>,<span class="dv">93</span>)                       <span class="co">#here I have vector 2 with three numbers</span></span>
+<span id="cb45-3"><a href="data-structure-types.html#cb45-3" tabindex="-1"></a>ColumnMergedVector<span class="ot">=</span><span class="fu">cbind</span>(Vector1,Vector2) <span class="co">#I use cbind to merge the vector by column</span></span>
+<span id="cb45-4"><a href="data-structure-types.html#cb45-4" tabindex="-1"></a>ColumnMergedVector</span></code></pre></div>
 <pre><code>##      Vector1 Vector2
 ## [1,]       1      56
 ## [2,]       4      42
 ## [3,]       5      93</code></pre>
 <p>See in the result above, how each vector became a column.</p>
 <p>May be you prefer to merge them by rows</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-structure-types.html#cb48-1" aria-hidden="true" tabindex="-1"></a>RowMergedVector<span class="ot">=</span><span class="fu">rbind</span>(Vector1,Vector2) <span class="co">#I use rbind to merge the vector by rows</span></span>
-<span id="cb48-2"><a href="data-structure-types.html#cb48-2" aria-hidden="true" tabindex="-1"></a>RowMergedVector</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-structure-types.html#cb47-1" tabindex="-1"></a>RowMergedVector<span class="ot">=</span><span class="fu">rbind</span>(Vector1,Vector2) <span class="co">#I use rbind to merge the vector by rows</span></span>
+<span id="cb47-2"><a href="data-structure-types.html#cb47-2" tabindex="-1"></a>RowMergedVector</span></code></pre></div>
 <pre><code>##         [,1] [,2] [,3]
 ## Vector1    1    4    5
 ## Vector2   56   42   93</code></pre>
@@ -446,71 +446,51 @@ By Camilo Mora, Ph.D.
 <h3>DataFrames<a href="data-structure-types.html#dataframes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Dataframes are the most common type of data structure in R. It is has similar topology to a matrix, but it is more diverse in the types of data it can use. Dataframes, are like the “Sheet” version in Excel. To create a dataframe you use the data.frame function. Lets do an example.</p>
 <p>s</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-structure-types.html#cb50-1" aria-hidden="true" tabindex="-1"></a>DataFrame<span class="ot">=</span><span class="fu">data.frame</span>(Vector1,Vector2) <span class="co">#I use data.frame to merge two vectros of data</span></span>
-<span id="cb50-2"><a href="data-structure-types.html#cb50-2" aria-hidden="true" tabindex="-1"></a>DataFrame</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-structure-types.html#cb49-1" tabindex="-1"></a>DataFrame<span class="ot">=</span><span class="fu">data.frame</span>(Vector1,Vector2) <span class="co">#I use data.frame to merge two vectros of data</span></span>
+<span id="cb49-2"><a href="data-structure-types.html#cb49-2" tabindex="-1"></a>DataFrame</span></code></pre></div>
 <pre><code>##   Vector1 Vector2
 ## 1       1      56
 ## 2       4      42
 ## 3       5      93</code></pre>
 <p>Dataframes also allow you to rename the column and row names, and there different ways to do that. Here is one,</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-structure-types.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(DataFrame)<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Height&quot;</span>,<span class="st">&quot;Width&quot;</span>) <span class="co">#Here I rename the two columsn in the dataframe, with the names used in a vector. </span></span>
-<span id="cb52-2"><a href="data-structure-types.html#cb52-2" aria-hidden="true" tabindex="-1"></a>DataFrame</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-structure-types.html#cb51-1" tabindex="-1"></a><span class="fu">colnames</span>(DataFrame)<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Height&quot;</span>,<span class="st">&quot;Width&quot;</span>) <span class="co">#Here I rename the two columsn in the dataframe, with the names used in a vector. </span></span>
+<span id="cb51-2"><a href="data-structure-types.html#cb51-2" tabindex="-1"></a>DataFrame</span></code></pre></div>
 <pre><code>##   Height Width
 ## 1      1    56
 ## 2      4    42
 ## 3      5    93</code></pre>
 <p>You are probably asking yourself what is the difference between a matrix and a data.frame?. Here are some differences:</p>
 <table>
+<colgroup>
+<col width="47%" />
+<col width="52%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-Matrix
-</th>
-<th style="text-align:left;">
-Dataframe
-</th>
+<tr class="header">
+<th align="left">Matrix</th>
+<th align="left">Dataframe</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Collection of data sets arranged in a two dimensional rectangular organisation
-</td>
-<td style="text-align:left;">
-Stores data tables that contains multiple data types in multiple column called fields.
-</td>
+<tr class="odd">
+<td align="left">Collection of data sets arranged in a two dimensional rectangular organisation</td>
+<td align="left">Stores data tables that contains multiple data types in multiple column called fields.</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-It’s m*n array with similar data type.
-</td>
-<td style="text-align:left;">
-It is a list of vector of equal length. It is a generalized form of matrix.
-</td>
+<tr class="even">
+<td align="left">It’s m*n array with similar data type.</td>
+<td align="left">It is a list of vector of equal length. It is a generalized form of matrix.</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-It has fixed number of rows and columns.
-</td>
-<td style="text-align:left;">
-It has variable number of rows and columns.
-</td>
+<tr class="odd">
+<td align="left">It has fixed number of rows and columns.</td>
+<td align="left">It has variable number of rows and columns.</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-The data stored in columns can be only of same data type.
-</td>
-<td style="text-align:left;">
-The data stored must be numeric, character or factor type.
-</td>
+<tr class="even">
+<td align="left">The data stored in columns can be only of same data type.</td>
+<td align="left">The data stored must be numeric, character or factor type.</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Data types are homogeneous.
-</td>
-<td style="text-align:left;">
-Data types are heterogeneous.
-</td>
+<tr class="odd">
+<td align="left">Data types are homogeneous.</td>
+<td align="left">Data types are heterogeneous.</td>
 </tr>
 </tbody>
 </table>

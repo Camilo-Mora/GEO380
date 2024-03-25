@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Estimating the least-squares line | GEOG380.knit</title>
+  <title>Estimating the least-squares line |  By Camilo Mora, Ph.D. </title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Estimating the least-squares line | GEOG380.knit" />
+  <meta property="og:title" content="Estimating the least-squares line |  By Camilo Mora, Ph.D. " />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Estimating the least-squares line | GEOG380.knit" />
+  <meta name="twitter:title" content="Estimating the least-squares line |  By Camilo Mora, Ph.D. " />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -90,7 +90,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -103,7 +103,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -397,8 +397,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px">
-By Camilo Mora, Ph.D.
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px"><br />
+By Camilo Mora, Ph.D.<br />
 </h1></a>
           </h1>
         </div>
@@ -423,32 +423,32 @@ Slope = m = \frac{\Delta y}{\Delta x}= \frac{y_{2}-y_{1}}{x_{2}-x_{1}}
 \end{equation}\]</span></p>
 <p>Basically, the change in Y divided by the change in X. Put another way, if I change X by 1 unit, how much will Y change?</p>
 <p>Lets check the math, using a line for which we know the slope, using the R-function <em>abline</em>, as we did earlier.</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="estimating-the-least-squares-line.html#cb195-1" aria-hidden="true" tabindex="-1"></a>Slope<span class="ot">=</span> <span class="dv">2</span>  <span class="co">#lets set a line with a slope of 2</span></span>
-<span id="cb195-2"><a href="estimating-the-least-squares-line.html#cb195-2" aria-hidden="true" tabindex="-1"></a>Intercept<span class="ot">=</span><span class="dv">1</span> <span class="co"># We do not need the intercept but lets use a value of 1 as an example</span></span>
-<span id="cb195-3"><a href="estimating-the-least-squares-line.html#cb195-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-4"><a href="estimating-the-least-squares-line.html#cb195-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="at">xlab=</span><span class="st">&quot;X&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Y&quot;</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">pch=</span><span class="st">&quot;.&quot;</span>, <span class="at">cex=</span><span class="dv">2</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">0</span>,<span class="dv">4</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">8</span>), <span class="at">yaxs=</span><span class="st">&quot;i&quot;</span>, <span class="at">xaxs=</span><span class="st">&quot;i&quot;</span>) <span class="co">#lets create an empty plot</span></span>
-<span id="cb195-5"><a href="estimating-the-least-squares-line.html#cb195-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-6"><a href="estimating-the-least-squares-line.html#cb195-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Next we draw the line with the known slope:</span></span>
-<span id="cb195-7"><a href="estimating-the-least-squares-line.html#cb195-7" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope ,<span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">lwd=</span><span class="dv">1</span>) </span>
-<span id="cb195-8"><a href="estimating-the-least-squares-line.html#cb195-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-9"><a href="estimating-the-least-squares-line.html#cb195-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Now place two points along that line...say a point at the coordinates (1,3) and another point at the coordinates (3,8).</span></span>
-<span id="cb195-10"><a href="estimating-the-least-squares-line.html#cb195-10" aria-hidden="true" tabindex="-1"></a><span class="co">#If you recall, the coordinates of a point are x and y given between parenthesis.</span></span>
-<span id="cb195-11"><a href="estimating-the-least-squares-line.html#cb195-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-12"><a href="estimating-the-least-squares-line.html#cb195-12" aria-hidden="true" tabindex="-1"></a><span class="co"># draw Point 1 in the plot and put a label to it.</span></span>
-<span id="cb195-13"><a href="estimating-the-least-squares-line.html#cb195-13" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="at">pch=</span><span class="dv">21</span>, <span class="at">col=</span><span class="st">&quot;black&quot;</span>,<span class="at">bg=</span><span class="st">&quot;yellow&quot;</span>,<span class="at">cex=</span><span class="dv">2</span>,<span class="at">lwd=</span>.<span class="dv">1</span>) <span class="co">#First point</span></span>
-<span id="cb195-14"><a href="estimating-the-least-squares-line.html#cb195-14" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">1</span>,<span class="dv">3</span>, <span class="at">labels=</span><span class="st">&quot;(1,3)&quot;</span>,<span class="at">pos=</span><span class="dv">2</span>) <span class="co">#lets create a label</span></span>
-<span id="cb195-15"><a href="estimating-the-least-squares-line.html#cb195-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-16"><a href="estimating-the-least-squares-line.html#cb195-16" aria-hidden="true" tabindex="-1"></a><span class="co"># do the same for Point 2</span></span>
-<span id="cb195-17"><a href="estimating-the-least-squares-line.html#cb195-17" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">3</span>,<span class="dv">7</span>,<span class="at">pch=</span><span class="dv">21</span>, <span class="at">col=</span><span class="st">&quot;black&quot;</span>,<span class="at">bg=</span><span class="st">&quot;yellow&quot;</span>,<span class="at">cex=</span><span class="dv">2</span>,<span class="at">lwd=</span>.<span class="dv">1</span>) <span class="co">#second point</span></span>
-<span id="cb195-18"><a href="estimating-the-least-squares-line.html#cb195-18" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">3</span>,<span class="dv">7</span>, <span class="at">labels=</span><span class="st">&quot;(3,7)&quot;</span>,<span class="at">pos=</span><span class="dv">2</span>) <span class="co">#lets create a label  </span></span>
-<span id="cb195-19"><a href="estimating-the-least-squares-line.html#cb195-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-20"><a href="estimating-the-least-squares-line.html#cb195-20" aria-hidden="true" tabindex="-1"></a><span class="co">#lets draw a segment for the change X: is x0=1, and x1=3, then the difference is 2.</span></span>
-<span id="cb195-21"><a href="estimating-the-least-squares-line.html#cb195-21" aria-hidden="true" tabindex="-1"></a><span class="fu">segments</span>(<span class="at">x0=</span><span class="dv">1</span>,<span class="at">y0=</span><span class="dv">3</span>,<span class="at">x=</span><span class="dv">3</span>,<span class="at">y=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">lty=</span><span class="dv">2</span>,<span class="at">cex=</span><span class="dv">2</span>) <span class="co">#lets draw the segment for the difference in x between the two points, and make it red</span></span>
-<span id="cb195-22"><a href="estimating-the-least-squares-line.html#cb195-22" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">2</span>,<span class="dv">3</span>, <span class="at">labels=</span><span class="st">&quot;2&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">pos=</span><span class="dv">1</span>) <span class="co">#lets create a label for that segment</span></span>
-<span id="cb195-23"><a href="estimating-the-least-squares-line.html#cb195-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-24"><a href="estimating-the-least-squares-line.html#cb195-24" aria-hidden="true" tabindex="-1"></a><span class="co">#lets draw the difference in Y, which basically y0=3, and y=7, so the difference, delta, is 4.</span></span>
-<span id="cb195-25"><a href="estimating-the-least-squares-line.html#cb195-25" aria-hidden="true" tabindex="-1"></a><span class="fu">segments</span>(<span class="at">x0=</span><span class="dv">3</span>,<span class="at">y0=</span><span class="dv">3</span>,<span class="at">x=</span><span class="dv">3</span>,<span class="at">y=</span><span class="dv">7</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">lty=</span><span class="dv">2</span>,<span class="at">cex=</span><span class="dv">2</span>) <span class="co">#lets draw the segment for the difference in y between the two points</span></span>
-<span id="cb195-26"><a href="estimating-the-least-squares-line.html#cb195-26" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">3</span>,<span class="dv">5</span>, <span class="at">labels=</span><span class="st">&quot;4&quot;</span>,<span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">pos=</span><span class="dv">4</span>) <span class="co">#lets create a label  </span></span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="estimating-the-least-squares-line.html#cb194-1" tabindex="-1"></a>Slope<span class="ot">=</span> <span class="dv">2</span>  <span class="co">#lets set a line with a slope of 2</span></span>
+<span id="cb194-2"><a href="estimating-the-least-squares-line.html#cb194-2" tabindex="-1"></a>Intercept<span class="ot">=</span><span class="dv">1</span> <span class="co"># We do not need the intercept but lets use a value of 1 as an example</span></span>
+<span id="cb194-3"><a href="estimating-the-least-squares-line.html#cb194-3" tabindex="-1"></a></span>
+<span id="cb194-4"><a href="estimating-the-least-squares-line.html#cb194-4" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="at">xlab=</span><span class="st">&quot;X&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;Y&quot;</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">pch=</span><span class="st">&quot;.&quot;</span>, <span class="at">cex=</span><span class="dv">2</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">0</span>,<span class="dv">4</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">8</span>), <span class="at">yaxs=</span><span class="st">&quot;i&quot;</span>, <span class="at">xaxs=</span><span class="st">&quot;i&quot;</span>) <span class="co">#lets create an empty plot</span></span>
+<span id="cb194-5"><a href="estimating-the-least-squares-line.html#cb194-5" tabindex="-1"></a></span>
+<span id="cb194-6"><a href="estimating-the-least-squares-line.html#cb194-6" tabindex="-1"></a><span class="co">#Next we draw the line with the known slope:</span></span>
+<span id="cb194-7"><a href="estimating-the-least-squares-line.html#cb194-7" tabindex="-1"></a><span class="fu">abline</span>(Intercept, Slope ,<span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">lwd=</span><span class="dv">1</span>) </span>
+<span id="cb194-8"><a href="estimating-the-least-squares-line.html#cb194-8" tabindex="-1"></a></span>
+<span id="cb194-9"><a href="estimating-the-least-squares-line.html#cb194-9" tabindex="-1"></a><span class="co">#Now place two points along that line...say a point at the coordinates (1,3) and another point at the coordinates (3,8).</span></span>
+<span id="cb194-10"><a href="estimating-the-least-squares-line.html#cb194-10" tabindex="-1"></a><span class="co">#If you recall, the coordinates of a point are x and y given between parenthesis.</span></span>
+<span id="cb194-11"><a href="estimating-the-least-squares-line.html#cb194-11" tabindex="-1"></a></span>
+<span id="cb194-12"><a href="estimating-the-least-squares-line.html#cb194-12" tabindex="-1"></a><span class="co"># draw Point 1 in the plot and put a label to it.</span></span>
+<span id="cb194-13"><a href="estimating-the-least-squares-line.html#cb194-13" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="at">pch=</span><span class="dv">21</span>, <span class="at">col=</span><span class="st">&quot;black&quot;</span>,<span class="at">bg=</span><span class="st">&quot;yellow&quot;</span>,<span class="at">cex=</span><span class="dv">2</span>,<span class="at">lwd=</span>.<span class="dv">1</span>) <span class="co">#First point</span></span>
+<span id="cb194-14"><a href="estimating-the-least-squares-line.html#cb194-14" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">1</span>,<span class="dv">3</span>, <span class="at">labels=</span><span class="st">&quot;(1,3)&quot;</span>,<span class="at">pos=</span><span class="dv">2</span>) <span class="co">#lets create a label</span></span>
+<span id="cb194-15"><a href="estimating-the-least-squares-line.html#cb194-15" tabindex="-1"></a></span>
+<span id="cb194-16"><a href="estimating-the-least-squares-line.html#cb194-16" tabindex="-1"></a><span class="co"># do the same for Point 2</span></span>
+<span id="cb194-17"><a href="estimating-the-least-squares-line.html#cb194-17" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">3</span>,<span class="dv">7</span>,<span class="at">pch=</span><span class="dv">21</span>, <span class="at">col=</span><span class="st">&quot;black&quot;</span>,<span class="at">bg=</span><span class="st">&quot;yellow&quot;</span>,<span class="at">cex=</span><span class="dv">2</span>,<span class="at">lwd=</span>.<span class="dv">1</span>) <span class="co">#second point</span></span>
+<span id="cb194-18"><a href="estimating-the-least-squares-line.html#cb194-18" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">3</span>,<span class="dv">7</span>, <span class="at">labels=</span><span class="st">&quot;(3,7)&quot;</span>,<span class="at">pos=</span><span class="dv">2</span>) <span class="co">#lets create a label  </span></span>
+<span id="cb194-19"><a href="estimating-the-least-squares-line.html#cb194-19" tabindex="-1"></a></span>
+<span id="cb194-20"><a href="estimating-the-least-squares-line.html#cb194-20" tabindex="-1"></a><span class="co">#lets draw a segment for the change X: is x0=1, and x1=3, then the difference is 2.</span></span>
+<span id="cb194-21"><a href="estimating-the-least-squares-line.html#cb194-21" tabindex="-1"></a><span class="fu">segments</span>(<span class="at">x0=</span><span class="dv">1</span>,<span class="at">y0=</span><span class="dv">3</span>,<span class="at">x=</span><span class="dv">3</span>,<span class="at">y=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">lty=</span><span class="dv">2</span>,<span class="at">cex=</span><span class="dv">2</span>) <span class="co">#lets draw the segment for the difference in x between the two points, and make it red</span></span>
+<span id="cb194-22"><a href="estimating-the-least-squares-line.html#cb194-22" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">2</span>,<span class="dv">3</span>, <span class="at">labels=</span><span class="st">&quot;2&quot;</span>,<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">pos=</span><span class="dv">1</span>) <span class="co">#lets create a label for that segment</span></span>
+<span id="cb194-23"><a href="estimating-the-least-squares-line.html#cb194-23" tabindex="-1"></a></span>
+<span id="cb194-24"><a href="estimating-the-least-squares-line.html#cb194-24" tabindex="-1"></a><span class="co">#lets draw the difference in Y, which basically y0=3, and y=7, so the difference, delta, is 4.</span></span>
+<span id="cb194-25"><a href="estimating-the-least-squares-line.html#cb194-25" tabindex="-1"></a><span class="fu">segments</span>(<span class="at">x0=</span><span class="dv">3</span>,<span class="at">y0=</span><span class="dv">3</span>,<span class="at">x=</span><span class="dv">3</span>,<span class="at">y=</span><span class="dv">7</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">lty=</span><span class="dv">2</span>,<span class="at">cex=</span><span class="dv">2</span>) <span class="co">#lets draw the segment for the difference in y between the two points</span></span>
+<span id="cb194-26"><a href="estimating-the-least-squares-line.html#cb194-26" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">3</span>,<span class="dv">5</span>, <span class="at">labels=</span><span class="st">&quot;4&quot;</span>,<span class="at">col=</span><span class="st">&quot;blue&quot;</span>,<span class="at">pos=</span><span class="dv">4</span>) <span class="co">#lets create a label  </span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-234-1.png" width="672" /></p>
 <p>Continuing with the example above, the change in Y, also called <span class="math inline">\(\Delta y\)</span>, was 4. The change in X, also called <span class="math inline">\(\Delta x\)</span>, was 2. So, the slope can be calculated as:</p>
 <p><span class="math display">\[\begin{equation}

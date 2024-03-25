@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Adding results to databases | GEOG380.knit</title>
+  <title>Adding results to databases |  By Camilo Mora, Ph.D. </title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Adding results to databases | GEOG380.knit" />
+  <meta property="og:title" content="Adding results to databases |  By Camilo Mora, Ph.D. " />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Adding results to databases | GEOG380.knit" />
+  <meta name="twitter:title" content="Adding results to databases |  By Camilo Mora, Ph.D. " />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -90,7 +90,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -103,7 +103,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -397,8 +397,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px">
-By Camilo Mora, Ph.D.
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px"><br />
+By Camilo Mora, Ph.D.<br />
 </h1></a>
           </h1>
         </div>
@@ -411,10 +411,10 @@ By Camilo Mora, Ph.D.
 <h2>Adding results to databases<a href="adding-results-to-databases.html#adding-results-to-databases" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Up to this point, we have simply manipulated the data other people collected. What if we now want to do our own analysis with such data? Piece of cake…</p>
 <p>…lets tray, for instance, a new index, in which I want to see how much does it cost a year of life in each country. Basically, all I have to do is to divide how much each person does in each country (i.e., GDP per capita) by the life expectancy of people in each country. Like this,</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="adding-results-to-databases.html#cb95-1" aria-hidden="true" tabindex="-1"></a>SelectedColumns<span class="sc">$</span>ValueofLife <span class="ot">=</span> SelectedColumns<span class="sc">$</span>gdpPercap <span class="sc">/</span> SelectedColumns<span class="sc">$</span>lifeExp </span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="adding-results-to-databases.html#cb94-1" tabindex="-1"></a>SelectedColumns<span class="sc">$</span>ValueofLife <span class="ot">=</span> SelectedColumns<span class="sc">$</span>gdpPercap <span class="sc">/</span> SelectedColumns<span class="sc">$</span>lifeExp </span></code></pre></div>
 <p>WE cant translate the code above as, a a column called ValueofLife to the dataframe SelectedColumns, in which I divide gdpPercap by lifeExp.</p>
 <p>Lets check the results,</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="adding-results-to-databases.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(SelectedColumns)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="adding-results-to-databases.html#cb95-1" tabindex="-1"></a><span class="fu">head</span>(SelectedColumns)</span></code></pre></div>
 <pre><code>##       country year gdpPercap lifeExp ValueofLife
 ## 1 Afghanistan 1952  779.4453  28.801    27.06313
 ## 2 Afghanistan 1957  820.8530  30.332    27.06228
@@ -423,7 +423,7 @@ By Camilo Mora, Ph.D.
 ## 5 Afghanistan 1972  739.9811  36.088    20.50491
 ## 6 Afghanistan 1977  786.1134  38.438    20.45146</code></pre>
 <p>Lets do a quiick summary to see the average per country,</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="adding-results-to-databases.html#cb98-1" aria-hidden="true" tabindex="-1"></a>SelectedColumns <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mean_valueOfLife =</span> <span class="fu">mean</span>(ValueofLife))</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="adding-results-to-databases.html#cb97-1" tabindex="-1"></a>SelectedColumns <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mean_valueOfLife =</span> <span class="fu">mean</span>(ValueofLife))</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 2
 ##    country     mean_valueOfLife
 ##    &lt;chr&gt;                  &lt;dbl&gt;

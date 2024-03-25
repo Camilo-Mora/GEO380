@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Background info | GEOG380.knit</title>
+  <title>Background info |  By Camilo Mora, Ph.D. </title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Background info | GEOG380.knit" />
+  <meta property="og:title" content="Background info |  By Camilo Mora, Ph.D. " />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Background info | GEOG380.knit" />
+  <meta name="twitter:title" content="Background info |  By Camilo Mora, Ph.D. " />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -90,7 +90,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -103,7 +103,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -397,8 +397,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px">
-By Camilo Mora, Ph.D.
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px"><br />
+By Camilo Mora, Ph.D.<br />
 </h1></a>
           </h1>
         </div>
@@ -419,7 +419,7 @@ By Camilo Mora, Ph.D.
 A population is a whole, it’s every member of a group. A sample is a fraction of the population.
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-261"></span>
-<img src="images/population.png" alt="Population, sample, individual" width="70%" />
+<img src="images/Population.png" alt="Population, sample, individual" width="70%" />
 <p class="caption">
 Figure 8.2: Population, sample, individual
 </p>
@@ -455,22 +455,22 @@ The threshold beyond which we reject a null hyphothesis is called the <strong>le
 <h3>p-value and alpha<a href="background-info.html#p-value-and-alpha" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Early on, we studied how a population can be characterized based on the mean value of its individuals and the variability of those individuals, the so-call standard deviation. With those two parameters alone you can know how the entire population looks like.</p>
 <p>Lets look at an example. In the USA, the average men is 177.8cm in height with an standard deviation of 7.62cm. Lets plot this population.</p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="background-info.html#cb210-1" aria-hidden="true" tabindex="-1"></a>Mean_Height<span class="ot">=</span><span class="fl">177.8</span>   <span class="co"># height of average male in the USA</span></span>
-<span id="cb210-2"><a href="background-info.html#cb210-2" aria-hidden="true" tabindex="-1"></a>SD_Heigh<span class="ot">=</span><span class="fl">7.62</span>       <span class="co"># Standard deviation of male population in the USA</span></span>
-<span id="cb210-3"><a href="background-info.html#cb210-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb210-4"><a href="background-info.html#cb210-4" aria-hidden="true" tabindex="-1"></a>MenUSPop<span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">164000000</span>,Mean_Height,SD_Heigh) <span class="co">#we select from a population with that mean and SD, the 164 million men in the use. This will be the entire population....this line may take a while, dependenting how good your computer is...you are taking over 160 million values...you can click scape if it take to long and use rather take a still large sample of 1.6 million men, for contnuing with the execersize.</span></span>
-<span id="cb210-5"><a href="background-info.html#cb210-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb210-6"><a href="background-info.html#cb210-6" aria-hidden="true" tabindex="-1"></a>breaks <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">100</span>, <span class="dv">240</span>, <span class="at">length.out =</span> <span class="dv">80</span>) <span class="co">#I create a set of bins for the x-axis of the distribution</span></span>
-<span id="cb210-7"><a href="background-info.html#cb210-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb210-8"><a href="background-info.html#cb210-8" aria-hidden="true" tabindex="-1"></a><span class="co">#next I plot the data for the size of the entire population of men in the USA</span></span>
-<span id="cb210-9"><a href="background-info.html#cb210-9" aria-hidden="true" tabindex="-1"></a> <span class="fu">hist</span>(MenUSPop, <span class="at">main=</span><span class="cn">NA</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">240</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20000000</span>),<span class="at">breaks =</span> breaks, <span class="at">xlab =</span> <span class="st">&quot;US men heigth (cm)&quot;</span>,<span class="at">ylab =</span> <span class="st">&quot;Number of people&quot;</span>)</span>
-<span id="cb210-10"><a href="background-info.html#cb210-10" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb210-11"><a href="background-info.html#cb210-11" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb210-12"><a href="background-info.html#cb210-12" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the mean height of men</span></span>
-<span id="cb210-13"><a href="background-info.html#cb210-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>Mean_Height, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">lty=</span><span class="dv">2</span>) </span>
-<span id="cb210-14"><a href="background-info.html#cb210-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb210-15"><a href="background-info.html#cb210-15" aria-hidden="true" tabindex="-1"></a><span class="co">#lets add a label to mean label</span></span>
-<span id="cb210-16"><a href="background-info.html#cb210-16" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(Mean_Height,<span class="dv">20000000</span>,<span class="at">labels=</span><span class="st">&quot;Mean&quot;</span>,<span class="at">pos=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="background-info.html#cb209-1" tabindex="-1"></a>Mean_Height<span class="ot">=</span><span class="fl">177.8</span>   <span class="co"># height of average male in the USA</span></span>
+<span id="cb209-2"><a href="background-info.html#cb209-2" tabindex="-1"></a>SD_Heigh<span class="ot">=</span><span class="fl">7.62</span>       <span class="co"># Standard deviation of male population in the USA</span></span>
+<span id="cb209-3"><a href="background-info.html#cb209-3" tabindex="-1"></a></span>
+<span id="cb209-4"><a href="background-info.html#cb209-4" tabindex="-1"></a>MenUSPop<span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">164000000</span>,Mean_Height,SD_Heigh) <span class="co">#we select from a population with that mean and SD, the 164 million men in the use. This will be the entire population....this line may take a while, dependenting how good your computer is...you are taking over 160 million values...you can click scape if it take to long and use rather take a still large sample of 1.6 million men, for contnuing with the execersize.</span></span>
+<span id="cb209-5"><a href="background-info.html#cb209-5" tabindex="-1"></a></span>
+<span id="cb209-6"><a href="background-info.html#cb209-6" tabindex="-1"></a>breaks <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">100</span>, <span class="dv">240</span>, <span class="at">length.out =</span> <span class="dv">80</span>) <span class="co">#I create a set of bins for the x-axis of the distribution</span></span>
+<span id="cb209-7"><a href="background-info.html#cb209-7" tabindex="-1"></a></span>
+<span id="cb209-8"><a href="background-info.html#cb209-8" tabindex="-1"></a><span class="co">#next I plot the data for the size of the entire population of men in the USA</span></span>
+<span id="cb209-9"><a href="background-info.html#cb209-9" tabindex="-1"></a> <span class="fu">hist</span>(MenUSPop, <span class="at">main=</span><span class="cn">NA</span>,<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">240</span>),<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20000000</span>),<span class="at">breaks =</span> breaks, <span class="at">xlab =</span> <span class="st">&quot;US men heigth (cm)&quot;</span>,<span class="at">ylab =</span> <span class="st">&quot;Number of people&quot;</span>)</span>
+<span id="cb209-10"><a href="background-info.html#cb209-10" tabindex="-1"></a> </span>
+<span id="cb209-11"><a href="background-info.html#cb209-11" tabindex="-1"></a> </span>
+<span id="cb209-12"><a href="background-info.html#cb209-12" tabindex="-1"></a><span class="co">#plot the mean height of men</span></span>
+<span id="cb209-13"><a href="background-info.html#cb209-13" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>Mean_Height, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">lty=</span><span class="dv">2</span>) </span>
+<span id="cb209-14"><a href="background-info.html#cb209-14" tabindex="-1"></a></span>
+<span id="cb209-15"><a href="background-info.html#cb209-15" tabindex="-1"></a><span class="co">#lets add a label to mean label</span></span>
+<span id="cb209-16"><a href="background-info.html#cb209-16" tabindex="-1"></a><span class="fu">text</span>(Mean_Height,<span class="dv">20000000</span>,<span class="at">labels=</span><span class="st">&quot;Mean&quot;</span>,<span class="at">pos=</span><span class="dv">4</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>) </span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-265-1.png" width="672" /></p>
 <p>From the figure above, you can see that while most men are on average 177.8 cm tall, some men can get very tall and others are very short. And just so you know, on the distribution above, the tallest men was <span class="math inline">\(225.48\)</span> cm while the shortest was <span class="math inline">\(134.96\)</span> cm.</p>
 <p>One cool property of the population data, specially data that are normally distributed, is that you can tell relatively well the fraction of individuals away from the mean by knowing the standard deviation.</p>

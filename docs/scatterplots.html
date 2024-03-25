@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Scatterplots | GEOG380.knit</title>
+  <title>Scatterplots |  By Camilo Mora, Ph.D. </title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Scatterplots | GEOG380.knit" />
+  <meta property="og:title" content="Scatterplots |  By Camilo Mora, Ph.D. " />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Scatterplots | GEOG380.knit" />
+  <meta name="twitter:title" content="Scatterplots |  By Camilo Mora, Ph.D. " />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -90,7 +90,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -103,7 +103,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -397,8 +397,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px">
-By Camilo Mora, Ph.D.
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px"><br />
+By Camilo Mora, Ph.D.<br />
 </h1></a>
           </h1>
         </div>
@@ -410,21 +410,21 @@ By Camilo Mora, Ph.D.
 <div id="scatterplots" class="section level2 unnumbered hasAnchor">
 <h2>Scatterplots<a href="scatterplots.html#scatterplots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Scatterplots allow you to see patterns of variation between two variables. To create a plot in R, simply type plot(y~x). Lets say I want to plot the second and third column in a dataframe.</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="scatterplots.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Lets create some dummy data</span></span>
-<span id="cb100-2"><a href="scatterplots.html#cb100-2" aria-hidden="true" tabindex="-1"></a>DataFrame<span class="ot">&lt;-</span> <span class="fu">data.frame</span>( <span class="at">x1 =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">250</span>)),     <span class="co"># in Column 1 I repeat the number 1 for 250 times</span></span>
-<span id="cb100-3"><a href="scatterplots.html#cb100-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">x2 =</span> <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">250</span>), <span class="co">#Column 2 I create a sequence of numbers from 1 to 250</span></span>
-<span id="cb100-4"><a href="scatterplots.html#cb100-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">x3 =</span> <span class="fu">sample</span>(<span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>),<span class="dv">250</span>)) <span class="co"># select 250 random numbers between 1 and 10000</span></span>
-<span id="cb100-5"><a href="scatterplots.html#cb100-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Now lets plot columns 2 and 3 of that data</span></span>
-<span id="cb100-6"><a href="scatterplots.html#cb100-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DataFrame[,<span class="dv">2</span>]<span class="sc">~</span>DataFrame[,<span class="dv">3</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="scatterplots.html#cb99-1" tabindex="-1"></a><span class="co">#Lets create some dummy data</span></span>
+<span id="cb99-2"><a href="scatterplots.html#cb99-2" tabindex="-1"></a>DataFrame<span class="ot">&lt;-</span> <span class="fu">data.frame</span>( <span class="at">x1 =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">250</span>)),     <span class="co"># in Column 1 I repeat the number 1 for 250 times</span></span>
+<span id="cb99-3"><a href="scatterplots.html#cb99-3" tabindex="-1"></a>                        <span class="at">x2 =</span> <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">250</span>), <span class="co">#Column 2 I create a sequence of numbers from 1 to 250</span></span>
+<span id="cb99-4"><a href="scatterplots.html#cb99-4" tabindex="-1"></a>                        <span class="at">x3 =</span> <span class="fu">sample</span>(<span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>),<span class="dv">250</span>)) <span class="co"># select 250 random numbers between 1 and 10000</span></span>
+<span id="cb99-5"><a href="scatterplots.html#cb99-5" tabindex="-1"></a><span class="co">#Now lets plot columns 2 and 3 of that data</span></span>
+<span id="cb99-6"><a href="scatterplots.html#cb99-6" tabindex="-1"></a><span class="fu">plot</span>(DataFrame[,<span class="dv">2</span>]<span class="sc">~</span>DataFrame[,<span class="dv">3</span>])</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="scatterplots.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co">#You can also plot by column name using the $ sign as indicated earlier to call a column</span></span>
-<span id="cb101-2"><a href="scatterplots.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DataFrame<span class="sc">$</span>x2<span class="sc">~</span>DataFrame<span class="sc">$</span>x3)</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="scatterplots.html#cb100-1" tabindex="-1"></a><span class="co">#You can also plot by column name using the $ sign as indicated earlier to call a column</span></span>
+<span id="cb100-2"><a href="scatterplots.html#cb100-2" tabindex="-1"></a><span class="fu">plot</span>(DataFrame<span class="sc">$</span>x2<span class="sc">~</span>DataFrame<span class="sc">$</span>x3)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-118-1.png" width="672" /></p>
 <p>Now it comes the different settings needed to format the figure. Almost any attribute of a figure in R can be formatted.</p>
 <p>Next, I will show you how to format a few parameters. Once you know how to format a given parameter of a figure, you should be able to format any other parameter. Obviously a figure has tens of parameters you can modify, so you should not expect to know them all by memory, but you should be able to know how to find the given parameter, which by now you know it is by asking your friend Google.</p>
 <p>Let’s modify a few parameters from the figure above.</p>
 <p>For instance, what about the axis names? You can add axis names using the command xlab or ylab inside the plot command, like this:</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="scatterplots.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DataFrame[,<span class="dv">2</span>]<span class="sc">~</span>DataFrame[,<span class="dv">3</span>],<span class="at">xlab=</span><span class="st">&quot;Years&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Precipitation&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="scatterplots.html#cb101-1" tabindex="-1"></a><span class="fu">plot</span>(DataFrame[,<span class="dv">2</span>]<span class="sc">~</span>DataFrame[,<span class="dv">3</span>],<span class="at">xlab=</span><span class="st">&quot;Years&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Precipitation&quot;</span>)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-119-1.png" width="672" /></p>
 <p>What about the different type of symbols?</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-120"></span>
@@ -434,20 +434,20 @@ Figure 4.3: R plot symbols
 </p>
 </div>
 <p>R offers 25 different symbol types (Figure above), which you can call using the parameter pch, like this:</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="scatterplots.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DataFrame[,<span class="dv">2</span>]<span class="sc">~</span>DataFrame[,<span class="dv">3</span>],<span class="at">xlab=</span><span class="st">&quot;Years&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Precipitation&quot;</span>, <span class="at">pch=</span><span class="dv">22</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="scatterplots.html#cb102-1" tabindex="-1"></a><span class="fu">plot</span>(DataFrame[,<span class="dv">2</span>]<span class="sc">~</span>DataFrame[,<span class="dv">3</span>],<span class="at">xlab=</span><span class="st">&quot;Years&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Precipitation&quot;</span>, <span class="at">pch=</span><span class="dv">22</span>)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
 
 <div class="rmdnote">
 Other characters can be used to specify pch including “+”, “*“,”-“,”.“,”#, “%”, “o”. Or simply any character you put between the quotations (“”) in the pch parameter.
 </div>
 <p>What about colors for those points?. That is controlled using the col parameter. Like this,</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="scatterplots.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DataFrame[,<span class="dv">2</span>]<span class="sc">~</span>DataFrame[,<span class="dv">3</span>],<span class="at">xlab=</span><span class="st">&quot;Years&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Precipitation&quot;</span>, <span class="at">pch=</span><span class="dv">22</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="scatterplots.html#cb103-1" tabindex="-1"></a><span class="fu">plot</span>(DataFrame[,<span class="dv">2</span>]<span class="sc">~</span>DataFrame[,<span class="dv">3</span>],<span class="at">xlab=</span><span class="st">&quot;Years&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Precipitation&quot;</span>, <span class="at">pch=</span><span class="dv">22</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
 <p>For some symbols you can also control the filling color, using the bg parameter. Like this,</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="scatterplots.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DataFrame[,<span class="dv">2</span>]<span class="sc">~</span>DataFrame[,<span class="dv">3</span>],<span class="at">xlab=</span><span class="st">&quot;Years&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Precipitation&quot;</span>, <span class="at">pch=</span><span class="dv">22</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">bg=</span><span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="scatterplots.html#cb104-1" tabindex="-1"></a><span class="fu">plot</span>(DataFrame[,<span class="dv">2</span>]<span class="sc">~</span>DataFrame[,<span class="dv">3</span>],<span class="at">xlab=</span><span class="st">&quot;Years&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Precipitation&quot;</span>, <span class="at">pch=</span><span class="dv">22</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">bg=</span><span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-124-1.png" width="672" /></p>
 <p>You can also control the size of the symbols using the cex parameter. Like this,</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="scatterplots.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DataFrame[,<span class="dv">2</span>]<span class="sc">~</span>DataFrame[,<span class="dv">3</span>],<span class="at">xlab=</span><span class="st">&quot;Years&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Precipitation&quot;</span>, <span class="at">pch=</span><span class="dv">22</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">cex=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="scatterplots.html#cb105-1" tabindex="-1"></a><span class="fu">plot</span>(DataFrame[,<span class="dv">2</span>]<span class="sc">~</span>DataFrame[,<span class="dv">3</span>],<span class="at">xlab=</span><span class="st">&quot;Years&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Precipitation&quot;</span>, <span class="at">pch=</span><span class="dv">22</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">cex=</span><span class="dv">2</span>)</span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/unnamed-chunk-125-1.png" width="672" /></p>
 <p>Remember, there are tens of parameters you can modify in a plot. So you need to know exactly the standards required in the journal you want to publish to ensure you deliver the best figures required.</p>
 </div>

@@ -41,9 +41,9 @@ knitr::include_graphics("images/Z-score.png")
 
 Lets try an example.
 
-Say you want to know if the USA female team run particularly faster the 100m race than other teams.
+Say you want to know if the USA female team run particularly slower the 100m race than prior teams.
 
-You studeid 31 girls and their times runing 100m in seconds were:
+You studied 31 girls of the current team and their times runing 100m in seconds were:
 
 9.7, 9.7, 8.9, 9.2, 9.4, 9.1, 9.5, 9.6, 8.9, 9.1, 9.5, 9.2, 9.5, 9.4, 9.6, 9.2, 9.9, 10, 9.3, 9.6, 9.1, 9.5, 9.2, 9.5, 9.4, 9.6, 9.2, 9.9, 10, 9.3, 9.6. 
 
@@ -53,9 +53,9 @@ From the example, it looks like we have one sample that we want to compare to a 
 
 As it is customary, we start by stating the hypothesis:
 
-H0: Time USA team = 9.5 sec      The null hypothesis is how things are suppose to be...that means, the historical time of 9.5sec
+H0: Time USA team >= 9.5 sec      The null hypothesis is how things are suppose to be or everything that the alternative hypothesis is not ...that means, the historical time of 9.5sec or larger
 
-H1: Time USA team < 9.5 sec      The alternative hypothesis is what we are interested on, or claiming...that the USA team is faster than 9.5sec
+H1: Time USA team < 9.5 sec      The alternative hypothesis is what we are interested on, or claiming...that the USA team is slower than 9.5sec
 
 Let's calculate the z-score:
 
@@ -65,6 +65,9 @@ Sample=c(9.7, 9.7, 8.9, 9.2, 9.4, 9.1, 9.5, 9.6, 8.9, 9.1, 9.5, 9.2, 9.5, 9.4, 9
 
 SampleMean=mean(Sample) #mean time racing for the girls sampled
 SampleSize= length(Sample)  # this is the sample size or number of girls measured
+
+#from the mean alone, we can see that this girls are slower than historical times...so a hint that someting may be right about our hyphothesis
+SampleMean   
 
 PopulationMean= 9.5 #this is the population mean...or the historical time it has taken people to run 100m
 PopulationSD=0.2 #this is the population standard deviation
@@ -105,11 +108,11 @@ Basically, you are looking for the value at the interception between  the first 
 
 In our case, the p-value for a Z-score of -1.90 is 0.0287.
 
-What that tells you is that the girls in the USA team are as fast as the top 2.87% of all teams.
+What that tells you is that the girls in the USA team are as slow as the bottom 2.87% of all historical teams.
 
 If we compare our **significance level**, $\alpha$, of 0.05, to our calculated p-value of 0.0287, you can observed that the p-value is smaller than the $\alpha$, so the Ho (null hypothesis) must go. 
 
-Basically, we reject the null hypothesis that the 100m run time of this team is 9.5sec or higher and conclude that these girls indeed run faster than the historical average.
+Basically, we reject the null hypothesis that the 100m run time of this team is 9.5sec or higher and conclude that these girls indeed run slower than the historical average.
 
 
 ## The one-sample Z-test in R {-}

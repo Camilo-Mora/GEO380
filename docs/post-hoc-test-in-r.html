@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Post-hoc test in R | GEOG380.knit</title>
+  <title>Post-hoc test in R |  By Camilo Mora, Ph.D. </title>
   <meta name="description" content="This is a entry level course to learn stats and R" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Post-hoc test in R | GEOG380.knit" />
+  <meta property="og:title" content="Post-hoc test in R |  By Camilo Mora, Ph.D. " />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a entry level course to learn stats and R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Post-hoc test in R | GEOG380.knit" />
+  <meta name="twitter:title" content="Post-hoc test in R |  By Camilo Mora, Ph.D. " />
   
   <meta name="twitter:description" content="This is a entry level course to learn stats and R" />
   
@@ -90,7 +90,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -103,7 +103,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -397,8 +397,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px">
-By Camilo Mora, Ph.D.
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><h1 style="font-size:17px"><br />
+By Camilo Mora, Ph.D.<br />
 </h1></a>
           </h1>
         </div>
@@ -413,15 +413,15 @@ By Camilo Mora, Ph.D.
 <p>To find this out, you need to run what is called a post-hoc test, which basically compares all possible pair-wise comparisons to find out, which ones are different.</p>
 <p>In R, we can run a post-hoc test with the R function: tukey_hsd() [from the packgae rstatix].</p>
 <p>Lets try:</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="post-hoc-test-in-r.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb244-2"><a href="post-hoc-test-in-r.html#cb244-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
-<span id="cb244-3"><a href="post-hoc-test-in-r.html#cb244-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstatix) <span class="co"># we load this libraries, which we use to sumamrise the results</span></span>
-<span id="cb244-4"><a href="post-hoc-test-in-r.html#cb244-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb244-5"><a href="post-hoc-test-in-r.html#cb244-5" aria-hidden="true" tabindex="-1"></a><span class="co">#We start by putting the data in a dataframe, which two columns. one for the variety type, and the other for the number of tomatoes </span></span>
-<span id="cb244-6"><a href="post-hoc-test-in-r.html#cb244-6" aria-hidden="true" tabindex="-1"></a>Data<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">Variety=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;VarA&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarB&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarC&quot;</span>,<span class="dv">3</span>)), <span class="at">NumTomatoes=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>, <span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>, <span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>))</span>
-<span id="cb244-7"><a href="post-hoc-test-in-r.html#cb244-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb244-8"><a href="post-hoc-test-in-r.html#cb244-8" aria-hidden="true" tabindex="-1"></a>pwc <span class="ot">&lt;-</span> Data <span class="sc">%&gt;%</span> <span class="fu">tukey_hsd</span>(NumTomatoes <span class="sc">~</span> Variety) <span class="co">#PairWise Comparisons</span></span>
-<span id="cb244-9"><a href="post-hoc-test-in-r.html#cb244-9" aria-hidden="true" tabindex="-1"></a>pwc</span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="post-hoc-test-in-r.html#cb245-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb245-2"><a href="post-hoc-test-in-r.html#cb245-2" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb245-3"><a href="post-hoc-test-in-r.html#cb245-3" tabindex="-1"></a><span class="fu">library</span>(rstatix) <span class="co"># we load this libraries, which we use to sumamrise the results</span></span>
+<span id="cb245-4"><a href="post-hoc-test-in-r.html#cb245-4" tabindex="-1"></a></span>
+<span id="cb245-5"><a href="post-hoc-test-in-r.html#cb245-5" tabindex="-1"></a><span class="co">#We start by putting the data in a dataframe, which two columns. one for the variety type, and the other for the number of tomatoes </span></span>
+<span id="cb245-6"><a href="post-hoc-test-in-r.html#cb245-6" tabindex="-1"></a>Data<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">Variety=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;VarA&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarB&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarC&quot;</span>,<span class="dv">3</span>)), <span class="at">NumTomatoes=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>, <span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>, <span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>))</span>
+<span id="cb245-7"><a href="post-hoc-test-in-r.html#cb245-7" tabindex="-1"></a></span>
+<span id="cb245-8"><a href="post-hoc-test-in-r.html#cb245-8" tabindex="-1"></a>pwc <span class="ot">&lt;-</span> Data <span class="sc">%&gt;%</span> <span class="fu">tukey_hsd</span>(NumTomatoes <span class="sc">~</span> Variety) <span class="co">#PairWise Comparisons</span></span>
+<span id="cb245-9"><a href="post-hoc-test-in-r.html#cb245-9" tabindex="-1"></a>pwc</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 9
 ##   term    group1 group2 null.value estimate conf.low conf.high   p.adj
 ## * &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
