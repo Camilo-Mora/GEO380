@@ -138,8 +138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a>GEOG380 Basic Stats with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
 <ul>
 <li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
@@ -410,21 +409,21 @@ By Camilo Mora, Ph.D.<br />
 <div id="the-one-sample-t-test-in-r" class="section level2 unnumbered hasAnchor">
 <h2>The one-sample T-test in R<a href="the-one-sample-t-test-in-r.html#the-one-sample-t-test-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can run a T-test in R, using the package BSDA, and its function tsum.test. Lets try it.</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="the-one-sample-t-test-in-r.html#cb232-1" tabindex="-1"></a><span class="fu">library</span> (<span class="st">&quot;BSDA&quot;</span>)           <span class="co">#load the library</span></span>
-<span id="cb232-2"><a href="the-one-sample-t-test-in-r.html#cb232-2" tabindex="-1"></a>Sample<span class="ot">=</span><span class="fu">c</span>(<span class="dv">587</span>, <span class="dv">602</span>, <span class="dv">627</span>, <span class="dv">610</span>, <span class="dv">619</span>, <span class="dv">622</span>, <span class="dv">605</span>, <span class="dv">608</span>, <span class="dv">596</span>, <span class="dv">592</span>) <span class="co">#lets put the values in a vector</span></span>
-<span id="cb232-3"><a href="the-one-sample-t-test-in-r.html#cb232-3" tabindex="-1"></a></span>
-<span id="cb232-4"><a href="the-one-sample-t-test-in-r.html#cb232-4" tabindex="-1"></a>SampleMean<span class="ot">=</span><span class="fu">mean</span>(Sample) <span class="co">#this is the sample mean</span></span>
-<span id="cb232-5"><a href="the-one-sample-t-test-in-r.html#cb232-5" tabindex="-1"></a>SampleSD<span class="ot">=</span> <span class="fu">sd</span>(Sample)    <span class="co">#this is the sample standard deviation</span></span>
-<span id="cb232-6"><a href="the-one-sample-t-test-in-r.html#cb232-6" tabindex="-1"></a>SampleSize<span class="ot">=</span><span class="fu">length</span>(Sample)  <span class="co">#sample size</span></span>
-<span id="cb232-7"><a href="the-one-sample-t-test-in-r.html#cb232-7" tabindex="-1"></a></span>
-<span id="cb232-8"><a href="the-one-sample-t-test-in-r.html#cb232-8" tabindex="-1"></a>PopulationMean<span class="ot">=</span> <span class="dv">600</span> <span class="co">#this is the population mean...or the expected score, which is assumed to be 600 points</span></span>
-<span id="cb232-9"><a href="the-one-sample-t-test-in-r.html#cb232-9" tabindex="-1"></a></span>
-<span id="cb232-10"><a href="the-one-sample-t-test-in-r.html#cb232-10" tabindex="-1"></a><span class="fu">tsum.test</span>(<span class="at">mean.x=</span>SampleMean, <span class="at">s.x =</span> SampleSD, <span class="at">n.x =</span> SampleSize, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>, <span class="at">mu =</span> PopulationMean, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb232-11"><a href="the-one-sample-t-test-in-r.html#cb232-11" tabindex="-1"></a></span>
-<span id="cb232-12"><a href="the-one-sample-t-test-in-r.html#cb232-12" tabindex="-1"></a></span>
-<span id="cb232-13"><a href="the-one-sample-t-test-in-r.html#cb232-13" tabindex="-1"></a><span class="co">#the parameters needed to run a T-test are self-explanatory. mean.x is the mean of your sample data. alternative is the type of test to run, in this case we want to check is the sample is greater than the population mean. mu is the population mean, and s.x is the standard deviation of the sample. This function ask for the confidence level, which as we indicated before is the complement to the level of significance to use, in our case our significance level is 0.05, so the confidence level will be 0.95</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="the-one-sample-t-test-in-r.html#cb7-1" tabindex="-1"></a><span class="fu">library</span> (<span class="st">&quot;BSDA&quot;</span>)           <span class="co">#load the library</span></span>
+<span id="cb7-2"><a href="the-one-sample-t-test-in-r.html#cb7-2" tabindex="-1"></a>Sample<span class="ot">=</span><span class="fu">c</span>(<span class="dv">587</span>, <span class="dv">602</span>, <span class="dv">627</span>, <span class="dv">610</span>, <span class="dv">619</span>, <span class="dv">622</span>, <span class="dv">605</span>, <span class="dv">608</span>, <span class="dv">596</span>, <span class="dv">592</span>) <span class="co">#lets put the values in a vector</span></span>
+<span id="cb7-3"><a href="the-one-sample-t-test-in-r.html#cb7-3" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="the-one-sample-t-test-in-r.html#cb7-4" tabindex="-1"></a>SampleMean<span class="ot">=</span><span class="fu">mean</span>(Sample) <span class="co">#this is the sample mean</span></span>
+<span id="cb7-5"><a href="the-one-sample-t-test-in-r.html#cb7-5" tabindex="-1"></a>SampleSD<span class="ot">=</span> <span class="fu">sd</span>(Sample)    <span class="co">#this is the sample standard deviation</span></span>
+<span id="cb7-6"><a href="the-one-sample-t-test-in-r.html#cb7-6" tabindex="-1"></a>SampleSize<span class="ot">=</span><span class="fu">length</span>(Sample)  <span class="co">#sample size</span></span>
+<span id="cb7-7"><a href="the-one-sample-t-test-in-r.html#cb7-7" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="the-one-sample-t-test-in-r.html#cb7-8" tabindex="-1"></a>PopulationMean<span class="ot">=</span> <span class="dv">600</span> <span class="co">#this is the population mean...or the expected score, which is assumed to be 600 points</span></span>
+<span id="cb7-9"><a href="the-one-sample-t-test-in-r.html#cb7-9" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="the-one-sample-t-test-in-r.html#cb7-10" tabindex="-1"></a><span class="fu">tsum.test</span>(<span class="at">mean.x=</span>SampleMean, <span class="at">s.x =</span> SampleSD, <span class="at">n.x =</span> SampleSize, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>, <span class="at">mu =</span> PopulationMean, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb7-11"><a href="the-one-sample-t-test-in-r.html#cb7-11" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="the-one-sample-t-test-in-r.html#cb7-12" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="the-one-sample-t-test-in-r.html#cb7-13" tabindex="-1"></a><span class="co">#the parameters needed to run a T-test are self-explanatory. mean.x is the mean of your sample data. alternative is the type of test to run, in this case we want to check is the sample is greater than the population mean. mu is the population mean, and s.x is the standard deviation of the sample. This function ask for the confidence level, which as we indicated before is the complement to the level of significance to use, in our case our significance level is 0.05, so the confidence level will be 0.95</span></span></code></pre></div>
 <p>The results will look like the image below, which are nearly identical to our hand calculation.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-303"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-12"></span>
 <img src="images/ToneSampleTestResultsR.png" alt="R-results for a one-sample z-test" width="80%" />
 <p class="caption">
 Figure 10.8: R-results for a one-sample z-test

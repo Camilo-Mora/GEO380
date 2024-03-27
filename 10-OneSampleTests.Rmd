@@ -36,7 +36,7 @@ Given this principle then you can easily know the fraction of individuals at cer
 The z-cores is basically an index that allows you to convert/standardize any value to a given number of standard deviations from the mean.
 
 ```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Z-test fucntion'}
-knitr::include_graphics("images/Z-score.png")
+knitr::include_graphics("images/Z-Score.png")
 ```
 
 Lets try an example.
