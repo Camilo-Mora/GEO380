@@ -138,8 +138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a>GEOG380 Basic Stats with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
 <ul>
 <li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
@@ -431,7 +430,7 @@ F_{statistics} = \frac{r^2}{1-r^2} *\frac{v2}{v1}
 <p>Because the most variance you can explain in any case is always just 100%, this metric could be assumed standard among any model random or not. And that is how then, we can compare our results on legit data to fake data, and see if any result of ours is different from random.</p>
 <p>With all parameters at hand for our model, we need to look into an <em>F-table</em> to estimate the <em>critical F-value</em>. A <em>critical F-value</em> is the expected F-value at which certain fraction of random models occur. Let’s take a moment to understand this.</p>
 <p>Image a statistician runs one million regressions with random data using certain number of samples and independent variables and for each model he estimates the F-value above. He then creates a frequency distribution of the number of models at each F-value, like the figure below.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-250"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-36"></span>
 <img src="images/F-distributionA.png" alt="F-distribution" width="80%" />
 <p class="caption">
 Figure 7.10: F-distribution
@@ -440,7 +439,7 @@ Figure 7.10: F-distribution
 <p>From that distribution, you can now find out the F-value at which say 90% of the random models occur; that value is the <em>critical F-value</em>, like in the image below.</p>
 <p>If say our model has an F-value larger than that critical F-value then we are 90% sure our model cannot have emerge by chance.</p>
 <p>Alternatively, you could say our model is significant at p&gt;0.1, which is the complement of 90% or 0.9 if you look at it as fractions. That p-value is also called the <em>critical p-value</em> or at times also named alpha, <span class="math inline">\(\alpha\)</span>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-251"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-37"></span>
 <img src="images/F-distribution.png" alt="Critical f-Value at 90% or p=0.1" width="80%" />
 <p class="caption">
 Figure 7.11: Critical f-Value at 90% or p=0.1
@@ -456,15 +455,15 @@ F_{statistics} = 79.7259164
 <p>So the F-value for our model was <span class="math inline">\(79.73\)</span>. Now we need to find out the <em>critical F-value</em>, and lets take a <span class="math inline">\(\alpha =0.05\)</span>. For this we use an F-table, like the one below, which you can find on most books on stats.</p>
 <p>Because <span class="math inline">\(v1\)</span> = 1 in our case, you have to select the first column, then scroll down until <span class="math inline">\(v2\)</span> in the gray column is equal to 3, at the interception is the <strong>F-critical</strong>. Or the F-value at which 95% of the random models occurred. There are similar tables like this for each <span class="math inline">\(\alpha\)</span>.</p>
 <p>So for a model like ours, 95% of the random models should have an critical F-value smaller than 10.13. However, our model had an F-value = 79.7259164. So our model is very different from the random expectation, or also-called significantly different at p&gt;0.05.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-252"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-38"></span>
 <img src="images/Ftable.png" alt="lm outputs" width="80%" />
 <p class="caption">
 Figure 7.12: lm outputs
 </p>
 </div>
 <p>In R, the F-value is produced automatically with the <span class="math inline">\(lm\)</span> function and the <span class="math inline">\(summary\)</span> function. The outputs from the linear model, lm, also include the exact probability at which our model could be random, see image below.</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="the-significance.html#cb201-1" tabindex="-1"></a><span class="fu">summary</span> (LM)   <span class="co">#Here LM is the linear model, lm, we create in the code just above.  </span></span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-254"></span>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="the-significance.html#cb12-1" tabindex="-1"></a><span class="fu">summary</span> (LM)   <span class="co">#Here LM is the linear model, lm, we create in the code just above.  </span></span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-40"></span>
 <img src="images/Fvalue.png" alt="lm outputs" width="80%" />
 <p class="caption">
 Figure 7.13: lm outputs

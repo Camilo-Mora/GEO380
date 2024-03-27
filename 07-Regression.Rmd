@@ -426,7 +426,7 @@ Lets finish the exercise by brutal force, drawing lines with different inclinati
 
 
 ```{r, out.width = "100%", echo= FALSE, fig.align = 'center',fig.cap = 'Finiding the line with the least-squares error'}
-knitr::include_graphics("images/test.GIF")
+knitr::include_graphics("images/test.gif")
 ```
 
 
