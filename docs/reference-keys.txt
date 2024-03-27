@@ -151,3 +151,10 @@ fig:unnamed-chunk-37
 fig:unnamed-chunk-38
 fig:unnamed-chunk-40
 fig:unnamed-chunk-42
+fig:unnamed-chunk-34
+fig:unnamed-chunk-54
+fig:unnamed-chunk-59
+fig:unnamed-chunk-60
+fig:unnamed-chunk-65
+fig:unnamed-chunk-26
+fig:unnamed-chunk-27

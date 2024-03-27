@@ -356,7 +356,7 @@ To load a .csv file in R, you use the command read.csv(). Between brackets you p
 
 
 ```{r, out.width = "100%", echo= FALSE, fig.align = 'center',fig.cap = 'Windows explorer'}
-knitr::include_graphics("images/Windowsbar.png")
+knitr::include_graphics("images/WindowsBar.png")
 ```
 
 Navigate to the folder Data where you saved the file, and put the mouse cursor in the selectable window (See arrow in image below). That will reveal the path where the file is saved in your computer.

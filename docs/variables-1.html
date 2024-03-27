@@ -138,8 +138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a>GEOG380 Basic Stats with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
 <ul>
 <li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
@@ -410,26 +409,23 @@ By Camilo Mora, Ph.D.<br />
 <div id="variables-1" class="section level2 unnumbered hasAnchor">
 <h2>Variables<a href="variables-1.html#variables-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Variables in R are names used to storage objects that you can manipulate. For instance, let me create a variable “A”, whicha I want it to be the value 1. Basically, in the R console I type:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="variables-1.html#cb7-1" tabindex="-1"></a>A<span class="ot">=</span><span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="variables-1.html#cb1-1" tabindex="-1"></a>A<span class="ot">=</span><span class="dv">1</span></span></code></pre></div>
 <p>then click “Enter”. That command, just created a variable A, which has a value of 1.</p>
 <p>To check, type “A” +“Enter”.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="variables-1.html#cb8-1" tabindex="-1"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="variables-1.html#cb2-1" tabindex="-1"></a>A</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>Let’s now create a variable called B, which is equal to 2.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="variables-1.html#cb10-1" tabindex="-1"></a>B<span class="ot">=</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="variables-1.html#cb4-1" tabindex="-1"></a>B<span class="ot">=</span><span class="dv">2</span></span></code></pre></div>
 <p>I can now use those two variables to see what happens when I add them:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="variables-1.html#cb11-1" tabindex="-1"></a>A<span class="sc">+</span>B</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="variables-1.html#cb5-1" tabindex="-1"></a>A<span class="sc">+</span>B</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>You cal also create a new variable based on other variables. For instance:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="variables-1.html#cb13-1" tabindex="-1"></a>C<span class="ot">=</span>A<span class="sc">-</span>B</span>
-<span id="cb13-2"><a href="variables-1.html#cb13-2" tabindex="-1"></a>C</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="variables-1.html#cb7-1" tabindex="-1"></a>C<span class="ot">=</span>A<span class="sc">-</span>B</span>
+<span id="cb7-2"><a href="variables-1.html#cb7-2" tabindex="-1"></a>C</span></code></pre></div>
 <pre><code>## [1] -1</code></pre>
 <p>You can check all the variables you have created using the command ls()</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="variables-1.html#cb15-1" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
-<pre><code>##  [1] &quot;A&quot;              &quot;B&quot;              &quot;C&quot;              &quot;f&quot;             
-##  [5] &quot;i&quot;              &quot;MeanPopulation&quot; &quot;MeanSample&quot;     &quot;Merge&quot;         
-##  [9] &quot;Population&quot;     &quot;r&quot;              &quot;Results&quot;        &quot;Sample&quot;        
-## [13] &quot;SampleSize&quot;     &quot;trial&quot;</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="variables-1.html#cb9-1" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;A&quot; &quot;B&quot; &quot;C&quot;</code></pre>
 <p>As you can see, up to this moment I have created three variables, named A, B and C.</p>
 
 <div class="rmdwarning">
@@ -520,20 +516,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

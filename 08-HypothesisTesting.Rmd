@@ -39,7 +39,7 @@ A population is a whole, it’s every member of a group. A sample is a fraction 
 
 
 ```{r, out.width = "70%", echo= FALSE, fig.align = 'center',fig.cap = 'Population, sample, individual'}
-knitr::include_graphics("images/Population.png")
+knitr::include_graphics("images/population.png")
 ```
 
 
