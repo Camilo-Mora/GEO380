@@ -254,7 +254,7 @@ A qualitative variable describes an individual by placing the individual into a 
 
 
 ```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'The population'}
-knitr::include_graphics("images/control.jpg")
+knitr::include_graphics("images/Control.jpg")
 ```
 
 

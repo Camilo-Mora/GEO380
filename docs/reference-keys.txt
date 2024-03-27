@@ -141,3 +141,8 @@ one-sample-tests
 two-sample-tests
 multiple-sample-test
 final-project
+fig:unnamed-chunk-1
+fig:unnamed-chunk-2
+fig:unnamed-chunk-4
+fig:unnamed-chunk-5
+fig:unnamed-chunk-16
