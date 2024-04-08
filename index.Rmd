@@ -18,6 +18,8 @@ title=document.getElementById('header');
 title.innerHTML = '<img src="images/Stats.png" alt="Test Image">' + title.innerHTML
 ```
 
+Notice: There are a number of interactive exercises in this book created with the open source software H5P, which is license under a [MIT license](https://h5p.org/MIT-licensed). Those exercises are hosted in Github thanks to a   [connector](https://github.com/Camilo-Mora/H5P) created by Daisuke Harita. 
+
 # Introduction {-}
 
 

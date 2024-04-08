@@ -138,7 +138,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a>GEOG380 Basic Stats with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
 <ul>
 <li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
@@ -410,10 +411,10 @@ By Camilo Mora, Ph.D.<br />
 <h2>Adding results to databases<a href="adding-results-to-databases.html#adding-results-to-databases" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Up to this point, we have simply manipulated the data other people collected. What if we now want to do our own analysis with such data? Piece of cake…</p>
 <p>…lets tray, for instance, a new index, in which I want to see how much does it cost a year of life in each country. Basically, all I have to do is to divide how much each person does in each country (i.e., GDP per capita) by the life expectancy of people in each country. Like this,</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="adding-results-to-databases.html#cb88-1" tabindex="-1"></a>SelectedColumns<span class="sc">$</span>ValueofLife <span class="ot">=</span> SelectedColumns<span class="sc">$</span>gdpPercap <span class="sc">/</span> SelectedColumns<span class="sc">$</span>lifeExp </span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="adding-results-to-databases.html#cb94-1" tabindex="-1"></a>SelectedColumns<span class="sc">$</span>ValueofLife <span class="ot">=</span> SelectedColumns<span class="sc">$</span>gdpPercap <span class="sc">/</span> SelectedColumns<span class="sc">$</span>lifeExp </span></code></pre></div>
 <p>WE cant translate the code above as, a a column called ValueofLife to the dataframe SelectedColumns, in which I divide gdpPercap by lifeExp.</p>
 <p>Lets check the results,</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="adding-results-to-databases.html#cb89-1" tabindex="-1"></a><span class="fu">head</span>(SelectedColumns)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="adding-results-to-databases.html#cb95-1" tabindex="-1"></a><span class="fu">head</span>(SelectedColumns)</span></code></pre></div>
 <pre><code>##       country year gdpPercap lifeExp ValueofLife
 ## 1 Afghanistan 1952  779.4453  28.801    27.06313
 ## 2 Afghanistan 1957  820.8530  30.332    27.06228
@@ -422,7 +423,7 @@ By Camilo Mora, Ph.D.<br />
 ## 5 Afghanistan 1972  739.9811  36.088    20.50491
 ## 6 Afghanistan 1977  786.1134  38.438    20.45146</code></pre>
 <p>Lets do a quiick summary to see the average per country,</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="adding-results-to-databases.html#cb91-1" tabindex="-1"></a>SelectedColumns <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mean_valueOfLife =</span> <span class="fu">mean</span>(ValueofLife))</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="adding-results-to-databases.html#cb97-1" tabindex="-1"></a>SelectedColumns <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mean_valueOfLife =</span> <span class="fu">mean</span>(ValueofLife))</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 2
 ##    country     mean_valueOfLife
 ##    &lt;chr&gt;                  &lt;dbl&gt;
@@ -519,6 +520,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

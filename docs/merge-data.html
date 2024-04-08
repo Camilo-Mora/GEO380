@@ -138,7 +138,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a>GEOG380 Basic Stats with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
 <ul>
 <li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
@@ -411,7 +412,7 @@ By Camilo Mora, Ph.D.<br />
 <p>One other very common operation in R coding is to merge dataframes by common attributes (i.e., common column).</p>
 <p>In the section about Data structure types, we sow how to merge matrices or dataframes using the rbind or cbind functions, which work when the different databases can be paired by simply appending one database to the other. For instance, when the columns are in exact order in the two databases.</p>
 <p>Here we will use the merge function, or so call full_join from the dplr package, which works for cases when the data cannot be paired by simply appending one database to another. For instance, when the columns and/or rows are not in the exact order.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-60"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-102"></span>
 <img src="images/Merge.png" alt="Merging function" width="100%" />
 <p class="caption">
 Figure 3.9: Merging function
@@ -423,9 +424,9 @@ Figure 3.9: Merging function
 <p>You could do that pairing of the two database by brutal force, copying the data from each country from one database, and pasting it in the same row for the given country in the other database. Say that operation takes you ten seconds for each country, and there are 250 countries, then that job will take you about 40 minutes, not to mention the chance for errors.</p>
 <p>Oh, but remember that each country has 40 years of data. So multiplyy the 40 minutes times 40 years, and you end up copying and pasting for more than a day. Alternatively you have R do the merging for you. Lets try it.</p>
 <p>First, lets load the data on the life expectancy, which I have placed in my Github folder</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="merge-data.html#cb76-1" tabindex="-1"></a>ExpectancyData<span class="ot">=</span><span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_LifeExpectancy.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="merge-data.html#cb82-1" tabindex="-1"></a>ExpectancyData<span class="ot">=</span><span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_LifeExpectancy.csv&quot;</span>)</span></code></pre></div>
 <p>It is good practice to always check at least a portion of the database to check it has been loaded correctly,</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="merge-data.html#cb77-1" tabindex="-1"></a><span class="fu">tail</span>(ExpectancyData)      <span class="co">#lets look at the column head of the Expectancy data we just loaded.</span></span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="merge-data.html#cb83-1" tabindex="-1"></a><span class="fu">tail</span>(ExpectancyData)      <span class="co">#lets look at the column head of the Expectancy data we just loaded.</span></span></code></pre></div>
 <pre><code>##         X  country continent year lifeExp
 ## 1699 1699 Zimbabwe    Africa 1982  60.363
 ## 1700 1700 Zimbabwe    Africa 1987  62.351
@@ -434,7 +435,7 @@ Figure 3.9: Merging function
 ## 1703 1703 Zimbabwe    Africa 2002  39.989
 ## 1704 1704 Zimbabwe    Africa 2007  43.487</code></pre>
 <p>Lets check the GDP database as well.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="merge-data.html#cb79-1" tabindex="-1"></a><span class="fu">tail</span>(GDPData)            <span class="co">#lets look at the column head of the GDP data we loaded earlier.</span></span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="merge-data.html#cb85-1" tabindex="-1"></a><span class="fu">tail</span>(GDPData)            <span class="co">#lets look at the column head of the GDP data we loaded earlier.</span></span></code></pre></div>
 <pre><code>##       country continent year gdpPercap
 ## 1699 Zimbabwe    Africa 1982  788.8550
 ## 1700 Zimbabwe    Africa 1987  706.1573
@@ -443,16 +444,16 @@ Figure 3.9: Merging function
 ## 1703 Zimbabwe    Africa 2002  672.0386
 ## 1704 Zimbabwe    Africa 2007  469.7093</code></pre>
 <p>Ok, we now have two databases loaded in R, one for the data on GDP and the other for the data on life expectancy. Lets merge them together, like this:</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="merge-data.html#cb81-1" tabindex="-1"></a>MergeData <span class="ot">&lt;-</span> <span class="fu">full_join</span>(GDPData, ExpectancyData, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>,<span class="st">&quot;year&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="merge-data.html#cb87-1" tabindex="-1"></a>MergeData <span class="ot">&lt;-</span> <span class="fu">full_join</span>(GDPData, ExpectancyData, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;country&quot;</span>,<span class="st">&quot;year&quot;</span>))</span></code></pre></div>
 <p>Now lets try to read, that line of code, like this:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-65"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-107"></span>
 <img src="images/Merge_Function.png" alt="Merging function" width="100%" />
 <p class="caption">
 Figure 3.10: Merging function
 </p>
 </div>
 <p>If I translate this…basically, create a new dataframe called MergeData, in which I want to merge in full the database on GDPData and ExpectancyData by their common attribute country and year.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="merge-data.html#cb82-1" tabindex="-1"></a><span class="fu">tail</span>(MergeData)            <span class="co">#Check the results</span></span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="merge-data.html#cb88-1" tabindex="-1"></a><span class="fu">tail</span>(MergeData)            <span class="co">#Check the results</span></span></code></pre></div>
 <pre><code>##       country continent.x year gdpPercap    X continent.y lifeExp
 ## 1699 Zimbabwe      Africa 1982  788.8550 1699      Africa  60.363
 ## 1700 Zimbabwe      Africa 1987  706.1573 1700      Africa  62.351
@@ -541,6 +542,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

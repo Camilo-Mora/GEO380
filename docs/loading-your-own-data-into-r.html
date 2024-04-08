@@ -138,7 +138,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a>GEOG380 Basic Stats with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
 <ul>
 <li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
@@ -415,53 +416,53 @@ By Camilo Mora, Ph.D.<br />
 <li><p>Download a csv file from <a href="https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_GDP.csv">here</a>. Right click on the page and click on “Save page as” in the pop-up window. Name the file “Countries_GDP.csv”, and navigate to the “Data” folder you just created to save the file in there. Click “Save”. That file should now appear in your “Data” folder.</p></li>
 <li><p>Now that you have the csv file in your local hard-drive, you can load it into R. For this you need to do a couple things. First, get the path to where the file is at. For this, click on your windows explorer (that is the button that looks like a folder in your desktop, see image below)</p></li>
 </ol>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-33"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-75"></span>
 <img src="images/WindowsBar.png" alt="Windows explorer" width="100%" />
 <p class="caption">
 Figure 3.2: Windows explorer
 </p>
 </div>
 <p>Navigate to the folder Data where you saved the file, and put the mouse cursor in the selectable window (See arrow in image below). That will reveal the path where the file is saved in your computer.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-34"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-76"></span>
 <img src="images/DataFolder.png" alt="Getting path to file" width="100%" />
 <p class="caption">
 Figure 3.3: Getting path to file
 </p>
 </div>
 <p>Next, right click on that same window, and click on Copy. That will copy the path to your file (See image below).</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-35"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-77"></span>
 <img src="images/CopyPath.png" alt="Getting path to file" width="100%" />
 <p class="caption">
 Figure 3.4: Getting path to file
 </p>
 </div>
 <p>Open R, right click anywhere inside the main window of R and click on “Paste”. It should look something like this:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-36"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-78"></span>
 <img src="images/PathInR.png" alt="Getting path to file" width="100%" />
 <p class="caption">
 Figure 3.5: Getting path to file
 </p>
 </div>
 <p>Now you need to replace each back-slash for a forward-slash in your path. The position of those keys in my keyboard are shown in the image below.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-37"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-79"></span>
 <img src="images/Keyboard.png" alt="Slash keys in keyboard" width="100%" />
 <p class="caption">
 Figure 3.6: Slash keys in keyboard
 </p>
 </div>
 <p>So the path to the file should be change from this:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="loading-your-own-data-into-r.html#cb47-1" tabindex="-1"></a><span class="co"># &quot;D:\GEO380\Datasets\&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="loading-your-own-data-into-r.html#cb53-1" tabindex="-1"></a><span class="co"># &quot;D:\GEO380\Datasets\&quot;</span></span></code></pre></div>
 <p>to this:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="loading-your-own-data-into-r.html#cb48-1" tabindex="-1"></a><span class="co"># &quot;D:/GEO380/Datasets/&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="loading-your-own-data-into-r.html#cb54-1" tabindex="-1"></a><span class="co"># &quot;D:/GEO380/Datasets/&quot;</span></span></code></pre></div>
 <p>Now, to the path of the folder in which you have the file, you need to add the file name, like this:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="loading-your-own-data-into-r.html#cb49-1" tabindex="-1"></a><span class="co"># &quot;D:/GEO380/Datasets/Countries_GDP.csv&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="loading-your-own-data-into-r.html#cb55-1" tabindex="-1"></a><span class="co"># &quot;D:/GEO380/Datasets/Countries_GDP.csv&quot;</span></span></code></pre></div>
 <p>I have to tell you that when I got started in R. A colleague sent me a file and told me to open his file in R. It sounded simple at the time, but it took me two days to figure out all these tiny things about setting the file correctly. Back in those days the internet was not so full of useful tutorials about how to do this. Ok, let’s keep going.</p>
 <p>Now add to your path the R function that is used read csv files, which is “read.csv()”, like this:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="loading-your-own-data-into-r.html#cb50-1" tabindex="-1"></a><span class="co"># read.csv(&quot;D:/GEO380/Datasets/Countries_GDP.csv&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="loading-your-own-data-into-r.html#cb56-1" tabindex="-1"></a><span class="co"># read.csv(&quot;D:/GEO380/Datasets/Countries_GDP.csv&quot;)</span></span></code></pre></div>
 <p>I suggest you attach this file to a variable name, so you can call it later.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="loading-your-own-data-into-r.html#cb51-1" tabindex="-1"></a>GDPData<span class="ot">=</span><span class="fu">read.csv</span>(<span class="st">&quot;D:/GEO380/Datasets/Countries_GDP.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="loading-your-own-data-into-r.html#cb57-1" tabindex="-1"></a>GDPData<span class="ot">=</span><span class="fu">read.csv</span>(<span class="st">&quot;D:/GEO380/Datasets/Countries_GDP.csv&quot;</span>)</span></code></pre></div>
 <p>That is it, now you have loaded your data into R. Check it out by looking at the top part of the database</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="loading-your-own-data-into-r.html#cb52-1" tabindex="-1"></a><span class="fu">head</span> (GDPData)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="loading-your-own-data-into-r.html#cb58-1" tabindex="-1"></a><span class="fu">head</span> (GDPData)</span></code></pre></div>
 <pre><code>##       country continent year gdpPercap
 ## 1 Afghanistan      Asia 1952  779.4453
 ## 2 Afghanistan      Asia 1957  820.8530
@@ -470,7 +471,7 @@ Figure 3.6: Slash keys in keyboard
 ## 5 Afghanistan      Asia 1972  739.9811
 ## 6 Afghanistan      Asia 1977  786.1134</code></pre>
 <p>By the way, if you know that the csv file in the web will not be deleted or moved, you can read the data from the web directly using the URL to the file, instead of the path. Like this,</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="loading-your-own-data-into-r.html#cb54-1" tabindex="-1"></a>GDPData<span class="ot">=</span><span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_GDP.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="loading-your-own-data-into-r.html#cb60-1" tabindex="-1"></a>GDPData<span class="ot">=</span><span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/Camilo-Mora/GEO380/main/Datasets/Countries_GDP.csv&quot;</span>)</span></code></pre></div>
 </div>
 <div id="disqus_thread"></div>
 <script>
@@ -552,6 +553,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

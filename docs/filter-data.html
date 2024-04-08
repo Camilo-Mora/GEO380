@@ -138,7 +138,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a>GEOG380 Basic Stats with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
 <ul>
 <li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
@@ -409,13 +410,13 @@ By Camilo Mora, Ph.D.<br />
 <div id="filter-data" class="section level2 unnumbered hasAnchor">
 <h2>Filter data<a href="filter-data.html#filter-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A recurring task in data analytics is to filter data, this means to select specific subsets/chucks of your data. Filters can be used to create new variables, to apply new functions, to see specific data, etc. There are numerous ways to filter data in R, but here we wall use the function filter in the package “dplyr”.</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="filter-data.html#cb68-1" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)     #First, I install the package dplyr and tidyverse, since I have not installed it previously</span></span>
-<span id="cb68-2"><a href="filter-data.html#cb68-2" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyverse&quot;) </span></span>
-<span id="cb68-3"><a href="filter-data.html#cb68-3" tabindex="-1"></a></span>
-<span id="cb68-4"><a href="filter-data.html#cb68-4" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co">#next I load the packages into the current section of R.</span></span>
-<span id="cb68-5"><a href="filter-data.html#cb68-5" tabindex="-1"></a><span class="fu">library</span>(dplyr)            </span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="filter-data.html#cb74-1" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)     #First, I install the package dplyr and tidyverse, since I have not installed it previously</span></span>
+<span id="cb74-2"><a href="filter-data.html#cb74-2" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyverse&quot;) </span></span>
+<span id="cb74-3"><a href="filter-data.html#cb74-3" tabindex="-1"></a></span>
+<span id="cb74-4"><a href="filter-data.html#cb74-4" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co">#next I load the packages into the current section of R.</span></span>
+<span id="cb74-5"><a href="filter-data.html#cb74-5" tabindex="-1"></a><span class="fu">library</span>(dplyr)            </span></code></pre></div>
 <p>Now, lets check the first few rows in the GDP database we loaded earlier,</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="filter-data.html#cb69-1" tabindex="-1"></a><span class="fu">tail</span>(GDPData)             <span class="co">#lets look at the column head of the GDP data we loaded earlier.</span></span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="filter-data.html#cb75-1" tabindex="-1"></a><span class="fu">tail</span>(GDPData)             <span class="co">#lets look at the column head of the GDP data we loaded earlier.</span></span></code></pre></div>
 <pre><code>##       country continent year gdpPercap
 ## 1699 Zimbabwe    Africa 1982  788.8550
 ## 1700 Zimbabwe    Africa 1987  706.1573
@@ -425,7 +426,7 @@ By Camilo Mora, Ph.D.<br />
 ## 1704 Zimbabwe    Africa 2007  469.7093</code></pre>
 <p>From the subset of the data above, you can see that the GDPData database has four columns, and from the “year” column, you can tell that the data of GDP (gdpPercap) is repeated for each year. Hmm, but what if I just want to see the data for countries in Asia?. For that we use the function filter.</p>
 <p>The syntax of the filter function reads like this:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-54"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-96"></span>
 <img src="images/Filter.png" alt="Filter function" width="100%" />
 <p class="caption">
 Figure 3.7: Filter function
@@ -436,7 +437,7 @@ Figure 3.7: Filter function
 Pipes, %&gt;%, are a powerful tool for doing sequential operations. Commonly it requires tthe tidyverse package. In the next section you will better see the use of pipes.
 </div>
 <p>Now that you know the syntax of the filter function from the dplr package, lets test it.</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="filter-data.html#cb71-1" tabindex="-1"></a>GDPData <span class="sc">%&gt;%</span> <span class="fu">filter</span>(continent<span class="sc">==</span><span class="st">&quot;Asia&quot;</span>)       </span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="filter-data.html#cb77-1" tabindex="-1"></a>GDPData <span class="sc">%&gt;%</span> <span class="fu">filter</span>(continent<span class="sc">==</span><span class="st">&quot;Asia&quot;</span>)       </span></code></pre></div>
 <pre><code>##                country continent year   gdpPercap
 ## 1          Afghanistan      Asia 1952    779.4453
 ## 2          Afghanistan      Asia 1957    820.8530
@@ -916,6 +917,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

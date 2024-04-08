@@ -138,7 +138,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a>GEOG380 Basic Stats with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
 <ul>
 <li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
@@ -416,20 +417,20 @@ By Camilo Mora, Ph.D.<br />
 <p>The example above is an oversimplification of how multiple regression works, as there are some collinearities among independent variables that you have to handle. But for now I just want you to know that linear regression allows you to test additional variables by trying to explain the unexplained variation in Y with additional variables. The so-call <strong>multiple regression</strong> analysis.</p>
 <p>Let’s take the data we have been using, and say, we also got data on the amount of debt of each student…this variable may indicate the level of stress of the student, a likelihood that they have a job that prevents them of working fully and well, etc…how does this second variable influences the grades of students in my class?.</p>
 <p>Let’s check..</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="multiple-regression.html#cb13-1" tabindex="-1"></a><span class="co">#lets start by bringing back the data on time studying and grades</span></span>
-<span id="cb13-2"><a href="multiple-regression.html#cb13-2" tabindex="-1"></a>Names<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Peter&quot;</span>,<span class="st">&quot;Laura&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Chip&quot;</span>, <span class="st">&quot;Tom&quot;</span>)</span>
-<span id="cb13-3"><a href="multiple-regression.html#cb13-3" tabindex="-1"></a>Hours_Studying<span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>)</span>
-<span id="cb13-4"><a href="multiple-regression.html#cb13-4" tabindex="-1"></a>Grade<span class="ot">=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)</span>
-<span id="cb13-5"><a href="multiple-regression.html#cb13-5" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="multiple-regression.html#cb13-6" tabindex="-1"></a><span class="co">#here is the data for the second independent variable for the same students</span></span>
-<span id="cb13-7"><a href="multiple-regression.html#cb13-7" tabindex="-1"></a>Debt<span class="ot">=</span><span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">60</span>, <span class="dv">55</span>, <span class="dv">15</span>, <span class="dv">5</span>) <span class="co">#debt of students in thousands of dollars</span></span>
-<span id="cb13-8"><a href="multiple-regression.html#cb13-8" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="multiple-regression.html#cb13-9" tabindex="-1"></a><span class="co"># we use the same lm function we used before and add debt as independent variable, like this:</span></span>
-<span id="cb13-10"><a href="multiple-regression.html#cb13-10" tabindex="-1"></a>MultipleRegression<span class="ot">=</span><span class="fu">lm</span> (Grade <span class="sc">~</span> Hours_Studying <span class="sc">+</span> Debt)</span>
-<span id="cb13-11"><a href="multiple-regression.html#cb13-11" tabindex="-1"></a></span>
-<span id="cb13-12"><a href="multiple-regression.html#cb13-12" tabindex="-1"></a><span class="co">#next we check the results</span></span>
-<span id="cb13-13"><a href="multiple-regression.html#cb13-13" tabindex="-1"></a><span class="fu">summary</span>(MultipleRegression)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-42"></span>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="multiple-regression.html#cb202-1" tabindex="-1"></a><span class="co">#lets start by bringing back the data on time studying and grades</span></span>
+<span id="cb202-2"><a href="multiple-regression.html#cb202-2" tabindex="-1"></a>Names<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Peter&quot;</span>,<span class="st">&quot;Laura&quot;</span>, <span class="st">&quot;John&quot;</span>, <span class="st">&quot;Chip&quot;</span>, <span class="st">&quot;Tom&quot;</span>)</span>
+<span id="cb202-3"><a href="multiple-regression.html#cb202-3" tabindex="-1"></a>Hours_Studying<span class="ot">=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="fl">2.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>)</span>
+<span id="cb202-4"><a href="multiple-regression.html#cb202-4" tabindex="-1"></a>Grade<span class="ot">=</span><span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">64</span>, <span class="dv">75</span>, <span class="dv">82</span>,<span class="dv">95</span>)</span>
+<span id="cb202-5"><a href="multiple-regression.html#cb202-5" tabindex="-1"></a></span>
+<span id="cb202-6"><a href="multiple-regression.html#cb202-6" tabindex="-1"></a><span class="co">#here is the data for the second independent variable for the same students</span></span>
+<span id="cb202-7"><a href="multiple-regression.html#cb202-7" tabindex="-1"></a>Debt<span class="ot">=</span><span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">60</span>, <span class="dv">55</span>, <span class="dv">15</span>, <span class="dv">5</span>) <span class="co">#debt of students in thousands of dollars</span></span>
+<span id="cb202-8"><a href="multiple-regression.html#cb202-8" tabindex="-1"></a></span>
+<span id="cb202-9"><a href="multiple-regression.html#cb202-9" tabindex="-1"></a><span class="co"># we use the same lm function we used before and add debt as independent variable, like this:</span></span>
+<span id="cb202-10"><a href="multiple-regression.html#cb202-10" tabindex="-1"></a>MultipleRegression<span class="ot">=</span><span class="fu">lm</span> (Grade <span class="sc">~</span> Hours_Studying <span class="sc">+</span> Debt)</span>
+<span id="cb202-11"><a href="multiple-regression.html#cb202-11" tabindex="-1"></a></span>
+<span id="cb202-12"><a href="multiple-regression.html#cb202-12" tabindex="-1"></a><span class="co">#next we check the results</span></span>
+<span id="cb202-13"><a href="multiple-regression.html#cb202-13" tabindex="-1"></a><span class="fu">summary</span>(MultipleRegression)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-256"></span>
 <img src="images/Mutiple%20regression%20in%20R.png" alt="R multiple regression results" width="80%" />
 <p class="caption">
 Figure 7.14: R multiple regression results

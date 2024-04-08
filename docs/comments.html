@@ -138,7 +138,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a>GEOG380 Basic Stats with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
 <ul>
 <li class="chapter" data-level="" data-path="book-data-collection.html"><a href="book-data-collection.html"><i class="fa fa-check"></i>Book data collection</a></li>
 <li class="chapter" data-level="" data-path="what-is-r.html"><a href="what-is-r.html"><i class="fa fa-check"></i>What is R?</a></li>
@@ -416,9 +417,9 @@ Comments are text you use to describe your code. They have to be preeceded with 
 <p>I cannot tell you the number of times, I have gone back to my old codes and ask myself, what was the purpose of this line. What was I thinking at that time?</p>
 <p>To ensure codes can be easy understood later on, we use comments. R comments are text added to your code, which R does not process.</p>
 <p>Any comment in R has to be preceded with the number sign (#). For instance:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="comments.html#cb11-1" tabindex="-1"></a>A<span class="ot">=</span><span class="dv">10</span> <span class="co"># Here I used R to show how to create a variable</span></span>
-<span id="cb11-2"><a href="comments.html#cb11-2" tabindex="-1"></a>B<span class="ot">=</span><span class="dv">20</span> <span class="co"># In this case, i wanted my variable B to be 2</span></span>
-<span id="cb11-3"><a href="comments.html#cb11-3" tabindex="-1"></a>A<span class="sc">+</span>B</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="comments.html#cb17-1" tabindex="-1"></a>A<span class="ot">=</span><span class="dv">10</span> <span class="co"># Here I used R to show how to create a variable</span></span>
+<span id="cb17-2"><a href="comments.html#cb17-2" tabindex="-1"></a>B<span class="ot">=</span><span class="dv">20</span> <span class="co"># In this case, i wanted my variable B to be 2</span></span>
+<span id="cb17-3"><a href="comments.html#cb17-3" tabindex="-1"></a>A<span class="sc">+</span>B</span></code></pre></div>
 <pre><code>## [1] 30</code></pre>
 <p>w</p>
 </div>
@@ -502,6 +503,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
