@@ -1,4 +1,4 @@
-# Class expectations {-}
+# Student Learning Outcomes (SLOs) {-}
 
 This will be an inherently difficult class, given the mathematical nature of its content and the disparity in skills among students. However, the course is set such that I assume no basic prior understanding of programs, nor major mathematical skills.
 
