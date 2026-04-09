@@ -1,5 +1,6 @@
 # Student Learning Outcomes (SLOs) {-}
 
+
 This will be an inherently difficult class, given the mathematical nature of its content and the disparity in skills among students. However, the course is set such that I assume no basic prior understanding of programs, nor major mathematical skills.
 
 This is an introductory, not advanced, class on stats. In general, I expect that at the end of the class you can design an experiment, collect, handle and analyze your data; oh, and do professional plots. Primarily using R. 

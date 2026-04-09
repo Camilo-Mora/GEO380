@@ -18,6 +18,15 @@ title=document.getElementById('header');
 title.innerHTML = '<img src="images/Stats.png" alt="Test Image">' + title.innerHTML
 ```
 
+
+
+```{block2, type='rmdtip'}
+**LEARNING OBJECTIVES**: 
+In this class it is expected that students will gain an ability to develop research questions that can be quantitatively tested. In doing so the student will develop skills to collect, analyze, interpret and graphically present  data, while being able to operate a set of data-analysis software.
+```
+
+
+
 Notice: There are a number of interactive exercises in this book created with the open source software H5P, which is license under a [MIT license](https://h5p.org/MIT-licensed). Those exercises are hosted in Github thanks to a   [connector](https://github.com/Camilo-Mora/H5P) created by Daisuke Harita. 
 
 # Introduction {-}
