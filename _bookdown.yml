@@ -4,5 +4,5 @@ language:
     chapter_name: ""
 view: https://github.com/Camilo-Mora/GEO380/blob/main/%s
 output_dir: "docs"
-delete_merged_file: true
+delete_merged_file: false
 

@@ -102,6 +102,7 @@ Check out the first ten citations on each search.
 
 1) What differences do you see? 
 2) What are the social implications of these differences?
+
 ```
 
 Obviously, after you find the PDFs of papers, you have to read them. Some papers may provide new citations for you to look for.
