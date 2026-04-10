@@ -196,7 +196,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="2-installing-programs.html"><a href="2-installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a>
 <ul>
 <li class="chapter" data-level="" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i>Installing R</a></li>
-<li class="chapter" data-level="" data-path="tinn-r.html"><a href="tinn-r.html"><i class="fa fa-check"></i>Tinn-R</a></li>
 <li class="chapter" data-level="" data-path="r-studio.html"><a href="r-studio.html"><i class="fa fa-check"></i>R-Studio</a></li>
 <li class="chapter" data-level="" data-path="installing-packages.html"><a href="installing-packages.html"><i class="fa fa-check"></i>Installing packages</a></li>
 <li class="chapter" data-level="" data-path="asking-for-help.html"><a href="asking-for-help.html"><i class="fa fa-check"></i>Asking for help</a></li>
@@ -410,7 +409,7 @@ By Camilo Mora, Ph.D.<br />
 <div id="the-one-sample-t-test-by-hand" class="section level2 unnumbered hasAnchor">
 <h2>The one-sample T-test by hand<a href="the-one-sample-t-test-by-hand.html#the-one-sample-t-test-by-hand" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We perform a <em>one-Sample t-test</em> when we want to compare a sample mean with the population mean and we do not know the population standard deviation or our sample size is small, n &lt; 30. The difference from the Z Test is that we do not have the information on Population Variance here. We use the sample standard deviation instead of population standard deviation in this case.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-300"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-298"></span>
 <img src="images/T-test.png" alt="R-results for a one-sample z-test" width="80%" />
 <p class="caption">
 Figure 10.6: R-results for a one-sample z-test
@@ -441,7 +440,7 @@ Figure 10.6: R-results for a one-sample z-test
 <p>Now, we need to find out the critical t-value at the 0.05 significance level. For this, we need to estimate something call <strong>Degrees of freedom</strong>, which in this case is simply our sample size minus one. In our case, the degrees of freedom, then, are 9.</p>
 <p>With the information of the <span class="math inline">\(\alpha\)</span> value (i.e., 0.05 in our case) and the degrees of freedom, <strong>DF</strong> (i.e, 9 in our case), we can look for the critical T-value in a table, like the one below.</p>
 <p>Basically, scroll down the first column looking for 9 DF, then move horizontally to the column displaying the 0.05 level of significance, where they intercept that is our critical t-value. In our case that number is 1.8331.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-302"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-300"></span>
 <img src="images/TTable.jpg" alt="R-results for a one-sample z-test" width="100%" />
 <p class="caption">
 Figure 10.7: R-results for a one-sample z-test

@@ -196,7 +196,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="2-installing-programs.html"><a href="2-installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a>
 <ul>
 <li class="chapter" data-level="" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i>Installing R</a></li>
-<li class="chapter" data-level="" data-path="tinn-r.html"><a href="tinn-r.html"><i class="fa fa-check"></i>Tinn-R</a></li>
 <li class="chapter" data-level="" data-path="r-studio.html"><a href="r-studio.html"><i class="fa fa-check"></i>R-Studio</a></li>
 <li class="chapter" data-level="" data-path="installing-packages.html"><a href="installing-packages.html"><i class="fa fa-check"></i>Installing packages</a></li>
 <li class="chapter" data-level="" data-path="asking-for-help.html"><a href="asking-for-help.html"><i class="fa fa-check"></i>Asking for help</a></li>
@@ -420,7 +419,7 @@ By Camilo Mora, Ph.D.<br />
 <span id="cb243-8"><a href="anova-in-r.html#cb243-8" tabindex="-1"></a><span class="co">#The ANOVA function is anova_test, which simply requires the response variable (number of tomatoes in our case) equal to the independent variable or factor (Variety of tomatoes in our case)</span></span>
 <span id="cb243-9"><a href="anova-in-r.html#cb243-9" tabindex="-1"></a>res.aov <span class="ot">&lt;-</span> Data <span class="sc">%&gt;%</span> <span class="fu">anova_test</span>(NumTomatoes <span class="sc">~</span> Variety)</span></code></pre></div>
 The results are identical to our hand calculations:
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-334"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-332"></span>
 <img src="images/F-statistic_In_R.png" alt="Anova in R using anova_test" width="70%" />
 <p class="caption">
 Figure 12.14: Anova in R using anova_test
@@ -431,7 +430,7 @@ Figure 12.14: Anova in R using anova_test
 <span id="cb244-2"><a href="anova-in-r.html#cb244-2" tabindex="-1"></a></span>
 <span id="cb244-3"><a href="anova-in-r.html#cb244-3" tabindex="-1"></a>aovAnova <span class="ot">&lt;-</span> <span class="fu">aov</span>(NumTomatoes <span class="sc">~</span> Variety, <span class="at">data =</span> Data)</span></code></pre></div>
 The results are identical to our hand calculations:
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-336"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-334"></span>
 <img src="images/F-statistic_In_R_oav.png" alt="Anova in R using aov" width="70%" />
 <p class="caption">
 Figure 12.15: Anova in R using aov
@@ -442,7 +441,7 @@ Figure 12.15: Anova in R using aov
 <span id="cb245-2"><a href="anova-in-r.html#cb245-2" tabindex="-1"></a></span>
 <span id="cb245-3"><a href="anova-in-r.html#cb245-3" tabindex="-1"></a>aovAnova <span class="ot">&lt;-</span> <span class="fu">aov</span>(NumTomatoes <span class="sc">~</span> Variety, <span class="at">data =</span> Data)</span>
 <span id="cb245-4"><a href="anova-in-r.html#cb245-4" tabindex="-1"></a><span class="fu">summary</span>(aovAnova)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-338"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-336"></span>
 <img src="images/F-statistic_In_R_oav_Sumamry.png" alt="Anova in R using aov" width="70%" />
 <p class="caption">
 Figure 12.16: Anova in R using aov

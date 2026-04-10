@@ -196,7 +196,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="2-installing-programs.html"><a href="2-installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a>
 <ul>
 <li class="chapter" data-level="" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i>Installing R</a></li>
-<li class="chapter" data-level="" data-path="tinn-r.html"><a href="tinn-r.html"><i class="fa fa-check"></i>Tinn-R</a></li>
 <li class="chapter" data-level="" data-path="r-studio.html"><a href="r-studio.html"><i class="fa fa-check"></i>R-Studio</a></li>
 <li class="chapter" data-level="" data-path="installing-packages.html"><a href="installing-packages.html"><i class="fa fa-check"></i>Installing packages</a></li>
 <li class="chapter" data-level="" data-path="asking-for-help.html"><a href="asking-for-help.html"><i class="fa fa-check"></i>Asking for help</a></li>
@@ -427,7 +426,7 @@ By Camilo Mora, Ph.D.<br />
 <span id="cb250-2"><a href="checking-assumptions.html#cb250-2" tabindex="-1"></a>model  <span class="ot">&lt;-</span> <span class="fu">lm</span>(NumTomatoes <span class="sc">~</span> Variety, <span class="at">data =</span> Data)</span>
 <span id="cb250-3"><a href="checking-assumptions.html#cb250-3" tabindex="-1"></a><span class="co"># Create a QQ plot of residuals</span></span>
 <span id="cb250-4"><a href="checking-assumptions.html#cb250-4" tabindex="-1"></a><span class="fu">ggqqplot</span>(<span class="fu">residuals</span>(model))</span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-341-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-339-1.png" width="672" /></p>
 <p>From the plot abive, you can see that all values are within the confidence limits expected under normality, but some deviations occurred. The data are perfectly normal, when each point falls along the normality line (black line in the plot above).</p>
 <p>The second method to check normality uses the Shapiro-Wilk test. This approach might be used when you have only a few groups and many data points per group.</p>
 <div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="checking-assumptions.html#cb251-1" tabindex="-1"></a><span class="co"># Build the linear model</span></span>
@@ -444,7 +443,7 @@ By Camilo Mora, Ph.D.<br />
 <h3>Homogneity of variance<a href="checking-assumptions.html#homogneity-of-variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The Homogeneity of variance can be checked by plotting the residuals versus fits valued.</p>
 <div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="checking-assumptions.html#cb253-1" tabindex="-1"></a><span class="fu">plot</span>(model, <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-343-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-341-1.png" width="672" /></p>
 <p>In the plot above, there is no evident relationships between residuals and fitted values (the mean of each groups), which is good. So, we can assume the homogeneity of variances.</p>
 <p>One can also use the Levene’s test to check the homogeneity of variances:</p>
 <div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="checking-assumptions.html#cb254-1" tabindex="-1"></a>Data <span class="sc">%&gt;%</span> <span class="fu">levene_test</span>(NumTomatoes <span class="sc">~</span> Variety)</span></code></pre></div>

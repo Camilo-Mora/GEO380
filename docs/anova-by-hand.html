@@ -196,7 +196,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="2-installing-programs.html"><a href="2-installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a>
 <ul>
 <li class="chapter" data-level="" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i>Installing R</a></li>
-<li class="chapter" data-level="" data-path="tinn-r.html"><a href="tinn-r.html"><i class="fa fa-check"></i>Tinn-R</a></li>
 <li class="chapter" data-level="" data-path="r-studio.html"><a href="r-studio.html"><i class="fa fa-check"></i>R-Studio</a></li>
 <li class="chapter" data-level="" data-path="installing-packages.html"><a href="installing-packages.html"><i class="fa fa-check"></i>Installing packages</a></li>
 <li class="chapter" data-level="" data-path="asking-for-help.html"><a href="asking-for-help.html"><i class="fa fa-check"></i>Asking for help</a></li>
@@ -424,7 +423,7 @@ By Camilo Mora, Ph.D.<br />
 <div id="total-variance" class="section level3 unnumbered hasAnchor">
 <h3>Total variance<a href="anova-by-hand.html#total-variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Next we calculate the total variance:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-326"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-324"></span>
 <img src="images/Anova_TotalVariance.png" alt="Total variance and degrees of freedom, DF" width="70%" />
 <p class="caption">
 Figure 12.8: Total variance and degrees of freedom, DF
@@ -434,7 +433,7 @@ Figure 12.8: Total variance and degrees of freedom, DF
 <div id="between-group-variance" class="section level3 unnumbered hasAnchor">
 <h3>Between group variance<a href="anova-by-hand.html#between-group-variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Next we calculate the variance between groups. In other words, how each group mean differs from the grand mean:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-327"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-325"></span>
 <img src="images/Anova_BetweenGroupVariance.png" alt="Between group variance and degrees of freedom, DF" width="70%" />
 <p class="caption">
 Figure 12.9: Between group variance and degrees of freedom, DF
@@ -444,7 +443,7 @@ Figure 12.9: Between group variance and degrees of freedom, DF
 <div id="within-group-variance" class="section level3 unnumbered hasAnchor">
 <h3>Within group variance<a href="anova-by-hand.html#within-group-variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Next we calculate the within group variance. Basically, how each observation differs from the group mean.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-328"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-326"></span>
 <img src="images/Anova_WithinGroupVariance.png" alt="Within group variance and degrees of freedom, DF" width="70%" />
 <p class="caption">
 Figure 12.10: Within group variance and degrees of freedom, DF
@@ -454,7 +453,7 @@ Figure 12.10: Within group variance and degrees of freedom, DF
 <div id="variance-partitioning" class="section level3 unnumbered hasAnchor">
 <h3>Variance partitioning<a href="anova-by-hand.html#variance-partitioning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As indicated earlier, the within and between group variance and degrees of freedom should add up to the total variance and total degrees of freedom. Lets check this by putting the results above together:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-329"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-327"></span>
 <img src="images/Anova_Variance_Fractitioning.png" alt="Within and between group Sums of Aquares and degrees of freedom, DF" width="70%" />
 <p class="caption">
 Figure 12.11: Within and between group Sums of Aquares and degrees of freedom, DF
@@ -464,7 +463,7 @@ Figure 12.11: Within and between group Sums of Aquares and degrees of freedom, D
 <div id="f-statistics" class="section level3 unnumbered hasAnchor">
 <h3>F-Statistics<a href="anova-by-hand.html#f-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The F-statistics is simply the ratio of the between group to the within group variance.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-330"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-328"></span>
 <img src="images/F-statistic_Example.png" alt="F-Statistic" width="70%" />
 <p class="caption">
 Figure 12.12: F-Statistic
@@ -477,7 +476,7 @@ Figure 12.12: F-Statistic
 <h3>Critical F-value<a href="anova-by-hand.html#critical-f-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The last step in the ANOVA is to find out the critical F-Value, which we get from a F-table for the given <span class="math inline">\(\alpha\)</span>. These tables are available on most statistics books or online (Example <a href="http://www.socr.ucla.edu/Applets.dir/F_Table.html">HERE</a>. )</p>
 <p>You need to select the specific table for the given (<span class="math inline">\(\alpha\)</span>), the columns will represent the between degrees of freedom, and the rows the within group degrees of freedom. In our case, the between degrees of freedom is 2, and our within group degrees of freedoms is 6.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-331"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-329"></span>
 <img src="images/F-statistic_Critical.png" alt="Within group variance and degrees of freedom, DF" width="70%" />
 <p class="caption">
 Figure 12.13: Within group variance and degrees of freedom, DF
@@ -498,7 +497,7 @@ Figure 12.13: Within group variance and degrees of freedom, DF
 <span id="cb242-6"><a href="anova-by-hand.html#cb242-6" tabindex="-1"></a>Data<span class="ot">=</span><span class="fu">data.frame</span>(<span class="at">Variety=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;VarA&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarB&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;VarC&quot;</span>,<span class="dv">3</span>)), <span class="at">NumTomatoes=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>, <span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>, <span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>))</span>
 <span id="cb242-7"><a href="anova-by-hand.html#cb242-7" tabindex="-1"></a></span>
 <span id="cb242-8"><a href="anova-by-hand.html#cb242-8" tabindex="-1"></a><span class="fu">ggboxplot</span>(Data, <span class="at">x =</span> <span class="st">&quot;Variety&quot;</span>, <span class="at">y =</span> <span class="st">&quot;NumTomatoes&quot;</span>)</span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-332-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-330-1.png" width="672" /></p>
 <p>Boxplots allow you to visualize the mean and the standard deviations of each group. From the plot above, you can see clearly that not only the mean tomato production of the three varieties are different, but their variances do not overlap.</p>
 </div>
 </div>

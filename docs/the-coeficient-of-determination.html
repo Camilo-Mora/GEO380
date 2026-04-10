@@ -196,7 +196,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="2-installing-programs.html"><a href="2-installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a>
 <ul>
 <li class="chapter" data-level="" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i>Installing R</a></li>
-<li class="chapter" data-level="" data-path="tinn-r.html"><a href="tinn-r.html"><i class="fa fa-check"></i>Tinn-R</a></li>
 <li class="chapter" data-level="" data-path="r-studio.html"><a href="r-studio.html"><i class="fa fa-check"></i>R-Studio</a></li>
 <li class="chapter" data-level="" data-path="installing-packages.html"><a href="installing-packages.html"><i class="fa fa-check"></i>Installing packages</a></li>
 <li class="chapter" data-level="" data-path="asking-for-help.html"><a href="asking-for-help.html"><i class="fa fa-check"></i>Asking for help</a></li>
@@ -430,7 +429,7 @@ By Camilo Mora, Ph.D.<br />
 <p>Let’s break that equation into its pieces to see what is doing.</p>
 <p><span class="math inline">\(SSmean\)</span>, stands for Sum of Squares of the Mean. That is the same term we have used before <span class="math inline">\(\sum(y - \bar y)^2\)</span>. Basically, how far from the mean is each point. If we were to divide that by the number of samples, you will get the variance that we studied earlier.</p>
 <p>Just to refresh, you take the mean of all values in Y (horizontal line, in image below), for each point measure the distance to that mean (dotted lines), then you square each value and add them together. If you did not square them, when summing them, the result will be zero.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-239"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-237"></span>
 <img src="images/SSMean.gif" alt="Sum of Squares from the Mean, SSmean" width="80%" />
 <p class="caption">
 Figure 7.4: Sum of Squares from the Mean, SSmean
@@ -439,7 +438,7 @@ Figure 7.4: Sum of Squares from the Mean, SSmean
 <p>You need to think of the Sum of Squares of the Mean, <span class="math inline">\(SSmean\)</span>, as the variability in Y.</p>
 <p><span class="math inline">\(SSfit\)</span>, stands for Sum of Squares around the Fit. Let’s see what this means.</p>
 <p>Take the data on grades and time studying, relate grades against times studying, and find the best line (Orange line in figure below). Then for each point measure the distance from the point to the line, or so-call <em>residuals</em> (red-dotted lines). Take each residual, square it, and then add them together. What you get is the Sum of Squares around the Fit, <span class="math inline">\(SSfit\)</span>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-240"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-238"></span>
 <img src="images/SSFit.gif" alt="Sum of Squares around the Fit, SSfit" width="80%" />
 <p class="caption">
 Figure 7.5: Sum of Squares around the Fit, SSfit
@@ -475,7 +474,7 @@ Figure 7.5: Sum of Squares around the Fit, SSfit
 <p>In R, the <span class="math inline">\(r^2\)</span> is outputted as part of the <em>lm</em> function in combination with the function <em>summary</em>, like this:</p>
 <div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="the-coeficient-of-determination.html#cb199-1" tabindex="-1"></a><span class="fu">summary</span> (LM)   <span class="co">#summary results of the lm we created in the code above.  </span></span></code></pre></div>
 The image below indicates the different outputs, we have studied so far:
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-243"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-241"></span>
 <img src="images/R2.png" alt="lm outputs" width="80%" />
 <p class="caption">
 Figure 7.6: lm outputs

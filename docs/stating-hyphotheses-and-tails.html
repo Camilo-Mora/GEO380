@@ -196,7 +196,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="2-installing-programs.html"><a href="2-installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a>
 <ul>
 <li class="chapter" data-level="" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i>Installing R</a></li>
-<li class="chapter" data-level="" data-path="tinn-r.html"><a href="tinn-r.html"><i class="fa fa-check"></i>Tinn-R</a></li>
 <li class="chapter" data-level="" data-path="r-studio.html"><a href="r-studio.html"><i class="fa fa-check"></i>R-Studio</a></li>
 <li class="chapter" data-level="" data-path="installing-packages.html"><a href="installing-packages.html"><i class="fa fa-check"></i>Installing packages</a></li>
 <li class="chapter" data-level="" data-path="asking-for-help.html"><a href="asking-for-help.html"><i class="fa fa-check"></i>Asking for help</a></li>
@@ -415,7 +414,7 @@ By Camilo Mora, Ph.D.<br />
 <p>Check the following video, about how to state hypothesis.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8NKaocZectc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 <p>In statistics, you can only <strong>reject the null hypothesis</strong> or <strong>fail to reject the null hypothesis</strong> (this is synonym for accept the null hypothesis, but this term is not accepted because we are never certain). Along the same lines, when you reject the null hypothesis, we you do not accept the alternative hypothesis.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-271"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-269"></span>
 <img src="images/FailedToReject.png" alt="Painfull rejection narrative" width="80%" />
 <p class="caption">
 Figure 8.8: Painfull rejection narrative
@@ -464,7 +463,7 @@ Figure 8.8: Painfull rejection narrative
 <span id="cb211-34"><a href="stating-hyphotheses-and-tails.html#cb211-34" tabindex="-1"></a><span class="co">#while we are at it, lets indicate the zone of the level of confidence</span></span>
 <span id="cb211-35"><a href="stating-hyphotheses-and-tails.html#cb211-35" tabindex="-1"></a><span class="fu">Arrows</span>(LowerCriticalVal,<span class="fl">0.0085</span>,UpperCriticalVal,<span class="fl">0.0085</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">arr.type=</span><span class="st">&quot;curved&quot;</span>,<span class="at">code=</span><span class="dv">3</span>)</span>
 <span id="cb211-36"><a href="stating-hyphotheses-and-tails.html#cb211-36" tabindex="-1"></a><span class="fu">text</span>(mean,<span class="fl">0.0085</span>,<span class="st">&quot;Level of confidence &quot;</span>,<span class="at">pos=</span><span class="dv">3</span>)</span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-272-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-270-1.png" width="672" /></p>
 <p>The hypotheses could also be stated as:</p>
 <p>Null hypothesis, Ho: Combo1 &lt;= 1,800 calories.</p>
 <p>Alternative hypothesis, H1: Combo1 &gt; 1,800 calories.</p>
@@ -486,7 +485,7 @@ Figure 8.8: Painfull rejection narrative
 <span id="cb212-14"><a href="stating-hyphotheses-and-tails.html#cb212-14" tabindex="-1"></a></span>
 <span id="cb212-15"><a href="stating-hyphotheses-and-tails.html#cb212-15" tabindex="-1"></a><span class="co">#Lets plot the one critical area</span></span>
 <span id="cb212-16"><a href="stating-hyphotheses-and-tails.html#cb212-16" tabindex="-1"></a><span class="fu">polygon</span>(<span class="fu">c</span>(x[x<span class="sc">&gt;=</span>UpperCriticalVal], UpperCriticalVal), <span class="fu">c</span>(y[x<span class="sc">&gt;=</span>UpperCriticalVal], y[x<span class="sc">==</span><span class="fu">max</span>(x)]), <span class="at">col=</span><span class="st">&quot;red&quot;</span>) <span class="co">#right hand tail</span></span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-273-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-271-1.png" width="672" /></p>
 <p>The hypotheses could also be set like this:</p>
 <p>Null hypothesis, Ho: Combo1 &gt;= 1,800 calories.</p>
 <p>Alternative hypothesis, H1: Combo1 &lt; 1,800 calories.</p>
@@ -511,7 +510,7 @@ Figure 8.8: Painfull rejection narrative
 <span id="cb213-17"><a href="stating-hyphotheses-and-tails.html#cb213-17" tabindex="-1"></a></span>
 <span id="cb213-18"><a href="stating-hyphotheses-and-tails.html#cb213-18" tabindex="-1"></a><span class="co">#plot the critical thresholds set by alpha</span></span>
 <span id="cb213-19"><a href="stating-hyphotheses-and-tails.html#cb213-19" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>UpperCriticalVal, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">lty=</span><span class="dv">2</span>) </span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-274-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-272-1.png" width="672" /></p>
 </div>
 <div id="disqus_thread"></div>
 <script>

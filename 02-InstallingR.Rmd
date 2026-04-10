@@ -50,33 +50,9 @@ knitr::include_graphics("images/RGUI.png")
 ```
 
 
-## Tinn-R {-}
-
-Once you run a line of code in R, it cannot be un-done. So very commonly, you have to re-run lines of code. 
-
-For this reason, it is better if you write your code in a text editor program, and then running it R. 
-You can save the text file, and next time, simply copy and paste. 
-
-You can save your R code in any word processor. Notepad from Windows is just fine. You can also use Microsoft Word, but be mindful that that software commonly capitalizes the first letter in each new line. R is case sensitive, so Word is not worth the trouble. 
-
-I personally use Tinn-R. It allows you to save your codes in a single file, gives you hints into your code, etc.
-
-Please install Tinn-R from [here](https://sourceforge.net/projects/tinn-r/).
-
-```{block2, type='rmdwarning'}
-**R** is case sensitive. "A" is different from "a" in R!
-This simple rule is at the core of most bugs in R!
-```
-
-To create a file in Tinn-R, click on the Tinn-R icon (see arrow in image below). Once there, click on "File", then on "New". This will create a clean sheet for you to start writing your codes. You will use this type of sheets to save your codes, as you move along.
-
-```{r, out.width = "80%", echo= FALSE, fig.align = 'center',fig.cap = 'Installing Tinn-R'}
-knitr::include_graphics("images/TinnR.png")
-```
-
 
 ## R-Studio {-}
-There is also a very popular GUI (Graphical User Interface) called R-Studio, which allows you to run R while having the functionality of Tinn-R.
+There is a very popular GUI (Graphical User Interface) called R-Studio, which allows you to run R while having a user friendly interface.
 
 Please know that R is not R studio. In R-Studio, R is almost hidden in the background, so it is important that you still know how to run R without R-Studio. 
 

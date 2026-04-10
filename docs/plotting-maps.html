@@ -196,7 +196,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="2-installing-programs.html"><a href="2-installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a>
 <ul>
 <li class="chapter" data-level="" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i>Installing R</a></li>
-<li class="chapter" data-level="" data-path="tinn-r.html"><a href="tinn-r.html"><i class="fa fa-check"></i>Tinn-R</a></li>
 <li class="chapter" data-level="" data-path="r-studio.html"><a href="r-studio.html"><i class="fa fa-check"></i>R-Studio</a></li>
 <li class="chapter" data-level="" data-path="installing-packages.html"><a href="installing-packages.html"><i class="fa fa-check"></i>Installing packages</a></li>
 <li class="chapter" data-level="" data-path="asking-for-help.html"><a href="asking-for-help.html"><i class="fa fa-check"></i>Asking for help</a></li>
@@ -428,7 +427,7 @@ By Camilo Mora, Ph.D.<br />
 <span id="cb120-4"><a href="plotting-maps.html#cb120-4" tabindex="-1"></a><span class="fu">plot</span>(GlobalPopulation,<span class="at">col =</span><span class="fu">ColorScale</span>(<span class="dv">100</span>)) <span class="co">#plot human population with 100 color in my scale</span></span></code></pre></div>
 <p><img src="GEOG380_files/figure-html/ColorScaleraster-1.png" width="672" /></p>
 <p>There are also premade color blind friendly scales. The most commonly used is called viridis. Here are the different options of scales it has to offer:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-133"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-131"></span>
 <img src="images/Viridis.png" alt="Viridis color scales" width="100%" />
 <p class="caption">
 Figure 4.4: Viridis color scales
@@ -454,7 +453,7 @@ Hmm, not to pretty ah?. why do you think the map does not look that good?</p>
 <span id="cb124-2"><a href="plotting-maps.html#cb124-2" tabindex="-1"></a></span>
 <span id="cb124-3"><a href="plotting-maps.html#cb124-3" tabindex="-1"></a>worldmap <span class="ot">&lt;-</span> <span class="fu">map</span>(<span class="st">&quot;world&quot;</span>, <span class="at">plot=</span>F,<span class="at">interior =</span> F)   <span class="co">#create map of the world</span></span>
 <span id="cb124-4"><a href="plotting-maps.html#cb124-4" tabindex="-1"></a><span class="fu">plot</span>(worldmap) <span class="co">#check the map</span></span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-134-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
 <p>Hmm that packages provides the outline of the world as points. But really we want lines. Ok, we can use the maptools to convert points to lines</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="plotting-maps.html#cb125-1" tabindex="-1"></a><span class="fu">library</span>(maptools)    <span class="co">#library to convert points to lines</span></span></code></pre></div>
 <pre><code>## Please note that &#39;maptools&#39; will be retired during October 2023,
@@ -473,7 +472,7 @@ Hmm, not to pretty ah?. why do you think the map does not look that good?</p>
 <p>Great, now you have a raster of the world’s human population and an outline of the world. Let’s put them together</p>
 <div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="plotting-maps.html#cb130-1" tabindex="-1"></a> <span class="fu">plot</span>(GlobalPopulation)      <span class="co">#first plot your raster</span></span>
 <span id="cb130-2"><a href="plotting-maps.html#cb130-2" tabindex="-1"></a> <span class="fu">plot</span>(worldmapLines,<span class="at">add=</span>T)   <span class="co">#then add the outline of the world on top.</span></span></code></pre></div>
-<img src="GEOG380_files/figure-html/unnamed-chunk-135-1.png" width="672" />
+<img src="GEOG380_files/figure-html/unnamed-chunk-133-1.png" width="672" />
 
 <div class="rmdexercise">
 Find out the command to remove the color scale shown in the map above. Tip: type “How to remove color scale of plot raster in r”

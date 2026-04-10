@@ -196,7 +196,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="2-installing-programs.html"><a href="2-installing-programs.html"><i class="fa fa-check"></i><b>2</b> Installing programs</a>
 <ul>
 <li class="chapter" data-level="" data-path="installing-r.html"><a href="installing-r.html"><i class="fa fa-check"></i>Installing R</a></li>
-<li class="chapter" data-level="" data-path="tinn-r.html"><a href="tinn-r.html"><i class="fa fa-check"></i>Tinn-R</a></li>
 <li class="chapter" data-level="" data-path="r-studio.html"><a href="r-studio.html"><i class="fa fa-check"></i>R-Studio</a></li>
 <li class="chapter" data-level="" data-path="installing-packages.html"><a href="installing-packages.html"><i class="fa fa-check"></i>Installing packages</a></li>
 <li class="chapter" data-level="" data-path="asking-for-help.html"><a href="asking-for-help.html"><i class="fa fa-check"></i>Asking for help</a></li>
@@ -423,17 +422,17 @@ By Camilo Mora, Ph.D.<br />
 ## 5 Afghanistan      Asia 1972  739.9811
 ## 6 Afghanistan      Asia 1977  786.1134</code></pre>
 <div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="histograms.html#cb109-1" tabindex="-1"></a><span class="fu">hist</span>(GDPData<span class="sc">$</span>gdpPercap) <span class="co">#now lets create a frequency of number of countries by GDP</span></span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-125-1.png" width="672" /></p>
 <p>Just as with the scatterplot, you can improve the appearance of the figure. Lets start with the axis name.</p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="histograms.html#cb110-1" tabindex="-1"></a><span class="fu">hist</span>(GDPData<span class="sc">$</span>gdpPercap, <span class="at">xlab=</span><span class="st">&quot;GDP countries in USDollars&quot;</span>)</span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-128-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
 <p>What about that title?. Not pretty, ah?. That is a default in R. To remove it, we set the “main” parameter to NULL, like this:</p>
 <div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="histograms.html#cb111-1" tabindex="-1"></a><span class="fu">hist</span>(GDPData<span class="sc">$</span>gdpPercap, <span class="at">xlab=</span><span class="st">&quot;GDP countries in USDollars&quot;</span>,<span class="at">main=</span><span class="cn">NULL</span>) </span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-129-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
 <p>Most journals do not allow you to put tittles in your plots.</p>
 <p>If you want to rather keep the tittle, but have a different tittle, you replace NULL with the title you want, like this:</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="histograms.html#cb112-1" tabindex="-1"></a><span class="fu">hist</span>(GDPData<span class="sc">$</span>gdpPercap, <span class="at">xlab=</span><span class="st">&quot;GDP countries in USDollars&quot;</span>,<span class="at">main=</span><span class="st">&quot;Countries of the World&quot;</span>) </span></code></pre></div>
-<p><img src="GEOG380_files/figure-html/unnamed-chunk-130-1.png" width="672" /></p>
+<p><img src="GEOG380_files/figure-html/unnamed-chunk-128-1.png" width="672" /></p>
 </div>
 <div id="disqus_thread"></div>
 <script>
